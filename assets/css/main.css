@@ -57,11 +57,12 @@ body {
     height: fit-content;
     background-color: rgb(245, 243, 243);
     align-items: center;
+    padding: 10px 10px 10px 10px;
 
 }
 /* footer styles */
 .footer {
-    position: fixed;
+    position: inherit;
     left: 0;
     bottom: 0;
     width: 100%;
