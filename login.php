@@ -12,6 +12,7 @@
             background-attachment: fixed;
             background-image: url('assets/images/loginBackground.jpg');
         }
+
     </style>
 </head>
 <body>
@@ -28,9 +29,13 @@
                 <input type="password" name="password" id="password" class="inputField">
             </div>
             <br>
+            <div style="text-align: center">
                 <input type="submit" value="Log In" name="login" id="login" class="loginButton" style="background-color: green;">
-                <input type="reset" value="Cancel" name="cancel" id="cancel" class="loginButton" style="background-color: red; ">
+                &nbsp;<input type="reset" value="Cancel" name="cancel" id="cancel" class="loginButton" style="background-color: red; ">
+            </div>
         </form>
+        <br>
+        <a href="#">Forget Password</a>
     </div>
 </body>
 </html>
