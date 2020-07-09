@@ -75,6 +75,54 @@ body {
     color: rgb(255, 255, 255);;
     text-align: center;
 }
+/* login form styles */
+.login input[type=text],.login input[type=password]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 3px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: medium;
+}
+/* Border button background transparent and text color black */
+.loginButton{
+    border-radius: 7px;
+    color: white;
+    border: 0px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.login{
+    background-color: rgba(0,0,0, 0.4);
+    display: block;
+    border: 3px solid #5d5858;
+    width: max-content;
+    height: max-content;
+    padding: 20px 20px 20px 20px;
+    float: right;
+}
+.login span{
+    color: white;
+    font-family: "Times New Roman";
+    font-size: 30px;
+    display: block;
+    text-align: center;
+}
+
+.inputField:focus{
+    border-color: #f06d06;
+}
+.login img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+}
+
 /* media query for resize information section and header images */
 @media screen and (max-width: 700px) {
     .notification, .profile{   
