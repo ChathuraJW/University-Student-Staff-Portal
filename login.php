@@ -21,12 +21,12 @@
         <span>University<br> Student-Staff<br> Portal</span><br>
         <form action="" method="post">
             <div class="inputPlaceholder">
-                <label for="userName">User Name</label>
-                <input type="text" name="userName" id="userName" class="inputField"><br>
+                <label for="userName" id="labelUserName">User Name</label>
+                <input type="text" name="userName" id="userName" class="inputField" autocomplete="off"><br>
             </div>
             <div class="inputPlaceholder">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="inputField">
+                <label for="password" id="labelPassword">Password</label>
+                <input type="password" name="password" id="password" class="inputField" autocomplete="off">
             </div>
             <br>
             <div style="text-align: center">
@@ -37,5 +37,6 @@
         <br>
         <a href="#">Forget Password</a>
     </div>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

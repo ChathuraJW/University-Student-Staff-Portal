@@ -78,12 +78,12 @@ body {
 /* login form styles */
 .login input[type=text],.login input[type=password]{
     width: 100%;
-    padding: 12px 20px;
+    padding: 16px 16px 10px 16px;
     margin: 8px 0;
     border: 3px solid gray;
     border-radius: 4px;
     box-sizing: border-box;
-    font-size: medium;
+    font-size: 22px;
 }
 /* Border button background transparent and text color black */
 .loginButton{
@@ -119,9 +119,25 @@ body {
     font-size: 15px;
     color: rgb(216, 216, 241);
 }
-
+.inputPlaceholder{
+    position: relative;
+}
 .inputPlaceholder label{
-    color: white;
+    padding: 26px;
+    font-size: 20px;
+    position: absolute;
+    transition: 0.5s;
+    top: 0;
+    left: 0;
+
+}
+label.small{
+    padding: 10px;
+    font-size: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
 }
 input:focus{
     border-color: #f06d06;
