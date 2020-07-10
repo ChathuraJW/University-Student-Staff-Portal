@@ -7,26 +7,60 @@
     <link rel="stylesheet" href="../../assets/css/main.css">
 </head>
 <body>
-    <!-- header section -->
-    <div class="header">
-        <img src="../../assets/images/UNI_logo.png" class="headerIMG" alt="UNI Logo" height="100px" style="float: left;">
-        <img src="../../assets/images/USSP_logo.png" class="headerIMG" alt="USPS Logo" height="100px" style="float: right;">
-    </div>
-    <!-- log in details section -->
-    <div class="loginDetails">
-        <span class="loginData">Logged as ABS</span>
-    </div>
+    <!-- include header section -->
+    <?php require('../../assets/php/commonHeader.php')?>
+    
     <!-- feature body section -->
     <div class="featureBody">
-        <!-- develop your content within this div block -->
+        <h2>Make Your Request</h2>
+        <!-- fist lecturer and date -->
+        <label for="lecture1">Lecturer </label>
+        <input list="lecture1">
+        <datalist id="lecture1">
+            <option value="LEC1045"></option>
+            <option value="LEC1305"></option>
+            <option value="LEC1023"></option>
+            <option value="LEC1245"></option>
+            <option value="LEC1395"></option>
+            <option value="LEC1294"></option>
+        </datalist> 
+        <label for="date1">Date </label>
+        <input type="date" id="date1"><br>
+
+        <!-- object for lecturer shedule of the day -->
+        <object data=""></object><br>
+        <form method="get" action="submit.php">
+        <fieldset>
+        <label for="lecture2">Lecturer </label>
+        <input list="lecture2">
+        <datalist id="lecture2">
+            <option value="LEC1045"></option>
+            <option value="LEC1305"></option>
+            <option value="LEC1023"></option>
+            <option value="LEC1245"></option>
+            <option value="LEC1395"></option>
+            <option value="LEC1294"></option>
+        </datalist> <br>
+        <label for="date2">Date </label>
+        <input type="date" id="date2"><br>
+
+        <label for="time">Time </label>
+        <input type="time" id="time"><br>
+
+        <label for="description">Description </label>
+        <input type="text" id="description"><br>
         
+        <button type="submit" value="Submit">Request an Appointment</button>
+        
+        
+        <button type="reset">Reset</button>
+        </form>
+        <!-- <input type="submit" action="/submit" value="Request an Appointment"> -->
+        </fieldset>
     </div>
-    <!-- footer section -->
-    <div class="footer">
-        <span class="footNote">
-        University Student-Staff Portal<br>
-        Developed by <i>Team Binary Bits</i>
-        </span>
-    </div>
+    
+
+    <!-- include footer section -->
+    <?php require('../../assets/php/commonFooter.php')?>
 </body>
 </html>
