@@ -1,0 +1,55 @@
+input[type=text],input[type=number]{
+    width: 70%;
+    padding: 20px 24px 8px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+.showRadio, .showRest{
+    display: inline-table;
+    border-collapse: collapse;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.showRadio td{
+    vertical-align: top;
+    width: fit-content;
+    text-align: left;
+}
+.showRadio span{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+input[type=radio]{
+
+}
+
+/*placeholder styles */
+.restField{
+    position: relative;
+}
+.restField label{
+    padding: 22px;
+    font-size: 20px;
+    position: absolute;
+    transition: 0.5s;
+    top: 0;
+    left: 0;
+
+}
+/*label resizing style*/
+label.small{
+    padding: 10px;
+    font-size: 15px;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+}
+
