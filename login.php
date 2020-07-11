@@ -18,7 +18,7 @@
 <body>
     <div class="login">
         <img src="assets/images/UNI_logo.png" alt="UNI Logo"><br>
-        <span>University<br> Student-Staff<br> Portal</span><br>
+        <span class="title">University<br> Student-Staff<br> Portal</span><br>
         <form action="" method="post">
             <div class="inputPlaceholder">
                 <label for="userName" id="labelUserName">User Name</label>
@@ -30,12 +30,11 @@
             </div>
             <br>
             <div style="text-align: center">
-                <input type="submit" value="Log In" name="login" id="login" class="loginButton" style="background-color: green;">
-                &nbsp;<input type="reset" value="Cancel" name="cancel" id="cancel" class="loginButton" style="background-color: red; ">
+                <input type="submit" value="Log In" name="login" id="login" class="loginButton">
             </div>
         </form>
         <br>
-        <a href="#">Forget Password</a>
+        <a href="#"><span>Forget Password?</span></a>
     </div>
     <script src="assets/js/main.js"></script>
 </body>
