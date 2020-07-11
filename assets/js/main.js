@@ -4,10 +4,10 @@ var lblPassword= document.getElementById("labelPassword");
 var txtUserName=document.getElementById("userName");
 var txtPassword=document.getElementById("password");
 
-lblUserName.addEventListener("click",function () {
+txtUserName.addEventListener("focus",function () {
     lblUserName.classList.add("small");
 })
-lblPassword.addEventListener("click", function () {
+txtPassword.addEventListener("focus", function () {
     lblPassword.classList.add("small");
 })
 txtUserName.addEventListener("blur",function () {
