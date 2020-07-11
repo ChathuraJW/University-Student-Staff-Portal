@@ -3,11 +3,11 @@ var lblBatch=document.getElementById("labelBatch");
 var txtExaminationYear = document.getElementById("examinationYear");
 var txtBatch=document.getElementById("batch");
 
-lblExaminationYear.addEventListener("click",function () {
+txtExaminationYear.addEventListener("focus",function () {
         lblExaminationYear.classList.add("small");
 })
 
-lblBatch.addEventListener("click",function () {
+txtBatch.addEventListener("focus",function () {
         lblBatch.classList.add("small");
 })
 
