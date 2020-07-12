@@ -71,27 +71,25 @@
                     </td>
                 </tr>
             </table>
+            <br><br>
             <table class="showRest">
                 <tr>
                     <td>
-                        <div class="restField">
-                            <label for="examinationYear" id="labelExaminationYear">Year of examination</label>
-                            <input type="text" name="examinationYear" id="examinationYear">
-                        </div>
+                        <span>Examination Year</span>
+                        <select name="examinationYear" id="examinationYear">
+                        </select>
                     </td>
                     <td>
-                        <div class="restField">
-                            <label for="batch" id="labelBatch">Batch</label>
-                            <input type="text" name="batch" id="batch"><br>
-                        </div>
+                        <span>Batch</span>
+                        <select name="batch" id="batch">
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div class="restField">
-                            <h4>CSV formatted result dataset</h4>
-                            <input type="file" name="resultFile" id="resultFile"><br>
-                        </div>
+                        <span>CSV formatted result dataset</span>
+                        <label for="resultFile" class="fileLabel">Upload Result Data File</label>
+                        <input type="file" name="resultFile" id="resultFile"><br>
                     </td>
                     <td>
                         <input type="submit" value="Submit for Review" name="submit" id="submit">
