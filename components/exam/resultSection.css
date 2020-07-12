@@ -1,4 +1,5 @@
-input[type=text],input[type=file],input[type=month],select{
+/*common styles for input text file and select*/
+input[type=text], input[type=file], select {
     width: 50%;
     padding: 8px;
     display: inline-block;
@@ -6,65 +7,94 @@ input[type=text],input[type=file],input[type=month],select{
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 20px;
+    min-width: 200px;
 }
-input[type=file]{
+
+select {
+    width: fit-content;
+}
+
+/*upload file styles*/
+input[type=file] {
     border: none;
     display: none;
 }
-.fileLabel{
+
+.fileLabel {
     display: block;
     width: fit-content;
     border-radius: 4px;
-    border: 1px solid blue;
-    padding: 8px;
+    border: none;
+    height: 40px;
+    padding: 9px;
+    margin: 4px;
     font-size: 18px;
     color: white;
     background-color: blue;
 }
 
-.showRadio, .showRest{
-    display: inline-table;
-    border-collapse: collapse;
-    width: 1000px;
-    margin-right: auto;
-    margin-left: auto;
-}
-select option{
-    display: inline-block;
-}
-.showRadio td{
+/*overall table styles for both*/
+.showRadio td {
     vertical-align: top;
     width: fit-content;
     text-align: left;
 }
-.showRadio td span, .showRest td span{
+
+.showRadio td span, .showRest td span {
     font-size: 18px;
     display: block;
     padding-bottom: 10px;
     font-weight: bold;
 }
-.showRadio td, .showRest td{
+
+.showRadio td, .showRest td {
     padding-top: 30px;
+    padding-left: 40px;
 }
 
-.showRadio td label{
+.showRadio, .showRest {
+    display: inline-table;
+    border-collapse: collapse;
+    width: auto;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/*radio button section styles*/
+.showRadio td label {
     font-size: 20px;
     display: inline-block;
-    padding: 8px 10px;
+    padding: 4px;
     border: 1px solid rgba(128, 128, 128, 0.28);
+    height: 40px;
     width: 200px;
     text-align: center;
     transition: all 0.4s linear;
     border-radius: 2px;
     background-color: #80808082;
 }
-.showRadio input[type=radio]{
+
+.showRadio input[type=radio] {
     visibility: hidden;
     display: none;
 }
-.showRadio input[type=radio]:checked ~label{
+
+.showRadio input[type=radio]:checked ~ label {
     background-color: #353746;
     color: white;
 }
 
-
+/*styles for submit and cancel buttons*/
+.submitCancelButton {
+    height: 40px;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    width: fit-content;
+    border-radius: 4px;
+    padding: 9px;
+    margin: 4px;
+}
