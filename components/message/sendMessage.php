@@ -12,7 +12,8 @@
     
     <!-- feature body section -->
     <div class="featureBody">
-        
+      <button type="button">Send Message
+      </button>  
     </div>
 
     <!-- include footer section -->
