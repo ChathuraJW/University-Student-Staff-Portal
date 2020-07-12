@@ -20,46 +20,53 @@
                     <td>
                         <span>Examination for</span>
                         <div class="radioValue">
-                            <input type="radio" name="examinationName" id="examinationName" value="1y">
-                            <label for="1y">1<sup>st</sup> Year</label>
+                            <input type="radio" name="examinationName" id="examination1Y" value="1y">
+                            <label for="examination1Y">1<sup>st</sup> Year</label>
                         </div>
+                        <br>
                         <div class="radioValue">
-                            <input type="radio" name="examinationName" id="examinationName" value="2y">
-                            <label for="2y">2<sup>st</sup> Year</label>
+                            <input type="radio" name="examinationName" id="examination2Y" value="2y">
+                            <label for="examination2Y">2<sup>st</sup> Year</label>
                         </div>
+                        <br>
                         <div class="radioValue">
-                            <input type="radio" name="examinationName" id="examinationName" value="3y">
-                            <label for="3y">3<sup>st</sup> Year</label>
+                            <input type="radio" name="examinationName" id="examination3Y" value="3y">
+                            <label for="examination3Y">3<sup>st</sup> Year</label>
                         </div>
+                        <br>
                         <div class="radioValue">
-                            <input type="radio" name="examinationName" id="examinationName" value="4y">
-                            <label for="4y">4<sup>st</sup> Year</label>
+                            <input type="radio" name="examinationName" id="examination4Y" value="4y">
+                            <label for="examination4Y">4<sup>st</sup> Year</label>
                         </div>
                     </td>
                     <td>
                         <span>Semester</span>
                         <div class="radioValue">
-                            <input type="radio" name="semester" id="semester" value="1">
-                            <label for="1">1<sup>st</sup> Semester</label>
+                            <input type="radio" name="semester" id="semester1" value="1">
+                            <label for="semester1">1<sup>st</sup> Semester</label>
                         </div>
+                        <br>
                         <div class="radioValue">
-                            <input type="radio" name="semester" id="semester" value="2">
-                            <label for="2">2<sup>nd</sup> Semester</label>
+                            <input type="radio" name="semester" id="semester2" value="2">
+                            <label for="semester2">2<sup>nd</sup> Semester</label>
                         </div>
+                        <br>
                     </td>
                     <td>
                         <span>Degree program</span>
                         <div class="radioValue">
-                            <input type="radio" name="degreeProgram" id="degreeProgram" value="cs">
-                            <label for="cs">Computer Science</label>
+                            <input type="radio" name="degreeProgram" id="degreeProgramCS" value="cs">
+                            <label for="degreeProgramCS">Computer Science</label>
                         </div>
+                        <br>
                         <div class="radioValue">
-                            <input type="radio" name="degreeProgram" id="degreeProgram" value="se">
-                            <label for="se">Software Engineering</label>
+                            <input type="radio" name="degreeProgram" id="degreeProgramSE" value="se">
+                            <label for="degreeProgramSE">Software Engineering</label>
                         </div>
+                        <br>
                         <div class="radioValue">
-                            <input type="radio" name="degreeProgram" id="degreeProgram" value="is">
-                            <label for="is">Information Systems</label>
+                            <input type="radio" name="degreeProgram" id="degreeProgramIS" value="is">
+                            <label for="degreeProgramIS">Information Systems</label>
                         </div>
                     </td>
                 </tr>

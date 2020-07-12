@@ -11,7 +11,7 @@ input[type=text],input[type=number]{
 .showRadio, .showRest{
     display: inline-table;
     border-collapse: collapse;
-    width: 90%;
+    width: 1000px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -20,15 +20,35 @@ input[type=text],input[type=number]{
     width: fit-content;
     text-align: left;
 }
+.showRadio td span{
+    font-size: 18px;
+    display: block;
+    padding-bottom: 10px;
+}
 .showRadio span{
     font-size: 15px;
     font-weight: bold;
 }
 
-.showRadio label{
+.showRadio td label{
     font-size: 20px;
+    display: inline-block;
+    padding: 8px 10px;
+    border: 1px solid rgba(128, 128, 128, 0.28);
+    width: 200px;
+    text-align: center;
+    transition: all 0.4s linear;
+    border-radius: 2px;
+    background-color: #80808082;
 }
-
+.showRadio input[type=radio]{
+    visibility: hidden;
+    display: none;
+}
+.showRadio input[type=radio]:checked ~label{
+    background-color: #353746;
+    color: white;
+}
 /*placeholder styles */
 .restField{
     position: relative;
