@@ -96,6 +96,6 @@
 
 <!-- include footer section -->
 <?php require('../../assets/php/commonFooter.php') ?>
-<script src="resultSection.js"></script>
+<script src="addResult.js"></script>
 </body>
 </html>
