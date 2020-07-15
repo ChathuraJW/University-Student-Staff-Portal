@@ -107,54 +107,122 @@ input[type=file] {
 
 /*verifyResult Styles*/
 
-.reviewList{
+.reviewList {
     width: 30%;
     border: 1px gray solid;
     display: inline-grid;
     height: fit-content;
     padding: 5px 15px 10px 15px;
 }
-.showFileContent{
+
+.showFileContent {
     width: 69%;
     border: 1px gray solid;
     display: inline-grid;
     height: fit-content;
     padding: 5px 15px 10px 15px;
 }
-.columnHeader{
+
+.columnHeader {
     text-align: center;
     font-size: 20px;
     display: block;
 }
 
-.reviewListEntry{
+.reviewListEntry {
     width: 100%;
     border: 1px black solid;
     height: fit-content;
     padding: 8px 10px 8px 20px;
     margin: 3px;
 }
-.reviewListEntry .dataPointHead{
+
+.reviewListEntry .dataPointHead {
     text-align: left;
     font-size: 13px;
     display: inline-block;
     width: 60%;
 }
-.reviewListEntry .dataPointTail{
+
+.reviewListEntry .dataPointTail {
     margin-right: auto;
     margin-left: auto;
     text-align: right;
-    font-size: 13px;
+    font-size: 18px;
     display: inline-block;
 }
-.resultInfo{
+
+/*display result section styles*/
+.resultInfo {
     display: block;
 }
-.resultInfoData{
-    font-size: 15px;
-    text-align: left;
+
+.showResult {
+    display: flex;
+}
+
+#searchKey {
+    font-size: 18px;
+    float: right;
+    width: 40%;
+    display: inline-block;
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 7px 7px 7px 7px;
+    margin: 5px 5px 5px 5px;
+}
+
+.searchSection {
+    display: table;
+    width: 100%;
+}
+
+#entryCount {
+    float: left;
+    display: inline-block;
+    width: 55%;
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 15px;
+}
+
+.resultTable {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    transition: 2s;
+    border-collapse: collapse;
+    border: 1px solid black;
+    font-size: 18px;
+}
+
+/*Result display table styles*/
+.resultTable tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.resultTable tr:hover {
+
+}
+
+.resultTable th, .resultTable td {
+    padding: 12px;
+}
+
+.resultTable tr:nth-child(odd) {
+    background-color: rgb(192, 224, 180);
+}
+
+.resultTable tr:nth-child(even) {
+    background-color: rgb(255, 230, 153);
+}
+
+.actionButton {
+    float: right;
     display: block;
-    white-space: pre;
 }
 
 /*media query for review list*/
