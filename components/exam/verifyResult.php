@@ -16,58 +16,30 @@
     <h1>Review Uploaded Result</h1>
     <div class="reviewList">
         <span class="columnHeader">Review List</span>
-        <div class="reviewListEntry">
-            <div clas="entryDataPoint">
-                <span class="dataPointHead">Examination Year</span>
-                <span class="dataPointTail">: 2020</span>
-            </div>
-            <div clas="entryDataPoint">
-                <span class="dataPointHead">Semester</span>
-                <span class="dataPointTail">: 1</span>
-            </div>
-            <div clas="entryDataPoint">
-                <span class="dataPointHead">Examination for</span>
-                <span class="dataPointTail">: 1st Years</span>
-            </div>
-            <div clas="entryDataPoint">
-                <span class="dataPointHead">Batch</span>
-                <span class="dataPointTail">: 2017/18</span>
-            </div>
-            <div clas="entryDataPoint">
-                <span class="dataPointHead">Subject</span>
-                <span class="dataPointTail">: SCS2201</span>
-            </div>
-            <div clas="entryDataPoint">
-                <span class="dataPointHead">Attempt</span>
-                <span class="dataPointTail">: 1 Attempt</span>
-            </div>
-        </div>
-        <div class="reviewListEntry">
-            <div clas="entryDataPoint">
-                <span class="dataPointHead">Examination Year</span>
-                <span class="dataPointTail">: 2020</span>
-            </div>
-            <div clas="entryDataPoint">
-                <span class="dataPointHead">Semester</span>
-                <span class="dataPointTail">: 1</span>
-            </div>
-            <div clas="entryDataPoint">
-                <span class="dataPointHead">Examination for</span>
-                <span class="dataPointTail">: 1st Years</span>
-            </div>
-            <div clas="entryDataPoint">
-                <span class="dataPointHead">Batch</span>
-                <span class="dataPointTail">: 2017/18</span>
-            </div>
-            <div clas="entryDataPoint">
-                <span class="dataPointHead">Subject</span>
-                <span class="dataPointTail">: SCS2201</span>
-            </div>
-            <div clas="entryDataPoint">
-                <span class="dataPointHead">Attempt</span>
-                <span class="dataPointTail">: 1 Attempt</span>
-            </div>
-        </div>
+        <?php
+            $i=0;
+            while($i<10){
+                echo("
+                     <a href='#$i' style='text-decoration: none;' onclick='loadData()'>
+                        <div class='reviewListEntry' id='$i'>
+                        <div class='entryDataPoint'>
+                            <span class='dataPointHead'>Subject</span>
+                            <span class='dataPointTail'> : SCS2201</span>
+                        </div>
+                        <div class='entryDataPoint'>
+                            <span class='dataPointHead'>Examination for</span>
+                            <span class='dataPointTail'> : 1st Years</span>
+                        </div>
+                        <div class='entryDataPoint'>
+                            <span class='dataPointHead'>Batch</span>
+                            <span class='dataPointTail'> : 2017/18</span>
+                        </div>
+                    </div> 
+                    </a>
+                ");
+                $i++;
+            }
+        ?>
     </div>
     <div class="showFileContent">
         <span class="columnHeader">Result Review of SCS1201</span>

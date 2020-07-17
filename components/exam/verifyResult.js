@@ -32,3 +32,12 @@ function searchOnTable() {
         searchKey.style.backgroundColor = "";
     }
 }
+
+//open result data
+function loadData() {
+    setTimeout(function() {
+        let elementID=document.location.href.split("#")[1]
+        let notificationCard=document.getElementById(elementID);
+        notificationCard.style.backgroundColor="Red";
+    }, 1);
+}

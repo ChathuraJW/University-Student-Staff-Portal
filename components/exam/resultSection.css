@@ -111,7 +111,7 @@ input[type=file] {
     width: 30%;
     border: 1px gray solid;
     display: inline-grid;
-    height: fit-content;
+    overflow: scroll;
     padding: 5px 15px 10px 15px;
 }
 
@@ -131,10 +131,19 @@ input[type=file] {
 
 .reviewListEntry {
     width: 100%;
-    border: 1px black solid;
+    border: 1px #8e8864 solid;
     height: fit-content;
     padding: 8px 10px 8px 20px;
     margin: 3px;
+    background-color: #dbdbae;
+    transition: 0.5s;
+    color: black;
+}
+.reviewListEntry:hover{
+    background-color: #c7c77e;
+}
+.reviewListEntry:focus{
+    background-color: rgba(199, 199, 126, 0.24);
 }
 
 .reviewListEntry .dataPointHead {
@@ -142,6 +151,7 @@ input[type=file] {
     font-size: 13px;
     display: inline-block;
     width: 60%;
+    font-size: 18px;
 }
 
 .reviewListEntry .dataPointTail {
@@ -155,6 +165,7 @@ input[type=file] {
 /*display result section styles*/
 .resultInfo {
     display: block;
+    font-size: 18px;
 }
 
 .showResult {
