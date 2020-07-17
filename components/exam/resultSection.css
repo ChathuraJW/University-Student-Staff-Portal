@@ -118,7 +118,7 @@ input[type=file] {
 .showFileContent {
     width: 69%;
     border: 1px gray solid;
-    display: inline-grid;
+    display: none;
     height: fit-content;
     padding: 5px 15px 10px 15px;
 }
@@ -169,7 +169,10 @@ input[type=file] {
 }
 
 .showResult {
-    display: flex;
+    top: 0;
+    display: block;
+    overflow: scroll;
+    max-height: 1000px;
 }
 
 #searchKey {
@@ -208,6 +211,7 @@ input[type=file] {
     border-collapse: collapse;
     border: 1px solid black;
     font-size: 18px;
+    /*display: none;*/
 }
 
 /*Result display table styles*/
@@ -216,7 +220,9 @@ input[type=file] {
 }
 
 .resultTable tr:hover {
-
+    font-size: 20px;
+    transition: 0.3s;
+    font-weight: bold;
 }
 
 .resultTable th, .resultTable td {

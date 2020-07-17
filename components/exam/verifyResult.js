@@ -36,8 +36,12 @@ function searchOnTable() {
 //open result data
 function loadData() {
     setTimeout(function() {
-        let elementID=document.location.href.split("#")[1]
+        document.getElementById("showFileContent").style.display="inline-grid";
+        let elementID=document.location.href.split("#")[1];
         let notificationCard=document.getElementById(elementID);
-        notificationCard.style.backgroundColor="Red";
+        notificationCard.style.backgroundColor="gray";
+        // notificationCard.style.display="none";
     }, 1);
 }
+
+//result filling function

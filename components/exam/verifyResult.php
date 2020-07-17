@@ -17,11 +17,10 @@
     <div class="reviewList">
         <span class="columnHeader">Review List</span>
         <?php
-            $i=0;
-            while($i<10){
-                echo("
-                     <a href='#$i' style='text-decoration: none;' onclick='loadData()'>
-                        <div class='reviewListEntry' id='$i'>
+        $i=0;
+        while($i<10){
+            echo("
+                     <a href='?resultSection=$i' style='text-decoration: none;' onclick='loadData()' class='reviewListEntry' id='$i'>
                         <div class='entryDataPoint'>
                             <span class='dataPointHead'>Subject</span>
                             <span class='dataPointTail'> : SCS2201</span>
@@ -34,17 +33,16 @@
                             <span class='dataPointHead'>Batch</span>
                             <span class='dataPointTail'> : 2017/18</span>
                         </div>
-                    </div> 
                     </a>
                 ");
-                $i++;
-            }
+            $i++;
+        }
         ?>
     </div>
-    <div class="showFileContent">
-        <span class="columnHeader">Result Review of SCS1201</span>
-        <br>
-        <div class="resultInfo">
+    <div class="showFileContent" id="showFileContent">
+        <div class="resultData">
+            <span class="columnHeader">Result Review of SCS1201</span>
+            <br>
             <table>
                 <tr>
                     <td>Examination Year</td>
@@ -84,12 +82,20 @@
                         <th>Index Number</th>
                         <th>Result</th>
                     </tr>
-                    <?php $i = 1;
-                    while ($i <= 200) {
-                        $eid = $i + 18001000;
-                        echo("<tr><td>$i</td><td>$eid</td><td>A+</td></tr>");
-                        $i++;
-                    } ?>
+                    <?php
+                    if(isset($_GET['resultSection'])){
+                        $myFile = fopen("Results/12345.csv","r");
+                        fgets($myFile);
+                        while(! feof($myFile)) {
+                            $dataArray=fgets($myFile);
+                            $serialNumber=explode(",",$dataArray)[0];
+                            $indexNumber=explode(",",$dataArray)[1];
+                            $result=explode(",",$dataArray)[2];
+                            echo("<tr><td>$serialNumber</td><td>$indexNumber</td><td>$result</td></tr>");
+                        }
+                        fclose($myFile);
+                    }
+                    ?>
                 </table>
             </div>
             <br><br>
