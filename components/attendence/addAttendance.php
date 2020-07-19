@@ -12,7 +12,21 @@
     
     <!-- feature body section -->
     <div class="featureBody">
-        
+<<<<<<< HEAD
+    <form>
+    <p>Select :</p>
+    <input type="radio" id="csvFile" name="csvFile" value="csvFile">   
+    <label for="csvfile">Upload CSV file</label>
+    <input type="radio" id="manual" name="manual" value="manual">   
+    <label for="manual">Update manually</label>
+    </form>
+=======
+        <a href="csv.php">
+        <button type="button">Upload CSV files</button> <br><br>
+        <a href="updateManually.php">
+        <button type="button">Update Manually</button> <br><br>
+>>>>>>> S-Attendance
+    
     </div>
 
     <!-- include footer section -->
