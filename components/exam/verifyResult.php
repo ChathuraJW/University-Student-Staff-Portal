@@ -40,7 +40,6 @@
         ?>
     </div>
     <div class="showFileContent" id="showFileContent">
-        <div class="resultData">
             <span class="columnHeader">Result Review of SCS1201</span>
             <br>
             <table>
@@ -83,6 +82,8 @@
                         <th>Result</th>
                     </tr>
                     <?php
+//                    read url
+//                    echo($_SERVER['REQUEST_URI']);
                     if(isset($_GET['resultSection'])){
                         $myFile = fopen("Results/12345.csv","r");
                         fgets($myFile);
@@ -109,7 +110,6 @@
                            style="background-color: rgb(255,0,0);">
                 </div>
             </form>
-        </div>
     </div>
 </div>
 <!-- include footer section -->

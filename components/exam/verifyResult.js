@@ -34,14 +34,14 @@ function searchOnTable() {
 }
 
 //open result data
-function loadData() {
-    setTimeout(function() {
-        document.getElementById("showFileContent").style.display="inline-grid";
-        let elementID=document.location.href.split("#")[1];
-        let notificationCard=document.getElementById(elementID);
-        notificationCard.style.backgroundColor="gray";
-        // notificationCard.style.display="none";
-    }, 1);
+
+let elementID=document.location.href.toString().split("verifyResult.php")[1];
+console.log(elementID);
+if(elementID!=""){
+    document.getElementById("showFileContent").style.display="inline-grid";
+    let notificationCard=document.getElementById(elementID.split("=")[1]);
+    notificationCard.style.backgroundColor="rgba(255,0,0,0.93)";
 }
+
 
 //result filling function
