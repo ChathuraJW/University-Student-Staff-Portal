@@ -13,7 +13,27 @@
     <!-- feature body section -->
     <div class="featureBody">
       <button type="button">Send Message
-      </button>  
+      </button> 
+
+      <label> Enter the contacts </label>
+      <input type = "text" name = "Enter the contacts">
+      <br>
+
+      <label> Message </label>
+      <textarea name = "Message"></textarea>
+      <br>
+
+      <button type="button">Send
+      </button>
+      <br>
+
+      <button type="button">Cancel
+      </button>
+
+  
+
+
+
     </div>
 
     <!-- include footer section -->
