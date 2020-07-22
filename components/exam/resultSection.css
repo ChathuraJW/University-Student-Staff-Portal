@@ -148,7 +148,6 @@ input[type=file] {
 
 .reviewListEntry .dataPointHead {
     text-align: left;
-    font-size: 13px;
     display: inline-block;
     width: 60%;
     font-size: 18px;
@@ -271,3 +270,137 @@ input[type=file] {
 /*    }*/
 /*}*/
 
+/*Styles for viewResult feature*/
+
+.basicInfo{
+    width: 70%;
+    height: 200px;
+    border: 1px gray solid;
+    float: left;
+    display: inline-block;
+    margin-bottom: 10px;
+    /*margin-left: 10px;*/
+    /*margin-right: 5px;*/
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+.infoBlock{
+    display: inline-block;
+    text-align: center;
+    width: 31%;
+    margin: 10px 5px 10px 5px;
+    top: 50%;
+}
+.infoBlock label{
+    text-align: center;
+    padding: 5px;
+    position: absolute;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+}
+.basicInfoElement{
+    font-size: 50px;
+    font-weight: bold;
+    color: black;
+
+}
+
+.degreeClass{
+    width: 26%;
+    height: 200px;
+    border: 1px gray solid;
+    float: right;
+    display: inline-block;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.gpaDistribution {
+    width: 80%;
+    height: fit-content;
+    border: 1px gray solid;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    padding: 10px 10px 10px 10px;
+}
+
+.gpaDistribution span{
+    font-size: 25px;
+    text-align: left;
+    padding: 5px 5px 5px 5px;
+    margin: 10px 10px 10px 10px;
+}
+.individualGPADistribution{
+    width: 48%;
+    height: fit-content;
+    border: 1px gray solid;
+    float: left;
+    display: inline-block;
+    margin: 20px 10px 10px 5px;
+}
+.gradeContribution{
+    width: 48%;
+    height: fit-content;
+    border: 1px gray solid;
+    float: right;
+    display: inline-block;
+    margin: 20px 10px 10px 5px;
+}
+.graphCanvas{
+    margin: 15px 2px 10px;
+}
+.graphHeader{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+    padding: 15px 15px;
+}
+.resultViewer{
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+}
+
+.semesterResult{
+    width: 45%;
+    height: fit-content;
+    display: inline-grid;
+    margin: 10px 10px 10px 10px;
+}
+.semesterResultHeader{
+    color: white;
+    width: 100%;
+    height: 60px;
+    padding: 10px 10px 10px 10px;
+    background-color: black;
+    font-size: 20px;
+    text-align: left;
+    border: 2px #80808052 solid;
+    display: inline-block;
+}
+
+.semesterResultViewer table{
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #80808052;
+}
+.semesterResultViewer span{
+    font-size: 12px;
+    color: #8e8864;
+}
+.semesterResultViewer tr{
+    border-bottom: #80808052 solid 3px;
+
+}
+.semesterResultViewer td{
+    font-size: 16px;
+    padding: 10px 10px 10px 10px;
+}
+.semesterResultViewer .result{
+    font-size: 32px;
+    font-weight: bold;
+}
