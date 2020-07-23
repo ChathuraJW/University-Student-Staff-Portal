@@ -37,7 +37,7 @@
     </div>
     <div class="gpaDistribution">
         <span>Batch GPA Distribution</span>
-        <canvas id="gpaDistribution" class="graphCanvas"></canvas>
+        <canvas id="gpaDistribution" class="graphCanvas" style="width: 80%"></canvas>
     </div>
 
     <div class="individualGPADistribution">
@@ -50,11 +50,13 @@
     </div>
     <div class="resultViewer">
         <?php
-            $i=0;
-            while($i<8){
+            $i=1;
+            while($i<=8){
+                $sem=(round($i%2)==0)?2:1;
+                $year=round($i/2);
                 echo("
                     <div class='semesterResult'>
-                        <span class='semesterResultHeader'>1st Year 1st Semester</span>
+                        <span class='semesterResultHeader'>$year st Year $sem st Semester</span>
                         <div class='semesterResultViewer'>
                             <table>
                   ");

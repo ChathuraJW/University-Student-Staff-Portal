@@ -290,7 +290,7 @@ input[type=file] {
     display: inline-block;
     text-align: center;
     width: 31%;
-    margin: 10px 5px 10px 5px;
+    margin: 10px 10px 10px 5px;
     top: 50%;
 }
 .infoBlock label{
@@ -305,9 +305,7 @@ input[type=file] {
     font-size: 50px;
     font-weight: bold;
     color: black;
-
 }
-
 .degreeClass{
     width: 26%;
     height: 200px;
@@ -319,17 +317,17 @@ input[type=file] {
     margin-right: 10px;
 }
 .gpaDistribution {
-    width: 80%;
     height: fit-content;
     border: 1px gray solid;
-    margin-left: auto;
-    margin-right: auto;
-    display: inline-block;
-    padding: 10px 10px 10px 10px;
+    display: flow-root;
+    width: 65%;
+    margin: 10px auto;
+    padding: 10px;
 }
 
 .gpaDistribution span{
     font-size: 25px;
+    font-weight: bold;
     text-align: left;
     padding: 5px 5px 5px 5px;
     margin: 10px 10px 10px 10px;
@@ -362,11 +360,14 @@ input[type=file] {
 .resultViewer{
     margin-left: auto;
     margin-right: auto;
-    align-content: center;
+    display: block;
+    padding-right: 20px;
+    padding-left:20px ;
+    text-align: center;
 }
 
 .semesterResult{
-    width: 45%;
+    width: 31.7%;
     height: fit-content;
     display: inline-grid;
     margin: 10px 10px 10px 10px;
