@@ -273,8 +273,8 @@ input[type=file] {
 /*Styles for viewResult feature*/
 
 .basicInfo{
-    width: 70%;
-    height: 200px;
+    width: 65%;
+    height: 230px;
     border: 1px gray solid;
     float: left;
     display: inline-block;
@@ -289,32 +289,46 @@ input[type=file] {
 .infoBlock{
     display: inline-block;
     text-align: center;
-    width: 31%;
+    width: 30%;
     margin: 10px 10px 10px 5px;
     top: 50%;
 }
 .infoBlock label{
     text-align: center;
     padding: 5px;
-    position: absolute;
-    display: flex;
+    position: inherit;
+    display: block;
+    margin-top: 15px;
     margin-right: auto;
     margin-left: auto;
 }
 .basicInfoElement{
-    font-size: 50px;
+    font-size: 55px;
     font-weight: bold;
     color: black;
 }
 .degreeClass{
-    width: 26%;
-    height: 200px;
+    width: 30%;
+    height: 230px;
     border: 1px gray solid;
     float: right;
     display: inline-block;
     margin-left: 5px;
     margin-bottom: 10px;
     margin-right: 10px;
+    padding: 6px;
+}
+.classNotation{
+    font-size: 120px;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}
+.degreeClassFooter{
+    text-align: justify;
+    font-size: 14px;
+    padding: 5px;
+    position: relative;
 }
 .gpaDistribution {
     height: fit-content;

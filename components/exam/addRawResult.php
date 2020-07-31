@@ -13,7 +13,7 @@
 
 <!-- feature body section -->
 <div class="featureBody">
-    <h1>Upload Board Confirmed Exam Result</h1>
+    <h1>Send Raw Result to Examination SAR</h1>
     <form action="" method="post">
         <div class="showRadio">
             <span>Examination for</span>
@@ -80,13 +80,14 @@
         </div>
         <br>
         <div class="showRest">
-            <span>CSV Formatted Result Dataset</span>
-            <label for="resultFile" class="fileLabel" id="resultFileLabel">Upload Result Data File</label>
-            <input type="file" name="resultFile" id="resultFile"><br>
+            <span>USSP formatted Encrypted Result Dataset</span>
+            <label for="rawResultFile" class="fileLabel" id="rawResultFileLabel">Upload Encrypted Raw Result
+                File</label>
+            <input type="file" name="rawResultFile" id="rawResultFile"><br>
         </div>
         <br>
         <div class="showRest" id="actionSection">
-            <input type="submit" value="Submit for SAR Review" name="submit" id="submit" class="submitCancelButton"
+            <input type="submit" value="Submit to SAR" name="submit" id="submit" class="submitCancelButton"
                    style="background-color: rgb(0,255,0);">
             <input type="reset" value="Cancel" name="cancel" id="cancel" class="submitCancelButton"
                    style="background-color: rgb(255,0,0);">
@@ -98,20 +99,22 @@
 <?php require('../../assets/php/commonFooter.php') ?>
 <script src="addResult.js"></script>
 <script>
-    //uploaded file operation
-    let fileUploaded = document.getElementById("resultFile");
-    let fileLabel = document.getElementById("resultFileLabel");
-    fileUploaded.addEventListener("change", function () {
-        if (fileUploaded.value != '') {
-            let uploadFormat = fileUploaded.value.toString().split('.')[1].toLowerCase();
-            if (uploadFormat == "csv") {
-                fileLabel.style.backgroundColor = "green";
+    //uploaded raw file operation
+    let rawResultFileUploaded = document.getElementById("rawResultFile");
+    let rawResultFileLabel = document.getElementById("rawResultFileLabel");
+    rawResultFileUploaded.addEventListener("change", function () {
+        if (rawResultFileUploaded.value != '') {
+            let uploadFormat = rawResultFileUploaded.value.toString().split('.')[1].toLowerCase();
+            if (uploadFormat == "ussp") {
+                rawResultFileLabel.style.backgroundColor = "green";
             } else {
-                fileLabel.style.backgroundColor = "red";
-                alert("Invalid file format. Please upload csv formatted file.")
+                rawResultFileLabel.style.backgroundColor = "red";
+                alert("Invalid file format. Please upload ussp formatted file.")
             }
         }
     })
+    let x=document.getElementsByName('examinationName');
+    console.log(x.values);
 </script>
 </body>
 </html>

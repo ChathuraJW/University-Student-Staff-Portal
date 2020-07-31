@@ -28,20 +28,6 @@ while (length >= 0) {
     length--;
 }
 
-//uploaded file operation
-let fileUploaded = document.getElementById("resultFile");
-let fileLabel = document.getElementById("resultFileLabel");
-fileUploaded.addEventListener("change", function () {
-    if (fileUploaded.value != '') {
-        let uploadFormat = fileUploaded.value.toString().split('.')[1].toLowerCase();
-        if (uploadFormat == "csv") {
-            fileLabel.style.backgroundColor = "green";
-        } else {
-            fileLabel.style.backgroundColor = "red";
-            alert("Invalid file format. Please upload csv formatted file.")
-        }
-    }
-})
 
 //disable batch option for repeat attempts
 let repeatOptionRep = document.getElementById("attemptRep");
