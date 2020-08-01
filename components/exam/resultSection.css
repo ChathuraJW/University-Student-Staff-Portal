@@ -271,19 +271,19 @@ input[type=file] {
 /*}*/
 
 /*Styles for viewResult feature*/
-
 .basicInfo{
     width: 65%;
-    height: 230px;
+    height: 300px;
     border: 1px gray solid;
     float: left;
     display: inline-block;
     margin-bottom: 10px;
     /*margin-left: 10px;*/
     /*margin-right: 5px;*/
-    text-align: center;
+    text-align: justify;
     margin-right: auto;
     margin-left: auto;
+    padding: 6px;
 
 }
 .infoBlock{
@@ -303,13 +303,13 @@ input[type=file] {
     margin-left: auto;
 }
 .basicInfoElement{
-    font-size: 55px;
+    font-size: 60px;
     font-weight: bold;
     color: black;
 }
 .degreeClass{
     width: 30%;
-    height: 230px;
+    height: 300px;
     border: 1px gray solid;
     float: right;
     display: inline-block;
@@ -317,17 +317,21 @@ input[type=file] {
     margin-bottom: 10px;
     margin-right: 10px;
     padding: 6px;
+    text-align: justify;
+    color: white;
 }
 .classNotation{
     font-size: 120px;
     display: block;
     text-align: center;
     font-weight: bold;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    color: white;
 }
 .degreeClassFooter{
     text-align: justify;
     font-size: 14px;
-    padding: 5px;
     position: relative;
 }
 .gpaDistribution {
@@ -412,10 +416,42 @@ input[type=file] {
 
 }
 .semesterResultViewer td{
+    text-align: left;
     font-size: 16px;
     padding: 10px 10px 10px 10px;
 }
 .semesterResultViewer .result{
     font-size: 32px;
     font-weight: bold;
+}
+.captionLabel{
+    font-size: 20px;
+}
+/*Responsiveness styles for viewResult*/
+@media screen and (max-width: 900px) {
+    .basicInfo,.degreeClass,.individualGPADistribution, .gradeContribution, .gpaDistribution{
+        width: 100%;
+        margin-right: 0px;
+        margin-left: 0px;
+        display: flow-root;
+    }
+    .basicInfo{
+        height: fit-content;
+    }
+    .semesterResult{
+        width: 46%;
+    }
+}
+@media screen and (max-width: 700px){
+    .semesterResult{
+        width: 75%;
+    }
+}
+@media screen and (max-width: 550px){
+    .infoBlock{
+        width: 75%;
+    }
+    .semesterResult{
+        width: 100%;
+    }
 }

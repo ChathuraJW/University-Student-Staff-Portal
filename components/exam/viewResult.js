@@ -1,3 +1,4 @@
+//Batch GPA Distribution Graph
 let gpaDistribution = document.getElementById('gpaDistribution').getContext('2d');
 new Chart(gpaDistribution, {
     type: 'line',
@@ -35,6 +36,7 @@ new Chart(gpaDistribution, {
     }
 });
 
+//Individual GPA Distribution for Each Semester
 let individualGPADistribution = document.getElementById('individualGPADistribution').getContext('2d');
 new Chart(individualGPADistribution, {
     type: 'line',
@@ -63,6 +65,7 @@ new Chart(individualGPADistribution, {
     }
 });
 
+//Grade Contribution for Overall Result
 let gradeContribution = document.getElementById('gradeContribution').getContext('2d');
 new Chart(gradeContribution, {
     type: 'bar',
@@ -95,3 +98,24 @@ new Chart(gradeContribution, {
         }
     }
 });
+
+//Class Box Color Change
+let degreeClass=document.getElementById('degreeClass');
+let classNotation=document.getElementById('classNotation');
+const overAllGPA=1.2;
+if(overAllGPA>=3.7){
+    degreeClass.style.backgroundColor="blue";
+    classNotation.innerText="FC"
+} else if(overAllGPA>=3.3){
+    degreeClass.style.backgroundColor="green";
+    classNotation.innerText="SU"
+} else if(overAllGPA>=3.0){
+    degreeClass.style.backgroundColor="orange";
+    classNotation.innerText="SL"
+} else if(overAllGPA>=2.0){
+    degreeClass.style.backgroundColor="black";
+    classNotation.innerText="NM"
+}else{
+    degreeClass.style.backgroundColor="red";
+    classNotation.innerText="--"
+}
