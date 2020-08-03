@@ -27,20 +27,10 @@ function searchOnTable() {
         entryCount.textContent = spanValue;
     // change background color of the search box when search result empty
     if (visibleCount == 0) {
-        searchKey.style.backgroundColor = "rgba(255, 0, 0, 0.18)";
+        searchKey.style.backgroundColor = "rgba(232, 13, 13, 0.27)";
     } else {
         searchKey.style.backgroundColor = "";
     }
-}
-
-//open result data
-
-let elementID=document.location.href.toString().split("verifyResult.php")[1];
-console.log(elementID);
-if(elementID!=""){
-    document.getElementById("showFileContent").style.display="inline-grid";
-    let notificationCard=document.getElementById(elementID.split("=")[1]);
-    notificationCard.style.backgroundColor="rgba(255,0,0,0.93)";
 }
 
 

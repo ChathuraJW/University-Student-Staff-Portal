@@ -13,7 +13,7 @@
 
 <!-- feature body section -->
 <div class="featureBody">
-    <h1>Send Raw Result to Examination SAR</h1>
+    <h1 class="heading">Send Raw Result to Examination SAR</h1>
     <form action="" method="post">
         <div class="showRadio">
             <span>Examination for</span>
@@ -81,8 +81,7 @@
         <br>
         <div class="showRest">
             <span>USSP formatted Encrypted Result Dataset</span>
-            <label for="rawResultFile" class="fileLabel" id="rawResultFileLabel">Upload Encrypted Raw Result
-                File</label>
+            <label for="rawResultFile" class="fileLabel" id="rawResultFileLabel">Upload System Genarated File</label>
             <input type="file" name="rawResultFile" id="rawResultFile"><br>
         </div>
         <br>
@@ -104,17 +103,16 @@
     let rawResultFileLabel = document.getElementById("rawResultFileLabel");
     rawResultFileUploaded.addEventListener("change", function () {
         if (rawResultFileUploaded.value != '') {
+            console.log("File Size is(KB): "+rawResultFileUploaded.files[0].size/1000);
             let uploadFormat = rawResultFileUploaded.value.toString().split('.')[1].toLowerCase();
             if (uploadFormat == "ussp") {
                 rawResultFileLabel.style.backgroundColor = "green";
             } else {
                 rawResultFileLabel.style.backgroundColor = "red";
-                alert("Invalid file format. Please upload ussp formatted file.")
+                alert("Invalid file format. Please upload ussp formatted file.");
             }
         }
     })
-    let x=document.getElementsByName('examinationName');
-    console.log(x.values);
 </script>
 </body>
 </html>

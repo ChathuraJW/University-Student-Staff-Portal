@@ -13,7 +13,7 @@
 
 <!-- feature body section -->
 <div class="featureBody">
-    <h1>Upload Board Confirmed Exam Result</h1>
+    <h1 class="heading">Upload Board Confirmed Exam Result</h1>
     <form action="" method="post">
         <div class="showRadio">
             <span>Examination for</span>
@@ -86,7 +86,7 @@
         </div>
         <br>
         <div class="showRest" id="actionSection">
-            <input type="submit" value="Submit for SAR Review" name="submit" id="submit" class="submitCancelButton"
+            <input type="submit" value="Submit for SAR" name="submit" id="submit" class="submitCancelButton"
                    style="background-color: rgb(0,255,0);">
             <input type="reset" value="Cancel" name="cancel" id="cancel" class="submitCancelButton"
                    style="background-color: rgb(255,0,0);">
@@ -103,6 +103,7 @@
     let fileLabel = document.getElementById("resultFileLabel");
     fileUploaded.addEventListener("change", function () {
         if (fileUploaded.value != '') {
+            console.log("File Size is(KB): " + fileUploaded.files[0].size / 1000);
             let uploadFormat = fileUploaded.value.toString().split('.')[1].toLowerCase();
             if (uploadFormat == "csv") {
                 fileLabel.style.backgroundColor = "green";

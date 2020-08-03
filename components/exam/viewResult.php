@@ -15,10 +15,10 @@
 <body>
 <!-- include header section -->
 <?php require('../../assets/php/commonHeader.php') ?>
-
 <!-- feature body section -->
 <div class="featureBody">
     <div class="basicInfo">
+      <span class="captionLabel">Overall Information</span>
         <div style="padding-bottom: 35px;padding-top: 50px;text-align: center;">
             <div class="infoBlock">
                 <span class="basicInfoElement" id="overallGPA">3.619</span>
@@ -40,7 +40,7 @@
         </span>
     </div>
     <div class="degreeClass" id="degreeClass">
-        <span style="color: white;">Degree Information</span>
+        <span class="captionLabel" style="color: white;">Degree Information</span>
         <span class="classNotation" id="classNotation"></span>
         <span class="degreeClassFooter">FC -First Class degree, SU -Second Upper degree, SL -Second Lower degree, NM -Normal degree,
             -- indicates that your GPA is insufficient to complete the degree.</span>
@@ -58,7 +58,7 @@
         <span class="captionLabel">Grade Contribution for GPA</span>
         <canvas id="gradeContribution" class="graphCanvas"></canvas>
     </div>
-    <span class="captionLabel">Semester Vice Result</span>
+    <!-- <span class="captionLabel">Semester Vice Result</span> -->
     <div class="resultViewer">
         <?php
         $i = 1;
@@ -81,10 +81,10 @@
                                 ");
                 $j++;
             }
-            echo("      
+            echo("
                             </table>
                         </div>
-                    </div>         
+                    </div>
                 ");
             $i++;
         }

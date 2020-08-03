@@ -13,7 +13,7 @@
 
 <!-- feature body section -->
 <div class="featureBody">
-    <h1>Review Uploaded Result</h1>
+    <h1 class="heading">Review Uploaded Result</h1>
     <div class="reviewList">
         <span class="columnHeader">Review List</span>
         <?php
@@ -44,28 +44,34 @@
             <br>
             <table>
                 <tr>
-                    <td>Examination Year</td>
-                    <td>: 2020</td>
+                    <td class="fileDataHeader">Examination Year</td>
+                    <td class="Separator">:</td>
+                    <td class="fileDataHeader">2020</td>
                 </tr>
                 <tr>
-                    <td>Semester</td>
-                    <td>: 1</td>
+                    <td class="fileDataHeader">Semester</td>
+                    <td class="Separator">:</td>
+                    <td class="fileDataHeader">1</td>
                 </tr>
                 <tr>
-                    <td>Examination for</td>
-                    <td>: 1st Years</td>
+                    <td class="fileDataHeader">Examination for</td>
+                    <td class="Separator">:</td>
+                    <td class="fileDataHeader">1st Years</td>
                 </tr>
                 <tr>
-                    <td>Batch</td>
-                    <td>: 2017/18</td>
+                    <td class="fileDataHeader">Batch</td>
+                    <td class="Separator">:</td>
+                    <td class="fileDataHeader">2017/18</td>
                 </tr>
                 <tr>
-                    <td>Subject</td>
-                    <td>: SCS2201(Data Structures and Algorithms 1)</td>
+                    <td class="fileDataHeader">Subject</td>
+                    <td class="Separator">:</td>
+                    <td class="fileDataHeader">SCS2201(Data Structures and Algorithms 1)</td>
                 </tr>
                 <tr>
-                    <td>Attempt</td>
-                    <td>: 1st Attempt</td>
+                    <td class="fileDataHeader">Attempt</td>
+                    <td class="Separator">:</td>
+                    <td class="fileDataHeader">1st Attempt</td>
                 </tr>
             </table>
             <br>
@@ -85,14 +91,16 @@
 //                    read url
 //                    echo($_SERVER['REQUEST_URI']);
                     if(isset($_GET['resultSection'])){
-                        $myFile = fopen("Results/12345.csv","r");
+                        $myFile = fopen("Confirmed Results/12345.csv","r");
                         fgets($myFile);
                         while(! feof($myFile)) {
                             $dataArray=fgets($myFile);
-                            $serialNumber=explode(",",$dataArray)[0];
-                            $indexNumber=explode(",",$dataArray)[1];
-                            $result=explode(",",$dataArray)[2];
-                            echo("<tr><td>$serialNumber</td><td>$indexNumber</td><td>$result</td></tr>");
+                            if(strlen($dataArray)>0) {
+                                $serialNumber = explode(",", $dataArray)[0];
+                                $indexNumber = explode(",", $dataArray)[1];
+                                $result = explode(",", $dataArray)[2];
+                                echo("<tr><td>$serialNumber</td><td>$indexNumber</td><td>$result</td></tr>");
+                            }
                         }
                         fclose($myFile);
                     }
@@ -115,5 +123,16 @@
 <!-- include footer section -->
 <?php require('../../assets/php/commonFooter.php') ?>
 <script src="verifyResult.js"></script>
+<script>
+    //open result data
+    let elementID=document.location.href.toString().split("verifyResult.php")[1];
+    if(elementID!=""){
+            document.getElementById("showFileContent").style.display="inline-grid";
+            let notificationCard=document.getElementById(elementID.split("=")[1]);
+            notificationCard.style.backgroundColor="#730388";
+            notificationCard.style.color="white";
+    }
+
+</script>
 </body>
 </html>
