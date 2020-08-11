@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Student-Staff Portal</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="../../assets/css/requestMeetingStyles.css">
+    <link rel="stylesheet" href="requestMeetingStyles.css">
 </head>
 <body>
     
@@ -14,38 +14,32 @@
     
     <!-- feature body section -->
     <div class="featureBody">
-        <div class="tabs">
-            <button class="tablink" onclick="document.getElementByClassName('newappointment').style.display='none'">New Appointment</button>
-            <button class="tablink" onclick="document.getElementByClassName('myappointments').style.display='none'">My Appointment</button>
-        </div>
         
-        <div class="tabcontaint">
-            <h2 class="h1">Chek Availability</h2>
-            <form class="form1">
-            <h4 class="h2">Lecturer Availability</h4>
-                <label for="lecture1">Lecturer </label>
-                <input list="lecture1">
-                <datalist id="lecture1">
-                    <option value="LEC1045"></option>
-                    <option value="LEC1305"></option>
-                    <option value="LEC1023"></option>
-                    <option value="LEC1245"></option>
-                    <option value="LEC1395"></option>
-                    <option value="LEC1294"></option>
-                </datalist> <br>
-                
-                <button class="buttoncheck"  type="submit" value="Submit">check</button><br>
-
-                <!-- Display the availability of the lecturer -->
-                
-                    <p>Lecturer is   </p>
-                    
-
-            </form>
+        <div class="navibar">
+            <button onclick="opentab('tabcontaint')">New Appointment</button>
+            <button onclick="opentab('availability')">Lecturer Availability</button>
+            
+        </div>
+        <div id="tab" class="tabcontaint">
+           
             <!-- fist lecturer and date -->
+            <div  class="Myappointments">
+                <div class="apointset">
+                    <h3 style="padding-left:40px">My Appointments </h3>
+                    <button class="appoint" >Appointment 1</button><br>
+                    <button class="appoint" >Appointment 2</button><br>
+                    <button class="appoint" >Appointment 3</button><br>
+                    <button class="appoint" >Appointment 4</button><br>
+                    <button class="appoint" >Appointment 5</button><br>
+                    <button class="appoint" >Appointment 6</button><br>
+                </div>
             
 
-            <div class="requestform">
+                
+            
+            </div>
+
+            <div  class="requestform">
                 <h2 class="newhead">New Appointment</h2>
                 <form class="form2" method="get" action="submit.php">
 
@@ -79,18 +73,26 @@
             </div>
             
         </div>
-        <div class="tabcontaint">
-            <button class="appoint" >Appointment 1</button><br>
-            <button class="appoint" >Appointment 2</button><br>
-            <button class="appoint" >Appointment 3</button><br>
-            
+        <div id="tab" class="availability" style="display:none">
+            <h1>mmmmmmmmmmmmmm</h1>
         </div>
+        
         <!-- <script>
             var tablinks document.querySelectorAll(".featureBody .tabs buttons");
             var tablinks document.querySelectorAll(".featureBody .");
         </script> -->
         
     </div>
+    <script>
+        function opentab(tabs){
+            var i;
+            var x=document.getElementById("tab");
+            for(i=0;i<x.length;i++){
+                x[i].style.display="none";
+            }
+            document.getElementByClass(tabs).style.display="block";
+        }
+    </script>
     
 
     <!-- include footer section -->
