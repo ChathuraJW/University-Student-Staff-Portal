@@ -1,1 +1,81 @@
-.
+.form1{
+    padding: 0px 100px 0px 500px ;
+    border: none;
+}
+.requestform{
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    border-style: outset;
+    border-radius: 6px;
+    /* margin: 30px 50px 300px 300px ; */
+}
+.newhead{
+    color: rgb(9, 85, 121);
+    margin-left: 20px;
+}
+.form2{
+    display:inline-block;
+    border-style: outset;
+    border-width: 10px;
+    border: black;
+    
+    /* margin: 10px 40px 50px 40px; */
+}
+.dataraws{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    border-style: inset;
+    border-color: rgb(212, 208, 208);
+}
+.discription1{
+    border-style: inset;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    padding-right: 150px;
+    padding-bottom: 50px;
+    border-color: rgb(212, 208, 208);
+}
+.lable{
+    margin-bottom: 30px;
+    padding: 5px 5px 5px 5px;
+}
+.h1{
+    padding: 20px 0px 0px 300px;
+    color: #3A8C9E;
+}
+.h2{
+    color: #3A8C9E;
+}
+.buttoncheck{
+    margin-top: 15px;
+    margin-left: 10px;
+    padding: 5px 8px 5px 8px;
+    border-radius: 5px;
+    background-color: #7cd1e4;
+}
+.appoint{
+    background-color: rgb(243, 239, 20);
+    margin-left: 60px;
+    border-style:outset ;
+    border-color: rgb(177, 174, 174);
+    color: rgb(22, 68, 68);
+    padding-right: 200px;
+}
+.button{
+    padding: 5px 8px 5px 8px;
+    background-color: rgb(26, 235, 106);
+    margin-right: 35px;
+    border-radius: 6px;
+}
+.Myappointments{
+    vertical-align: top;
+    position:top;
+    margin-bottom: 50px;
+    display:inline-block;
+}
+.apointset{
+    margin-bottom: 50px;
+    
+}
