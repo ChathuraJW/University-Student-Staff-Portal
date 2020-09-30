@@ -4,40 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Student-Staff Portal</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/mainStyle.css">
 </head>
 <body>
     <!-- header section -->
-    <div class="header">
-        <img src="assets/images/UNI_logo.png" class="headerIMG" alt="UNI Logo" height="100px" style="float: left;">
-        <img src="assets/images/USSP_logo.png" class="headerIMG" alt="USPS Logo" height="100px" style="float: right;">
-    </div>
-    <!-- log in details section -->
-    <div class="loginDetails">
-        <span class="loginData">Logged as ABS</span>
-    </div>
-    <!-- notification and log in user details -->
-    <div class="information">
-        <div class="notification">
-            <div class="card">
+    <header>
+        <div class="overlay">
+            <div class="imgSection">
+                <img src="assets/images/UCSC_logo.png" alt="UCSC_logo" />
             </div>
-        </div>
-        <div class="profile">
-            <div class="card">
+            <div class="textSection">
+                <span class="mainText">University Student-Staff Portal</span>
             </div>
+            <div class="imgSection">
+                <img src="assets/images/UOC_logo.png" alt="UOC_logo" />
+            </div>
+            <h3>University of Colombo School of Computing</h3>
         </div>
-    </div>
-    <br>
-    <!-- feature section -->
-    <div class="featureList">
-        
-    </div>
-    <!-- footer section -->
-    <div class="footer">
-        <span class="footNote">
-        University Student-Staff Portal<br>
-        Developed by <i>Team Binary Bits</i>
-        </span>
+    </header>
+    <div class="login">
+        <h4 class="loginInfo">Login as Chathura &nbsp;&nbsp;&nbsp;<span><a href="#" style="font-size: 80%;color: white;">Log Out..</a></span> </h4>
     </div>
 </body>
 </html>
