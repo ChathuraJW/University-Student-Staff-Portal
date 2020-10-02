@@ -3,7 +3,7 @@
     border: none;
 }
 .requestform{
-    display: inline-block;
+    display: block;
     background-color: rgb(255, 255, 255);
     border-style: outset;
     border-radius: 6px;
@@ -73,9 +73,12 @@
     vertical-align: top;
     position:top;
     margin-bottom: 50px;
-    display:inline-block;
+    display:block;
 }
 .apointset{
     margin-bottom: 50px;
     
+}
+.appointment{
+    style:none;
 }

@@ -23,7 +23,7 @@
         <div id="tab" class="tabcontaint">
            
             <!-- fist lecturer and date -->
-            <div  class="Myappointments">
+            <div id="a" class="Myappointments">
                 <div class="apointset">
                     <h3 style="padding-left:40px">My Appointments </h3>
                     <button class="appoint" >Appointment 1</button><br>
@@ -39,11 +39,11 @@
             
             </div>
 
-            <div  class="requestform">
+            <div id="a" class="requestform">
                 <h2 class="newhead">New Appointment</h2>
                 <form class="form2" method="get" action="submit.php">
 
-                            
+                             
                     <label class="lable" for="lecture2">Lecturer </label>
                     <input class="dataraws" list="lecture2">
                     <datalist id="lecture2">
