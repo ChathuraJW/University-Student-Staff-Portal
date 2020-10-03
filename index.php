@@ -28,7 +28,51 @@
     </div>
 
     <div class="content">
+        <div class="topSection">
+            <div class="notificationBlock">
+                <div class="notificationStack">
+                    <div class="stackHeader">
+                    <span class="stackLabel"><i class="fas fa-bullhorn"></i>&nbsp;&nbsp;Academic Timetable</span>
+                        <span class="notificationCount">45</span>
+                    </div>
+                    <div class="notificationEntry"></div>
+                    <div class="notificationEntry"></div>
+                    <div class="notificationEntry"></div>
+                    <div class="notificationEntry"></div>
+                </div>
+                <div class="notificationStack">
+                    <div class="stackHeader">
+                        <span class="stackLabel"><i class="fas fa-bullhorn"></i>&nbsp;&nbsp;Academic Notification</span>
+                        <span class="notificationCount">57</span>
+                    </div>
+                    <div class="notificationEntry"></div>
+                    <div class="notificationEntry"></div>
+                </div>
+                <div class="notificationStack">
+                    <div class="stackHeader">
+                    <span class="stackLabel"><i class="fas fa-bullhorn"></i>&nbsp;&nbsp;General Notification</span>
+                        <span class="notificationCount">67</span>
+                    </div>
+                    <div class="notificationEntry"></div>
+                    <div class="notificationEntry"></div>
+                </div>
+                <div class="notificationStack">
+                    <div class="stackHeader">
+                    <span class="stackLabel"><i class="fas fa-bullhorn"></i>&nbsp;&nbsp;System Notification</span>
+                        <span class="notificationCount">46</span>
+                    </div>
+                    <div class="notificationEntry"></div>
+                    <div class="notificationEntry"></div>
+                </div>
+            </div>
+            <div class="profileSection">
+                <div class="profilePic"></div>
+                <div class="userInfo"></div>
+            </div>
+        </div>
+        <div class="linkSection">
 
+        </div>
     </div>
 
 <footer class="mainFooter">
