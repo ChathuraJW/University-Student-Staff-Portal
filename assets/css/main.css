@@ -3,9 +3,11 @@
     margin: 0;
     box-sizing: border-box;
 }
+
 body {
     height: 900px;
 }
+
 header {
     text-align: center;
     width: 100%;
@@ -16,6 +18,7 @@ header {
     overflow: hidden;
     border-radius: 0 0 85% 85% / 0;
 }
+
 header .overlay {
     width: 100%;
     height: 100%;
@@ -23,7 +26,7 @@ header .overlay {
     color: #fff;
     text-shadow: 1px 1px 1px #333;
     /*background-image: linear-gradient( 135deg, #d8125b69 10%, #5fff0578 100% );*/
-    background-image:linear-gradient( 135deg, #57585a75 10%, #7b817f9c 100% )
+    background-image: linear-gradient(135deg, #57585a75 10%, #7b817f9c 100%)
 }
 
 .mainText {
@@ -37,18 +40,22 @@ p {
     font-family: "Open Sans", sans-serif;
     margin-bottom: 30px;
 }
+
 img {
     width: 100%;
 }
+
 .imgSection {
     width: 15%;
     display: inline-block;
 }
+
 .textSection {
     width: 65%;
     display: inline-block;
     text-align: center;
 }
+
 @media screen and (max-width: 650px) {
     .imgSection,
     .textSection {
@@ -56,14 +63,16 @@ img {
         margin-left: auto;
         margin-right: auto;
     }
+
     img {
         width: 200%;
     }
 }
+
 /*top login information bar*/
 .loginInfo {
     height: 50px;
-    background-image: linear-gradient( 135deg, #57585a 10%, #5e6361 100% );
+    background-image: linear-gradient(135deg, #57585a 10%, #5e6361 100%);
     text-align: right;
     color: white;
     font-size: 20px;
@@ -71,23 +80,30 @@ img {
     margin: auto;
     padding: 10px;
 }
+
 /*footer styles*/
-.mainFooter{
+.mainFooter {
     text-align: center;
-    position: fixed;
     bottom: 0;
     height: 100px;
     width: 100%;
     background-color: black;
     color: white;
+    display: block;
 }
+
+.content {
+    display: block;
+    margin: 15px;
+}
+
 /*Tile styles*/
-.Tile{
+.Tile {
     width: 175px;
     height: 200px;
     align-content: center;
     border-radius: 7px;
-    box-shadow: 0 49px 49px -49px rgb(0,0,0);
+    box-shadow: 0 49px 49px -49px rgb(0, 0, 0);
     border-width: 0;
     margin: 5px 5px 5px 5px;
     padding: 5px 5px 5px 5px;
@@ -98,66 +114,77 @@ img {
     outline: none;
     text-decoration: none;
 }
-.Tile:hover{
+
+.Tile:hover {
     opacity: 1;
     transition: 1s;
-    box-shadow: 0 16px 16px -16px rgb(0,0,0);
+    box-shadow: 0 16px 16px -16px rgb(0, 0, 0);
     transform: scale(1.1);
 }
-.Tile h2{
+
+.Tile h2 {
     color: white;
     text-align: center;
 }
 
 /*topSection styles*/
-.topSection{
+.topSection {
     border: 2px solid black;
     border-radius: 5px;
-    height: 350px;
+    height: auto;
     width: auto;
     margin: 20px;
     padding: 15px;
 }
-.linkSection{
+
+.linkSection {
     padding: 5px;
     margin: 20px;
 }
-.notificationBlock{
-    display: inline-block;
+
+.notificationBlock {
+    display: inline-flex;
     width: 80%;
-    height: 300px;
-    float: left;
+    height: auto;
+    text-align: justify;
 }
-.profileSection{
+
+.profileSection {
     display: inline-block;
     width: 19%;
-    height: 320px;
+    height: 360px;
     float: right;
     border: 2px solid black;
+    border-radius: 5px;
 }
-.profilePic{
+
+.profilePic {
     display: block;
-    height: 40%;
-    border: 1px solid black;
+    height: fit-content;
+    border: 2px solid #696767;
     width: 75%;
     padding: 5px;
-    margin-top: 5px;
+    margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 5px;
 }
-.notificationStack{
+
+.notificationStack {
     display: inline-block;
     border: 2px solid #6e6868;
     border-radius: 5px;
-    height: 320px;
-    width: 24%;
+    height: 360px;
+    width: 25%;
     padding: 10px;
 }
+
 /*notification header styles*/
-.stackHeader{
+.stackHeader {
     display: flex;
 }
-.stackLabel{
+
+.stackLabel {
     display: inline-block;
     text-align: left;
     font-weight: bold;
@@ -165,7 +192,8 @@ img {
     width: 88%;
     margin: 5px;
 }
-.notificationCount{
+
+.notificationCount {
     text-align: center;
     display: inline-block;
     width: 15%;
@@ -176,13 +204,90 @@ img {
     background-color: red;
     font-weight: bold;
 }
+
 /*notification entry styles*/
-.notificationEntry{
+.notificationEntry, .notificationEntryTimeTable {
     display: block;
-    height: 18%;
-    width: auto;
-    border: 1px solid red;
+    height: 20%;
+    width: 95%;
+    border: 1px solid;
     margin: 5px;
     border-radius: 5px;
-    bottom: 0;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.notificationEntryTimeTable {
+    width: 95%;
+    padding-left: 8px;
+    background-color: #d2691ec7;
+    color: white;
+    border: #24160c;
+}
+
+.notificationContent {
+    width: 85%;
+    display: inline-flex;
+    padding: 5px;
+    overflow: hidden;
+    text-align: left;
+    color: white;
+}
+
+.notificationIcon {
+    width: 12%;
+    display: inline-flex;
+    padding: 5px;
+    color: white;
+}
+
+/*colors for notificationBlocks*/
+.blue {
+    background-color: #0303ff;
+    border: #2f2fb0;
+}
+
+.green {
+    background-color: #0fbe0f;
+    border: #0e6e0e;
+}
+
+.red {
+    background-color: #f50a0a;
+    border: #a90d0d;
+}
+
+.gray {
+    background-color: #838181;
+    border: #4e4c4c;
+}
+
+.orange {
+    background-color: #faa406;
+    border: #b87b06;
+}
+
+/*profile information*/
+.userInfo {
+    padding: 15px;
+    overflow: hidden;
+}
+
+.userInfo .name {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.userInfo .emailPersonal, .userInfo .emailUniversity {
+    font-size: large;
+}
+
+.userInfo .gpa {
+    font-size: large;
+    border: 1px solid;
+    text-align: center;
+    display: block;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
 }
