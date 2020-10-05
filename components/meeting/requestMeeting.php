@@ -20,18 +20,51 @@
             <button onclick="opentab('availability')">Lecturer Availability</button>
             
         </div>
+        <style>
+            .requestform{
+                
+                width: 65%;
+                border-style: outset;
+                border-width: 10px;
+                border: black;
+                padding-right:40px;
+                display:table-cell;
+                
+                
+                /* margin: 10px 40px 50px 40px; */
+            }
+            .Myappointments{
+                vertical-align: top;
+                position:top;
+                margin-bottom: 50px;
+                width: 40%;
+                display:table-cell; 
+            }
+            .appoint{
+                margin-right:15px;
+                padding-right:300px;
+                width:150px;
+                top:-25px;
+            }
+            .tabcontaint{
+                margin:auto;
+                display:table;
+            }
+            #parr{
+                text:align:left;
+                
+            }
+        </style>
         <div id="tab" class="tabcontaint">
-           
+        
             <!-- fist lecturer and date -->
-            <div id="a" class="Myappointments">
+            <div class="Myappointments">
                 <div class="apointset">
                     <h3 style="padding-left:40px">My Appointments </h3>
-                    <button class="appoint" >Appointment 1</button><br>
-                    <button class="appoint" >Appointment 2</button><br>
-                    <button class="appoint" >Appointment 3</button><br>
-                    <button class="appoint" >Appointment 4</button><br>
-                    <button class="appoint" >Appointment 5</button><br>
-                    <button class="appoint" >Appointment 6</button><br>
+                    <?php for($i=0;$i<10;$i++):?>
+                        <button class="appoint" ><p id="parr">Appointment <?php echo $i+1?></p></button><br>
+                    <?php endfor;?>
+                    
                 </div>
             
 
@@ -42,8 +75,6 @@
             <div id="a" class="requestform">
                 <h2 class="newhead">New Appointment</h2>
                 <form class="form2" method="get" action="submit.php">
-
-                             
                     <label class="lable" for="lecture2">Lecturer </label>
                     <input class="dataraws" list="lecture2">
                     <datalist id="lecture2">

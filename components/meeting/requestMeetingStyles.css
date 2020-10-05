@@ -14,7 +14,8 @@
     margin-left: 20px;
 }
 .form2{
-    display:inline-block;
+    
+    width: 50%;
     border-style: outset;
     border-width: 10px;
     border: black;
@@ -70,10 +71,11 @@
     border-radius: 6px;
 }
 .Myappointments{
-    vertical-align: top;
-    position:top;
-    margin-bottom: 50px;
-    display:block;
+    
+    /* position:top; */
+    /* margin-bottom: 50px; */
+    width: 50%;
+    
 }
 .apointset{
     margin-bottom: 50px;
@@ -81,4 +83,6 @@
 }
 .appointment{
     style:none;
+    margin: none;
+    background-color: rgb(169, 172, 171);
 }
