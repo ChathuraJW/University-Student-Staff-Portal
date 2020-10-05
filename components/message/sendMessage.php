@@ -12,23 +12,35 @@
     
     <!-- feature body section -->
     <div class="featureBody">
-      <button type="button">Send Message
-      </button> 
+      <hi> Send Messages </h1>
+      <br>
+      <br>  
 
-      <label> Enter the contacts </label>
-      <input type = "text" name = "Enter the contacts">
+      <label for="opt"> Enter the contacts </label>
+      <select id="opt" name="opt">
+      <option
+        value="Academic Staff">Academic Staff</option>
+      <option
+        value="Academic Supportive Staff">Academic Supportive Staff</option>
+      <option
+        value="Academic Supportive Head">Academic Supportive Head</option>
+      </select>
+      <br>
       <br>
 
       <label> Message </label>
-      <textarea name = "Message"></textarea>
+      <br>
+      <textarea name = "Message" rows="5" cols="70"></textarea>
       <br>
 
       <button type="button">Send
       </button>
-      <br>
+      
 
       <button type="button">Cancel
       </button>
+      <br>
+      <br>
 
   
 
