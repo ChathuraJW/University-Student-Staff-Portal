@@ -231,5 +231,6 @@
     <br>
     &copy; developed by Team Binary Bits
 </footer>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

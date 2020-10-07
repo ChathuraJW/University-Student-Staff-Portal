@@ -177,12 +177,14 @@ img {
     margin-right: auto;
     border-radius: 5px;
 }
-.userSetting{
+
+.userSetting {
     float: right;
     margin: 3px;
     text-decoration: none;
     color: black;
 }
+
 /*profile information*/
 .userInfo {
     padding: 15px;
@@ -291,12 +293,23 @@ img {
 .tile {
     height: 200px;
     overflow: hidden;
-    border: 1px solid #646262;
     margin: 10px;
     border-radius: 5px;
-    color: #24160c;
     text-decoration: none;
+    color: #ecebeb;
+    transition: all .5s linear;
+    opacity: 0.7;
 }
+
+.tile:hover {
+    color: #ffffff;
+    transition: all .5s linear;
+    opacity: 1;
+    box-shadow: #b4b8b8 2px 2px;
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px);
+}
+
 .tileImage {
     height: auto;
     padding: 5px;
