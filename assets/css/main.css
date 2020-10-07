@@ -51,7 +51,7 @@ header {
     width: 100%;
     height: auto;
     background-size: cover;
-    background: url("../image/Header_background.jpg") fixed;
+    background: url("../image/headerBackground.jpg") fixed;
     position: relative;
     overflow: hidden;
     border-radius: 0 0 85% 85% / 0;
@@ -130,11 +130,40 @@ img {
 .mainFooter {
     text-align: center;
     bottom: 0;
-    height: 100px;
+    height: auto;
     width: 100%;
-    background-color: black;
+    background-color: #000000;
     color: white;
     display: block;
+}
+.basicDescription > p{
+    text-align: justify;
+    font-size: 15px;
+    font-family: Alegreya, sans-serif;
+    padding: 5px;
+}
+.basicDescription > img{
+    width: 50%;
+    display: inline-block;
+}
+.addressBlock > span{
+    display: block;
+    text-align: left;
+    font-size: 15px;
+    font-family: Alegreya, sans-serif;
+    padding: 5px;
+    margin: 5px;
+    font-weight: normal;
+}
+.addressBlock > h3{
+    text-align: left;
+    padding: 5px;
+    margin: 5px;
+}
+.addressBlock > span >a{
+    color: white;
+    padding: 5px;
+    margin: 5px;
 }
 
 .content {

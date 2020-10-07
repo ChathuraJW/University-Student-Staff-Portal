@@ -5,14 +5,12 @@ function applyTileColor() {
     let colorIndex = Array();
     for (let i = 0; i < totElement; i++) {
         let randomValue = Math.floor(Math.random() * colors.length);
-        if (colorIndex[i - 1] == randomValue) {
+        if (colorIndex[i - 1] === randomValue) {
             i = i - 1;
             continue;
         }
         colorIndex[i] = randomValue;
-        let randomColor = colors[randomValue];
-        document.getElementsByClassName('tile')[i].style.backgroundColor = randomColor;
+        document.getElementsByClassName('tile')[i].style.backgroundColor = colors[randomValue];
     }
-    localStorage.setItem("hasCodeRunBefore", true);
 }
 applyTileColor();
