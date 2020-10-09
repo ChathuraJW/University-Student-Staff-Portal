@@ -1,12 +1,12 @@
 /*fonts*/
 @font-face {
     font-family: Varela;
-    src: url('../font/Varela-Regular.ttf');
+    src: url('../../../assets/font/Varela-Regular.ttf');
 }
 
 @font-face {
     font-family: BioRhyme;
-    src: url('../font/BioRhyme-Regular.ttf');
+    src: url('../../../assets/font/BioRhyme-Regular.ttf');
 }
 
 * {
@@ -16,7 +16,12 @@
 body {
     margin: 0;
     padding: 0 20px 0 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: url("../../../assets/images/loginBackground.jpg");
 }
+
 
 /* login form input styles */
 .login input[type=text], .login input[type=password] {
