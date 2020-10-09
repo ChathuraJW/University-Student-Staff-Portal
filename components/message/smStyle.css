@@ -1,0 +1,54 @@
+
+.container{
+  width: 60%;
+  margin: auto;
+  
+}
+
+.featureBody{
+  text-align: center;
+  background-color: #A9A9A9;
+  border-top: 20px black solid;
+  border-bottom: 20px black solid;
+  border-left: 20px black solid;
+  border-right: 20px black solid;
+  border-radius: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+   
+}
+.button{
+      border: none;
+      color: white;
+      padding: 6px 18px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    .button1{
+      background-color: #4CAF50;
+    }
+    .button2{
+      background-color: #FF0000;
+    }
+
+
+.featureBody h1 {
+   
+  font-size: 40px;
+}
+
+.featureBody label{
+  font-size: 20px;
+}
+
+ 
+ 
+
+
+<
