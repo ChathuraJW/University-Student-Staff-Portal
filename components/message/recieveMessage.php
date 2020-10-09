@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Student-Staff Portal</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../components/message/rmStyle.css">
 </head>
 <body>
     <!-- include header section -->
@@ -15,7 +16,19 @@
       <h1> <b>Inbox <b></h1>
       <br>
       <br>  
-       <h2>ffff</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Message</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+        </tbody>
+      </table>
 
        
 
