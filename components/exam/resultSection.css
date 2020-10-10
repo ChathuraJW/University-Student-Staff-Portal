@@ -1,13 +1,24 @@
+@font-face {
+    font-family: Varela;
+    src: url('../../assets/font/Varela-Regular.ttf');
+}
+*{
+    font-family: Varela, sans-serif;
+}
 /*common styles for input text file and select*/
 input[type=text], input[type=file], select {
     width: 50%;
     padding: 8px;
-    display: inline-block;
     border: 1px solid gray;
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 18px;
-    min-width: 200px;
+    min-width: 300px;
+}
+.heading{
+    text-align: center;
+    font-weight: bold;
+    font-size: 45px;
 }
 select {
     width: 100%;
@@ -22,9 +33,8 @@ input[type=file] {
     width: fit-content;
     border-radius: 4px;
     border: none;
-    height: 40px;
+    height: 42px;
     padding: 9px;
-    margin: 4px;
     font-size: 18px;
     color: white;
     background-color: blue;
@@ -37,22 +47,19 @@ input[type=file] {
     font-weight: bold;
 }
 .showRadio, .showRest {
-    display: inline-grid;
     width: auto;
     padding: 20px;
     margin-right: auto;
     margin-left: auto;
 }
-#actionSection {
-    display: inline-block;
-}
+
 /*radio button section styles*/
 .showRadio label {
     font-size: 20px;
     display: inline-block;
     padding: 4px;
     border: 1px solid rgba(128, 128, 128, 0.28);
-    height: 40px;
+    height: auto;
     width: 200px;
     text-align: center;
     transition: all 0.4s linear;
@@ -69,29 +76,17 @@ input[type=file] {
 }
 /*styles for submit and cancel buttons*/
 .submitCancelButton {
-    height: 40px;
+    height: auto;
     color: white;
     border: none;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 18px;
-    width: fit-content;
     border-radius: 4px;
     padding: 9px;
     margin: 4px;
-}
-/*media query for fix sizes according to viewport size*/
-@media screen and (max-width: 545px) {
-    .showRadio, .showRest {
-        display: table;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #actionSection {
-        display: table;
-    }
+    min-width: 200px;
 }
 
 /*verifyResult Styles*/
@@ -106,7 +101,6 @@ input[type=file] {
 }
 .showFileContent {
     width: 67%;
-    /* border: 1px gray solid; */
     display: none;
     height: fit-content;
     padding: 5px 15px 10px 15px;
@@ -125,7 +119,6 @@ input[type=file] {
     padding: 8px 10px 8px 20px;
     margin: 3px;
     background-color: rgba(166, 125, 199, 0.78);
-    transition: 0.5s;
     color: black;
     border-radius: 4px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -204,7 +197,6 @@ input[type=file] {
     border-collapse: collapse;
     border: 1px solid black;
     font-size: 18px;
-    /*display: none;*/
 }
 /*Result display table styles*/
 .resultTable tr {
@@ -247,9 +239,7 @@ input[type=file] {
         margin-right: auto;
         margin-top: 20px;
     }
-    .heading{
-      text-align: center;
-    }
+
 }
 @media screen and (max-width: 760px){
     .reviewList{
@@ -422,8 +412,8 @@ input[type=file] {
 @media screen and (max-width: 900px) {
     .basicInfo,.degreeClass,.individualGPADistribution, .gradeContribution, .gpaDistribution{
         width: 100%;
-        margin-right: 0px;
-        margin-left: 0px;
+        margin-right: 0;
+        margin-left: 0;
         display: flow-root;
     }
     .basicInfo{
