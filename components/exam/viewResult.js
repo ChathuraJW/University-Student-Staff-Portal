@@ -102,7 +102,7 @@ new Chart(gradeContribution, {
 //Class Box Color Change
 let degreeClass = document.getElementById('degreeClass');
 let classNotation = document.getElementById('classNotation');
-const overAllGPA = 3.75;
+const overAllGPA = 2.75;
 if (overAllGPA >= 3.7) {
     degreeClass.style.backgroundColor = "blue";
     classNotation.innerText = "FC"

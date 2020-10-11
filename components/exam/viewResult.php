@@ -6,11 +6,7 @@
     <title>University Student-Staff Portal</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="resultSection.css">
-    <style>
-        .footer {
-            position: unset;
-        }
-    </style>
+    <link rel="stylesheet" href="../../assets/css/gridSystem.css">
 </head>
 <body>
 <!-- include header section -->
@@ -18,83 +14,95 @@
 <!-- feature body section -->
 <div class="featureBody">
     <div class="basicInfo">
-      <span class="captionLabel">Overall Information</span>
-        <div style="padding-bottom: 35px;padding-top: 50px;text-align: center;">
-            <div class="infoBlock">
-                <span class="basicInfoElement" id="overallGPA">3.619</span>
-                <label for="overallGPA">Current GPA</label>
+        <span class="captionLabel">Overall Information</span>
+        <div class="row col-4">
+            <div class="infoBox" id="">
+                <span class="captionLabel">Current GPA</span>
+                <span class="infoBoxValue" id="">3.6563</span>
             </div>
-            <div class="infoBlock">
-                <span class="basicInfoElement" id="batchRank">#31</span>
-                <label for="batchRank">Batch Rank</label>
+            <div class="infoBox" id="">
+                <span class="captionLabel">Batch Rank</span>
+                <span class="infoBoxValue" id="">200</span>
             </div>
-            <div class="infoBlock">
-                <span class="basicInfoElement" id="totalCredit">31</span>
-                <label for="totalCredit">Total Credit</label>
+            <div class="infoBox" id="">
+                <span class="captionLabel">Total Credit</span>
+                <span class="infoBoxValue" id="">23</span>
+            </div>
+            <div class="infoBox" id="degreeClass">
+                <span class="captionLabel degreeClass">Degree Class</span>
+                <span class="infoBoxValue degreeClass" id="classNotation"></span>
             </div>
         </div>
-        <span style="font-size: 14px;">GPV 4.0 is for grade A+ and A. GPV 3.7 is for grade A-.
+        <div class="row col-1">
+        <span style="font-size: 15px;">GPV 4.0 is for grade A+ and A. GPV 3.7 is for grade A-.
         GPV 3.3 is for grade B+. GPV 3.0 is for grade B. GPV 2.7 is for grade B-.
              GPV 2.3 is for grade C+. GPV 2.0 is for grade C.  GPV 1.7 is for grade C-.
              GPV 1.3 is for grade D+.  GPV 1.0 is for grade D. GPV 0.0 is for less grades.
+            <br>
+            FC -First Class degree, SU -Second Upper degree, SL -Second Lower degree, NM -Normal degree,
+            -- indicates that your GPA is insufficient to complete the degree.
         </span>
+        </div>
     </div>
-    <div class="degreeClass" id="degreeClass">
-        <span class="captionLabel" style="color: white;">Degree Information</span>
-        <span class="classNotation" id="classNotation"></span>
-        <span class="degreeClassFooter">FC -First Class degree, SU -Second Upper degree, SL -Second Lower degree, NM -Normal degree,
-            -- indicates that your GPA is insufficient to complete the degree.</span>
+    <div class="row col-1">
+        <div class="gpaDistribution">
+            <span class="captionLabel">Batch GPA Distribution</span>
+            <canvas id="gpaDistribution" class="graphCanvas" style="width: 80%"></canvas>
+        </div>
     </div>
-    <div class="gpaDistribution">
-        <span class="captionLabel">Batch GPA Distribution</span>
-        <canvas id="gpaDistribution" class="graphCanvas" style="width: 80%"></canvas>
+    <div class="row col-2">
+        <div class="individualGPADistribution">
+            <span class="captionLabel">Individual GPA Distribution</span>
+            <canvas id="individualGPADistribution" class="graphCanvas"></canvas>
+        </div>
+        <div class="gradeContribution">
+            <span class="captionLabel">Grade Contribution for GPA</span>
+            <canvas id="gradeContribution" class="graphCanvas"></canvas>
+        </div>
     </div>
 
-    <div class="individualGPADistribution">
-        <span class="captionLabel">Individual GPA Distribution</span>
-        <canvas id="individualGPADistribution" class="graphCanvas"></canvas>
-    </div>
-    <div class="gradeContribution">
-        <span class="captionLabel">Grade Contribution for GPA</span>
-        <canvas id="gradeContribution" class="graphCanvas"></canvas>
-    </div>
-    <!-- <span class="captionLabel">Semester Vice Result</span> -->
     <div class="resultViewer">
-        <?php
-        $i = 1;
-        while ($i <= 8) {
-            $sem = (round($i % 2) == 0) ? 2 : 1;
-            $year = round($i / 2);
-            echo("
+        <span class="captionLabel">Semester Vice Result</span>
+        <div class="row col-3">
+            <?php
+            $i = 1;
+            while ($i <= 8) {
+                $sem = (round($i % 2) == 0) ? 2 : 1;
+                $year = round($i / 2);
+                echo("
                     <div class='semesterResult'>
                         <span class='semesterResultHeader'>$year st Year $sem st Semester</span>
                         <div class='semesterResultViewer'>
                             <table>
                   ");
-            $j = 0;
-            while ($j < 10) {
-                echo("
+                $j = 0;
+                while ($j < rand(7, 10)) {
+                    $subject = array('Data Structures and Algorithms-1', 'Programing Using C', 'Enhancement-1', 'Programming Language Concepts', 'Foundation of Computer Science')[rand(0, 4)];
+                    $result = array('A', 'A+', 'A-', 'CM', 'B')[rand(0, 4)];
+                    echo("
                                     <tr>
-                                        <td>Data Structures and Algorithms <br> <span>SCS1201 / 3 Credits /Examination Year:2019</span></td>
-                                        <td class='result'>A-</td>
+                                        <td>$subject <br> <span>SCS1201 / 3 Credits /Examination Year:2019</span></td>
+                                        <td class='result'>$result</td>
                                     </tr>
                                 ");
-                $j++;
-            }
-            echo("
+                    $j++;
+                }
+                echo("
                             </table>
                         </div>
                     </div>
                 ");
-            $i++;
-        }
-        ?>
+                $i++;
+            }
+            ?>
+        </div>
     </div>
     <br><br>
 </div>
 
 <!-- include footer section -->
 <?php require('../../assets/php/commonFooter.php') ?>
+
 <script src="../../assets/js/Chart.js"></script>
 <script src="viewResult.js"></script>
 </body>
