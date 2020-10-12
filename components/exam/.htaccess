@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule ^(assets|rawResults|boardConfirmedResults)($|/) - [L]
+RewriteRule ^([^/]+)/? index.php?url=$1 [L,QSA]

@@ -6,7 +6,7 @@
     <title>University Student-Staff Portal</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
-    <link rel="stylesheet" href="resultSection.css">
+    <link rel="stylesheet" href="assets/resultSection.css">
 </head>
 <body>
 <!-- include header section -->
@@ -127,6 +127,6 @@
 <!-- include footer section -->
 <?php require('../../assets/php/commonFooter.php') ?>
 
-<script src="verifyResult.js"></script>
+<script src="assets/verifyResult.js"></script>
 </body>
 </html>

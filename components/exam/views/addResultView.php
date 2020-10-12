@@ -6,7 +6,7 @@
     <title>University Student-Staff Portal</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
-    <link rel="stylesheet" href="resultSection.css">
+    <link rel="stylesheet" href="assets/resultSection.css">
 </head>
 <body>
 <!-- include header section -->
@@ -15,39 +15,39 @@
 <!-- feature body section -->
 <div class="featureBody">
     <h1 class="heading">Upload Board Confirmed Exam Result</h1>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <div class="row col-3">
             <div class="showRadio">
                 <span>Examination for</span>
                 <div class="radioValue">
-                    <input type="radio" name="examinationName" id="examination1Y" value="1y">
+                    <input type="radio" name="examinationName" id="examination1Y" value="1" onclick="selectedYear(1)" required>
                     <label for="examination1Y">1<sup>st</sup> Year</label>
                 </div>
                 <br>
                 <div class="radioValue">
-                    <input type="radio" name="examinationName" id="examination2Y" value="2y">
+                    <input type="radio" name="examinationName" id="examination2Y" value="2" onclick="selectedYear(2)" required>
                     <label for="examination2Y">2<sup>st</sup> Year</label>
                 </div>
                 <br>
                 <div class="radioValue">
-                    <input type="radio" name="examinationName" id="examination3Y" value="3y">
+                    <input type="radio" name="examinationName" id="examination3Y" value="3" onclick="selectedYear(3)" required>
                     <label for="examination3Y">3<sup>st</sup> Year</label>
                 </div>
                 <br>
                 <div class="radioValue">
-                    <input type="radio" name="examinationName" id="examination4Y" value="4y">
+                    <input type="radio" name="examinationName" id="examination4Y" value="4" onclick="selectedYear(4)" required>
                     <label for="examination4Y">4<sup>st</sup> Year</label>
                 </div>
             </div>
             <div class="showRadio">
                 <span>Semester</span>
                 <div class="radioValue">
-                    <input type="radio" name="semester" id="semester1" value="1">
+                    <input type="radio" name="semester" id="semester1" value="1" onclick="selectSemester(1);" required>
                     <label for="semester1">1<sup>st</sup> Semester</label>
                 </div>
                 <br>
                 <div class="radioValue">
-                    <input type="radio" name="semester" id="semester2" value="2">
+                    <input type="radio" name="semester" id="semester2" value="2" onclick="selectSemester(2);" required>
                     <label for="semester2">2<sup>nd</sup> Semester</label>
                 </div>
                 <br>
@@ -55,12 +55,12 @@
             <div class="showRadio">
                 <span>Attempt</span>
                 <div class="radioValue">
-                    <input type="radio" name="attempt" id="attemptOne" value="F">
+                    <input type="radio" name="attempt" id="attemptOne" value="F" required>
                     <label for="attemptOne">1<sup>st</sup> Attempt</label>
                 </div>
                 <br>
                 <div class="radioValue">
-                    <input type="radio" name="attempt" id="attemptRep" value="R">
+                    <input type="radio" name="attempt" id="attemptRep" value="R" required>
                     <label for="attemptRep">Repeated Attempt<sup></sup></label>
                 </div>
             </div>
@@ -69,23 +69,31 @@
         <div class="row col-4">
             <div class="showRest">
                 <span>Subject</span>
-                <select name="subject" id="subject">
+                <select name="subject" id="subject" required>
+                    <?php
+                        foreach ($controllerData as $data){
+                            $year=ceil($data[semester]/2) -1;
+                            $semester=($data[semester]%2) ? 0 : 1 ;
+                            $semList=Array(Array(1,2),Array(3,4),Array(5,6),Array(7,8));
+                            echo ("<option value='$data[courseCode]'>".$semList[$year][$semester].". $data[name]</option>");
+                        }
+                    ?>
                 </select>
             </div>
             <div class="showRest">
                 <span>Examination Year</span>
-                <select name="examinationYear" id="examinationYear">
+                <select name="examinationYear" id="examinationYear" required>
                 </select>
             </div>
             <div class="showRest">
                 <span>Batch</span>
-                <select name="batch" id="batch">
+                <select name="batch" id="batch" required>
                 </select>
             </div>
             <div class="showRest">
                 <span>CSV Formatted Result Dataset</span>
                 <label for="resultFile" class="fileLabel" id="resultFileLabel">Upload Result Data File</label>
-                <input type="file" name="resultFile" id="resultFile"><br>
+                <input type="file" name="resultFile" id="resultFile" required><br>
             </div>
         </div>
         <br>
@@ -102,23 +110,6 @@
 
 <!-- include footer section -->
 <?php require('../../assets/php/commonFooter.php') ?>
-<script src="addResult.js"></script>
-<script>
-    //uploaded file operation
-    let fileUploaded = document.getElementById("resultFile");
-    let fileLabel = document.getElementById("resultFileLabel");
-    fileUploaded.addEventListener("change", function () {
-        if (fileUploaded.value != '') {
-            console.log("File Size is(KB): " + fileUploaded.files[0].size / 1000);
-            let uploadFormat = fileUploaded.value.toString().split('.')[1].toLowerCase();
-            if (uploadFormat == "csv") {
-                fileLabel.style.backgroundColor = "green";
-            } else {
-                fileLabel.style.backgroundColor = "red";
-                alert("Invalid file format. Please upload csv formatted file.")
-            }
-        }
-    })
-</script>
+<script src="assets/addResult.js"></script>
 </body>
 </html>
