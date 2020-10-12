@@ -1,0 +1,14 @@
+.featureBody h1{
+    font-size: 40px;
+}
+
+.featureBody ul{
+    background: #3399ff;
+    padding: 20px;
+  
+}
+
+.featureBody ul li {
+  background: #cce5ff;
+  margin: 5px;
+}

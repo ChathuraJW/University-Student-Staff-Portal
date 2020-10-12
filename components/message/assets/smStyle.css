@@ -1,22 +1,16 @@
 
-.container{
-  width: 60%;
-  margin: auto;
+ 
   
-}
+
 
 .featureBody{
   text-align: center;
   background-color: #A9A9A9;
-  border-top: 20px black solid;
-  border-bottom: 20px black solid;
-  border-left: 20px black solid;
-  border-right: 20px black solid;
-  border-radius: 15px;
   padding-top: 20px;
   padding-bottom: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
+  margin: auto;
    
 }
 .button{
@@ -45,6 +39,8 @@
 
 .featureBody label{
   font-size: 20px;
+  margin: auto;
+  text-align: center ;
 }
 
  
