@@ -6,7 +6,9 @@ Route::set('addResult', function () {
 Route::set('verifyResult', function () {
     VerifyResultController::init();
 });
-
+Route::set('addRawResult',function (){
+    AddRawResultController::init();
+});
 
 // check weather the given file exist on the site if not redirect to 404 page
 $available = FALSE;

@@ -59,18 +59,18 @@ repeatOptionOne.addEventListener("change", function () {
     batchValues.disabled = false;
 })
 
-//uploaded file operation
-let fileUploaded = document.getElementById("resultFile");
-let fileLabel = document.getElementById("resultFileLabel");
-fileUploaded.addEventListener("change", function () {
-    if (fileUploaded.value != '') {
-        console.log("File Size is(KB): " + fileUploaded.files[0].size / 1000);
-        let uploadFormat = fileUploaded.value.toString().split('.')[1].toLowerCase();
-        if (uploadFormat == "csv") {
-            fileLabel.style.backgroundColor = "green";
+//uploaded raw file operation
+let rawResultFileUploaded = document.getElementById("rawResultFile");
+let rawResultFileLabel = document.getElementById("rawResultFileLabel");
+rawResultFileUploaded.addEventListener("change", function () {
+    if (rawResultFileUploaded.value != '') {
+        console.log("File Size is(KB): "+rawResultFileUploaded.files[0].size/1000);
+        let uploadFormat = rawResultFileUploaded.value.toString().split('.')[1].toLowerCase();
+        if (uploadFormat == "ussp") {
+            rawResultFileLabel.style.backgroundColor = "green";
         } else {
-            fileLabel.style.backgroundColor = "red";
-            alert("Invalid file format. Please upload csv formatted file.")
+            rawResultFileLabel.style.backgroundColor = "red";
+            alert("Invalid file format. Please upload ussp formatted file.");
         }
     }
 })
