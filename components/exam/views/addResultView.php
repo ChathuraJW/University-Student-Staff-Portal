@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
     <link rel="stylesheet" href="assets/resultSection.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 </head>
 <body>
 <!-- include header section -->
@@ -68,7 +69,7 @@
         <br>
         <div class="row col-4">
             <div class="showRest">
-                <span>Subject</span>
+                <span>Subject <button onclick="location.reload();"><i class="fas fa-sync"></i></button></span>
                 <select name="subject" id="subject" required>
                     <?php
                         foreach ($controllerData as $data){

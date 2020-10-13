@@ -49,11 +49,13 @@ input[type=file] {
 /*overall div component styles*/
 .showRadio span, .showRest span {
     font-size: 18px;
-    display: block;
+    display: inline-block;
     padding-bottom: 14px;
     font-weight: bold;
 }
-
+.showRest span button{
+    border: none;
+}
 .showRadio, .showRest {
     width: auto;
     padding: 20px;
