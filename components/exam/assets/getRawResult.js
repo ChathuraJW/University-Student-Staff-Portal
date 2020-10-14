@@ -19,10 +19,10 @@ function savePDF() {
 }
 
 //open result data
-let elementID=document.location.href.toString().split("getRawResult.php")[1];
+let elementID=document.location.href.toString().split("getRawResult")[1];
 if(elementID!=""){
     document.getElementById("showFileContent").style.display="inline-grid";
-    let notificationCard=document.getElementById(elementID.split("=")[1]);
+    let notificationCard=document.getElementById(elementID.split("=")[1].split("&")[0]);
     notificationCard.style.backgroundColor="#93599E";
     notificationCard.style.color="white";
 }

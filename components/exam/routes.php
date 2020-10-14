@@ -3,11 +3,11 @@
 Route::set('addResult', function () {
     AddResultController::init();
 });
-Route::set('verifyResult', function () {
-    VerifyResultController::init();
-});
 Route::set('addRawResult',function (){
     AddRawResultController::init();
+});
+Route::set('getRawResult',function (){
+    GetRawResultController::init();
 });
 
 // check weather the given file exist on the site if not redirect to 404 page

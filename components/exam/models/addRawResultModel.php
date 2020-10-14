@@ -6,6 +6,7 @@ class AddRawResultModel extends Model{
         $result= Database::executeQuery("root","",$sqlQuery);
 //        create audit trail
         self::createAudit($sqlQuery,'result_data_file','INSERT','Insert when academic staff send raw result file. Related to storing file information.');
+
         if($result){
             $sqlQuery="SELECT fileID FROM result_data_file WHERE fileLocation='rawResults/$fileData' LIMIT 1";
             $result=Database::executeQuery("root","",$sqlQuery);
@@ -16,7 +17,7 @@ class AddRawResultModel extends Model{
     }
 
     public static function resultFileOwnerData($owner,$fileID){
-        $sqlQuery="INSERT INTO submit_raw_result(staffID, fileID, submitTimestamp) VALUES ('$owner',$fileID,'time()')";
+        $sqlQuery="INSERT INTO submit_raw_result(staffID, fileID, submitTimestamp) VALUES ('$owner',$fileID,NOW())";
         $result=Database::executeQuery("root","",$sqlQuery);
 //        create audit trail
         self::createAudit($sqlQuery,'submit_raw_result',"INSERT",'Insert when academic staff send raw result file. Related to storing file owner information.');
