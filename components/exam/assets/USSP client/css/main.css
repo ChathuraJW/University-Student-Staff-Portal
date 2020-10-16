@@ -1,0 +1,131 @@
+#container {
+    display: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+h1{
+    text-align: center;
+}
+.resultTable {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    text-align: center;
+    transition: 2s;
+    border-collapse: collapse;
+    border: 1px solid black;
+    font-size: 18px;
+}
+.resultTable td,th{
+    padding: 10px;
+}
+.resultTable input{
+    margin: 10px;
+    font-size: 18px;
+    width: 50%;
+}
+
+.resultTable select{
+    margin: 10px;
+    font-size: 18px;
+    width: 70px;
+}
+input[type=text],input[type=number],input[type=password], input[type=file], select {
+    width: 20%;
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 18px;
+    min-width: 300px;
+}
+button {
+    height: auto;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 9px;
+    margin: 4px;
+    min-width: 200px;
+}
+.innerGroup{
+    display: block;
+    margin: auto;
+    width: 80%;
+    height: 250px;
+    padding: 10px 20px 20px 30px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.innerGroup input{
+    margin: 15px;
+    width: 70%;
+}
+.innerGroup select{
+    margin: 15px;
+    width: 70%;
+}
+.header{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;
+    display: block;
+}
+.buttonSection{
+    padding: 20px;
+    margin: auto;
+    display: table;
+}
+.buttonSection button{
+    width: 100px;
+    margin: 10px;
+}
+
+.uploadKey input{
+    display: none;
+}
+.uploadKey label{
+    display: none;
+    text-align: center;
+    color: white;
+    background-color: #a8a8b1;
+    font-size: 30px;
+    padding: 20px;
+    margin: 15px;
+    height: 50%;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#privateKeyDisplayArea{
+    display: none;
+    width: 38%;
+    height: 235px;
+    width: fit-content;
+    margin: auto;
+
+}
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(41, 39, 39);
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top:50px ;
+    display: block;
+}
+footer span{
+    color: #f5eded;
+    text-align: center;
+}
