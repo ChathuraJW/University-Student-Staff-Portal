@@ -21,7 +21,7 @@
         <div class="featureBody">
         <div class="container">
         <div class="row col-1">
-     
+         
           <h1><b> Send Messages </b></h1>
          
       
@@ -33,18 +33,28 @@
           </div>
           
           <div class="row col-3">
-          <select id="opt1" name="opt1">
-            <option
-              value="Academic Staff">Academic Staff</option>
-            <option
-              value="None">None</option>
+          <select id="opt1" name="opt1" >
+          
+          <option value="Academic Staff">Academic Staff</option>
+            <option value="None">None</option>
+             
+             
+          <?php 
+           
+            while($rows = $data1->fetch_assoc())
+            {
+              $userName = $rows['userName'];
+              
+              echo "<option value = '$userName'>$userName</option>";
+            }
+          ?>
        
           </select>
 
           <select id="opt2" name="opt2">
        
             <option
-              value="Academic Supportive Head">Academic Supportive Head</option>
+              value="Academic Supportive Head">Administrative Staff</option>
             <option
               value="None">None</option>
           </select>
@@ -81,7 +91,7 @@
           <label> Message </label>
           
 </div>
-        <div class="row col-1">
+        <div class="row col-2">
           <textarea name = "Message" rows="5" cols="70"></textarea>
           </div>
           <br>
