@@ -24,7 +24,7 @@
 //     fileReader.readAsText(fileToLoad, "UTF-8");
 // }
 function loadSubjectData(){
-    let url = "http://localhost/USSP/assets/php/dataSendAPI.php?loadSubjectData=true";
+    let url = "http://localhost/USSP/assets/API/resultCreateClinetAPI.php?loadSubjectData=true";
     $.getJSON(url,function (data) {
         if(data){
             data.forEach(function (item) {
@@ -43,8 +43,8 @@ function processData(){
         alert("Complete all fields before authenticate and make sure to use correct credentials.");
         location.reload();
     }
-    let url = "http://localhost/USSP/assets/php/dataSendAPI.php?username=" +username+ "&password=" + CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-    console.log(url);
+    let url = "http://localhost/USSP/assets/API/resultCreateClinetAPI.php?username=" +username+ "&password=" + CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+    // console.log(url);
     $.getJSON(url,function(data){
             if(data){
                 document.getElementById('container').style.display='block';
@@ -66,8 +66,8 @@ function processData(){
 }
 let totalIndex=0;
 function createList(subjectCode,attempt){
-    let url = "http://localhost/USSP/assets/php/dataSendAPI.php?subjectCode=" + subjectCode + "&attempt=" + attempt;
-    console.log(url);
+    let url = "http://localhost/USSP/assets/API/resultCreateClinetAPI.php?subjectCode=" + subjectCode + "&attempt=" + attempt;
+    // console.log(url);
     $.getJSON(url, function (data) {
         let table = document.getElementById("loadHear");
         let tempIndex=0;
@@ -114,7 +114,7 @@ function generateFile() {
     // privateKeyEncrypt(stringArray);
 }
 // function publicKeyEncrypt(strArray){
-//     let url = "http://localhost/USSP/assets/php/dataSendAPI.php?task=getPubKey";
+//     let url = "http://localhost/USSP/assets/API/resultCreateClinetAPI.php?task=getPubKey";
 //     let encArray=new Array();
 //     $.getJSON(url, function (key) {
 //         let publicKey = key[0]['publicKey'];
@@ -144,7 +144,7 @@ function generateFile() {
 // }
 function downloadFile(filename, text) {
     let element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('href', 'data:all/plain;charset=utf-8,' + encodeURIComponent(text));
     element.setAttribute('download', filename);
     element.style.display = 'none';
     document.body.appendChild(element);

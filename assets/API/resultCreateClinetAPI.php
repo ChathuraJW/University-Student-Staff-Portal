@@ -1,6 +1,6 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-require_once('Database.php');
+require_once('../php/Database.php');
 if(isset($_GET['dataSet'])){
     //dataSet=subjectData
     if($_GET['dataSet']=='subjectData'){

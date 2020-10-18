@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Student-Staff Portal</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="resultSection.css">
+    <link rel="stylesheet" href="assets/resultSection.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
 </head>
 <body>
@@ -18,15 +18,15 @@
         <div class="row col-4">
             <div class="infoBox" id="">
                 <span class="captionLabel">Current GPA</span>
-                <span class="infoBoxValue" id="">3.6563</span>
+                <span class="infoBoxValue" id="valueGPA"><?php echo(round($controllerData[0],4))?></span>
             </div>
             <div class="infoBox" id="">
                 <span class="captionLabel">Batch Rank</span>
-                <span class="infoBoxValue" id="">200</span>
+                <span class="infoBoxValue" id=""><?php echo($controllerData[1])?></span>
             </div>
             <div class="infoBox" id="">
                 <span class="captionLabel">Total Credit</span>
-                <span class="infoBoxValue" id="">23</span>
+                <span class="infoBoxValue" id=""><?php echo($controllerData[2])?></span>
             </div>
             <div class="infoBox" id="degreeClass">
                 <span class="captionLabel degreeClass">Degree Class</span>
@@ -65,34 +65,32 @@
         <span class="captionLabel">Semester Vice Result</span>
         <div class="row col-3">
             <?php
-            $i = 1;
-            while ($i <= 8) {
-                $sem = (round($i % 2) == 0) ? 2 : 1;
-                $year = round($i / 2);
+            $semester = 1;
+            foreach ($controllerData[3] as $semesterData){
+                $sem = (round($semester % 2) == 0) ? 2 : 1;
+                $year = round($semester / 2);
                 echo("
-                    <div class='semesterResult'>
-                        <span class='semesterResultHeader'>$year st Year $sem st Semester</span>
-                        <div class='semesterResultViewer'>
-                            <table>
+                        <div class='semesterResult'>
+                            <span class='semesterResultHeader'>$year<sup>st</sup> Year $sem<sup>st</sup> Semester</span>
+                            <div class='semesterResultViewer'>
+                                <table>
                   ");
-                $j = 0;
-                while ($j < rand(7, 10)) {
-                    $subject = array('Data Structures and Algorithms-1', 'Programing Using C', 'Enhancement-1', 'Programming Language Concepts', 'Foundation of Computer Science')[rand(0, 4)];
-                    $result = array('A', 'A+', 'A-', 'CM', 'B')[rand(0, 4)];
+                //create subject entry
+                foreach ($semesterData as $subjectEntry){
                     echo("
-                                    <tr>
-                                        <td>$subject <br> <span>SCS1201 / 3 Credits /Examination Year:2019</span></td>
-                                        <td class='result'>$result</td>
-                                    </tr>
-                                ");
-                    $j++;
+                         <tr>
+                             <td>".$subjectEntry['name']." <br> <span>".$subjectEntry['courseCode']." / ".$subjectEntry['creditValue']." Credits /Examination Year:".$subjectEntry['yearOfExam']."</span></td>
+                             <td class='result'>".$subjectEntry['result']."</td>
+                         </tr>
+                    ");
                 }
                 echo("
                             </table>
                         </div>
                     </div>
                 ");
-                $i++;
+//                increase semester value by 1
+                $semester++;
             }
             ?>
         </div>
@@ -102,8 +100,8 @@
 
 <!-- include footer section -->
 <?php require('../../assets/php/commonFooter.php') ?>
-
+<script src="../../assets/js/jquery.js"></script>
 <script src="../../assets/js/Chart.js"></script>
-<script src="viewResult.js"></script>
+<script src="assets/viewResult.js"></script>
 </body>
 </html>

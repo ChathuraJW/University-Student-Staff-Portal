@@ -324,7 +324,7 @@ input[type=file] {
 .gpaDistribution {
     height: fit-content;
     display: flow-root;
-    width: 65%;
+    width: 80%;
     margin: auto;
     padding: 20px;
     border-radius: 5px;

@@ -9,6 +9,9 @@ Route::set('addRawResult',function (){
 Route::set('getRawResult',function (){
     GetRawResultController::init();
 });
+Route::set('viewResult',function (){
+    ViewResultController::init();
+});
 
 // check weather the given file exist on the site if not redirect to 404 page
 $available = FALSE;
