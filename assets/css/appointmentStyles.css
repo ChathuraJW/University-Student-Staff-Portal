@@ -1,14 +1,24 @@
+@font-face {
+    font-family: Varela;
+    src: url('../../../assets/font/Varela-Regular.ttf');
+}
+
+.featureBody {
+    font-family: Varela, sans-serif;
+}
 .form1{
     padding: 0px 100px 0px 500px ;
     border: none;
 }
 .requestform{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
     background-color: rgb(182, 231, 202);
-    width: 60%;
-    border: none;
+    width: 100%;
+    /* border: none; */
     border-width: 10px;
-    padding-right:40px;
+    /* padding-right:40px; */
     display:table-cell;
+    height: fit-content;
 }
 .newhead{
     color: rgb(9, 85, 121);
@@ -16,30 +26,39 @@
     
 }
 .form2{    
-    width: 50%;
+    /* width: 50%; */
     border-style: outset;
     border-width: 10px;
     border: black;
-    
+    /* padding-left:50px; */
+    text-align: center;
     /* margin: 10px 40px 50px 40px; */
 }
+
 .dataraws{
-    margin-top: 10px;
-    margin-bottom: 10px;
+    /* border-style: solid; */
+    /* width:100%; */
+    margin-bottom:15px;
+    /* margin-left:110px; */
+    padding-bottom:15px;
+    /* margin-top: 10px; */
     display: flex;
     border: none;
-
+    outline: none;
+    /* border-width:2px; */
+    /* margin:0 auto; */
 }
+
 #description{
     /* border-style: solid; */
     border: none;;
     margin-top: 10px;
     margin-bottom: 10px;
     display: flex;
-    padding-right: 150px;
+    /* padding-right: 150px; */
     padding-bottom: 100px;
     /* border-color: rgb(212, 208, 208); */
-    width:210%;
+    /* width:210%; */
 }
 .lable{
     margin-bottom: 30px;
@@ -64,89 +83,86 @@
 
 }
 #head{
-    margin-left:196px;
+    margin:auto;
+    margin-top: 50px;
+    margin-bottom: 30px;
     padding-bottom:10px;
 }
-.navlink{
-    border:none;
-    background:none;
-    cursor:pointer;
-    font-family:Arial, Helvetica, sans-serif;
-    font-weight:bold;
-    font-size:15px;
-    height:45px;
-    outline:none;
-}
+
 .navlink:hover{
-    background-color: rgb(55, 127, 139);  
+    background-color: rgb(58, 189, 212);  
 }
+
 .appointment:hover{
     background-color: #cacbcc;
+    color: rgb(252, 252, 252);
     cursor:pointer;
 }
 
-
 .appointment{
-    width:70%;
+    width:100%;
     border: none;
-    padding:auto;
     background-color: #e7e8e9;
-    margin-left:196px;
-    margin-bottom:10px
+    outline: none;
+    height: 35px;
+    text-decoration: none;
     
+}
+.appointmentDescription{
+    margin-top: 7px;
+    margin-left: 5px;
+    color: rgb(43, 39, 39);
 }
 #apptp{
     text-align:left;
     padding-left:20px;
 }
 #messageContent1{
-    border-style: solid;
-    border-color: rgb(102, 150, 153);
+    /* border-style: solid; */
+    /* border-color: rgb(102, 150, 153); */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgb(49, 113, 117), 0 6px 20px 0 rgb(30, 97, 102);
     border-width: 5px;
     background-color: rgb(245, 244, 245);
+    margin-top: 20px;
+    width: 40%;
+}
 
-}
-.navibar{
-    width:100%;
-    border: none;
-    background-color: rgb(148, 195, 238);
-    margin-bottom:4px;
-    height:45px;
-    
-}
 
 .content{
     /* display:inline-block; */
     /* text-align:center; */
     text-align:center;
     font-size:18px;
-    width: 40%;
+    width: 70%;
     background-color: beige;
     height: fit-content;
     padding: 30px;           
-    margin-top: 100px;
+    /* margin-top: 100px; */
     margin-left: auto;
     margin-right: auto;
     
 }
-
-.topic{
+/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+.topicNew{
     width:100%;
     padding:15px;
-    background-color: rgb(204, 233, 238);
-    
+    background-color: rgb(204, 233, 238);   
+}
+.topicHistory{
+    width:100%;
+    padding:15px;
+    background-color: rgb(241, 160, 236);   
 }
 .ttl{
     display:table;
     margin-bottom:10px;
+    width:100%;
 }
 .vale{
     display:table-cell;
     text-align:left;
-    padding-right:20px;
-}
-#i{
-    width:120px;
+    /* padding-right:20px; */
 }
 .btn{
     border:none;
@@ -156,8 +172,8 @@
     border-radius: 3px;
     font-weight:bold; 
     display: table-cell;
-    margin-bottom: 5px;;               
-
+    margin-bottom: 5px;              
+    outline: none;
 }
 #btn1:hover{
     cursor:pointer;
@@ -180,45 +196,66 @@
     background-color: rgba(179, 226, 211, 0.4);
 }
 #messageContent2{
-    border-style: solid;
-    border-color: rgb(134, 89, 134);
+    /* border-style: solid;
+    border-color: rgb(134, 89, 134); */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgb(134, 28, 129), 0 6px 20px 0  rgb(201, 66, 194);
     border-width: 5px;
     background-color: rgb(245, 244, 245);
+    margin-top: 100px;
+    width:40%;
+}
+.descriptionDetails{
+    width: 75%;
+    margin: auto;
+    font-size: 13px;
 }
 .navibar{
+    display:table;
     width:100%;
     border: none;
     background-color: rgb(148, 195, 238);
-    margin-bottom:4px;
+    /* margin-bottom:4px; */
     height:45px;
     
 }
 .navlink{
+    display:table-cell;
     border:none;
     background:none;
     cursor:pointer;
-    font-family:Arial, Helvetica, sans-serif;
+    /* font-family:Arial, Helvetica, sans-serif; */
     font-weight:bold;
     font-size:15px;
     height:45px;
+    outline:none;
 }
-.navlink:hover{
-    background-color: rgb(55, 127, 139);
+.navibar{
+    display:table;
+    width:100%;
+    border: none;
+    background-color: rgb(148, 195, 238);
+    /* margin-bottom:4px; */
+    height:45px;
     
 }
+
 .Myappointments{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
     vertical-align: top;
     position:top;
     margin-bottom: 50px;
-    width: 40%;
+    width: 98%;
     display:table-cell; 
 }
+
 .appoint{
-    margin-left: 50px;
+    /* margin-left: 10px; */
     /* margin-right:15px; */
     border-width: 0.5px;
-    margin-bottom:3px;
-    width:86%;
+    /* width:auto; */
+    /* margin-bottom:-30px; */
+    /* width:97%; */
     height:43px;
     text-align:left;
     white-space:nowrap;
@@ -231,11 +268,9 @@
     background-color: #cacbcc;
     cursor:pointer;
 }
-.form2{
-    padding-left:50px;
-}
+
 .button{
-    width:210%;
+    /* width:210%; */
     text-align:center;
     border:none;
     padding:10px;
@@ -247,65 +282,55 @@
     cursor:pointer;
 
 }
-.dataraws{
-    /* border-style: solid; */
-    width:100%;
-    margin-bottom:15px;
-    margin-left:110px;
-    padding-bottom:15px;
-    align:center;
-    /* border-width:2px; */
-    /* margin:0 auto; */
-}
+
 .tabcontaint{
-    margin:auto;
     display:table;
-    width:75%;
-    margin-right:200px;
+    margin:auto;
+    width:96%;
     margin-bottom:30px;
+}
+.subTab{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.list{
+    margin-bottom: 50px;
 }
 .tabcontaint2{
+
     margin:auto;
-    display:table;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 30px 30px 0 rgba(0, 0, 0, 0.19);
     width:100%;
-    /* margin-left:200px; */
     margin-bottom:30px;
-    background-color: rgb(192, 238, 233);
 }
+
 #parr{
     padding-bottom:20px;    
 }
 .profile{
-    
-    background-color: rgb(245, 212, 151);
-    width:170px;
-    margin:5px;
-    border-style:solid;
-    border-width: 5px;
-    border-color: rgb(192, 150, 59);
-}
-.availability{
-    
-    /* display:inline; */
-    /* text-align:justify; */
-    text-align:center;
-    width:75%;
-    margin-left:120px;
-    
-}
-.appointmentMessage{
-    /* display:none; */
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(179, 226, 211, 0.4);
-}
+    /* margin-left: 15%;
+    margin-right: 15%; */
+    /* height: fit-content; */
+    /* text-align:left; */
 
-#message2{
-                
+    background-color: rgb(248, 226, 186);
+    width:95%;
+    margin: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 30px 30px 0 rgba(0, 0, 0, 0.19);
+    height: 80%;
+    /* margin:5px; */
+    /* border-style:solid; */
+    /* border-width: 2px; */
+    /* border-color: rgb(192, 150, 59); */
+}
+.details{
+    font-size: 13px;
+}
+.profData{
+    height: 18%;
+}
+#message2{                
     background-color: rgb(227, 171, 241,0.4);
 }
 .footer{
@@ -313,10 +338,11 @@
 }
 .close {
     color: #aaaaaa;
-    float: right;
-    font-size: 28px;
+    float:right;
+    float: inline-end;
+    font-size:20px;
+    height:25px;
     font-weight: bold;
-    
 }
 .close:hover,
 .close:focus {
@@ -324,9 +350,16 @@
     text-decoration: none;
     cursor: pointer;
 }
+.reply{
+    width:100%;
+    background-color: #eeecec;
+    padding-bottom: 100px;
+    border: solid;
+    border-width: 0.5px;
+    outline:none;
+}
 
 
 
-.apointset{
-    margin-bottom: 50px;
-    }
+
+
