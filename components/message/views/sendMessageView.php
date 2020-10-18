@@ -31,6 +31,7 @@
           <label for="opt"> Enter the contacts </label>
            
           </div>
+           
           
           <div class="row col-3">
           <select id="opt1" name="opt1" >
@@ -39,15 +40,17 @@
             <option value="None">None</option>
              
              
-          <?php 
+                    <?php
+                     
+                    foreach ($controllerData[0] as $data){
+                       
+                      echo ("<option value='$data[userName]'>".$data['fullName']. " -  ".$data['userName']." </option>" );
+                    }
+                    ?>
+                
+
+             
            
-            while($rows = $data1->fetch_assoc())
-            {
-              $userName = $rows['userName'];
-              
-              echo "<option value = '$userName'>$userName</option>";
-            }
-          ?>
        
           </select>
 
@@ -57,14 +60,29 @@
               value="Academic Supportive Head">Administrative Staff</option>
             <option
               value="None">None</option>
+              <?php
+                     
+                     foreach ($controllerData[1] as $data){
+                        
+                       echo ("<option value='$data[userName]'>".$data['fullName']. " -  ".$data['userName']." </option>" );
+                     }
+              ?>
           </select>
 
-          <select id="opt3" name="opt3">
+          <select id="administrative" name="administrative">
        
             <option
               value="Academic Supportive Staff">Academic Supportive Staff</option>
             <option
               value="None">None</option>
+
+              <?php
+                     
+                     foreach ($controllerData[2] as $data){
+                        
+                       echo ("<option value='$data[userName]'>".$data['fullName']. " -  ".$data['userName']." </option>" );
+                     }
+              ?>
        
           </select>
            
