@@ -24,7 +24,7 @@
             $i = 0;
             foreach ($controllerData as $row) {
 //                echo($row[1]['subjectCode']);
-                $url = "?fileID=" . $row[1]['fileID'] . "&examinationYear=" . $row[1]['yearOfExam'] . "&semester=" . $row[1]['semester'] . "&batch=" . $row[1]['batch'] . "&subject=" . $row[1]['subjectCode'] . "&attempt=" . $row[1]['attempt'] . "&filePath=" . $row[1]['fileLocation'];
+                $url = "?fileID=" . $row[1]['fileID'] . "&examinationYear=" . $row[1]['yearOfExam'] . "&semester=" . $row[1]['semester'] . "&batch=" . $row[1]['batch'] . "&subject=" . $row[1]['subjectCode'] . "&attempt=" . $row[1]['attempt'] . "&filePath=" . $row[1]['fileLocation']."&sendBy=".strtoupper($row[0]);
                 $attempt = ($row[1]['attempt'] == 'F') ? 'First Attempt' : 'Repeat Attempt';
                 $semester = ceil($row[1]['semester'] / 2) . "Y (" . ($row[1]['semester'] % 2 == 0 ? 2 : 1) . " S)";
                 echo("
@@ -95,6 +95,11 @@
                                             <td>Attempt</td>
                                             <td class='Separator'>:</td>
                                             <td>" . $attempt . "</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Send By</td>
+                                            <td class='Separator'>:</td>
+                                            <td>" . $_GET['sendBy'] . "</td>
                                         </tr>
                                     </table>
                                 

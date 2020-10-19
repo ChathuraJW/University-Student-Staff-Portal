@@ -6,7 +6,7 @@ class ViewResultModel extends Model{
         $maxSemester=Database::executeQuery("student","student@16",$sqlQuery)[0]['maxSemester'];
         $returnValue=array();
         for($i=1;$i<=$maxSemester;$i++){
-            $sqlQuery="SELECT * FROM student_result WHERE regNo='$regNo' AND semester=$i ORDER BY courseCode ASC";
+            $sqlQuery="SELECT * FROM student_result WHERE regNo='$regNo' AND semester=$i ORDER BY courseCode";
             $result=Database::executeQuery("student","student@16",$sqlQuery);
             array_push($returnValue,$result);
         }

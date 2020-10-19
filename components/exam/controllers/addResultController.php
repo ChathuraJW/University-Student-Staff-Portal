@@ -24,22 +24,25 @@ class AddResultController extends Controller{
                 //upload file into directory
                 $name = $_FILES['resultFile']['name'];
                 $temp_name = $_FILES['resultFile']['tmp_name'];
+                $location = "./boardConfirmedResults/$fileName";
                 if (isset($name) and !empty($name)) {
-                    $location = './boardConfirmedResults/';
-                    if (move_uploaded_file($temp_name, $location . $fileName)) {
+                    if (move_uploaded_file($temp_name, $location)) {
                         $isFileUploaded = true;
                     }
                 }
             }
 //            check operation status
             if ($isFileUploaded && $isQueryExecuted) {
-                echo("
-                    <script>alert('Result file upload successful please wait for the SAR confirmation.')</script>
-                ");
+                echo("<script>alert('Result file upload successful. Wait few times data begins to process.')</script>");
+//                add result to database
+                $isSuccess = AddResultModel::processFinalResultData($examinationYear, $attempt,$batch, $subject, $location);
+                if ($isSuccess) {
+                    echo("<script>alert('Operation Successful.')</script>");
+                } else {
+                    echo("<script>alert('Operation Failed.')</script>");
+                }
             } else {
-                echo("
-                    <script>alert('Something went wrong. Please try again.')</script>
-                ");
+                echo("<script>alert('Something went wrong. Please try again.')</script>");
             }
         }
     }
