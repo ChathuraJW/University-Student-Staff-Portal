@@ -23,6 +23,40 @@ class ViewResultModel extends Model{
         return Database::executeQuery("student","student@16",$sqlQuery)[0]['currentGPA'];
     }
     public static function getCurrentRank(){
-        return 31;
+        $regNo=$_COOKIE['userName'];
+        $sqlQuery="SELECT studentGroup,currentGPA FROM student WHERE regNo='$regNo'";
+        $result=Database::executeQuery("student","student@16",$sqlQuery);
+        $userGroup=  $result[0]['studentGroup'];
+        $userGPA=  $result[0]['currentGPA'];
+//        create student batch identification Eg: 16CS1 ==> 16CS
+        if (strlen($userGroup) == 5)
+            $userGroup = rtrim(rtrim($userGroup, "1"), "2");
+//        echo($userGroup);
+        $sqlQuery = "SELECT currentGPA FROM student WHERE studentGroup LIKE '$userGroup%'";
+        $result = Database::executeQuery("student", "student@16", $sqlQuery);
+        $resultSet=array();
+        foreach ($result as $userEntry){
+            array_push($resultSet,$userEntry['currentGPA']);
+        }
+        $rank=1;
+        $i=1;
+//        error clean variable is deal if more than one student have same GPA situation
+        $errorClean=0;
+        foreach ($resultSet as $pointGPA){
+//            check user GAP with dataset
+            if($pointGPA!==$userGPA){
+                if($pointGPA!==$resultSet[$i]){
+                    $rank+=$errorClean;
+                    $rank++;
+                    $errorClean=0;
+                }else{
+                    $errorClean++;
+                }
+            }else{
+                break;
+            }
+            $i++;
+        }
+        return $rank;
     }
 }

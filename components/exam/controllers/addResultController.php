@@ -1,7 +1,9 @@
 <?php
 
-class AddResultController extends Controller{
-    public static function init(){
+class AddResultController extends Controller
+{
+    public static function init()
+    {
         $passedValue = AddResultModel::getSubjectData();
         self::createView("addResultView", $passedValue);
         //get data and store in variable to save in DB
@@ -35,7 +37,7 @@ class AddResultController extends Controller{
             if ($isFileUploaded && $isQueryExecuted) {
                 echo("<script>alert('Result file upload successful. Wait few times data begins to process.')</script>");
 //                add result to database
-                $isSuccess = AddResultModel::processFinalResultData($examinationYear, $attempt,$batch, $subject, $location);
+                $isSuccess = AddResultModel::processFinalResultData($examinationYear, $attempt, $batch, $subject, $location);
                 if ($isSuccess) {
                     echo("<script>alert('Operation Successful.')</script>");
                 } else {

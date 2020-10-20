@@ -37,13 +37,8 @@
                         </div>
                         <div>
                             <span>Password</span><br/>
-                            <input id="password" name="password" required type="password" autocomplete="false">
+                            <input id="password" name="password" required type="password">
                         </div>
-                    </div>
-                    <div class="uploadKey">
-                        <br/>
-                        <input type="file" name="privateKeyFile" id="privateKeyFile" accept=".key" disabled>
-                        <label for="privateKeyFile" id="privateKeyLabel">User Private Key File</label>
                     </div>
                 </div>
             </div>
@@ -64,9 +59,6 @@
             <th>Result</th>
         </tr>
     </table>
-    <div class="row col-1">
-        <textarea name="" id="privateKeyDisplayArea"></textarea>
-    </div>
     <div class="buttonSection">
         <button id="submit" style="background-color: green" type="button" onclick="generateFile();">Generate File</button>
         <button id="cancelFile" style="background-color: red" type="reset" onclick="location.reload();">Cancel</button>
@@ -78,7 +70,6 @@
 </footer>
 <script src="js/main.js"></script>
 <script src="js/crypto-js.min.js"></script>
-<script src="js/jsencrypt.min.js"></script>
 <script src="js/jquery-3.5.1.js"></script>
 </body>
 </html>

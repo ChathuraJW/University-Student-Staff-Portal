@@ -11,11 +11,12 @@ if(isset($_GET['dataSet'])){
 }else if(isset($_GET['username'])){
     $userName=$_GET['username'];
     $password=$_GET['password'];
-    $sqlQuery="SELECT * FROM user WHERE userName='$userName' and role='AC' LIMIT 1";
+    $role=$_GET['role'];
+    $sqlQuery="SELECT * FROM user WHERE userName='$userName' and role='$role' LIMIT 1";
     $result=Database::executeQuery("academicStaff","academicStaff@16",$sqlQuery);
     $returnValue=false;
     if(sizeof($result)>0){
-        $sqlQuery = "SELECT userName,password, salutation, fullName, role FROM `user` WHERE `userName`='$userName'";
+        $sqlQuery = "SELECT userName,password, salutation, fullName, role FROM user WHERE userName='$userName'";
         $result=Database::executeQuery("academicStaff","academicStaff@16",$sqlQuery);
         if(($result[0]["password"]) == $password) {
             $returnValue=$result;

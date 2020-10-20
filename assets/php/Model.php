@@ -6,7 +6,7 @@ class Model{
         $auditQuery="INSERT INTO audit_log(userID, executedQuery,
                         affectedTable, eventType, description, timestamp)
                         VALUES ('$user','$executedQuery','$affectedTable','$eventType','$description',NOW())";
-        Database::executeQuery("root","",$auditQuery);
+        return Database::executeQuery("root","",$auditQuery);
     }
 
     //subject data getting function

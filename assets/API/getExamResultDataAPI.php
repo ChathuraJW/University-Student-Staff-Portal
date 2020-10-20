@@ -65,8 +65,7 @@ if (isset($_GET['activity']) & $_GET['activity'] == 'GPADistribution') {
 
     echo(json_encode($returnValue));
 }
-function getGPV($result)
-{
+function getGPV($result){
     switch ($result) {
         case 'A':
         case 'A+':

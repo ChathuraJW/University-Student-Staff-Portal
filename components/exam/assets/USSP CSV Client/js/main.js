@@ -1,28 +1,3 @@
-//uploaded key file operation
-// let keyFileUploaded = document.getElementById("privateKeyFile");
-// let keyFileLabel = document.getElementById("privateKeyLabel");
-// keyFileUploaded.addEventListener("change", function () {
-//     if (keyFileUploaded.value != '') {
-//         let uploadFormat = keyFileUploaded.value.toString().split('.')[1].toLowerCase();
-//         if (uploadFormat == "key") {
-//             keyFileLabel.style.backgroundColor = "green";
-//             readPrivateKeyFile();
-//         } else {
-//             keyFileLabel.style.backgroundColor = "red";
-//             alert("Invalid file format. Please upload ussp formatted file.");
-//         }
-//     }
-// })
-
-// function readPrivateKeyFile(){
-//     let fileToLoad = document.getElementById("privateKeyFile").files[0];
-//     let fileReader = new FileReader();
-//     fileReader.onload = function(fileLoadedEvent){
-//         let textFromFileLoaded = fileLoadedEvent.target.result;
-//         document.getElementById("privateKeyDisplayArea").value = textFromFileLoaded;
-//     };
-//     fileReader.readAsText(fileToLoad, "UTF-8");
-// }
 function loadSubjectData(){
     let url = "http://localhost/USSP/assets/API/resultCreateClinetAPI.php?loadSubjectData=true";
     $.getJSON(url,function (data) {
@@ -43,8 +18,8 @@ function processData(){
         alert("Complete all fields before authenticate and make sure to use correct credentials.");
         location.reload();
     }
-    let url = "http://localhost/USSP/assets/API/resultCreateClinetAPI.php?username=" + username+ "&role=AS" + "&password=" + CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-    console.log(url);
+    let url = "http://localhost/USSP/assets/API/resultCreateClinetAPI.php?username=" + username + "&role=AD" + "&password=" + CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+    // console.log(url);
     $.getJSON(url,function(data){
             if(data){
                 document.getElementById('container').style.display='block';
@@ -77,7 +52,7 @@ function createList(subjectCode,attempt){
             let row = table.insertRow(index+1);
             row.insertCell(0).innerHTML=index+1;
             row.insertCell(1).innerHTML ="<input type='number' name='' id='"+indexID+"' maxlength='8' value='"+item['studentIndexNo']+"' required>";
-            row.insertCell(2).innerHTML ="<input type='number' name='' id='"+resultID+"' max='100' required>";
+            row.insertCell(2).innerHTML ="<select name = '' id = '"+resultID+"' required><option value='A+'>A+</option><option value='A'>A</option><option value='A-'>A-</option><option value='B+'>B+</option><option value='B'>B</option><option value='B-'>B-</option><option value='C+'>C+</option><option value='C'>C</option><option value='C-'>C-</option><option value='D+'>D+</option><option value='D'>D</option><option value='E'>E</option><option value='F'>F</option><option value='NC'>NC</option><option value='CM'>CM</option></select>";
             $("#"+indexID).prop('disabled', true);
             tempIndex++;
         });
@@ -86,7 +61,6 @@ function createList(subjectCode,attempt){
 }
 
 function generateFile() {
-    // let stringArray=new Array();
     let finalString="Serial Number, Index Number, Result\n";
     for (let i=1;i<=totalIndex;i++){
         let indexID="index"+i;
@@ -100,48 +74,11 @@ function generateFile() {
         $("#"+resultID).prop('disabled', true);
         let resultRow=i+','+indexValue+','+resultValue+'\n';
         finalString=finalString.concat(resultRow);
-        // data partitioning
-        // if(i%5==0){
-        //     stringArray.push(finalString);
-        //     finalString=new String();
-        // }
     }
-    downloadFile("USSPUploadableResult.ussp",finalString);
+    downloadFile("USSPUploadableResult.csv",finalString);
     location.reload();
-    // stringArray.push(finalString);
-    // console.log(stringArray);
-    //do encryption
-    // privateKeyEncrypt(stringArray);
 }
-// function publicKeyEncrypt(strArray){
-//     let url = "http://localhost/USSP/assets/API/resultCreateClinetAPI.php?task=getPubKey";
-//     let encArray=new Array();
-//     $.getJSON(url, function (key) {
-//         let publicKey = key[0]['publicKey'];
-//         const encrypt = new JSEncrypt();
-//         encrypt.setPublicKey(publicKey);
-//         for (let i=0;i<strArray.length;i++){
-//             let result=encrypt.encrypt(strArray[i]);
-//             encArray.push(result);
-//         }
-//         // console.log(encArray);
-//         privateKeyEncrypt(encArray)
-//         // downloadFile("result.ussp",encArray[0]);
-//     });
-// }
-// function privateKeyEncrypt(stringArray){
-//     let encArray=new Array();
-//     let finalStr=new String();
-//     const encrypt = new JSEncrypt();
-//     encrypt.setPrivateKey(document.getElementById('privateKeyDisplayArea').value);
-//     for (let i=0;i<stringArray.length;i++){
-//             let result=encrypt.encrypt(stringArray[i]);
-//             // encArray.push(result);
-//             finalStr=finalStr+"\n"+result;
-//     }
-//     // console.log(encArray);
-//     downloadFile("result.ussp",finalStr);
-// }
+
 function downloadFile(filename, text) {
     let element = document.createElement('a');
     element.setAttribute('href', 'data:all/plain;charset=utf-8,' + encodeURIComponent(text));
