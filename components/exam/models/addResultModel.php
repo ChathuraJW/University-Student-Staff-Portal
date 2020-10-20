@@ -29,7 +29,9 @@ class AddResultModel extends Model{
                     continue;
                 } else {
                     $studentIndex = $resultEntry[1];
-                    $result = trim($resultEntry[2],' ');
+//                    cleanup string for take result value
+                    $result = trim(preg_replace('/[^a-zA-Z0-9 + -]/s', '', $resultEntry[2]), ' ');
+//                    $result=trim(explode($resultEntry[2],'\n')[0],' ');
                     $enrollmentID = self::getEnrollmentID($studentIndex, $subject, $attempt);
 //                    update GPA of student
                     self::updateGPA($studentIndex, $creditForSubject, $result);
@@ -40,9 +42,9 @@ class AddResultModel extends Model{
             $sqlQuery .= ";";
             Database::executeQuery("administrativeGeneral", "administrativeGeneral@16", $sqlQuery);
 //            create audit trail
-            $result = self::createAudit($sqlQuery, 'result', "INSERT", 'Insert all result as a bulk.');
+            $returnValue = self::createAudit($sqlQuery, 'result', "INSERT", 'Insert all result as a bulk.');
             fclose($resultFile);
-            return $result;
+            return $returnValue;
         }
         return false;
     }
@@ -57,13 +59,14 @@ class AddResultModel extends Model{
         $totalCredit = Database::executeQuery("student", "student@16", $sqlQuery)[0]['totalCredit'];
         $sqlQuery = "SELECT currentGPA FROM student WHERE indexNo='$studentIndex'";
         $currentGPA = Database::executeQuery("student", "student@16", $sqlQuery)[0]['currentGPA'];
-
-        if($currentGPA==0 || $totalCredit==0){
-            $newGPA=self::getGPV($result);
-        }else{
-            $newGPA = ($currentGPA * $totalCredit + self::getGPV($result) * $subjectCredit) / $totalCredit;
+        if ($currentGPA == 0 || $totalCredit == 0) {
+            $newGPA = self::getGPV($result);
+        } else {
+            $newGPA = (($currentGPA * $totalCredit) + (self::getGPV($result) * $subjectCredit)) / ($totalCredit + $subjectCredit);
         }
+        if ($newGPA > 4.0000) $newGPA = 4.0000;
         $sqlQuery = "UPDATE student SET currentGPA=$newGPA WHERE indexNo='$studentIndex'";
+
         Database::executeQuery("student", "student@16", $sqlQuery);
 //        create audit trail
         self::createAudit($sqlQuery, 'student', "UPDATE", 'Modify GPA after add new result data into system.');

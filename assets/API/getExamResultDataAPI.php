@@ -53,9 +53,7 @@ if (isset($_GET['activity']) & $_GET['activity'] == 'GPADistribution') {
         $sqlQuery = "SELECT result FROM student_result WHERE regNo='$regNo' AND semester=$i";
         $result = Database::executeQuery("student", "student@16", $sqlQuery);
         $resultGrade = array('A+' => 0, 'A' => 0, 'A-' => 0, 'B+' => 0, 'B' => 0, 'B-' => 0, 'C+' => 0, 'C' => 0, 'C-' => 0, 'D+' => 0, 'D' => 0, 'E' => 0, 'F' => 0);
-        foreach ($result as $row) {
-            $resultGrade[$row['result']]++;
-        }
+        foreach ($result as $row) $resultGrade[$row['result']]++;
         $gradeCount = array();
         foreach ($resultGrade as $entry) {
             array_push($gradeCount, $entry);
