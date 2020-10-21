@@ -52,11 +52,11 @@ function displayAttendance(){
 // var radioBtn = document.getElementById("radio1");
 //     radioBtn.checked = true;
 
-// function editAttendanceForm1(){
-//     document.getElementById("editAttendanceForm").style.visibility='visible';
-//     document.getElementById("editAttendanceForm").style.display="block";
+function editAttendanceForm1(){
+    document.getElementById("editAttendanceForm").style.visibility='visible';
+    document.getElementById("editAttendanceForm").style.display="flex";
 
-// }
+}
 
 // document.getElementById("shu").addEventListener("click",function(
 

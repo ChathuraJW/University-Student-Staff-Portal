@@ -31,7 +31,7 @@
             </div>
         </div>
         <!-- Upload csv files -->
-        <div style="visibility:hidden; position:relative";  id="csvFormContainer"  >
+        <div style="position:relative";  id="csvFormContainer"  >
             <form id="csvForm" method="post">
                 <div class="row col-3" >
                     <!-- <label>--Upload CSV Files--</label>  -->
@@ -110,7 +110,7 @@
 
             <!-- Edit attendance -->
 
-            <div style="visibility:hidden; position:relative" id="singleAttendanceContainer" >
+            <div style="display:none; position:relative" id="singleAttendanceContainer" >
                 <form id="singleAttendance">
                     <div id="editAttendance" class="row col-4">
                         <div class = "inputStyle1">
@@ -163,7 +163,7 @@
                             <button onclick=" displayAttendance()" value = "Search" id="uploadFile"class=" fileUploadButton">Search</button>
                         </div>
                     </div>
-                    <div style="visibility:hidden; position:relative" id="attendanceTable">
+                    <div style="display:none; position:relative" id="attendanceTable">
                         <div id="attendanceContainer" class="row col-5">
                         <?php
                         for($row=1; $row<=3;$row++)
@@ -172,11 +172,11 @@
                             {
                                 echo ("
                                 <a href='' class='clickableDiv'>
-                                <div class='attendance' id='shu' onclick='editAttendanceForm1()'>
+                                <button type='button' class='attendance' id='shu' onclick='editAttendanceForm1()'>
                                     <span class='textStyle'>Week</span><br>
                                     <span class='textStyle'>Date</span><br>
                                     <span>Description</span><br>
-                                </div>
+                                </button>
                                 </a>
                                 ");
                             }
@@ -186,14 +186,14 @@
                     </div>
                     <div  class="row col-1"  >
                         <div id="editAttendanceForm">
-                            <P>hihihi</P>
+                            <h1>hihihi</h1>
                         </div>
                     </div>
                 </form>
             </div>
             <!-- end of edit attendance -->
 
-            <div style = "visibility:hidden; position:relative" id="inquiryContainer">
+            <div style = "display:none; position:relative" id="inquiryContainer">
                 <form>
                     <?php
                         for($row=1; $row<=10; $row++)
