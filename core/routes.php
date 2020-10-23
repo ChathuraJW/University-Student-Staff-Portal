@@ -3,7 +3,9 @@
     Route::set('home',function(){
         HomeController::init();
     });
-
+    Route::set('login',function(){
+        loginController::initLogin();
+    });
 
     // check weather the given file exist on the site if not redirect to 404 page
     $available=FALSE;
