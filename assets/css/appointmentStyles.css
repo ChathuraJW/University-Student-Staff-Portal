@@ -6,17 +6,24 @@
 .featureBody {
     font-family: Varela, sans-serif;
 }
+/* input[type=text], input[type=file], select {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 18px;
+    min-width: 300px;
+} */
+
 .form1{
     padding: 0px 100px 0px 500px ;
     border: none;
 }
-.requestform{
+.requestForm{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
-    background-color: rgb(182, 231, 202);
     width: 100%;
-    /* border: none; */
     border-width: 10px;
-    /* padding-right:40px; */
     display:table-cell;
     height: fit-content;
 }
@@ -26,44 +33,38 @@
     
 }
 .form2{    
-    /* width: 50%; */
     border-style: outset;
     border-width: 10px;
     border: black;
-    /* padding-left:50px; */
     text-align: center;
-    /* margin: 10px 40px 50px 40px; */
 }
 
-.dataraws{
-    /* border-style: solid; */
-    /* width:100%; */
+.dataRaws{
     margin-bottom:15px;
-    /* margin-left:110px; */
-    padding-bottom:15px;
-    /* margin-top: 10px; */
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-bottom:10px;
     display: flex;
-    border: none;
+    border: solid;
+    border-width: 0.25px;
+    border-color: rgb(190, 190, 189);
     outline: none;
-    /* border-width:2px; */
-    /* margin:0 auto; */
 }
 
 #description{
-    /* border-style: solid; */
-    border: none;;
+    padding-top: 10px;
+    padding-left: 5px;
+    border: solid;
+    border-width: 0.25px;
+    border-color: rgb(190, 190, 189);
     margin-top: 10px;
     margin-bottom: 10px;
     display: flex;
-    /* padding-right: 150px; */
     padding-bottom: 100px;
-    /* border-color: rgb(212, 208, 208); */
-    /* width:210%; */
 }
 .lable{
     margin-bottom: 30px;
     padding: 5px 5px 5px 5px;
-    /* font-weight: ; */
 }
 .h1{
     padding: 20px 0px 0px 300px;
@@ -88,11 +89,6 @@
     margin-bottom: 30px;
     padding-bottom:10px;
 }
-
-.navlink:hover{
-    background-color: rgb(58, 189, 212);  
-}
-
 .appointment:hover{
     background-color: #cacbcc;
     color: rgb(252, 252, 252);
@@ -118,10 +114,9 @@
     padding-left:20px;
 }
 #messageContent1{
-    /* border-style: solid; */
-    /* border-color: rgb(102, 150, 153); */
     border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgb(49, 113, 117), 0 6px 20px 0 rgb(30, 97, 102);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    /* box-shadow: 0 4px 8px 0 rgb(49, 113, 117), 0 6px 20px 0 rgb(30, 97, 102); */
     border-width: 5px;
     background-color: rgb(245, 244, 245);
     margin-top: 20px;
@@ -130,20 +125,21 @@
 
 
 .content{
-    /* display:inline-block; */
-    /* text-align:center; */
     text-align:center;
     font-size:18px;
     width: 70%;
     background-color: beige;
     height: fit-content;
     padding: 30px;           
-    /* margin-top: 100px; */
     margin-left: auto;
     margin-right: auto;
     
 }
-/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+.topic{
+    background-color: rgb(236, 171, 236);
+    padding-top: 10px;
+    height: 40px;
+}
 .topicNew{
     width:100%;
     padding:15px;
@@ -162,7 +158,6 @@
 .vale{
     display:table-cell;
     text-align:left;
-    /* padding-right:20px; */
 }
 .btn{
     border:none;
@@ -186,7 +181,6 @@
 
 }
 .appointmentMessage{
-    /* display:none; */
     position: fixed;
     z-index: 1;
     top: 0;
@@ -196,10 +190,9 @@
     background-color: rgba(179, 226, 211, 0.4);
 }
 #messageContent2{
-    /* border-style: solid;
-    border-color: rgb(134, 89, 134); */
+    border: ;
     border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgb(134, 28, 129), 0 6px 20px 0  rgb(201, 66, 194);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 25px 0 rgba(0, 0, 0, 0.19); 
     border-width: 5px;
     background-color: rgb(245, 244, 245);
     margin-top: 100px;
@@ -210,37 +203,30 @@
     margin: auto;
     font-size: 13px;
 }
-.navibar{
-    display:table;
-    width:100%;
-    border: none;
-    background-color: rgb(148, 195, 238);
-    /* margin-bottom:4px; */
-    height:45px;
-    
+.navigationLink:hover{
+    background-color: rgb(58, 189, 212);  
 }
-.navlink{
+.navigationLink{
     display:table-cell;
     border:none;
     background:none;
     cursor:pointer;
-    /* font-family:Arial, Helvetica, sans-serif; */
     font-weight:bold;
     font-size:15px;
     height:45px;
     outline:none;
 }
-.navibar{
+
+.navigationBar{
     display:table;
     width:100%;
     border: none;
     background-color: rgb(148, 195, 238);
-    /* margin-bottom:4px; */
     height:45px;
     
 }
 
-.Myappointments{
+.myAppointments{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
     vertical-align: top;
     position:top;
@@ -250,12 +236,7 @@
 }
 
 .appoint{
-    /* margin-left: 10px; */
-    /* margin-right:15px; */
     border-width: 0.5px;
-    /* width:auto; */
-    /* margin-bottom:-30px; */
-    /* width:97%; */
     height:43px;
     text-align:left;
     white-space:nowrap;
@@ -270,20 +251,25 @@
 }
 
 .button{
-    /* width:210%; */
     text-align:center;
     border:none;
     padding:10px;
     margin-bottom:5px;
+    cursor:pointer;
+}
+#submitButton{
     background-color: rgb(150, 241, 107);
 }
-.button:hover{
-    background-color: rgb(72, 177, 72);
-    cursor:pointer;
-
+#submitButton:hover{
+    background-color: rgb(104, 243, 104);
 }
-
-.tabcontaint{
+#resetButton{
+    background-color: rgb(252, 250, 146);
+}
+#resetButton:hover{
+    background-color: rgb(255, 232, 103);
+}
+.tabContain{
     display:table;
     margin:auto;
     width:96%;
@@ -297,7 +283,7 @@
 .list{
     margin-bottom: 50px;
 }
-.tabcontaint2{
+.tabContainSecond{
 
     margin:auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 30px 30px 0 rgba(0, 0, 0, 0.19);
@@ -309,26 +295,27 @@
     padding-bottom:20px;    
 }
 .profile{
-    /* margin-left: 15%;
-    margin-right: 15%; */
-    /* height: fit-content; */
-    /* text-align:left; */
-
-    background-color: rgb(248, 226, 186);
+    background-color: rgb(247, 226, 245);
     width:95%;
     margin: 15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 30px 30px 0 rgba(0, 0, 0, 0.19);
-    height: 80%;
-    /* margin:5px; */
-    /* border-style:solid; */
-    /* border-width: 2px; */
-    /* border-color: rgb(192, 150, 59); */
+    /* height: 80%; */
+}
+.profileFields{
+    display: grid;
+    width: 80%;
+}
+.profileFields{
+    grid-template-columns: repeat(2,6fr);
+    /* width: 50%; */
 }
 .details{
-    font-size: 13px;
+    font-size: 14px;
+    
 }
 .profData{
-    height: 18%;
+    /* height: 18%; */
+    margin-bottom: -25px;
 }
 #message2{                
     background-color: rgb(227, 171, 241,0.4);

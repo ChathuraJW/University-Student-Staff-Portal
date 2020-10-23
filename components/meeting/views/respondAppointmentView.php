@@ -15,8 +15,6 @@
     <!-- feature body section -->
     <div class="featureBody" >
         
-        
-        
         <div id="tab1" class="row col-2 tabcontaint" >
             <div class="subTab">
                 <div class="row col-1">
@@ -46,12 +44,9 @@
                         }
                         
                     ?>
-        
                 </div>
             </div>
             
-            
-
             <div class="subTab">
                 <div class="row col-1">
                     <h2 id="head">Replied History</h2>
@@ -90,10 +85,10 @@
                                         background-color: #8af18a;
                                         
                                     }
-                                    #B{
+                                    #R{
                                         background-color: rgb(238, 170, 183);
                                     }
-                                    #B:hover{
+                                    #R:hover{
                                         background-color: #f18a8a;
                                     }
                                 </style>
@@ -105,9 +100,6 @@
             
         </div>
         
-
-
-
         <?php if(isset($_GET['category1'])):?>
                 <div id="message1" class="appointmentMessage"  >
                     <div id="messageContent1"class="content">
@@ -167,18 +159,12 @@
                             </div>
                             <div style="display:table;width:100%;">
                                 <div class="row col-2">
-                                <!-- onclick="clos2('message1')" -->
                                     <div>
                                         <input hidden type="text"   name="appointmentID" value="<?php echo $_GET['appointID']?>">
                                         <input id="btn1" class="btn" type="submit" name="approve" value="Approve">
-                                        
-                                        <!-- <button id="btn1" class="btn" type="submit" onclick="clos2('message1')">Approve</button> -->
                                     </div>
                                     <div>
-
                                         <input id="btn2" class="btn" type="submit"  name="reject" value="Reject">
-                                        
-                                        <!-- <button id="btn2" class="btn" type="submit" onclick="clos2('message1')">Reject</button> -->
                                     </div>
 
                                 </div>
@@ -187,9 +173,6 @@
                     </div>
                 </div>
             <?php endif;?>
-        
-
-
 
         <?php if(isset($_GET['category2'])):?>
             <?php
@@ -203,10 +186,6 @@
             <div id="message2" class="appointmentMessage"  >
                 <div id="messageContent2" class="content">
                     <span class="close"onclick="remove('message2')">&times;</span>
-<!-- $url="?appointID=".$record['appointmentID']."&studentID=".$record['studentID']."&title=".$record['title']."&message=".$record['message']."&duration=".$record['meetingDuration']."&time=".$record['timestamp']."&isApproved=".$record['isApproved']."&type=".$record['type']."&validity=".$record['requesValidity']; -->
-
-                    <!-- <div class="row col-1">
-                    </div> -->
                     <div class="row col-1">
                         <h4 class="topicHistory"><?php echo $_GET['title']?></h4>
                     </div>

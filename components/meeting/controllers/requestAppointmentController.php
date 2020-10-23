@@ -1,18 +1,21 @@
 <?php
 class RequestAppointmentController extends Controller{
-    public function __construct(){
-        parent::__construct();
-    }
+    // public function __construct(){
+    //     parent::__construct();
+    // }
     public static function open(){
+        setcookie('userName','2018cs183');
+        $studentID=$_COOKIE['userName'];
         $lecturers=RequestAppointmentModel::getLectures();
         $profiles=RequestAppointmentModel::getProfile();
-        $records=RequestAppointmentModel::getData();
+        $records=RequestAppointmentModel::getData($studentID);
         $passingData=array($lecturers,$profiles,$records);
         
         
         self::createView("requestAppointmentView",$passingData);
 
         if(isset($_POST['submit'])){
+            
             $lecturer=$_POST['lect'];
             $type=$_POST['type'];
             $title=$_POST['title'];
@@ -30,27 +33,14 @@ class RequestAppointmentController extends Controller{
             else{
                 $typecode=5400;
             }
-            // echo "$lecture";
-            // $lecturer=$this->input->post('lect');
-            // $date=$this->input->post('date');
-            // $time=$this->input->post('time');
-            // $timeDuration=$this->input->post('durat');
-            // $message=$this->input->post('msg');
-            RequestAppointmentModel::insertData($lecturer,$typecode,$title,$timeDuration,$message);
-
-        }
-        if(isset($_POST['chose'])){
-
+            RequestAppointmentModel::insertData($lecturer,$typecode,$title,$timeDuration,$message,$studentID);
+            echo ("
+                <script>
+                    window.location.href=document.location.href.toString().split('requestAppointment')[0]+'requestAppointment';
+                </script>
+            ");
         }
     }
-    // public static function selectData(){
-    //     $appointId=$this->input->post('id');
-    //     $data=RespondAppointmentModel::getAppointmentData($appointId);
-    //     self::createView("requestMeeting",$data);
-    // }
-
-    public static function saveData(){
-        
-    }
+    
 }
 ?>
