@@ -16,8 +16,10 @@ class loginController extends Controller{
                         echo("<script>displayError();</script>");
                     }else{
 //                        set cookies valid for two days
-                        setcookie('userName',$userName,time()+8400*2);
-                        setcookie('role',$loginStatus[0]['role'],time()+8400*2);
+                        setcookie('userName',$userName,time()+8400*2,"/");
+                        setcookie('role',$loginStatus[0]['role'],time()+8400*2,"/");
+                        $fullName=$loginStatus[0]['firstName'].' '.$loginStatus[0]['lastName'];
+                        setcookie('fullName',$fullName,time()+8400*2,"/");
 //                        redirect to home
                     }
                 }else{

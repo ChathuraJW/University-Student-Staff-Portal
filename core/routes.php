@@ -15,6 +15,6 @@
     }
     if(!$available){
         //put 404 page link hear
-        require_once('../../assets/php/page404.php');
+        require_once('../assets/php/page404.php');
     }
 ?>

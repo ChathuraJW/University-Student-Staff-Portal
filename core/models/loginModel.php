@@ -1,9 +1,8 @@
 <?php
 
-class loginModel
-{
+class loginModel{
     public static function checkUserName($userName){
-        $sqlQuery = "SELECT * FROM `user` WHERE `userName`='$userName'";
+        $sqlQuery = "SELECT * FROM user WHERE userName='$userName'";
         $result=Database::executeQuery("root","",$sqlQuery);
         if(sizeof($result)>0){
             return true;
@@ -13,7 +12,7 @@ class loginModel
     }
 
     public static function validateLogIn($userName,$password){
-        $sqlQuery = "SELECT * FROM `user` WHERE `userName`='$userName'";
+        $sqlQuery = "SELECT * FROM user WHERE userName='$userName'";
         $result=Database::executeQuery("root","",$sqlQuery);
         if(($result[0]["password"]) == $password) {
             return $result;
