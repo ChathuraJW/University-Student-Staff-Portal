@@ -1,0 +1,162 @@
+/*fonts*/
+@font-face {
+    font-family: Varela;
+    src: url('../../assets/font/Varela-Regular.ttf');
+}
+
+@font-face {
+    font-family: BioRhyme;
+    src: url('../../assets/font/BioRhyme-Regular.ttf');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0 20px 0 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: url("loginBackground.jpg");
+}
+
+
+/* login form input styles */
+.login input[type=text], .login input[type=password] {
+    width: 100%;
+    padding: 16px 16px 10px 16px;
+    margin: 8px 0;
+    border: 3px solid gray;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 22px;
+    font-family: Verdana, sans-serif;
+}
+
+/*login and cancel button styles*/
+.loginButton {
+    border-radius: 7px;
+    color: white;
+    border: 0;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.5s;
+    background-color: green;
+    width: 100%;
+}
+
+.loginButton:hover {
+    background-color: #0faf44;
+}
+
+.login {
+    background-color: rgba(0, 0, 0, 0.4);
+    display: block;
+    border: 3px solid #5d5858;
+    width: max-content;
+    height: max-content;
+    padding: 20px;
+    float: right;
+}
+
+.login a {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+}
+
+.login a span {
+    font-family: Varela, sans-serif;
+    font-size: 20px;
+    padding: 8px 10px;
+    transition: 0.6s;
+    color: rgb(216, 216, 241);
+}
+
+.login a span:hover {
+    background-color: rgba(243, 135, 135, 0.4);
+}
+
+.login img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+}
+
+.inputPlaceholder {
+    position: relative;
+}
+
+.inputPlaceholder label {
+    padding: 26px;
+    font-size: 20px;
+    position: absolute;
+    font-family: Verdana, sans-serif;
+    transition: 0.5s;
+    top: 0;
+    left: 0;
+
+}
+
+/*label resizing style*/
+label.small {
+    padding: 10px;
+    font-size: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+.title {
+    color: white;
+    font-family: BioRhyme, sans-serif;
+    font-size: 50px;
+    display: block;
+    text-align: center;
+    font-weight: bolder;
+}
+
+
+/*login page media query*/
+@media screen and (max-width: 600px) {
+    .login, .login img {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .headerIMG {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-10px);
+    }
+    40% {
+        transform: translateX(10px);
+    }
+    60% {
+        transform: translateX(-10px);
+    }
+    80% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
