@@ -1,5 +1,28 @@
 <?php
-    echo("
+class BasicLoader{
+    public static function loadHeader($positionNotation){
+        echo("
+        <header>
+            <div class='overlay'>
+                    <div class='imgSection'>
+                        <img src='{$positionNotation}assets/image/logoUOC.png' alt='UOC_logo'/>
+                    </div>
+                    <div class='textSection'>
+                        <span class='mainText'>University Student-Staff Portal</span>
+                    </div>
+                    <div class='imgSection'>
+                        <img src='{$positionNotation}assets/image/logoUCSC.png' alt='UCSC_logo'/>
+                    </div>
+                <h3 class='uniName'>University of Colombo School of Computing<br>Sri Lanka</h3>
+            </div>
+        </header>
+        <div class='loginInfo'>
+            <h4>Login as User &nbsp;<span><a href='#' style='color: white;'><i class='fas fa-sign-out-alt' style='color: white;'></i></a></span></h4>
+        </div>
+    ");
+    }
+    public static function loadFooter($positionNotation){
+        echo("
         <footer class='mainFooter'>
             <div class='row col-2'>
                 <div class='addressBlock'>
@@ -21,7 +44,7 @@
                     </span>
                 </div>
                 <div class='basicDescription'>
-                        <img src='../../assets/image/USSPLogo.png' alt='USSPLogo'><br><br>
+                        <img src='{$positionNotation}assets/image/footerLogoUSSP.png' alt='USSPLogo'><br><br>
                     <p>
                         University Student-Staff Portal(USSP) is developed by a second year student development team call
                         Team Binary Bits. Main purpose of this system is to automate, semi-automated university system of
@@ -36,4 +59,6 @@
             </div>
         </footer>
     ");
+    }
+}
 ?>
