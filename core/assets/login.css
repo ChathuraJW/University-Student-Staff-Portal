@@ -1,14 +1,3 @@
-/*fonts*/
-@font-face {
-    font-family: Varela;
-    src: url('../../assets/font/Varela-Regular.ttf');
-}
-
-@font-face {
-    font-family: BioRhyme;
-    src: url('../../assets/font/BioRhyme-Regular.ttf');
-}
-
 * {
     box-sizing: border-box;
 }

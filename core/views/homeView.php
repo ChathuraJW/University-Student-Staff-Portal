@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Student-Staff Portal</title>
     <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="assets/coreSection.css">
+    <link rel="stylesheet" href="assets/home.css">
     <link rel="stylesheet" href="../assets/css/gridSystem.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"/>
 </head>
@@ -58,14 +58,32 @@
             <div class="profileSection">
                 <a href="" class="userSetting"><i class="fas fa-cog fa-2x"></i></a>
                 <div class="profilePic">
-                    <img src="assets/profile picture/userMale.jpg" alt="profilePic" style="height: auto;width: 100%;margin: auto">
+<!--                    update profile picture based on the picture availability and the gender-->
+                    <?php
+                        $filePath='';
+                        if($controllerData[0][0]['profilePicURL']===""){
+                            if($controllerData[0][0]['gender']==='M')
+                                $filePath="userMale.jpg";
+                            else
+                                $filePath="userFemale.jpg";
+                        }else{
+                            $filePath=$controllerData[0][0]['profilePicURL'];
+                        }
+                        echo ("
+                        <img src='assets/profile picture/{$filePath}' alt='profilePic' style='height: auto;width: 100%;margin: auto'>
+                        ");
+                    ?>
+
                 </div>
                 <div class="userInfo">
-                    <span class="name">Initial<br>SureName</span><br>
-                    <span class="emailPersonal">test@gmail.com</span><br>
-                    <span class="emailUniversity">20##cs###@ucsc.cmb.ac.lk</span><br>
-                    <span class="gpa green">#.####</span>
-
+                    <?php
+                        echo("
+                            <span class='name'><span style='font-size: 20px'>(".$controllerData[0][0]['salutation'].")&nbsp;</span>".$controllerData[0][0]['firstName']."<br>".$controllerData[0][0]['lastName']."</span><br>
+                            <span class='emailPersonal'>".$controllerData[0][0]['personalEmail']."</span><br>
+                            <span class='emailUniversity'>".$controllerData[0][0]['universityEmail']."</span><br>
+                            <span class='gpa green' id='displayGPA'>".$controllerData[0][0]['currentGPA']."</span>
+                        ");
+                    ?>
                 </div>
             </div>
             <div class="notificationStack">
@@ -104,110 +122,115 @@
     </div>
     <div class="linkSection">
         <div class="row col-6">
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="accessToVLE">
                 <div class="tileImage"><i class="fas fa-laptop-code fa-3x"></i></div>
                 <div class="tileDescription">Access to VLE</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="studentResult">
                 <div class="tileImage"><i class="fas fa-poll fa-3x"></i></div>
                 <div class="tileDescription">Student Result</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="studentAttendance">
                 <div class="tileImage"><i class="fas fa-file-signature fa-3x"></i></div>
                 <div class="tileDescription">Student Attendance</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="appointmentForMeeting">
                 <div class="tileImage"><i class="fas fa-calendar-check fa-3x"></i></div>
                 <div class="tileDescription">Appointment for Meeting</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="hallBooking">
                 <div class="tileImage"><i class="fas fa-university fa-3x"></i></div>
                 <div class="tileDescription">Hall Booking</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="personalFile">
                 <div class="tileImage"><i class="fas fa-folder-open fa-3x"></i></div>
                 <div class="tileDescription">Personal Files</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="contactUnion">
                 <div class="tileImage"><i class="fas fa-headset fa-3x"></i></div>
                 <div class="tileDescription">Contact Union</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="trainSeason">
                 <div class="tileImage"><i class="fas fa-train fa-3x"></i></div>
                 <div class="tileDescription">Train Season</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="pastPaper">
                 <div class="tileImage"><i class="fas fa-file-pdf fa-3x"></i></div>
                 <div class="tileDescription">Past Paper</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="message">
                 <div class="tileImage"><i class="fas fa-comment-dots fa-3x"></i></div>
                 <div class="tileDescription">Message</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="publishNotice">
                 <div class="tileImage"><i class="fas fa-bullhorn fa-3x"></i></div>
                 <div class="tileDescription">Publish Notice</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="seasonRequestProcessing">
                 <div class="tileImage"><i class="fas fa-pen fa-3x"></i></div>
                 <div class="tileDescription">Season Request Processing</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="addAttendance">
                 <div class="tileImage"><i class="fas fa-file-contract fa-3x"></i></div>
                 <div class="tileDescription">Add Attendance</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="addExamResult">
                 <div class="tileImage"><i class="fas fa-laptop-code  fa-3x"></i></div>
                 <div class="tileDescription">Add Exam Result</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="getExamResult">
                 <div class="tileImage"><i class="fas fa-handshake fa-3x"></i></div>
                 <div class="tileDescription">Get Exam Result</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="addIQACReport">
                 <div class="tileImage"><i class="fas fa-plus-square fa-3x"></i></div>
                 <div class="tileDescription">Add IQAC Report</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="uploadPastPaper">
                 <div class="tileImage"><i class="fas fa-file-upload fa-3x"></i></div>
                 <div class="tileDescription">Upload Past Papers</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="uploadResult">
                 <div class="tileImage"><i class="fas fa-file-csv fa-3x"></i></div>
                 <div class="tileDescription">Upload Result</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="viewIQACReport">
                 <div class="tileImage"><i class="fas fa-file-alt fa-3x"></i></div>
                 <div class="tileDescription">View IQAC Report</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="respondForMeetingRequest">
                 <div class="tileImage"><i class="fas fa-reply fa-3x"></i></div>
                 <div class="tileDescription">Respond for Meeting Request</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="updateAvailability">
                 <div class="tileImage"><i class="fas fa-check-double fa-3x"></i></div>
                 <div class="tileDescription">Update Availability</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="reviewHallBookingRequest">
                 <div class="tileImage"><i class="fas fa-eye fa-3x"></i></div>
                 <div class="tileDescription">Review Hall Booking Request</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="assignmentManagement">
                 <div class="tileImage"><i class="fas fa-tasks fa-3x"></i></div>
                 <div class="tileDescription">Assignment Management</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="viewWorkload">
                 <div class="tileImage"><i class="fas fa-briefcase fa-3x"></i></div>
                 <div class="tileDescription">View Workload</div>
             </a>
-            <a href="#" class="tile">
+            <a href="#" class="tile" id="allocatedWorkload">
                 <div class="tileImage"><i class="fas fa-hand-point-right fa-3x"></i></div>
                 <div class="tileDescription">Allocate Workload</div>
+            </a>
+            <a href="#" class="tile" id="usspSystemConfig">
+                <div class="tileImage"><i class="fas fa-user-cog fa-3x"></i></div>
+                <div class="tileDescription">USSP System Config</div>
             </a>
         </div>
     </div>
 </div>
 <?php BasicLoader::loadFooter("../");?>
+<script src="../assets/js/jquery.js"></script>
 <script src="assets/home.js"></script>
 </body>
 </html>

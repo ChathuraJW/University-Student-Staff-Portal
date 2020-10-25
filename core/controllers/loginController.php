@@ -21,6 +21,7 @@ class loginController extends Controller{
                         $fullName=$loginStatus[0]['firstName'].' '.$loginStatus[0]['lastName'];
                         setcookie('fullName',$fullName,time()+8400*2,"/");
 //                        redirect to home
+                        header("Location: home");
                     }
                 }else{
                     echo("<script>displayError();</script>");
