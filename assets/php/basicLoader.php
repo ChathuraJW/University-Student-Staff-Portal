@@ -17,7 +17,7 @@ class BasicLoader{
             </div>
         </header>
         <div class='loginInfo'>
-            <h4>Login as ".$_COOKIE['fullName']." &nbsp;<span><a href='#' style='color: white;'><i class='fas fa-sign-out-alt' style='color: white;'></i></a></span></h4>
+            <h4>Login as ".$_COOKIE['fullName']." &nbsp;<span><a href='{$positionNotation}assets/php/logout.php' style='color: white;'><i class='fas fa-sign-out-alt' style='color: white;'></i></a></span></h4>
         </div>
     ");
     }
