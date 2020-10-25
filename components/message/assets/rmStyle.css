@@ -3,12 +3,17 @@
 }
 
 .featureBody ul{
-    background: #3399ff;
-    padding: 20px;
+    background: gray;
+    padding: 10px;
   
 }
 
 .featureBody ul li {
-  background: #cce5ff;
+  background: white;
   margin: 5px;
 }
+
+*{
+  box-sizing: border-box;
+}
+

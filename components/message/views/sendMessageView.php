@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="assets/smStyle.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
+
+     
      
      
 
@@ -18,122 +20,123 @@
     <!-- feature body section -->
      
     
-        <div class="featureBody">
+      <div class="featureBody">
         <div class="container">
-        <div class="row col-1">
+          <div class="row col-1">
          
-          <h1><b> Send Messages </b></h1>
+            <h1><b> Send Messages </b></h1>
          
       
-          <br>
-          <br> 
+            <br>
+            <br> 
            
-          <label for="opt"> Enter the contacts </label>
+            <label for="option"> Enter the contacts </label>
            
           </div>
            
           
           <div class="row col-3">
-          <select id="opt1" name="opt1" >
+            <div>
+              <select id="academicStaffList" name="academicStaffList" >
           
-          <option value="Academic Staff">Academic Staff</option>
-            <option value="None">None</option>
-             
-             
-                    <?php
+                <?php
                      
-                    foreach ($controllerData[0] as $data){
+                  foreach ($controllerData[0] as $data){
                        
-                      echo ("<option value='$data[userName]'>".$data['fullName']. " -  ".$data['userName']." </option>" );
-                    }
-                    ?>
-                
+                    echo ("<option value='$data[userName]'>".$data['fullName']. " -  ".$data['userName']." </option>" );
+                  }
+                ?>
+              </select>
+              <br>
+              <br>
+            </div>
+          
+            <div>
+              <select id="academicSupportiveList" name="academicSupportiveList" >
+       
+                <?php
+                     
+                  foreach ($controllerData[1] as $data){
+                    echo ("<option value='$data[userName]'>".$data['fullName']. " -  ".$data['userName']." </option>" );
+                  }
+                ?>
+              </select>
+           
+              <br>
+              <br>
+            </div>
+
+            <div>
+              <select id="administrativeList" name="administrativeList" >
+       
+                <?php
+                     
+                  foreach ($controllerData[2] as $data){
+                    echo ("<option value='$data[userName]'>".$data['fullName']. " -  ".$data['userName']." </option>" );
+                  }
+                ?>
+       
+              </select>
+           
+              <br>
+              <br>
+            </div>
+            <br>
+            <br>
+          </div>
+          
+          
+          <br>
+          <br>
+          <form action = " " method="POST">
+            <div class="row col-2">
+
+            <div class="row col-2">
+            <label style="text-align: left">Contacts </label>
+            <br>
+            <textarea cols="100" name="contacts"></textarea>
+           
+          </div>
+              <label> Title </label> 
+              <br>
+              <textarea name = "title" cols="70"></textarea>
+            </div>
 
              
-           
-       
-          </select>
-
-          <select id="opt2" name="opt2">
-       
-            <option
-              value="Academic Supportive Head">Administrative Staff</option>
-            <option
-              value="None">None</option>
-              <?php
-                     
-                     foreach ($controllerData[1] as $data){
-                        
-                       echo ("<option value='$data[userName]'>".$data['fullName']. " -  ".$data['userName']." </option>" );
-                     }
-              ?>
-          </select>
-
-          <select id="administrative" name="administrative">
-       
-            <option
-              value="Academic Supportive Staff">Academic Supportive Staff</option>
-            <option
-              value="None">None</option>
-
-              <?php
-                     
-                     foreach ($controllerData[2] as $data){
-                        
-                       echo ("<option value='$data[userName]'>".$data['fullName']. " -  ".$data['userName']." </option>" );
-                     }
-              ?>
-       
-          </select>
-           
-          <br>
-          <br>
-          <textarea cols="70"></textarea>
-           
-           
-</div>
-<br>
-          <br>
-        <div class="row col-1">
-          <label> Title </label> 
-           
-        </div>
-        <div class="row col-1">
-          <textarea name = "Title" cols="70"></textarea>
-           
-        </div>
-        <br>
-          <br>
+            <br>
+            <br>
       
-        <div class="row col-1">
-          <label> Message </label>
-          
-</div>
-        <div class="row col-2">
-          <textarea name = "Message" rows="5" cols="70"></textarea>
-          </div>
-          <br>
-          <div class="row col-6">
-          <button class="button button1">Send
-          </button>
+            <div class="row col-2">
+              <label> Message </label>
+              <br>
+              <textarea name = "message" rows="5" cols="70"></textarea>
+            </div>
 
-          <button class="button button2">Cancel
-          </button>
-</div>
-          
+            <br>
+
+            <div class="row col-6">
+              <button class="button submit" name="submit" type="submit" style= "background-color: #4CAF50">Send
+              </button>
+
+              <button class="button cancel" colour="green" style="background-color: #FF0000">Cancel
+              </button>
+            </div>
+
+          </form>       
            
           <br>
           <br>
-</div>
+        </div>
 
   
-        </div>
-      </div> 
-
-    </div>
+      </div>
+       
 
 
     <!-- include footer section -->
     <?php require('../../assets/php/commonFooter.php')?>
+
+    <script src="assets/sendMessageJs.js">
+    </script>
 </body>
 </html>

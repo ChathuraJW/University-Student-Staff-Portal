@@ -19,12 +19,7 @@
       margin: 4px 2px;
       cursor: pointer;
     }
-    .button1{
-      background-color: #4CAF50;
-    }
-    .button2{
-      background-color: #FF0000;
-    }
+     
 
 
 .featureBody h1 {
@@ -35,7 +30,11 @@
 .featureBody label{
   font-size: 20px;
   margin: auto;
-  text-align: center ;
+  text-align: left ;
+}
+
+.select{
+  font-size: 50px;
 }
 
  
