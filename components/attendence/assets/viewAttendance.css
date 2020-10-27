@@ -1,6 +1,6 @@
 #container1{
-    padding-left: 125px;
-    padding-right: 125px;
+    padding-left: 0px;
+    padding-right: opx;
 }
 
 .basicStyle{
@@ -90,11 +90,12 @@
 }
 
 #myAttendance{
-    text-align: center;
     font-weight: bold;
     font-size: 34px;
     padding-bottom: 10px;
+    margin-left: 600px;
 }
+
 .dropDown{
     height:50px;
     width:300px;
@@ -156,13 +157,53 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.button {
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
 
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
 
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
 
+.button:hover span {
+    padding-right: 25px;
+}
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+.inquiryContainer{
+    float: left;
+    padding-top: 50px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 
-
-
-
-
-
-
+/* inquiry form */

@@ -1,11 +1,11 @@
 <?php
     // structure of code need to write
     Route::set('addAttendance',function(){
-        AttendanceController::addAttendance();
+        AddAttendanceController::addAttendance();
     });
 
     Route::set('viewAttendance',function(){
-        AttendanceController::viewAttendance();
+        ViewAttendanceController::viewAttendance();
     });
 
 

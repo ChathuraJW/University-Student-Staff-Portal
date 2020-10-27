@@ -21,8 +21,9 @@
 }
 .inputStyle{
     font-size: 26px;
-    margin-left: 100px;
-    margin-top: 100px;
+    /* margin-left: 100px; */
+    /* margin-top: 100px; */
+    margin-bottom: 25px;
     width: auto;
 } 
 .dropDown{
@@ -30,16 +31,24 @@
     width:300px;
     font-size: 20px;
 }
+.labelStyle{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
 .buttonStyle{
     height:50px;
     width:120px;
     font-size: 26px;
-    /* margin-left:700px; */
-    margin-top: 50px;
+    /* margin-top: 50px; */
     font-size: 26px;
-    margin-bottom: 110px;
+    /* margin-bottom: 110px; */
 }
-#buttons{
+#csvFormContainer{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+#buttonsCSV{
     margin-left: 400px;
     margin-right: 400px; 
 }
@@ -50,14 +59,14 @@
     margin-top: 0px;
     padding: 30px;
     border: 1px solid rgb(12, 12, 12);
-    height: 50px;
-    width: 200px;
+    height: 40px;
+    width: 150px;
     background: transparent;
-    font-size: 26px;
+    font-size: 24px;
     padding-top: 8px;
     border-radius: 5px;
-    /* border: 2px solid rgb(7, 7, 6); */
-    color: rgb(12, 12, 9);
+    /* border: 2px solid rgb(7, 7, 6);   */
+    /* color: rgb(12, 12, 9); */
     background-color: rgb(51, 139, 58) ;
 }
 #myFile{
@@ -77,8 +86,8 @@
 }
 .inputStyle1{
     font-size: 26px;
-    margin-left: 50px;
-    margin-top: 97px; 
+    /* margin-left: 50px;
+    margin-top: 97px;  */
     width: auto;
 } 
 #inquiryMessage{
@@ -87,34 +96,32 @@
     margin-bottom: 20px;
     margin-left: 25px;
     margin-right: 25px;
-    font-size: 20px;
+    font-size: 18px;
     padding-top: 20px;
     padding-bottom: 20px;
+    height: auto;
     background-color: rgb(216, 206, 180);
 } 
 
 .attendance{
-    /* border-style: solid; */
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    width: 200px;
-    font-size: 22px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
     text-align: center;
-    /* background-color: violet; */
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border-radius: 5px; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-#attendanceContainer{
+.attendanceContainer{
     /* padding-left: 360px; */
     /* padding-right: 360px; */
     /* border-style: solid; */
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-top: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .clickableDiv{
     text-decoration:none;
@@ -122,3 +129,4 @@
 .attendance:hover{
     background-color:#d0e7ab;
 }
+

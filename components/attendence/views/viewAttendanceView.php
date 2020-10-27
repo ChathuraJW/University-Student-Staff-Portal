@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet"  href="assets/viewAttendance.css" >
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"/>
 </head>
 <body>
     <!-- include header section -->
@@ -14,7 +15,8 @@
     
     <div class="featureBody">
 
-        <div  class="row col-1">
+        <div>
+            <button><i class="fa fa-question-circle" aria-hidden="true"></i></button>
             <label id="myAttendance">My Attendance</label>
         </div>
         <div id="container1" class="row col-4">
@@ -84,16 +86,17 @@
                         }
                     }
                     echo("
-                    </div>
+            </div>
                     </div>
                     </div>
                     ");
                 }
             echo(" </div> ");
             }
-            ?>    
-        
-            <!-- </div> -->
+            ?>   
+            
+            <script src="assets/viewAttendance.js"></script>
+            </div>
         <!-- </div> -->
     
         

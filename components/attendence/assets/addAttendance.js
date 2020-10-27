@@ -1,5 +1,19 @@
+//For upload csv dropdown
+let currentYear = new Date().getFullYear();
+// fill data to examination year dropdown
+let yearValues = document.getElementById("academicYearForUpload");
+let beginYear = currentYear - 10;
+while (beginYear <= currentYear) {
+    yearValues.options[yearValues.options.length] = new Option(beginYear.toString(), beginYear.toString());
+    beginYear++;
+}
+yearValues.value = currentYear.toString();
 
-var radioBtn = document.getElementById("radio1");
+
+yearValues.value = currentYear.toString();
+
+
+var radioBtn = document.getElementById("radioCSV");
 radioBtn.checked = true;
 
 function displayForm(c){
@@ -49,15 +63,22 @@ function displayAttendance(){
     document.getElementById("attendanceTable").style.visibility='visible';
     document.getElementById("attendanceTable").style.display="";
 }
+
+
 // var radioBtn = document.getElementById("radio1");
 //     radioBtn.checked = true;
+
+
+function openForm() {
+    document.getElementById("myForm").style.display = "";
+}
+
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+}
 
 function editAttendanceForm1(){
     document.getElementById("editAttendanceForm").style.visibility='visible';
     document.getElementById("editAttendanceForm").style.display="flex";
 
 }
-
-// document.getElementById("shu").addEventListener("click",function(
-
-// ));
