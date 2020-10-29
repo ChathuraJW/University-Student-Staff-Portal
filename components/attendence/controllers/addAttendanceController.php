@@ -6,5 +6,9 @@ class AddAttendanceController extends Controller{
         $passingSubjects=AddAttendanceModel::getSubjectData();
         // print_r($passingSubjects);
         self::createView("addAttendanceView",$passingSubjects);
+
+        if(isset($_POST['submit'])){
+            
+        }
     }
 }

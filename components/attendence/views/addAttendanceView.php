@@ -70,23 +70,48 @@
                             <?php
                                 for($week=1; $week<=15; $week++)
                                 {
-                                    echo("<option value='$week'>$week</option>");
+                                    switch($week){
+                                        case 1:
+                                            echo("<option value='$week'>$week<sup>st</sup></option>");  
+                                            break;
+                                        case 2:
+                                            echo("<option value='$week'>$week<sup>nd</sup></option>");  
+                                            break;
+                                        case 3:
+                                            echo("<option value='$week'>$week<sup>rd</sup></option>");  
+                                            break;
+                                        default:
+                                            echo("<option value='$week'>$week<sup>th</sup></option>"); 
+                                        }
+                                    
                                 }
                             ?>
                         </select>
                     </div>
-                    <div class = "inputStyle">
-                        <label for="">CSV File:</label><br>
+                    <div class="inputStyle">
+                        <label for="attempt">Attempt:</label><br>
+                        <select id="attempt" class="dropDown">
+                            <option value="f">First Attempt</option>
+                            <option value="r">Repeat</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row col-1">
+                <div class = "inputStyle">
+                        <label for="">CSV File:</label>
                         <input type="file" id="myFile" name="filename">
                     </div>
                 </div>
-                <div id="buttonsCSV" class="row col-2">
-                    <div class = "buttonStyle">
-                        <input type="submit" value = "cancel" id="cancelUploadFile"class="fileUploadButton ">
+                <div class="row col-4" id="buttonsCSV" >
+                    <div></div>
+                    <div class = "">
+                        <input type="submit" value = "Cancel" id="cancelUploadFile"class="fileUploadButton ">
                     </div>
-                    <div class = "buttonStyle">
+                    <div class = "">
                         <input type ="submit" value = "Upload" id="uploadFile"class="fileUploadButton ">
                     </div>
+                    <div></div>
+                    
                 </div>
             </form> 
             </div>
@@ -148,6 +173,15 @@
                             ?>
                         </div>
                         </div>
+                        <div class = "row col-1">
+                            <div  class="inputStyle">
+                                <label for="attempt">Attempt:</label><br>
+                                <select id="attempt" class="dropDown">
+                                    <option value="f">1<sup>st</sup> Attempt</option>
+                                    <option value="r">Repeated Attempt</option>
+                                </select>
+                            </div>
+                        </div>
                         <div id="buttons" class="row col-2">
                             <div class = "buttonStyle">
                                 <button type="submit" value = "cancel" id="cancelUploadFile" class="fileUploadButton">Cancel</button>
@@ -166,7 +200,7 @@
                                         for($col=1;$col<=5;$col++)
                                     {
                                         echo("
-                                        <button class='attendance' onclick='openForm()'>
+                                        <button id='editAttendanceBtn' class='attendance' onclick='openForm()'>
                                         <span class='textStyle'>$col Week</span><br>
                                         <span class='textStyle'>19/10/2020</span><br>
                                         <span>General </span><br>
@@ -174,25 +208,49 @@
                                     }
                                     }
                                 ?>
-                                </div>
+                                
                             </div>
                         </div>
-                        <div style="display:none; position:relative" class="form-popup" id="myForm">
-<form action="/action_page.php" class="form-container">
-    <h1>Login</h1>
-
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-
-    <button type="submit" class="btn">Login</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
-</div>
+                        
                     </div>
                 </div>
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <p class="popupTopic">Edit Attendance</p>
+                        <div class="row col-2">
+                            <div class="popupSubTopic">
+                                <label>2<sup>nd</sup>Week</label>
+                            </div>
+                            <div class="popupSubTopic">
+                                <label>Computer Science</label>
+                            </div>
+                        </div>
+                        <div class="radioToolbarPopup">
+                            <div class="row col-2">
+                                <input value="1" type="radio"  id = "radioAttended" name="formSelector"></input>
+                                <label class ="containerPopup" for = "radioAttended">Attended</label>
+                                <input value="2" type="radio" id = "radioNotAttended" name="formSelector"></input>
+                                <label class ="containerPopup" for ="radioNotAttended">Not Attended</label>
+                            
+                        </div>
+                        
+                        <div class="row col-1">
+                            <textarea name="editDescription"></textarea>
+                        </div>
+                        <div class="row col-4" id="buttonsCSV" >
+                            <div></div>
+                            <div class = "">
+                                <input type="submit" value = "Cancel" id="cancelUploadFile"class="fileUploadButton ">
+                            </div>
+                            <div class = "">
+                                <input type ="submit" value = "Upload" id="uploadFile"class="fileUploadButton ">
+                            </div>
+                            <div></div>
+                        </div>
+                                    </div>
+                                </div>
+                                </div>
         </div>
             <!-- end of edit attendance -->
 
