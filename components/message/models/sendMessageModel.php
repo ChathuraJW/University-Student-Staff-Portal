@@ -22,11 +22,11 @@
 
         public static function addData($title,$message,$sendBy)
         {
-            $insertQuery="INSERT INTO message( `title`, `message`, `timestamp`, `sendBy`) VALUES ($title,$message,NOW(),$sendBy)"
-            $selectQuery5="SELECT messageID FROM message WHERE title=$title AND message=$message AND sendBy=$sendBy";
+            $insertQuery="INSERT INTO message( `title`, `message`, `timestamp`, `sendBy`) VALUES ($title,$message,NOW(),$sendBy)";
+            $selectQuery="SELECT messageID FROM message WHERE title=$title AND message=$message AND sendBy=$sendBy";
              
          
-            return Database::executeQuery("root","",$selectQuery);
+            return Database::executeQuery("root","",$selectQuery );
         }
         //create function to add data into messaage  table
          

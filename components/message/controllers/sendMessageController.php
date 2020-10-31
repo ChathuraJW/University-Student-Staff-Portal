@@ -14,11 +14,9 @@
                 //addd data to message table
                 $addData=sendMessageModel::addData($title,$message,$sendBy);
                 //take message id
-                $contactList=$_POST['contacts']; abc,2012cs123,dfx
-                split $contactList by ,
-                foreach
-
                  
+
+                  
             }
 
              
