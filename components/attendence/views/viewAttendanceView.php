@@ -14,9 +14,75 @@
     <?php require('../../assets/php/commonHeader.php')?>
     
     <div class="featureBody">
+        <div class="sidebar">
+        <a id="inquiryButton"><i class="fa fa-question-circle" ></i>Inquiry</a>
+            <div id="myModal" class="modal">
+            <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p class="popupTopic">Inquiry</p>
+                    <div class="row col-2">
+                        <div class = "inputStyle">
+                            <label for="week">Week:</label><br>
+                            <select id="week" class="dropDown">
+                                <?php
+                                    for($week=1; $week<=15; $week++)
+                                    {
+                                        switch($week){
+                                            case 1:
+                                            echo("<option value='$week'>$week<sup>st</sup></option>");  
+                                            break;
+                                        case 2:
+                                            echo("<option value='$week'>$week<sup>nd</sup></option>");  
+                                            break;
+                                        case 3:
+                                            echo("<option value='$week'>$week<sup>rd</sup></option>");  
+                                            break;
+                                        default:
+                                            echo("<option value='$week'>$week<sup>th</sup></option>"); 
+                                        }
+                                    
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                        <div class = "inputStyle">
+                            <label for="subject">Subject:</label><br>
+                            <select id="subject" class="dropDown" required>
+                                <?php
+                                    
+                                    foreach($controllerData as $data){
+                                        echo("<option value='".$data['courseCode']."'>".$data['name']."</option>");
+                                    }
+                                ?>
+                            </select>
+                            <?php
+                                // print_r($controllerData);
+                            ?>
+                        </div>
+
+                    </div>
+                    <div class="row col 1">
+                        <textarea name="editDescription"></textarea>
+                    </div>
+                    <div class="row col-3" id="buttonsCSV" >
+                            <div class = "">
+                                <input type="submit" value = "Cancel" id="cancelUploadFile"class="fileUploadButton ">
+                            </div>
+                            <div></div>
+                            <div class = "">
+                                <input type ="submit" value = "Upload" id="uploadFile"class="fileUploadButton ">
+                            </div>
+                            
+                        </div>
+                </div>
+            </div>
+        <!-- <button id="myBtn">Open Modal</button> -->
+            <!-- <button onclick="div_show()">Inquiry</button Inquiry</button> -->
+        </div>
 
         <div>
-            <button><i class="fa fa-question-circle" aria-hidden="true"></i></button>
+            <!-- <button><i class="fa fa-question-circle" aria-hidden="true"></i></button> -->
             <label id="myAttendance">My Attendance</label>
         </div>
         <div id="container1" class="row col-4">
@@ -47,7 +113,7 @@
         </div>
         <!-- <div class="row col-1"> -->
             <!-- <div class="attendanceDetail"> -->
-            <?php
+            <?php 
             for($row2=1; $row2<=4;$row2++)
             {
             echo("
@@ -93,8 +159,10 @@
                 }
             echo(" </div> ");
             }
-            ?>   
+            ?> 
             
+            
+
             <script src="assets/viewAttendance.js"></script>
             </div>
         <!-- </div> -->

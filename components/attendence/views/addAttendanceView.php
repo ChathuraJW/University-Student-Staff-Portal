@@ -236,6 +236,7 @@
                         </div>
                         
                         <div class="row col-1">
+                            <!-- <label>Description</label> -->
                             <textarea name="editDescription"></textarea>
                         </div>
                         <div class="row col-4" id="buttonsCSV" >
