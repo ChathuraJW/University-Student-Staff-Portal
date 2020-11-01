@@ -37,8 +37,8 @@
           
           <div class="row col-3">
             <div>
-              <select id="academicStaffList" name="academicStaffList" >
-          
+              <select id="academicStaffList" name="academicStaffList" onchange="addStaffRecipient('academicStaffList');" >
+              <option value="">Academic Staff </option>
                 <?php
                      
                   foreach ($controllerData[0] as $data){
@@ -52,8 +52,8 @@
             </div>
           
             <div>
-              <select id="academicSupportiveList" name="academicSupportiveList" >
-       
+              <select id="academicSupportiveList" name="academicSupportiveList" onchange="addStaffRecipient('academicSupportiveList');"  >
+                <option value="">Academic Supportive Staff </option>
                 <?php
                      
                   foreach ($controllerData[1] as $data){
@@ -67,8 +67,8 @@
             </div>
 
             <div>
-              <select id="administrativeList" name="administrativeList" >
-       
+              <select id="administrativeList" name="administrativeList" onchange="addStaffRecipient('administrativeList');" >
+              <option value="">Administrative Staff </option>
                 <?php
                      
                   foreach ($controllerData[2] as $data){
@@ -89,38 +89,37 @@
           <br>
           <br>
           <form action = " " method="POST">
-            <div class="row col-2">
-
-            <div class="row col-2">
+             
             <label style="text-align: left">Contacts </label>
             <br>
-            <textarea cols="100" name="contacts"></textarea>
+            <textarea cols="100" name="contacts" id="contacts" readonly></textarea>
            
-          </div>
+              <br>
+              <br>
               <label> Title </label> 
               <br>
               <textarea name = "title" cols="70"></textarea>
-            </div>
+             
 
              
             <br>
             <br>
       
-            <div class="row col-2">
+             
               <label> Message </label>
               <br>
               <textarea name = "message" rows="5" cols="70"></textarea>
-            </div>
+             
 
             <br>
 
-            <div class="row col-6">
+             
               <button class="button submit" name="submit" type="submit" style= "background-color: #4CAF50">Send
               </button>
 
               <button class="button cancel" colour="green" style="background-color: #FF0000">Cancel
               </button>
-            </div>
+             
 
           </form>       
            
