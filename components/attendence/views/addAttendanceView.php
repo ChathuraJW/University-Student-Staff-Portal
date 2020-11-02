@@ -28,17 +28,17 @@
         </div>
         <!-- Upload csv files -->
         <div style="position:relative";  id="csvFormContainer"  >
-            <form id="csvForm" method="post">
+            <form id="csvForm" method="post" enctype="multipart/form-data">
                 <div class="row col-3" >
                     <!-- <label>--Upload CSV Files--</label>  -->
                     <div class = "inputStyle">
                         <label for="academicYearForUpload">Academic Year:</label><br>
-                        <select id="academicYearForUpload" class="dropDown"  required>
+                        <select id="academicYearForUpload" name="" class="dropDown"  required>
                         </select>
                     </div>
                     <div class = "inputStyle">
                         <label for="semester">Semester:</label><br>
-                        <select id="semester" class="dropDown" required>
+                        <select id="semester" name="semester" class="dropDown" required>
                         <?php
                             for($sem=1; $sem<=8; $sem++){
                                 echo("<option value='$sem'>$sem</option>");
@@ -48,7 +48,7 @@
                     </div> 
                     <div class = "inputStyle">
                         <label for="subject">Subject:</label><br>
-                        <select id="subject" class="dropDown" required>
+                        <select id="subject" name="subject" class="dropDown" required>
                         <?php
                                     
                             foreach($controllerData as $data){
@@ -66,7 +66,7 @@
                     </div>
                     <div class = "inputStyle">
                         <label for="week">Week:</label><br>
-                        <select id="week" class="dropDown">
+                        <select id="week" name="week" class="dropDown">
                             <?php
                                 for($week=1; $week<=15; $week++)
                                 {
@@ -90,25 +90,25 @@
                     </div>
                     <div class="inputStyle">
                         <label for="attempt">Attempt:</label><br>
-                        <select id="attempt" class="dropDown">
-                            <option value="f">First Attempt</option>
-                            <option value="r">Repeat</option>
+                        <select id="attempt" name="attempt" class="dropDown">
+                            <option value="F">First Attempt</option>
+                            <option value="R">Repeat</option>
                         </select>
                     </div>
                 </div>
                 <div class="row col-1">
                 <div class = "inputStyle">
                         <label for="">CSV File:</label>
-                        <input type="file" id="myFile" name="filename">
+                        <input type="file" id="myFile" name="csvFile" required>
                     </div>
                 </div>
                 <div class="row col-4" id="buttonsCSV" >
                     <div></div>
                     <div class = "">
-                        <input type="submit" value = "Cancel" id="cancelUploadFile"class="fileUploadButton ">
+                        <input type="reset" value = "Cancel" id="cancelUploadFile" class="fileUploadButton ">
                     </div>
                     <div class = "">
-                        <input type ="submit" value = "Upload" id="uploadFile"class="fileUploadButton ">
+                        <input type ="submit" name="submit" value = "submit" id="uploadFile" class="fileUploadButton ">
                     </div>
                     <div></div>
                     
@@ -118,7 +118,7 @@
             <!-- end of upload csv files -->
 
             <!-- Edit attendance -->
-            <div style="display:none; position:relative" id="singleAttendanceContainer" >
+            <div style="display:none; position:relative" id="singleAttendanceContainer" method="post" >
                 <div class ="row col-2">
                     <div>
                         <form>
