@@ -1,7 +1,7 @@
 <?php
     // structure of code need to write
     Route::set('login',function(){
-        loginController::initLogin();
+        LoginController::initLogin();
     });
 
 
