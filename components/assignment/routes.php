@@ -3,7 +3,9 @@
     Route::set('assignmentManagement',function(){
         AssignmentManagementController::init();
     });
-
+    Route::set('assignmentOperation',function(){
+        AssignmentOperationController::init();
+    });
 
     // check weather the given file exist on the site if not redirect to 404 page
     $available=FALSE;

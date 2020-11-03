@@ -169,64 +169,10 @@
                 </div>
             </form>
         </div>
-        <div class="assignmentPlanManagement">
-            <span class="columnHeader">Welcome to SCS2204 Assignment Plan</span>
-            <div class="row col-2">
-                <div class="basicAssignmentInfo">
-                    <span class="sectionHeader">Basic Info:</span>
-                    <div>
-                        <span class='dataPoint'>Data Structures and Algorithms 3</span>
-                    </div>
-                    <div>
-                        <span class='dataPoint'>Subject Code: <b>SCS2201</b></span><br>
-                        <span class='dataPoint'>Degree Stream: <b>Computer Science</b></span><br>
-                        <span class='dataPoint'>Total Assignments: <b>15</b></span><br>
-                        <span class='dataPoint'>Assignment Weight: <b>40%</b></span>
-                    </div>
-                </div>
-                <div class="conductedBy">
-                    <span class="sectionHeader">Conducted By:</span>
-                    <ol class='conductBy'>
-                        <li>Mr. Ruwan Wijesingha (Owner)</li>
-                        <li>Mr. Kamal Gunaasekare</li>
-                        <li>Mrs. Samanthi Hemachandra</li>
-                        <li>Miss. Ruvani Gamage</li>
-                        <li>Miss. Ruvani Gamage</li>
-                        <li>Miss. Ruvani Gamage</li>
-                    </ol>
-                </div>
-            </div>
-            <div class="createNewAssignment">
-              <button class="submitCancelButton blue">Create New Assignment</button>
-              <button class="submitCancelButton green">Close and Complete Plane</button>
-            </div>
-            <div class="assignmentList">
-              <span class="sectionHeader">Current Assignment List:</span>
-              <div class="row col-2" style="margin:auto;">
-                <?php
-                $namArray=$arrayName = array('Lorem ipsum dolor sit.','Lorem ipsum dolor sit amet, consectetur.','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, neque.');
-                for ($i = 1; $i < 13; $i++) {
-                    echo("
-                        <div class='assignment'>
-                            <b><span>Assignment $i</span></b><hr>
-                            <span class='assignmentTitle'>".$namArray[$i%3]."</span>
-                            <span>Weight: 20%</span> 
-                            <div class='row col-3'>
-                                <div style='text-align: right;'><a href='#' style='color: black;'><i class='far fa-edit'></i></a></div>
-                                <div></div>
-                                <div style='text-align: left;'><a href='#' style='color: black;'><i class='far fa-folder-open'></i></a></div>
-                            </div>
-                        </div>
-                    ");
-                }
-                ?>
-              </div>
-            </div>
-        </div>
     </div>
 </div>
 <?php BasicLoader::loadFooter('../../'); ?>
 <script src="../../assets/js/jquery.js"></script>
-<script src="assets/assignmentManagement.js"></script>
+<script src="assets/assignmentSection.js"></script>
 </body>
 </html>

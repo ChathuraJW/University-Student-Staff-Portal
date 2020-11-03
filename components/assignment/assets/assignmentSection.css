@@ -1,7 +1,8 @@
 .featureBody {
     font-family: Varela, sans-serif;
 }
-input[type=number], textarea, select {
+
+input[type=number], input[type=text], textarea, select {
     width: fit-content;
     padding: 8px;
     border: 1px solid gray;
@@ -17,6 +18,7 @@ input[type=number], textarea, select {
     font-size: 45px;
     padding: 15px;
 }
+
 .columnHeader {
     text-align: center;
     font-size: 25px;
@@ -24,7 +26,8 @@ input[type=number], textarea, select {
     font-weight: bold;
     margin: 10px;
 }
-.assignmentList,.createNewAssignmentSection,.assignmentPlanManagement{
+
+.assignmentList, .createNewAssignmentSection, .assignmentPlanManagement, .addResultToAssignment, .resultAddSection {
     width: 100%;
     height: max-content;
     display: inline-grid;
@@ -33,9 +36,10 @@ input[type=number], textarea, select {
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.createNewAssignmentSection{
+
+/* .createNewAssignmentSection, .assignmentPlanManagement {
     display: none;
-}
+} */
 .planItem {
     width: 100%;
     height: fit-content;
@@ -49,11 +53,13 @@ input[type=number], textarea, select {
     text-decoration: none;
     border: 1px solid #a7b8af;
 }
-.planItem:hover{
+
+.planItem:hover {
     background-color: rgba(4, 65, 12, 0.68);
     color: white;
 }
-.planInfo, .staffList{
+
+.planInfo, .staffList {
     padding: 10px;
     margin: 0;
     border-radius: 5px;
@@ -68,30 +74,32 @@ input[type=number], textarea, select {
     font-size: 18px;
     display: inline-block;
 }
-.planItem .planItemHeader{
+
+.planItem .planItemHeader {
     font-weight: bold;
     text-align: left;
     display: block;
 }
 
-.conductBy{
-    padding-left:20px ;
+.conductBy {
+    padding-left: 20px;
     padding-top: 5px;
 }
+
 /*top radio styles*/
-.showRadio ,.showRest{
+.showRadio, .showRest {
     width: auto;
     padding: 20px;
     margin-right: auto;
     margin-left: auto;
 }
-.showRadio span,.showRest span, .staffAddSectionHead {
+
+.showRadio span, .showRest span, .staffAddSectionHead {
     font-size: 18px;
     display: inline-block;
     padding-bottom: 14px;
     font-weight: bold;
 }
-
 
 .showRadio label {
     font-size: 20px;
@@ -115,6 +123,7 @@ input[type=number], textarea, select {
     background-color: #353746;
     color: white;
 }
+
 /*styles for submit and cancel buttons*/
 .submitCancelButton {
     height: auto;
@@ -130,38 +139,68 @@ input[type=number], textarea, select {
     min-width: 200px;
 }
 
-.conductedBy, .basicAssignmentInfo{
+.conductedBy, .basicAssignmentInfo {
     padding: 10px;
     margin: 0;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.sectionHeader{
+.sectionHeader {
     font-weight: bold;
     padding-top: 2px;
     padding-bottom: 10px;
     padding-left: 3px;
     display: block;
 }
-.createNewAssignment{
+
+.createNewAssignment {
     margin: 10px auto;
 }
-.assignment{
+
+.assignment {
     display: block;
     padding: 10px;
     width: fit-content;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius:5px;
+    border-radius: 5px;
     margin: 2px;
 }
-.assignment span{
+
+.assignment span {
     padding: 5px;
 }
+
 .assignmentTitle {
-  display: block;
-  width: 260px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+    display: block;
+    width: 260px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
+
+.dataPointTop {
+    padding: 0 0 7px;
+    display: block;
+}
+
+.resultAddTable {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px auto 20px;
+}
+
+.resultAddTable td {
+    padding: 10px;
+    margin: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.resultAddTable th{
+    color: white;
+    padding: 10px;
+    margin: 10px;
+}
+/* .assignmentResultValue{
+pointer-events: none;
+} */
