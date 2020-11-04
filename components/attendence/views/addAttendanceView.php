@@ -118,6 +118,7 @@
             <!-- end of upload csv files -->
 
             <!-- Edit attendance -->
+            
             <div style="display:none; position:relative" id="singleAttendanceContainer" method="post" >
                 <div class ="row col-2">
                     <div>
@@ -135,7 +136,9 @@
                         </form>
                     </div>
                     <!-- Edit attendance -->
+                    
                     <div>
+                    <form method="post">
                         <div id="editAttendance" class="row col-2">
                             <div class = "inputStyle">
                                 <label for="index">Index:</label><br>
@@ -143,7 +146,11 @@
                             </div>
                             <div class = "inputStyle">
                                 <label for="academicYear">Academic Year:</label>
-                                <select id="academicYearForEdit" class="dropDown"  required>
+                                <select id="academicYearForEdit" name="academicYear" class="dropDown"  required>
+                                    <option value=1>1<sup>st</sup> Year</option>
+                                    <option value=2>2<sup>nd</sup>Year</option>
+                                    <option value=3>3<sup>rd</sup>Year</option>
+                                    <option value=4>4<sup>th</sup>Year</option>
                                 </select>
                             </div>
                         </div>
@@ -160,7 +167,7 @@
                         </div> 
                         <div class = "inputStyle">
                             <label for="subject">Subject:</label>
-                            <select id="subject" class="dropDown" required>
+                            <select id="subject" name="subject" class="dropDown" required>
                                 <?php
                                     
                                     foreach($controllerData as $data){
@@ -176,20 +183,21 @@
                         <div class = "row col-1">
                             <div  class="inputStyle">
                                 <label for="attempt">Attempt:</label><br>
-                                <select id="attempt" class="dropDown">
-                                    <option value="f">1<sup>st</sup> Attempt</option>
-                                    <option value="r">Repeated Attempt</option>
+                                <select id="attempt" name="attempt" class="dropDown">
+                                    <option value="F">1<sup>st</sup> Attempt</option>
+                                    <option value="R">Repeated Attempt</option>
                                 </select>
                             </div>
                         </div>
                         <div id="buttons" class="row col-2">
                             <div class = "buttonStyle">
-                                <button type="submit" value = "cancel" id="cancelUploadFile" class="fileUploadButton">Cancel</button>
+                                <button type="reset" value = "cancel" id="cancelUploadFile" class="fileUploadButton">Cancel</button>
                             </div>
                             <div class = "buttonStyle">
-                                <button onclick=" displayAttendance();" value = "Search" id="uploadFile"class=" fileUploadButton">Search</button>
+                                <button onclick=" displayAttendance();"  name="search" id="uploadFile"class=" fileUploadButton">Search</button>
                             </div>
                         </div>
+                        </form>
                         <div style="display:none; position:relative" id="attendanceTable">
                             <div class='attendanceContainer' >
                                 <label class="labelStyle">Search Result</label>
@@ -213,6 +221,7 @@
                         </div>
                         
                     </div>
+                    
                 </div>
                 <div id="myModal" class="modal">
                     <div class="modal-content">
