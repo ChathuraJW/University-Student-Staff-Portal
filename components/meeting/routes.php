@@ -28,6 +28,6 @@
         }
     }
     if(!$available){
-        require_once('404.php');
+        require_once('../../assets/php/404.php');
     }
 ?>

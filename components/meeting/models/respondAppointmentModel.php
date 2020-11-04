@@ -12,9 +12,9 @@
             return Database::executeQuery("root","",$query);
         }
         public static function insertData($reply,$approve,$validity,$appointmentID){
-            $query="INSERT INTO meeting_appointment(reply,isApproved,requesValidity) VALUES ('$reply','$approve',$validity) WHERE appointmentID=$appointmentID";
+            $query="UPDATE meeting_appointment SET reply='$reply' ,isApproved='$approve' ,requesValidity=$validity WHERE appointmentID=$appointmentID";
             Database::executeQuery("root","",$query);
-            self::createAudit($query, 'meeting_appointment', "INSERT", 'Insert the Reply Message for an Appointment into the system.');
+            self::createAudit($query, 'meeting_appointment', "UPDATE", 'Insert the Reply Message for an Appointment into the system.');
         }
     }
 ?>
