@@ -114,14 +114,15 @@ body {
     margin-bottom: -15px;
 }
 .popupText {
-    width: fit-content;
-    font-size: small;
+    /* width: fit-content; */
+    /* font-size: small; */
     /* position: absolute; Stay in place */
     border-radius: 5px;
     /* top:0; */
     /* z-index: -1; */
     padding: 8px;
-    background-color: rgb(255, 109, 104);
+    color: rgb(255, 0, 51);
+    /* background-color: rgb(255, 109, 104); */
     /* border-color:  rgb(250, 212, 211) transparent transparent transparent; */
 }
 /* .tooltiptext {
@@ -146,6 +147,7 @@ body {
     margin-bottom: 40px;
 }
 .button{
+    margin-top: 50px;
     border: none;
     width: 100px;
     padding: 6px;
@@ -153,17 +155,21 @@ body {
     outline: none;
     z-index: -1;
 }
+.pswIconF:hover .pswError1{
+    visibility: visible;
+}
 .button:hover{
     background-color: rgb(255, 255, 0);
 }
 .next{
-    float:right;
+    /* float:right; */
     margin-right:60px;
     background-color: rgb(86, 205, 50);
 }
 .next:hover{
-    background-color: rgb(57, 182, 63);
+    background-color: rgb(16, 151, 23);
 }
+
 
 
 /* function displayError(){

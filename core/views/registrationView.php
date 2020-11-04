@@ -6,7 +6,8 @@
     <title>University Student-Staff Portal</title>
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="assets/css/registrationStyles.css">
-    <link rel="stylesheet" href="assets/css/fontawesome-free-5.15.1-web/css/all.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/fontawesome-free-5.15.1-web/css/all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../assets/css/gridSystem.css">
 </head>
         
@@ -32,36 +33,33 @@
         
 
         <div class="row col-1">
-            <form action=""  onsubmit="return getdata()" name="form">
-                <div id="pwd" class="forms password" style="display:none;">
-
+            <form action=""  onsubmit="return getdata()" method="post" name="form">
+                <div id="pwd" class="forms password" >
 
                     <div class="row col-1">
                         <h2 class="heading">User Password </h2>
+
                     </div>
                     
                     <div class="inputs">
                         <span>
-                            <div style="visibility:hidden;"class="popupText pswError1" id="pswError1">Filling is required and LowerCase,UpperCase,Number,special Character must include and length must > or = 8 </div>
+                            <div style="visibility:hidden;"class="popupText pswError1" id="pswError1">Filling is required and LowerCase, UpperCase, Number, special Character must include and length must > or = 8 </div>
                         </span>
                         <div class="row col-2 input">
                             <div><label for="psw"><b>Password</b></label></div>
                             <div class="data"> 
-                                <input class="inputField" type="password" placeholder="Enter Password" name="psw" id="psw">    <i class="fa fa-question-circle pswIconF" aria-hidden="true"></i><br>
-                                <!-- <p style="display:none;"class="popupText" id="lowerCase">Add Lowercase</p>
-                                <p style="display:none;"class="popupText" id="upperCase">Add Uppercase</p>
-                                <p style="display:none;"class="popupText" id="number">Add Number</p>
-                                <p style="display:none;"class="popupText" id="digit">More than 8 digit</p> -->
+                                <input class="inputField" type="password" placeholder="Enter Password" name="psw" id="psw">    <i class="fa fa-question-circle pswIconF" id="pswIconF" onmouseover="visible('pswError1')" aria-hidden="true"></i><br>
+                                
                             </div>
                             <!-- Filling this field is required ! -->
                         </div>
                         <span>
-                            <div style="visibility:hidden;" class="popupText pswError2" id="pswError2">Filling is required and LowerCase,UpperCase,Number,special Character must include and length must > or = 8 </div>
+                            <div style="visibility:hidden;" class="popupText pswError2" id="pswError2">Filling is required and Equal to first password </div>
                         </span>
                         <div class="row col-2 input">
                             <div><label for="psw-repeat"><b>Repeat Password</b></label></div>
                             <div>
-                                <input class="inputField" type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat">   <i class="fa fa-question-circle pswIconR" aria-hidden="true"></i><br>
+                                <input class="inputField" type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat">   <i class="fa fa-question-circle pswIconR" onmouseover="visible('pswError2')" aria-hidden="true"></i><br>
                                 <!-- <p style="display:none;"class="popupText" id="equal">Not equal to first</p> -->
                             </div>
                             
@@ -83,29 +81,29 @@
                         
                         <div class="row col-1 input">
                             <span>
-                                <div style="width:95%;visibility:hidden;" class="popupText" id="fNameMsg">Invalid Input Ex W.A.C.J</div>
+                                <div style="width:95%;visibility:hidden;" class="popupText" id="fNameMsg"> Ex Chathura Janaranjana</div>
                             </span>
                             <div><label for="fName"><b>First Name</b></label></div>
-                            <div><input class="inputField normalFields" type="text" placeholder="Enter Name" name="fName" id="fName" required>    <i class="fa fa-question-circle pswIconF" aria-hidden="true"></i><br>
+                            <div><input class="inputField normalFields" type="text" placeholder="Enter Name" name="fName" id="fName" required>    <i class="fa fa-question-circle pswIconF" onmouseover="visible('fNameMsg')" aria-hidden="true"></i><br>
                             <!-- <p style="display:none;"class="popupText" id="fNameMsg">Filling is required</p> -->
                             </div>
                         </div>
                         
                         <div class="row col-1 input">
                             <span>
-                                <div style="width:95%;visibility:hidden;"class="popupText" id="lNameMsg">Invalid Name Ex Wanniarachchi</div>
+                                <div style="width:95%;visibility:hidden;"class="popupText" id="lNameMsg"> Ex Wanniarachchi</div>
                             </span>
                             <div><label for="lName"><b>Last Name</b></label></div>
-                            <div><input class="inputField normalFields" type="text" placeholder="Enter Name" name="lName" id="lName" required>    <i class="fa fa-question-circle pswIconF" aria-hidden="true"></i><br>
+                            <div><input class="inputField normalFields" type="text" placeholder="Enter Name" name="lName" id="lName" required>    <i class="fa fa-question-circle pswIconF" onmouseover="visible('lNameMsg')" aria-hidden="true"></i><br>
                             <!-- <p style="display:none;"class="popupText" id="lNameMsg">Filling is required</p> -->
                         </div>
                         </div>
                         <div class="row col-1 input">
                             <span >
-                                <div style="width:95%;visibility:hidden;"class="popupText" id="fullNameMsg">Invalid Name Ex W.A.C.J.Wanniarachchi</div>
+                                <div style="width:95%;visibility:hidden;"class="popupText" id="fullNameMsg"> Ex Wanniarachchilage Chathura Janaranjana Wanniarachchi</div>
                             </span>
                             <div><label for="fullName"><b>Full Name</b></label></div>
-                            <div><input class="inputField normalFields" type="text" placeholder="Enter Name" name="fullName" id="fullName" required>   <i class="fa fa-question-circle pswIconF" aria-hidden="true"></i><br><br>
+                            <div><input class="inputField normalFields" type="text" placeholder="Enter Name" name="fullName" id="fullName" required>   <i class="fa fa-question-circle pswIconF" onmouseover="visible('fullNameMsg')" aria-hidden="true"></i><br><br>
                             <!-- <p style="display:none;"class="popupText" id="fullNameMsg">Filling is required</p> -->
                             
                             </div>
@@ -114,12 +112,12 @@
                         <div class="row col-2 input">
                             <div >
                                 <span style="margin-bottom:10px;">
-                                    <div style="width:95%;visibility:hidden;"class="popupText" id="genderMsg">Invalid Input</div>
+                                    <div style="width:90%;visibility:hidden;"class="popupText" id="genderMsg">Choose from dropdown</div>
 
                                 </span>
                                 <div><label for="gender"><b>Gender</b></label></div>
                                 <div>
-                                    <input style="width:90%" class="inputField normalFields" list="types" placeholder="Gender" name="gender" id="gender" required>   <i class="fa fa-question-circle pswIconF" aria-hidden="true"></i><br><br>
+                                    <input style="width:90%" class="inputField normalFields" list="types" placeholder="Gender" name="gender" id="gender" required>   <i class="fa fa-question-circle pswIconF" onmouseover="visible('genderMsg')" aria-hidden="true"></i><br><br>
                                     <!-- <p style="display:none;"class="popupText" id="genderMsg">Filling is required</p> -->
                                 </div>
                                 <datalist id="types">
@@ -129,11 +127,11 @@
                             </div>
                             <div >
                                 <span style="margin-bottom:10px;">
-                                    <div style="width:95%;visibility:hidden;"class="popupText" id="salutationMsg">Invalid Input</div>
+                                    <div style="width:90%;visibility:hidden;"class="popupText" id="salutationMsg">Choose from dropdown</div>
                                 </span>
                                 <div><label for="occupation"><b>Salutation</b></label></div>
                                 <div>
-                                    <input style="width:90%" class="inputField normalFields" list="role" placeholder="Occupation" name="occupation" id="occupation" required>   <i class="fa fa-question-circle pswIconF" aria-hidden="true"></i><br><br>
+                                    <input style="width:90%" class="inputField normalFields" list="role" placeholder="Occupation" name="occupation" id="occupation" required>   <i class="fa fa-question-circle pswIconF" onmouseover="visible('salutationMsg')" aria-hidden="true"></i><br><br>
                                     <!-- <p style="display:none;"class="popupText" id="OccupationInv">Invalid Name</p> -->
                                 </div>
                                 <datalist id="role">
@@ -149,22 +147,22 @@
                         <div class="row col-2 input">
                             <div >
                                 <span >
-                                    <div style="width:95%;visibility:hidden;"class="popupText" id="nicMsg">Invalid Input</div>
+                                    <div style="width:90%;visibility:hidden;"class="popupText" id="nicMsg">Required information</div>
                                 </span>
                                 <div><label for="nic"><b>NIC</b></label></div>
                                 <div >
-                                    <input style="width:90%;" class="inputField normalFields" type="text" placeholder="Enter NIC" name="nic" id="nic" required> <i class="fa fa-question-circle pswIconF" aria-hidden="true"></i>
+                                    <input style="width:90%;" class="inputField normalFields" type="text" placeholder="Enter NIC" name="nic" id="nic" required> <i class="fa fa-question-circle pswIconF" onmouseover="visible('nicMsg')" aria-hidden="true"></i>
                                     <!-- <p style="display:none;"class="popupText" id="nicMsg">Filling is required</p> -->
                                     
                                 </div>
                             </div>
                             <div>
                                 <span >
-                                    <div style="width:95%;visibility:hidden;"class="popupText" id="dobMsg">Filling is required</div>
+                                    <div style="width:90%;visibility:hidden;"class="popupText" id="dobMsg">Required information</div>
                                 </span>
                                 <div><label for="dob"><b>DOB</b></label></div>
                                 <div >
-                                    <input style="width:90%;" class="inputField normalFields" type="date" placeholder="Enter DOB" name="dob" id="dob" required> <i class="fa fa-question-circle pswIconF" aria-hidden="true"></i>
+                                    <input style="width:90%;" class="inputField normalFields" type="date" placeholder="Enter DOB" name="dob" id="dob" required> <i class="fa fa-question-circle pswIconF" onmouseover="visible('dobMsg')" aria-hidden="true"></i>
                                 </div>
                             </div>
                         </div>
@@ -175,45 +173,45 @@
                         </div>
                     </div>
                 </div>
-                <div id="cnt" class="forms contact " style="display:none;">
+                <div id="cnt" class="forms contact " style="display:none;" >
                     <div class="row col-1">
                         <h2 class="heading">Contact Details</h2>
                     </div>
                     <div class="inputs basicInputs">
                         <div class="row col-1 input">
                             <span>
-                                <div style="visibility:hidden;width:95%;" class="popupText" id="teleMsg">Invalid Input</div>
+                                <div style="visibility:hidden;width:95%;" class="popupText" id="teleMsg">Required information</div>
                             </span>
                             <div><label for="tele"><b>Telephone</b></label></div>
-                            <div><input class="inputField normalFields" type="text" placeholder="Enter Telephone number" name="tele" id="tele" required>  <i class="fa fa-question-circle pswIconF" aria-hidden="true"></i><br>
+                            <div><input class="inputField normalFields" type="text" placeholder="Enter Telephone number" name="tele" id="tele" required>  <i class="fa fa-question-circle pswIconF" onmouseover="visible('teleMsg')" aria-hidden="true"></i><br>
                             <!-- <p style="display:none;"class="popupText" id="teleInv">Invalid Name</p> -->
                             </div>
                         </div>
                         <div class="row col-1 input">
                             <span>
-                                <div style="visibility:hidden;width:95%;"class="popupText" id="addressMsg">Invalid Input</div>
+                                <div style="visibility:hidden;width:95%;"class="popupText" id="addressMsg">Required information</div>
                             </span>
                             <div><label for="address"><b>Address</b></label></div>
-                            <div><input class="inputField normalFields" type="text" placeholder="Enter Address" name="address" id="address" required>  <i class="fa fa-question-circle pswIconF" aria-hidden="true"></i><br>
+                            <div><input class="inputField normalFields" type="text" placeholder="Enter Address" name="address" id="address" required>  <i class="fa fa-question-circle pswIconF" onmouseover="visible('addressMsg')" aria-hidden="true"></i><br>
                             <!-- <p style="display:none;"class="popupText" id="addressInv">Invalid Name</p> -->
                             </div>
                         </div>
                         <div class="row col-2 input">
                             <div>
                                 <span>
-                                    <div style="visibility:hidden;width:90%;" class="popupText" id="emailMsg">Invalid Input</div>
+                                    <div style="visibility:hidden;width:90%;" class="popupText" id="emailMsg">Required information</div>
                                 </span>
                                 <div><label for="email"><b>Personal Email</b></label></div>
-                                <div><input style="width:90%;"class="inputField normalFields" type="email" placeholder="Enter Personal Email" name="email" id="email" required>  <i class="fa fa-question-circle pswIconF" aria-hidden="true"></i><br>
+                                <div><input style="width:90%;"class="inputField normalFields" type="email" placeholder="Enter Personal Email" name="email" id="email" required>  <i class="fa fa-question-circle pswIconF" onmouseover="visible('emailMsg')" aria-hidden="true"></i><br>
                                 <!-- <p style="display:none;"class="popupText" id="emailInv">Invalid Name</p> -->
                                 </div>
                             </div>
                             <div>
                                 <span>
-                                    <div style="visibility:hidden;width:90%;" class="popupText" id="uniMailMsg">Invalid Input</div>
+                                    <div style="visibility:hidden;width:90%;" class="popupText" id="uniMailMsg">Enter Valid Input</div>
                                 </span>
                                 <div><label for="uniMail"><b>University Email</b></label></div>
-                                <div><input style="width:90%;" class="inputField normalFields" type="email" placeholder="Enter University Email" name="uniMail" id="uniMail">  <i class="fa fa-question-circle pswIconF" aria-hidden="true"></i><br>
+                                <div><input style="width:90%;" class="inputField normalFields" type="email" placeholder="Enter University Email" name="uniMail" id="uniMail">  <i class="fa fa-question-circle pswIconF" onmouseover="visible('teleMsg')" aria-hidden="true"></i><br>
                                 </div>
                             </div>
                         </div>
@@ -224,7 +222,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="img" class="forms image"  >
+                <div id="img" class="forms image" style="display:none;" >
                     <div class="row col-1">
                         <h2 class="heading">Profile Image</h2>
                     </div>
@@ -246,6 +244,12 @@
         </div>
     </div>
     <script>
+        function visible(element){
+            document.getElementById(element).style.visibility="visible";
+            setTimeout(function(){
+                document.getElementById(element).style.visibility="hidden";
+            }, 4000);
+        }
         var loadFile = function(event) {
             var output = document.getElementById('output');
             output.src = URL.createObjectURL(event.target.files[0]);
@@ -460,20 +464,26 @@
                 document.getElementById("pswError2").style.visibility="hidden";
                 var lowerCaseLetters = /[a-z]/g;
                 var upperCaseLetters = /[A-Z]/g;
+                var specialCharachters=/[@#$%)^&*(}>?,./;''~\|:""`{<]/;
                 var numbers = /[0-9]/g;
+                
                 if(x.match(upperCaseLetters)) {
                     document.getElementById("pswError1").style.visibility="hidden";
-                    if(x.match(lowerCaseLetters)) {
-                        document.getElementById("pswError1").style.visibility="hidden";
-                        if(x.match(numbers)) {
+                    if(x.match(specialCharachters)) {
+                        if(x.match(lowerCaseLetters)) {
                             document.getElementById("pswError1").style.visibility="hidden";
-                            if(x.length >= 8) {
+                            if(x.match(numbers)) {
                                 document.getElementById("pswError1").style.visibility="hidden";
-                                if(x==y){
-                                    document.getElementById("pswError2").style.visibility="hidden";
-                                    toBsc();
-                                }else{
-                                    displayError("psw-repeat","pswError2");
+                                if(x.length >= 8) {
+                                    document.getElementById("pswError1").style.visibility="hidden";
+                                    if(x==y){
+                                        document.getElementById("pswError2").style.visibility="hidden";
+                                        toBsc();
+                                    }else{
+                                        displayError("psw-repeat","pswError2");
+                                    }
+                                } else {
+                                    displayError("psw","pswError1");
                                 }
                             } else {
                                 displayError("psw","pswError1");
@@ -481,7 +491,8 @@
                         } else {
                             displayError("psw","pswError1");
                         }
-                    } else {
+                    }
+                    else{
                         displayError("psw","pswError1");
                     }
                 } else {
@@ -504,7 +515,7 @@
         function toBsc(){
             document.getElementById("pwd").style.display="none";
             document.getElementById("bsc").style.display="";            
-            document.getElementById("topic").style.display="none";            
+            // document.getElementById("topic").style.display="none";            
         }
         function toCnt(){
             document.getElementById("bsc").style.display="none";
@@ -517,7 +528,7 @@
         function backPwd(){
             document.getElementById("bsc").style.display="none";
             document.getElementById("pwd").style.display="";
-            document.getElementById("topic").style.display="";            
+            // document.getElementById("topic").style.display="";            
         }
         function backBsc(){
             document.getElementById("cnt").style.display="none";
