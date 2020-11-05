@@ -31,6 +31,12 @@
         //create function to add data into messaage  table
          
         //return messageID
+        public static function insertData($splitData,$addData)
+        {
+            foreach($splitData as $value){
+                $insertSplitDataQuery="INSERT INTO user_receive_message('messageID','receivedBy') VALUES($addData,$splitData)";
+            }
+        }
     }
 
 ?>

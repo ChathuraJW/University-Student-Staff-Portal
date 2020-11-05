@@ -13,13 +13,22 @@
                 $sendBy=$_COOKIE['userName'];
                 //addd data to message table
                 $addData=sendMessageModel::addData($title,$message,$sendBy);
-                //take message id
+                
+                $contacts=$_POST['contacts'];
+                $splitData=(explode(" ",$contacts));
+                $insertData=sendMessageModel::insertData($splitData,$addData);
+
+                
                  
 
                   
             }
+            
 
              
              
         }
+
+    
     }
+    ?>

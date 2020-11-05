@@ -37,7 +37,8 @@
           
           <div class="row col-3">
             <div>
-              <select id="academicStaffList" name="academicStaffList" onchange="addStaffRecipient('academicStaffList');" >
+              <select id="academicStaffList" name="academicStaffList" onchange="addStaffRecipient('academicStaffList');">
+               
               <option value="">Academic Staff </option>
                 <?php
                      
@@ -51,7 +52,7 @@
               <br>
             </div>
           
-            <div>
+            <div>  
               <select id="academicSupportiveList" name="academicSupportiveList" onchange="addStaffRecipient('academicSupportiveList');"  >
                 <option value="">Academic Supportive Staff </option>
                 <?php
@@ -67,7 +68,7 @@
             </div>
 
             <div>
-              <select id="administrativeList" name="administrativeList" onchange="addStaffRecipient('administrativeList');" >
+              <select id="administrativeList" name="administrativeList" onchange="addStaffRecipient('administrativeList');">
               <option value="">Administrative Staff </option>
                 <?php
                      
@@ -80,7 +81,9 @@
            
               <br>
               <br>
-            </div>
+              
+             
+            
             <br>
             <br>
           </div>

@@ -11,4 +11,11 @@ function addStaffRecipient(id){
     let recipientList=document.getElementById('contacts');
     recipientList.value=recipientList.value+" "+staffList.value;
     staffList.remove(staffList.selectedIndex);
+    split(recipientList.value);
+    
 }
+
+function split(contactList){
+    return contactList;
+}
+

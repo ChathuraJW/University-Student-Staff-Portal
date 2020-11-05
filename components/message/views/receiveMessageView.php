@@ -49,7 +49,7 @@
               <br>
 
               <label for = "title"><b>Title</b></label>
-              <input type = "text" name="Title">
+              <input type = "text" name="Title" value=<?php echo $getTitle; ?> >
               <br>
 
               <label for = "message"><b>Message</b></label>

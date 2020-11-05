@@ -6,9 +6,9 @@
             $getTime = receiveMessageModel::getTime();
             $getSendBy = receiveMessageModel::getSendBy();
 
-            $sendData = array($getTitle,$getMessage,$getTime,$getSendBy);
-            self::createView("receiveMessageView",$sendData);
+             
+            self::createView("receiveMessageView",$getTitle,$getMessage,$getTime,$getSendBy);
 
 
         }
-    }
+    } 
