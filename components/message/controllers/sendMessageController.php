@@ -10,12 +10,13 @@
             if(isset($_POST['submit'])){
                 $title=$_POST['title'];
                 $message=$_POST['message'];
-                $sendBy=$_COOKIE['userName'];
+                $sendBy="mnj";//$_COOKIE['userName'];
                 //addd data to message table
                 $addData=sendMessageModel::addData($title,$message,$sendBy);
                 
                 $contacts=$_POST['contacts'];
                 $splitData=(explode(" ",$contacts));
+                print_r($addData);
                 $insertData=sendMessageModel::insertData($splitData,$addData);
 
                 
