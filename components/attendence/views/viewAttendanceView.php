@@ -11,7 +11,8 @@
 </head>
 <body>
     <!-- include header section -->
-    <?php require('../../assets/php/commonHeader.php')?>
+    <?php require('../../assets/php/basicLoader.php')?>
+    <?php BasicLoader::loadHeader('../../')?>
     
     <div class="featureBody">
         <div class="sidebar">
@@ -169,6 +170,6 @@
     
         
     <!-- include footer section -->
-    <?php require('../../assets/php/commonFooter.php')?>
+    <?php BasicLoader::loadFooter('../../')?>
 </body>
 </html>
