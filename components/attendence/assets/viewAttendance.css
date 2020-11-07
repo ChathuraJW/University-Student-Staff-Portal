@@ -26,7 +26,7 @@
 }
 
 .innerLabel{
-    font-size: 72px;
+    font-size: 80px;
 }
 
 
@@ -51,7 +51,7 @@
 }
 
 .attendanceDetailTopicLeft{
-    font-size: 26px;
+    font-size: 32px;
     float: left;
     margin-top: 30px;
 }
@@ -86,7 +86,7 @@
 }
 
 .textStyle{
-    font-size: 36;
+    font-size: 24px;
 }
 
 #myAttendance{
