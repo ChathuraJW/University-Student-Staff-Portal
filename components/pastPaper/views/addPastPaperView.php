@@ -46,14 +46,18 @@
             </div>
         </div>
         <div class="row col-1">
-            <div class="dropZone">
-                <span class="dropZonePrompt">Drop file here or click to upload</span>
-                <!-- <div class="dropZoneThumb" data-label="myFile.txt"></div> -->
-                <input type="file" name="myFile" id="" class="dropZoneInput">
-            </div>
+            <form action="" method="post">
+                <div class="dropZone">
+                    <span class="dropZonePrompt">Drop file here or click to upload</span>
+                    <!-- <div class="dropZoneThumb" data-label="myFile.txt"></div> -->
+                    <input type="file" name="myFile" id="" class="dropZoneInput" multiple>
+                </div>
+            </form>
         </div>
         <div class="row col-2">
-            <div></div>
+            <div>
+                <input type>
+            </div>
             <div></div>
         </div>
 
