@@ -8,7 +8,7 @@
                 $fName=$_POST['fName'];
                 $lName=$_POST['lName'];
                 $flName=$_POST['fullName'];
-                $gender=$_POST['gender'];
+                $gend=$_POST['gender'];
                 $occupation=$_POST['occupation'];
                 $nic=$_POST['nic'];
                 $dob=$_POST['dob'];
@@ -22,8 +22,25 @@
                 $lastName=ucwords($lName);
                 $fullName=ucwords($flName);
                 $address=ucwords($adrs);
+                if($gend=='Male'){
+                    $gender='M';
+                }else{
+                    $gender='F';
+                }
                     
-                registrationModel::first($firstName,$lastName,$fullName,$gender,$occupation,$nic,$dob,$tele,$address,$email,$uniMail);
+                $image_name=$_FILES['image']['name'];
+                $image_tmpName=$_FILES['image']['tmp_name'];
+                // $location='C:\xampp\htdocs\USSP\core\assets\profile picture';
+                
+                echo "helllo";
+                echo  $fName;
+                echo  $lastName;
+                echo  $fullName;
+                echo  $address;
+                echo  $gender;
+                // $image_name." ".$image_tmpName." ".$email." ".$uniMail." ".$passcodeen." ".$tele." ".$dob." ".$nic." ".$fPassword;
+                // move_uploaded_file($image_tmpName,$location);
+                registrationModel::first($passcodeen,$firstName,$lastName,$fullName,$gender,$occupation,$nic,$dob,$tele,$address,$email,$uniMail);
 
             }
         }
