@@ -34,8 +34,13 @@
         public static function insertData($splitData,$addData)
         {
             foreach($splitData as $value){
-                $insertSplitDataQuery="INSERT INTO user_receive_message('messageID','receivedBy') VALUES($addData,$splitData)";
+                $insertSplitDataQuery="INSERT INTO user_receive_message(messageID,receivedBy) VALUE($addData,'$value')";
+                 
+                Database::executeQuery("root","",$insertSplitDataQuery );
             }
+
+            
+             
         }
     }
 

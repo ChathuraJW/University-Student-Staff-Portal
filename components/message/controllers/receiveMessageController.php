@@ -1,13 +1,17 @@
 <?php
     class receiveMessageController extends Controller{
         public static function receiveMessage(){
-            $getTitle = receiveMessageModel::getTitle();
-            $getMessage = receiveMessageModel::getMessage();
             $getTime = receiveMessageModel::getTime();
-            $getSendBy = receiveMessageModel::getSendBy();
+            /*$getTitle = receiveMessageModel::getTitle();
+            $getMessage = receiveMessageModel::getMessage();
+            $getSendBy = receiveMessageModel::getSendBy();*/
+            
+            /*$transferToView = array($getTime,$getTitle,$getMessage);*/
+            
+        
 
              
-            self::createView("receiveMessageView",$getTitle,$getMessage,$getTime,$getSendBy);
+            self::createView("receiveMessageView",$getTime);
 
 
         }

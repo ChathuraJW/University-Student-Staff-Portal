@@ -2,7 +2,7 @@
     font-size: 40px;
 }
 
-.featureBody ul{
+/*.featureBody ul{
     background: gray;
     padding: 10px;
   
@@ -15,5 +15,29 @@
 
 *{
   box-sizing: border-box;
+}*/
+
+#inbox {
+  border-collapse: collapse;
+  width: 100%;
 }
 
+#inbox td, #inbox th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#inbox tr:nth-child(even)
+{background-color: #f2f2f2;}
+
+#inbox tr:hover{
+  background-color: #ddd;
+}
+
+#inbox th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}

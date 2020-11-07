@@ -18,12 +18,12 @@
       <h1> <b>Inbox <b></h1>
     </div>
       
-        
+  <!--
     <div class="row col-3">
       <ul>
         <li>Date : 05.10.2020</li>
-        <li>Time : 10.00.00</li>
-        <li>Title : Meeting</li>
+        <li>Time : data[0]</li>
+        <li>Title : data[1]</li>
         <li>Message : Can you come to the meeting?</li>
          
 
@@ -49,7 +49,7 @@
               <br>
 
               <label for = "title"><b>Title</b></label>
-              <input type = "text" name="Title" value=<?php echo $getTitle; ?> >
+              <input type = "text" name="Title" >
               <br>
 
               <label for = "message"><b>Message</b></label>
@@ -72,9 +72,39 @@
             document.getElementById("myForm").style.display="none";
           }
         </script>
+        
+     -->
 
-     
+      <div>
+          <table id="inbox">
+            <tr>
+              <th style="width:250px">Date & Time</th>
+              <th>Title</th>
+              <th>Message</th>
 
+            </tr> 
+
+            <?php
+              //if($controllerData->num_rows>0){
+                //while($row = $controllerData->fetch_assoc())
+                
+                foreach ($controllerData as $data)
+                {
+                  
+                  echo "<tr><td>" . $data['timestamp'] . "</td><td>" . $data['title'] . "</td><td>" . $data['message'] . "</td></tr>"  ;  
+                }
+
+                /*foreach ($controllerData[1] as $data)
+                {
+                  print_r($data);
+                  echo "<tr><td>" . $data['timestamp'] . "</td><td>" . $data['title'] . "</td><td>" . $data['message'] . "</td></tr>"  ;  
+                }*/
+              
+            ?>
+             
+          </table>
+      </div>
+  
        
 
        

@@ -16,7 +16,7 @@
                 
                 $contacts=$_POST['contacts'];
                 $splitData=(explode(" ",$contacts));
-                print_r($addData);
+            
                 $insertData=sendMessageModel::insertData($splitData,$addData);
 
                 
