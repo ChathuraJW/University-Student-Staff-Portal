@@ -33,8 +33,8 @@
         
 
         <div class="row col-1">
-            <form action=""  onsubmit="return getdata()" method="post" name="form">
-                <div id="pwd" class="forms password" >
+            <form action=""  method="post" name="form">
+                <div id="pwd" class="forms password"  >
 
                     <div class="row col-1">
                         <h2 class="heading">User Password </h2>
@@ -42,31 +42,35 @@
                     </div>
                     
                     <div class="inputs">
-                        <span>
+                        <!-- <span>
                             <div style="visibility:hidden;"class="popupText pswError1" id="pswError1">Filling is required and LowerCase, UpperCase, Number, special Character must include and length must > or = 8 </div>
-                        </span>
+                        </span> -->
                         <div class="row col-2 input">
                             <div><label for="psw"><b>Password</b></label></div>
                             <div class="data"> 
-                                <input class="inputField" type="password" placeholder="Enter Password" name="psw" id="psw">    <i class="fa fa-question-circle pswIconF" id="pswIconF" onmouseover="visible('pswError1')" aria-hidden="true"></i><br>
+                                <input style="margin-bottom:55px;" class="inputField" type="password" placeholder="Enter Password" name="psw" id="psw">    <i class="fa fa-question-circle pswIconF" id="pswIconF" onmouseover="visible('pswError1')" aria-hidden="true"><div style="visibility:hidden;" class="messagetext" id="pswError1">Filling is required and LowerCase, UpperCase, Number, special Character must include and length must > or = 8 </div></i>
+                                
+                                <br>
                                 
                             </div>
+                            
                             <!-- Filling this field is required ! -->
                         </div>
-                        <span>
+                        <!-- <span>
                             <div style="visibility:hidden;" class="popupText pswError2" id="pswError2">Filling is required and Equal to first password </div>
-                        </span>
+                        </span> -->
                         <div class="row col-2 input">
                             <div><label for="psw-repeat"><b>Repeat Password</b></label></div>
                             <div>
-                                <input class="inputField" type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat">   <i class="fa fa-question-circle pswIconR" onmouseover="visible('pswError2')" aria-hidden="true"></i><br>
+                                <input style="" class="inputField" type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat">   <i class="fa fa-question-circle pswIconR" onmouseover="visible('pswError2')" aria-hidden="true"><div style="visibility:hidden;" class="messagetext" id="pswError2">Filling is required and Equal to first password  </div></i><br>
                                 <!-- <p style="display:none;"class="popupText" id="equal">Not equal to first</p> -->
                             </div>
                             
                         </div>
                       
 
-                        <div class="row col-1">
+                        <div class="row col-2">
+                            <div></div>
                             <div><input class="button next" type="button" onclick="validateForm()"  name="next" value="NEXT"></div>
                         </div>
                     </div>
@@ -75,35 +79,35 @@
                 <div id="bsc" class="forms basic" style="display:none;" >
                     
                     <div class="row col-1">
-                        <h2 class="heading">Basic Details</h2>
+                        <h2 class="heading">Basic Information</h2>
                     </div>
                     <div class="inputs basicInputs">
                         
                         <div class="row col-1 input">
-                            <span>
+                            <!-- <span>
                                 <div style="width:95%;visibility:hidden;" class="popupText" id="fNameMsg"> Ex Chathura Janaranjana</div>
-                            </span>
+                            </span> -->
                             <div><label for="fName"><b>First Name</b></label></div>
-                            <div><input class="inputField normalFields" type="text" placeholder="Enter Name" name="fName" id="fName" required>    <i class="fa fa-question-circle pswIconF" onmouseover="visible('fNameMsg')" aria-hidden="true"></i><br>
+                            <div><input class="inputField normalFields" type="text" placeholder="Enter Name" name="fName" id="fName" required>    <i class="fa fa-question-circle pswIconF" onmouseover="visible('fNameMsg')" aria-hidden="true"><div style="visibility:hidden;" class="messagetext" id="fNameMsg">Ex Chathura Janaranjana  </div></i><br>
                             <!-- <p style="display:none;"class="popupText" id="fNameMsg">Filling is required</p> -->
                             </div>
                         </div>
                         
                         <div class="row col-1 input">
-                            <span>
+                            <!-- <span>
                                 <div style="width:95%;visibility:hidden;"class="popupText" id="lNameMsg"> Ex Wanniarachchi</div>
-                            </span>
+                            </span> -->
                             <div><label for="lName"><b>Last Name</b></label></div>
-                            <div><input class="inputField normalFields" type="text" placeholder="Enter Name" name="lName" id="lName" required>    <i class="fa fa-question-circle pswIconF" onmouseover="visible('lNameMsg')" aria-hidden="true"></i><br>
+                            <div><input class="inputField normalFields" type="text" placeholder="Enter Name" name="lName" id="lName" required>    <i class="fa fa-question-circle pswIconF" onmouseover="visible('lNameMsg')" aria-hidden="true"><div style="visibility:hidden;" class="messagetext" id="lNameMsg"> Ex Wanniarachchi</div></i><br>
                             <!-- <p style="display:none;"class="popupText" id="lNameMsg">Filling is required</p> -->
                         </div>
                         </div>
                         <div class="row col-1 input">
-                            <span >
+                            <!-- <span >
                                 <div style="width:95%;visibility:hidden;"class="popupText" id="fullNameMsg"> Ex Wanniarachchilage Chathura Janaranjana Wanniarachchi</div>
-                            </span>
+                            </span> -->
                             <div><label for="fullName"><b>Full Name</b></label></div>
-                            <div><input class="inputField normalFields" type="text" placeholder="Enter Name" name="fullName" id="fullName" required>   <i class="fa fa-question-circle pswIconF" onmouseover="visible('fullNameMsg')" aria-hidden="true"></i><br><br>
+                            <div><input class="inputField normalFields" type="text" placeholder="Enter Name" name="fullName" id="fullName" required>   <i class="fa fa-question-circle pswIconF" onmouseover="visible('fullNameMsg')" aria-hidden="true"><div style="visibility:hidden;" class="messagetext" id="fullNameMsg"> Ex Wanniarachchilage Chathura Janaranjana Wanniarachchi</div></i><br><br>
                             <!-- <p style="display:none;"class="popupText" id="fullNameMsg">Filling is required</p> -->
                             
                             </div>
@@ -111,13 +115,13 @@
                         </div>
                         <div class="row col-2 input">
                             <div >
-                                <span style="margin-bottom:10px;">
+                                <!-- <span style="margin-bottom:10px;">
                                     <div style="width:90%;visibility:hidden;"class="popupText" id="genderMsg">Choose from dropdown</div>
 
-                                </span>
+                                </span> -->
                                 <div><label for="gender"><b>Gender</b></label></div>
                                 <div>
-                                    <input style="width:90%" class="inputField normalFields" list="types" placeholder="Gender" name="gender" id="gender" required>   <i class="fa fa-question-circle pswIconF" onmouseover="visible('genderMsg')" aria-hidden="true"></i><br><br>
+                                    <input style="width:90%" class="inputField normalFields" list="types" placeholder="Gender" name="gender" id="gender" required>   <i class="fa fa-question-circle pswIconF" onmouseover="visible('genderMsg')" aria-hidden="true"><div style="visibility:hidden;" class="messagetext" id="genderMsg"> Ex Wanniarachchi</div></i><br><br>
                                     <!-- <p style="display:none;"class="popupText" id="genderMsg">Filling is required</p> -->
                                 </div>
                                 <datalist id="types">
@@ -126,12 +130,12 @@
                                 </datalist> <br>
                             </div>
                             <div >
-                                <span style="margin-bottom:10px;">
+                                <!-- <span style="margin-bottom:10px;">
                                     <div style="width:90%;visibility:hidden;"class="popupText" id="salutationMsg">Choose from dropdown</div>
-                                </span>
+                                </span> -->
                                 <div><label for="occupation"><b>Salutation</b></label></div>
                                 <div>
-                                    <input style="width:90%" class="inputField normalFields" list="role" placeholder="Occupation" name="occupation" id="occupation" required>   <i class="fa fa-question-circle pswIconF" onmouseover="visible('salutationMsg')" aria-hidden="true"></i><br><br>
+                                    <input style="width:90%" class="inputField normalFields" list="role" placeholder="Occupation" name="occupation" id="occupation" required>   <i class="fa fa-question-circle pswIconF" onmouseover="visible('salutationMsg')" aria-hidden="true"><div style="visibility:hidden;" class="messagetext" id="salutationMsg"> Choose from dropdown</div></i><br><br>
                                     <!-- <p style="display:none;"class="popupText" id="OccupationInv">Invalid Name</p> -->
                                 </div>
                                 <datalist id="role">
@@ -146,23 +150,23 @@
 
                         <div class="row col-2 input">
                             <div >
-                                <span >
+                                <!-- <span >
                                     <div style="width:90%;visibility:hidden;"class="popupText" id="nicMsg">Required information</div>
-                                </span>
+                                </span> -->
                                 <div><label for="nic"><b>NIC</b></label></div>
                                 <div >
-                                    <input style="width:90%;" class="inputField normalFields" type="text" placeholder="Enter NIC" name="nic" id="nic" required> <i class="fa fa-question-circle pswIconF" onmouseover="visible('nicMsg')" aria-hidden="true"></i>
+                                    <input style="width:90%;" class="inputField normalFields" type="text" placeholder="Enter NIC" name="nic" id="nic" required> <i class="fa fa-question-circle pswIconF" onmouseover="visible('nicMsg')" aria-hidden="true"><div style="visibility:hidden;" class="messagetext" id="nicMsg"> Required information</div></i>
                                     <!-- <p style="display:none;"class="popupText" id="nicMsg">Filling is required</p> -->
                                     
                                 </div>
                             </div>
                             <div>
-                                <span >
+                                <!-- <span >
                                     <div style="width:90%;visibility:hidden;"class="popupText" id="dobMsg">Required information</div>
-                                </span>
+                                </span> -->
                                 <div><label for="dob"><b>DOB</b></label></div>
                                 <div >
-                                    <input style="width:90%;" class="inputField normalFields" type="date" placeholder="Enter DOB" name="dob" id="dob" required> <i class="fa fa-question-circle pswIconF" onmouseover="visible('dobMsg')" aria-hidden="true"></i>
+                                    <input style="width:90%;" class="inputField normalFields" type="date" placeholder="Enter DOB" name="dob" id="dob" required> <i class="fa fa-question-circle pswIconF" onmouseover="visible('dobMsg')" aria-hidden="true"><div style="visibility:hidden;" class="messagetext" id="dobMsg"> Required information</div></i>
                                 </div>
                             </div>
                         </div>
@@ -179,39 +183,39 @@
                     </div>
                     <div class="inputs basicInputs">
                         <div class="row col-1 input">
-                            <span>
+                            <!-- <span>
                                 <div style="visibility:hidden;width:95%;" class="popupText" id="teleMsg">Required information</div>
-                            </span>
+                            </span> -->
                             <div><label for="tele"><b>Telephone</b></label></div>
-                            <div><input class="inputField normalFields" type="text" placeholder="Enter Telephone number" name="tele" id="tele" required>  <i class="fa fa-question-circle pswIconF" onmouseover="visible('teleMsg')" aria-hidden="true"></i><br>
+                            <div><input class="inputField normalFields" type="text" placeholder="Enter Telephone number" name="tele" id="tele" required>  <i class="fa fa-question-circle pswIconF" onmouseover="visible('teleMsg')" aria-hidden="true"><div style="visibility:hidden;" class="messagetext" id="teleMsg"> Required information</div></i><br>
                             <!-- <p style="display:none;"class="popupText" id="teleInv">Invalid Name</p> -->
                             </div>
                         </div>
                         <div class="row col-1 input">
-                            <span>
+                            <!-- <span>
                                 <div style="visibility:hidden;width:95%;"class="popupText" id="addressMsg">Required information</div>
-                            </span>
+                            </span> -->
                             <div><label for="address"><b>Address</b></label></div>
-                            <div><input class="inputField normalFields" type="text" placeholder="Enter Address" name="address" id="address" required>  <i class="fa fa-question-circle pswIconF" onmouseover="visible('addressMsg')" aria-hidden="true"></i><br>
+                            <div><input class="inputField normalFields" type="text" placeholder="Enter Address" name="address" id="address" required>  <i class="fa fa-question-circle pswIconF" onmouseover="visible('addressMsg')" aria-hidden="true"><div style="visibility:hidden;" class="messagetext" id="addressMsg"> Required information</div></i><br>
                             <!-- <p style="display:none;"class="popupText" id="addressInv">Invalid Name</p> -->
                             </div>
                         </div>
                         <div class="row col-2 input">
                             <div>
-                                <span>
+                                <!-- <span>
                                     <div style="visibility:hidden;width:90%;" class="popupText" id="emailMsg">Required information</div>
-                                </span>
+                                </span> -->
                                 <div><label for="email"><b>Personal Email</b></label></div>
-                                <div><input style="width:90%;"class="inputField normalFields" type="email" placeholder="Enter Personal Email" name="email" id="email" required>  <i class="fa fa-question-circle pswIconF" onmouseover="visible('emailMsg')" aria-hidden="true"></i><br>
+                                <div><input style="width:90%;"class="inputField normalFields" type="email" placeholder="Enter Personal Email" name="email" id="email" required>  <i class="fa fa-question-circle pswIconF" onmouseover="visible('emailMsg')" aria-hidden="true"><div style="visibility:hidden;" class="messagetext" id="emailMsg"> Required information</div></i><br>
                                 <!-- <p style="display:none;"class="popupText" id="emailInv">Invalid Name</p> -->
                                 </div>
                             </div>
                             <div>
-                                <span>
+                                <!-- <span>
                                     <div style="visibility:hidden;width:90%;" class="popupText" id="uniMailMsg">Enter Valid Input</div>
-                                </span>
+                                </span> -->
                                 <div><label for="uniMail"><b>University Email</b></label></div>
-                                <div><input style="width:90%;" class="inputField normalFields" type="email" placeholder="Enter University Email" name="uniMail" id="uniMail">  <i class="fa fa-question-circle pswIconF" onmouseover="visible('teleMsg')" aria-hidden="true"></i><br>
+                                <div><input style="width:90%;" class="inputField normalFields" type="email" placeholder="Enter University Email" name="uniMail" id="uniMail">  <i class="fa fa-question-circle pswIconF" onmouseover="visible('uniMailMsg')" aria-hidden="true"><div style="visibility:hidden;" class="messagetext" id="uniMailMsg"> Enter Valid Input</div></i><br>
                                 </div>
                             </div>
                         </div>
@@ -236,7 +240,7 @@
                         <img class="profile" id="output"/>
                         <div class="row col-2">
                             <div><input class="button" type="button" onclick="backCnt()"name="previous" value="PREVIOUS"></div>
-                            <div><input class="button next" type="submit" name="submit" value="SUBMIT"></div>
+                            <div><input class="button next" type="submit" name="submit" value="submit"></div>
                         </div>
                     </div>
                 </div>
@@ -367,7 +371,7 @@
             }
             else{
                 document.getElementById("fullNameMsg").style.visibility="hidden";
-                if(/[^A-Za-z'.']/.test(fullName)){
+                if(/[^A-Za-z' ']/.test(fullName)){
                     displayError("fullName","fullNameMsg");
                 }else{
                     document.getElementById("fullNameMsg").style.visibility="hidden";
@@ -509,6 +513,7 @@
             setTimeout(function(){
                 document.getElementById(field).style.backgroundColor="";
                 document.getElementById(message).style.visibility="hidden";
+                
                 document.getElementById(field).style.animation="";
             }, 3000);
         }

@@ -97,8 +97,29 @@ body {
     /* margin-left: 20px; */
     /* background-color: rgba(0,0,0); */
 }
+.messagetext{
+    position: absolute;
+    height: fit-content;
+    margin-top: 10px;
+    background-color:  rgb(255, 255, 255,0.4);
+    width: 220px;
+    word-break: break-all;
+    border-radius: 7px;
+    padding:10px;
+    
+}
+.messagetext::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;  /* At the top of the tooltip */
+    left: 5%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent rgb(255, 255, 255,0.4) transparent;
+  }
 .bg{
-    background-image: url("../../../assets/image/registrationBackground.jpg");
+    /* background-image: url("../../../assets/image/pexels-matheus-natan-3297593.jpg"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -111,7 +132,7 @@ body {
 }
 .input{
     outline: none;
-    margin-bottom: -15px;
+    /* margin-bottom: 15px; */
 }
 .popupText {
     /* width: fit-content; */
@@ -148,6 +169,8 @@ body {
 }
 .button{
     margin-top: 50px;
+    margin-left: 40px;
+    margin-right: 40px;
     border: none;
     width: 100px;
     padding: 6px;
@@ -155,9 +178,7 @@ body {
     outline: none;
     z-index: -1;
 }
-.pswIconF:hover .pswError1{
-    visibility: visible;
-}
+
 .button:hover{
     background-color: rgb(255, 255, 0);
 }
