@@ -1,0 +1,81 @@
+.featureBody {
+    font-family: Varela, sans-serif;
+}
+
+input[type=date], input[type=time], textarea, select {
+    width: fit-content;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 18px;
+    min-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    display:block;
+}
+/*styles for submit and cancel buttons*/
+.submitCancelButton {
+    height: auto;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 9px;
+    margin: 4px;
+    width: 200px;
+}
+
+.heading {
+  display: block;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 45px;
+    padding: 15px;
+}
+
+.columnHeader {
+    text-align: center;
+    font-size: 25px;
+    display: block;
+    font-weight: bold;
+    margin: 10px;
+    padding-bottom: 20px;
+}
+.inputHeading {
+    font-size: 18px;
+    display: block;
+    padding-bottom: 14px;
+    font-weight: bold;
+}
+.actionArea{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pastBookingSection, .makeBookingSection {
+    width: 100%;
+    height: max-content;
+    display: inline-grid;
+    overflow: auto;
+    padding: 20px 5px 5px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.bookingEntry {
+    color: white;
+    margin: 10px 15px;
+    padding: 5px;
+    border-radius: 5px;
+    max-height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bookingEntryContent {
+    display: block;
+    font-size: 18px;
+    padding: 2px 10px;
+}

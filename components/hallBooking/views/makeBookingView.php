@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>University Student-Staff Portal</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/gridSystem.css">
+    <link rel="stylesheet" href="assets/hallBookingSection.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+<?php require_once('../../assets/php/basicLoader.php') ?>
+<?php basicLoader::loadHeader('../../'); ?>
+<div class="featureBody">
+    <span class="heading">Hall Reservation Section</span>
+    <div class="mainBlock row col-2">
+        <div class="pastBookingSection">
+            <span class="columnHeader">Booking Request History</span>
+            <?php
+            $color = array('green', 'red', 'blue');
+            for ($i = 0; $i < 10; $i++) {
+                echo("
+                    <div class='bookingEntry " . $color[$i % 3] . "'>
+                        <span class='bookingEntryContent'>Lecture Hall/Lab: <b>S104</b></span>
+                        <div class='row col-2' style='padding:0;'>
+                          <span class='bookingEntryContent'>From: <b>01/03/2020 13:00:00</b></span>
+                          <span class='bookingEntryContent'>To: <b>01/03/2020 14:00:00</b></span>
+                        </div>
+                        <span class='bookingEntryContent'>Description:<br><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis itaque voluptatem repellendus enim doloremque praesentium minima dolores ut recusandae vitae.</b></span>
+                        <span class='bookingEntryContent'>Appointment made at: <b>01/03/2020 14:00:00</b></span>
+                        <span class='bookingEntryContent'>Approval State: <b>Approved</b></span>
+                        <span class='bookingEntryContent' style='font-size:15px;float:right;text-decoration:blod;'><b>Approved By: MNJ ( 01/03/2020 14:00:00 )</b></span>
+                    </div>
+                ");
+            }
+            ?>
+        </div>
+        <div class="makeBookingSection">
+            <span class="columnHeader">Make a New Booking Request</span>
+            <form action="" method="post">
+                <div class="row col-2">
+                    <div>
+                        <span class="inputHeading">Selected Hall/Lab</span>
+                        <select name="selectedHallOrLab" id="">
+                            <optgroup label="Lecture Hall">
+
+                            </optgroup>
+                            <optgroup label="Laboratories">
+
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div>
+                        <span class="inputHeading">Purpose</span>
+                        <select name="bookingType" id="">
+                            <option value="3100">Lecture Request</option>
+                            <option value="3200">Tutorial Request</option>
+                            <option value="3300">Staff Meeting</option>
+                            <option value="3400">Club Meeting</option>
+                            <option value="3500">Student Meeting</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row col-2">
+                    <div>
+                        <span class="inputHeading">From</span>
+                        Date: <input type="date" name="fromData" id=""><br>
+                        Time: <input type="time" name="fromTime" id="" min="08:00" max="19:00">
+                    </div>
+                    <div>
+                        <span class="inputHeading">To</span>
+                        Date: <input type="date" name="toData" id=""><br>
+                        Time: <input type="time" name="toTime" id="" min="08:00" max="19:00">
+                    </div>
+                </div>
+                <span class="inputHeading">description</span>
+                <textarea name="description" id="" rows="10" style="width:90%;resize: none;" required></textarea>
+                <div class="actionArea row col-2">
+                    <input type="submit" name="createRequest" value="Create Request" class="submitCancelButton green"
+                           style="margin:auto;">
+                    <input type="reset" name="" value="Cancel" class="submitCancelButton red" style="margin:auto;">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<?php basicLoader::loadFooter('../../'); ?>
+<script src="../../assets/js/jquery.js"></script>
+</body>
+</html>
