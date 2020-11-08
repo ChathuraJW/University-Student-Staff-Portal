@@ -15,6 +15,12 @@
     <?php BasicLoader::loadHeader('../../')?>
     
     <div class="featureBody">
+        <?php
+            // print_r($controllerData[0]);
+            // print_r($controllerData[1][0]);
+            // print_r($controllerData[1][1]);
+        ?>
+        <form method="post">
         <div class="sidebar">
         <a id="inquiryButton"><i class="fa fa-question-circle" ></i>Inquiry</a>
             <div id="myModal" class="modal">
@@ -25,7 +31,7 @@
                     <div class="row col-2">
                         <div class = "inputStyle">
                             <label for="week">Week:</label><br>
-                            <select id="week" class="dropDown">
+                            <select id="week" name= "week" class="dropDown">
                                 <?php
                                     for($week=1; $week<=15; $week++)
                                     {
@@ -49,38 +55,43 @@
                         </div>
                         <div class = "inputStyle">
                             <label for="subject">Subject:</label><br>
-                            <select id="subject" class="dropDown" required>
+                            <select id="subject" name="subject" class="dropDown" required>
                                 <?php
-                                    
-                                    foreach($controllerData as $data){
+                                    $subjectCount=0;
+                                    foreach($controllerData[0] as $data){
+                                        $subjectCount++;
                                         echo("<option value='".$data['courseCode']."'>".$data['name']."</option>");
                                     }
+                                    ;
                                 ?>
                             </select>
                             <?php
+                                    // print_r($subjectCount)
                                 // print_r($controllerData);
                             ?>
                         </div>
 
                     </div>
                     <div class="row col 1">
-                        <textarea name="editDescription"></textarea>
+                        <!-- <input type="textarea">  -->
+                        <textarea name="message" placeholder = "message"></textarea>
                     </div>
                     <div class="row col-3" id="buttonsCSV" >
                             <div class = "">
-                                <input type="submit" value = "Cancel" id="cancelUploadFile"class="fileUploadButton ">
+                                <input type="reset" value = "Cancel" id="cancelUploadFile"class="fileUploadButton ">
                             </div>
                             <div></div>
                             <div class = "">
-                                <input type ="submit" value = "Upload" id="uploadFile"class="fileUploadButton ">
+                                <input type ="submit" value = "Send" name="send" id="uploadFile"class="fileUploadButton ">
                             </div>
                             
-                        </div>
+                    </div>
                 </div>
             </div>
         <!-- <button id="myBtn">Open Modal</button> -->
             <!-- <button onclick="div_show()">Inquiry</button Inquiry</button> -->
         </div>
+        </form>
 
         <div>
             <!-- <button><i class="fa fa-question-circle" aria-hidden="true"></i></button> -->
@@ -108,14 +119,14 @@
             <div class="basicStyle">
                 <label>Subjects</label>
                 <div class="innerDiv">
-                    <label class="innerLabel">8</label>
+                    <?php echo("<label class='innerLabel'> $subjectCount </label>"); ?>
                 </div>
             </div>
         </div>
         <!-- <div class="row col-1"> -->
             <!-- <div class="attendanceDetail"> -->
             <?php 
-            for($row2=1; $row2<=4;$row2++)
+            for($row2=1; $row2<=4;$row2++) 
             {
             echo("
         <div  class='row col-2'>");
