@@ -14,17 +14,30 @@ class ViewAttendanceModel extends Model{
         $courseSet = array();
         $finalAttendanceArray = array();
         foreach($enrollmentDetail as $attendanceEntry){
+            
             $enrollmentId = $attendanceEntry['enrollmentID'];
             $courseCode = $attendanceEntry['courseCode'];
             $sqlQuery = "SELECT courseCode, name FROM course_module WHERE courseCode='$courseCode'";
             $courseDetail = Database::executeQuery("root","",$sqlQuery);
             $sqlQuery = "SELECT date, week, attendance, description FROM attendance WHERE enrollmentID=$enrollmentId ORDER BY week";//how to get enrollment id
             $attendanceDetail = Database::executeQuery("root","",$sqlQuery);
-            // print_r($attendanceDetail);
-            array_push($courseSet,$courseDetail);
-            array_push($attendanceSet,$attendanceDetail);
+            $temp =array($courseDetail[0],$attendanceDetail);
+            array_push($finalAttendanceArray,$temp);
+
+            
+            if($attendanceDetail){
+                // array_push($courseSet,$courseDetail);
+                // array_push($attendanceSet,$attendanceDetail);
+            }
+            // print_r($temp);
+            echo("<br>");
+            
         }
-        array_push($finalAttendanceArray,$courseSet,$attendanceSet);
+        
+        // print_r($courseSet);
+        // echo("<br>");
+        // print_r($attendanceSet);
+        // echo("<br>");
         // print_r($finalAttendanceArray);
         return $finalAttendanceArray;
     }

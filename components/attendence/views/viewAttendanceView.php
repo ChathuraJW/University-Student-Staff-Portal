@@ -16,8 +16,13 @@
     
     <div class="featureBody">
         <?php
-            // print_r($controllerData[0]);
-            // print_r($controllerData[1][0]);
+            // print_r($controllerData[1][1]);
+            foreach($controllerData[1] as $row){
+                // print_r($row);
+                echo("<br>");
+            }
+            // print_r($controllerData[1][1]);
+            // $temp  = ($controllerData[1][1])
             // print_r($controllerData[1][1]);
         ?>
         <form method="post">
@@ -127,13 +132,15 @@
             <!-- <div class="attendanceDetail"> -->
             <div class="row col-2">
             <?php 
-                for($row1=1; $row1<=8;$row1++){
+                foreach($controllerData[1] as $courseDetails){
+                    // print_r($courseDetails);
                     echo("
+
                         <div class='attendanceContainer'>
                             <div class='row col-2'>
                                 <div class='courseDetail'>
-                                    <span class='attendanceDetailTopicLeft'>SCS2212</span>
-                                    <span class='attendanceDetailTopicLeft'>&nbspComputer Science</span>
+                                    <span class='attendanceDetailTopicLeft'>".$courseDetails[0]['courseCode']."</span>
+                                    <span class='attendanceDetailTopicLeft'>".$courseDetails[0]['name']."</span>
                                 </div>
                                 <div class='courseDetail' id='attendancePercentage'>
                                     <div class='attendanceStyle'>
@@ -142,12 +149,13 @@
                                 </div>
                             </div>
                             <div class='row col-5'>");
-                                for($innerRow =1;$innerRow<=15;$innerRow++){
+                                foreach($courseDetails[1] as $attendance){
+                                    $color = ($attendance['attendance'])? 'green':'red';
                                     echo("
-                                        <div class='attendance'>
-                                            <span class='textStyle'>$innerRow Week</span><br>
-                                            <span class='textStyle'>19/10/2020</span><br>
-                                            <span>General </span><br>
+                                        <div  class='attendance' style='background-color:$color'>
+                                            <span class='textStyle'>".$attendance['week']." Week</span><br>
+                                            <span class='textStyle'>".$attendance['date']."</span><br>
+                                            <span>".$attendance['description']."</span><br>
                                         </div>
                                     ");
                                 }
