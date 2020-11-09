@@ -125,53 +125,38 @@
         </div>
         <!-- <div class="row col-1"> -->
             <!-- <div class="attendanceDetail"> -->
+            <div class="row col-2">
             <?php 
-            for($row2=1; $row2<=4;$row2++) 
-            {
-            echo("
-        <div  class='row col-2'>");
-            for($row1=1; $row1<=2;$row1++)
-            {
-            echo("
-            <div>
-            <div class='attendanceContainer' >
-                <div  class='row col-2'>
-                    <div class='courseDetail'>
-                        <span class='attendanceDetailTopicLeft'>SCS2212</span>
-                        <span class='attendanceDetailTopicLeft'>&nbspComputer Science</span>
-                    </div>
-                    <div  class='courseDetail' id='attendancePercentage'>
-                        <!-- <span id='currentPercentage'>Current Percentage:</span><br> -->
-                        <div class='attendanceStyle'>
-                            <span class='attendanceDetailTopicRight'>78%</span>
-                        </div>
-                    </div>
-                </div>
-            
-            <div id='attendanceInnerContainer' class='row col-5'>");
-                
-                    for($row=1; $row<=3;$row++)
-                    {
-                        for($col=1;$col<=5;$col++)
-                        {
-                            echo("
-                            <div class='attendance'>
-                                <span class='textStyle'>$col Week</span><br>
-                                <span class='textStyle'>19/10/2020</span><br>
-                                <span>General </span><br>
-                            </div>");
-                            
-                        }
-                    }
+                for($row1=1; $row1<=8;$row1++){
                     echo("
-            </div>
-                    </div>
-                    </div>
+                        <div class='attendanceContainer'>
+                            <div class='row col-2'>
+                                <div class='courseDetail'>
+                                    <span class='attendanceDetailTopicLeft'>SCS2212</span>
+                                    <span class='attendanceDetailTopicLeft'>&nbspComputer Science</span>
+                                </div>
+                                <div class='courseDetail' id='attendancePercentage'>
+                                    <div class='attendanceStyle'>
+                                        <span class='attendanceDetailTopicRight'>78%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='row col-5'>");
+                                for($innerRow =1;$innerRow<=15;$innerRow++){
+                                    echo("
+                                        <div class='attendance'>
+                                            <span class='textStyle'>$innerRow Week</span><br>
+                                            <span class='textStyle'>19/10/2020</span><br>
+                                            <span>General </span><br>
+                                        </div>
+                                    ");
+                                }
+                            echo("</div>
+                        </div>
                     ");
                 }
-            echo(" </div> ");
-            }
             ?> 
+            </div>
             
             
 
