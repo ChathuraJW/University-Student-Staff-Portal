@@ -19,7 +19,6 @@
             // print_r($controllerData[1][1]);
             foreach($controllerData[1] as $row){
                 // print_r($row);
-                echo("<br>");
             }
             // print_r($controllerData[1][1]);
             // $temp  = ($controllerData[1][1])
@@ -102,23 +101,57 @@
             <!-- <button><i class="fa fa-question-circle" aria-hidden="true"></i></button> -->
             <label id="myAttendance">My Attendance</label>
         </div>
+        <?php
+            $markedSubjects = 0;
+            $sumOfPercentage = 0;
+            $totalPercentage = 0;
+            $maxWeek = 0;
+            foreach($controllerData[1] as $courseDetails){
+                $attendedDays = 0;
+                $totalDays = 0;
+                $subjectPercentage = 0;
+                foreach($courseDetails[1] as $attendance){
+                    if($attendance['attendance']){
+                        $attendedDays++;
+                    }
+                    $totalDays++;
+                    if($totalDays>=$maxWeek){
+                        $maxWeek = $totalDays;
+                    }
+
+                }
+                if($totalDays != 0){
+                    $subjectPercentage = ($attendedDays/$totalDays)*100;
+                    $sumOfPercentage = $subjectPercentage +$sumOfPercentage;
+                    $markedSubjects+=1;
+                }
+                
+
+            }
+            $totalPercentage = $sumOfPercentage/$markedSubjects;
+            ?>
         <div id="container1" class="row col-4">
             <div class="basicStyle">
                 <label>Current Percentage</label>
-                <div class="innerDiv">
-                    <label class="innerLabel">68%</label>
+                <div class='innerDiv'>
+                <?php echo("<label class='innerLabel'>$totalPercentage%</label>"); ?>
+                    
                 </div>
             </div >
+            
             <div class="basicStyle">
                 <label>Weeks Up to</label>
                 <div class="innerDiv">
-                    <label class="innerLabel">8</label>
+                    <?php echo("<label class='innerLabel'>$maxWeek</label>"); ?>
+                    
                 </div>
             </div>
             <div class="basicStyle">
                 <label>Remaining Weeks</label>
                 <div class="innerDiv">
-                    <label class="innerLabel">7</label>
+                <?php 
+                    $remainingWeek = 15-$maxWeek;
+                    echo("<label class='innerLabel'>$remainingWeek</label>"); ?>
                 </div>
             </div>
             <div class="basicStyle">
@@ -133,7 +166,21 @@
             <div class="row col-2">
             <?php 
                 foreach($controllerData[1] as $courseDetails){
-                    // print_r($courseDetails);
+                    $attendedDays = 0;
+                    $totalDays = 0;
+                    $subjectPercentage = 0;
+                    foreach($courseDetails[1] as $attendance){
+                        if($attendance['attendance']){
+                            $attendedDays++;
+                        }
+                        $totalDays++;
+
+                    }
+                    if($totalDays != 0){
+                        $subjectPercentage = ($attendedDays/$totalDays)*100;
+                    }
+                    
+                    // print_r($courseDetails[0]);
                     echo("
 
                         <div class='attendanceContainer'>
@@ -144,7 +191,7 @@
                                 </div>
                                 <div class='courseDetail' id='attendancePercentage'>
                                     <div class='attendanceStyle'>
-                                        <span class='attendanceDetailTopicRight'>78%</span>
+                                        <span class='attendanceDetailTopicRight'>$subjectPercentage%</span>
                                     </div>
                                 </div>
                             </div>

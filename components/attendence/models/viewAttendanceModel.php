@@ -21,7 +21,7 @@ class ViewAttendanceModel extends Model{
             $courseDetail = Database::executeQuery("root","",$sqlQuery);
             $sqlQuery = "SELECT date, week, attendance, description FROM attendance WHERE enrollmentID=$enrollmentId ORDER BY week";//how to get enrollment id
             $attendanceDetail = Database::executeQuery("root","",$sqlQuery);
-            $temp =array($courseDetail[0],$attendanceDetail);
+            $temp = array($courseDetail[0],$attendanceDetail);
             array_push($finalAttendanceArray,$temp);
 
             
@@ -30,7 +30,6 @@ class ViewAttendanceModel extends Model{
                 // array_push($attendanceSet,$attendanceDetail);
             }
             // print_r($temp);
-            echo("<br>");
             
         }
         
