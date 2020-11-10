@@ -15,7 +15,8 @@
 </head>
 <body>
     <!-- include header section -->
-    <?php require('../../assets/php/commonHeader.php')?>
+    <?php require_once('../../assets/php/basicLoader.php') ?>
+    <?php basicLoader::loadHeader('../../'); ?>
     
     <!-- feature body section -->
      
@@ -136,7 +137,7 @@
 
 
     <!-- include footer section -->
-    <?php require('../../assets/php/commonFooter.php')?>
+    <?php basicLoader::loadFooter('../../'); ?>
 
     <script src="assets/sendMessageJs.js">
     </script>
