@@ -4,7 +4,9 @@
     Route::set('workloadAllocation',function(){
         WorkloadAllocationMessageController::open();
     });
-
+    Route::set('workloadReceive',function(){
+        WorkloadReceiveController::open();
+    });
     // structure of code need to write
     // Route::set('urlPassVale',function(){
     //     ControllerName::initialFunction();
