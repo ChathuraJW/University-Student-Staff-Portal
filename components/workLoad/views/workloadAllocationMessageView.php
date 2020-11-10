@@ -16,7 +16,7 @@
     
     <!-- feature body section -->
     <div class="featureBody" >
-        <div class="row col-2" id="main" >
+        <div class="row col-2" id="main"  >
             <div>
                 
                 <h3 class="head">Workload Requests</h3>
@@ -54,7 +54,7 @@
                         <div class="lable">Time</div>
                         <div class="value">3.00 PM</div>
                     </div>
-                    <div class="displayingMessage">
+                    <div class="displayingMessage" style="margin-bottom:10px;" >
                         <div class="lable">Description</div>
                         <div class="value"> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in</div>
                     </div>
@@ -74,13 +74,13 @@
                 <form class="search" action="">
                     <div class="row col-3">
                         <div>
-                            <label for="date">Date</label>
-                            <input id="date" type="date" name="date" >
+                            <label for="searchdate">Date</label>
+                            <input class="searchInput" id="searchdate" type="date" name="date" >
                         </div>
 
                         <div>
-                            <label for="time">Time Pieriod</label>
-                            <input id="time" type="time" name="time" >
+                            <label for="searchtime">Time Pieriod</label>
+                            <input class="searchInput" id="searchtime" type="time" name="time" >
                         </div>
 
                         <div style="text-align:center;" >
@@ -111,38 +111,38 @@
                         </form>
                     </div>
                 </div>
-                
+                <!-- style="display:none;" -->
             </div>
             <div class="allocateForm" id="allocateForm" style="display:none;">
                 <h2 style="margin-top:30px;margin-bottom:20px;"class="head">Create Allocation</h2>
                 <form action="" id="allocationForm" >
-                    <div class="displayingMessage">
+                    <div class="displayingMessage allocationInput">
                         <div class="lable"><label for="title">Title</label> </div>
-                        <div class="value"><input type="text" id="title"></div>
+                        <div class="value"><input class="input" type="text" id="title"></div>
                     </div>
-                    <div class="displayingMessage">
+                    <div class="displayingMessage allocationInput">
                         <div class="lable"><label for="lecturer">Lecturer</label> </div>
-                        <div class="value"><input type="text" id="lecturer"></div>
+                        <div class="value"><input class="input" type="text" id="lecturer"></div>
                     </div>
-                    <div class="displayingMessage">
+                    <div class="displayingMessage allocationInput">
                         <div class="lable"><label for="subject">Subject</label> </div>
-                        <div class="value"><input type="text" id="subject"></div>
+                        <div class="value"><input class="input" type="text" id="subject"></div>
                     </div>
-                    <div class="displayingMessage">
+                    <div class="displayingMessage allocationInput">
                         <div class="lable"><label for="date">Date</label> </div>
-                        <div class="value"><input type="date" id="date"></div>
+                        <div class="value"><input class="input" type="date" id="date"></div>
                     </div>
-                    <div class="displayingMessage">
+                    <div class="displayingMessage allocationInput">
                         <div class="lable"><label for="time">Time</label> </div>
-                        <div class="value"><input type="time" id="time"></div>
+                        <div class="value"><input class="input"type="time" id="time"></div>
                     </div>
-                    <div class="displayingMessage">
-                        <div class="lable"><label for="discription">Discription</label> </div>
-                        <div class="value"><textarea type="" id="discription"></textarea></div>
+                    <div class="displayingMessage allocationInput" >
+                        <div class="lable" style="vertical-align:top;" ><label  for="discription">Discription</label></div>
+                        <div class="value"><textarea class="input" type="" id="discription"></textarea></div>
                     </div>
                     <div class="row col-2">
                         <div style="text-align:center;"><input onclick="allocationCancel()"class="button cancel"type="reset" value="Cancel"></div>
-                        <div style="text-align:center;"><input onclick="allocationAprove()"class="button allocate"type="submit" value="Allocate"></div>
+                        <div style="text-align:center;"><input onclick="allocationAprove()"class="button allocate"type="button" value="Allocate"></div>
                     </div>
                 </form>
             </div>
@@ -166,6 +166,7 @@
                         check++;
                     }
                 }
+                
                 if(check>0) {
                         document.getElementById("allocateForm").style.display='';
                     }else{
@@ -176,17 +177,25 @@
 
         }
         function deallocationForm(){
-            document.getElementById("allocationForm").reset();
+            document.getElementById("allocationForm").reset();searchdate
             document.getElementById("allocateForm").style.display="none";
             document.getElementById("Bmain").style.display="none";
             document.getElementById("main").style.display="";
             
         }
         function displaySearch(){
-            document.getElementById("preMessage").style.display="none";
-            document.getElementById("searchStaff").style.display="";
-            document.getElementById("searchForm").reset();
+            var date=document.getElementById("searchdate").value;
+            var time=document.getElementById("searchtime").value;
             
+            if(date==""||time==""){
+                window.alert("Please select Date and Time!");
+                
+            }else{
+                document.getElementById("preMessage").style.display="none";
+                document.getElementById("searchStaff").style.display="";
+                document.getElementById("searchForm").reset();
+            }
+
         }
         function openMessage(){
             document.getElementById("messageView").style.display="none";
@@ -205,11 +214,17 @@
             
                 document.getElementById("allocateForm").style.display="none";
                 document.getElementById("searchStaff").style.display="none";
-            document.getElementById("main").style.display="";
             document.getElementById("finalMsg").style.display="";
             setTimeout(function(){
                 document.getElementById("finalMsg").style.display="none";
-            }, 3000);
+            document.getElementById("Bmain").style.display="none";
+            document.getElementById("allocateForm").style.display="none";
+                document.getElementById("searchStaff").style.display="none";
+                document.getElementById("workloadRequest").style.display="none";
+                document.getElementById("messageView").style.display="";
+            document.getElementById("main").style.display="";
+
+            }, 2000);
         }
         
 
