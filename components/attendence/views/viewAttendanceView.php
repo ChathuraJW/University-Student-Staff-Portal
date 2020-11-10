@@ -194,7 +194,17 @@
                                         <span class='attendanceDetailTopicRight'>$subjectPercentage%</span>
                                     </div>
                                 </div>
-                            </div>
+                            </div>");
+
+                            if($totalDays == 0){
+                                echo("
+                                    
+                                        <label>Attendance of this subject is not added yet. </label>
+                                    
+                                ");
+                            }
+                            else{
+                            echo("
                             <div class='row col-5'>");
                                 foreach($courseDetails[1] as $attendance){
                                     $color = ($attendance['attendance'])? 'green':'red';
@@ -206,9 +216,11 @@
                                         </div>
                                     ");
                                 }
+                            echo("</div>");
+                            }
                             echo("</div>
-                        </div>
                     ");
+                            
                 }
             ?> 
             </div>
