@@ -186,21 +186,21 @@
                         <div class='attendanceContainer'>
                             <div class='row col-2'>
                                 <div class='courseDetail'>
-                                    <span class='attendanceDetailTopicLeft'>".$courseDetails[0]['courseCode']."</span>
-                                    <span class='attendanceDetailTopicLeft'>".$courseDetails[0]['name']."</span>
+                                    <div class='attendanceDetailTopicLeft'><label class='attendanceDetailTopicLeft'>".$courseDetails[0]['courseCode']."</label></div>
+                                    <div><label id='subjectFont' class='attendanceDetailTopicLeft'>".$courseDetails[0]['name']."</label></div>
                                 </div>
                                 <div class='courseDetail' id='attendancePercentage'>
                                     <div class='attendanceStyle'>
-                                        <span class='attendanceDetailTopicRight'>$subjectPercentage%</span>
+                                        <span id='hiddenPercentage1' class='attendanceDetailTopicRight'>$subjectPercentage%</span>
                                     </div>
                                 </div>
                             </div>");
 
                             if($totalDays == 0){
                                 echo("
-                                    
-                                        <label>Attendance of this subject is not added yet. </label>
-                                    
+                                    <div class='row col-1'>
+                                        <label  class='EmptyAttendanceMessage' >Attendance of this subject is not added yet. </label>
+                                    </div>
                                 ");
                             }
                             else{
@@ -212,7 +212,7 @@
                                         <div  class='attendance' style='background-color:$color'>
                                             <span class='textStyle'>".$attendance['week']." Week</span><br>
                                             <span class='textStyle'>".$attendance['date']."</span><br>
-                                            <span>".$attendance['description']."</span><br>
+                                            <span class='textStyle' id='attendanceDescription'>".$attendance['description']."</span><br>
                                         </div>
                                     ");
                                 }

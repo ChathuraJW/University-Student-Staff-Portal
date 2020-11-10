@@ -41,30 +41,33 @@
 .attendanceStyle{
     float: right;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    height: 75px;
-    width: 75px;
+    height: 90px;
+    width: 90px;
     border-radius: 50%;
     display: inline-block;
     margin-right: 40px;
     border-style: solid;
     border-color: red;
+    /* padding: 25px; */
+    border-style: solid;
 }
 
 .attendanceDetailTopicLeft{
     font-size: 32px;
-    float: left;
-    margin-top: 30px;
+    /* padding-top: px; */
+    /* float: left; */
+    margin-top: 25px;
 }
 
 .attendanceDetailTopicRight{
     font-size: 36px;
     float: right;
-    margin-top: 15px;
+    margin-top: 20px;
 
 }
 .attendanceContainer{
     margin-top: 10px;
-    margin-bottom: 1opx;
+    /* margin-bottom: 10px; */
     margin-left: 10px;
     margin-right: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -86,12 +89,19 @@
 }
 
 .textStyle{
+    /* color: white; */
+    font-size: 24px;
+}
+#attendanceDescription{
+    font-size: 20px;
+}
+#subjectFont{
     font-size: 24px;
 }
 
 #myAttendance{
     font-weight: bold;
-    font-size: 34px;
+    font-size: 42px;
     padding-bottom: 10px;
     margin-left: 600px;
 }
@@ -187,7 +197,7 @@
 .sidebar a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 24px;
     color: #818181;
     display: block;
 }
@@ -208,34 +218,43 @@
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
+}
+
   /* Modal Content */
-  .modal-content {
+.modal-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
     width: 44%;
-  }
-  
+}
+
   /* The Close Button */
-  .close {
+.close {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
+}
+
+.close:hover,
+.close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-  }
+}
 
-  .popupTopic{
+.popupTopic{
     font-size: 35px;
     text-align: center;
-  }
+}
+
+.EmptyAttendanceMessage
+{
+    font-size: 20px;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    color: red;
+}
 

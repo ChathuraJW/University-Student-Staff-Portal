@@ -23,4 +23,8 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+//hidden percentage when there is no attendance 
+function hiddenPercentage(){
+  document.getElementById("hiddenPercentage1").style.visibility='hidden';
+}
 
