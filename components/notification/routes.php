@@ -1,8 +1,8 @@
 <?php
     // structure of code need to write
-    // Route::set('addNotification',function(){
-    //     AddPastPaperController::AddPastPaper();
-    // });
+    Route::set('addNotification',function(){
+        AddNotificationController::AddNotification();
+    });
 
     // Route::set('viewPastPaper',function(){
     //     ViewPastPaperController::viewPastPaper();
