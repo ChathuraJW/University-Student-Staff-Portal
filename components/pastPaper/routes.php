@@ -4,9 +4,9 @@
         AddPastPaperController::AddPastPaper();
     });
 
-    // Route::set('viewAttendance',function(){
-    //     ViewAttendanceController::viewAttendance();
-    // });
+    Route::set('viewPastPaper',function(){
+        ViewPastPaperController::viewPastPaper();
+    });
 
 
     // check weather the given file exist on the site if not redirect to 404 page

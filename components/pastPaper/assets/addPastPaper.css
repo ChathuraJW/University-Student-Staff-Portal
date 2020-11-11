@@ -93,9 +93,7 @@ input[type=text], input[type=file], select {
     font-weight: bold;
     font-size: 45px;
 }
-select {
-    /* width: 100%; */
-}
+
 /* .labelStyle {
     font-size: 20px;
     display: inline-block;
