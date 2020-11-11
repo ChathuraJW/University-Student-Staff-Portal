@@ -17,32 +17,32 @@
     <div class="featureBody">
 
         <div class="row col-1">
-            <P>Add PastPaper</P>
+            <P class="heading">Add PastPaper</P>
         </div>
-        <div class="row col-4">
+        <div class="row col-3">
             <div>
-                <label>Examination Year:</label>
+                <label class="labelStyle">Examination Year:</label>
                 <select name="examinationYear">
-                    <option></option>
+                    <option value=2016>2016</option>
+                    <option value=2017>2017</option>
+                    <option value=2018>2018</option>
+                    <option value=2019>2019</option>
                 </select>
             </div>
             <div>
-                <label>Semester:</label>
+                <label class="labelStyle">Semester:</label>
                 <select name="semester">
                     <option value=1>1<sup>st</sup></option>
                     <option value=2>2<sup>nd</sup></option>
                 </select>
             </div>
             <div>
-                <label>Degree Program:</label>
-                <select>
-                    <option>Computer Science</option>
-                    <option>Information Systems </option>
-                    <option>Software Engineering</option>
+                <label class="labelStyle">Subject:</label>
+                <select name="subject">
+                    <option value="SCS2209">Database 2</option>
+                    <option value="SCS2210">Discrete Maths 2</option>
                 </select>
-            </div>
-            <div>
-                <label>Subject:</label>
+                
             </div>
         </div>
         <div class="row col-1">
@@ -54,10 +54,17 @@
                 </div>
             </form>
         </div>
-        <div class="row col-2">
+        <div class="row col-6">
+            <div></div>
+            <div></div>
             <div>
-                <input type>
+                <button class="submitButton red">Cancel</button>
             </div>
+            <div>
+                
+                <button class="submitButton green"type="submit" >Upload</button>
+            </div>
+            <div></div>
             <div></div>
         </div>
 

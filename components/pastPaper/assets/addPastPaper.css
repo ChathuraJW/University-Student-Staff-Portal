@@ -1,6 +1,6 @@
 .dropZone{
-    /* max-width: 200px; */
-    /* height: 200px; */
+    /* max-width: 75%; */
+    height: 200px;
     padding: 25px;
     display:flex;
     align-items: center;
@@ -12,6 +12,8 @@
     color: rgb(109, 109, 116);
     border: 4px dashed #009578 ;
     border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 
 }
 .dropZoneOver{
@@ -41,3 +43,74 @@
     font-size: 14px;
     text-align: center;
 }
+.submitButton {
+    height: auto;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 9px;
+    margin: 4px;
+    width: 200px;
+}
+input[type=text], input[type=file], select {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 18px;
+    min-width: 300px;
+}
+.heading {
+    text-align: center;
+    font-weight: bold;
+    font-size: 45px;
+}
+
+/* @font-face {
+    font-family: Varela;
+    src: url('../../../assets/font/Varela-Regular.ttf');
+}
+.featureBody {
+    font-family: Varela, sans-serif;
+} */
+/*common styles for input text file and select*/
+input[type=text], input[type=file], select {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 18px;
+    min-width: 300px;
+}
+.heading {
+    text-align: center;
+    font-weight: bold;
+    font-size: 45px;
+}
+select {
+    /* width: 100%; */
+}
+/* .labelStyle {
+    font-size: 20px;
+    display: inline-block;
+    padding: 4px;
+    border: 1px solid rgba(128, 128, 128, 0.28);
+    height: auto;
+    width: 200px;
+    text-align: center;
+    transition: all 0.4s linear;
+    border-radius: 2px;
+    background-color: #80808082;
+} */
+.labelStyle{
+    font-size: 20px;
+
+}
+
+
