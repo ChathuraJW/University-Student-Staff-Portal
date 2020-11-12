@@ -1,7 +1,9 @@
 <?php
     class RegistrationController extends Controller{
         public static function open(){
-            self::createView("registrationView");
+            $data=registrationModel::getData();
+            // $passingData=array($data);
+            self::createView("registrationView",$data);
             if(isset($_POST['submit'])){
                 $fPassword=$_POST['psw'];
                 $rPassword=$_POST['psw-repeat'];
