@@ -1,0 +1,59 @@
+.heading {
+    text-align: center;
+    font-weight: bold;
+    font-size: 45px;
+}
+.subHeading{
+    font-weight: bold;
+    font-size: 24px;
+}
+input[type=text], input[type=file], select {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 18px;
+    min-width: 300px;
+}
+.submitButton {
+    height: auto;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 9px;
+    margin: 4px;
+    width: 200px;
+}
+input[type=checkbox]{
+    font-size: 32px;
+}
+textarea{
+    font-size: 20px;
+    /* text-align: center; */
+    padding-left: 25px;
+}
+.check +label,.checkFirstSet+label,.checkSecondSet+label{
+    font-size: 18px;
+    
+}
+.check{
+    margin-left: 30px;
+}
+.checkFirstSet{
+    margin-left: 60px;
+}
+.checkSecondSet{
+    margin-left: 90px;
+}
+.checkThirdSet{
+    margin-left: 120px;
+}
+#category{
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
