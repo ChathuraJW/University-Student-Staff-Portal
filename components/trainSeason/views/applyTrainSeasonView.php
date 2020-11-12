@@ -6,7 +6,7 @@
     <title>University Student-Staff Portal</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
-    <link rel="stylesheet" href="assets/rmStyle.css">
+    <link rel="stylesheet" href="assets/applyTrainSeasonStyle.css">
 </head>
 <body>
     <!-- include header section -->
@@ -17,7 +17,16 @@
     <!-- feature body section -->
     <div class="featureBody">
     <h1><b>Apply Train Season<b></h1>
-
+    <br>
+      <div class="container">
+        <div class="vertical-center">
+          <button class="apply" id="button ">Request Season</button>
+          <button class="cancel" id="button ">Cancel</button>
+        </div>
+        
+      </div>
+      <br>
+      <br>
     </div>
 
     <!-- include footer section -->
