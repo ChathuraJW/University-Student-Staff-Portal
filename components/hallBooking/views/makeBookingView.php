@@ -16,7 +16,7 @@
 <?php basicLoader::loadHeader('../../'); ?>
 <div class="featureBody">
     <span class="heading">Hall Reservation Section</span>
-    <div class="mainBlock row col-2">
+    <div class="mainBlock row col-2" id="mainBlock">
         <div class="pastBookingSection">
             <span class="columnHeader">Booking Request History</span>
             <?php
@@ -32,7 +32,7 @@
                         <span class='bookingEntryContent'>Description:<br><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis itaque voluptatem repellendus enim doloremque praesentium minima dolores ut recusandae vitae.</b></span>
                         <span class='bookingEntryContent'>Appointment made at: <b>01/03/2020 14:00:00</b></span>
                         <span class='bookingEntryContent'>Approval State: <b>Approved</b></span>
-                        <span class='bookingEntryContent' style='font-size:15px;float:right;text-decoration:blod;'><b>Approved By: MNJ ( 01/03/2020 14:00:00 )</b></span>
+                        <span class='bookingEntryContent' style='font-size:15px;float:right;'><b>Approved By: MNJ ( 01/03/2020 14:00:00 )</b></span>
                     </div>
                 ");
             }
@@ -40,6 +40,9 @@
         </div>
         <div class="makeBookingSection">
             <span class="columnHeader">Make a New Booking Request</span>
+            <input type="button" name="displayAllocationMap" onclick="loadAllocationMap();"
+                   class="submitCancelButton orange" value="Goto Current Allocation Map"
+                   style="width:95%;margin: auto auto 30px;">
             <form action="" method="post">
                 <div class="row col-2">
                     <div>
@@ -86,8 +89,60 @@
             </form>
         </div>
     </div>
+    <div class="popupSection row" id="popupSection">
+        <button class="closeButton" onclick="closeReservationMap();"><i class="fas fa-times fa-2x"></i></button>
+        <span class="columnHeader">Current Reservation Map</span>
+        <div class="dataTableArea" style="padding: 0 30px 30px;box-shadow:none">
+            <div class="controlSection" style="margin:auto;padding: 0 20px 20px;">
+                <span class="inputHeading">Select the date to search:</span>
+                <input type="date" id="selectedDate">
+
+            </div>
+            <table border="1" id="allocationMap" class="allocationMap">
+                <tr style="background-color: rgba(0, 0, 0, 0.281);">
+                    <th rowspan="2">Lecture Halls & Computer Labs</th>
+                    <th colspan="22" style="text-align: center;">Time Slots ( Between 08:00 and 17:00 )</th>
+                </tr>
+                <tr>
+
+                    <?php
+                    //creation of table header
+                    $currentHour = 8;
+                    $nextHour = 8;
+                    $currentMinute = '00';
+                    $nextMinute = '30';
+                    for ($i = 0; $i < 22; $i++) {
+                        if ($i % 2 == 1) {
+                            $nextHour++;
+                            $nextMinute = '00';
+                        } else {
+                            $nextMinute = '30';
+                        }
+//                        padding creation for time
+                        $paddingCurrent = $currentHour < 10 ? '0' : '';
+                        $paddingNext = $nextHour < 10 ? '0' : '';
+
+                        echo("<th  class='timeHead'>$paddingCurrent$currentHour:$currentMinute - $paddingNext$nextHour:$nextMinute</th>");
+                        $currentHour = $nextHour;
+                        $currentMinute = $nextMinute;
+                    }
+                    ?>
+                </tr>
+                <?php
+                for ($i = 0; $i < 10; $i++) {
+                    echo("<tr><td>S104</td>");
+                    for ($j = 0; $j < 22; $j++) {
+                        echo("<td></td>");
+                    }
+                    echo("</tr>");
+                }
+                ?>
+            </table>
+        </div>
+    </div>
 </div>
 <?php basicLoader::loadFooter('../../'); ?>
 <script src="../../assets/js/jquery.js"></script>
+<script src="assets/makeBooking.js"></script>
 </body>
 </html>
