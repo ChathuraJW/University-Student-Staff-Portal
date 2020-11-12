@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/gridSystem.css">
+    <link rel="stylesheet" href="assets/applicationStyle.css">
 </head>
 <body>
-<div class="form-popup" id="form">
+<div class="form" id="form">
       <form action="/action_page.php" >
         <label for="fullName">Full Name:</label>
         <input type="text" id="fullName" name="fullName"><br><br>
