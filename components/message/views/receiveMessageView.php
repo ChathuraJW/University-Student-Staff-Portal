@@ -16,104 +16,57 @@
     
     <!-- feature body section -->
     <div class="featureBody">
-    <div class="row col-1">
-      <h1> <b>Inbox <b></h1>
-    </div>
-      
-  <!--
-    <div class="row col-3">
-      <ul>
-        <li>Date : 05.10.2020</li>
-        <li>Time : data[0]</li>
-        <li>Title : data[1]</li>
-        <li>Message : Can you come to the meeting?</li>
-         
+      <span class="heading">Message Inbox</span>
+      <div class="row col-2">
+        <div class="messageList">
 
-         
-      </ul>
-    </div>
-    <div class = "openBtn">
-        <button class ="openButton"
-          onclick="openForm()">
-          <strong>View</strong>
-        </button>
-    </div>
-    <div class = "formPopup" id="myForm">
-          <form action = "/action_page.php"
-          class="formContainer">
-              <h1>Message</h1>
-              <label for = "date"><b>Date</b></label>
-              <input type = "date" id="msgDate" name="Date">
-              <br>
+          <?php
+          foreach ($controllerData as $data){
+            if($data['isViewed']){
+              $backgroundColor='rgb(100 121 143)';
+              $messageState='none';
 
-              <label for = "time"><b>Time</b></label>
-              <input type = "time" id="msgTime" name="Time">
-              <br>
+            }else{
+              $backgroundColor='rgb(80 61 84)';
+              $messageState='flex';
+            }
 
-              <label for = "title"><b>Title</b></label>
-              <input type = "text" name="Title" >
-              <br>
+            
 
-              <label for = "message"><b>Message</b></label>
-              <input type = "text" name="Message">
-              <br> 
-
-              <button type="button" class="btn cancel"
-              onclick="closeForm()">OK</button>
-          </form>
-        </div>
-
-        <script>
-          function openForm()
-          {
-            document.getElementById("myForm").style.display="block";
-          }
-
-          function closeForm()
-          {
-            document.getElementById("myForm").style.display="none";
-          }
-        </script>
-        
-     -->
-
-      <div>
-          <table id="inbox">
-            <tr>
-              <th style="width:250px">Date & Time</th>
-              <th>Title</th>
-              <th>Message</th>
-
-            </tr> 
-
-            <?php
-              //if($controllerData->num_rows>0){
-                //while($row = $controllerData->fetch_assoc())
-                
-                foreach ($controllerData as $data)
-                {
-                  
-                  echo "<tr><td>" . $data['timestamp'] . "</td><td>" . $data['title'] . "</td><td>" . $data['message'] . "</td></tr>"  ;  
-                }
-
-                /*foreach ($controllerData[1] as $data)
-                {
-                  print_r($data);
-                  echo "<tr><td>" . $data['timestamp'] . "</td><td>" . $data['title'] . "</td><td>" . $data['message'] . "</td></tr>"  ;  
-                }*/
-              
-            ?>
+            
+            echo ("
+              <a class='messageEntry' style='background-color: $backgroundColor;' href='?messageID=".$data['messageID']."&messageState=$messageState'>
+                <span class='sender'>Sender: ".$data['sendBy']."</span><br>
+                <span class='messageContent'>".$data['message']."</span><br>
+                <span class='messageSendTimestamp'>".$data['timestamp']."</span>
+              </a>
+            ");
              
-          </table>
+          }
+            
+          ?>
+        </div>
+        <div class="displayMessage">
+          <?php
+            if(isset($_GET['messageID'])){
+              foreach ($controllerData as $data){
+                if($data['messageID']==$_GET['messageID']){
+                  
+                  echo ("
+              <span class='senderDetail'>Sender: ".$data['sendBy']."</span><br>
+              <span class='SendTimestampDetail'>Send at: ".$data['timestamp']."</span><br>
+              <span class='titleDetail'>".$data['title']."</span><br>
+              <span class='messageDetail'>".$data['message']."</span><br>
+              <button class='submitCancelButton blue' type='submit' style='float: right; display: ".$_GET['messageState'].";'>Mark As Read</button>
+              ");
+                break;
+                }
+              }
+              
+            }
+          ?>
+        </div>
       </div>
-  
-       
-
-       
-
-  
-
-
 
     </div>
 
