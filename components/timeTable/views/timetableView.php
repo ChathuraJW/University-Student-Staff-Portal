@@ -21,11 +21,11 @@
             <table>
                 <tr>
                     <th></th>
-                    <th>Monday</th>
-                    <th>Tuesday</th>
-                    <th>Wednesday</th>
-                    <th>Thursday</th>
-                    <th>Friday</th>
+                    <th id="monday" style="background-color: rgb(9, 112, 230);">Monday</th>
+                    <th id="tuesday" style="background-color: rgb(9, 112, 230);">Tuesday</th>
+                    <th id="wednesday" style="background-color: rgb(9, 112, 230);">Wednesday</th>
+                    <th id="thursday" style="background-color: rgb(9, 112, 230);">Thursday</th>
+                    <th id="friday" style="background-color: rgb(9, 112, 230);">Friday</th>
                     <!-- <th></th> -->
                 </tr>
                 
