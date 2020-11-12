@@ -33,7 +33,7 @@ class AddAttendanceModel extends Model{
 
     public static function getAttendanceDataFromDatabase($studentIndex,$subject,$attempt){
         $enrollmentID = self::getEnrollmentID($studentIndex, $subject, $attempt);
-        // echo($enrollmentID);
+        echo($enrollmentID);
         $sqlQuery = "SELECT date, week, attendance, description FROM attendance WHERE enrollmentID=$enrollmentID";
         return Database::executeQuery("root","",$sqlQuery);
     }
@@ -43,6 +43,12 @@ class AddAttendanceModel extends Model{
         return Database::executeQuery("root", "", $sqlQuery)[0]['enrollmentID'];
         // $sqlQuery1=Database::executeQuery("root", "", $sqlQuery)[0]['enrollmentID'];
         
+    }
+
+    public static function getInquiryMessage(){
+        $sqlQuery = "SELECT `sendBy`, `message`, `sendDate` FROM `attendance_inquiry`";
+        return Database::executeQuery("root","",$sqlQuery);
+        // print_r($result);
     }
 }
 

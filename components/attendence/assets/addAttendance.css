@@ -19,6 +19,12 @@
     /* border-style: solid; */
     text-align: center;
 }
+.subHeading{
+    /* font-weight: bold; */
+    font-size: 24px;
+    /* text-align: center; */
+}
+
 .inputStyle{
     font-size: 26px;
     /* margin-left: 100px; */
@@ -69,6 +75,8 @@ sup {
     font-size: 24px;
     padding-top: 8px;
     border-radius: 5px;
+    color: white;
+    text-decoration: none;
     /* border: 2px solid rgb(7, 7, 6);   */
     /* color: rgb(12, 12, 9); */
     background-color: rgb(51, 139, 58) ;
@@ -93,6 +101,8 @@ sup {
     /* margin-left: 50px;
     margin-top: 97px;  */
     width: auto;
+    margin-left: auto;
+    margin-right: auto;
 } 
 #inquiryMessage{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -103,6 +113,7 @@ sup {
     font-size: 18px;
     padding-top: 20px;
     padding-bottom: 20px;
+    border-radius: 5px; 
     height: auto;
     background-color: rgb(216, 206, 180);
 } 
@@ -181,13 +192,13 @@ sup {
 }
 
 .radioToolbarPopup label {
-  display: inline-block;
-  background-color: #ddd;
-  padding: 8px 20px;
-  font-family: Arial;
-  font-size: 22px;
-  cursor: pointer;
-  position: relative;
+    display: inline-block;
+    background-color: #ddd;
+    padding: 8px 20px;
+    font-family: Arial;
+    font-size: 22px;
+    cursor: pointer;
+    position: relative;
 }
 .radioToolbarPopup input[type="radio"]:checked+label {
   background-color: rgb(169, 177, 174)

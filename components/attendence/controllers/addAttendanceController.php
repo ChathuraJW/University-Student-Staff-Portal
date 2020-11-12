@@ -2,13 +2,14 @@
 class AddAttendanceController extends Controller{
     
     public static function addAttendance(){
-        
-        $passingSubjects=AddAttendanceModel::getSubjectData();
-        self::createView("addAttendanceView",$passingSubjects);
-        // print_r($passingSubjects);
-        
 
-        //Add CSV Files
+
+        $passingSubjects=AddAttendanceModel::getSubjectData();
+        $passingInquiryMessage = AddAttendanceModel::getInquiryMessage();
+        // print_r($passingInquiryMessage);
+        $sendData = array($passingSubjects,$passingInquiryMessage);
+        self::createView("addAttendanceView",$sendData);
+        
         if(isset($_POST['submit'])){
             $semester=$_POST['semester'];
             $subject=$_POST['subject'];
@@ -23,18 +24,42 @@ class AddAttendanceController extends Controller{
             // echo(" $temp_name");
             // print_r($_FILES);
             $isSuccess = AddAttendanceModel::ProcessAttendanceData( $subject,$date,$week, $attempt, $fileLocation);
-            
         }
+        // elseif (isset($_POST['search'])){
+        //     $index = $_POST['index'];
+        //     $academicYear = $_POST['academicYear'];
+        //     $subject = $_POST['subject'];
+        //     $attempt = $_POST['attempt'];
+        //     // echo("$index $academicYear $subject $attempt");
+        //     $attendanceData = AddAttendanceModel::getAttendanceDataFromDatabase($index, $subject,$attempt);
+        //     // print_r($attendanceData);
+        //     self::createView("addAttendanceView",$passingSubjects,$attendanceData);
 
-        // Edit attendance data
-        if(isset($_POST['search'])){
-            $index = $_POST['index'];
-            $academicYear = $_POST['academicYear'];
-            $subject = $_POST['subject'];
-            $attempt = $_POST['attempt'];
-            // echo("$index $academicYear $subject $attempt");
-            $attendanceData = AddAttendanceModel::getAttendanceDataFromDatabase($index, $subject,$attempt);
-            print_r($attendanceData);
-        }
+        // }
+        // elseif(isset($_POST['edit'])){
+
+        // }
+        
+
+        
+        // print_r($passingSubjects);
+        
+
+        // Add CSV Files
+    //     if(isset($_POST['submit'])){
+            
+    //     }
+
+    //     // Edit attendance data
+    //     if(isset($_POST['search'])){
+            // $index = $_POST['index'];
+            // $academicYear = $_POST['academicYear'];
+            // $subject = $_POST['subject'];
+            // $attempt = $_POST['attempt'];
+            // // echo("$index $academicYear $subject $attempt");
+            // $attendanceData = AddAttendanceModel::getAttendanceDataFromDatabase($index, $subject,$attempt);
+            // print_r($attendanceData);
+            // self::createView("addAttendanceView",$passingSubjects,$attendanceData);
+    //     }
     }
 }

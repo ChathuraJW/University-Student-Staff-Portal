@@ -15,6 +15,9 @@
     <?php BasicLoader::loadHeader('../../')?>
     
     <div class="featureBody">
+        <?php
+            // print_r($controllerData);
+        ?>
         <div class="radioToolbar">
             <div class="row col-2">
                 <!-- <div> -->
@@ -52,7 +55,7 @@
                         <select id="subject" name="subject" class="dropDown" required>
                         <?php
                                     
-                            foreach($controllerData as $data){
+                            foreach($controllerData[0] as $data){
                                 echo("<option value='".$data['courseCode']."'>".$data['name']."</option>");
                             }
                         ?>
@@ -125,11 +128,19 @@
                     <div>
                         <form>
                             <?php
-                                for($row=1; $row<=5; $row++)
-                                {
+                                foreach($controllerData[1] as $inquiryMessage){
                                     echo("
+                                    <div >
+                                        <p class='subHeading'>Inquiries:</p><hr>
+                                        
+                                    </div>
+                                    
+                                    
                                     <div id = 'inquiryMessage' class ='row col-1'>
-                                    <span>The visibility property allows the author to show or hide an element. It is similar to the display property. However, the difference is that if you set display:none, it hides the entire element, while visibility:hidden means that the contents of the element will be invisible, but the element stays in its original position and size.</span>
+                                        <input type='checkbox'>
+                                        <label>Sent By : ".$inquiryMessage['sendBy']."</label>
+                                        <label>".$inquiryMessage['message']."</label>
+                                    
                                     </div>
                                     ");
                                 }
@@ -171,7 +182,7 @@
                             <select id="subject" name="subject" class="dropDown" required>
                                 <?php
                                     
-                                    foreach($controllerData as $data){
+                                    foreach($controllerData[0] as $data){
                                         echo("<option value='".$data['courseCode']."'>".$data['name']."</option>");
                                     }
                                 ?>
