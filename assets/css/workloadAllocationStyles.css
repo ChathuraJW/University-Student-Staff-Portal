@@ -13,7 +13,6 @@
     margin-top: 20px;
     font-size: 25px;
     text-align: center;
-
 }
 .workloadMessage{
     /* color: white; */
@@ -78,9 +77,12 @@
     background-color: rgb(133, 15, 7);
 }
 .link{
+    border: none;
+    font-size: 16px;
+    color: rgb(199, 98, 202);
     text-decoration: none;
     background-color:rgb(255, 255, 143);
-    padding: 10px;
+    padding: 12px;
     float: right;
 }
 .link:hover{
@@ -170,6 +172,23 @@
     height: 100%; 
     background-color: rgb(135, 212, 139,0.4);
 }
+.scheduleDescription{
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgb(253, 252, 243,0.4);
+}
+.scheduleMessage{
+    min-height: 700px;
+    height: fit-content;
+    width: 500px;
+    margin-top: 20px;
+    margin: auto;
+    background-color: white;
+}
 .successMsg{
     border: none;
     /* border-width: 8px; */
@@ -199,4 +218,21 @@
 #discription{
     width: 100%;
     height: 150px;
+}
+.dataSet{
+    display: table;
+}
+.data{
+    display: table-cell;
+}
+.workloadHistory{
+    padding: 10px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 5px;
+    background-color: rgb(248, 243, 198);
+    cursor: pointer;
+}
+.workloadHistory:hover{
+    background-color: rgb(240, 231, 157);
 }
