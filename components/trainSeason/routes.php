@@ -8,6 +8,10 @@ Route::set('checkTrainSeason', function () {
     CheckTrainSeasonController::checkTrainSeason();
 });
 
+Route::set('application', function () {
+    ApplicationController::application();
+});
+
 
 // check weather the given file exist on the site if not redirect to 404 page
 $available = FALSE;
