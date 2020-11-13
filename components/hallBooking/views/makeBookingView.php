@@ -21,21 +21,36 @@
             <span class="columnHeader">Booking Request History</span>
             <?php
             $color = array('green', 'red', 'blue');
-            for ($i = 0; $i < 10; $i++) {
+            $rowCount = 18;
+            if ($rowCount <= 5) {
+                $displayOptionButton = 'none';
+            } else {
+                $displayOptionButton = 'block';
+            }
+            for ($i = 0; $i < $rowCount; $i++) {
+                $arrContent = $arrayName = array('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus corporis nihil optio, facere molestiae repellendus laborum, earum harum reprehenderit provident nesciunt id aut.', 'Lorem ipsum dolor sit.', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed cumque dolorem ratione, ipsam quibusdam suscipit sunt consectetur soluta id a placeat magni, explicabo libero aliquid eaque nemo voluptatem provident, ut atque architecto excepturi aut facere quam officiis nobis. Ipsa provident sit totam quod, cum amet fuga fugiat a exercitationem iusto! Eveniet quas quis, molestias, explicabo voluptatem in.');
+                if ($i <= 5) {
+                    $displayOptionEntry = 'block';
+                } else {
+                    $displayOptionEntry = 'none';
+                }
                 echo("
-                    <div class='bookingEntry " . $color[$i % 3] . "'>
+                    <div class='bookingEntry " . $color[$i % 3] . "' style='display:$displayOptionEntry;'>
                         <span class='bookingEntryContent'>Lecture Hall/Lab: <b>S104</b></span>
                         <div class='row col-2' style='padding:0;'>
                           <span class='bookingEntryContent'>From: <b>01/03/2020 13:00:00</b></span>
                           <span class='bookingEntryContent'>To: <b>01/03/2020 14:00:00</b></span>
                         </div>
-                        <span class='bookingEntryContent'>Description:<br><b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis itaque voluptatem repellendus enim doloremque praesentium minima dolores ut recusandae vitae.</b></span>
+                        <span class='bookingEntryContent'>Description:<br><b>" . $arrContent[$i % 3] . "</b></span>
                         <span class='bookingEntryContent'>Appointment made at: <b>01/03/2020 14:00:00</b></span>
                         <span class='bookingEntryContent'>Approval State: <b>Approved</b></span>
                         <span class='bookingEntryContent' style='font-size:15px;float:right;'><b>Approved By: MNJ ( 01/03/2020 14:00:00 )</b></span>
                     </div>
                 ");
             }
+            echo("
+                <button type='button' id='loadMoreLessButton' style='display: $displayOptionButton;' onclick='loadMoreHistory();'>Load More...</button>
+            ");
             ?>
         </div>
         <div class="makeBookingSection">
@@ -47,7 +62,7 @@
                 <div class="row col-2">
                     <div>
                         <span class="inputHeading">Selected Hall/Lab</span>
-                        <select name="selectedHallOrLab" id="">
+                        <select name="selectedHallOrLab" >
                             <optgroup label="Lecture Hall">
 
                             </optgroup>
@@ -58,7 +73,7 @@
                     </div>
                     <div>
                         <span class="inputHeading">Purpose</span>
-                        <select name="bookingType" id="">
+                        <select name="bookingType" >
                             <option value="3100">Lecture Request</option>
                             <option value="3200">Tutorial Request</option>
                             <option value="3300">Staff Meeting</option>
@@ -70,17 +85,17 @@
                 <div class="row col-2">
                     <div>
                         <span class="inputHeading">From</span>
-                        Date: <input type="date" name="fromData" id=""><br>
-                        Time: <input type="time" name="fromTime" id="" min="08:00" max="19:00">
+                        Date: <input type="date" name="fromData" ><br>
+                        Time: <input type="time" name="fromTime"  min="08:00" max="19:00">
                     </div>
                     <div>
                         <span class="inputHeading">To</span>
-                        Date: <input type="date" name="toData" id=""><br>
-                        Time: <input type="time" name="toTime" id="" min="08:00" max="19:00">
+                        Date: <input type="date" name="toData" ><br>
+                        Time: <input type="time" name="toTime"  min="08:00" max="19:00">
                     </div>
                 </div>
                 <span class="inputHeading">description</span>
-                <textarea name="description" id="" rows="10" style="width:90%;resize: none;" required></textarea>
+                <textarea name="description"  rows="10" style="width:90%;resize: none;" required></textarea>
                 <div class="actionArea row col-2">
                     <input type="submit" name="createRequest" value="Create Request" class="submitCancelButton green"
                            style="margin:auto;">

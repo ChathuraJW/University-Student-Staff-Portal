@@ -133,6 +133,17 @@ allocationMap {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+#loadMoreLessButton {
+    border: none;
+    outline: none;
+    background-color: white;
+    float: left;
+    width: max-content;
+    font-size: 15px;
+    color: blue;
+    padding: 10px 10px 10px 15px;
+}
+
 /*popup animation keyframe*/
 @keyframes popup {
     0% {
