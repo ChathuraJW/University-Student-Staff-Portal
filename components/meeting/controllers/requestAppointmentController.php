@@ -11,29 +11,30 @@ class RequestAppointmentController extends Controller{
         $records=RequestAppointmentModel::getData($studentID);
         $passingData=array($lecturers,$profiles,$records);
         
-        
         self::createView("requestAppointmentView",$passingData);
 
         if(isset($_POST['submit'])){
             
-            $lecturer=$_POST['lect'];
+            $lecturer=$_POST['lecturer'];
             $type=$_POST['type'];
             $title=$_POST['title'];
             $timeDuration=$_POST['durat'];
             $message=$_POST['msg'];
-            if($type=="type 1"){
+            $date=$_POST['date'];
+            $time=$_POST['time'];
+            if($type=="Academic Related"){
                 $typecode=5100;
             }
-            elseif($type=="type 2"){
+            elseif($type=="Personal"){
                 $typecode=5200;
             }
-            elseif($type=="type 3"){
+            elseif($type=="Social Related"){
                 $typecode=5300;
             }
             else{
                 $typecode=5400;
             }
-            RequestAppointmentModel::insertData($lecturer,$typecode,$title,$timeDuration,$message,$studentID);
+            RequestAppointmentModel::insertData($lecturer,$typecode,$title,$timeDuration,$message,$studentID,$date,$time);
             echo ("
                 <script>
                     window.location.href=document.location.href.toString().split('requestAppointment')[0]+'requestAppointment';

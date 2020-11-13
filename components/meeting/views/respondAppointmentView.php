@@ -29,15 +29,30 @@
                     
                         if(count($records)){
                         
-                        foreach($records as $record){ 
+                        foreach($records as $record){
+                            
                             
                             $url="?appointID=".$record['appointmentID']."&category1=".$category1."&studentID=".$record['studentID']."&title=".$record['title']."&message=".$record['message']."&duration=".$record['meetingDuration']."&time=".$record['timestamp']."&isApproved=".$record['isApproved']."&type=".$record['type']."&validity=".$record['requesValidity'];
-                                
+                            if($record['type']==5100){ 
+                                $backgroundColor=  "rgb(130, 164, 182)";
+                            }
+                            elseif($record['type']==5200){
+                                $backgroundColor= "rgb(255, 254, 183)";
+                            }
+                            elseif($record['type']==5300){
+                                $backgroundColor="rgb(231, 179, 208)";
+                            }
+                            else{
+                                $backgroundColor= "#e7e8e9";
+                            }
+
                             echo("
                                 <div class='row col-1'>
-                                    <a href='".$url."' id='".$record['appointmentID']."' class='appointment' ><p class='appointmentDescription'>".$record['title']."</p></a><br>
+                                    <a href='".$url."' id='".$record['appointmentID']."' class='appointment respond' style='background-color:$backgroundColor;' ><p class='appointmentDescription'>".$record['title']."</p></a><br>
                                 </div>
                             ");
+                            
+                            
                         }
                         }
                         else{

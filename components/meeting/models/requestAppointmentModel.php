@@ -1,10 +1,10 @@
 <?php
     class RequestAppointmentModel extends Model{                              
-        public static function insertData($lecturer,$typecode,$title,$timeDuration,$message,$studentID){
+        public static function insertData($lecturer,$typecode,$title,$timeDuration,$message,$studentID,$date,$time){
             
-            $date=date('Y-m-d H:i:s');
+            $timestamp=date('Y-m-d H:i:s');
 
-            $query="INSERT INTO meeting_appointment(studentID,staffID, title, message, type, meetingDuration, timestamp) VALUES ('$studentID','$lecturer','$title','$message',$typecode,'$timeDuration','$date')";
+            $query="INSERT INTO meeting_appointment(studentID,staffID, title, message, type, meetingDuration, timestamp,appointmentTIme,appointmentDate) VALUES ('$studentID','$lecturer','$title','$message',$typecode,'$timeDuration','$timestamp','$time','$date')";
             Database::executeQuery("root","",$query);
             self::createAudit($query, 'meeting_appointment', "INSERT", 'Insert a new Appointment Message into the system.');
         }
@@ -17,7 +17,8 @@
             return Database::executeQuery("root","",$query);
         }
         public static function getLectures(){
-            $query="SELECT staffID FROM academic_staff";
+            $query="SELECT firstName,lastName,userName,salutation FROM user WHERE role='AS'";
+            echo $query;
             return Database::executeQuery("root","",$query);
         }
     }

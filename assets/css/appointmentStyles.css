@@ -21,6 +21,7 @@
     border: none;
 }
 .requestForm{
+    background-color: rgb(212, 232, 250);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
     width: 100%;
     border-width: 10px;
@@ -100,7 +101,7 @@
     border: none;
     background-color: #e7e8e9;
     outline: none;
-    height: 35px;
+    padding: 6px;
     text-decoration: none;
     
 }
@@ -126,14 +127,14 @@
 
 .content{
     text-align:center;
-    font-size:18px;
+    font-size:22px;
     width: 70%;
     background-color: beige;
+    min-height: 450px;
     height: fit-content;
     padding: 30px;           
     margin-left: auto;
     margin-right: auto;
-    
 }
 .topic{
     background-color: rgb(236, 171, 236);
@@ -190,7 +191,6 @@
     background-color: rgba(179, 226, 211, 0.4);
 }
 #messageContent2{
-    border: ;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 25px 0 rgba(0, 0, 0, 0.19); 
     border-width: 5px;
@@ -201,7 +201,7 @@
 .descriptionDetails{
     width: 75%;
     margin: auto;
-    font-size: 13px;
+    font-size: 16px;
 }
 .navigationLink:hover{
     background-color: rgb(58, 189, 212);  
@@ -213,7 +213,8 @@
     cursor:pointer;
     font-weight:bold;
     font-size:15px;
-    height:45px;
+    /* height:45px; */
+    padding: 18px;
     outline:none;
 }
 
@@ -221,8 +222,8 @@
     display:table;
     width:100%;
     border: none;
-    background-color: rgb(148, 195, 238);
-    height:45px;
+    background-color: rgb(212, 232, 250);
+    height:55px;
     
 }
 
@@ -297,7 +298,12 @@
 .profile{
     background-color: rgb(247, 226, 245);
     width:95%;
+    
     margin: 15px;
+    padding: 10px;
+    border: solid;
+    border-width: 3px;
+    border-color: #fd81f3;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 30px 30px 0 rgba(0, 0, 0, 0.19);
     /* height: 80%; */
 }
@@ -311,7 +317,7 @@
 }
 .details{
     font-size: 14px;
-    
+    margin: auto;
 }
 .profData{
     /* height: 18%; */
@@ -345,7 +351,14 @@
     border-width: 0.5px;
     outline:none;
 }
-
+.respond{
+    width:100%;
+    border: none;
+    /* background-color: #e7e8e9; */
+    outline: none;
+    padding: 6px;
+    text-decoration: none;
+}
 
 
 

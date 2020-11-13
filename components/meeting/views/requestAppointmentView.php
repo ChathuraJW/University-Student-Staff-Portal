@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +49,7 @@
                             $url="?appointID=".$record['appointmentID']."&staffID=".$record['staffID']."&title=".$record['title']."&message=".$record['message']."&duration=".$record['meetingDuration']."&time=".$record['timestamp']."&isapprove=".$isApprove;
                             ?>
 
-                            <a href='<?php echo $url;?>'  id="<?php echo $record['isApproved'];?>"class="appointment" ><p  class="appointmentDescription"><?php echo $record['title'];?></p></a><br>
+                            <a href='<?php echo $url;?>'  id="<?php echo $record['isApproved'];?>"class="appointment" ><p  class="appointmentDescription"><?php echo $record['title'];?><br><br><?php echo $record['timestamp'];?></p></a><br>
                             
                             <?php 
                                     echo("
@@ -83,18 +84,24 @@
                     <h2 id="head">New Appointment</h2>
                 </div>
                 <form action="" class="form2" method="post" enctype="multipart/form-data">
-                    <div class="row col-1">
+                    <!-- <div class="row col-1">
                         <input class="dataRaws" list="lecture2" name="lect" placeholder="Lecturer">    
-                    </div>
-                    <datalist id="lecture2">
+                    </div> -->
+                    <select class="dataRaws" name="lecturer" id="lecture2">
                         <?php 
+
+                            // print_r($controllerData[0]);
+                            
+                            
+
                             $lecturers=$controllerData[0];
                             foreach($lecturers as $lecturer){
-                                echo("<option value=".$lecturer['staffID']."></option>");
+                                
+                                echo("<option value='".$lecturer['userName']."'>".$lecturer['salutation']." ".$lecturer['firstName']." ".$lecturer['lastName']."</option>");
                             }
                             // ".$lecturer[''].$lecturer['']."
                         ?>
-                    </datalist> <br>
+                    </select> <br>
                     <div class="row col-1">
                         <input class="dataRaws" list="durations" name="durat" placeholder="Time duration">
                     </div>
@@ -113,15 +120,19 @@
                         <input class="dataRaws" list="types" name="type" placeholder="Type">
                     </div>
                     <datalist id="types">
-                        <option data-value="1">type 1</option>
-                        <option data-value="2">type 2</option>
-                        <option data-value="3">type 3</option>
-                        <option data-value="4">type 4</option>
+                        <option data-value="1">Academic Related</option>
+                        <option data-value="2">Personal</option>
+                        <option data-value="3">Social Related</option>
+                        <option data-value="4">Other</option>
                         
                     </datalist> <br>
+                    <div class="row col-2">
+                        <div><input style="width:100%;"class="dataRaws" type="date" name="date" ></div>
+                        <div><input style="width:100%;"class="dataRaws" type="time" name="time" ></div>
+                    </div>
                     
                     <div class="row col-1">
-                        <input class="description" type="text" id="description" name="msg" placeholder="Description"><br>
+                        <textarea class="description" type="text" id="description" name="msg" placeholder="Description"></textarea><br>
                     </div>
 
                     <div class="row col-1">
@@ -142,7 +153,7 @@
                         <h2 id="head" >Available Lecturers</h2>
                     </div>
                     <?php $profiles=$controllerData[1]?>
-                    <div class="row col-2">
+                    <div class="row col-2 ">
                         <?php foreach($profiles as $profile){?>
                             
                                 <div class="profile">
@@ -152,7 +163,7 @@
                                                 <h3><?php echo $profile['salutation'].".".$profile['fullName']?></h3>
                                             </div>
                                             <div class="row col-1 img" style="margin-left:20px;">
-                                                <img src="../../assets/images/profile.jpg" height="100px" width="100px" alt="">
+                                                <img src="../../assets/image/profilePicture.PNG" style="background-color: rgb(247, 226, 245,1);" alt="">
                                             </div>
                                         </div >
                                         
@@ -162,7 +173,7 @@
                                                 <div>
                                                     <h4>Email Address:</h4>
                                                 </div>
-                                                <div style="padding-top:5px;">
+                                                <div>
                                                     <p><?php echo $profile['universityEmail']?></p>
                                                 </div>
                                             </div>
@@ -170,7 +181,7 @@
                                                 <div>
                                                     <h4>Available From</h4>
                                                 </div>
-                                                <div style="padding-top:5px;">
+                                                <div >
                                                     <p><?php echo $profile['availableFrom']?></p>
                                                 </div>
                                             </div>
@@ -178,7 +189,7 @@
                                                 <div>
                                                     <h4>Available To </h4>
                                                 </div>
-                                                <div style="padding-top:5px;">
+                                                <div >
                                                     <p><?php echo $profile['availableTo']?></p>
                                                 </div>
                                             </div>
@@ -186,7 +197,7 @@
                                                 <div>
                                                     <h4>Last Updated DateTime </h4>
                                                 </div>
-                                                <div style="padding-top:5px;"> 
+                                                <div > 
                                                     <p><?php echo $profile['lastUpdateDate']?></p>
                                                 </div>
                                             </div>
@@ -276,7 +287,7 @@
         
         function remove(){
             document.getElementById("message2").style.display="none";
-            window.location.href=document.location.href.toString().split('requestAppointment')[0]+'requestAppointment';
+            // window.location.href=document.location.href.toString().split('requestAppointment')[0]+'requestAppointment';
             
         }
         function openTab(tabs){
