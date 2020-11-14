@@ -12,6 +12,10 @@
 
              
             self::createView("receiveMessageView",$getTime);
+            if(isset($_POST['submit'])){
+                $messageState=$_POST['isViewed'];
+                $insertMessageState=receiveMessageModel::insertMessageState($messageState);
+            }
 
 
         }

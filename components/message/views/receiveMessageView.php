@@ -53,14 +53,14 @@
                 if($data['messageID']==$_GET['messageID']){
                   
                   echo ("
-              <span class='senderDetail'>Sender: ".$data['sendBy']."</span><br>
-              <span class='SendTimestampDetail'>Send at: ".$data['timestamp']."</span><br>
-              <span class='titleDetail'>".$data['title']."</span><br>
-              <span class='messageDetail'>".$data['message']."</span><br>
-              <button class='submitCancelButton blue' type='submit' style='float: right; display: ".$_GET['messageState'].";'>Mark As Read</button>
-              ");
-                break;
-                }
+                    <span class='senderDetail'>Sender: ".$data['sendBy']."</span><br>
+                    <span class='SendTimestampDetail'>Send at: ".$data['timestamp']."</span><br>
+                    <span class='titleDetail'>".$data['title']."</span><br>
+                    <span class='messageDetail'>".$data['message']."</span><br>
+                    <button class='submitCancelButton blue' type='submit' style='float: right; display: ".$_GET['messageState'].";'>Mark As Read</button>
+                  ");
+                  break;
+                }  
               }
               
             }

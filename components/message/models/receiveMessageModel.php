@@ -25,5 +25,10 @@
             $sqlQueryGetSendBy = "SELECT sendBy FROM message INNER JOIN user_receive_message ON message.messageID=user_receive_message.messageID";
             return Database::executeQuery("root","",$sqlQueryGetSendBy);
         }*/
+
+        public static function insertMessageState($messageState){
+            $sqlQueryMessageState="INSERT INTO message('isViewed') VALUES(1)";
+            Database::executeQuery("root","",$sqlQueryMessageState);
+        }
         
     }
