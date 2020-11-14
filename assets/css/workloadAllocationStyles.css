@@ -11,37 +11,58 @@
 }
 .head{
     margin-top: 20px;
+    margin-bottom: 60px;
     font-size: 25px;
     text-align: center;
 }
 .workloadMessage{
     /* color: white; */
         /* color: white; */
-        margin-bottom: 10px;
+        /* margin-bottom: 10px; */
         text-align: left;
-        padding: 15px;
+        /* padding: 15px; */
     font-size: 15px;
     font-weight: bold;
         width: 100%;
+        padding: 5px;
     /*     margin-right: 25px; */
     /*     margin-left: 25px; */
         border:none;
         outline: none;
         
-    /*     background-color: rgb(177, 190, 228); */
+        background-color: rgb(220, 222, 228);
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.workloadRequestMessage{
+    text-align: left;
+    font-size: 15px;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 2px;
+    border:none;
+    outline: none;
+    
+    background-color: rgb(242, 242, 243);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.workloadRequestMessage:hover{
+    background-color: rgb(211, 213, 214);
 }
 .workloadMessage:hover{
     background-color: rgb(211, 213, 214);
 }
 .messageViewer{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    min-height: 550px;
+    min-height: 700px;
     height: fit-content;
 }
 .replyMessageViewer{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     min-height: 750px;
+    border: solid;
+    border-width: 3px;
+    border-color: rgb(93, 176, 201);
     height: fit-content;
 }
 .button{
@@ -82,17 +103,20 @@
     color: rgb(199, 98, 202);
     text-decoration: none;
     background-color:rgb(255, 255, 143);
+    width: 150px;
     padding: 12px;
-    float: right;
+    /* float: left; */
 }
 .link:hover{
     background-color:rgb(255, 255, 71);
 }
 .topic{
     text-align: center;
-    height: 20px;
-    margin-top: 20px;
+    /* height: 20px; */
+    /* margin-top: 20px; */
     color: rgb(161, 163, 163);
+    background-color: rgb(212, 245, 255);
+    padding: 30px;
 }
 .displayingMessage{
     display: table;
@@ -221,10 +245,19 @@
 }
 .dataSet{
     display: table;
+    width: 100%;
 }
 .data{
     display: table-cell;
+    width: 50%;
 }
+.left{
+    width: 15%;
+}
+.right{
+    width: 85%;
+}
+
 .workloadHistory{
     padding: 10px;
     width: 90%;

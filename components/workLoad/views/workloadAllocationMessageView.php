@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="../../assets/css/workloadAllocationStyles.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
     
@@ -22,7 +24,11 @@
                 <h3 class="head">Workload Requests</h3>
                 <?php 
                     for($x=1;$x<6;$x++){
-                        echo "<button class='workloadMessage' onclick='openMessage()' href=''>Message ".$x."</button><br>" ;
+                        echo "
+                        <div class='workloadRequestMessage' onclick='openMessage()' >
+                            <p>Dear Sir I want to few Instructors for conduct my assignment.... </p>
+                            2020/02/17
+                        </div><br>" ;
                     }
                 ?>
 
@@ -35,7 +41,7 @@
                 </div>
                 
                 <div id="workloadRequest"style="display:none;">
-                    <h3 class="topic">Title</h3>
+                    <h3 class="topic">Assignment conducting for DSA</h3>
                     
                     <div class="displayingMessage">
                         <div class="lable">Lecturer</div>
@@ -80,7 +86,7 @@
 
                         <div>
                             <label for="searchtime">Time Pieriod</label>
-                            <input class="searchInput" id="searchtime" type="time" name="time" >
+                            <input type="time" class="searchInput" id="searchtime"  name="time">
                         </div>
 
                         <div style="text-align:center;" >
@@ -149,6 +155,7 @@
         </div>
         <div id="finalMsg" class="finalMsg" style="display:none;">
             <div class="successMsg">
+            <i class="fa fa-check-circle-o correct" style="font-size: 70px;" aria-hidden="true"></i>
                 <h3>Allocation Successful</h3>
             </div>
         </div>
@@ -177,7 +184,7 @@
 
         }
         function deallocationForm(){
-            document.getElementById("allocationForm").reset();searchdate
+            document.getElementById("allocationForm").reset();
             document.getElementById("allocateForm").style.display="none";
             document.getElementById("Bmain").style.display="none";
             document.getElementById("main").style.display="";
@@ -188,12 +195,14 @@
             var time=document.getElementById("searchtime").value;
             
             if(date==""||time==""){
+                // document.getElementById("search").reset();
                 window.alert("Please select Date and Time!");
+                
                 
             }else{
                 document.getElementById("preMessage").style.display="none";
                 document.getElementById("searchStaff").style.display="";
-                document.getElementById("searchForm").reset();
+                // document.getElementById("search").reset();
             }
 
         }
