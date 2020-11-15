@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="../../assets/css/appointmentStyles.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
     
@@ -49,23 +51,23 @@
                             $url="?appointID=".$record['appointmentID']."&staffID=".$record['staffID']."&title=".$record['title']."&message=".$record['message']."&duration=".$record['meetingDuration']."&time=".$record['timestamp']."&isapprove=".$isApprove;
                             ?>
 
-                            <a href='<?php echo $url;?>'  id="<?php echo $record['isApproved'];?>"class="appointment" ><p  class="appointmentDescription"><?php echo $record['title'];?><br><br><?php echo $record['timestamp'];?></p></a><br>
+                            <a href='<?php echo $url;?>'  id="<?php echo $record['isApproved'];?>"class="appointment" ><div style="margin-bottom:10px;" class="appointmentDescription"><?php echo $record['title'];?></div><div class="appointmentDescription"><?php echo substr($record['message'], 0, 80);?> </div><div class="appointmentDescription" style="float:right;"><i class='fa fa-clock-o' aria-hidden='true'></i>  <?php echo $record['timestamp'];?></div></a><br>
                             
                             <?php 
                                     echo("
                                         <style>
                                             #A{
-                                                background-color: rgb(189, 247, 189);
+                                                background: linear-gradient(to bottom right,rgb(189, 247, 189),white);
+
                                             }
                                             #A:hover{
-                                                background-color: #8af18a;
-                                                
+                                                background: linear-gradient(to bottom right,#8af18a,white);
                                             }
                                             #R{
-                                                background-color: rgb(238, 170, 183);
+                                                background: linear-gradient(to bottom right,rgb(238, 170, 183),white);
                                             }
                                             #R:hover{
-                                                background-color: #f18a8a;
+                                                background: linear-gradient(to bottom right,#f18a8a,white);
                                             }
                                         </style>
                                     ");
@@ -87,7 +89,7 @@
                     <!-- <div class="row col-1">
                         <input class="dataRaws" list="lecture2" name="lect" placeholder="Lecturer">    
                     </div> -->
-                    <select class="dataRaws" name="lecturer" id="lecture2">
+                    <select class="dataRaws" name="lecturer" placeholder="Lecturer" id="lecture2">
                         <?php 
 
                             // print_r($controllerData[0]);
@@ -102,30 +104,30 @@
                             // ".$lecturer[''].$lecturer['']."
                         ?>
                     </select> <br>
-                    <div class="row col-1">
+                    <!-- <div class="row col-1">
                         <input class="dataRaws" list="durations" name="durat" placeholder="Time duration">
-                    </div>
-                    <datalist id="durations">
+                    </div> -->
+                    <select class="dataRaws" list="durations" name="durat" placeholder="Time duration" id="durations">
                         <option data-value="15 minutes">15 minutes</option>
                         <option data-value="30 minutes">30 minutes</option>
                         <option data-value="1 hour">1 hour</option>
                         <option data-value="More than 1 hour">More than 1 hour</option>
                         
-                    </datalist> <br>
+                        </select> <br>
                     <div class="row col-1">
                         <input  class="dataRaws" type="text"  name="title" placeholder="Title"><br>
                     </div>
 
-                    <div class="row col-1">
+                    <!-- <div class="row col-1">
                         <input class="dataRaws" list="types" name="type" placeholder="Type">
-                    </div>
-                    <datalist id="types">
+                    </div> -->
+                    <select class="dataRaws" list="types" name="type" placeholder="Type" id="types">
                         <option data-value="1">Academic Related</option>
                         <option data-value="2">Personal</option>
                         <option data-value="3">Social Related</option>
                         <option data-value="4">Other</option>
                         
-                    </datalist> <br>
+                        </select> <br>
                     <div class="row col-2">
                         <div><input style="width:100%;"class="dataRaws" type="date" name="date" ></div>
                         <div><input style="width:100%;"class="dataRaws" type="time" name="time" ></div>
@@ -174,7 +176,7 @@
                                                     <h4>Email Address:</h4>
                                                 </div>
                                                 <div>
-                                                    <p><?php echo $profile['universityEmail']?></p>
+                                                    <div><?php echo $profile['universityEmail']?></div>
                                                 </div>
                                             </div>
                                             <div class="row col-2 profData">
@@ -182,7 +184,7 @@
                                                     <h4>Available From</h4>
                                                 </div>
                                                 <div >
-                                                    <p><?php echo $profile['availableFrom']?></p>
+                                                    <div><?php echo $profile['availableFrom']?></div>
                                                 </div>
                                             </div>
                                             <div class="row col-2 profData">
@@ -190,7 +192,7 @@
                                                     <h4>Available To </h4>
                                                 </div>
                                                 <div >
-                                                    <p><?php echo $profile['availableTo']?></p>
+                                                    <div><?php echo $profile['availableTo']?></div>
                                                 </div>
                                             </div>
                                             <div class="row col-2 profData">
@@ -198,7 +200,7 @@
                                                     <h4>Last Updated DateTime </h4>
                                                 </div>
                                                 <div > 
-                                                    <p><?php echo $profile['lastUpdateDate']?></p>
+                                                    <div><?php echo $profile['lastUpdateDate']?></div>
                                                 </div>
                                             </div>
 
@@ -217,9 +219,9 @@
         </div>
 
         <?php if(isset($_GET['appointID'])):?>
-            <div id="message2" class="appointmentMessage" >
+            <div id="message2" class="appointmentContent" >
 
-                    <div id="messageContent2" class="content">
+                    <div id="messageContent2" class="popupMessage">
                         <span class="close" onclick="remove()" >&times;</span>
                         <div class="row col-1">
                             <h4 class="topic "> <?php echo $_GET['title']?></h4>

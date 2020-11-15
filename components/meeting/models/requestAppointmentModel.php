@@ -18,7 +18,6 @@
         }
         public static function getLectures(){
             $query="SELECT firstName,lastName,userName,salutation FROM user WHERE role='AS'";
-            echo $query;
             return Database::executeQuery("root","",$query);
         }
     }
