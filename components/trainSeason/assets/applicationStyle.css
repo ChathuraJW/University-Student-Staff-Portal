@@ -12,5 +12,6 @@
     left: 22%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+    box-shadow: 0 16px 18px 0 rgb(97, 107, 97);
 
 }

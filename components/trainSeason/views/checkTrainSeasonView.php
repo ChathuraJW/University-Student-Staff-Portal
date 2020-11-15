@@ -22,116 +22,7 @@
      
     
       <div class="featureBody">
-        <div class="container">
-          <div class="row col-1">
-         
-            <h1><b> Send Messages </b></h1>
-         
-      
-            <br>
-            <br> 
-           
-            <label for="option"> Enter the contacts </label>
-           
-          </div>
-           
-          
-          <div class="row col-3">
-            <div>
-              <select style="height:50px; width:200px; font-size:18px; background-color:white; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);" id="academicStaffList" name="academicStaffList" onchange="addStaffRecipient('academicStaffList');">
-               
-              <option value="">Academic Staff </option>
-                <?php
-                     
-                  foreach ($controllerData[0] as $data){
-                       
-                    echo ("<option value='$data[userName]'>".$data['fullName']. " -  ".$data['userName']." </option>" );
-                  }
-                ?>
-              </select>
-              <br>
-              <br>
-            </div>
-          
-            <div>  
-              <select style="height:50px; width:200px; font-size:18px; background-color:white; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);" id="academicSupportiveList" name="academicSupportiveList" onchange="addStaffRecipient('academicSupportiveList');"  >
-                <option value="">Academic Supportive Staff </option>
-                <?php
-                     
-                  foreach ($controllerData[1] as $data){
-                    echo ("<option value='$data[userName]'>".$data['fullName']. " -  ".$data['userName']." </option>" );
-                  }
-                ?>
-              </select>
-           
-              <br>
-              <br>
-            </div>
-
-            <div>
-              <select style="height:50px; width:200px; font-size:18px; background-color:white; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);" id="administrativeList" name="administrativeList" onchange="addStaffRecipient('administrativeList');">
-              <option value="">Administrative Staff </option>
-                <?php
-                     
-                  foreach ($controllerData[2] as $data){
-                    echo ("<option value='$data[userName]'>".$data['fullName']. " -  ".$data['userName']." </option>" );
-                  }
-                ?>
-       
-              </select>
-           
-              <br>
-              <br>
-              
-             
-            
-            <br>
-            <br>
-          </div>
-          
-          
-          <br>
-          <br>
-          <form action = " " method="POST">
-             
-            <label style="text-align: left">Contacts </label>
-            <br>
-            <textarea cols="100" name="contacts" id="contacts" readonly></textarea>
-           
-              <br>
-              <br>
-              <label> Title </label> 
-              <br>
-              <textarea name = "title" cols="70"></textarea>
-             
-
-             
-            <br>
-            <br>
-      
-             
-              <label> Message </label>
-              <br>
-              <textarea name = "message" rows="5" cols="70"></textarea>
-             
-
-            <br>
-
-             
-              <button class="button submit" name="submit" type="submit" style= "background-color: #4CAF50">Send
-              </button>
-
-              <button class="button cancel" colour="green" style="background-color: #FF0000">Cancel
-              </button>
-             
-
-          </form>       
-           
-          <br>
-          <br>
-        </div>
-
-  
+        
       </div>
        
 
@@ -139,7 +30,6 @@
     <!-- include footer section -->
     <?php basicLoader::loadFooter('../../'); ?>
 
-    <script src="assets/sendMessageJs.js">
-    </script>
+     
 </body>
 </html>

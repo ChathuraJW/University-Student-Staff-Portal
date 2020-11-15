@@ -5,11 +5,14 @@
     font: bold;
     padding: 5px;
     box-shadow: 0 8px 16px 0 gray;
-    margin-right: 30px;
+    color: white;
+     
     
 }
 
- 
+.application{
+    text-decoration: none;
+}
 
 .cancel{
     text-align: center;
@@ -19,6 +22,9 @@
     padding: 5px;
     box-shadow: 0 8px 16px 0 gray;
     margin-right: 20px;
+    color: white;
+    left: 15%;
+    position: relative;
     
 }
 
@@ -40,4 +46,17 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 
+}
+
+.viewHistory{
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(5, 83, 97);
+    font: bold white;
+    padding: 5px;
+    box-shadow: 0 8px 16px 0 gray;
+    margin-right: 30px;
+    left: 15%;
+    position: relative;
 }
