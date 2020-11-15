@@ -50,7 +50,7 @@ class ViewAttendanceModel extends Model{
     public static function sendInquiryMessage($week , $subject ,$message){
         // $regNo = $_COOKIE['userName'];
         $regNo = '2018cs136';
-        $finalMessage = (" Week :$week\n Subject :$subject\n message :$message");
+        $finalMessage = (" Week :$week<br>\n Subject :$subject<br>\n message :$message");
         // echo("$finalMessage");
         $sqlQuery = "INSERT INTO attendance_inquiry( sendBy, message, sendDate) VALUES ('$regNo','$finalMessage',NOW())";
         $isSend = Database::executeQuery("root","",$sqlQuery);

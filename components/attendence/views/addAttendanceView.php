@@ -128,14 +128,13 @@
                     <div>
                         <form>
                             <?php
+                                echo("
+                                <div >
+                                    <p class='subHeading'>Inquiries:</p><hr>
+                                </div>");
                                 foreach($controllerData[1] as $inquiryMessage){
                                     echo("
-                                    <div >
-                                        <p class='subHeading'>Inquiries:</p><hr>
-                                        
-                                    </div>
-                                    
-                                    
+                                
                                     <div id = 'inquiryMessage' class ='row col-1'>
                                         <input type='checkbox'>
                                         <label>Sent By : ".$inquiryMessage['sendBy']."</label>
@@ -152,11 +151,11 @@
                     <div>
                     <form method="post">
                         <div id="editAttendance" class="row col-2">
-                            <div class = "inputStyle">
+                            <div class = "inputStyle1">
                                 <label for="index">Index:</label><br>
                                 <input class="textField" type="text" id="index" name="index">
                             </div>
-                            <div class = "inputStyle">
+                            <div class = "inputStyle1">
                                 <label for="academicYear">Academic Year:</label>
                                 <select id="academicYearForEdit" name="academicYear" class="dropDown"  required>
                                     <option value=1>1<sup>st</sup> Year</option>
@@ -167,7 +166,7 @@
                             </div>
                         </div>
                         <div id="editAttendance" class="row col-2">
-                        <div class = "inputStyle">
+                        <div class = "inputStyle1">
                             <label for="semester">Semester:</label>
                             <select id="semester" class="dropDown" required>
                             <?php
@@ -177,8 +176,8 @@
                             ?>
                             </select>
                         </div> 
-                        <div class = "inputStyle">
-                            <label for="subject">Subject:</label>
+                        <div class = "inputStyle1">
+                            <label for="subject">Subject:</label><br>
                             <select id="subject" name="subject" class="dropDown" required>
                                 <?php
                                     
@@ -193,7 +192,7 @@
                         </div>
                         </div>
                         <div class = "row col-1">
-                            <div  class="inputStyle">
+                            <div  class="inputStyle1">
                                 <label for="attempt">Attempt:</label><br>
                                 <select id="attempt" name="attempt" class="dropDown">
                                     <option value="F">1<sup>st</sup> Attempt</option>
@@ -206,7 +205,7 @@
                                 <button type="reset" value = "cancel" id="cancelUploadFile" class="fileUploadButton">Cancel</button>
                             </div>
                             <div class = "buttonStyle">
-                                <button onclick=" displayAttendance();"  name="search" id="uploadFile"class=" fileUploadButton">Search</button>
+                                <button onclick="displayAttendance();" type="button" name="search"  class=" fileUploadButton">Search</button>
                             </div>
                         </div>
                         </form>
@@ -220,7 +219,7 @@
                                         for($col=1;$col<=5;$col++)
                                     {
                                         echo("
-                                        <button id='editAttendanceBtn' class='attendance' onclick='openForm()'>
+                                        <button id='attendance$col' class='attendance' onclick='openForm(`attendance$col`)'>
                                         <span class='textStyle'>$col Week</span><br>
                                         <span class='textStyle'>19/10/2020</span><br>
                                         <span>General </span><br>

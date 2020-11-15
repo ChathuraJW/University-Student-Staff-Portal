@@ -99,7 +99,7 @@
 
         <div>
             <!-- <button><i class="fa fa-question-circle" aria-hidden="true"></i></button> -->
-            <label id="myAttendance">My Attendance</label>
+            <p  class="heading" id="myAttendance">My Attendance</p>
         </div>
         <?php
             $markedSubjects = 0;
