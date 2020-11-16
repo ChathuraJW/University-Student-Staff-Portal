@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Student-Staff Portal</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="../../assets/css/workloadAllocationStyles.css">
+    <link rel="stylesheet" href="assets/workloadAllocationStyles.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -26,8 +26,10 @@
                     for($x=1;$x<6;$x++){
                         echo "
                         <div class='workloadRequestMessage' onclick='openMessage()' >
-                            <p>Dear Sir I want to few Instructors for conduct my assignment.... </p>
-                            2020/02/17
+                            <div>Dr Noyel</div>
+                            <div>Dear Sir I want to few Instructors for conduct my assignment.... </div>
+                            <div style='margin-left:85%;'>2020/02/17</div>
+                            
                         </div><br>" ;
                     }
                 ?>
@@ -79,18 +81,37 @@
                 <h2 style="margin-top:30px;margin-bottom:20px;" class="head">Select Members</h2>
                 <form class="search" action="">
                     <div class="row col-3">
-                        <div>
-                            <label for="searchdate">Date</label>
-                            <input class="searchInput" id="searchdate" type="date" name="date" >
+                        <h4 style="text-align:center;"> From</h4>
+                        <h4 style="text-align:center;"> To</h4>
+                        <div></div>
+                        <div class="row col-2">
+                            
+                            <div>
+                                <label for="startDate">Date</label>
+                                <input class="searchInput" id="startDate" type="date" name="fromDate" require>
+                            </div>
+
+                            <div>
+                                <label for="startTime">Time from</label>
+                                <input type="time" class="searchInput" id="startTime"  name="startTime" require>
+                            </div>
                         </div>
 
-                        <div>
-                            <label for="searchtime">Time Pieriod</label>
-                            <input type="time" class="searchInput" id="searchtime"  name="time">
+                        <div class="row col-2">
+                            <div>
+                                <label for="endDate">Date</label>
+                                <input class="searchInput" id="endDate" type="date" name="endDate" require>
+                            </div>
+
+                            <div>
+                                <label for="endTime">Time to</label>
+                                <input type="time" class="searchInput" id="endTime"  name="endTime" require>
+                            </div>
                         </div>
 
-                        <div style="text-align:center;" >
-                            <input class="searchbutton" id="search" type="button" onclick="displaySearch()" name="submit" value="Search">
+                        <div style="text-align:center;margin-top:25px;" >
+                            <span class="searchbutton" id="search" type="button" onclick="displaySearch()" name="submit" >Search <i class="fa fa-search" aria-hidden="true"></i>
+</span>
                         </div>
                     </div>
                 </form>
@@ -160,87 +181,10 @@
             </div>
         </div>
     </div>
-    <script>
-        function allocationCancel(){
-            document.getElementById("allocateForm").style.display='none';
-        }
-        function allocationForm(){
-                var checkBox=document.getElementsByClassName("memberInput");
-                var i;
-                var check=0;
-                for(i=0;i<checkBox.length;i++){
-                    if(checkBox[i].checked == true) {
-                        check++;
-                    }
-                }
-                
-                if(check>0) {
-                        document.getElementById("allocateForm").style.display='';
-                    }else{
-                        window.alert("Please select members!");
-                    }
-            
-            
-
-        }
-        function deallocationForm(){
-            document.getElementById("allocationForm").reset();
-            document.getElementById("allocateForm").style.display="none";
-            document.getElementById("Bmain").style.display="none";
-            document.getElementById("main").style.display="";
-            
-        }
-        function displaySearch(){
-            var date=document.getElementById("searchdate").value;
-            var time=document.getElementById("searchtime").value;
-            
-            if(date==""||time==""){
-                // document.getElementById("search").reset();
-                window.alert("Please select Date and Time!");
-                
-                
-            }else{
-                document.getElementById("preMessage").style.display="none";
-                document.getElementById("searchStaff").style.display="";
-                // document.getElementById("search").reset();
-            }
-
-        }
-        function openMessage(){
-            document.getElementById("messageView").style.display="none";
-            document.getElementById("workloadRequest").style.display="";
-        }
-        function allocation(){
-            document.getElementById("searchStaff").style.display="none";
-            document.getElementById("main").style.display="none";
-            document.getElementById("Bmain").style.display="";
-        }
-        function messageClose(){
-            document.getElementById("messageView").style.display="";
-            document.getElementById("workloadRequest").style.display="none";
-        }
-        function allocationAprove(){
-            
-                document.getElementById("allocateForm").style.display="none";
-                document.getElementById("searchStaff").style.display="none";
-            document.getElementById("finalMsg").style.display="";
-            setTimeout(function(){
-                document.getElementById("finalMsg").style.display="none";
-            document.getElementById("Bmain").style.display="none";
-            document.getElementById("allocateForm").style.display="none";
-                document.getElementById("searchStaff").style.display="none";
-                document.getElementById("workloadRequest").style.display="none";
-                document.getElementById("messageView").style.display="";
-            document.getElementById("main").style.display="";
-
-            }, 2000);
-        }
-        
-
-    </script>
-    
 
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../') ?>
+    <script src="assets/workloadAllocation.js"></script>
+
 </body>
 </html>
