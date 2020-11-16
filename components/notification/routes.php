@@ -4,9 +4,9 @@
         AddNotificationController::AddNotification();
     });
 
-    // Route::set('viewPastPaper',function(){
-    //     ViewPastPaperController::viewPastPaper();
-    // });
+    Route::set('viewNotification',function(){
+        ViewNotificationController::viewNotification();
+    });
 
 
     // check weather the given file exist on the site if not redirect to 404 page

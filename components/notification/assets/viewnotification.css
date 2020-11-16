@@ -1,0 +1,84 @@
+.heading {
+    text-align: center;
+    font-weight: bold;
+    font-size: 45px;
+}
+.topic{
+    height:200px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0,0,2);
+    padding:25px;
+    color: white;
+}
+
+.bell{
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0,0,2);
+}
+.topicsContainer .fa{
+    color: #cecece;
+    line-height: 60px;
+    font-size: 30px;
+}
+.row{
+    text-align: -webkit-center;
+}
+.bell .count{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #ff2c74; 
+    color: #fff;
+    /* line-height: 25px; */
+    font-family: sans-serif;
+    text-align: center;
+    padding: 2px;
+    margin-bottom: 20px;
+    
+}
+.notificationName{
+    font-size: 32px;
+}
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Style the search field */
+  form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+  }
+  
+  /* Style the submit button */
+  form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+  
+  form.example button:hover {
+    background: #0b7dda;
+  }
+  
+  /* Clear floats */
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
