@@ -16,52 +16,51 @@
     <?php BasicLoader::loadHeader('../../')?>
     
     <div class="featureBody">
-    <div class="row col-1">
+        <div class="sample row col-5">
+            <div class="radioToolbar">
+                <div>
+                    <input value=1 type="radio" id="radio1" name="notificationName">
+                    <label for="radio1"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Assignment, Scholarship & Lecture re-scheduling(35)</label>
+                </div>
+                <div>
+                    <input  value=2 type="radio" id="radio2" name="notificationName">
+                    <label for="radio2"><i class="fa fa-users" aria-hidden="true"></i> Social & Events(35)</label>
+                </div>
+                <div>
+                    <input value=3 type="radio" id="radio3" name="notificationName">
+                    <label for="radio3"><i class="fa fa-bullhorn" aria-hidden="true"></i> Director Notices(35)</label>
+                </div>
+                <div>
+                    <input value=4 type="radio" id="radio4" name="notificationName">
+                    <label for="radio4"><i class="fa fa-calendar" aria-hidden="true"></i> Fundraising Events (35)</label>
+                </div>
+                <div>
+                    <input value=5 type="radio" id="radio5" name="notificationName">
+                    <label for="radio4"><i class="fa fa-pencil-square" aria-hidden="true"></i> Administrative & Exam(35)</label>
+                </div>
+                <div>
+                    <input value=6 type="radio" id="radio6" name="notificationName">
+                    <label for="radio4">System (35)</label>
+                </div>
+                <!-- <input type="radio> -->
+            </div>
+            <div class="inner row col-1">
                 <p class="heading">Notifications</p>
+                <form class="example" action="action_page.php">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+                <?php
+                    for($count=1;$count<=15;$count++){
+                        echo("
+                            <div class='notification'>
+                                <labe class='topic'><i class='fa fa-bullhorn' aria-hidden='true'></i><b> IEEE Meeting Cancellation</b></labe>
+                                <label class='content'>The january 12, 2021 meeting has been cancelled.The next meeting scheduled for january 21<sup>st</sup> at 8.30 a.m.</label>
+                            </div>
+                        ");
+                    }
+                ?>
             </div>
-        <div class="topicsContainer row col-4">
-            <div class="topic" style="background-color:mediumvioletred;" >
-                <div class="bell">
-                    <i class="fa fa-bell" aria-hidden="true"></i>
-                    <span class="count">5</span>
-                </div>
-                <div class="row col-1">
-                    <span class="notificationName">Topic 1</span>
-                </div>
-            </div>
-            <div class="topic" >
-                <div class="bell">
-                    <i class="fa fa-bell" aria-hidden="true"></i>
-                    <span class="count">5</span>
-                </div>
-                <div class="row col-1">
-                    <span class= "notificationName">Topic 2</span>
-                </div>
-            </div>
-            <div class="topic" >
-                <div class="bell ">
-                    <i class="fa fa-bell" aria-hidden="true"></i>
-                    <span class="count">5</span>
-                </div>
-                <div class="row col-1">
-                    <span  class= "notificationName">Topic 2</span>
-                </div>
-            </div>
-            <div class="topic" >
-                <div class="bell">
-                    <i class="fa fa-bell" aria-hidden="true"></i>
-                    <span  class="count">5</span>
-                </div>
-                <div class="row col-1">
-                    <span  class= "notificationName">Topic 4</span>
-                </div>
-            </div>
-        </div>
-        <div class="row col-1">
-            <form class="example" action="action_page.php">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
         </div>
     </div>
     <!-- include footer section -->
