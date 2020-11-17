@@ -1,7 +1,9 @@
 <?php
     class RegistrationModel extends Model{
         public static function getData(){
-            $userName=$_COOKIE['userName'];
+            setcookie('userName','2018cs183');
+        $userName=$_COOKIE['userName'];
+
             $query="SELECT * FROM user WHERE userName='$userName'";
             return Database::executeQuery("root","",$query);
 

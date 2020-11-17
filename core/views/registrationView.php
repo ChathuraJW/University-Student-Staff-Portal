@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Student-Staff Portal</title>
     <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/registrationStyles.css">
+    <link rel="stylesheet" href="assets/registrationStyles.css">
     <!-- <link rel="stylesheet" href="assets/css/fontawesome-free-5.15.1-web/css/all.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../assets/css/gridSystem.css">
@@ -229,8 +229,30 @@ foreach($records as $record){
                 </div>
             </form>
         </div>
+
+        <div class="pages" id="pages" check="1">
+            <span id="page1" class="pageNumber">1</span>
+            <span id="page2"class="pageNumber">2</span>
+            <span id="page3"class="pageNumber">3</span>
+            <span id="page4"class="pageNumber">4</span>
+            
+        </div>
+        
     </div>
+    
     <script >
+        if(document.getElementById("pages").getAttribute('check') == 1){
+            document.getElementById("page1").style.backgroundColor="rgb(194, 192, 192,0.4)";
+        }
+        if(document.getElementById("pages").getAttribute('check') == 2){
+            document.getElementById("page2").style.backgroundColor="rgb(194, 192, 192,0.4)";
+        }
+        if(document.getElementById("pages").getAttribute('check') == 3){
+            document.getElementById("page3").style.backgroundColor="rgb(194, 192, 192,0.4)";
+        }
+        if(document.getElementById("pages").getAttribute('check') == 4){
+            document.getElementById("page4").style.backgroundColor="rgb(194, 192, 192,0.4)";
+        }
 
         function visible(element){
                     document.getElementById(element).style.visibility="visible";
@@ -503,28 +525,37 @@ foreach($records as $record){
                 }
                 function toBsc(){
                     document.getElementById("pwd").style.display="none";
+                    document.getElementById("pages").setAttribute('check', 2);
+                    
+                    // document.write(document.getElementById("pages").getAttribute('check'));
                     document.getElementById("bsc").style.display="";            
                     // document.getElementById("topic").style.display="none";            
                 }
                 function toCnt(){
                     document.getElementById("bsc").style.display="none";
+                    document.getElementById("pages").setAttribute('check', 3);
                     document.getElementById("cnt").style.display="";            
                 }
                 function toImg(){
                     document.getElementById("cnt").style.display="none";
+                    document.getElementById("pages").setAttribute('check', 4);
+                    
                     document.getElementById("img").style.display="";            
                 }
                 function backPwd(){
                     document.getElementById("bsc").style.display="none";
+                    document.getElementById("pages").setAttribute('check', 1);
                     document.getElementById("pwd").style.display="";
                     // document.getElementById("topic").style.display="";            
                 }
                 function backBsc(){
                     document.getElementById("cnt").style.display="none";
+                    document.getElementById("pages").setAttribute('check', 2);
                     document.getElementById("bsc").style.display="";            
                 }
                 function backCnt(){
                     document.getElementById("img").style.display="none";
+                    document.getElementById("pages").setAttribute('check', 3);
                     document.getElementById("cnt").style.display="";            
                 }
 
@@ -534,5 +565,6 @@ foreach($records as $record){
 
     <!-- include footer section -->
     <!-- <?php require('../../assets/php/commonFooter.php')?> -->
+    <script src="assets/registrationScript.js"></script>
 </body>
 </html>
