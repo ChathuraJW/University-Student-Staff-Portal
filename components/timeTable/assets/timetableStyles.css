@@ -23,4 +23,9 @@ th{
     text-align: center;
     margin-bottom: 30px;
     margin-top: 20px;
+    /* background: linear-gradient(to bottom right,rgb(255, 252, 104),white); */
 }
+.day{
+    background:linear-gradient(to bottom right,rgb(148, 210, 252),rgb(231, 248, 250));
+}
+

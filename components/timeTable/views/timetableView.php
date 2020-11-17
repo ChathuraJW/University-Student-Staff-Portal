@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Student-Staff Portal</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="../../assets/css/timetableStyles.css">
+    <link rel="stylesheet" href="assets/timetableStyles.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
 </head>
 <body>
@@ -18,14 +18,14 @@
     <div class="featureBody" >
         <div  id="main"  >
             <h2 class="head">Time Table</h2>
-            <table>
+            <table id="timetable">
                 <tr>
                     <th></th>
-                    <th id="monday" style="background-color: rgb(9, 112, 230);">Monday</th>
-                    <th id="tuesday" style="background-color: rgb(9, 112, 230);">Tuesday</th>
-                    <th id="wednesday" style="background-color: rgb(9, 112, 230);">Wednesday</th>
-                    <th id="thursday" style="background-color: rgb(9, 112, 230);">Thursday</th>
-                    <th id="friday" style="background-color: rgb(9, 112, 230);">Friday</th>
+                    <th class="day" id="monday" >Monday</th>
+                    <th class="day" id="tuesday" >Tuesday</th>
+                    <th class="day" id="wednesday" >Wednesday</th>
+                    <th class="day" id="thursday" >Thursday</th>
+                    <th class="day" id="friday" >Friday</th>
                     <!-- <th></th> -->
                 </tr>
                 
@@ -67,13 +67,15 @@
                 ?>
             </table>
         </div>
+        
     </div>
     <script>
- 
+        
     </script>
     
 
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../') ?>
+    <script src="assets/timetable.js"></script>
 </body>
 </html>
