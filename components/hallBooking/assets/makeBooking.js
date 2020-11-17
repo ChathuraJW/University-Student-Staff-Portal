@@ -14,7 +14,7 @@ function closeReservationMap() {
 function loadMoreHistory() {
     let loadMoreLess = document.getElementById('loadMoreLessButton');
     let pastBookingList = document.getElementsByClassName('bookingEntry');
-    if (loadMoreLess.innerText == 'Load Less...') {
+    if (loadMoreLess.innerText === 'Load Less...') {
         //again back to 5 entry
         loadMoreLess.innerText = 'Load More...';
         for (let i = 0; i < pastBookingList.length; i++) {

@@ -21,7 +21,7 @@
             <span class="columnHeader">Booking Request History</span>
             <?php
             $color = array('green', 'red', 'blue');
-            $rowCount = 18;
+            $rowCount = 10;
             if ($rowCount <= 5) {
                 $displayOptionButton = 'none';
             } else {
@@ -36,12 +36,15 @@
                 }
                 echo("
                     <div class='bookingEntry " . $color[$i % 3] . "' style='display:$displayOptionEntry;'>
-                        <span class='bookingEntryContent'>Lecture Hall/Lab: <b>S104</b></span>
+                        <div class='row col-2' style='padding:0;'>
+                          <span class='bookingEntryContent'>Lecture Hall/Lab: <b>S104</b></span>
+                          <span class='bookingEntryContent'>For: <b>Lecture</b></span>
+                        </div>
                         <div class='row col-2' style='padding:0;'>
                           <span class='bookingEntryContent'>From: <b>01/03/2020 13:00:00</b></span>
                           <span class='bookingEntryContent'>To: <b>01/03/2020 14:00:00</b></span>
                         </div>
-                        <span class='bookingEntryContent'>Description:<br><b>" . $arrContent[$i % 3] . "</b></span>
+                        <span class='bookingEntryContent' style='padding:10px;text-align: justify;'>Description:<br><b>" . $arrContent[$i % 3] . "</b></span>
                         <span class='bookingEntryContent'>Appointment made at: <b>01/03/2020 14:00:00</b></span>
                         <span class='bookingEntryContent'>Approval State: <b>Approved</b></span>
                         <span class='bookingEntryContent' style='font-size:15px;float:right;'><b>Approved By: MNJ ( 01/03/2020 14:00:00 )</b></span>
@@ -62,7 +65,7 @@
                 <div class="row col-2">
                     <div>
                         <span class="inputHeading">Selected Hall/Lab</span>
-                        <select name="selectedHallOrLab" >
+                        <select name="selectedHallOrLab">
                             <optgroup label="Lecture Hall">
 
                             </optgroup>
@@ -73,9 +76,9 @@
                     </div>
                     <div>
                         <span class="inputHeading">Purpose</span>
-                        <select name="bookingType" >
-                            <option value="3100">Lecture Request</option>
-                            <option value="3200">Tutorial Request</option>
+                        <select name="bookingType">
+                            <option value="3100">Lecture</option>
+                            <option value="3200">Tutorial</option>
                             <option value="3300">Staff Meeting</option>
                             <option value="3400">Club Meeting</option>
                             <option value="3500">Student Meeting</option>
@@ -85,17 +88,17 @@
                 <div class="row col-2">
                     <div>
                         <span class="inputHeading">From</span>
-                        Date: <input type="date" name="fromData" ><br>
-                        Time: <input type="time" name="fromTime"  min="08:00" max="19:00">
+                        Date: <input type="date" name="fromData"><br>
+                        Time: <input type="time" name="fromTime" min="08:00" max="19:00">
                     </div>
                     <div>
                         <span class="inputHeading">To</span>
-                        Date: <input type="date" name="toData" ><br>
-                        Time: <input type="time" name="toTime"  min="08:00" max="19:00">
+                        Date: <input type="date" name="toData"><br>
+                        Time: <input type="time" name="toTime" min="08:00" max="19:00">
                     </div>
                 </div>
                 <span class="inputHeading">description</span>
-                <textarea name="description"  rows="10" style="width:90%;resize: none;" required></textarea>
+                <textarea name="description" rows="10" style="width:90%;resize: none;" required></textarea>
                 <div class="actionArea row col-2">
                     <input type="submit" name="createRequest" value="Create Request" class="submitCancelButton green"
                            style="margin:auto;">
