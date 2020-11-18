@@ -1,8 +1,7 @@
 
 .inner{
-    width: 370%;
-    /* border-style: 2px solid black; */
-    /* background: #d60049; */
+    width: 200%;
+    
 }
 .heading {
     text-align: center;
@@ -52,6 +51,16 @@ form.example::after {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 10px;
     margin-top: 5px;
+    /* width: 1200px; */
+    max-width: 1200px;
+    
+}
+.notificationNext{
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    margin-top: 5px;
+    background-color: yellow;
 }
 /* radio */
 .radioToolbar input[type="radio"] {
@@ -61,14 +70,24 @@ form.example::after {
 
 .radioToolbar label {
     display: inline-block;
-    background-color: #ddd;
+    background-color:#bbb;
     padding: 8px 20px;
     font-family: Arial;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
     position: relative;
     width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 .radioToolbar input[type="radio"]:checked+label {
-    background-color: rgb(169, 177, 174)
+    background-color: rgb(112, 117, 115);
 }
+.radioStyle {
+    transition: transform .2s; /* Animattion*/
+}
+.radioStyle:hover{
+    transform: scale(1.05);
+    /* background-color: wheat; */
+}
+
