@@ -1,23 +1,30 @@
-<?xml version="1.0" encoding="" ?>
 <toolTip>
-  <newPassword>
-    Required field.
-    LowerCase letters, upperCase letters, numbers and special Characters must include and length of password should grater than or equal to eight(>=8).
+    <newPassword>
+        Required field.
+        LowerCase letters, upperCase letters, numbers and special Characters must include and length of password should
+        grater than or equal to eight(>=8).
     </newPassword>
     <repeatPassword>
-      Required field.
-      Should equal to the password that you already input.
+        Required field.
+        Should equal to the password that you already input.
     </repeatPassword>
     <systemCompletedField>
-      You are not privileged to edit this section. If there have some mistakes contact system administrator.
+        You are not privileged to edit this section. If there have some mistakes contact system administrator.
     </systemCompletedField>
     <telephone>
-      Required field.
-      Provide a telephone number, that currently working. Mobile number or landline number are acceptable.
-      Data format: 0xxxxxxxxx Example values: 0332212543, 071123532
+        Required field.
+        Provide a telephone number, that currently working. Mobile number or landline number are acceptable.
+        Data format: 0xxxxxxxxx Example values: 0332212543, 071123532
     </telephone>
     <address>
-      Required field.
-      Example value: No.243/13, Gall Rd, Colombo 05 
+        Required field.
+        Example value: No.243/13, Gall Rd, Colombo 05
     </address>
+    <personalEmail>
+        Required field.
+        Example Value" test@gmail.com, user@outlook.com
+    </personalEmail>
+    <generalFiled>
+        Required field.
+    </generalFiled>
 </toolTip>

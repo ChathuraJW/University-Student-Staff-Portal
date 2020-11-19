@@ -2,43 +2,36 @@
     class RegistrationController extends Controller{
         public static function open(){
             $data=registrationModel::getData();
-            // $passingData=array($data);
             self::createView("registrationView",$data);
             if(isset($_POST['submit'])){
                 $password=$_POST['password'];
-                $rePassword=$_POST['repeatPassword'];
-                $fName=$_POST['fName'];
-                $lName=$_POST['lName'];
-                $flName=$_POST['fullName'];
+                $repeatPassword=$_POST['repeatPassword'];
                 $gender=$_POST['gender'];
                 $salutation=$_POST['salutation'];
-                $nic=$_POST['nic'];
-                $dob=$_POST['dob'];
-                $tele=$_POST['tele'];
-                $adrs=$_POST['address'];
-                $email=$_POST['personalEmail'];
-                $uniMail=$_POST['universityMail'];
-                $image=$_POST['image'];
-                $passcodeen = hash('sha256', (get_magic_quotes_gpc() ? stripslashes($password) : $password));
-                $firstName=ucwords($fName);
-                $lastName=ucwords($lName);
-                $fullName=ucwords($flName);
-                $address=ucwords($adrs);
-                    
-                $image_name=$_FILES['image']['name'];
-                $image_tmpName=$_FILES['image']['tmp_name'];
-                // $location='C:\xampp\htdocs\USSP\core\assets\profile picture';
-                
-                echo "helllo";
-                echo  $fName;
-                echo  $lastName;
-                echo  $fullName;
-                echo  $address;
-                echo  $gender;
-                // $image_name." ".$image_tmpName." ".$email." ".$uniMail." ".$passcodeen." ".$tele." ".$dob." ".$nic." ".$fPassword;
-                // move_uploaded_file($image_tmpName,$location);
-                registrationModel::first($passcodeen,$firstName,$lastName,$fullName,$gender,$salutation,$nic,$dob,$tele,$address,$email,$uniMail);
-
+                $telephone=$_POST['telephone'];
+                $address=ucwords($_POST['address']);
+                $personalEmail=$_POST['personalEmail'];
+//                backend password validation
+                if($password===$repeatPassword)
+                    $hashedPassword = hash('sha256', $password);
+                else
+                    die("Invalid password pair.");
+//                save image to directory
+                $fileName=$_COOKIE['userName'].'.png';
+                $name = $_FILES['profilePic']['name'];
+                $temp_name = $_FILES['profilePic']['tmp_name'];
+                if (isset($name) and !empty($name)) {
+                    $location = './assets/profile picture/';
+                    if (move_uploaded_file($temp_name, $location . $fileName)) {
+                        $isFileUploaded = true;
+                    }
+                }
+                if(isset($isFileUploaded) & $isFileUploaded){
+                    $isUpdated=registrationModel::updateUserData($hashedPassword,$gender,$salutation,$telephone,$address,$personalEmail,$fileName);
+                    if(!$isUpdated)
+                        die();
+                } else
+                    die();
             }
         }
     }

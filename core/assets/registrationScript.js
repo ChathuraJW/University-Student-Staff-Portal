@@ -1,3 +1,20 @@
+//add tooltip into elements
+jQuery.get('assets/toolTips.xml', function (fileContent) {
+    document.getElementById('tooltipNewPassword').innerHTML = $(fileContent).find("newPassword").text();
+    document.getElementById('tooltipRepeatPassword').innerHTML = $(fileContent).find("repeatPassword").text();
+    document.getElementById('tooltipFirstName').innerHTML = $(fileContent).find("systemCompletedField").text();
+    document.getElementById('tooltipLastName').innerHTML = $(fileContent).find("systemCompletedField").text();
+    document.getElementById('tooltipFullName').innerHTML = $(fileContent).find("systemCompletedField").text();
+    document.getElementById('tooltipGender').innerHTML = $(fileContent).find("generalFiled").text();
+    document.getElementById('tooltipSalutation').innerHTML = $(fileContent).find("generalFiled").text();
+    document.getElementById('tooltipNIC').innerHTML = $(fileContent).find("systemCompletedField").text();
+    document.getElementById('tooltipDOB').innerHTML = $(fileContent).find("systemCompletedField").text();
+    document.getElementById('tooltipTelephone').innerHTML = $(fileContent).find("telephone").text();
+    document.getElementById('tooltipAddress').innerHTML = $(fileContent).find("address").text();
+    document.getElementById('tooltipPersonalEmail').innerHTML = $(fileContent).find("personalEmail").text();
+    document.getElementById('tooltipUniversityMail').innerHTML = $(fileContent).find("systemCompletedField").text();
+});
+
 function visible(element) {
     document.getElementById(element).style.visibility = "visible";
     setTimeout(function () {
@@ -7,11 +24,11 @@ function visible(element) {
 
 var loadFile = function (event) {
     var output = document.getElementById('output');
-    output.style.height="250px";
-    output.src='';
-    document.getElementById('imageLoadContainer').style.width='max-content';
-    document.getElementById('imageLoadContainer').style.padding='10px';
-    output.style.position="initial";
+    output.style.height = "250px";
+    output.src = '';
+    document.getElementById('imageLoadContainer').style.width = 'max-content';
+    document.getElementById('imageLoadContainer').style.padding = '10px';
+    output.style.position = "initial";
 
     output.src = URL.createObjectURL(event.target.files[0]);
     output.onload = function () {
@@ -24,59 +41,59 @@ function validatePassword() {
     var y = document.forms["form"]["repeatPassword"].value;
     if (x == "" || y == "") {
         if (x == "") {
-            displayError("password", "pswError1");
+            displayError("password", "tooltipNewPassword");
 
         } else {
-            document.getElementById("pswError1").style.visibility = "hidden";
+            document.getElementById("tooltipNewPassword").style.visibility = "hidden";
         }
         if (y == "") {
 
-            displayError("repeatPassword", "pswError2");
+            displayError("repeatPassword", "tooltipRepeatPassword");
 
         } else {
-            document.getElementById("pswError2").style.visibility = "hidden";
+            document.getElementById("tooltipRepeatPassword").style.visibility = "hidden";
         }
     } else {
-        document.getElementById("pswError1").style.visibility = "hidden";
-        document.getElementById("pswError2").style.visibility = "hidden";
+        document.getElementById("tooltipNewPassword").style.visibility = "hidden";
+        document.getElementById("tooltipRepeatPassword").style.visibility = "hidden";
         var lowerCaseLetters = /[a-z]/g;
         var upperCaseLetters = /[A-Z]/g;
         var specialCharachters = /[@#$%)^&*(}>?,./;''~\|:""`{<]/;
         var numbers = /[0-9]/g;
 
         if (x.match(upperCaseLetters)) {
-            document.getElementById("pswError1").style.visibility = "hidden";
+            document.getElementById("tooltipNewPassword").style.visibility = "hidden";
             if (x.match(specialCharachters)) {
                 if (x.match(lowerCaseLetters)) {
-                    document.getElementById("pswError1").style.visibility = "hidden";
+                    document.getElementById("tooltipNewPassword").style.visibility = "hidden";
                     if (x.match(numbers)) {
-                        document.getElementById("pswError1").style.visibility = "hidden";
+                        document.getElementById("tooltipNewPassword").style.visibility = "hidden";
                         if (x.length >= 8) {
-                            document.getElementById("pswError1").style.visibility = "hidden";
+                            document.getElementById("tooltipNewPassword").style.visibility = "hidden";
                             if (x == y) {
-                                document.getElementById("pswError2").style.visibility = "hidden";
+                                document.getElementById("tooltipRepeatPassword").style.visibility = "hidden";
                                 // change navigation color
                                 document.getElementById('pageChangePassword').style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
                                 document.getElementById('pageBasicInfo').style.backgroundColor = 'black';
                                 //Navigate to basic information section
                                 toBasicInformationSection();
                             } else {
-                                displayError("repeatPassword", "pswError2");
+                                displayError("repeatPassword", "tooltipRepeatPassword");
                             }
                         } else {
-                            displayError("password", "pswError1");
+                            displayError("password", "tooltipNewPassword");
                         }
                     } else {
-                        displayError("password", "pswError1");
+                        displayError("password", "tooltipNewPassword");
                     }
                 } else {
-                    displayError("password", "pswError1");
+                    displayError("password", "tooltipNewPassword");
                 }
             } else {
-                displayError("password", "pswError1");
+                displayError("password", "tooltipNewPassword");
             }
         } else {
-            displayError("password", "pswError1");
+            displayError("password", "tooltipNewPassword");
         }
 
     }
@@ -84,103 +101,103 @@ function validatePassword() {
 }
 
 function BasicDetails() {
-    var fName = document.forms["form"]["fName"].value;
-    var lName = document.forms["form"]["lName"].value;
+    var firstName = document.forms["form"]["firstName"].value;
+    var lastName = document.forms["form"]["lastName"].value;
     var fullName = document.forms["form"]["fullName"].value;
     var gender = document.forms["form"]["gender"].value;
-    var occupation = document.forms["form"]["occupation"].value;
+    var salutation = document.forms["form"]["salutation"].value;
     var nic = document.forms["form"]["nic"].value;
     var dob = document.forms["form"]["dob"].value;
     var numbers = /^[0-9]+$/;
     var checker = /^[A-Za-z'.']+$/;
     var nicCheck = /^[0-9vV]+$/;
     var ticket = 0;
-    if (fName == "") {
-        displayError("fName", "fNameMsg");
+    if (firstName == "") {
+        displayError("firstName", "tooltipFirstName");
     } else {
-        document.getElementById("fNameMsg").style.visibility = "hidden";
-        if (fName.match(checker)) {
-            document.getElementById("fNameMsg").style.visibility = "hidden";
+        document.getElementById("tooltipFirstName").style.visibility = "hidden";
+        if (firstName.match(checker)) {
+            document.getElementById("tooltipFirstName").style.visibility = "hidden";
             ticket++;
         } else {
-            displayError("fName", "fNameMsg");
+            displayError("firstName", "tooltipFirstName");
         }
     }
 
-    if (lName == "") {
-        displayError("lName", "lNameMsg");
+    if (lastName == "") {
+        displayError("lastName", "tooltipLastName");
     } else {
-        document.getElementById("lNameMsg").style.visibility = "hidden";
-        if (/[^A-Za-z]/.test(lName)) {
-            displayError("lName", "lNameMsg");
+        document.getElementById("tooltipLastName").style.visibility = "hidden";
+        if (/[^A-Za-z]/.test(lastName)) {
+            displayError("lastName", "tooltipLastName");
         } else {
-            document.getElementById("lNameMsg").style.visibility = "hidden";
+            document.getElementById("tooltipLastName").style.visibility = "hidden";
             ticket++;
         }
     }
 
     if (fullName == "") {
-        displayError("fullName", "fullNameMsg");
+        displayError("fullName", "tooltipFullName");
     } else {
-        document.getElementById("fullNameMsg").style.visibility = "hidden";
+        document.getElementById("tooltipFullName").style.visibility = "hidden";
         if (/[^A-Za-z' ']/.test(fullName)) {
-            displayError("fullName", "fullNameMsg");
+            displayError("fullName", "tooltipFullName");
         } else {
-            document.getElementById("fullNameMsg").style.visibility = "hidden";
+            document.getElementById("tooltipFullName").style.visibility = "hidden";
             ticket++;
         }
     }
     if (gender == "") {
-        displayError("gender", "genderMsg");
+        displayError("gender", "tooltipGender");
     } else {
-        document.getElementById("genderMsg").style.visibility = "hidden";
+        document.getElementById("tooltipGender").style.visibility = "hidden";
         if (gender == "M" || gender == "F") {
-            document.getElementById("genderMsg").style.visibility = "hidden";
+            document.getElementById("tooltipGender").style.visibility = "hidden";
             ticket++;
         } else {
-            displayError("gender", "genderMsg");
+            displayError("gender", "tooltipGender");
         }
     }
-    if (occupation == "") {
-        displayError("occupation", "salutationMsg");
+    if (salutation == "") {
+        displayError("salutation", "tooltipSalutation");
     } else {
-        document.getElementById("salutationMsg").style.visibility = "hidden";
-        if (occupation == "Mr" || occupation == "Mrs" || occupation == "Dr" || occupation == "Ms" || occupation == "Rev") {
-            document.getElementById("salutationMsg").style.visibility = "hidden";
+        document.getElementById("tooltipSalutation").style.visibility = "hidden";
+        if (salutation == "Mr" || salutation == "Mrs" || salutation == "Dr" || salutation == "Ms" || salutation == "Rev") {
+            document.getElementById("tooltipSalutation").style.visibility = "hidden";
             ticket++;
         } else {
-            displayError("occupation", "salutationMsg");
+            displayError("salutation", "tooltipSalutation");
         }
     }
     if (nic == "") {
-        displayError("nic", "nicMsg");
+        displayError("nic", "tooltipNIC");
     } else {
-        document.getElementById("nicMsg").style.visibility = "hidden";
+        document.getElementById("tooltipNIC").style.visibility = "hidden";
         if (nic.length == 10 || nic.length == 12) {
             if (nic.length == 10) {
                 if (nic.match(nicCheck)) {
-                    document.getElementById("nicMsg").style.visibility = "hidden";
+                    document.getElementById("tooltipNIC").style.visibility = "hidden";
                     ticket++;
                 } else {
-                    displayError("nic", "nicMsg");
+                    displayError("nic", "tooltipNIC");
                 }
             }
             if (nic.length == 12) {
                 if (nic.match(numbers)) {
-                    document.getElementById("nicMsg").style.visibility = "hidden";
+                    document.getElementById("tooltipNIC").style.visibility = "hidden";
                     ticket++;
                 } else {
-                    displayError("nic", "nicMsg");
+                    displayError("nic", "tooltipNIC");
                 }
             }
         } else if (nic.length > 0) {
-            displayError("nic", "nicMsg");
+            displayError("nic", "tooltipNIC");
         }
     }
     if (dob == "") {
-        displayError("dob", "dobMsg");
+        displayError("dob", "tooltipDOB");
     } else {
-        document.getElementById("dobMsg").style.visibility = "hidden";
+        document.getElementById("tooltipDOB").style.visibility = "hidden";
         ticket++;
     }
 
@@ -195,7 +212,7 @@ function BasicDetails() {
 }
 
 function contactDetails() {
-    const telephone = document.forms["form"]["tele"].value;
+    const telephone = document.forms["form"]["telephone"].value;
     const address = document.forms["form"]["address"].value;
     const personalEmail = document.forms["form"]["personalEmail"].value;
     const universityMail = document.forms["form"]["universityMail"].value;
@@ -203,52 +220,52 @@ function contactDetails() {
 
     // telephone number validation
     if (telephone == "") {
-        displayError("tele", "teleMsg");
+        displayError("telephone", "tooltipTelephone");
     } else {
-        document.getElementById("teleMsg").style.visibility = "hidden";
+        document.getElementById("tooltipTelephone").style.visibility = "hidden";
         if (telephone.length == 10) {
             if (/[^0-9]/.test(telephone)) {
-                displayError("tele", "teleMsg");
+                displayError("telephone", "tooltipTelephone");
             } else {
-                document.getElementById("teleMsg").style.visibility = "hidden";
+                document.getElementById("tooltipTelephone").style.visibility = "hidden";
                 testValue++;
             }
         } else {
-            displayError("tele", "teleMsg");
+            displayError("telephone", "tooltipTelephone");
         }
     }
 
     // address validation
     if (address == "") {
-        displayError("address", "addressMsg");
+        displayError("address", "tooltipAddress");
     } else {
-        document.getElementById("addressMsg").style.visibility = "hidden";
+        document.getElementById("tooltipAddress").style.visibility = "hidden";
         testValue++;
     }
 
     // personalEmail validation
     if (personalEmail == "") {
-        displayError("personalEmail", "emailMsg");
+        displayError("personalEmail", "tooltipPersonalEmail");
     } else {
         const emailMatch = /[@]/;
-        document.getElementById("emailMsg").style.visibility = "hidden";
+        document.getElementById("tooltipPersonalEmail").style.visibility = "hidden";
         if (personalEmail.match(emailMatch)) {
-            document.getElementById("emailMsg").style.visibility = "hidden";
+            document.getElementById("tooltipPersonalEmail").style.visibility = "hidden";
             testValue++;
         } else {
-            displayError("personalEmail", "emailMsg");
+            displayError("personalEmail", "tooltipPersonalEmail");
         }
     }
 
     // university email validation
     if (universityMail != "") {
         const emailMatch = /[@]/;
-        document.getElementById("uniMailMsg").style.visibility = "hidden";
+        document.getElementById("tooltipUniversityMail").style.visibility = "hidden";
         if (universityMail.match(emailMatch)) {
-            document.getElementById("uniMailMsg").style.visibility = "hidden";
+            document.getElementById("tooltipUniversityMail").style.visibility = "hidden";
             testValue++;
         } else {
-            displayError("universityEmail", "uniMailMsg");
+            displayError("universityEmail", "tooltipUniversityMail");
         }
 
     }
