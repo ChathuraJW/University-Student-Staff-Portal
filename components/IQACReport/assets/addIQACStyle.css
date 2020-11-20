@@ -1,0 +1,51 @@
+.lecturer{
+    font-size: 18px;
+    box-shadow: 0 8px 16px 0 rgb(95, 93, 93);
+    border-radius: 4px;
+    padding: 4px;
+    position: relative;
+    left: 25%;
+
+}
+
+.course{
+    font-size: 18px;
+    box-shadow: 0 8px 16px 0 rgb(95, 93, 93);
+    border-radius: 4px;
+    padding: 4px;
+    position: relative;
+    left: 25%;
+    
+}
+
+.container{
+    position: relative;
+    left: 30%;
+    box-shadow: 0 8px 16px 0 rgb(95, 93, 93);
+    width: 500px;
+    background-color: rgb(184, 236, 216);
+    border-radius: 4px;
+}
+
+.file{
+    position: relative;
+    left: 25%;
+    border: groove;
+    width: 250px;
+    padding: 8px; 
+    background-color: white;
+    
+}
+
+.myFile{
+    color: solid black;
+}
+
+.submit{
+    background-color: green;
+    color: white;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+ 
