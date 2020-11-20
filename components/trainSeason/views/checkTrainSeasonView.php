@@ -25,36 +25,38 @@
         <h1><b>Season Application List<b></h1><br>
         <div class="container"> 
           <div class="btn-group">
-            <button>Application Set 1</button>
-            <input type="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox">Mark as checked</label><br><br>
-            <button>Application Set 2</button>
-            <input type="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox">Mark as checked</label><br><br>
-            <button>Application Set 3</button>
-            <input type="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox">Mark as checked</label><br><br>
-            <button>Application Set 4</button>
-            <input type="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox">Mark as checked</label><br><br>
-            <button>Application Set 5</button>
-            <input type="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox">Mark as checked</label><br><br>
-            <button>Application Set 6</button>
-            <input type="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox">Mark as checked</label><br><br>
-            <button>Application Set 7</button>
-            <input type="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox">Mark as checked</label><br><br>
-            <button>Application Set 8</button>
-            <input type="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox">Mark as checked</label><br><br>
-            <button>Application Set 9</button>
-            <input type="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox">Mark as checked</label><br><br>
-            <button>Application Set 10</button>
-            <input type="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox">Mark as checked</label><br><br>
+            <br>
+            <button class="button">Application Set 1</button>
+            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
+            <label for="checkbox" class="label">Mark as checked</label><br><br>
+            <button class="button">Application Set 2</button>
+            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
+            <label for="checkbox" class="label">Mark as checked</label><br><br>
+            <button class="button">Application Set 3</button>
+            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
+            <label for="checkbox" class="label">Mark as checked</label><br><br>
+            <button class="button">Application Set 4</button>
+            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
+            <label for="checkbox" class="label">Mark as checked</label><br><br>
+            <button class="button">Application Set 5</button>
+            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
+            <label for="checkbox" class="label">Mark as checked</label><br><br>
+            <button class="button">Application Set 6</button>
+            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
+            <label for="checkbox" class="label">Mark as checked</label><br><br>
+            <button class="button">Application Set 7</button>
+            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
+            <label for="checkbox" class="label">Mark as checked</label><br><br>
+            <button class="button">Application Set 8</button>
+            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
+            <label for="checkbox" class="label">Mark as checked</label><br><br>
+            <button class="button">Application Set 9</button>
+            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
+            <label for="checkbox" class="label">Mark as checked</label><br><br>
+            <button class="button">Application Set 10</button>
+            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
+            <label for="checkbox" class="label">Mark as checked</label><br><br> 
+            <input type="submit" class="submit" value="Submit">
           </div>
         </div>
         <br>
