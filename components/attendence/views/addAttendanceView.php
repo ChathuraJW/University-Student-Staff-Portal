@@ -123,7 +123,7 @@
 
             <!-- Edit attendance -->
             
-            <div style="display:none; position:relative" id="singleAttendanceContainer" method="post" >
+            <div style="display:none; position:relative" id="singleAttendanceContainer"  >
                 <div class ="row col-2">
                     <div>
                         <form>
@@ -148,7 +148,7 @@
                     </div>
                     <!-- Edit attendance -->
                     
-                    <div>
+                <div>
                     <form method="post">
                         <div id="editAttendance" class="row col-2">
                             <div class = "inputStyle1">
@@ -166,30 +166,30 @@
                             </div>
                         </div>
                         <div id="editAttendance" class="row col-2">
-                        <div class = "inputStyle1">
-                            <label for="semester">Semester:</label>
-                            <select id="semester" class="dropDown" required>
-                            <?php
-                                for($sem=1; $sem<=8; $sem++){
-                                    echo("<option value='$sem'>$sem</option>");
-                                }
-                            ?>
-                            </select>
-                        </div> 
-                        <div class = "inputStyle1">
-                            <label for="subject">Subject:</label><br>
-                            <select id="subject" name="subject" class="dropDown" required>
+                            <div class = "inputStyle1">
+                                <label for="semester">Semester:</label>
+                                <select id="semester" class="dropDown" required>
                                 <?php
-                                    
-                                    foreach($controllerData[0] as $data){
-                                        echo("<option value='".$data['courseCode']."'>".$data['name']."</option>");
+                                    for($sem=1; $sem<=8; $sem++){
+                                        echo("<option value='$sem'>$sem</option>");
                                     }
                                 ?>
-                            </select>
-                            <?php
-                                // print_r($controllerData);
-                            ?>
-                        </div>
+                                </select>
+                            </div> 
+                            <div class = "inputStyle1">
+                                <label for="subject">Subject:</label><br>
+                                <select id="subject" name="subject" class="dropDown" required>
+                                    <?php
+                                    
+                                        foreach($controllerData[0] as $data){
+                                            echo("<option value='".$data['courseCode']."'>".$data['name']."</option>");
+                                        }
+                                    ?>
+                                </select>
+                                <?php
+                                    // print_r($controllerData);
+                                ?>
+                            </div>
                         </div>
                         <div class = "row col-1">
                             <div  class="inputStyle1">
@@ -205,86 +205,74 @@
                                 <button type="reset" value = "cancel" id="cancelUploadFile" class="fileUploadButton">Cancel</button>
                             </div>
                             <div class = "buttonStyle">
-                                <button onclick="displayAttendance();" type="button" name="search"  class=" fileUploadButton">Search</button>
+                                <button  type="submit" name="search"  class=" fileUploadButton">Search</button>
                             </div>
                         </div>
-                        </form>
+                    </form>
                         <div style="display:none; position:relative" id="attendanceTable">
                             <div class='attendanceContainer' >
                                 <label class="labelStyle">Search Result</label>
                                 <div id='attendanceInnerContainer' class='row col-5'>
+                                    <?php
+                                        print_r($controllerData[2]);
+                                    ?>
                                 <?php
-                                    for($row=1; $row<=3;$row++)
+                                    for($att=1; $att<=15;$att++)
                                     {
-                                        for($col=1;$col<=5;$col++)
-                                    {
+                                        
                                         echo("
-                                        <button id='attendance$col' class='attendance' onclick='openForm(`attendance$col`)'>
-                                        <span class='textStyle'>$col Week</span><br>
-                                        <span class='textStyle'>19/10/2020</span><br>
-                                        <span>General </span><br>
-                                        </button>");
+                                        <div class='attendance'>
+                                        <input name='attendanceSet' type='radio' id='attendance$att' class='attendance' value='$att' onclick='editAttendanceForm()'>
+                                        <label for='attendance$att' class='textStyle'>$att Week</label><br>
+                                        <label for='attendance$att' class='textStyle'>19/10/2020</label><br>
+                                        <label for='attendance$att'>General </label><br>
+                                        </div>");
                                     }
-                                    }
+                                    
                                 ?>
-                                
+                                </div>   
+                                <div style="display:block position:relative" class="editAttendanceForm row col-1" id="editAttendanceForm">
+                                    <div class="editTopic row col-1">
+                                        <p>Edit Attendance</p>
+                                    </div>
+                                    <div class="row col-2">
+                                        <div class="editSubTopic">
+                                            <label>2<sup>nd</sup>Week</label>
+                                        </div>
+                                        <div class="editSubTopic">
+                                            <label>Computer Science</label>
+                                        </div>
+                                    </div>
+                                    <div class="editRadioToolbar row col-2">
+                                        <input value="1" type="radio"  id = "radioAttended" name="formSelector"></input>
+                                        <label class ="containerPopup" for = "radioAttended">Attended</label>
+                                        <input value="2" type="radio" id = "radioNotAttended" name="formSelector"></input>
+                                        <label class ="containerPopup" for ="radioNotAttended">Not Attended</label>
+                                    </div>
+                                    <div class="row col-1">
+                                        <!-- <label>Description</label> -->
+                                        <textarea name="editDescription"></textarea>
+                                    </div>
+                                    <div class="row col-4" id="buttonsCSV" >
+                                        <div></div>
+                                        <div class = "">
+                                            <input type="submit" value = "Cancel" id="cancelUploadFile"class="fileUploadButton ">
+                                        </div>
+                                        <div class = "">
+                                            <input type ="submit" value = "Upload" id="uploadFile"class="fileUploadButton ">
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                </div>  
                             </div>
                         </div>
-                        
-                    </div>
                     
                 </div>
-                <div id="myModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <p class="popupTopic">Edit Attendance</p>
-                        <div class="row col-2">
-                            <div class="popupSubTopic">
-                                <label>2<sup>nd</sup>Week</label>
-                            </div>
-                            <div class="popupSubTopic">
-                                <label>Computer Science</label>
-                            </div>
-                        </div>
-                        <div class="radioToolbarPopup">
-                            <div class="row col-2">
-                                <input value="1" type="radio"  id = "radioAttended" name="formSelector"></input>
-                                <label class ="containerPopup" for = "radioAttended">Attended</label>
-                                <input value="2" type="radio" id = "radioNotAttended" name="formSelector"></input>
-                                <label class ="containerPopup" for ="radioNotAttended">Not Attended</label>
-                            
-                        </div>
-                        
-                        <div class="row col-1">
-                            <!-- <label>Description</label> -->
-                            <textarea name="editDescription"></textarea>
-                        </div>
-                        <div class="row col-4" id="buttonsCSV" >
-                            <div></div>
-                            <div class = "">
-                                <input type="submit" value = "Cancel" id="cancelUploadFile"class="fileUploadButton ">
-                            </div>
-                            <div class = "">
-                                <input type ="submit" value = "Upload" id="uploadFile"class="fileUploadButton ">
-                            </div>
-                            <div></div>
-                        </div>
-                                    </div>
-                                </div>
-                                </div>
         </div>
             <!-- end of edit attendance -->
-
-            <div style = "display:none; position:relative" id="inquiryContainer">
-                
-            </div>
-
     <script src="assets/addAttendance.js"></script>
-    <script src="assets/jquery-3.5.1.js"></script>
+    <script src="../assets/js/jquery.js"></script>
     </div>
-    
-
-    
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../')?>
 </body>

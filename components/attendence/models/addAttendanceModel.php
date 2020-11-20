@@ -6,7 +6,7 @@ class AddAttendanceModel extends Model{
     //     return  Database::executeQuery("root","",$sqlQuery);
     // }
     public static function ProcessAttendanceData( $subject,$date,$week, $attempt, $fileLocation){
-        echo("$semester $subject $date $week $attempt $fileLocation");
+        // echo(" $subject $date $week $attempt $fileLocation");
         $attendanceFile = fopen($fileLocation,"r");
         // to ignore header
         $isHeader = true;
