@@ -22,7 +22,7 @@
             </div>
             <div class="row col-2">
                 <div>
-                    <div class="row col-2">
+                    <div class="dropdownContainer row col-2">
                         <div>
                             <label class="labelStyle">Examination Year:</label>
                             <select name="examinationYear">
@@ -35,14 +35,14 @@
                         <div>
                             <label class="labelStyle">Academic Year:</label>
                             <select name="academicYear">
-                                <option value=1>1<sup>st</sup>Year</option>
-                                <option value=2>1<sup>nd</sup>Year</option>
-                                <option value=3>1<sup>rd</sup>Year</option>
-                                <option value=4>1<sup>th</sup>Year</option>
+                                <option value=1>1<sup>st</sup> Year</option>
+                                <option value=2>2<sup>nd</sup> Year</option>
+                                <option value=3>3<sup>rd</sup> Year</option>
+                                <option value=4>4<sup>th</sup> Year</option>
                             </select>
                         </div>
                     </div>
-                    <div class="row col-2">
+                    <div class=" dropdownContainer row col-2">
                         <div>
                             <label class="labelStyle">Semester:</label>
                             <select name="semester">
@@ -63,20 +63,76 @@
                             <button class="submitButton red"><i class="fa fa-ban" aria-hidden="true"></i> Cancel</button>
                         </div>
                         <div>
-                            <button class="submitButton green"type="submit" ><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+                            <button class="submitButton green"type="button" onclick="searchResulta();"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <div class="row col-1" id="searchDetail">
-                        <label class="labelStyle" >Search Results:</label>
+                    <div class="row col-1" id="recentDetail">
+                        <label class="labelStyle" >Resent Uploads:</label>
                         <hr>
-                        <div style="overflow: hidden" class="row col-1">
-                            <a class="subjectName" href="#"><span >SCS2201 - Data Structures and algorithm</span></a>
-                            <a class="pastPapers" href="#">  <i class="fa fa-download" aria-hidden="true"></i></a>
-                            
+                        <div style="overflow: hidden" class="row col-5">
+                            <div class="paperDetails">
+                                <a class="subjectName" href="#"><span >SCS2214 - Information and system security 2019 <br> Second Year, Second Semester</span></a>
+                            </div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div class="download">
+                                <a class="pastPapers" href="#">  <i class="fa fa-download" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <!-- sample data -->
+                        <div style="overflow: hidden" class="row col-5">
+                            <div class="paperDetails">
+                                <a class="subjectName" href="#"><span >SCS2201 - Data Structures and algorithm-2 2016 <br> First Year, Second Semester</span></a>
+                            </div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div class="download">
+                                <a class="pastPapers" href="#">  <i class="fa fa-download" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div style="overflow: hidden" class="row col-5">
+                            <div class="paperDetails">
+                                <a class="subjectName" href="#"><span >SCS2213 - Electronics and physical computing 2016 <br> Second Year, Second Semester</span></a>
+                            </div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div class="download">
+                                <a class="pastPapers" href="#">  <i class="fa fa-download" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div style="overflow: hidden" class="row col-5">
+                            <div class="paperDetails">
+                                <a class="subjectName" href="#"><span >SCS2212 - Automata Theory 2018 <br> Second Year, Second Semester</span></a>
+                            </div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div class="download">
+                                <a class="pastPapers" href="#">  <i class="fa fa-download" aria-hidden="true"></i></a>
+                            </div>
                         </div>
                     </div>
+                    <div style ="display:none;" class="row col-1" id="searchResult">
+                        <label class="labelStyle" >Search Results:</label>
+                        <hr>
+                        <div style="overflow: hidden" class="row col-5">
+                            <div class="paperDetails">
+                                <a class="subjectName" href="#"><span >SCS2214 - Information and system security 2019 <br> Second Year, Second Semester</span></a>
+                            </div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div class="download">
+                                <a class="pastPapers" href="#">  <i class="fa fa-download" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
                     
                     
                 </div>
@@ -87,6 +143,6 @@
     </div>
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../')?>
-    <script src="assets/addPastPaper.js"></script>
+    <script src="assets/viewPastPaper.js"></script>
 </body>
 </html>

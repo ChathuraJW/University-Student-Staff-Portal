@@ -40,3 +40,13 @@ input[type=text], input[type=file], select {
     /* float: right; */
     display: inline-block;
 }
+.paperDetails{
+    width: 400%;
+}
+.download{
+    /* float: right; */
+    justify-self: flex-end;
+}
+.dropdownContainer{
+    margin-top: 10px;
+}
