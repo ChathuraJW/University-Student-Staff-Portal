@@ -37,6 +37,55 @@
    
 }
 
+.contacts{
+    padding: 10px;
+    margin: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+}
+
+.message{
+  padding: 10px;
+  margin: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
+}
+
+.messageEntry{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  border-radius: 5px;
+  
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  height: 120px;
+  display: block;
+  margin: 15px;
+  text-decoration: none;
+}
+
+.messageContent{
+  width: 100%;
+  overflow: hidden;
+  text-align: justify;
+  height: 40px;
+  text-overflow: ellipsis;
+  display: block;
+  
+}
+
+.sender{
+  width: 100%;
+  overflow: hidden;
+  
+}
+
+.messageSendTimestamp{
+  font-size: 15px;
+  text-align: right;
+  float: right;
+}
  
 
  

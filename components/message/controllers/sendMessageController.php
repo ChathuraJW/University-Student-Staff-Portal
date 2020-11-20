@@ -4,7 +4,9 @@
             $academic=sendMessageModel::getAcademic();
             $administrative=sendMessageModel::getAdministrative();
             $academicSupportive=sendMessageModel::getAcademicSupportive();
-            $sendData=array($academic,$administrative,$academicSupportive);
+            $getTime = sendMessageModel::getTime();
+            $sendData=array($academic,$administrative,$academicSupportive,$getTime);
+            
              
             self::createView("sendMessageView",$sendData);
             if(isset($_POST['submit'])){
@@ -24,6 +26,8 @@
 
                   
             }
+
+
             
 
              

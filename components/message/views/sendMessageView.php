@@ -26,32 +26,35 @@
           <div class="row col-1">
          
             <h1><b> Send Messages </b></h1>
-         
+          </div>
       
             <br>
             <br> 
-           
-            <label for="option"> Enter the contacts </label>
-           
-          </div>
+        <div class="row col-3"> 
+          <div class="contacts">
+            <label for="option"><b> Enter the contacts</b> </label>
+            <br>
+            <br>
            
           
-          <div class="row col-3">
-            <div>
-              <select style="height:50px; width:200px; font-size:18px; background-color: white; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);" id="academicStaffList" name="academicStaffList" onchange="addStaffRecipient('academicStaffList');">
+           
+          
+            <!--<div class="row col-3">-->
+              <div>
+                <select style="height:50px; width:200px; font-size:18px; background-color: white; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);" id="academicStaffList" name="academicStaffList" onchange="addStaffRecipient('academicStaffList');">
                
-              <option value="">Academic Staff </option>
-                <?php
+                <option value="">Academic Staff </option>
+                  <?php
                      
-                  foreach ($controllerData[0] as $data){
+                    foreach ($controllerData[0] as $data){
                        
-                    echo ("<option value='$data[userName]'>".$data['fullName']. " -  ".$data['userName']." </option>" );
-                  }
-                ?>
-              </select>
-              <br>
-              <br>
-            </div>
+                      echo ("<option value='$data[userName]'>".$data['fullName']. " -  ".$data['userName']." </option>" );
+                    }
+                  ?>
+                </select>
+                <br>
+                <br>
+              </div>
           
             <div>  
               <select style="height:50px; width:200px; font-size:18px; background-color: white; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);" id="academicSupportiveList" name="academicSupportiveList" onchange="addStaffRecipient('academicSupportiveList');"  >
@@ -83,16 +86,78 @@
               <br>
               <br>
               
-             
+             </div>
             
             <br>
             <br>
+            <form action = " " method="POST">
+             
+            <label style="text-align: left;">Contacts </label>
+            <br>
+            <textarea cols="50" name="contacts" style="font-size:15px;  background-color: rgb(198, 241, 198); box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);" id="contacts" readonly></textarea>
           </div>
+
+          <div class="message">
+          <br>
+              <br>
+              <label> Title </label> 
+              <br>
+              <textarea name = "title" cols="50" style="font-size:16px; background-color: rgb(198, 241, 198); box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);"></textarea>
+             
+
+             
+            <br>
+            <br>
+      
+             
+              <label> Message </label>
+              <br>
+              <textarea name = "message" rows="5" cols="50" style="font-size:16px; background-color:rgb(198, 241, 198); box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);"></textarea>
+             
+
+            <br>
+            <br>
+             
+              <button class="button submit" name="submit" type="submit" style= "background-color: #4CAF50">Send
+              </button>
+
+              <button class="button cancel" colour="green" style="background-color: #FF0000">Cancel
+              </button>
+             
+
+          </form>       
+           
+          <br>
+          <br>
+          </div>
+
+          <div class="sentBox">
+            <h2><b>Sent Box </b></h2> 
+            <?php
+          foreach ($controllerData[3] as $data){
+             
+
+            
+
+            
+            echo ("
+              <a class='messageEntry' style='background-color: rgb(87, 6, 69)' href='?messageID=".$data['messageID'].">
+                <span class='sender'>Sender: ".$data['sendBy']."</span><br>
+                <span class='messageContent'>".$data['message']."</span><br>
+                <span class='messageSendTimestamp'>".$data['timestamp']."</span>
+              </a>
+            ");
+             
+          }
+            
+          ?>
+          </div>
+        </div>
           
           
           <br>
           <br>
-          <form action = " " method="POST">
+          <!--<form action = " " method="POST">
              
             <label style="text-align: left;">Contacts </label>
             <br>
@@ -128,7 +193,7 @@
           </form>       
            
           <br>
-          <br>
+          <br>-->
         </div>
 
   
