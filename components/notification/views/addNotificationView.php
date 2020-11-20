@@ -16,7 +16,7 @@
     <?php BasicLoader::loadHeader('../../')?>
     
     <div class="featureBody">
-        <form method ="post">
+        <form id="form" method ="post">
             <div class="row col-1">
                 <p class="heading">Announcements</p>
             </div>
@@ -51,11 +51,11 @@
                         <div>
                             <div>
                                 <input type="checkbox" class="checkThirdSet" id="check1CSGroup1" value="">
-                                <label for="checkCSGroup1">CS Group 1</label>
+                                <label for="check1CSGroup1">CS Group 1</label>
                             </div>
                             <div>
                                 <input type="checkbox" class="checkThirdSet" id="check1CSGroup2" value="">
-                                <label for="checkCSGroup2">CS Group 2</label>
+                                <label for="check1CSGroup2">CS Group 2</label>
                             </div>
                             <div>
                                 <input type="checkbox" class="checkThirdSet" id="check1IS" value="">
@@ -72,8 +72,8 @@
                                 <label for="check2CSGroup1">CS Group 1</label>
                             </div>
                             <div>
-                                <input type="checkbox" class="checkThirdSet" id="check2CSGroup1" value="">
-                                <label for="check2CSGroup1">CS Group 2</label>
+                                <input type="checkbox" class="checkThirdSet" id="check2CSGroup2" value="">
+                                <label for="check2CSGroup2">CS Group 2</label>
                             </div>
                             <div>
                                 <input type="checkbox" class="checkThirdSet" id="check2IS" value="">
@@ -116,27 +116,28 @@
 
                 </div>
             </div>
-            <div>
+            <div class="category">
                 <label class="subHeading" id="category">Category:</label>
                 <select>
                     <option>Director Notices</option>
-                    <option>Academic Related</option>
+                    <option>Social and Events</option>
+                    <option>Fundraising Events</option>
+                    <option>Administrative and Exam</option>
+                    <option>Assignment, Scholarship and Lecture Re-scheduling</option>
                 </select>
                 <div class="row col-1">
                     <textarea name="title" rows="2" cols="130" placeholder="title"></textarea>
                 </div>
                 <div class="row col-1">
-                    <textarea name="message" rows="15" cols="130" placeholder="massage"></textarea>
+                    <textarea name="message" rows="7" cols="130" placeholder="message"></textarea>
                 </div>
-                <div class="row col-4">
-                        <div></div>
-                        <div>
+                <div class="row col-2">
+                        <div class="buttonContainer">
                             <button class="submitButton red"><i class="fa fa-ban" aria-hidden="true"></i> Cancel</button>
                         </div>
-                        <div>
-                            <button class="submitButton green"type="submit" ><i class="fa fa-upload" aria-hidden="true"></i>Send</button>
+                        <div class="buttonContainer">
+                            <button class="submitButton green"type="submit" ><i class="fa fa-upload" aria-hidden="true"></i> Send</button>
                         </div>
-                        <div></div>
                     </div>
             </div>
 
@@ -146,6 +147,7 @@
     </div>
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../')?>
-    <script src="assets/addPastPaper.js"></script>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="assets/addNotification.js"></script>
 </body>
 </html>

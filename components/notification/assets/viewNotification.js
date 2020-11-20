@@ -5,7 +5,7 @@ function displayNotification(c){
         document.getElementById("defaultNotification").style.visibility='hidden';
         document.getElementById("defaultNotification").style.display="none";
         // document.getElementById("notificationColor").style.backgroundColor = "#00FF00";
-        document.getElementById("notificationColor").classList.add('notificationNext');
+        // document.getElementById("notificationColor").classList.add('notificationNext');
 
 
     }
@@ -14,7 +14,7 @@ function displayNotification(c){
         document.getElementById("sortedNotification").style.display="";
         document.getElementById("defaultNotification").style.visibility='hidden';
         document.getElementById("defaultNotification").style.display="none";
-        document.getElementById("notificationColor").style.backgroundColor = "#ADD8E6";
+        // document.getElementById("notificationColor").style.backgroundColor = "#ADD8E6";
 
     }
     else if(c.value=="3"){
@@ -22,7 +22,7 @@ function displayNotification(c){
         document.getElementById("sortedNotification").style.display="";
         document.getElementById("defaultNotification").style.visibility='hidden';
         document.getElementById("defaultNotification").style.display="none";
-        document.getElementById("notificationColor").style.backgroundColor = "#43C6DB";
+        // document.getElementById("notificationColor").style.backgroundColor = "#43C6DB";
 
     }
     else if(c.value=="4"){
@@ -30,7 +30,7 @@ function displayNotification(c){
         document.getElementById("sortedNotification").style.display="";
         document.getElementById("defaultNotification").style.visibility='hidden';
         document.getElementById("defaultNotification").style.display="none";
-        document.getElementById("notificationColor").style.backgroundColor = "#A74AC7";
+        // document.getElementById("notificationColor").style.backgroundColor = "#A74AC7";
 
     }
     else if(c.value=="5"){
@@ -38,7 +38,7 @@ function displayNotification(c){
         document.getElementById("sortedNotification").style.display="";
         document.getElementById("defaultNotification").style.visibility='hidden';
         document.getElementById("defaultNotification").style.display="none";
-        document.getElementById("notificationColor").style.backgroundColor = "#4CC552";
+        // document.getElementById("notificationColor").style.backgroundColor = "#4CC552";
 
     }
     else if(c.value=="6"){
@@ -46,7 +46,7 @@ function displayNotification(c){
         document.getElementById("sortedNotification").style.display="";
         document.getElementById("defaultNotification").style.visibility='hidden';
         document.getElementById("defaultNotification").style.display="none";
-        document.getElementById("notificationColor").style.backgroundColor = "#B6B6B4";
+        // document.getElementById("notificationColor").style.backgroundColor = "#B6B6B4";
 
     }
 }

@@ -16,7 +16,7 @@
     <?php BasicLoader::loadHeader('../../')?>
     
     <div class="featureBody">
-        <div class="sample row col-5">
+        <div class="sample">
             <div class="radioToolbar">
                 <div class="radioStyle">
                     <input value="6" type="radio" id="radio6" name="notificationName" onclick="displayNotification(this)">

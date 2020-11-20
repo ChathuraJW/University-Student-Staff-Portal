@@ -1,8 +1,5 @@
 
-.inner{
-    width: 200%;
-    
-}
+
 .heading {
     text-align: center;
     font-weight: bold;
@@ -19,14 +16,16 @@ form.example input[type=text] {
     font-size: 17px;
     border: 1px solid grey;
     float: left;
-    width: 80%;
+    width: 90%;
+    max-width: 1070px;
     background: #f1f1f1;
+    margin-left: -12px;
 }
 
   /* Style the submit button */
 form.example button {
     float: left;
-    width: 20%;
+    width: 10%;
     padding: 10px;
     background: #2196F3;
     color: white;
@@ -50,6 +49,7 @@ form.example::after {
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 10px;
+    margin-left: -280px;
     margin-top: 5px;
     /* width: 1200px; */
     max-width: 1200px;
@@ -83,11 +83,41 @@ form.example::after {
 .radioToolbar input[type="radio"]:checked+label {
     background-color: rgb(112, 117, 115);
 }
-.radioStyle {
-    transition: transform .2s; /* Animattion*/
+
+.radioStyle:hover label{
+    background-color: rgb(112, 117, 115);
 }
-.radioStyle:hover{
-    transform: scale(1.05);
-    /* background-color: wheat; */
+.radioToolbar{
+        margin: 0;
+        padding: 0;
+        width: 250px;
+        background-color: #f1f1f1;
+        position: absolute;
+        height: auto;
+        overflow: auto;
+}
+.inner {
+    margin-left: 250px;
+    padding: 1px 16px;
+    height: auto;
+}
+
+
+@media screen and (max-width: 700px) {
+    .radioToolbar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .radioToolbar .radioStyle {float: left;}
+    div.inner {margin-left: 0;}
+}
+
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+    @media screen and (max-width: 400px) {
+    .radioToolbar .radioStyle {
+        text-align: center;
+        float: none;
+    }
 }
 
