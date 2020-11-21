@@ -17,8 +17,7 @@ var radioBtn = document.getElementById("radioCSV");
 radioBtn.checked = true;
 
 function displayForm(c){
-    if(c.value=="1")
-    {
+    if(c.value=="1"){
         document.getElementById("csvFormContainer").style.visibility='visible';
         document.getElementById("csvFormContainer").style.display="";
         document.getElementById("singleAttendanceContainer").style.visibility='hidden';
@@ -28,11 +27,9 @@ function displayForm(c){
         document.getElementById("attendanceTable").style.visibility='hidden';
         document.getElementById("attendanceTable").style.display='none';
         document.getElementById("editAttendanceForm").style.visibility='hidden';
-        document.getElementById("editAttendanceForm").style.display="none"; 
-        
-    }
-    else if(c.value=="2")
-    {
+        document.getElementById("editAttendanceForm").style.display="none";
+
+    }else if(c.value=="2"){
         document.getElementById("csvFormContainer").style.visibility='hidden';
         document.getElementById("singleAttendanceContainer").style.visibility='visible';
         document.getElementById("csvFormContainer").style.display='none';
@@ -40,12 +37,10 @@ function displayForm(c){
         document.getElementById("attendanceTable").style.display='none';
         document.getElementById("editAttendanceForm").style.visibility='hidden';
         document.getElementById("editAttendanceForm").style.display="none";
-        document.getElementById("inquiryContainer").style.visibility='hidden';
-        document.getElementById("inquiryContainer").style.display='none';
+        // document.getElementById("inquiryContainer").style.visibility='hidden';
+        // document.getElementById("inquiryContainer").style.display='none';
 
-    }
-    else if(c.value=="3")
-    {
+    }else if(c.value=="3"){
         document.getElementById("inquiryContainer").style.visibility='visible';
         document.getElementById("inquiryContainer").style.display='';
         document.getElementById("csvFormContainer").style.visibility='hidden';
@@ -55,25 +50,33 @@ function displayForm(c){
         document.getElementById("attendanceTable").style.visibility='hidden';
         document.getElementById("attendanceTable").style.display='none';
         document.getElementById("editAttendanceForm").style.visibility='hidden';
-        document.getElementById("editAttendanceForm").style.display="none"; 
+        document.getElementById("editAttendanceForm").style.display="none";
     }
 }
 // change visibility of table
 function displayAttendance(){
+
     document.getElementById("attendanceTable").style.visibility='visible';
-    document.getElementById("attendanceTable").style.display="";
+    document.getElementById("attendanceTable").style.display='';
+
+    let index = document.getElementById("index").value;
+    let attempt = document.getElementById("attempt").value;
+    let subjectCode = document.getElementById("subject").value;
+
+    const getAttendanceForEditURL = "http://localhost/USSP/assets/API/getAttendanceDataAPI.php?activity=getAttendanceForEdit&studentIndex="+index+"&attempt="+attempt+"&subjectCode="+subjectCode;
+    $.getJSON(getAttendanceForEditURL, function (attendance) {
+        // console.log(attendance);
+        for(var i in attendance) {
+            console.log(attendance[i]['date']);
+            document.getElementById("date"+i).value = "attendance[i]['date']";
+        }
+    }
+    );
 }
-
-
-// var radioBtn = document.getElementById("radio1");
-//     radioBtn.checked = true;
-
-
-
 
 function editAttendanceForm(){
     document.getElementById("editAttendanceForm").style.visibility='visible';
-    document.getElementById("editAttendanceForm").style.display="flex";
+    document.getElementById("editAttendanceForm").style.display="";
 
 }
 
