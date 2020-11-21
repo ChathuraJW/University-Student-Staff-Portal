@@ -21,7 +21,7 @@
         <div class="row col-2" id="main">
 
             <div>
-                
+                <!-- this div will display all the workload allocation messages for specific supportive staff member-->
                 <h3 class="head">Workload Attachments</h3>
                 <?php 
                     for($x=1;$x<6;$x++){
@@ -38,36 +38,36 @@
             </div >
                 
 
-            <div class="replyMessageViewer">
+            <div class="replyMessageViewer"><!-- View the message content of each message  -->
                 <div >
                     <p class="messageView" id="messageView"  >Message Display</p>
                 </div>
                 
                 <div id="workloadRequest"style="display:none;">
-                <button class="close" style="float:right;padding-right:10px;" onclick="closeFirst()" ><i class="fa fa-times-circle" aria-hidden="true"></i>
-                </button>
+                <button class="close" style="float:right;padding-right:10px;" onclick="closeFirst()" ><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+                
 
                     <h3 class="topic">Assignment conducting for DSA</h3>
                     
                     <div class="displayingMessage">
-                        <div class="lable">Lecturer</div>
+                        <div class="label">Lecturer</div>
                         <div class="value">Dr Manju</div>
                     </div>
                     
                     <div class="displayingMessage">
-                        <div class="lable">Location</div>
+                        <div class="label">Location</div>
                         <div class="value">Hall no1</div>
                     </div>
                     <div class="displayingMessage">
-                        <div class="lable">Date</div>
+                        <div class="label">Date</div>
                         <div class="value">2020/02/17</div>
                     </div>
                     <div class="displayingMessage">
-                        <div class="lable">Time</div>
+                        <div class="label">Time</div>
                         <div class="value">3.00 PM</div>
                     </div>
                     <div class="displayingMessage" style="margin-bottom:10px;" >
-                        <div class="lable">Description</div>
+                        <div class="label">Description</div>
                         <div class="value"> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in</div>
                     </div>
                     
@@ -79,12 +79,13 @@
         </div>
 
         
-        <div class="row col-2 schedule" id="schedule" style="display:none;" >
+        <div class="row col-2 schedule" id="schedule" style="display:none;" ><!--display the history of the supportive staff -->
             <div>
                 <h2 class='head' style="margin-bottom:20px;">My Workload</h2>
                 
                 <!-- style='float:right;' -->
                 <?php
+                // view all past workload messages of the supportive staff member
                     for($i=0;$i<5;$i++){
                         echo"
                         <div class='row col-1 workloadHistory' onclick='openMsg()'>
@@ -102,7 +103,7 @@
                                     <div class='data right'>Assignment conducting</div>
                                 </div>
                                 <div class='dataSet'>
-                                    <div class='data left'>Discription</div>
+                                    <div class='data left'>Description</div>
                                     <div class='data right'>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an<span id='dots'>...</span></div>
                                 </div>
                             </div>
@@ -116,39 +117,39 @@
             </div>
 
             <div class="displayContent">
+                <!-- display content of past workload messages  -->
                 <div id="beforeMessage">
                     <p class="messageView"  >Message Display</p>
                 </div>
-
+                
                 <div class="scheduleDescription" id="scheduleDescription" style="display:none;">
                     <div class="scheduleMessage">
                     <button class="close" style="float:right;padding-right:10px;" onclick="closeSecond()" ><i class="fa fa-times-circle" aria-hidden="true"></i></button>
                         <h3 class="topic">Assignment conducting for DSA</h3>
                         <div style="padding-top:40px;">
-                            <!-- <i class="fa fa-times" style="float:right;padding-right:10px;" onMouseClick="close()" aria-hidden="true"></i> -->
                             <div class="displayingMessage">
-                                <div class="lable">Lecturer</div>
+                                <div class="label">Lecturer</div>
                                 <div class="value">Dr Manju</div>
                             </div>
                             
                             <div class="displayingMessage">
-                                <div class="lable">Location</div>
+                                <div class="label">Location</div>
                                 <div class="value">Hall no1</div>
                             </div>
                             <div class="displayingMessage">
-                                <div class="lable">Date</div>
+                                <div class="label">Date</div>
                                 <div class="value">2020/02/17</div>
                             </div>
                             <div class="displayingMessage">
-                                <div class="lable">Time</div>
+                                <div class="label">Time</div>
                                 <div class="value">3.00 PM</div>
                             </div>
                             <div class="displayingMessage" style="margin-bottom:10px;" >
-                                <div class="lable">Description</div>
+                                <div class="label">Description</div>
                                 <div class="value"> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five</div>
                             </div>
                             <div class="displayingMessage">
-                                <div class="lable">Reply</div>
+                                <div class="label">Reply</div>
                                 <div class="value">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer </div>
                             </div>
                         </div>

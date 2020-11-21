@@ -20,10 +20,10 @@ function allocationForm(){
     
 
 }
-function deallocationForm(){
+function deallocateForm(){
     document.getElementById("allocationForm").reset();
     document.getElementById("allocateForm").style.display="none";
-    document.getElementById("Bmain").style.display="none";
+    document.getElementById("secondaryMain").style.display="none";
     document.getElementById("main").style.display="";
     
 }
@@ -52,20 +52,20 @@ function openMessage(){
 function allocation(){
     document.getElementById("searchStaff").style.display="none";
     document.getElementById("main").style.display="none";
-    document.getElementById("Bmain").style.display="";
+    document.getElementById("secondaryMain").style.display="";
 }
 function messageClose(){
     document.getElementById("messageView").style.display="";
     document.getElementById("workloadRequest").style.display="none";
 }
-function allocationAprove(){
+function allocationApprove(){
     
         document.getElementById("allocateForm").style.display="none";
         document.getElementById("searchStaff").style.display="none";
     document.getElementById("finalMsg").style.display="";
     setTimeout(function(){
         document.getElementById("finalMsg").style.display="none";
-    document.getElementById("Bmain").style.display="none";
+    document.getElementById("secondaryMain").style.display="none";
     document.getElementById("allocateForm").style.display="none";
         document.getElementById("searchStaff").style.display="none";
         document.getElementById("workloadRequest").style.display="none";
