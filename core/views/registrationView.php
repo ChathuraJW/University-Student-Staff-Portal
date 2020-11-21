@@ -12,14 +12,13 @@
 <body>
 
 <?php
-foreach ($controllerData as $record) {
+//    load dataset to $record variable for use in code
+    $record=$controllerData[0];
     if ($record['gender'] == 'M') {
         $gender = 'Male';
     } else {
         $gender = 'Female';
     }
-}
-
 ?>
 
 <!-- feature body section -->
@@ -38,7 +37,7 @@ foreach ($controllerData as $record) {
 
     <form action="" method="post" name="form" enctype="multipart/form-data">
         <!--        reset password section-->
-        <div id="pwd" class="forms password">
+        <div id="passwordSection" class="forms password">
             <div class="row col-1">
                 <span class="heading">Change Password </span>
             </div>
@@ -46,11 +45,7 @@ foreach ($controllerData as $record) {
                 <div class="input">
                     <label for="password"><b>New Password</b></label>
                     <i class="fa fa-question-circle" onmouseover="visible('tooltipNewPassword');" aria-hidden="true">
-                        <div style="visibility:hidden;" class="toolTip" id="tooltipNewPassword">
-                            Filling is required
-                            and LowerCase, UpperCase, Number, special Character must include and length must >
-                            or = 8
-                        </div>
+                        <span style="visibility:hidden;" class="toolTip" id="tooltipNewPassword"></span>
                     </i>
                     <div class="data">
                         <input style="margin-bottom:55px;" class="inputField" type="password" placeholder="New Password"
@@ -59,15 +54,13 @@ foreach ($controllerData as $record) {
                 </div>
                 <div class="input">
                     <label for="repeatPassword"><b>Repeat Password</b></label>
-                    <i class="fa fa-question-circle pswIconR" onmouseover="visible('tooltipRepeatPassword')" aria-hidden="true">
-                        <div style="visibility:hidden;" class="toolTip" id="tooltipRepeatPassword">
-                            Filling is required and Equal to first password
-                        </div>
+                    <i class="fa fa-question-circle pswIconR" onmouseover="visible('tooltipRepeatPassword')"
+                       aria-hidden="true">
+                        <span style="visibility:hidden;" class="toolTip" id="tooltipRepeatPassword"></span>
                     </i>
                     <input style="" class="inputField" type="password" placeholder="Repeat Password"
                            name="repeatPassword" id="repeatPassword">
                 </div>
-
                 <div class="row col-2 input actionSection">
                     <div></div>
                     <input class="button next" type="button" onclick="validatePassword()" name="next" value="Next">
@@ -76,7 +69,7 @@ foreach ($controllerData as $record) {
         </div>
 
         <!--            basic info section-->
-        <div id="bsc" class="forms basic" style="display:none;">
+        <div id="basicInformationSection" class="forms" style="display:none;">
 
             <!-- GET DATA FROM USER TABLE-->
             <div class="row col-1">
@@ -88,9 +81,7 @@ foreach ($controllerData as $record) {
                         <b>First Name</b>
                     </label>
                     <i class="fa fa-question-circle " onmouseover="visible('tooltipFirstName')" aria-hidden="true">
-                        <div style="visibility:hidden;" class="toolTip" id="tooltipFirstName">
-                            Ex Chathura Janaranjana
-                        </div>
+                        <span style="visibility:hidden;" class="toolTip" id="tooltipFirstName"></span>
                     </i>
                     <input type="text" placeholder="Enter Name" name="firstName"
                            id="firstName" <?php echo "value='" . $record['firstName'] . "'" ?> disabled>
@@ -99,9 +90,7 @@ foreach ($controllerData as $record) {
                 <div class="input">
                     <label for="lastName"><b>Last Name</b></label>
                     <i class="fa fa-question-circle " onmouseover="visible('tooltipLastName')" aria-hidden="true">
-                        <div style="visibility:hidden;" class="toolTip" id="tooltipLastName">
-                            Ex Wanniarachchi
-                        </div>
+                        <span style="visibility:hidden;" class="toolTip" id="tooltipLastName"></span>
                     </i>
                     <input type="text" placeholder="Enter Name" name="lastName"
                            id="lastName" <?php echo "value='" . $record['lastName'] . "'" ?> disabled>
@@ -109,9 +98,7 @@ foreach ($controllerData as $record) {
                 <div class="input">
                     <label for="fullName"><b>Full Name</b></label>
                     <i class="fa fa-question-circle " onmouseover="visible('tooltipFullName')" aria-hidden="true">
-                        <div style="visibility:hidden;" class="toolTip" id="tooltipFullName"> Ex
-                            Wanniarachchilage Chathura Janaranjana Wanniarachchi
-                        </div>
+                        <span style="visibility:hidden;" class="toolTip" id="tooltipFullName"></span>
                     </i>
                     <input type="text" placeholder="Enter Name" name="fullName"
                            id="fullName" <?php echo "value='" . $record['fullName'] . "'" ?> disabled>
@@ -122,9 +109,7 @@ foreach ($controllerData as $record) {
                     <label for="gender"><b>Gender</b></label>
                     <i class="fa fa-question-circle " onmouseover="visible('tooltipGender')"
                        aria-hidden="true">
-                        <div style="visibility:hidden;" class="toolTip" id="tooltipGender"> Ex
-                            Wanniarachchi
-                        </div>
+                        <span style="visibility:hidden;" class="toolTip" id="tooltipGender"></span>
                     </i>
                     <select name="gender" id="gender" required>
                         <option value="M">Male</option>
@@ -135,9 +120,7 @@ foreach ($controllerData as $record) {
                     <label for="salutation"><b>Salutation</b></label>
                     <i class="fa fa-question-circle " onmouseover="visible('tooltipSalutation')"
                        aria-hidden="true">
-                        <div style="visibility:hidden;" class="toolTip" id="tooltipSalutation"> Choose from
-                            dropdown
-                        </div>
+                        <span style="visibility:hidden;" class="toolTip" id="tooltipSalutation"></span>
                     </i>
                     <select name="salutation"
                             id="salutation" <?php echo "value='" . $record['salutation'] . "'" ?> required>
@@ -154,9 +137,7 @@ foreach ($controllerData as $record) {
                 <div>
                     <label for="nic"><b>National Identity Card Number</b></label>
                     <i class="fa fa-question-circle " onmouseover="visible('tooltipNIC')" aria-hidden="true">
-                        <div style="visibility:hidden;" class="toolTip" id="tooltipNIC">
-                            Required information
-                        </div>
+                        <span style="visibility:hidden;" class="toolTip" id="tooltipNIC"></span>
                     </i>
                     <input type="text" placeholder="Enter NIC" name="nic"
                            id="nic" <?php echo "value='" . $record['nic'] . "'" ?> disabled>
@@ -164,9 +145,7 @@ foreach ($controllerData as $record) {
                 <div>
                     <label for="dob"><b>Date of Birth</b></label>
                     <i class="fa fa-question-circle " onmouseover="visible('tooltipDOB')" aria-hidden="true">
-                        <div style="visibility:hidden;" class="toolTip" id="tooltipDOB"> Required
-                            information
-                        </div>
+                        <span style="visibility:hidden;" class="toolTip" id="tooltipDOB"></span>
                     </i>
                     <input type="date" name="dob" id="dob" <?php echo "value='" . $record['dob'] . "'" ?> disabled>
 
@@ -179,7 +158,7 @@ foreach ($controllerData as $record) {
         </div>
 </div>
 <!--                contact information section-->
-<div id="cnt" class="forms contact " style="display:none;">
+<div id="contactInformationSection" class="forms" style="display:none;">
     <div class="row col-1">
         <h2 class="heading">Contact Details</h2>
     </div>
@@ -187,18 +166,14 @@ foreach ($controllerData as $record) {
         <div class="input">
             <label for="telephone"><b>Telephone</b></label>
             <i class="fa fa-question-circle " onmouseover="visible('tooltipTelephone')" aria-hidden="true">
-                <div style="visibility:hidden;" class="toolTip" id="tooltipTelephone">
-                    Required information
-                </div>
+                <span style="visibility:hidden;" class="toolTip" id="tooltipTelephone"></span>
             </i>
             <input type="text" placeholder="Enter Telephone number" name="telephone" id="telephone" required>
         </div>
         <div class="input">
             <label for="address"><b>Address</b></label>
             <i class="fa fa-question-circle " onmouseover="visible('tooltipAddress')" aria-hidden="true">
-                <div style="visibility:hidden;" class="toolTip" id="tooltipAddress">
-                    Required information
-                </div>
+                <span style="visibility:hidden;" class="toolTip" id="tooltipAddress"></span>
             </i>
             <input type="text" placeholder="Enter Address" name="address" id="address" required>
         </div>
@@ -206,9 +181,7 @@ foreach ($controllerData as $record) {
             <div>
                 <label for="personalEmail"><b>Personal Email</b></label>
                 <i class="fa fa-question-circle " onmouseover="visible('tooltipPersonalEmail')" aria-hidden="true">
-                    <div style="visibility:hidden;" class="toolTip" id="tooltipPersonalEmail"> Required
-                        information
-                    </div>
+                    <span style="visibility:hidden;" class="toolTip" id="tooltipPersonalEmail"></span>
                 </i>
                 <input type="email" placeholder="Enter Personal Email" name="personalEmail"
                        id="personalEmail" required>
@@ -216,8 +189,7 @@ foreach ($controllerData as $record) {
             <div>
                 <label for="universityMail"><b>University Email</b></label>
                 <i class="fa fa-question-circle " onmouseover="visible('tooltipUniversityMail')" aria-hidden="true">
-                    <div style="visibility:hidden;" class="toolTip" id="tooltipUniversityMail"> Enter Valid Input
-                    </div>
+                    <span style="visibility:hidden;" class="toolTip" id="tooltipUniversityMail"></span>
                 </i>
                 <input type="email" placeholder="Enter University Email" name="universityMail"
                        id="universityMail" <?php echo "value='" . $record['universityEmail'] . "'" ?> disabled>
@@ -235,15 +207,16 @@ foreach ($controllerData as $record) {
 </div>
 
 <!--                profile picture section-->
-<div id="img" class="forms" style="display:none;">
+<div id="profilePictureSection" class="forms" style="display:none;">
     <div class="row col-1">
         <h2 class="heading">Profile Image</h2>
     </div>
     <div class="inputs profilePictureUpload">
         <label for="profilePic" id="imageLoadContainer">
-            <img class="profile" id="output" src="assets/uploadIcon.png">
+            <img class="profile" id="output" src="assets/uploadIcon.png" alt="Upload image">
         </label>
-        <input class="inputField choose" type="file" accept="image/*" onchange="loadFile(event)" name="profilePic" id="profilePic">
+        <input class="inputField choose" type="file" accept="image/*" onchange="loadFile(event)" name="profilePic"
+               id="profilePic">
     </div>
     <div class="row col-2 input actionSection">
         <input class="button" type="button" onclick="backToContactInformation()" name="previous" value="Previous">

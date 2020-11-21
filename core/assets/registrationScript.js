@@ -22,8 +22,8 @@ function visible(element) {
     }, 4000);
 }
 
-var loadFile = function (event) {
-    var output = document.getElementById('output');
+let loadFile = function (event) {
+    const output = document.getElementById('output');
     output.style.height = "250px";
     output.src = '';
     document.getElementById('imageLoadContainer').style.width = 'max-content';
@@ -37,16 +37,16 @@ var loadFile = function (event) {
 };
 
 function validatePassword() {
-    var x = document.forms["form"]["password"].value;
-    var y = document.forms["form"]["repeatPassword"].value;
-    if (x == "" || y == "") {
-        if (x == "") {
+    const passwordValue = document.forms["form"]["password"].value;
+    const repeatPasswordValue = document.forms["form"]["repeatPassword"].value;
+    if (passwordValue === "" || repeatPasswordValue === "") {
+        if (passwordValue === "") {
             displayError("password", "tooltipNewPassword");
 
         } else {
             document.getElementById("tooltipNewPassword").style.visibility = "hidden";
         }
-        if (y == "") {
+        if (repeatPasswordValue === "") {
 
             displayError("repeatPassword", "tooltipRepeatPassword");
 
@@ -56,21 +56,21 @@ function validatePassword() {
     } else {
         document.getElementById("tooltipNewPassword").style.visibility = "hidden";
         document.getElementById("tooltipRepeatPassword").style.visibility = "hidden";
-        var lowerCaseLetters = /[a-z]/g;
-        var upperCaseLetters = /[A-Z]/g;
-        var specialCharachters = /[@#$%)^&*(}>?,./;''~\|:""`{<]/;
-        var numbers = /[0-9]/g;
+        const lowerCaseLetters = /[a-z]/g;
+        const upperCaseLetters = /[A-Z]/g;
+        const specialCharacters = /[@#$%)^&*(}>?,./;'~|:"`{<]/;
+        const numbers = /[0-9]/g;
 
-        if (x.match(upperCaseLetters)) {
+        if (passwordValue.match(upperCaseLetters)) {
             document.getElementById("tooltipNewPassword").style.visibility = "hidden";
-            if (x.match(specialCharachters)) {
-                if (x.match(lowerCaseLetters)) {
+            if (passwordValue.match(specialCharacters)) {
+                if (passwordValue.match(lowerCaseLetters)) {
                     document.getElementById("tooltipNewPassword").style.visibility = "hidden";
-                    if (x.match(numbers)) {
+                    if (passwordValue.match(numbers)) {
                         document.getElementById("tooltipNewPassword").style.visibility = "hidden";
-                        if (x.length >= 8) {
+                        if (passwordValue.length >= 8) {
                             document.getElementById("tooltipNewPassword").style.visibility = "hidden";
-                            if (x == y) {
+                            if (passwordValue === repeatPasswordValue) {
                                 document.getElementById("tooltipRepeatPassword").style.visibility = "hidden";
                                 // change navigation color
                                 document.getElementById('pageChangePassword').style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
@@ -101,18 +101,18 @@ function validatePassword() {
 }
 
 function BasicDetails() {
-    var firstName = document.forms["form"]["firstName"].value;
-    var lastName = document.forms["form"]["lastName"].value;
-    var fullName = document.forms["form"]["fullName"].value;
-    var gender = document.forms["form"]["gender"].value;
-    var salutation = document.forms["form"]["salutation"].value;
-    var nic = document.forms["form"]["nic"].value;
-    var dob = document.forms["form"]["dob"].value;
-    var numbers = /^[0-9]+$/;
-    var checker = /^[A-Za-z'.']+$/;
-    var nicCheck = /^[0-9vV]+$/;
-    var ticket = 0;
-    if (firstName == "") {
+    const firstName = document.forms["form"]["firstName"].value;
+    const lastName = document.forms["form"]["lastName"].value;
+    const fullName = document.forms["form"]["fullName"].value;
+    const gender = document.forms["form"]["gender"].value;
+    const salutation = document.forms["form"]["salutation"].value;
+    const nic = document.forms["form"]["nic"].value;
+    const dob = document.forms["form"]["dob"].value;
+    const numbers = /^[0-9]+$/;
+    const checker = /^[A-Za-z'.]+$/;
+    const nicCheck = /^[0-9vV]+$/;
+    let ticket = 0;
+    if (firstName === "") {
         displayError("firstName", "tooltipFirstName");
     } else {
         document.getElementById("tooltipFirstName").style.visibility = "hidden";
@@ -124,7 +124,7 @@ function BasicDetails() {
         }
     }
 
-    if (lastName == "") {
+    if (lastName === "") {
         displayError("lastName", "tooltipLastName");
     } else {
         document.getElementById("tooltipLastName").style.visibility = "hidden";
@@ -136,45 +136,45 @@ function BasicDetails() {
         }
     }
 
-    if (fullName == "") {
+    if (fullName === "") {
         displayError("fullName", "tooltipFullName");
     } else {
         document.getElementById("tooltipFullName").style.visibility = "hidden";
-        if (/[^A-Za-z' ']/.test(fullName)) {
+        if (/[^A-Za-z' ]/.test(fullName)) {
             displayError("fullName", "tooltipFullName");
         } else {
             document.getElementById("tooltipFullName").style.visibility = "hidden";
             ticket++;
         }
     }
-    if (gender == "") {
+    if (gender === "") {
         displayError("gender", "tooltipGender");
     } else {
         document.getElementById("tooltipGender").style.visibility = "hidden";
-        if (gender == "M" || gender == "F") {
+        if (gender === "M" || gender === "F") {
             document.getElementById("tooltipGender").style.visibility = "hidden";
             ticket++;
         } else {
             displayError("gender", "tooltipGender");
         }
     }
-    if (salutation == "") {
+    if (salutation === "") {
         displayError("salutation", "tooltipSalutation");
     } else {
         document.getElementById("tooltipSalutation").style.visibility = "hidden";
-        if (salutation == "Mr" || salutation == "Mrs" || salutation == "Dr" || salutation == "Ms" || salutation == "Rev") {
+        if (salutation === "Mr" || salutation === "Mrs" || salutation === "Dr" || salutation === "Ms" || salutation === "Rev") {
             document.getElementById("tooltipSalutation").style.visibility = "hidden";
             ticket++;
         } else {
             displayError("salutation", "tooltipSalutation");
         }
     }
-    if (nic == "") {
+    if (nic === "") {
         displayError("nic", "tooltipNIC");
     } else {
         document.getElementById("tooltipNIC").style.visibility = "hidden";
-        if (nic.length == 10 || nic.length == 12) {
-            if (nic.length == 10) {
+        if (nic.length === 10 || nic.length === 12) {
+            if (nic.length === 10) {
                 if (nic.match(nicCheck)) {
                     document.getElementById("tooltipNIC").style.visibility = "hidden";
                     ticket++;
@@ -182,7 +182,7 @@ function BasicDetails() {
                     displayError("nic", "tooltipNIC");
                 }
             }
-            if (nic.length == 12) {
+            if (nic.length === 12) {
                 if (nic.match(numbers)) {
                     document.getElementById("tooltipNIC").style.visibility = "hidden";
                     ticket++;
@@ -194,14 +194,14 @@ function BasicDetails() {
             displayError("nic", "tooltipNIC");
         }
     }
-    if (dob == "") {
+    if (dob === "") {
         displayError("dob", "tooltipDOB");
     } else {
         document.getElementById("tooltipDOB").style.visibility = "hidden";
         ticket++;
     }
 
-    if (ticket == 7) {
+    if (ticket === 7) {
         // change navigation color
         document.getElementById('pageBasicInfo').style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
         document.getElementById('pageContactDetails').style.backgroundColor = 'black';
@@ -219,11 +219,11 @@ function contactDetails() {
     let testValue = 0;
 
     // telephone number validation
-    if (telephone == "") {
+    if (telephone === "") {
         displayError("telephone", "tooltipTelephone");
     } else {
         document.getElementById("tooltipTelephone").style.visibility = "hidden";
-        if (telephone.length == 10) {
+        if (telephone.length === 10) {
             if (/[^0-9]/.test(telephone)) {
                 displayError("telephone", "tooltipTelephone");
             } else {
@@ -236,7 +236,7 @@ function contactDetails() {
     }
 
     // address validation
-    if (address == "") {
+    if (address === "") {
         displayError("address", "tooltipAddress");
     } else {
         document.getElementById("tooltipAddress").style.visibility = "hidden";
@@ -244,7 +244,7 @@ function contactDetails() {
     }
 
     // personalEmail validation
-    if (personalEmail == "") {
+    if (personalEmail === "") {
         displayError("personalEmail", "tooltipPersonalEmail");
     } else {
         const emailMatch = /[@]/;
@@ -258,7 +258,7 @@ function contactDetails() {
     }
 
     // university email validation
-    if (universityMail != "") {
+    if (universityMail !== "") {
         const emailMatch = /[@]/;
         document.getElementById("tooltipUniversityMail").style.visibility = "hidden";
         if (universityMail.match(emailMatch)) {
@@ -269,8 +269,7 @@ function contactDetails() {
         }
 
     }
-    console.log(testValue);
-    if (testValue == 4) {
+    if (testValue === 4) {
         // change navigation color
         document.getElementById('pageContactDetails').style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
         document.getElementById('pageProfilePicture').style.backgroundColor = 'black';
@@ -293,39 +292,39 @@ function displayError(field, message) {
 }
 
 function toBasicInformationSection() {
-    document.getElementById("pwd").style.display = "none";
-    document.getElementById("bsc").style.display = "";
+    document.getElementById("passwordSection").style.display = "none";
+    document.getElementById("basicInformationSection").style.display = "";
 }
 
 function toContactDetailsSection() {
-    document.getElementById("bsc").style.display = "none";
-    document.getElementById("cnt").style.display = "";
+    document.getElementById("basicInformationSection").style.display = "none";
+    document.getElementById("contactInformationSection").style.display = "";
 }
 
 function toProfilePicSection() {
-    document.getElementById("cnt").style.display = "none";
-    document.getElementById("img").style.display = "";
+    document.getElementById("contactInformationSection").style.display = "none";
+    document.getElementById("profilePictureSection").style.display = "";
 }
 
 function backToChangePassword() {
-    document.getElementById("bsc").style.display = "none";
-    document.getElementById("pwd").style.display = "";
+    document.getElementById("basicInformationSection").style.display = "none";
+    document.getElementById("passwordSection").style.display = "";
     // change navigation color
     document.getElementById('pageBasicInfo').style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
     document.getElementById('pageChangePassword').style.backgroundColor = 'black';
 }
 
 function backToBasicInformation() {
-    document.getElementById("cnt").style.display = "none";
-    document.getElementById("bsc").style.display = "";
+    document.getElementById("contactInformationSection").style.display = "none";
+    document.getElementById("basicInformationSection").style.display = "";
     // change navigation color
     document.getElementById('pageContactDetails').style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
     document.getElementById('pageBasicInfo').style.backgroundColor = 'black';
 }
 
 function backToContactInformation() {
-    document.getElementById("img").style.display = "none";
-    document.getElementById("cnt").style.display = "";
+    document.getElementById("profilePictureSection").style.display = "none";
+    document.getElementById("contactInformationSection").style.display = "";
     // change navigation color
     document.getElementById('pageProfilePicture').style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
     document.getElementById('pageContactDetails').style.backgroundColor = 'black';

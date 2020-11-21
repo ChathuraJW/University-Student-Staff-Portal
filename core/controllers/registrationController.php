@@ -1,7 +1,7 @@
 <?php
     class RegistrationController extends Controller{
         public static function open(){
-            $data=registrationModel::getData();
+            $data=RegistrationModel::getData();
             self::createView("registrationView",$data);
             if(isset($_POST['submit'])){
                 $password=$_POST['password'];
@@ -20,6 +20,7 @@
                 $fileName=$_COOKIE['userName'].'.png';
                 $name = $_FILES['profilePic']['name'];
                 $temp_name = $_FILES['profilePic']['tmp_name'];
+                $isFileUploaded = false;
                 if (isset($name) and !empty($name)) {
                     $location = './assets/profile picture/';
                     if (move_uploaded_file($temp_name, $location . $fileName)) {
@@ -27,12 +28,14 @@
                     }
                 }
                 if(isset($isFileUploaded) & $isFileUploaded){
-                    $isUpdated=registrationModel::updateUserData($hashedPassword,$gender,$salutation,$telephone,$address,$personalEmail,$fileName);
+                    $isUpdated=RegistrationModel::updateUserData($hashedPassword,$gender,$salutation,$telephone,$address,$personalEmail,$fileName);
                     if(!$isUpdated)
                         die();
+                    else{
+                        //redirect to home
+                    }
                 } else
                     die();
             }
         }
     }
-?>
