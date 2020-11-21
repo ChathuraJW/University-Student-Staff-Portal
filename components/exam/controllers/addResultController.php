@@ -26,7 +26,7 @@ class AddResultController extends Controller
                 //upload file into directory
                 $name = $_FILES['resultFile']['name'];
                 $temp_name = $_FILES['resultFile']['tmp_name'];
-                $location = "./boardConfirmedResults/$fileName";
+                $location = "./assets/boardConfirmedResults/$fileName";
                 if (isset($name) and !empty($name)) {
                     if (move_uploaded_file($temp_name, $location)) {
                         $isFileUploaded = true;

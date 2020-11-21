@@ -7,10 +7,12 @@
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="assets/resultSection.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" />
 </head>
 <body>
+<?php require('../../assets/php/basicLoader.php') ?>
 <!-- include header section -->
-<?php require('../../assets/php/commonHeader.php') ?>
+<?php BasicLoader::loadHeader('../../');?>
 <!-- feature body section -->
 <div class="featureBody">
     <div class="basicInfo">
@@ -18,7 +20,16 @@
         <div class="row col-4">
             <div class="infoBox" id="">
                 <span class="captionLabel">Current GPA</span>
-                <span class="infoBoxValue" id="valueGPA"><?php echo(round($controllerData[0],4))?></span>
+                <div class="row col-2">
+                    <div>
+                        <span class="infoBoxValue" id="valueGPA" style="padding-bottom: 0;padding-top: 20px;"><?php echo(round($controllerData[0],2))?></span>
+                        <span style="text-align: center;display: block;">Degree GPA</span>
+                    </div>
+                    <div style="border-left: 2px solid gray">
+                        <span class="infoBoxValue" id="valueGPA" style="padding-bottom: 0;padding-top: 20px;"><?php echo(round($controllerData[0],2))?></span>
+                        <span style="text-align: center;display: block;">Class GPA</span>
+                    </div>
+                </div>
             </div>
             <div class="infoBox" id="">
                 <span class="captionLabel">Batch Rank</span>
@@ -44,13 +55,11 @@
         </span>
         </div>
     </div>
-    <div class="row col-1">
+    <div class="row col-3">
         <div class="gpaDistribution">
             <span class="captionLabel">Batch GPA Distribution</span>
             <canvas id="gpaDistribution" class="graphCanvas" style="width: 80%"></canvas>
         </div>
-    </div>
-    <div class="row col-2">
         <div class="individualGPADistribution">
             <span class="captionLabel">Individual GPA Distribution</span>
             <canvas id="individualGPADistribution" class="graphCanvas"></canvas>
@@ -99,7 +108,7 @@
 </div>
 
 <!-- include footer section -->
-<?php require('../../assets/php/commonFooter.php') ?>
+<?php BasicLoader::loadFooter('../../');?>
 <script src="../../assets/js/jquery.js"></script>
 <script src="../../assets/js/Chart.js"></script>
 <script src="assets/viewResult.js"></script>

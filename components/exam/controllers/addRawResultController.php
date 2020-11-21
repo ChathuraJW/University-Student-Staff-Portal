@@ -27,7 +27,7 @@ class AddRawResultController extends Controller{
                 $name = $_FILES['rawResultFile']['name'];
                 $temp_name = $_FILES['rawResultFile']['tmp_name'];
                 if (isset($name) and !empty($name)) {
-                    $location = './rawResults/';
+                    $location = './assets/rawResults/';
                     if (move_uploaded_file($temp_name, $location . $fileName)) {
                         $isFileUploaded = true;
                     }

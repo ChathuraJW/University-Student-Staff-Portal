@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
+<?php require('../../assets/php/basicLoader.php') ?>
 <!-- include header section -->
-<?php require('../../assets/php/commonHeader.php') ?>
-
+<?php BasicLoader::loadHeader('../../');?>
 <!-- feature body section -->
 <div class="featureBody">
     <h1 class="heading">Upload Board Confirmed Exam Result</h1>
@@ -137,7 +137,7 @@
 </div>
 
 <!-- include footer section -->
-<?php require('../../assets/php/commonFooter.php') ?>
+<?php BasicLoader::loadFooter('../../');?>
 <script src="../../assets/js/jquery.js"></script>
 <script src="assets/addResult.js"></script>
 </body>

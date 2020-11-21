@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
+<?php require('../../assets/php/basicLoader.php') ?>
 <!-- include header section -->
-<?php require('../../assets/php/commonHeader.php') ?>
+<?php BasicLoader::loadHeader('../../');?>
 
 <!-- feature body section -->
 <div class="featureBody">
@@ -112,7 +113,7 @@
                         <tr>
                             <th>Serial No</th>
                             <th>Index Number</th>
-                            <th>Result</th>
+                            <th>Mark</th>
                         </tr>
                         <?php
                         //                                read URL
@@ -155,7 +156,7 @@
     </div>
 </div>
 <!-- include footer section -->
-<?php require('../../assets/php/commonFooter.php') ?>
+<?php BasicLoader::loadFooter('../../');?>
 <script src="assets/getRawResult.js"></script>
 </body>
 </html>

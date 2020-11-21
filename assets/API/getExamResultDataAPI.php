@@ -1,5 +1,5 @@
 <?php
-require_once('../php/Database.php');
+require_once('../mvc/Database.php');
 if (isset($_GET['activity']) & $_GET['activity'] == 'GPADistribution') {
 //    batch GPA distribution
     $regNo = $_GET['regNo'];

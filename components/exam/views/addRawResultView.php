@@ -11,7 +11,9 @@
 </head>
 <body>
 <!-- include header section -->
-<?php require('../../assets/php/commonHeader.php') ?>
+<?php require('../../assets/php/basicLoader.php') ?>
+<!-- include header section -->
+<?php BasicLoader::loadHeader('../../');?>
 
 <!-- feature body section -->
 <div class="featureBody">
@@ -96,7 +98,7 @@
                 </select>
             </div>
             <div class="showRest">
-                <span>Result Dataset</span>
+                <span>USSP Formatted Result Dataset</span>
                 <label for="rawResultFile" class="fileLabel" id="rawResultFileLabel">Upload System Genarated File</label>
                 <input type="file" name="rawResultFile" id="rawResultFile" required><br>
             </div>
@@ -114,7 +116,7 @@
 </div>
 
 <!-- include footer section -->
-<?php require('../../assets/php/commonFooter.php') ?>
+<?php BasicLoader::loadFooter('../../');?>
 <script src="assets/addRawResult.js"></script>
 
 </body>

@@ -3,7 +3,7 @@
 class AddResultModel extends Model{
     public static function saveFileData($subjectCode, $semester, $examinationYear, $attempt, $batch, $fileData){
         $sqlQuery = "INSERT INTO result_data_file(subjectCode, semester, yearOfExam, attempt, batch, isEncrypted, fileLocation) VALUES ('$subjectCode',$semester,'$examinationYear'
-                               ,'$attempt','$batch',FALSE,'boardConfirmedResults/$fileData')";
+                               ,'$attempt','$batch',FALSE,'assets/boardConfirmedResults/$fileData')";
         $result = Database::executeQuery("administrativeGeneral", "administrativeGeneral@16", $sqlQuery);
 //        create audit trail
         self::createAudit($sqlQuery, 'result_data_file', "INSERT", 'Insertion when file upload');
@@ -30,19 +30,24 @@ class AddResultModel extends Model{
                 } else {
                     $studentIndex = $resultEntry[1];
 //                    cleanup string for take result value
-                    $result = trim(preg_replace('/[^a-zA-Z0-9 + -]/s', '', $resultEntry[2]), ' ');
+                    $result = trim(preg_replace('/[^a-zA-Z0-9 +-]/s', '', $resultEntry[2]), ' ');
 //                    $result=trim(explode($resultEntry[2],'\n')[0],' ');
                     $enrollmentID = self::getEnrollmentID($studentIndex, $subject, $attempt);
-//                    update GPA of student
-                    self::updateGPA($studentIndex, $creditForSubject, $result);
-                    $sqlQuery .= "($enrollmentID,'$examinationYear','$academicYear','$result',NOW()),";
+//                    check weather dat is empty in the row
+                    if($result!=='' & $studentIndex!=='' & $enrollmentID!==''){
+//                        update GPA of student
+                        self::updateGPA($studentIndex, $creditForSubject, $result);
+                        $sqlQuery .= "($enrollmentID,'$examinationYear','$academicYear','$result',NOW()),";
+                    }
                 }
             }
             $sqlQuery = trim($sqlQuery, ",");
             $sqlQuery .= ";";
-            Database::executeQuery("administrativeGeneral", "administrativeGeneral@16", $sqlQuery);
+            $isSuccess=Database::executeQuery("administrativeGeneral", "administrativeGeneral@16", $sqlQuery);
 //            create audit trail
-            $returnValue = self::createAudit($sqlQuery, 'result', "INSERT", 'Insert all result as a bulk.');
+            $returnValue=false;
+            if($isSuccess)
+                $returnValue = self::createAudit($sqlQuery, 'result', "INSERT", 'Insert all result as a bulk.');
             fclose($resultFile);
             return $returnValue;
         }

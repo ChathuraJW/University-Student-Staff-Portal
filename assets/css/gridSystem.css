@@ -21,21 +21,6 @@
 .col-6{
     grid-template-columns: repeat(6,2fr);
 }
-.col-7{
-    grid-template-columns: repeat(7,1.7fr);
-}
-.col-8{
-    grid-template-columns: repeat(8,1.5fr);
-}
-.col-9{
-    grid-template-columns: repeat(9,1.3fr);
-}
-.col-10{
-    grid-template-columns: repeat(10,1.2fr);
-}
-.col-11{
-    grid-template-columns: repeat(11,1.1fr);
-}
 .col-12{
     grid-template-columns: repeat(12,1fr);
 }
@@ -45,29 +30,25 @@
     .col-4, .col-5{
         grid-template-columns: repeat(3,4fr);
     }
-    .col-6, .col-7, .col-8{
-        grid-template-columns: repeat(4,3fr);
+    .col-6{
+        grid-template-columns: repeat(3,4fr);
     }
-    .col-9, .col-10{
-        grid-template-columns: repeat(5,4.4fr);
-    }
-    .col-11, .col-12{
+    .col-12{
         grid-template-columns: repeat(6,2fr);
     }
 }
 /* sm */
 @media screen and (max-width: 992px) {
-    .col-3, .col-4, .col-5, .col-6, .col-7, .col-8{
+    .col-3, .col-4, .col-5, .col-6{
         grid-template-columns: repeat(2,6fr);
     }
-    .col-9, .col-10, .col-11, .col-12{
+    .col-12{
         grid-template-columns: repeat(3,4fr);
     }
 }
 /* xs */
 @media screen and (max-width: 768px) {
-    .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+    .col-2, .col-3, .col-4, .col-5, .col-6, .col-12 {
         grid-template-columns: repeat(1,12fr);
     }
-
 }
