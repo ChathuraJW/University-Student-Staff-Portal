@@ -61,28 +61,17 @@ header .overlay {
     background-image: linear-gradient(135deg, #57585a75 10%, #7b817f9c 100%)
 }
 
-.mainText {
-    text-align: center;
-    font-size: 80px;
-    margin-bottom: 30px;
-}
-
-h3, p {
-    font-family: BioRhyme, sans-serif;
-    margin-bottom: 30px;
-}
-
 img {
-    width: 100%;
+    width: 80%;
 }
 
 .imgSection {
-    width: 15%;
+    width: 100%;
     display: inline-block;
 }
 
+/*style for top header and university name*/
 .textSection {
-    width: 65%;
     display: inline-block;
     text-align: center;
     font-family: Varela, sans-serif;
@@ -90,35 +79,28 @@ img {
 }
 
 .uniName {
-    font-size: 25px;
+    font-size: 20px;
     font-family: Alegreya, sans-serif;
-    font-weight: bold;
     font-style: italic;
 }
 
-@media screen and (max-width: 650px) {
-    .imgSection,
-    .textSection {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    img {
-        width: 150%;
-    }
+.mainText {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
 }
 
 /*top login information bar*/
 .loginInfo {
-    height: 50px;
-    background-image: linear-gradient(135deg, #57585a 10%, #5e6361 100%);
+    height: auto;
+    background-image: linear-gradient(135deg, #383a3a 10%, #5b5544 100%);
     text-align: right;
     color: white;
-    font-size: 20px;
+    font-weight: bold;
+    font-size: 22px;
     border-radius: 0;
     margin: auto;
-    padding: 10px;
+    padding: 12px 25px;
 }
 
 /*footer styles*/
@@ -131,36 +113,42 @@ img {
     color: white;
     display: block;
 }
-.basicDescription > p{
+
+.basicDescription > p {
     text-align: justify;
-    font-size: 15px;
+    font-size: 18px;
     font-family: Alegreya, sans-serif;
     padding: 5px;
 }
-.basicDescription > img{
+
+.basicDescription > img {
     width: 50%;
     display: inline-block;
 }
-.addressBlock > span{
+
+.addressBlock > span {
     display: block;
     text-align: left;
-    font-size: 15px;
+    font-size: 18px;
     font-family: Alegreya, sans-serif;
     padding: 5px;
     margin: 5px;
     font-weight: normal;
 }
-.addressBlock > h3{
+
+.addressBlock > h3 {
     text-align: left;
     padding: 5px;
     margin: 5px;
 }
-.addressBlock > span >a{
+
+.addressBlock > span > a {
     color: white;
     padding: 5px;
     margin: 5px;
 }
 
+/*basic style for content block*/
 .content {
     display: block;
     margin: 20px;
