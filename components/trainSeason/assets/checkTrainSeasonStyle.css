@@ -31,7 +31,12 @@
     border-radius: 4px;
     position: relative;
     right: 15%;
+    
 
+}
+
+.application{
+    text-decoration: none;
 }
 
 .checkbox{
