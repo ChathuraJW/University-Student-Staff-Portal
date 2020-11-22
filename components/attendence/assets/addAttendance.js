@@ -9,15 +9,15 @@ while (beginYear <= currentYear) {
 }
 yearValues.value = currentYear.toString();
 
-
 yearValues.value = currentYear.toString();
 
-
+// Checked Upload CSV file radio button when load the page.
 var radioBtn = document.getElementById("radioCSV");
 radioBtn.checked = true;
 
-function displayForm(c){
-    if(c.value=="1"){
+//Change the visibility between upload csv files and edit attendance.
+function displayForm(radioInput){
+    if(radioInput.value=="1"){
         document.getElementById("csvFormContainer").style.visibility='visible';
         document.getElementById("csvFormContainer").style.display="";
         document.getElementById("singleAttendanceContainer").style.visibility='hidden';
@@ -29,7 +29,7 @@ function displayForm(c){
         document.getElementById("editAttendanceForm").style.visibility='hidden';
         document.getElementById("editAttendanceForm").style.display="none";
 
-    }else if(c.value=="2"){
+    }else if(radioInput.value=="2"){
         document.getElementById("csvFormContainer").style.visibility='hidden';
         document.getElementById("singleAttendanceContainer").style.visibility='visible';
         document.getElementById("csvFormContainer").style.display='none';
@@ -40,7 +40,7 @@ function displayForm(c){
         // document.getElementById("inquiryContainer").style.visibility='hidden';
         // document.getElementById("inquiryContainer").style.display='none';
 
-    }else if(c.value=="3"){
+    }else if(radioInput.value=="3"){
         document.getElementById("inquiryContainer").style.visibility='visible';
         document.getElementById("inquiryContainer").style.display='';
         document.getElementById("csvFormContainer").style.visibility='hidden';
@@ -53,7 +53,8 @@ function displayForm(c){
         document.getElementById("editAttendanceForm").style.display="none";
     }
 }
-// change visibility of table
+
+//when submit edit attendance search form make visible searched attendance data.
 function displayAttendance(){
 
     document.getElementById("attendanceTable").style.visibility='visible';
@@ -74,9 +75,26 @@ function displayAttendance(){
     );
 }
 
+//when clicking one of attendance, load edit attendacnce form
 function editAttendanceForm(){
     document.getElementById("editAttendanceForm").style.visibility='visible';
     document.getElementById("editAttendanceForm").style.display="";
-
 }
 
+//CSV file operation
+let attendanceCSVFile = document.getElementById("attendanceFile");
+let attendanceCSVFileLabel = document.getElementById("attendanceFileLabel");
+
+attendanceCSVFile.addEventListener("change",function (){
+    if(attendanceCSVFile.value != ''){
+        console.log("File Size is(KB): "+attendanceCSVFile.files[0].size/1000);
+        let uploadFormat = attendanceCSVFile.value.toString().split('.')[1].toLowerCase();
+        if (uploadFormat == "csv") {
+            attendanceCSVFileLabel.style.backgroundColor = "green";
+        } else {
+            attendanceCSVFileLabel.style.backgroundColor = "red";
+            alert("Invalid file format. Please upload csv formatted file.");
+        }
+
+    }
+});

@@ -102,8 +102,8 @@
                 </div>
                 <div class="row col-1">
                 <div class = "inputStyle">
-                        <label for="">CSV File:</label>
-                        <input type="file" id="myFile" name="csvFile" required>
+                        <label for="attendanceFile" id="attendanceFileLabel">Upload CSV File Here</label>
+                        <input type="file" id="attendanceFile" name="csvFile"  required>
                     </div>
                 </div>
                 <div class="row col-4" id="buttonsCSV" >
