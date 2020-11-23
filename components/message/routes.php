@@ -8,6 +8,10 @@
         receiveMessageController::receiveMessage();
     });
 
+    Route::set('sentBox',function(){
+        sentBoxController::sentBox();
+    });
+
 
     // check weather the given file exist on the site if not redirect to 404 page
     $available=FALSE;

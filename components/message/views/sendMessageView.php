@@ -26,14 +26,18 @@
           <div class="row col-1">
          
             <h1><b> Send Messages </b></h1>
+            <br>
+            <a class=sentBox href="sentBox">
+           
+              <button class="sentMessages" id="sentMessages">Sent Box</button>
+            </a>
             
           </div>
       
-            <br>
-            <br> 
-        <div class="row col-3"> 
+             
+        <div class="row col-2"> 
           <div class="contacts">
-            <label for="option"><b> Enter the contacts</b> </label>
+            <label for="option"><b> Select the contacts</b> </label>
             <br>
             <br>
            
@@ -42,7 +46,7 @@
           
             <!--<div class="row col-3">-->
               <div>
-                <select style="height:50px; width:200px; font-size:18px; background-color: white; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);" id="academicStaffList" name="academicStaffList" onchange="addStaffRecipient('academicStaffList');">
+                <select style="border-radius: 6px; height:50px; width:200px; font-size:18px; color: white; background-color: #116141; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);" id="academicStaffList" name="academicStaffList" onchange="addStaffRecipient('academicStaffList');">
                
                 <option value="">Academic Staff </option>
                   <?php
@@ -58,7 +62,7 @@
               </div>
           
             <div>  
-              <select style="height:50px; width:200px; font-size:18px; background-color: white; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);" id="academicSupportiveList" name="academicSupportiveList" onchange="addStaffRecipient('academicSupportiveList');"  >
+              <select style="border-radius: 6px; height:50px; width:200px; color: white; background-color: #116141; font-size:18px; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);" id="academicSupportiveList" name="academicSupportiveList" onchange="addStaffRecipient('academicSupportiveList');"  >
                 <option value="">Academic Supportive Staff </option>
                 <?php
                      
@@ -73,7 +77,7 @@
             </div>
 
             <div>
-              <select style="height:50px; width:200px; font-size:18px; background-color: white; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);" id="administrativeList" name="administrativeList" onchange="addStaffRecipient('administrativeList');">
+              <select style="border-radius: 6px; height:50px; width:200px; color: white; background-color: #116141; font-size:18px; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);" id="administrativeList" name="administrativeList" onchange="addStaffRecipient('administrativeList');">
               <option value="">Administrative Staff </option>
                 <?php
                      
@@ -95,7 +99,7 @@
              
             <label style="text-align: left;">Contacts </label>
             <br>
-            <textarea cols="50" name="contacts" style="font-size:15px;  background-color: rgb(198, 241, 198); box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);" id="contacts" readonly></textarea>
+            <textarea cols="50" rows="3" name="contacts" style="font-size:15px; border-radius: 6px; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);" id="contacts" readonly></textarea>
           </div>
 
           <div class="message">
@@ -103,7 +107,7 @@
               <br>
               <label> Title </label> 
               <br>
-              <textarea name = "title" cols="50" style="font-size:16px; background-color: rgb(198, 241, 198); box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);"></textarea>
+              <textarea name = "title" cols="50" style="border-radius: 6px; font-size:16px; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);"></textarea>
              
 
              
@@ -113,16 +117,16 @@
              
               <label> Message </label>
               <br>
-              <textarea name = "message" rows="5" cols="50" style="font-size:16px; background-color:rgb(198, 241, 198); box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);"></textarea>
+              <textarea name = "message" rows="5" cols="50" style="font-size:16px;  box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2); border-radius: 6px"></textarea>
              
 
             <br>
             <br>
              
-              <button class="button submit" name="submit" type="submit" style= "background-color: #4CAF50">Send
+              <button class="button submit" name="submit" type="submit" style= "background-color: green; border-radius:4px; box-shadow: 0 8px 16px 0 grey;">Send
               </button>
 
-              <button class="button cancel" colour="green" style="background-color: #FF0000">Cancel
+              <button class="button cancel" colour="green" style="background-color: #FF0000; border-radius:4px; box-shadow: 0 8px 16px 0 grey;">Cancel
               </button>
              
 
@@ -131,7 +135,7 @@
           <br>
           <br>
           </div>
-
+          <!--
           <div class="sentBox">
             <h2><b>Sent Box </b></h2> 
             <?php
@@ -152,8 +156,9 @@
           }
             
           ?>
-           
+          
           </div>
+          -->
           <!--<div class="displayMessage">
           <?php
             if(isset($_GET['messageID'])){
