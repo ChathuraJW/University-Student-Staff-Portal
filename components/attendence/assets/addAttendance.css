@@ -2,12 +2,10 @@
     display: none;
 
 }
-
 .radioToolbar label {
     display: inline-block;
     background-color: #ddd;
     padding: 8px 20px;
-    font-family: Arial;
     font-size: 35px;
     cursor: pointer;
     position: relative;
@@ -16,21 +14,14 @@
     background-color: rgb(169, 177, 174)
 }
 .container{
-    /* border-style: solid; */
     text-align: center;
 }
 .subHeading{
-    /* font-weight: bold; */
     font-size: 24px;
-    /* text-align: center; */
 }
 
 .inputStyle{
-    font-size: 26px;
-    /* margin-left: 100px; */
-    /* margin-top: 100px; */
-    margin-bottom: 25px;
-    width: auto;
+    font-size: 22px;
     margin-left: auto;
     margin-right: auto;
 } 
@@ -45,12 +36,8 @@
     text-align: center;
 }
 .buttonStyle{
-    height:50px;
-    width:120px;
-    font-size: 26px;
-    /* margin-top: 50px; */
-    font-size: 26px;
-    /* margin-bottom: 110px; */
+    margin-left: auto;
+    margin-right: auto;
 }
 #csvFormContainer{
     margin-left: 50px;
@@ -60,51 +47,19 @@ sup {
     vertical-align: super;
     font-size: smaller;
 }
-/* #buttonsCSV{
-    margin-left: 400px;
-    margin-right: 400px; 
-} */
-#cancelUploadFile{
-    background-color: red;
-}
-.fileUploadButton {
-    margin-top: 0px;
-    padding: 30px;
-    border: 1px solid rgb(12, 12, 12);
-    height: 40px;
-    width: 150px;
-    background: transparent;
-    font-size: 24px;
-    padding-top: 8px;
-    border-radius: 5px;
-    color: white;
-    text-decoration: none;
-    /* border: 2px solid rgb(7, 7, 6);   */
-    /* color: rgb(12, 12, 9); */
-    background-color: rgb(51, 139, 58) ;
-}
 #myFile{
     margin-left: 0px;
-    /* margin-top: 10px; */
     height:50px;
     width:300px;
     text-align: center;
     font-size: 20px;
-    /* border-style: solid; */
-    
 }
 #index{
     height:50px;
     width:300px;
     font-size: 20px;
 }
-.inputStyle1{
-    font-size: 26px;
-    /* margin-left: 50px;
-    margin-top: 97px;  */
-    width: auto;
-} 
-#inquiryMessage{
+.inquiryMessage{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 20px;
     margin-bottom: 20px;
@@ -132,9 +87,6 @@ sup {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .attendanceContainer{
-    /* padding-left: 360px; */
-    /* padding-right: 360px; */
-    /* border-style: solid; */
     margin-top: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -154,7 +106,6 @@ sup {
     display: inline-block;
     background-color: #ddd;
     padding: 8px 20px;
-    font-family: Arial;
     font-size: 22px;
     cursor: pointer;
     position: relative;
@@ -180,7 +131,7 @@ input[type="file"]{
 #attendanceFileLabel{
     padding: 10px;
 }
-input[type=date], input[type=time], textarea, select {
+ select {
     width: fit-content;
     padding: 10px;
     border: 1px solid gray;
@@ -192,4 +143,19 @@ input[type=date], input[type=time], textarea, select {
     margin-right: auto;
     display:block;
 }
+/*/styles for submit and cancel buttons/*/
+.submitCancelButton{
+    height: auto;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 9px;
+    margin: 4px;
+    width: 200px;
+}
+
   

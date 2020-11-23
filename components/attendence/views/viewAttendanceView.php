@@ -29,13 +29,13 @@
         <a id="inquiryButton"><i class="fa fa-question-circle" ></i>Inquiry</a>
             <div id="myModal" class="modal">
             <!-- Modal content -->
-                <div class="modal-content">
+                <div class="modalContent">
                     <span class="close">&times;</span>
                     <p class="popupTopic">Inquiry</p>
                     <div class="row col-2">
                         <div class = "inputStyle">
                             <label for="week">Week:</label><br>
-                            <select id="week" name= "week" class="dropDown">
+                            <select id="week" name= "week">
                                 <?php
                                     for($week=1; $week<=15; $week++)
                                     {
@@ -59,7 +59,7 @@
                         </div>
                         <div class = "inputStyle">
                             <label for="subject">Subject:</label><br>
-                            <select id="subject" name="subject" class="dropDown" required>
+                            <select id="subject" name="subject"  required>
                                 <?php
                                     $subjectCount=0;
                                     foreach($controllerData[0] as $data){
@@ -76,17 +76,16 @@
                         </div>
 
                     </div>
-                    <div class="row col 1">
-                        <!-- <input type="textarea">  -->
+                    <div class=" message row col 1">
                         <textarea name="message" placeholder = "message"></textarea>
                     </div>
-                    <div class="row col-3" id="buttonsCSV" >
-                            <div class = "">
-                                <input type="reset" value = "Cancel" id="cancelUploadFile"class="fileUploadButton ">
+                    <div class="row col-3" >
+                            <div class = "buttonStyle">
+                                <input type="reset" value = "Cancel" class="submitCancelButton red ">
                             </div>
                             <div></div>
-                            <div class = "">
-                                <input type ="submit" value = "Send" name="send" id="uploadFile"class="fileUploadButton ">
+                            <div class = "buttonStyle">
+                                <input type ="submit" value = "Send" name="send" class="submitCancelButton green ">
                             </div>
                             
                     </div>
@@ -129,6 +128,7 @@
 
             }
             $totalPercentage = $sumOfPercentage/$markedSubjects;
+            $totalPercentage = round($totalPercentage);
             ?>
         <div id="container1" class="row col-4">
             <div class="basicStyle">
@@ -178,6 +178,8 @@
                     }
                     if($totalDays != 0){
                         $subjectPercentage = ($attendedDays/$totalDays)*100;
+                        $subjectPercentage = round($subjectPercentage);
+                        $borderColor = ($subjectPercentage>=40)? 'green':'red';
                     }
                     
                     // print_r($courseDetails[0]);
@@ -190,7 +192,8 @@
                                     <div><label id='subjectFont' class='attendanceDetailTopicLeft'>".$courseDetails[0]['name']."</label></div>
                                 </div>
                                 <div class='courseDetail' id='attendancePercentage'>
-                                    <div class='attendanceStyle'>
+                                    <div style='border-color:$borderColor' class='attendanceStyle'>
+                                        
                                         <span id='hiddenPercentage1' class='attendanceDetailTopicRight'>$subjectPercentage%</span>
                                     </div>
                                 </div>

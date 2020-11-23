@@ -68,6 +68,7 @@ function displayAttendance(){
     $.getJSON(getAttendanceForEditURL, function (attendance) {
         // console.log(attendance);
         for(var i in attendance) {
+            console.log(i);
             console.log(attendance[i]['date']);
             document.getElementById("date"+i).value = "attendance[i]['date']";
         }

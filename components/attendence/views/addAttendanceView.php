@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
     <link rel="stylesheet"  href="assets/addAttendance.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"/>
 </head>
 
 <body>
@@ -66,7 +67,7 @@
                     <div class = "inputStyle">
                         <label for="attendDate">Date:</label><br>
                         <input type="date" name="attendDate" class="dropDown" id="attendDate" required/>
-                        <i class="fas fa-calendar-alt" id="attendDate" ></i>
+<!--                        <i class="fas fa-calendar-alt" id="attendDate" ></i>-->
                     </div>
                     <div class = "inputStyle">
                         <label for="week">Week:</label><br>
@@ -106,15 +107,13 @@
                         <input type="file" id="attendanceFile" name="csvFile"  required>
                     </div>
                 </div>
-                <div class="row col-4" id="buttonsCSV" >
-                    <div></div>
-                    <div class = "">
-                        <input type="reset" value = "Cancel" id="cancelUploadFile" class="fileUploadButton ">
+                <div class="row col-2" id="buttonsCSV" >
+                    <div class = "buttonStyle">
+                        <input type="reset" value = "Cancel"  class="submitCancelButton red">
                     </div>
-                    <div class = "">
-                        <input type ="submit" name="submit" value = "submit" id="uploadFile" class="fileUploadButton ">
+                    <div class = "buttonStyle">
+                        <input type ="submit" name="submit" value = "submit"  class="submitCancelButton green">
                     </div>
-                    <div></div>
                     
                 </div>
             </form> 
@@ -132,12 +131,13 @@
                                 <div >
                                     <p class='subHeading'>Inquiries:</p><hr>
                                 </div>");
+                                $count=1;
                                 foreach($controllerData[1] as $inquiryMessage){
                                     echo("
-                                
-                                    <div id = 'inquiryMessage' class ='row col-1'>
-                                        <input type='checkbox'>
-                                        <label>Sent By : ".$inquiryMessage['sendBy']."</label>
+                                    
+                                    <div class = 'inquiryMessage' class ='row col-1'>
+                                        <input name='isViewed'  type='checkbox'><br>
+                                        <label>Sent By : ".$inquiryMessage['sendBy']."</label><br>
                                         <label>".$inquiryMessage['message']."</label>
                                     
                                     </div>
@@ -151,11 +151,11 @@
                 <div>
                     <form method="post">
                         <div id="editAttendance" class="row col-2">
-                            <div class = "inputStyle1">
+                            <div class = "inputStyle">
                                 <label for="index">Index:</label><br>
                                 <input class="textField" type="text" id="index" name="index" required>
                             </div>
-                            <div class = "inputStyle1">
+                            <div class = "inputStyle">
                                 <label for="academicYearForEdit">Academic Year:</label><br>
                                 <select id="academicYearForEdit" name="academicYear" class="dropDown"  required>
                                     <option value=1>First Year</option>
@@ -166,7 +166,7 @@
                             </div>
                         </div>
                         <div id="editAttendance" class="row col-2">
-                            <div class = "inputStyle1">
+                            <div class = "inputStyle">
                                 <label for="semester">Semester:</label><br>
                                 <select id="semester" class="dropDown" required>
                                 <?php
@@ -176,7 +176,7 @@
                                 ?>
                                 </select>
                             </div> 
-                            <div class = "inputStyle1">
+                            <div class = "inputStyle">
                                 <label for="subject">Subject:</label><br>
                                 <select id="subject" name="subject" class="dropDown" required>
                                     <?php
@@ -191,21 +191,22 @@
                                 ?>
                             </div>
                         </div>
-                        <div class = "row col-1">
-                            <div  class="inputStyle1">
+                        <div class = "row col-2">
+                            <div  class="inputStyle">
                                 <label for="attempt">Attempt:</label><br>
                                 <select id="attempt" name="attempt" class="dropDown"  required>
                                     <option value="F">First Attempt</option>
                                     <option value="R">Repeated Attempt</option>
                                 </select>
                             </div>
+                            <div></div>
                         </div>
                         <div id="buttons" class="row col-2">
                             <div class = "buttonStyle">
-                                <button type="reset" value = "cancel" id="cancelUploadFile" class="fileUploadButton">Cancel</button>
+                                <button type="reset" value = "cancel"  class="submitCancelButton red">Cancel</button>
                             </div>
                             <div class = "buttonStyle">
-                                <button  type="button" name="search" onclick="displayAttendance()" class=" fileUploadButton">Search</button>
+                                <button  type="button" name="search" onclick="displayAttendance()" class=" submitCancelButton green">Search</button>
                             </div>
                         </div>
                     </form>
@@ -256,10 +257,10 @@
                                     <div class="row col-4" id="buttonsCSV" >
                                         <div></div>
                                         <div class = "">
-                                            <input type="submit" value = "Cancel" id="cancelUploadFile" class="fileUploadButton ">
+                                            <input type="submit" value = "Cancel"  class="submitCancelButton red ">
                                         </div>
                                         <div class = "">
-                                            <input type ="submit" value = "Upload" id="uploadFile" class="fileUploadButton ">
+                                            <input type ="submit" value = "Upload"  class="submitCancelButton green ">
                                         </div>
                                         <div></div>
                                     </div>
