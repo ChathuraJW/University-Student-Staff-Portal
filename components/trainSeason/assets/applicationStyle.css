@@ -1,0 +1,55 @@
+.form{
+    width: 700px;
+    height: 600px;
+    border: 3px solid green;
+    border-radius: 4px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    position: absolute;
+    top: 50%;
+    left: 22%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    box-shadow: 0 16px 18px 0 rgb(97, 107, 97);
+
+}
+
+.fullName{
+    font-size: 18px;
+}
+
+.name{
+    font-size: 18px;
+}
+
+.regNo{
+    font-size: 18px;
+}
+
+.submit{
+    text-align: center;
+    font-size: 14px;
+    background-color: rgb(2, 116, 2);
+    font: bold;
+    padding: 6px;
+    box-shadow: 0 8px 16px 0 grey;
+    margin-right: 20px;
+    color: white;
+    left: 80%;
+    position: relative;
+}
+
+.cancel{
+    text-align: center;
+    font-size: 14px;
+    background-color:rgb(201, 6, 6);
+    font: bold;
+    padding: 6px;
+    box-shadow: 0 8px 16px 0 grey;
+    margin-right: 20px;
+    color: white;
+    left: 80%;
+    position: relative;
+}
