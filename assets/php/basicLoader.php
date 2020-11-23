@@ -5,14 +5,14 @@ class BasicLoader{
         <header>
     <div class='overlay row col-3'>
         <div class='imgSection'>
-            <img src='{$positionNotation} assets/image/universityLogo.png' alt='UOC_logo'/>
+            <img src='{$positionNotation}assets/image/universityLogo.png' alt='UOC_logo'/>
         </div>
         <div class='textSection'>
             <span class='mainText'>University Student-Staff Portal</span><br>
             <span class='uniName'>University of Colombo School of Computing<br>Sri Lanka</span>
         </div>
         <div class='imgSection'>
-            <img src='{$positionNotation} assets/image/logoUSSP.png' alt='UCSC_logo'/>
+            <img src='{$positionNotation}assets/image/logoUSSP.png' alt='UCSC_logo'/>
         </div>
     </div>
 </header>
@@ -45,7 +45,7 @@ class BasicLoader{
                     </span>
                 </div>
                 <div class='basicDescription'>
-                        <img src='{$positionNotation} assets/image/logoUSSP.png' alt='USSPLogo'><br><br>
+                        <img src='{$positionNotation}assets/image/logoUSSP.png' alt='USSPLogo'><br><br>
                     <p>
                         University Student-Staff Portal(USSP) is developed by a second year student development team call
                         Team Binary Bits. Main purpose of this system is to automate, semi-automated university system of
