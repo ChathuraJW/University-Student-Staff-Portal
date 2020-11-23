@@ -6,29 +6,23 @@
             return Database::executeQuery("root","",$sqlQueryGetTime);
         }
 
-        /*public static function getTitle()
-        {
-            $sqlQueryGetTitle = "SELECT title FROM message INNER JOIN user_receive_message ON message.messageID=user_receive_message.messageID";
-            return Database::executeQuery("root","",$sqlQueryGetTitle);
+         
+
+        public static function insertMessageState($messageID){
+            $userName=/*$_COOKIE['userName']*/'mnj';
+            $sqlQueryMessageState="UPDATE user_receive_message SET isViewed=1 WHERE messageID=$messageID AND receivedBy='$userName'";
+            $isUpdated=Database::executeQuery("root","",$sqlQueryMessageState);
+            if($isUpdated){
+                //create audit trail
+                self::createAudit($sqlQueryMessageState,'user_receive_message',"UPDATE",'Change the state of the message. (not view->view)');
+                echo ("<script>prompt('State successfully updated.')</script>");
+            }
+
+             
         }
+
+         
         
-        public static function getMessage()
-        {
-            $sqlQueryGetMsg = "SELECT message FROM message INNER JOIN user_receive_message ON message.messageID=user_receive_message.messageID";
-            return Database::executeQuery("root","",$sqlQueryGetMsg);
-        }
 
-        
-
-        public static function getSendBy()
-        {
-            $sqlQueryGetSendBy = "SELECT sendBy FROM message INNER JOIN user_receive_message ON message.messageID=user_receive_message.messageID";
-            return Database::executeQuery("root","",$sqlQueryGetSendBy);
-        }*/
-
-        public static function insertMessageState($messageState){
-            $sqlQueryMessageState="INSERT INTO message('isViewed') VALUES(1)";
-            Database::executeQuery("root","",$sqlQueryMessageState);
-        }
         
     }

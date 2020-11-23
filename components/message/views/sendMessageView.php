@@ -26,6 +26,7 @@
           <div class="row col-1">
          
             <h1><b> Send Messages </b></h1>
+            
           </div>
       
             <br>
@@ -151,7 +152,29 @@
           }
             
           ?>
+           
           </div>
+          <!--<div class="displayMessage">
+          <?php
+            if(isset($_GET['messageID'])){
+              foreach ($controllerData[3] as $data){
+                if($data['messageID']==$_GET['messageID']){
+                  
+                  echo ("
+                    <span class='senderDetail'>Sender: ".$data['sendBy']."</span><br>
+                    <span class='SendTimestampDetail'>Send at: ".$data['timestamp']."</span><br>
+                    <span class='titleDetail'>".$data['title']."</span><br>
+                    <span class='messageDetail'>".$data['message']."</span><br>
+                     
+                    
+                  ");
+                  break;
+                }  
+              }
+              
+            }
+          ?>
+        </div>-->
         </div>
           
           

@@ -57,7 +57,9 @@
                     <span class='SendTimestampDetail'>Send at: ".$data['timestamp']."</span><br>
                     <span class='titleDetail'>".$data['title']."</span><br>
                     <span class='messageDetail'>".$data['message']."</span><br>
+                    <a href='?activity=markAsRead&messageIDForReadConfirm=".$_GET['messageID']."'>Mark as read</a>
                     <button class='submitCancelButton blue' type='submit' style='float: right; display: ".$_GET['messageState'].";'>Mark As Read</button>
+                    
                   ");
                   break;
                 }  
