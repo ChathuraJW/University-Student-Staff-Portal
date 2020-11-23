@@ -34,14 +34,14 @@
             
           </div>
       
-             
+        
         <div class="row col-2"> 
           <div class="contacts">
             <label for="option"><b> Select the contacts</b> </label>
             <br>
             <br>
            
-          
+            
            
           
             <!--<div class="row col-3">-->
