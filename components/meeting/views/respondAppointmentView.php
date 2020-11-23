@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Student-Staff Portal</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="../../assets/css/appointmentStyles.css">
+    <link rel="stylesheet" href="assets/appointmentStyles.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -17,9 +17,9 @@
     <!-- feature body section -->
     <div class="featureBody" >
         
-        <div id="tab1" class="row col-2 tabcontaint" >
+        <div id="tabFirst" class="row col-2 tabContaint" >
             <div>
-                <div class="subTab">
+                <div class="subTab newAppointments">
                     <div class="row col-1">
                         <h2 id="head" >New Appointments</h2>
                     </div>
@@ -50,7 +50,7 @@
 
                                 echo("
                                     <div class='row col-1' onclick='close()'>
-                                        <a href='".$url."' id='".$record['appointmentID']."' class='appointment respond' style='background:$background;' ><div class='appointmentDescription'>".$record['title']."</div><br><div class='appointmentDescription'>".substr($record['message'], 0, 80).".....</div><div class='appointmentDescription'style='float:right;'> <i class='fa fa-clock-o' aria-hidden='true'></i>
+                                        <a href='".$url."' id='".$record['appointmentID']."' class='appointment respond' style='background:$background;' ><div class='appointmentDescription messageHead'>".$record['title']."</div><br><div class='appointmentDescription'>".substr($record['message'], 0, 80).".....</div><div class='appointmentDescription'style='float:right;'> <i class='fa fa-clock-o' aria-hidden='true'></i>
                                         ".$record['timestamp']."</div></a><br>
                                     </div>
                                 ");
@@ -66,7 +66,7 @@
                     </div>
                 </div>
             
-                <div class="subTab">
+                <div class="subTab previousAppointments">
                     <div class="row col-1">
                         <h2 id="head">Replied History</h2>
                     </div>
@@ -84,7 +84,7 @@
                                     echo("
                                         <div class='row col-1'>
                                         
-                                            <a href='".$url2."' id='".$data['isApproved']."' class='appointment' ><div class='appointmentDescription'>".$data['title']."</div><br><div class='appointmentDescription'>".substr($data['message'], 0, 80).".....</div><div class='appointmentDescription'style='float:right;'> <i class='fa fa-clock-o' aria-hidden='true'></i>
+                                            <a href='".$url2."' id='".$data['isApproved']."' class='appointment' ><div class='appointmentDescription messageHead'>".$data['title']."</div><br><div class='appointmentDescription'>".substr($data['message'], 0, 80).".....</div><div class='appointmentDescription'style='float:right;'> <i class='fa fa-clock-o' aria-hidden='true'></i>
                                             ".$data['timestamp']."</div></a><br>
                                         
                                         </div>
@@ -121,7 +121,7 @@
                 
                 <?php if(isset($_GET['category1'])):?>
                     <div>
-                        <div id="message1" class="appointmentMessage"  >
+                        <div id="messageFirst" class="appointmentMessage"  >
                             <div id="messageContent1"class="content">
                                 <div class="row col-1">
                                     <h4 class="topicNew"><?php echo $_GET['title']?></h4>

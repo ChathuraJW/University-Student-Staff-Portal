@@ -43,7 +43,7 @@
     margin-left: 20px;
     
 }
-.form2{    
+.getAppointmentForm{    
     border-style: outset;
     border-width: 10px;
     border: black;
@@ -361,7 +361,7 @@
 .profData{
     font-size: 16px;
 }
-#message2{                
+#messageSecond{                
     background-color: rgb(227, 171, 241,0.4);
 }
 .footer{
@@ -397,7 +397,14 @@
     padding: 6px;
     text-decoration: none;
 }
-
-
+.messageHead{
+    font-weight: bold;
+}
+.newAppointments{
+    background: linear-gradient(to bottom right,rgb(224, 241, 234),white);
+}
+.previousAppointments{
+    background: linear-gradient(to bottom right,rgb(246, 226, 247),white);
+}
 
 

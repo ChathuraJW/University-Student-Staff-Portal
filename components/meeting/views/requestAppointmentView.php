@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Student-Staff Portal</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="../../assets/css/appointmentStyles.css">
+    <link rel="stylesheet" href="assets/appointmentStyles.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -20,11 +20,11 @@
     <!-- feature body section -->
     <div class="featureBody" >
         <div class="navigationBar">
-            <button id="link1"  class="navigationLink" style="background-color: rgb(58, 189, 212);" onclick="openTab('tab1');hover('link1');">New Appointment</button>
-            <button id="link2" class="navigationLink" onclick="openTab('tab2');hover('link2');">Lecturer Availability</button>
+            <button id="linkFirst"  class="navigationLink" style="background-color: rgb(58, 189, 212);" onclick="openTab('tabFirst');hover('linkFirst');">New Appointment</button>
+            <button id="linkSecond" class="navigationLink" onclick="openTab('tabSecond');hover('linkSecond');">Lecturer Availability</button>
         </div>
 
-        <div id="tab1"  class="row col-2 tabContain"  >
+        <div id="tabFirst"  class="row col-2 tabContain"  >
     
             <!-- fist lecturer and date -->
             <div class="myAppointments" >
@@ -48,10 +48,10 @@
                                 else{
                                     $isApprove="Did not view yet";
                                 }
-                            $url="?appointID=".$record['appointmentID']."&staffID=".$record['staffID']."&title=".$record['title']."&message=".$record['message']."&duration=".$record['meetingDuration']."&time=".$record['timestamp']."&isapprove=".$isApprove;
+                            $url="?appointID=".$record['appointmentID']."&salutation=".$record['salutation']."&firstName=".$record['firstName']."&lastName=".$record['lastName']."&staffID=".$record['staffID']."&title=".$record['title']."&message=".$record['message']."&duration=".$record['meetingDuration']."&time=".$record['timestamp']."&isapprove=".$isApprove;
                             ?>
 
-                            <a href='<?php echo $url;?>'  id="<?php echo $record['isApproved'];?>"class="appointment" ><div style="margin-bottom:10px;" class="appointmentDescription"><?php echo $record['title'];?></div><div class="appointmentDescription"><?php echo substr($record['message'], 0, 80);?> </div><div class="appointmentDescription" style="float:right;"><i class='fa fa-clock-o' aria-hidden='true'></i>  <?php echo $record['timestamp'];?></div></a><br>
+                            <a href='<?php echo $url;?>'  id="<?php echo $record['isApproved'];?>"class="appointment" ><div style="margin-bottom:10px;" class="appointmentDescription messageHead"><?php echo $record['title'];?></div><div class="appointmentDescription"><?php echo substr($record['message'], 0, 80);?> </div><div class="appointmentDescription" style="float:right;"><i class='fa fa-clock-o' aria-hidden='true'></i>  <?php echo $record['timestamp'];?></div></a><br>
                             
                             <?php 
                                     echo("
@@ -85,7 +85,7 @@
                 <div class="row col-1">
                     <h2 id="head">New Appointment</h2>
                 </div>
-                <form action="" class="form2" method="post" enctype="multipart/form-data">
+                <form action="" class="getAppointmentForm" method="post" enctype="multipart/form-data">
                     <!-- <div class="row col-1">
                         <input class="dataRaws" list="lecture2" name="lect" placeholder="Lecturer">    
                     </div> -->
@@ -107,7 +107,7 @@
                     <!-- <div class="row col-1">
                         <input class="dataRaws" list="durations" name="durat" placeholder="Time duration">
                     </div> -->
-                    <select class="dataRaws" list="durations" name="durat" placeholder="Time duration" id="durations">
+                    <select class="dataRaws" list="durations" name="durationInput" placeholder="Time duration" id="durations">
                         <option data-value="15 minutes">15 minutes</option>
                         <option data-value="30 minutes">30 minutes</option>
                         <option data-value="1 hour">1 hour</option>
@@ -148,7 +148,7 @@
             </div>
         
         </div>
-        <div id="tab2" class="tabContainSecond" style="display:none;" >
+        <div id="tabSecond" class="tabContainSecond" style="display:none;" >
             <div   class="availability" >
                 
                     <div class="row col-1">
@@ -219,7 +219,7 @@
         </div>
 
         <?php if(isset($_GET['appointID'])):?>
-            <div id="message2" class="appointmentContent" >
+            <div id="messageSecond" class="appointmentContent" >
 
                     <div id="messageContent2" class="popupMessage">
                         <span class="close" onclick="remove()" >&times;</span>
@@ -233,7 +233,7 @@
                                         <p id="i" class="vale" style="font-weight:bold;">Send To </p>
                                     </div>
                                     <div>
-                                        <p class="vale"> <?php echo $_GET['staffID']?> </p>
+                                        <p class="vale"> <?php echo $_GET['salutation'].".".$_GET['firstName']." ".$_GET['lastName']?> </p>
                                     </div>
                                 </div>
                             </div>
@@ -288,20 +288,20 @@
     <script>
         
         function remove(){
-            document.getElementById("message2").style.display="none";
+            document.getElementById("messageSecond").style.display="none";
             // window.location.href=document.location.href.toString().split('requestAppointment')[0]+'requestAppointment';
             
         }
         function openTab(tabs){
-            document.getElementById("tab1").style.display="none";
-            document.getElementById("tab2").style.display="none";
+            document.getElementById("tabFirst").style.display="none";
+            document.getElementById("tabSecond").style.display="none";
             
             document.getElementById(tabs).style.display="";
         }
 
         function hover(link){
-            document.getElementById("link1").style.backgroundColor  = "rgb(148, 195, 238)";
-            document.getElementById("link2").style.backgroundColor  = "rgb(148, 195, 238)";
+            document.getElementById("linkFirst").style.backgroundColor  = "rgb(148, 195, 238)";
+            document.getElementById("linkSecond").style.backgroundColor  = "rgb(148, 195, 238)";
             document.getElementById(link).style.backgroundColor  = "rgb(58, 189, 212)";
         }
 

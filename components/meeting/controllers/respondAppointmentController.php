@@ -19,7 +19,7 @@ class RespondAppointmentController extends Controller{
             RespondAppointmentModel::insertData($reply,$approve,$validity,$appointmentID);
             echo("
                 <script>
-                    document.getElementById('message1').style.display = 'none';
+                    document.getElementById('messageFirst').style.display = 'none';
                     window.location.href=document.location.href.toString().split('respondAppointment')[0]+'respondAppointment';
                 </script>
             ");
@@ -32,7 +32,7 @@ class RespondAppointmentController extends Controller{
             RespondAppointmentModel::insertData($reply,$approve,$validity,$appointmentID);
             echo("
                 <script>
-                    document.getElementById('message1').style.display = 'none';
+                    document.getElementById('messageFirst').style.display = 'none';
                     window.location.href=document.location.href.toString().split('respondAppointment')[0]+'respondAppointment';
                 </script>
             ");

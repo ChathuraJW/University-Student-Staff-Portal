@@ -9,6 +9,7 @@ class RequestAppointmentController extends Controller{
         $lecturers=RequestAppointmentModel::getLectures();
         $profiles=RequestAppointmentModel::getProfile();
         $records=RequestAppointmentModel::getData($studentID);
+        
         $passingData=array($lecturers,$profiles,$records);
         
         self::createView("requestAppointmentView",$passingData);
@@ -18,7 +19,7 @@ class RequestAppointmentController extends Controller{
             $lecturer=$_POST['lecturer'];
             $type=$_POST['type'];
             $title=$_POST['title'];
-            $timeDuration=$_POST['durat'];
+            $timeDuration=$_POST['durationInput'];
             $message=$_POST['msg'];
             $date=$_POST['date'];
             $time=$_POST['time'];
