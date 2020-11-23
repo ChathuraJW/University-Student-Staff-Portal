@@ -8,6 +8,10 @@
     font-family: BioRhyme;
     src: url('../font/BioRhyme-Regular.ttf');
 }
+@font-face {
+    font-family: Alegreya;
+    src: url('../font/Alegreya-Italic.ttf');
+}
 
 /*colors for notificationBlocks*/
 .blue {
@@ -41,6 +45,7 @@
     box-sizing: border-box;
 }
 
+/*styles for header of all component views*/
 header {
     text-align: center;
     width: 100%;
@@ -102,7 +107,7 @@ img {
     padding: 12px 25px;
 }
 
-/*footer styles*/
+/*styles for footer of all component views*/
 .mainFooter {
     text-align: center;
     bottom: 0;
