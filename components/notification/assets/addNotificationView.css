@@ -7,6 +7,9 @@
     font-weight: bold;
     font-size: 24px;
 }
+.container{
+    margin: 60px;
+}
 input[type=text]{
     width: 50%;
     padding: 8px;
@@ -71,4 +74,33 @@ textarea{
 .category{
     margin-bottom: 15px;
     margin-top: 15px;
+}
+/*radioToolbar*/
+.radioToolbar input[type="radio"] {
+    display: none;
+
+}
+.radioToolbar label {
+    display: inline-block;
+    background-color: #ddd;
+    padding: 8px 20px;
+    font-size: 17px;
+    cursor: pointer;
+    position: relative;
+    height: 50px;
+    width:100%;
+    text-align: center;
+    /*padding: 5px;*/
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.radioToolbar input[type="radio"]:checked+label {
+    background-color: rgb(169, 177, 174)
+}
+textarea {
+    resize: none;
+}
+.textareaStyle{
+    padding: 10px;
+    text-align: center;
 }

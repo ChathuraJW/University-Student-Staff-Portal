@@ -16,7 +16,7 @@
     <?php BasicLoader::loadHeader('../../')?>
     
     <div class="featureBody">
-        <form id="form" method ="post">
+        <form id="form" method ="post" class="container">
             <div class="row col-1">
                 <p class="heading">Announcements</p>
             </div>
@@ -116,17 +116,32 @@
 
                 </div>
             </div>
-            <div class="category">
-                <label class="subHeading" id="category">Category:</label>
-                <select>
-                    <option>Director Notices</option>
-                    <option>Social and Events</option>
-                    <option>Fundraising Events</option>
-                    <option>Administrative and Exam</option>
-                    <option>Assignment, Scholarship and Lecture Re-scheduling</option>
-                </select>
+            <div><label class="subHeading" id="category">Category:</label></div>
+            <div class="radioToolbar row col-5" >
+                <div>
+                    <input value="1" type="radio"  id = "radioDirectorNotices" name="category">
+                    <label class ="" for = "radioDirectorNotices">Director Notices</label>
+                </div>
+                <div>
+                    <input value="2" type="radio"  id = "radioSocial&Events" name="category">
+                    <label class ="" for = "radioSocial&Events">Social & Events</label>
+                </div>
+                <div>
+                    <input value="3" type="radio"  id = "radioFundraisingEvents" name="category">
+                    <label class ="" for = "radioFundraisingEvents">Fundraising Events</label>
+                </div>
+                <div>
+                    <input value="4" type="radio"  id = "radioAdministrative&Exam" name="category">
+                    <label class ="" for = "radioAdministrative&Exam">Administrative & Exam</label>
+                </div>
+                <div>
+                    <input value="5" type="radio"  id = "radioAssignmentScholarship&LectureRe-scheduling" name="category">
+                    <label class ="" for = "radioAssignmentScholarship&LectureRe-scheduling">Assignment, Scholarship & Lecture Re-scheduling</label>
+                </div>
+
+            </div>
                 <div class="row col-1">
-                    <textarea name="title" rows="2" cols="130" placeholder="title"></textarea>
+                    <textarea class="textareaStyle" name="title" rows="1" cols="130" placeholder="title"></textarea>
                 </div>
                 <div class="row col-1">
                     <textarea name="message" rows="7" cols="130" placeholder="message"></textarea>
@@ -136,10 +151,10 @@
                             <button class="submitButton red"><i class="fa fa-ban" aria-hidden="true"></i> Cancel</button>
                         </div>
                         <div class="buttonContainer">
-                            <button class="submitButton green"type="submit" ><i class="fa fa-upload" aria-hidden="true"></i> Send</button>
+                            <button class="submitButton green" type="submit" ><i class="fa fa-upload" aria-hidden="true"></i> Send</button>
                         </div>
                     </div>
-            </div>
+                </div>
 
 
 
