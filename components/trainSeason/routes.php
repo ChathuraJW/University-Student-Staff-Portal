@@ -12,6 +12,10 @@ Route::set('application', function () {
     ApplicationController::application();
 });
 
+Route::set('checkedApplication', function () {
+    CheckedApplicationController::checkedApplication();
+});
+
 
 // check weather the given file exist on the site if not redirect to 404 page
 $available = FALSE;
