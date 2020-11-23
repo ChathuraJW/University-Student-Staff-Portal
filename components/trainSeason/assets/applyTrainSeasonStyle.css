@@ -34,7 +34,8 @@
     width: 500px;
     height: 200px;
     position: relative;
-    border: 3px solid green;
+    
+    box-shadow: 8px 8px 16px 8px grey;
     
 }
 
