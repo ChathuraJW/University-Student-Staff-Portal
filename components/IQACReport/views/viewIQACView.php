@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="assets/viewIQACStyle.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" />
      
      
      
@@ -23,27 +23,34 @@
     
       <div class="featureBody">
          <h1><b>View IQAC Report</b></h1>
-         <div class="container">
-          <br> 
-          <select name="academicYear" id="academicYear" class="academicYear">
-            <option value="Select Academic Year">Select Academic Year</option>
-            <option value="2018/2019">2018/2019</option>
-            <option value="2017/2018">2017/2018</option>
-            <option value="2016/2017">2016/2017</option>
-          </select>
-          <br><br>
-          <select name="course" id="course" class="course">
-            <option value="Select Course Code">Select Course Code</option>
-            <option value="SCS1201">SCS1201</option>
-            <option value="SCS1202">SCS1202</option>
-            <option value="SCS1203">SCS1203</option>
-          </select>
-          <br>
-          <br>
-          <input type="button" onclick="searchFunction()" value="Search" id="search" action="" class="search" >
-          <br><br>
-          <button class="download"  disabled="disabled" id="download" ><i class="fa fa-download"></i> Download  </button>
-           <br><br>
+         <div class="container"> 
+         <br>
+          <div class="dropdownList"> 
+          <br> <br>
+            <select name="academicYear" id="academicYear" class="academicYear">
+              <option value="Select Academic Year">Select Academic Year</option>
+              <option value="2018/2019">2018/2019</option>
+              <option value="2017/2018">2017/2018</option>
+              <option value="2016/2017">2016/2017</option>
+            </select>
+            <br><br>
+            <select name="course" id="course" class="course">
+              <option value="Select Course Code">Select Course Code</option>
+              <option value="SCS1201">SCS1201</option>
+              <option value="SCS1202">SCS1202</option>
+              <option value="SCS1203">SCS1203</option>
+            </select>
+            <br>
+            <br>
+            <br>
+            </div>
+            <br>
+            <br>
+            <input type="button" onclick="searchFunction()" value="Search" id="search" action="" class="search" >
+            <br><br>
+            <button class="download"  disabled="disabled" id="download" ><i class="fa fa-download"></i> Download </button>
+            <br><br>
+           
         </div>
         <br><br>
       </div>

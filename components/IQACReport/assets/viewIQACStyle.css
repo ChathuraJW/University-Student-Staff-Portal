@@ -1,20 +1,32 @@
 .academicYear{
     font-size: 18px;
-    box-shadow: 0 8px 16px 0 rgb(95, 93, 93);
+    box-shadow: 0 8px 16px 0 rgb(160, 157, 157);
     border-radius: 4px;
     padding: 4px;
     position: relative;
-    left: 25%;
+    left: 18%;
+    background-color: rgba(204, 127, 83, 0.815); 
+    
 
+}
+
+.dropdownList{
+    box-shadow: 0 8px 16px 0 rgb(160, 157, 157);
+    width: 300px;
+    position: relative;
+    left: 20%;
+    
 }
 
 .course{
     font-size: 18px;
-    box-shadow: 0 8px 16px 0 rgb(95, 93, 93);
+    box-shadow: 0 8px 16px 0 rgb(160, 157, 157);
     border-radius: 4px;
     padding: 4px;
     position: relative;
-    left: 25%;
+    left: 20%;
+    background-color: rgba(204, 127, 83, 0.815); 
+    
     
 }
 
@@ -23,7 +35,7 @@
     left: 30%;
     box-shadow: 0 8px 16px 0 rgb(95, 93, 93);
     width: 500px;
-    background-color: rgb(184, 236, 216);
+
     border-radius: 4px;
 }
 
@@ -33,17 +45,21 @@
     padding: 4px;
     border-radius: 4px;
     position: relative;
-    left: 40%;
-    box-shadow: 0 8px 16px 0 rgb(95, 93, 93);
+    left: 45%;
+    box-shadow: 0 8px 16px 0  rgb(160, 157, 157);
+    font-size: 14px;
+    cursor: pointer;
 }
 
 .download{
     position: relative;
-    left: 37%;
+    left: 42%;
     cursor: pointer;
     font-size: 14px;
     padding: 4px;
     border-radius: 4px;
+    background-color: rgb(12, 14, 145);
+    color: white;
 }
 
 
