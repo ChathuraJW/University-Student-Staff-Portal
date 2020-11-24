@@ -1,5 +1,10 @@
 /*fonts*/
 @font-face {
+    font-family: Alegreya;
+    src: url('../font/Alegreya-Italic.ttf');
+}
+
+@font-face {
     font-family: Varela;
     src: url('../font/Varela-Regular.ttf');
 }
