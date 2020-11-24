@@ -30,6 +30,7 @@
             <div class="myAppointments" >
                                 
                 <div class="row col-1">
+<!--                    in this section will list all the user maked appointments-->
                     <h3 id="head">My Appointments </h3>
                 </div>
                 <?php $records=$controllerData[2];?>
@@ -83,6 +84,7 @@
             
             <div  class="row col-1 requestForm" >
                 <div class="row col-1">
+<!--                    this is the form which use for make new appointments.-->
                     <h2 id="head">New Appointment</h2>
                 </div>
                 <form action="" class="getAppointmentForm" method="post" enctype="multipart/form-data">
@@ -150,7 +152,7 @@
         </div>
         <div id="tabSecond" class="tabContainSecond" style="display:none;" >
             <div   class="availability" >
-                
+<!--                this section will display the all the profile details and availability of the aech lecture-->
                     <div class="row col-1">
                         <h2 id="head" >Available Lecturers</h2>
                     </div>

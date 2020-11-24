@@ -4,7 +4,7 @@ class RequestAppointmentController extends Controller{
     //     parent::__construct();
     // }
     public static function open(){
-        setcookie('userName','2018cs183');
+//        setcookie('userName','2018cs183');
         $studentID=$_COOKIE['userName'];
         $lecturers=RequestAppointmentModel::getLectures();
         $profiles=RequestAppointmentModel::getProfile();

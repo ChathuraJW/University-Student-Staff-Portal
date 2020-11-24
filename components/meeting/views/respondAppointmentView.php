@@ -23,6 +23,7 @@
                     <div class="row col-1">
                         <h2 id="head" >New Appointments</h2>
                     </div>
+<!--                    In this div will list all the new appointments-->
                     <div class="list" >
 
                         <?php 
@@ -65,7 +66,7 @@
                         ?>
                     </div>
                 </div>
-            
+<!--            In this div will list all the replied appointments-->
                 <div class="subTab previousAppointments">
                     <div class="row col-1">
                         <h2 id="head">Replied History</h2>
@@ -118,7 +119,7 @@
                 </div>
             </div>
             <div style="min-height:650px;">
-                
+<!--                In here display the new appointment with the details and get a reply as a input-->
                 <?php if(isset($_GET['category1'])):?>
                     <div>
                         <div id="messageFirst" class="appointmentMessage"  >
@@ -204,6 +205,7 @@
                             $isApproved='Rejected';
                         }   
                     ?>
+<!--                this div will display a replied appointments in detail-->
                     <div id="message2" class="appointmentMessage"  >
                         <div id="messageContent2" class="content">
                             <span class="close"onclick="remove('message2')">&times;</span>
