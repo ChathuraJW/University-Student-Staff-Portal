@@ -144,7 +144,7 @@
                     <textarea class="textareaStyle" name="title" rows="1" cols="130" placeholder="title"></textarea>
                 </div>
                 <div class="row col-1">
-                    <textarea name="message" rows="7" cols="130" placeholder="message"></textarea>
+                    <textarea class="textareaStyle" name="message" rows="7" cols="130" placeholder="message"></textarea>
                 </div>
                 <div class="row col-2">
                         <div class="buttonContainer">
