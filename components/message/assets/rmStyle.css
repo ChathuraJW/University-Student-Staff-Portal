@@ -6,6 +6,23 @@
   font-family: Varela;
   src: url('../../../assets/font/Varela-Regular.ttf');
 }
+
+.back{
+  border: none;
+  color: white;
+  background-color: rgb(168, 23, 23);
+  padding: 8px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px 0 grey;
+  position: relative;
+  left: 1%;
+}
 /*.featureBody ul{
     background: gray;
     padding: 10px;

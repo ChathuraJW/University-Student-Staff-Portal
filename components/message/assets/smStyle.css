@@ -51,18 +51,18 @@
 .contacts{
     padding: 10px;
     margin: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 8px 16px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 10px;
-    background-color: rgb(198, 241, 198) ;
+     
     border-radius: 6px;
 }
 
 .message{
   padding: 10px;
   margin: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 8px 16px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 10px;
-  background-color: rgb(198, 241, 198) ;
+   
   border-radius: 6px;
 }
 
@@ -118,6 +118,22 @@
   box-shadow: 0 8px 16px 0 grey;
 }
 
+.receiveMessages{
+  border: none;
+  color: white;
+  background-color: rgb(18, 18, 112);
+  padding: 8px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px 0 grey;
+  position: relative;
+  left: 44%;
+}
  
 
  

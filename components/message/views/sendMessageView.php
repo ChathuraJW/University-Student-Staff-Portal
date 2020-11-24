@@ -27,6 +27,11 @@
          
             <h1><b> Send Messages </b></h1>
             <br>
+            <a class=inbox href="receiveMessage">
+           
+              <button class="receiveMessages" id="receiveMessages">Inbox</button>
+            </a>
+
             <a class=sentBox href="sentBox">
            
               <button class="sentMessages" id="sentMessages">Sent Box</button>
@@ -99,7 +104,8 @@
              
             <label style="text-align: left;">Contacts </label>
             <br>
-            <textarea cols="50" rows="3" name="contacts" style="font-size:15px; border-radius: 6px; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);" id="contacts" readonly></textarea>
+            <textarea cols="70" rows="3" name="contacts" style="font-size:15px; border-radius: 6px; box-shadow: 0 8px 16px 0 gray;" id="contacts" readonly></textarea>
+            <br><br>
           </div>
 
           <div class="message">
@@ -107,7 +113,7 @@
               <br>
               <label> Title </label> 
               <br>
-              <textarea name = "title" cols="50" style="border-radius: 6px; font-size:16px; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);"></textarea>
+              <textarea name = "title" cols="50" style="border-radius: 6px; font-size:16px; box-shadow:0 8px 16px 0 gray;"></textarea>
              
 
              
@@ -117,7 +123,7 @@
              
               <label> Message </label>
               <br>
-              <textarea name = "message" rows="5" cols="50" style="font-size:16px;  box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2); border-radius: 6px"></textarea>
+              <textarea name = "message" rows="5" cols="50" style="font-size:16px;  box-shadow:0 8px 16px 0 gray; border-radius: 6px"></textarea>
              
 
             <br>

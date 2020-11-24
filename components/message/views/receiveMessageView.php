@@ -17,6 +17,10 @@
     <!-- feature body section -->
     <div class="featureBody">
       <span class="heading">Message Inbox</span>
+        <a class=backToPage href="sendMessage">
+           
+          <button class="back" id="back">Back</button>
+        </a>
       <div class="row col-2">
         <div class="messageList">
 

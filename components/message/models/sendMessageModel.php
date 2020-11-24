@@ -2,21 +2,21 @@
     class sendMessageModel extends Model{
         public static function getAcademic()
         {
-            $sqlQuery1 = "SELECT userName,fullName FROM user WHERE role='ac'";
+            $sqlQuery1 = "SELECT userName,fullName FROM user WHERE role='AS'";
             return Database::executeQuery("root","",$sqlQuery1);
     
         }
 
         public static function getAdministrative()
         {
-            $sqlQuery2 = "SELECT userName,fullName FROM user WHERE role='ad'";
+            $sqlQuery2 = "SELECT userName,fullName FROM user WHERE role='AD'";
             return Database::executeQuery("root","",$sqlQuery2);
 
         }
 
         public static function getAcademicSupportive()
         {
-            $sqlQuery3 = "SELECT userName,fullName FROM user WHERE role='as'";
+            $sqlQuery3 = "SELECT userName,fullName FROM user WHERE role='SP'";
             return Database::executeQuery("root","",$sqlQuery3);
         }
 
