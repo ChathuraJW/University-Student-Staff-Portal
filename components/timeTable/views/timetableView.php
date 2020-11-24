@@ -18,7 +18,9 @@
     <div class="featureBody" >
         <div  id="main"  >
             <h2 class="head">Time Table</h2>
+            <!-- the structure of the timetable is create in here  -->
             <table id="timetable">
+            <!-- Display the dates of the table -->
                 <tr>
                     <th></th>
                     <th class="day" id="monday" >Monday</th>
