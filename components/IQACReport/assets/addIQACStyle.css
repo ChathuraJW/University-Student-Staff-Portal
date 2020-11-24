@@ -4,9 +4,19 @@
     border-radius: 4px;
     padding: 4px;
     position: relative;
-    left: 25%;
-
+    left: 32%;
+    background-color: rgba(204, 127, 83, 0.815);
 }
+
+.heading{
+    text-align: center;
+}
+
+.featureBody{
+    font-family: Varela;
+    src: url('../../../assets/font/Varela-Regular.ttf');
+}
+
 
 .course{
     font-size: 18px;
@@ -14,27 +24,28 @@
     border-radius: 4px;
     padding: 4px;
     position: relative;
-    left: 25%;
+    left: 35%;
+    background-color: rgba(204, 127, 83, 0.815);
     
 }
 
 .container{
     position: relative;
-    left: 30%;
+    left: 25%;
     box-shadow: 0 8px 16px 0 rgb(95, 93, 93);
-    width: 500px;
-    background-color: rgb(184, 236, 216);
+    width: 700px;
+    
     border-radius: 4px;
 }
 
 .file{
     position: relative;
-    left: 25%;
+    left: 22%;
     border: groove;
-    width: 250px;
+    width: 400px;
     padding: 8px; 
     background-color: white;
-    
+    box-shadow: 0 8px 16px 0 rgb(95, 93, 93);
 }
 
 .myFile{
@@ -46,6 +57,8 @@
     color: white;
     padding: 4px;
     border-radius: 4px;
+    position: relative;
+    left: 40%;
 }
 
  

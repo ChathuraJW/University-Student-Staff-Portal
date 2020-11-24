@@ -10,11 +10,20 @@
 
 }
 
+.featureBody{
+    font-family: Varela;
+    src: url('../../../assets/font/Varela-Regular.ttf');
+}
+
+.heading{
+    text-align: center;
+}
+
 .dropdownList{
     box-shadow: 0 8px 16px 0 rgb(160, 157, 157);
     width: 300px;
     position: relative;
-    left: 20%;
+    left: 29%;
     
 }
 
@@ -32,9 +41,9 @@
 
 .container{
     position: relative;
-    left: 30%;
+    left: 23%;
     box-shadow: 0 8px 16px 0 rgb(95, 93, 93);
-    width: 500px;
+    width: 700px;
 
     border-radius: 4px;
 }
@@ -45,7 +54,7 @@
     padding: 4px;
     border-radius: 4px;
     position: relative;
-    left: 45%;
+    left: 47%;
     box-shadow: 0 8px 16px 0  rgb(160, 157, 157);
     font-size: 14px;
     cursor: pointer;
@@ -53,7 +62,7 @@
 
 .download{
     position: relative;
-    left: 42%;
+    left: 44%;
     cursor: pointer;
     font-size: 14px;
     padding: 4px;

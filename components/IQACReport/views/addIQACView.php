@@ -16,7 +16,7 @@
     
     <!-- feature body section -->
     <div class="featureBody">
-      <h1><b>Add IQAC Report</b></h1>
+      <h1 class="heading"><b>Add IQAC Report</b></h1>
       <br>
       <div class="container">
         <br> 
@@ -40,7 +40,7 @@
             <input type="file" id="file" name="file" class="myFile"><br><br>
             <input type="submit" class="submit">
           </form>
-          <br>
+          <br><br>
         </div>
       </div>
       <br><br>

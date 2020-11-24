@@ -20,13 +20,18 @@
     
     <!-- feature body section -->
      
-    
+     
       <div class="featureBody">
-         <h1><b>View IQAC Report</b></h1>
+      <div class="row col-1">
+         <h1 class="heading"><b>View IQAC Report</b></h1><br>
+         </div>
+          
          <div class="container"> 
+
          <br>
           <div class="dropdownList"> 
           <br> <br>
+           
             <select name="academicYear" id="academicYear" class="academicYear">
               <option value="Select Academic Year">Select Academic Year</option>
               <option value="2018/2019">2018/2019</option>
@@ -43,7 +48,8 @@
             <br>
             <br>
             <br>
-            </div>
+         
+          </div>
             <br>
             <br>
             <input type="button" onclick="searchFunction()" value="Search" id="search" action="" class="search" >
@@ -53,8 +59,8 @@
            
         </div>
         <br><br>
+
       </div>
-       
 
 
     <!-- include footer section -->
