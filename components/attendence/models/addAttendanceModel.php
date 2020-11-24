@@ -23,6 +23,7 @@ class AddAttendanceModel extends Model{
                 $enrollmentID = self::getEnrollmentID($studentIndex, $subject, $attempt);
                 // echo(" $enrollmentID $date $week $attendance $description");
                 $sqlQuery = "INSERT INTO attendance (enrollmentID, date, week, attendance, description, uploadTimestamp) VALUES ($enrollmentID, '$date', $week, $attendance, '$description', current_timestamp());";
+                self::createAudit($sqlQuery, 'attendance', "INSERT", 'Insert a new attendance to the system.');
                 // echo($query);
                 // print_r($sqlQuery);
                 Database::executeQuery("root","",$sqlQuery);

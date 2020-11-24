@@ -1,3 +1,5 @@
+
+
 //For upload csv dropdown
 let currentYear = new Date().getFullYear();
 // fill data to examination year dropdown
@@ -53,7 +55,7 @@ function displayForm(radioInput){
         document.getElementById("editAttendanceForm").style.display="none";
     }
 }
-
+let subjectCode;
 //when submit edit attendance search form make visible searched attendance data.
 function displayAttendance(){
 
@@ -62,26 +64,55 @@ function displayAttendance(){
 
     let index = document.getElementById("index").value;
     let attempt = document.getElementById("attempt").value;
-    let subjectCode = document.getElementById("subject").value;
+    subjectCode = document.getElementById("subject").value;
+    subjectName = document.getElementById("subject").innerText;
 
     const getAttendanceForEditURL = "http://localhost/USSP/assets/API/getAttendanceDataAPI.php?activity=getAttendanceForEdit&studentIndex="+index+"&attempt="+attempt+"&subjectCode="+subjectCode;
     $.getJSON(getAttendanceForEditURL, function (attendance) {
         // console.log(attendance);
         for(var i in attendance) {
-            console.log(i);
-            console.log(attendance[i]['date']);
-            document.getElementById("date"+i).value = "attendance[i]['date']";
+            let week = "week "+attendance[i]['week'];
+            let data = attendance[i]['date'];
+            let description = attendance[i]['description'];
+            let color = (attendance[i]['attendance']==1 ? 'green':'red');
+
+            document.getElementById("week"+i).innerHTML = week;
+            document.getElementById("date"+i).innerHTML = data;
+            document.getElementById("attendanceType"+i).innerHTML = description;
+            document.getElementById(i).style.backgroundColor = color;
         }
     }
     );
 }
-
 //when clicking one of attendance, load edit attendacnce form
-function editAttendanceForm(){
+function editAttendanceForm(week){
     document.getElementById("editAttendanceForm").style.visibility='visible';
     document.getElementById("editAttendanceForm").style.display="";
+    // let weekDetail = "Week: "+week.value;
+    document.getElementById("editWeek").value = week.value;
+    document.getElementById("editSunjectCode").value = subjectCode;
 }
+//Update attendance
+function updateAttendance() {
+    let attendance;
+    let week = document.getElementById("editWeek").value;
+    let subjectCode = document.getElementById("editSunjectCode").value;
+    let description = document.getElementById("editDescription").value;
+    let index = document.getElementById("index").value;
+    let attempt = document.getElementById("attempt").value;
+    if (document.getElementById("radioAttended").checked) {
+        attendance = document.getElementById("radioAttended").value;
+    } else if (document.getElementById("radioNotAttended").checked) {
+        attendance = document.getElementById("radioNotAttended").value;
+    }
 
+    const updateAttendanceURL = "http://localhost/USSP/assets/API/getAttendanceDataAPI.php?activity=updateAttendance&studentIndex=" + index + "&attendance=" + attendance + "&subjectCode=" + subjectCode + "&description=" + description + "&week=" + week + "&attempt=" + attempt;
+    $.getJSON(updateAttendanceURL, function (attendance) {
+            console.log(attendance);
+
+        }
+    );
+}
 //CSV file operation
 let attendanceCSVFile = document.getElementById("attendanceFile");
 let attendanceCSVFileLabel = document.getElementById("attendanceFileLabel");

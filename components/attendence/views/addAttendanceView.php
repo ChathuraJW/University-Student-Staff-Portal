@@ -218,15 +218,16 @@
                                         // print_r($controllerData[2]);
                                     ?>
                                 <?php
-                                    for($att=1; $att<=15;$att++)
+                                    for($att=0; $att<15;$att++)
                                     {
+                                        $value = $att+1;
                                         
                                         echo("
-                                        <div class='attendance'>
-                                        <input name='attendanceSet' type='radio' id='attendance$att' class='attendance' value='$att' onclick='editAttendanceForm()'>
+                                        <div class='attendance' id='$att'>
+                                        <input name='attendanceSet' type='radio' id='attendance$att' class='attendance' value='$value' onclick='editAttendanceForm(this)'>
                                         <label for='attendance$att' class='textStyle' id='week$att'></label><br>
                                         <label for='attendance$att' class='textStyle' id='date$att'></label><br>
-                                        <label for='attendance$att' id='attendanceType$att'></label><br>
+                                        <label for='attendance$att' class='textStyle' id='attendanceType$att'></label><br>
                                         </div>");
                                     }
                                     
@@ -234,35 +235,35 @@
                                 </div>   
                                 <div style="display:block position:relative" class="editAttendanceForm row col-1" id="editAttendanceForm">
                                     <div class="editTopic row col-1">
-                                        <p>Edit Attendance</p>
+                                        <p class="editAttendance">Edit Attendance</p>
                                     </div>
                                     <div class="row col-2">
                                         <div class="editSubTopic">
-                                            <label>2<sup>nd</sup>Week</label>
+                                            <label for="editWeek">Week:</label>
+                                            <input type="text" id="editWeek" disabled>
                                         </div>
                                         <div class="editSubTopic">
-                                            <label>Computer Science</label>
+                                            <label for="editSunjectCode">Subject Code:</label>
+                                            <input id="editSunjectCode" disabled>
                                         </div>
                                     </div>
                                     <div class="editRadioToolbar row col-2">
-                                        <input value="1" type="radio"  id = "radioAttended" name="formSelector">
+                                        <input value="1" type="radio"  id = "radioAttended"  name="formSelector">
                                         <label class ="containerPopup" for = "radioAttended">Attended</label>
-                                        <input value="2" type="radio" id = "radioNotAttended" name="formSelector">
+                                        <input value="0" type="radio" id = "radioNotAttended" name="formSelector">
                                         <label class ="containerPopup" for ="radioNotAttended">Not Attended</label>
                                     </div>
                                     <div class="row col-1">
                                          <label for="editDescription">Description</label>
                                         <textarea name="editDescription" id="editDescription"></textarea>
                                     </div>
-                                    <div class="row col-4" id="buttonsCSV" >
-                                        <div></div>
-                                        <div class = "">
+                                    <div class="row col-2" id="buttonsCSV" >
+                                        <div class = "buttonStyle">
                                             <input type="submit" value = "Cancel"  class="submitCancelButton red ">
                                         </div>
-                                        <div class = "">
-                                            <input type ="submit" value = "Upload"  class="submitCancelButton green ">
+                                        <div class = "buttonStyle">
+                                            <input type ="button" value = "Upload"  class="submitCancelButton green " onclick="updateAttendance()">
                                         </div>
-                                        <div></div>
                                     </div>
                                 </div>  
                             </div>

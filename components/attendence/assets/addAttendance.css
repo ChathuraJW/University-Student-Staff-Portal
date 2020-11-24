@@ -4,14 +4,14 @@
 }
 .radioToolbar label {
     display: inline-block;
-    background-color: #ddd;
+    background-color:lightgray;
     padding: 8px 20px;
     font-size: 35px;
     cursor: pointer;
     position: relative;
 }
 .radioToolbar input[type="radio"]:checked+label {
-    background-color: rgb(169, 177, 174)
+    background-color: rgb(169, 177, 174);
 }
 .container{
     text-align: center;
@@ -24,7 +24,7 @@
     font-size: 22px;
     margin-left: auto;
     margin-right: auto;
-} 
+}
 .dropDown{
     height:50px;
     width:300px;
@@ -74,16 +74,13 @@ sup {
 } 
 
 .attendance{
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 5px;
-    padding-top: 5px;
+    padding: 5px;
     text-align: center;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    border-radius: 5px; 
+    margin: 5px;
+    border-radius: 5px;
+    background-color: lightgray;
+    color: white;
+    cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .attendanceContainer{
@@ -93,22 +90,20 @@ sup {
 .clickableDiv{
     text-decoration:none;
 }
-.attendance:hover{
-    background-color:#d0e7ab;
-}
+
  /* popup radio button */
-.radioToolbarPopup input[type="radio"] {
+.editRadioToolbar input[type="radio"] {
   display: none;
 
 }
-
-.editRadioToolbarPopup label {
+.editRadioToolbar label {
     display: inline-block;
-    background-color: #ddd;
+    background-color: lightgray;
     padding: 8px 20px;
-    font-size: 22px;
+    font-size: 18px;
     cursor: pointer;
     position: relative;
+    text-align: center;
 }
 .editRadioToolbar input[type="radio"]:checked+label {
   background-color: rgb(169, 177, 174)
@@ -118,14 +113,17 @@ sup {
     margin-left: auto;
     margin-right: auto;
     font-weight: bold;
+    text-align: center;
 }
 .editSubTopic{
   font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .editAttendanceForm{
     display: block;
 }
-input[type="file"]{
+input[type="file"],input[type="radio"]{
     display: none;
 }
 #attendanceFileLabel{
@@ -156,6 +154,12 @@ input[type="file"]{
     padding: 9px;
     margin: 4px;
     width: 200px;
+}
+.textStyle{
+    cursor: pointer;
+}
+textarea{
+    resize: none;
 }
 
   
