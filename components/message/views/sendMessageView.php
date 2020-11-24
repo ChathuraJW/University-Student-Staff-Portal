@@ -165,16 +165,17 @@
               foreach ($controllerData[3] as $data){
                 if($data['messageID']==$_GET['messageID']){
                   
-                  echo ("
+                  
+                  
+                }
+                echo ("
                     <span class='senderDetail'>Sender: ".$data['sendBy']."</span><br>
                     <span class='SendTimestampDetail'>Send at: ".$data['timestamp']."</span><br>
                     <span class='titleDetail'>".$data['title']."</span><br>
                     <span class='messageDetail'>".$data['message']."</span><br>
                      
                     
-                  ");
-                  break;
-                }  
+                  ");  
               }
               
             }

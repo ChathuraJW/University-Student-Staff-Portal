@@ -45,22 +45,29 @@
         <div class="displayMessage">
           <?php
             if(isset($_GET['messageID'])){
+              $receivedBy="";
               foreach ($controllerData as $data){
-                 
+                  
                 if($data['messageID']==$_GET['messageID']){
+                  $receivedBy .= $data['receivedBy'];
+                  $receivedBy .="  ";
+                  $timestamp=$data['timestamp'];
+                  $title=$data['title'];
+                  $message=$data['message'];
                   
-                  echo ("
+                }  
+                
                   
-                    <span class='senderDetail'>Received To : ".$data['receivedBy']."</span><br>
-                    <span class='SendTimestampDetail'>Send at: ".$data['timestamp']."</span><br>
-                    <span class='titleDetail'>".$data['title']."</span><br>
-                    <span class='messageDetail'>".$data['message']."</span><br>
+              }
+              echo ("
+                  
+                    <span class='senderDetail'>Received To : ".$receivedBy."</span><br>
+                    <span class='SendTimestampDetail'>Send at: ".$timestamp."</span><br>
+                    <span class='titleDetail'>".$title."</span><br>
+                    <span class='messageDetail'>".$message."</span><br>
                      
                     
                   ");
-                  break;
-                }  
-              }
               
             }
           ?>
