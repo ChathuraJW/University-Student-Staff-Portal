@@ -4,7 +4,7 @@
     border-radius: 4px;
     padding: 4px;
     position: relative;
-    left: 18%;
+    left: 35%;
     background-color: rgba(204, 127, 83, 0.815); 
     
 
@@ -19,11 +19,14 @@
     text-align: center;
 }
 
-.dropdownList{
-    box-shadow: 0 8px 16px 0 rgb(160, 157, 157);
-    width: 300px;
+.buttonSet{
     position: relative;
-    left: 29%;
+    left: 30%;
+    border: groove;
+    width: 300px;
+    padding: 8px; 
+    background-color: white;
+    box-shadow: 0 8px 16px 0 rgb(95, 93, 93);
     
 }
 
@@ -33,7 +36,7 @@
     border-radius: 4px;
     padding: 4px;
     position: relative;
-    left: 20%;
+    left: 36%;
     background-color: rgba(204, 127, 83, 0.815); 
     
     
@@ -54,7 +57,7 @@
     padding: 4px;
     border-radius: 4px;
     position: relative;
-    left: 47%;
+    left: 10%;
     box-shadow: 0 8px 16px 0  rgb(160, 157, 157);
     font-size: 14px;
     cursor: pointer;
@@ -62,7 +65,7 @@
 
 .download{
     position: relative;
-    left: 44%;
+    left: 37%;
     cursor: pointer;
     font-size: 14px;
     padding: 4px;

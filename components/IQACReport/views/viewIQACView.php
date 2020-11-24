@@ -50,12 +50,16 @@
             <br>
          
           </div>
+          <div class="buttonSet"> 
             <br>
-            <br>
+            
+             
             <input type="button" onclick="searchFunction()" value="Search" id="search" action="" class="search" >
             <br><br>
             <button class="download"  disabled="disabled" id="download" ><i class="fa fa-download"></i> Download </button>
             <br><br>
+          </div>
+          <br><br>
            
         </div>
         <br><br>
