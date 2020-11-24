@@ -1,0 +1,192 @@
+body {
+    background-image: url("registrationBackgroundImage.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0 20px 0 20px;
+    font-family: Varela, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.input {
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.actionSection {
+    margin-top: 40px;
+}
+
+.forms {
+    color: white;
+    background-color: rgba(22, 21, 21, 0.39);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 50%;
+    margin: auto;
+    padding-bottom: 20px;
+    border-radius: 6px;
+}
+
+.mainHead {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bolder;
+    font-family: BioRhyme, sans-serif;
+    display: block;
+}
+
+input[type=text], input[type=email], input[type=number], input[type=password], input[type=date], input[type=button], input[type=submit], select {
+    width: 100%;
+    padding: 10px;
+    display: inline-block;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 8px 15px 8px 0;
+    font-size: 16px;
+}
+
+label {
+    margin-top: 8px;
+    padding-top: 8px;
+    padding-left: 1px;
+    padding-right: 5px;
+    border: none;
+}
+
+.logoSection {
+    height: 150px;
+    width: auto;
+}
+
+.toolTip {
+    position: absolute;
+    margin-top: 10px;
+    background-color: rgb(92, 91, 91);
+    width: 250px;
+    word-break: break-all;
+    border-radius: 7px;
+    padding: 10px;
+    text-align: justify;
+}
+
+.toolTip::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%; /* At the top of the tooltip */
+    left: 5%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent rgba(255, 255, 255, 0.4) transparent;
+}
+
+.profile {
+    border: none;
+
+}
+
+.popupText {
+    border-radius: 5px;
+    padding: 8px;
+    color: rgb(255, 0, 51);
+}
+
+.nameEx {
+    margin-bottom: 20px;
+}
+
+.heading {
+    margin: 30px auto 40px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: rgb(255, 255, 0);
+}
+
+.next {
+    background-color: rgb(86, 205, 50);
+}
+
+.next:hover {
+    background-color: rgb(16, 151, 23);
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+.profilePictureUpload input {
+    display: none;
+}
+
+.profilePictureUpload label {
+    width: 50%;
+    min-height: 200px;
+    height: auto;
+    margin: auto;
+    display: block;
+    border: 4px dotted #d6d1d1;
+    position: relative;
+}
+
+.profilePictureUpload img {
+    height: 80px;
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 40%;
+}
+
+
+.pages {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.pageNumber {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    border-radius: 30px;
+    padding: 13px 20px 15px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.4);
+}
