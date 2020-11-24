@@ -122,7 +122,7 @@
     </div>
     <div class="linkSection">
         <div class="row col-6">
-            <a href="#" class="tile" id="accessToVLE">
+            <a href="https://ugvle.ucsc.cmb.ac.lk/" target="_blank" class="tile" id="accessToVLE">
                 <div class="tileImage"><i class="fas fa-laptop-code fa-3x"></i></div>
                 <div class="tileDescription">Access to VLE</div>
             </a>

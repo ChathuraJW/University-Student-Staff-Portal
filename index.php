@@ -1,5 +1,4 @@
 <?php
-
 // if cookie is set
 if(isset($_COOKIE['userName'])){
     if($_COOKIE['fullName']===""){

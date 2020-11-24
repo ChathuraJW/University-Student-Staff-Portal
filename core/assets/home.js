@@ -32,7 +32,7 @@ function getCookieValue(searchKey) {
 
 //user role based feature hiding
 let userRole = getCookieValue('role');
-if (userRole == 'ST') {
+if (userRole === 'ST') {
     $('#displayGPA').show();
     $('#publishNotice').hide();
     $('#seasonRequestProcessing').hide();
@@ -50,7 +50,7 @@ if (userRole == 'ST') {
     $('#viewWorkload').hide();
     $('#allocatedWorkload').hide();
     $('#usspSystemConfig').hide();
-} else if (userRole == 'AS') {
+} else if (userRole === 'AS') {
     $('#displayGPA').hide();
     $('#studentResult').hide();
     $('#studentAttendance').hide();
@@ -108,3 +108,17 @@ if (userRole == 'ST') {
     $('#viewWorkload').hide();
     $('#updateAvailability').hide();
 }
+
+// add navigation links
+jQuery.get('assets/navigationLinks.xml', function (fileContent) {
+    const idList= $(fileContent).find("feature").find("id").toArray();
+    const pathList= $(fileContent).find("feature").find("path").toArray();
+    const isAliveList= $(fileContent).find("feature").find("isAlive").toArray();
+    for (let i = 0; i < idList.length; i++) {
+        if(isAliveList[i]['innerHTML'])
+            document.getElementById(idList[i]['innerHTML']).href="../../"+pathList[i]['innerHTML'];
+        else
+            document.getElementById(idList[i]['innerHTML']).style.display='none';
+    }
+
+});

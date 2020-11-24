@@ -2,7 +2,7 @@
 class LoginModel extends Model{
     public static function checkUserName($userName){
         $sqlQuery = "SELECT * FROM user WHERE userName='$userName'";
-        $result = Database::executeQuery("root", "", $sqlQuery);
+        $result = Database::executeQuery("generalAccess", "generalAccess@16", $sqlQuery);
         if (sizeof($result) > 0) {
             return true;
         } else {
@@ -12,7 +12,7 @@ class LoginModel extends Model{
 
     public static function validateLogIn($userName, $password){
         $sqlQuery = "SELECT * FROM user WHERE userName='$userName'";
-        $result = Database::executeQuery("root", "", $sqlQuery);
+        $result = Database::executeQuery("generalAccess", "generalAccess@16", $sqlQuery);
         if (($result[0]["password"]) == $password) {
             return $result;
         } else {

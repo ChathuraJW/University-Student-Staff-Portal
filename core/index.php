@@ -9,5 +9,4 @@
             require_once "./models/$className.php";
         }
     }
-
 ?>
