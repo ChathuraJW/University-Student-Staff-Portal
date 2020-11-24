@@ -29,7 +29,7 @@
     <div class="row" id="topic" style="margin:auto;width:60%;">
         <div class="row col-2" style="margin:auto;">
             <img class="logoSection" src="../assets/image/universityLogo.PNG" alt="University Logos">
-            <img class="logoSection" src="../assets/image/footerLogoUSSP.png" alt="USSP Logo Logos">
+            <img class="logoSection" src="../assets/image/logoUSSP-BF.png" alt="USSP Logo Logos">
         </div>
         <span class="mainHead">University Student-Staff Portal Registration</span>
     </div>

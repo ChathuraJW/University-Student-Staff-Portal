@@ -20,8 +20,14 @@ class LoginController extends Controller{
                         setcookie('role', $loginStatus[0]['role'], time() + 8400 * 2, "/");
                         $fullName = $loginStatus[0]['firstName'] . ' ' . $loginStatus[0]['lastName'];
                         setcookie('fullName', $fullName, time() + 8400 * 2, "/");
-//                        redirect to home
-                        header("Location: home");
+//                        check weather it is first login
+                        if(LoginModel::isFirstLogin($userName)){
+//                            redirect to registration
+                            header("Location: registration");
+                        }else{
+//                            redirect to home
+                            header("Location: home");
+                        }
                     }
                 } else {
                     echo("<script>displayError();</script>");

@@ -1,3 +1,72 @@
+/*header section*/
+header {
+    text-align: center;
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background: url("../assets/homeBackground.jpg") fixed;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 85% 85% / 0;
+}
+
+header .overlay {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    color: #fff;
+    text-shadow: 1px 1px 1px #333;
+    background-image: linear-gradient(135deg, #57585a75 10%, #7b817f9c 100%)
+}
+
+.mainText {
+    text-align: center;
+    font-size: 80px;
+    margin-bottom: 30px;
+}
+
+h3, p {
+    font-family: BioRhyme, sans-serif;
+    margin-bottom: 30px;
+}
+
+img {
+    width: 100%;
+}
+
+.imgSection {
+    width: 15%;
+    display: inline-block;
+}
+
+.textSection {
+    width: 65%;
+    display: inline-block;
+    text-align: center;
+    font-family: Varela, sans-serif;
+    font-weight: bold;
+}
+
+.uniName {
+    font-size: 25px;
+    font-family: Alegreya, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+}
+
+@media screen and (max-width: 650px) {
+    .imgSection,
+    .textSection {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    img {
+        width: 150%;
+    }
+}
+
 /*topSection styles*/
 .topSection {
     border: 2px solid #a5a2a2;
@@ -46,6 +115,7 @@
     padding: 15px;
     overflow: hidden;
 }
+
 .userInfo .name {
     font-size: 25px;
     font-weight: bold;
@@ -110,6 +180,7 @@
     padding: 6px;
     overflow: hidden;
 }
+
 /*notification entry styles*/
 .notificationEntry, .notificationEntryTimeTable {
     display: block;
@@ -126,7 +197,7 @@
 .notificationEntryTimeTable {
     width: 95%;
     padding-left: 8px;
-    background-color: #d2691ec7;
+    background-color: #d2691e94;
     border: #24160c;
 }
 
@@ -144,6 +215,7 @@
     padding: 20px;
     margin: 20px;
 }
+
 /*link tile styles*/
 .tile {
     height: 200px;

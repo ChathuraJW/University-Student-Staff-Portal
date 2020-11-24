@@ -1,26 +1,30 @@
 <?php
-class BasicLoader{
+
+class BasicLoader
+{
     public static function loadHeader($positionNotation){
         echo("
         <header>
-            <div class='overlay'>
-                    <div class='imgSection'>
-                        <img src='{$positionNotation}assets/image/logoUOC.png' alt='UOC_logo'/>
-                    </div>
-                    <div class='textSection'>
-                        <span class='mainText'>University Student-Staff Portal</span>
-                    </div>
-                    <div class='imgSection'>
-                        <img src='{$positionNotation}assets/image/logoUCSC.png' alt='UCSC_logo'/>
-                    </div>
-                <h3 class='uniName'>University of Colombo School of Computing<br>Sri Lanka</h3>
-            </div>
-        </header>
-        <div class='loginInfo'>
-            <h4>Login as ".$_COOKIE['fullName']." &nbsp;<span><a href='{$positionNotation}assets/php/logout.php' style='color: white;'><i class='fas fa-sign-out-alt' style='color: white;'></i></a></span></h4>
+    <div class='overlay row col-3'>
+        <div class='imgSection'>
+            <img src='{$positionNotation}assets/image/universityLogo.png' alt='UOC_logo'/>
         </div>
+        <div class='textSection'>
+            <span class='mainText'>University Student-Staff Portal</span><br>
+            <span class='uniName'>University of Colombo School of Computing<br>Sri Lanka</span>
+        </div>
+        <div class='imgSection'>
+            <img src='{$positionNotation}assets/image/logoUSSP.png' alt='UCSC_logo'/>
+        </div>
+    </div>
+</header>
+<div class='loginInfo'>
+    <span class='backToHome' style='float: left;'><a href='../../' style='color: white;' title='Back to home'><i class='fas fa-home'></i></a></span>
+    <span>Login as " . $_COOKIE['fullName'] . " &nbsp;<span><a href='{$positionNotation} assets/php/logout.php' style='color: white;'><i class='fas fa-sign-out-alt' style='color: white;' title='Log out'></i></a></span></span>
+</div>
     ");
     }
+
     public static function loadFooter($positionNotation){
         echo("
         <footer class='mainFooter'>
@@ -44,7 +48,7 @@ class BasicLoader{
                     </span>
                 </div>
                 <div class='basicDescription'>
-                        <img src='{$positionNotation}assets/image/footerLogoUSSP.png' alt='USSPLogo'><br><br>
+                        <img src='{$positionNotation}assets/image/logoUSSP.png' alt='USSPLogo'><br><br>
                     <p>
                         University Student-Staff Portal(USSP) is developed by a second year student development team call
                         Team Binary Bits. Main purpose of this system is to automate, semi-automated university system of
@@ -61,4 +65,4 @@ class BasicLoader{
     ");
     }
 }
-?>
+

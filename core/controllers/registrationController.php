@@ -33,6 +33,8 @@
                         die();
                     else{
                         //redirect to home
+                        // #NW
+                        header("Location: home");
                     }
                 } else
                     die();
