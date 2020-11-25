@@ -2,7 +2,7 @@
     class sentBoxController extends Controller{
         public static function sentBox(){
             
-                $getTime = sentBoxModel::getTime();
+                $getTime = sentBoxModel::sentBoxGetMessageData();
                  
                 /*$getTitle = receiveMessageModel::getTitle();
                 $getMessage = receiveMessageModel::getMessage();

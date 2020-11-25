@@ -1,7 +1,7 @@
 <?php
     class receiveMessageController extends Controller{
         public static function receiveMessage(){
-            $getTime = receiveMessageModel::getTime();
+            $getMessageData = receiveMessageModel::getMessageData();
             /*$getTitle = receiveMessageModel::getTitle();
             $getMessage = receiveMessageModel::getMessage();
             $getSendBy = receiveMessageModel::getSendBy();*/
@@ -11,7 +11,7 @@
         
 
              
-            self::createView("receiveMessageView",$getTime);
+            self::createView("receiveMessageView",$getMessageData);
             if(isset($_GET['activity'])){
                 $messageID=$_GET['messageIDForReadConfirm'];
                 $insertMessageState=receiveMessageModel::insertMessageState($messageID);

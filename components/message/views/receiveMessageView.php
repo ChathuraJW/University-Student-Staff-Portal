@@ -25,6 +25,7 @@
         <div class="messageList">
 
           <?php
+          print_r($controllerData);
           foreach ($controllerData as $data){
             if($data['isViewed']){
               $backgroundColor='rgb(100 121 143)';

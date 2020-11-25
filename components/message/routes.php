@@ -12,14 +12,7 @@
         sentBoxController::sentBox();
     });
 
-    Route::set('studentSendMessage',function(){
-        studentSendMessageController::studentSendMessage();
-    });
-
-    Route::set('studentReceiveMessage',function(){
-        studentReceiveMessageController::studentReceiveMessage();
-    });
-
+     
     // check weather the given file exist on the site if not redirect to 404 page
     $available=FALSE;
     foreach (Route::$validRoutes as $pages) {
