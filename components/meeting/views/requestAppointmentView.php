@@ -168,7 +168,7 @@
                                                 <h3><?php echo $profile['salutation'].".".$profile['fullName']?></h3>
                                             </div>
                                             <div class="row col-1 img" style="margin-left:20px;">
-                                                <img src="../../assets/image/profilePicture.PNG" style="background-color: rgb(247, 226, 245,1);" alt="">
+                                                <img src="assets/profilePicture.jpg" style="background-color: rgb(247, 226, 245,1);" alt="">
                                             </div>
                                         </div >
                                         
