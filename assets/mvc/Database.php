@@ -21,7 +21,6 @@
                 if($result){
                     if($result !== TRUE){
                         $data = array();
-                        print_r($result);
                         foreach ($result as $row) {
                             $data[] = $row;
                         }
