@@ -1,0 +1,170 @@
+.radioToolbar input[type="radio"] {
+    display: none;
+
+}
+.radioToolbar label {
+    display: inline-block;
+    background-color:lightgray;
+    padding: 8px 20px;
+    font-size: 35px;
+    cursor: pointer;
+    position: relative;
+}
+.radioToolbar input[type="radio"]:checked+label {
+    background-color: rgb(169, 177, 174);
+}
+.container{
+    text-align: center;
+}
+.subHeading{
+    font-size: 24px;
+}
+
+.inputStyle{
+    font-size: 22px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.dropDown{
+    height:50px;
+    width:300px;
+    font-size: 20px;
+}
+.labelStyle{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.buttonStyle{
+    margin-left: auto;
+    margin-right: auto;
+}
+#csvFormContainer{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+#myFile{
+    margin-left: 0px;
+    height:50px;
+    width:300px;
+    text-align: center;
+    font-size: 20px;
+}
+#index{
+    height:50px;
+    width:300px;
+    font-size: 20px;
+}
+.inquiryMessage{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 18px;
+    padding: 15px;
+    border-radius: 5px; 
+    height: auto;
+    background-color: rgb(216, 206, 180);
+} 
+
+.attendance{
+    padding: 5px;
+    text-align: center;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: lightgray;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.attendanceContainer{
+    margin-top: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.clickableDiv{
+    text-decoration:none;
+}
+
+ /* popup radio button */
+.editRadioToolbar input[type="radio"] {
+  display: none;
+
+}
+.editRadioToolbar label {
+    display: inline-block;
+    background-color: lightgray;
+    padding: 8px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+}
+.editRadioToolbar input[type="radio"]:checked+label {
+  background-color: rgb(169, 177, 174)
+}
+.editTopic{
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    text-align: center;
+}
+.editSubTopic{
+  font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.editAttendanceForm{
+    display: block;
+}
+input[type="file"],input[type="radio"]{
+    display: none;
+}
+#attendanceFileLabel{
+    padding: 10px;
+}
+ select {
+    width: fit-content;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 18px;
+    min-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    display:block;
+}
+/*/styles for submit and cancel buttons/*/
+.submitCancelButton{
+    height: auto;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 9px;
+    margin: 4px;
+    width: 200px;
+}
+.textStyle{
+    cursor: pointer;
+}
+textarea{
+    resize: none;
+}
+.floatLeft{
+    float: right;
+}
+.upload{
+    margin-top: 10px;
+}
+
+  
