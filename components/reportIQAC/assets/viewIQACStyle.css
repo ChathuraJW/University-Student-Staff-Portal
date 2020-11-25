@@ -1,0 +1,79 @@
+.academicYear{
+    font-size: 18px;
+    box-shadow: 0 8px 16px 0 rgb(160, 157, 157);
+    border-radius: 4px;
+    padding: 4px;
+    position: relative;
+    left: 35%;
+    background-color: rgba(204, 127, 83, 0.815); 
+    
+
+}
+
+.featureBody{
+    font-family: Varela;
+    src: url('../../../assets/font/Varela-Regular.ttf');
+}
+
+.heading{
+    text-align: center;
+}
+
+.buttonSet{
+    position: relative;
+    left: 30%;
+    border: groove;
+    width: 300px;
+    padding: 8px; 
+    background-color: white;
+    box-shadow: 0 8px 16px 0 rgb(95, 93, 93);
+    
+}
+
+.course{
+    font-size: 18px;
+    box-shadow: 0 8px 16px 0 rgb(160, 157, 157);
+    border-radius: 4px;
+    padding: 4px;
+    position: relative;
+    left: 36%;
+    background-color: rgba(204, 127, 83, 0.815); 
+    
+    
+}
+
+.container{
+    position: relative;
+    left: 23%;
+    box-shadow: 0 8px 16px 0 rgb(95, 93, 93);
+    width: 700px;
+
+    border-radius: 4px;
+}
+
+.search{
+    background-color: green;
+    color: white;
+    padding: 4px;
+    border-radius: 4px;
+    position: relative;
+    left: 10%;
+    box-shadow: 0 8px 16px 0  rgb(160, 157, 157);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.download{
+    position: relative;
+    left: 37%;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: rgb(12, 14, 145);
+    color: white;
+}
+
+
+
+ 

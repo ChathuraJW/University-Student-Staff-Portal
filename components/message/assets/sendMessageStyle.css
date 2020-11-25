@@ -1,0 +1,141 @@
+.featureBody{
+  text-align: center;
+  
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin: auto;
+  font-size: 18px;
+   
+
+  
+}
+.button{
+      border: none;
+      color: white;
+      padding: 6px 18px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+     
+
+
+.featureBody h1 {
+   
+  font-size: 40px;
+
+}
+
+.featureBody label{
+  font-size: 20px;
+  margin: auto;
+  text-align: left ;
+   
+}
+
+.featureBody{
+  font-family: Varela;
+  src: url('../../../assets/font/Varela-Regular.ttf');
+}
+
+.sentMessages{
+  position: relative;
+  left: 45%;
+}
+
+.contacts{
+    padding: 10px;
+    margin: 5px;
+    box-shadow: 0 8px 16px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+     
+    border-radius: 6px;
+}
+
+.message{
+  padding: 10px;
+  margin: 5px;
+  box-shadow: 0 8px 16px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
+   
+  border-radius: 6px;
+}
+
+.messageEntry{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  border-radius: 5px;
+  
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  height: 120px;
+  display: block;
+  margin: 15px;
+  text-decoration: none;
+}
+
+.messageContent{
+  width: 100%;
+  overflow: hidden;
+  text-align: justify;
+  height: 40px;
+  text-overflow: ellipsis;
+  display: block;
+  
+}
+
+.sender{
+  width: 100%;
+  overflow: hidden;
+  
+}
+
+.messageSendTimestamp{
+  font-size: 15px;
+  text-align: right;
+  float: right;
+  
+}
+ 
+.sentMessages{
+  border: none;
+  color: white;
+  background-color: rgb(18, 18, 112);
+  padding: 8px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px 0 grey;
+}
+
+.receiveMessages{
+  border: none;
+  color: white;
+  background-color: rgb(18, 18, 112);
+  padding: 8px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px 0 grey;
+  position: relative;
+  left: 44%;
+}
+ 
+
+ 
+
+
