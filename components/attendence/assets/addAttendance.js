@@ -119,66 +119,67 @@ attendanceCSVFile.addEventListener("change",function (){
     }
 });
 //filter data based on radio values
-function selectedYearCSV(elementID){
-    let year = document.getElementById(elementID).value;
-    let subjectListElement=document.getElementById('subjectCSV');
-    let subjectList=subjectListElement.innerText.split("\n");
-    let i=0;
-    while(i<subjectList.length){
-        let temp=Math.ceil(subjectList[i].split('.')[0]/2);
-        if(temp!='' && temp!=year){
-            subjectListElement.remove(i);
-            subjectList=subjectListElement.innerText.split("\n");
-            i=-1;
-        }
-        i=i+1;
-    }
-}
-
-function selectSemesterCSV(){
-    let semester = document.getElementById('semesterCSV').value;
-    let subjectListElement=document.getElementById('subjectCSV');
-    let subjectList=subjectListElement.innerText.split("\n");
-    let i=0;
-    while(i<subjectList.length){
-        let temp=Math.ceil(subjectList[i].split('.')[0]);
-        if(temp!='' && temp%2!=semester%2){
-            subjectListElement.remove(i);
-            subjectList=subjectListElement.innerText.split("\n");
-            i=-1;
-        }
-        i=i+1;
-    }
-}
-function selectedYearEdit(elementID){
-    let year = document.getElementById(elementID).value;
-    let subjectListElement=document.getElementById('subject');
-    let subjectList=subjectListElement.innerText.split("\n");
-    let i=0;
-    while(i<subjectList.length){
-        let temp=Math.ceil(subjectList[i].split('.')[0]/2);
-        if(temp!='' && temp!=year){
-            subjectListElement.remove(i);
-            subjectList=subjectListElement.innerText.split("\n");
-            i=-1;
-        }
-        i=i+1;
-    }
-}
-function selectSemesterEdit(){
-    let semester = document.getElementById('semesterEdit').value;
-    let subjectListElement=document.getElementById('subject');
-    let subjectList=subjectListElement.innerText.split("\n");
-    let i=0;
-    while(i<subjectList.length){
-        let temp=Math.ceil(subjectList[i].split('.')[0]);
-        if(temp!='' && temp%2!=semester%2){
-            subjectListElement.remove(i);
-            subjectList=subjectListElement.innerText.split("\n");
-            i=-1;
-        }
-        i=i+1;
-    }
-}
+// function selectedYearCSV(){
+//     let year = document.getElementById('academicYearCSV').value;
+//     let subjectListElement=document.getElementById('subjectCSV');
+//     let subjectList=subjectListElement.innerText.split("\n");
+//     let i=0;
+//     while(i<subjectList.length){
+//         let temp=Math.ceil(subjectList[i].split('.')[0]/2);
+//
+//         if(temp!='' && temp!=year){
+//             subjectListElement.remove(i);
+//             subjectList=subjectListElement.innerText.split("\n");
+//             i=-1;
+//         }
+//         i=i+1;
+//     }
+// }
+//
+// function selectSemesterCSV(){
+//     let semester = document.getElementById('semesterCSV').value;
+//     let subjectListElement=document.getElementById('subjectCSV');
+//     let subjectList=subjectListElement.innerText.split("\n");
+//     let i=0;
+//     while(i<subjectList.length){
+//         let temp=Math.ceil(subjectList[i].split('.')[0]);
+//         if(temp!='' && temp%2!=semester%2){
+//             subjectListElement.remove(i);
+//             subjectList=subjectListElement.innerText.split("\n");
+//             i=-1;
+//         }
+//         i=i+1;
+//     }
+// }
+// function selectedYearEdit(){
+//     let year = document.getElementById('academicYearForEdit').value;
+//     let subjectListElement=document.getElementById('subject');
+//     let subjectList=subjectListElement.innerText.split("\n");
+//     let i=0;
+//     while(i<subjectList.length){
+//         let temp=Math.ceil(subjectList[i].split('.')[0]/2);
+//         if(temp!='' && temp!=year){
+//             subjectListElement.remove(i);
+//             subjectList=subjectListElement.innerText.split("\n");
+//             i=-1;
+//         }
+//         i=i+1;
+//     }
+// }
+// function selectSemesterEdit(){
+//     let semester = document.getElementById('semesterEdit').value;
+//     let subjectListElement=document.getElementById('subject');
+//     let subjectList=subjectListElement.innerText.split("\n");
+//     let i=0;
+//     while(i<subjectList.length){
+//         let temp=Math.ceil(subjectList[i].split('.')[0]);
+//         if(temp!='' && temp%2!=semester%2){
+//             subjectListElement.remove(i);
+//             subjectList=subjectListElement.innerText.split("\n");
+//             i=-1;
+//         }
+//         i=i+1;
+//     }
+// }
 
 

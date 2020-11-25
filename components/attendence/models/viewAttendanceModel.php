@@ -2,8 +2,7 @@
 class ViewAttendanceModel extends Model{
 
     public static function loadAttendanceData(){
-        // $regNo = $_COOKIE['userName'];
-        $regNo = '2018cs136';
+         $regNo = $_COOKIE['userName'];
         $sqlQuery = "SELECT indexNo FROM student WHERE regNo='$regNo'"; //getting index number from student table 
         $index = Database::executeQuery("student","student@16",$sqlQuery)[0]['indexNo'];
         // print_r($index);
@@ -48,8 +47,7 @@ class ViewAttendanceModel extends Model{
     }
 
     public static function sendInquiryMessage($week , $subject ,$message){
-        // $regNo = $_COOKIE['userName'];
-        $regNo = '2018cs136';
+        $regNo = $_COOKIE['userName'];
         $finalMessage = (" Week :$week<br>\n Subject :$subject<br>\n message :$message");
         // echo("$finalMessage");
         $sqlQuery = "INSERT INTO attendance_inquiry( sendBy, message, sendDate) VALUES ('$regNo','$finalMessage',NOW())";

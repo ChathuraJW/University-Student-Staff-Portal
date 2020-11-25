@@ -212,7 +212,7 @@
                                     $color = ($attendance['attendance'])? 'green':'red';
                                     echo("
                                         <div  class='attendance' style='background-color:$color'>
-                                            <span class='textStyle'>".$attendance['week']." Week</span><br>
+                                            <span class='textStyle'>Week ".$attendance['week']."</span><br>
                                             <span class='textStyle'>".$attendance['date']."</span><br>
                                             <span class='textStyle' id='attendanceDescription'>".$attendance['description']."</span><br>
                                         </div>

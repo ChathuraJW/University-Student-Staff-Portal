@@ -38,7 +38,7 @@
                     <!-- <label>--Upload CSV Files--</label>  -->
                     <div class = "inputStyle">
                         <label for="academicYearCSV">Academic Year:</label><br>
-                        <select id="academicYearCSV" name="academicYear" class="dropDown"  onchange="selectedYearCSV('academicYearCSV');" required>
+                        <select id="academicYearCSV" name="academicYear" class="dropDown"   required>
                             <option></option>
                             <option value="1">First Year</option>
                             <option value="2">Second Year</option>
@@ -48,10 +48,10 @@
                     </div>
                     <div class = "inputStyle">
                         <label for="semesterCSV">Semester:</label><br>
-                        <select id="semesterCSV" name="semester" class="dropDown"  onchange="selectSemesterCSV();" required>
+                        <select id="semesterCSV" name="semester" class="dropDown"   required>
                             <option></option>
-                            <option value=1>First Semester</option>
-                            <option value=2>Second Semester</option>
+                            <option value="1">First Semester</option>
+                            <option value="2">Second Semester</option>
                         </select>
                     </div> 
                     <div class = "inputStyle">
@@ -153,19 +153,19 @@
                             </div>
                             <div class = "inputStyle">
                                 <label for="academicYearForEdit">Academic Year:</label><br>
-                                <select id="academicYearForEdit" name="academicYear" class="dropDown" onchange="selectedYearEdit('academicYearForEdit');"   required>
+                                <select id="academicYearForEdit" name="academicYear" class="dropDown"   required>
                                     <option></option>
-                                    <option value=1>First Year</option>
-                                    <option value=2>Second Year</option>
-                                    <option value=3>Third Year</option>
-                                    <option value=4>Fourth Year</option>
+                                    <option value="1">First Year</option>
+                                    <option value="2">Second Year</option>
+                                    <option value="3">Third Year</option>
+                                    <option value="4">Fourth Year</option>
                                 </select>
                             </div>
                         </div>
                         <div id="editAttendance" class="row col-2">
                             <div class = "inputStyle">
                                 <label for="semesterEdit">Semester:</label><br>
-                                <select id="semesterEdit" class="dropDown"  required onchange="selectSemesterEdit('semesterEdit');">
+                                <select id="semesterEdit" class="dropDown"  required >
                                     <option></option>
                                     <option value="1">First Semester</option>
                                     <option value="2">Second Semester</option>
