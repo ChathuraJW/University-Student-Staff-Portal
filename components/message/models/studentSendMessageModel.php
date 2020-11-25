@@ -3,7 +3,7 @@
         public static function getStudent()
         {
             $sqlQuery1 = "SELECT userName,fullName FROM user WHERE role='st'";
-            return Database::executeQuery("root","",$sqlQuery1);
+            return Database::executeQuery("generalAccess","generalAccess@16",$sqlQuery1);
     
         }
 
@@ -15,9 +15,9 @@
             
             $selectQuery="SELECT messageID FROM message WHERE title='$title' AND message='$message' AND sendBy='$sendBy'";
         
-            $isExecuted=Database::executeQuery("root","",$insertQuery );
+            $isExecuted=Database::executeQuery("generalAccess","generalAccess@16",$insertQuery );
             print_r($isExecuted);
-            $query=Database::executeQuery("root","",$selectQuery )[0]['messageID'];
+            $query=Database::executeQuery("generalAccess","generalAccess@16",$selectQuery )[0]['messageID'];
             return $query;
         }
         //create function to add data into messaage  table
@@ -28,7 +28,7 @@
             foreach($splitData as $value){
                 $insertSplitDataQuery="INSERT INTO user_receive_message(messageID,receivedBy) VALUE($addData,'$value')";
                 print_r($insertSplitDataQuery);
-                Database::executeQuery("root","",$insertSplitDataQuery );
+                Database::executeQuery("generalAccess","generalAccess@16",$insertSplitDataQuery );
             }
 
             
@@ -38,7 +38,7 @@
         public static function getTime()
         {
             $sqlQueryGetTime = "SELECT * FROM message INNER JOIN user_receive_message ON message.messageID=user_receive_message.messageID";
-            return Database::executeQuery("root","",$sqlQueryGetTime);
+            return Database::executeQuery("generalAccess","generalAccess@16",$sqlQueryGetTime);
         }
 
     }
