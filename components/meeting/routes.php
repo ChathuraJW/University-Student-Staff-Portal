@@ -1,20 +1,15 @@
 <?php
-    Route::set('about-us',function(){
-        AboutUs::checkLogin();
-    });
-    Route::set('contact-us',function(){
-        ContactUs::openContact();
-    });
-
+ 
     Route::set('requestAppointment',function(){
         RequestAppointmentController::open();
     });
     Route::set('respondAppointment',function(){
         RespondAppointmentController::open();
     });
-    Route::set('new',function(){
-        newController::open();
-    });
+    // Route::set('new',function(){
+    //     newController::open();
+    // });
+    
     // structure of code need to write
     // Route::set('urlPassVale',function(){
     //     ControllerName::initialFunction();

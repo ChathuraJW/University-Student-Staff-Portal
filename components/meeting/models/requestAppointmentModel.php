@@ -10,7 +10,7 @@
         }
         public static function getData($studentID){
             
-            return Database::executeQuery("student","student@16","SELECT * FROM meeting_appointment M,user U WHERE M.studentID='2018cs183' and M.staffID=U.userName");
+            return Database::executeQuery("student","student@16","SELECT * FROM meeting_appointment M,user U WHERE M.studentID='$studentID' and M.staffID=U.userName");
         }
         public static function getProfile(){
             $query="SELECT user.universityEmail,user.fullName,user.userName,user.salutation,academic_staff.availableFrom,academic_staff.availableTo,academic_staff.lastUpdateDate FROM user INNER JOIN academic_staff ON academic_staff.staffID=user.userName";

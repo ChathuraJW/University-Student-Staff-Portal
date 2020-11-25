@@ -2,9 +2,9 @@
             let sTable = document.getElementsByClassName('workloadHistory');
             var i;
             let style = "<style>";
-            style = style + ".scheduleDescription{width: 100%;font: 16px Times New Roman;}";
-            style = style + ".scheduleDescription{border: solid 1px #DDD; border-collapse: collapse;";
-            style = style + "padding: 2px 3px;text-align: center;}";
+            style = style + ".workloadHistory{width: 100%;font: 16px Times New Roman;background-color: rgb(230, 248, 242);margin-bottom:10px;}";
+            style = style + ".dataSet{font-weight:bold;";
+            style = style + "padding: 2px 3px;}";
             style = style + "</style>";
 
             let printWindow = window.open('', '', 'height=700,width=700');
@@ -17,7 +17,7 @@
             }
             printWindow.document.write('</body></html>');
             printWindow.document.close();
-            // printWindow.print();
+            printWindow.print();
         }
 
         function read(dots, more, link) {
