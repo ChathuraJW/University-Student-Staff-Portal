@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Student-Staff Portal</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="assets/rmStyle.css">
+    <link rel="stylesheet" href="assets/receiveMessageStyle.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
 </head>
 <body>
@@ -25,7 +25,7 @@
         <div class="messageList">
 
           <?php
-          print_r($controllerData);
+          
           foreach ($controllerData as $data){
             if($data['isViewed']){
               $backgroundColor='rgb(100 121 143)';

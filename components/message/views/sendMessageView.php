@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Student-Staff Portal</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="assets/smStyle.css">
+    <link rel="stylesheet" href="assets/sendMessageStyle.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
 </head>
 <body>
