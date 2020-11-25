@@ -44,8 +44,6 @@ class AddAttendanceController extends Controller{
             </script>");
             print_r($sendData);
 
-        }elseif(isset($_POST[''])) {
-
         } else{
             self::createView("addAttendanceView",$sendData);
         }

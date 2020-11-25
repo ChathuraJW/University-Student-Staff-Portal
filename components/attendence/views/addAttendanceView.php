@@ -37,28 +37,35 @@
                 <div class="row col-3" >
                     <!-- <label>--Upload CSV Files--</label>  -->
                     <div class = "inputStyle">
-                        <label for="academicYearForUpload">Academic Year:</label><br>
-                        <select id="academicYearForUpload" name="" class="dropDown"  required>
+                        <label for="academicYearCSV">Academic Year:</label><br>
+                        <select id="academicYearCSV" name="academicYear" class="dropDown"  onchange="selectedYearCSV('academicYearCSV');" required>
+                            <option></option>
+                            <option value="1">First Year</option>
+                            <option value="2">Second Year</option>
+                            <option value="3">Third Year</option>
+                            <option value="4">Fourth Year</option>
                         </select>
                     </div>
                     <div class = "inputStyle">
-                        <label for="semester">Semester:</label><br>
-                        <select id="semester" name="semester" class="dropDown" required>
-                        <?php
-                            for($sem=1; $sem<=8; $sem++){
-                                echo("<option value='$sem'>$sem</option>");
-                            }
-                        ?>
+                        <label for="semesterCSV">Semester:</label><br>
+                        <select id="semesterCSV" name="semester" class="dropDown"  onchange="selectSemesterCSV();" required>
+                            <option></option>
+                            <option value=1>First Semester</option>
+                            <option value=2>Second Semester</option>
                         </select>
                     </div> 
                     <div class = "inputStyle">
-                        <label for="subject">Subject:</label><br>
-                        <select id="subject" name="subject" class="dropDown" required>
+                        <span><button onclick="location.reload();"><i class="fas fa-sync"></i></button></span>
+                        <label for="subjectCSV">Subject:</label>
+                        <select id="subjectCSV" name="subject" class="dropDown" required>
+                            <option></option>
                         <?php
-                                    
-                            foreach($controllerData[0] as $data){
-                                echo("<option value='".$data['courseCode']."'>".$data['name']."</option>");
-                            }
+                        foreach ($controllerData[0] as $data){
+                            $year=ceil($data[semester]/2) -1;
+                            $semester=($data[semester]%2) ? 0 : 1 ;
+                            $semList=Array(Array(1,2),Array(3,4),Array(5,6),Array(7,8));
+                            echo ("<option value='$data[courseCode]'>".$semList[$year][$semester].". $data[name]</option>");
+                        }
                         ?>
                         </select>
                     </div>
@@ -72,36 +79,25 @@
                     <div class = "inputStyle">
                         <label for="week">Week:</label><br>
                         <select id="week" name="week" class="dropDown">
+                            <option></option>
                             <?php
                                 for($week=1; $week<=15; $week++)
                                 {
-                                    switch($week){
-                                        case 1:
-                                            echo("<option value='$week'>$week<sup>st</sup></option>");  
-                                            break;
-                                        case 2:
-                                            echo("<option value='$week'>$week<sup>nd</sup></option>");  
-                                            break;
-                                        case 3:
-                                            echo("<option value='$week'>$week<sup>rd</sup></option>");  
-                                            break;
-                                        default:
-                                            echo("<option value='$week'>$week<sup>th</sup></option>"); 
-                                        }
-                                    
+                                    echo("<option value='$week'>Week $week</option>");
                                 }
                             ?>
                         </select>
                     </div>
                     <div class="inputStyle">
-                        <label for="attempt">Attempt:</label><br>
-                        <select id="attempt" name="attempt" class="dropDown">
+                        <label for="attemptCSV">Attempt:</label><br>
+                        <select id="attemptCSV" name="attempt" class="dropDown">
+                            <option></option>
                             <option value="F">First Attempt</option>
                             <option value="R">Repeat</option>
                         </select>
                     </div>
                 </div>
-                <div class="row col-1">
+                <div class="upload row col-1">
                 <div class = "inputStyle">
                         <label for="attendanceFile" id="attendanceFileLabel">Upload CSV File Here</label>
                         <input type="file" id="attendanceFile" name="csvFile"  required>
@@ -136,8 +132,8 @@
                                     echo("
                                     
                                     <div class = 'inquiryMessage' class ='row col-1'>
-                                        <input name='isViewed'  type='checkbox'><br>
-                                        <label>Sent By : ".$inquiryMessage['sendBy']."</label><br>
+                                        
+                                        <label class='floatLeft'>Send By: ".$inquiryMessage['sendBy']."</label><br>
                                         <label>".$inquiryMessage['message']."</label>
                                     
                                     </div>
@@ -157,7 +153,8 @@
                             </div>
                             <div class = "inputStyle">
                                 <label for="academicYearForEdit">Academic Year:</label><br>
-                                <select id="academicYearForEdit" name="academicYear" class="dropDown"  required>
+                                <select id="academicYearForEdit" name="academicYear" class="dropDown" onchange="selectedYearEdit('academicYearForEdit');"   required>
+                                    <option></option>
                                     <option value=1>First Year</option>
                                     <option value=2>Second Year</option>
                                     <option value=3>Third Year</option>
@@ -167,27 +164,29 @@
                         </div>
                         <div id="editAttendance" class="row col-2">
                             <div class = "inputStyle">
-                                <label for="semester">Semester:</label><br>
-                                <select id="semester" class="dropDown" required>
-                                <?php
-                                    for($sem=1; $sem<=8; $sem++){
-                                        echo("<option value='$sem'>$sem</option>");
-                                    }
-                                ?>
+                                <label for="semesterEdit">Semester:</label><br>
+                                <select id="semesterEdit" class="dropDown"  required onchange="selectSemesterEdit('semesterEdit');">
+                                    <option></option>
+                                    <option value="1">First Semester</option>
+                                    <option value="2">Second Semester</option>
                                 </select>
                             </div> 
                             <div class = "inputStyle">
+                                <span><button onclick="location.reload();"><i class="fas fa-sync"></i></button></span>
                                 <label for="subject">Subject:</label><br>
                                 <select id="subject" name="subject" class="dropDown" required>
+                                    <option></option>
                                     <?php
-                                    
-                                        foreach($controllerData[0] as $data){
-                                            echo("<option value='".$data['courseCode']."'>".$data['name']."</option>");
+                                        foreach ($controllerData[0] as $data){
+                                            $year=ceil($data[semester]/2) -1;
+                                            $semester=($data[semester]%2) ? 0 : 1 ;
+                                            $semList=Array(Array(1,2),Array(3,4),Array(5,6),Array(7,8));
+                                            echo ("<option value='$data[courseCode]'>".$semList[$year][$semester].". $data[name]</option>");
                                         }
                                     ?>
                                 </select>
                                 <?php
-                                    // print_r($controllerData);
+//                                     print_r($controllerData[0]);
                                 ?>
                             </div>
                         </div>
@@ -195,6 +194,7 @@
                             <div  class="inputStyle">
                                 <label for="attempt">Attempt:</label><br>
                                 <select id="attempt" name="attempt" class="dropDown"  required>
+                                    <option></option>
                                     <option value="F">First Attempt</option>
                                     <option value="R">Repeated Attempt</option>
                                 </select>
@@ -262,7 +262,7 @@
                                             <input type="submit" value = "Cancel"  class="submitCancelButton red ">
                                         </div>
                                         <div class = "buttonStyle">
-                                            <input type ="button" value = "Upload"  class="submitCancelButton green " onclick="updateAttendance()">
+                                            <input type ="button" value = "Update"  class="submitCancelButton green " onclick="updateAttendance()">
                                         </div>
                                     </div>
                                 </div>  

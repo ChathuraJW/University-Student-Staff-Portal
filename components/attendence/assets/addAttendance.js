@@ -1,18 +1,5 @@
 
 
-//For upload csv dropdown
-let currentYear = new Date().getFullYear();
-// fill data to examination year dropdown
-let yearValues = document.getElementById("academicYearForUpload");
-let beginYear = currentYear - 10;
-while (beginYear <= currentYear) {
-    yearValues.options[yearValues.options.length] = new Option(beginYear.toString(), beginYear.toString());
-    beginYear++;
-}
-yearValues.value = currentYear.toString();
-
-yearValues.value = currentYear.toString();
-
 // Checked Upload CSV file radio button when load the page.
 var radioBtn = document.getElementById("radioCSV");
 radioBtn.checked = true;
@@ -58,15 +45,15 @@ function displayForm(radioInput){
 let subjectCode;
 //when submit edit attendance search form make visible searched attendance data.
 function displayAttendance(){
-
+    console.log("hi");
     document.getElementById("attendanceTable").style.visibility='visible';
     document.getElementById("attendanceTable").style.display='';
 
     let index = document.getElementById("index").value;
     let attempt = document.getElementById("attempt").value;
     subjectCode = document.getElementById("subject").value;
-    subjectName = document.getElementById("subject").innerText;
-
+    // subjectName = document.getElementById("subject").innerText;
+    console.log(subjectCode);
     const getAttendanceForEditURL = "http://localhost/USSP/assets/API/getAttendanceDataAPI.php?activity=getAttendanceForEdit&studentIndex="+index+"&attempt="+attempt+"&subjectCode="+subjectCode;
     $.getJSON(getAttendanceForEditURL, function (attendance) {
         // console.log(attendance);
@@ -75,6 +62,7 @@ function displayAttendance(){
             let data = attendance[i]['date'];
             let description = attendance[i]['description'];
             let color = (attendance[i]['attendance']==1 ? 'green':'red');
+            console.log(week);
 
             document.getElementById("week"+i).innerHTML = week;
             document.getElementById("date"+i).innerHTML = data;
@@ -130,3 +118,67 @@ attendanceCSVFile.addEventListener("change",function (){
 
     }
 });
+//filter data based on radio values
+function selectedYearCSV(elementID){
+    let year = document.getElementById(elementID).value;
+    let subjectListElement=document.getElementById('subjectCSV');
+    let subjectList=subjectListElement.innerText.split("\n");
+    let i=0;
+    while(i<subjectList.length){
+        let temp=Math.ceil(subjectList[i].split('.')[0]/2);
+        if(temp!='' && temp!=year){
+            subjectListElement.remove(i);
+            subjectList=subjectListElement.innerText.split("\n");
+            i=-1;
+        }
+        i=i+1;
+    }
+}
+
+function selectSemesterCSV(){
+    let semester = document.getElementById('semesterCSV').value;
+    let subjectListElement=document.getElementById('subjectCSV');
+    let subjectList=subjectListElement.innerText.split("\n");
+    let i=0;
+    while(i<subjectList.length){
+        let temp=Math.ceil(subjectList[i].split('.')[0]);
+        if(temp!='' && temp%2!=semester%2){
+            subjectListElement.remove(i);
+            subjectList=subjectListElement.innerText.split("\n");
+            i=-1;
+        }
+        i=i+1;
+    }
+}
+function selectedYearEdit(elementID){
+    let year = document.getElementById(elementID).value;
+    let subjectListElement=document.getElementById('subject');
+    let subjectList=subjectListElement.innerText.split("\n");
+    let i=0;
+    while(i<subjectList.length){
+        let temp=Math.ceil(subjectList[i].split('.')[0]/2);
+        if(temp!='' && temp!=year){
+            subjectListElement.remove(i);
+            subjectList=subjectListElement.innerText.split("\n");
+            i=-1;
+        }
+        i=i+1;
+    }
+}
+function selectSemesterEdit(){
+    let semester = document.getElementById('semesterEdit').value;
+    let subjectListElement=document.getElementById('subject');
+    let subjectList=subjectListElement.innerText.split("\n");
+    let i=0;
+    while(i<subjectList.length){
+        let temp=Math.ceil(subjectList[i].split('.')[0]);
+        if(temp!='' && temp%2!=semester%2){
+            subjectListElement.remove(i);
+            subjectList=subjectListElement.innerText.split("\n");
+            i=-1;
+        }
+        i=i+1;
+    }
+}
+
+

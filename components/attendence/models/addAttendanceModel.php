@@ -26,7 +26,7 @@ class AddAttendanceModel extends Model{
                 self::createAudit($sqlQuery, 'attendance', "INSERT", 'Insert a new attendance to the system.');
                 // echo($query);
                 // print_r($sqlQuery);
-                Database::executeQuery("root","",$sqlQuery);
+                Database::executeQuery("administrativeAttendance","administrativeAttendance@16",$sqlQuery);
             }
         }
         fclose($attendanceFile);
@@ -36,19 +36,19 @@ class AddAttendanceModel extends Model{
         $enrollmentID = self::getEnrollmentID($studentIndex, $subject, $attempt);
         echo($enrollmentID);
         $sqlQuery = "SELECT date, week, attendance, description FROM attendance WHERE enrollmentID=$enrollmentID";
-        return Database::executeQuery("root","",$sqlQuery);
+        return Database::executeQuery("administrativeAttendance","administrativeAttendance@16",$sqlQuery);
     }
 
     public static function getEnrollmentID($studentID, $courseCode, $attempt){
         $sqlQuery = "SELECT enrollmentID FROM student_enroll_course WHERE studentIndexNo='$studentID' AND courseCode='$courseCode' AND attempt='$attempt' AND isActive=TRUE LIMIT 1";
-        return Database::executeQuery("root", "", $sqlQuery)[0]['enrollmentID'];
+        return Database::executeQuery("administrativeAttendance", "administrativeAttendance@16", $sqlQuery)[0]['enrollmentID'];
         // $sqlQuery1=Database::executeQuery("root", "", $sqlQuery)[0]['enrollmentID'];
         
     }
 
     public static function getInquiryMessage(){
         $sqlQuery = "SELECT `sendBy`, `message`, `sendDate` FROM `attendance_inquiry`";
-        return Database::executeQuery("root","",$sqlQuery);
+        return Database::executeQuery("administrativeAttendance","administrativeAttendance@16",$sqlQuery);
         // print_r($result);
     }
 }

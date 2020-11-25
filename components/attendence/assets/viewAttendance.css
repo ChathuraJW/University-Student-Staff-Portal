@@ -9,7 +9,6 @@
 }
 
 .basicStyle{
-    font-family: Arial;
     font-size: 26px;
     padding-top: 15px;
     padding-right: 15px;
@@ -45,16 +44,12 @@
 
 .attendanceStyle{
     float: right;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
     height: 90px;
     width: 90px;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
     display: inline-block;
     margin-right: 40px;
-    border-style: solid;
-    /*border-color: red;*/
-    /* padding: 25px; */
-    border-style: solid;
 }
 
 .attendanceDetailTopicLeft{
@@ -66,7 +61,7 @@
 }
 
 .attendanceDetailTopicRight{
-    font-size: 36px;
+    font-size: 56px;
     float: right;
     margin-top: 20px;
 
