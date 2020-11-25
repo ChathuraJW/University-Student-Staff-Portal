@@ -1,0 +1,226 @@
+.featureBody {
+    font-family: Varela, sans-serif;
+}
+
+input[type=date], input[type=time], textarea, select {
+    width: fit-content;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 18px;
+    min-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/*styles for submit and cancel buttons*/
+.submitCancelButton {
+    height: auto;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 9px;
+    margin: 4px;
+    width: 200px;
+}
+
+.heading {
+    display: block;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 45px;
+    padding: 15px;
+}
+
+.columnHeader {
+    text-align: center;
+    font-size: 25px;
+    display: block;
+    font-weight: bold;
+    margin: 10px;
+    padding-bottom: 20px;
+}
+
+.inputHeading {
+    font-size: 18px;
+    display: block;
+    padding-bottom: 14px;
+    font-weight: bold;
+}
+
+.actionArea {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pastBookingSection, .makeBookingSection, .dataTableArea, .bookingRequest, .respondingSection {
+    width: 100%;
+    height: max-content;
+    display: inline-grid;
+    overflow: auto;
+    padding: 20px 5px 5px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bookingEntry {
+    color: white;
+    margin: 0 25px 15px;
+    padding: 10px;
+    border-radius: 5px;
+    max-height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bookingEntryContent {
+    display: block;
+    font-size: 15px;
+    padding: 2px 10px;
+}
+
+.mainBlock {
+    display: grid;
+}
+
+/* display table styles */
+.allocationMap {
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.timeHead {
+    width: fit-content;
+    height: fit-content;
+}
+
+.allocationMap {
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.allocationMap th, .allocationMap td {
+    text-align: center;
+    padding: 10px;
+}
+
+.closeButton {
+    width: min-content;
+    padding: 10px;
+    background-color: white;
+    border: none;
+    float: right;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.popupSection {
+    animation: popup 0.6s;
+    display: none;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#loadMoreLessButton {
+    border: none;
+    outline: none;
+    background-color: white;
+    float: left;
+    width: max-content;
+    font-size: 15px;
+    color: blue;
+    padding: 10px 10px 10px 15px;
+}
+
+/*ordering section*/
+.orderingSection {
+    margin: 20px 10px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.19);
+}
+
+.OptionWrapper button {
+    border: none;
+    background-color: rgb(20, 68, 215);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/*responding hall reservation section*/
+.respondingSectionHead {
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    margin: 10px 10px 0;
+}
+
+.respondingSectionContent {
+    text-align: justify;
+    font-size: 16px;
+    display: block;
+    margin: 0 10px;
+    padding: 5px 15px 0;
+}
+
+/* same slot details table */
+.sameSlotDetails {
+    margin: 10px 35px;
+    padding-top: 10px;
+    border: 1px solid gray;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.sameSlotDetails th, .sameSlotDetails td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.sameSlotDetails tr:nth-child(even) {
+    background-color: #5e63614a;
+}
+
+/*request confirmation section*/
+.confirmSection button {
+    display: block;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    width: 40%;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+}
+
+/*popup animation keyframe*/
+@keyframes popup {
+    0% {
+        transform: scale(0.9);
+    }
+    40% {
+        transform: scale(0.99);
+    }
+    60% {
+        transform: scale(0.999);
+    }
+    80% {
+        transform: scale(0.9999);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
