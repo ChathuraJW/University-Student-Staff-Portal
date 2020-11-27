@@ -29,12 +29,16 @@
                 }
                 if(isset($isFileUploaded) & $isFileUploaded){
                     $isUpdated=RegistrationModel::updateUserData($hashedPassword,$gender,$salutation,$telephone,$address,$personalEmail,$fileName);
-                    if(!$isUpdated)
+                    if(!$isUpdated){
                         die();
-                    else{
-                        //redirect to home
-                        // #NW
-                        header("Location: home");
+                    }else{
+                        echo ("
+                            <script>
+                                alert('Registration Successful.');
+                                //redirect into home page
+                                window.location.href=document.location.href.toString().split('registration')[0]+'home';
+                            </script>
+                        ");
                     }
                 } else
                     die();
