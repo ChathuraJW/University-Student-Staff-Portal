@@ -16,7 +16,6 @@ class AddResultController extends Controller
                 $batch = $_POST['batch'];
             $subject = $_POST['subject'];
             $examinationYear = $_POST['examinationYear'];
-//            echo("$year $semester $attempt $batch $subject $examinationYear");
             $fileName = "$subject-$examinationYear-$attempt.csv";
             $semesterCode = array(array(1, 2), array(3, 4), array(5, 6), array(7, 8));
             $sem = $semesterCode[$year - 1][$semester - 1];

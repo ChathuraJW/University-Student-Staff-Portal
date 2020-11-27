@@ -14,7 +14,7 @@ class AddRawResultController extends Controller{
             $subject = $_POST['subject'];
             $examinationYear = $_POST['examinationYear'];
 //            echo("$year $semester $attempt $batch $subject $examinationYear");
-            $user='mnj';//take from cookie
+            $user=$_COOKIE['userName'];//take from cookie
             $fileName = "$subject-$examinationYear-$attempt-$user.ussp";
 
             $semesterCode = array(array(1, 2), array(3, 4), array(5, 6), array(7, 8));

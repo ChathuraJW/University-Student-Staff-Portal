@@ -7,7 +7,6 @@ class ViewResultController extends Controller{
         $currentGPA=ViewResultModel::getCurrentGPA();
         $currentRank=ViewResultModel::getCurrentRank();
         $sendData=array($currentGPA,$currentRank,$totalCredit,$resultData);
-//        print_r($resultData);
         self::createView("viewResultView",$sendData);
     }
 }
