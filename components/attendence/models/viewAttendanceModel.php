@@ -12,8 +12,9 @@ class ViewAttendanceModel extends Model{
         $attendanceSet=array();
         $courseSet = array();
         $finalAttendanceArray = array();
+
         foreach($enrollmentDetail as $attendanceEntry){
-            
+
             $enrollmentId = $attendanceEntry['enrollmentID'];
             $courseCode = $attendanceEntry['courseCode'];
             $sqlQuery = "SELECT courseCode, name FROM course_module WHERE courseCode='$courseCode'";
@@ -22,21 +23,7 @@ class ViewAttendanceModel extends Model{
             $attendanceDetail = Database::executeQuery("student","student@16",$sqlQuery);
             $temp = array($courseDetail[0],$attendanceDetail);
             array_push($finalAttendanceArray,$temp);
-
-            
-            if($attendanceDetail){
-                // array_push($courseSet,$courseDetail);
-                // array_push($attendanceSet,$attendanceDetail);
-            }
-            // print_r($temp);
-            
         }
-        
-        // print_r($courseSet);
-        // echo("<br>");
-        // print_r($attendanceSet);
-        // echo("<br>");
-        // print_r($finalAttendanceArray);
         return $finalAttendanceArray;
     }
 

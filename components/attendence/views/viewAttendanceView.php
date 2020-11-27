@@ -20,9 +20,7 @@
             foreach($controllerData[1] as $row){
                 // print_r($row);
             }
-            // print_r($controllerData[1][1]);
-            // $temp  = ($controllerData[1][1])
-            // print_r($controllerData[1][1]);
+            
         ?>
         <form method="post">
         <div class="sidebar">
@@ -91,13 +89,12 @@
                     </div>
                 </div>
             </div>
-        <!-- <button id="myBtn">Open Modal</button> -->
-            <!-- <button onclick="div_show()">Inquiry</button Inquiry</button> -->
+
         </div>
         </form>
 
         <div>
-            <!-- <button><i class="fa fa-question-circle" aria-hidden="true"></i></button> -->
+
             <p  class="heading" id="myAttendance">My Attendance</p>
         </div>
         <?php
@@ -157,12 +154,10 @@
             <div class="basicStyle">
                 <label>Subjects</label>
                 <div class="innerDiv">
-                    <?php echo("<label class='innerLabel'> $subjectCount </label>"); ?>
+                    <?php echo("<label class='innerLabel'> ".sizeOf($controllerData[1])."</label>"); ?>
                 </div>
             </div>
         </div>
-        <!-- <div class="row col-1"> -->
-            <!-- <div class="attendanceDetail"> -->
             <div class="row col-2">
             <?php 
                 foreach($controllerData[1] as $courseDetails){
