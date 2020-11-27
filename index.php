@@ -1,21 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University Student-Staff Portal</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/gridSystem.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" />
-</head>
-<body>
-    <?php require_once('assets/php/basicLoader.php');?>
-    <?php BasicLoader::loadHeader('');?>
+<?php
+require_once ('assets/mvc/Database.php');
+function isFirstLogin($userName){
+    $sqlQuery="SELECT isFirstLogIn FROM user WHERE userName ='$userName' LIMIT 1";
+    $result= Database::executeQuery("generalAccess", "generalAccess@16", $sqlQuery);
+    return $result[0]['isFirstLogIn'];
+}
 
-    <div class="content">
+// if cookie is set
+if(isset($_COOKIE['userName'])){
+    if(isFirstLogin($_COOKIE['userName'])){
+        echo('First');
+        header("Location: core/registration");
+    }else{
+        echo('any');
+        header("Location: core/home");
+    }
+}else{
+    header("Location: core/login");
+}
 
-    </div>
-
-    <?php BasicLoader::loadFooter('');?>
-</body>
-</html>
+?>

@@ -1,0 +1,253 @@
+/*header section*/
+header {
+    text-align: center;
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background: url("../assets/homeBackground.jpg") fixed;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 85% 85% / 0;
+}
+
+header .overlay {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    color: #fff;
+    text-shadow: 1px 1px 1px #333;
+    background-image: linear-gradient(135deg, #57585a75 10%, #7b817f9c 100%)
+}
+
+.mainText {
+    text-align: center;
+    font-size: 80px;
+    margin-bottom: 30px;
+}
+
+h3, p {
+    font-family: BioRhyme, sans-serif;
+    margin-bottom: 30px;
+}
+
+img {
+    width: 100%;
+}
+
+.imgSection {
+    width: 15%;
+    display: inline-block;
+}
+
+.textSection {
+    width: 65%;
+    display: inline-block;
+    text-align: center;
+    font-family: Varela, sans-serif;
+    font-weight: bold;
+}
+
+.uniName {
+    font-size: 25px;
+    font-family: Alegreya, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+}
+
+@media screen and (max-width: 650px) {
+    .imgSection,
+    .textSection {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    img {
+        width: 150%;
+    }
+}
+
+/*topSection styles*/
+.topSection {
+    border: 2px solid #a5a2a2;
+    border-radius: 5px;
+    height: auto;
+    width: auto;
+    margin: 20px;
+    padding: 15px;
+}
+
+.notificationBlock {
+    display: inline-flex;
+    width: 80%;
+    height: auto;
+    text-align: justify;
+}
+
+.profileSection {
+    height: auto;
+    border: 1px solid #a5a2a2;
+    border-radius: 5px;
+    background-color: #eeeeee63;
+}
+
+.profilePic {
+    display: block;
+    height: fit-content;
+    border: 1px solid #a5a2a2;
+    width: 70%;
+    padding: 5px;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+.userSetting {
+    float: right;
+    margin: 3px;
+    text-decoration: none;
+    color: black;
+}
+
+/*profile information*/
+.userInfo {
+    padding: 15px;
+    overflow: hidden;
+}
+
+.userInfo .name {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: BioRhyme, sans-serif;
+}
+
+.userInfo .emailPersonal, .userInfo .emailUniversity {
+    font-size: large;
+    font-family: BioRhyme, sans-serif;
+}
+
+.userInfo .gpa {
+    font-size: large;
+    border: 1px solid;
+    text-align: center;
+    display: block;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/*profileSection re-ordering*/
+@media screen and (max-width: 992px) {
+    .profileSection {
+        order: -1;
+    }
+}
+
+.notificationStack {
+    border: 1px solid #a5a2a2;
+    border-radius: 5px;
+    height: auto;
+    padding: 10px;
+    min-height: 360px;
+}
+
+/*notification header styles*/
+.stackHeader {
+    display: flex;
+}
+
+.stackLabel {
+    text-align: left;
+    height: 15%;
+    width: 88%;
+    margin: 5px;
+    font-family: BioRhyme, sans-serif;
+    font-weight: bold;
+}
+
+.notificationCount {
+    text-align: center;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    border: 1px solid red;
+    color: white;
+    background-color: red;
+    font-weight: bold;
+    font-family: BioRhyme, sans-serif;
+    padding: 6px;
+    overflow: hidden;
+}
+
+/*notification entry styles*/
+.notificationEntry, .notificationEntryTimeTable {
+    display: block;
+    height: 20%;
+    width: 95%;
+    border: 1px solid;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    overflow: hidden;
+    color: white;
+}
+
+.notificationEntryTimeTable {
+    width: 95%;
+    padding-left: 8px;
+    background-color: #d2691e94;
+    border: #24160c;
+}
+
+.notificationIcon {
+    width: 12%;
+    display: inline-flex;
+    padding: 5px;
+    color: white;
+}
+
+.linkSection {
+    height: auto;
+    border: 2px solid #a5a2a2;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+}
+
+/*link tile styles*/
+.tile {
+    height: 200px;
+    overflow: hidden;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #ecebeb;
+    transition: all .5s linear;
+    opacity: 0.7;
+}
+
+.tile:hover {
+    color: #ffffff;
+    transition: all .5s linear;
+    opacity: 1;
+    box-shadow: #b4b8b8 2px 2px;
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px);
+}
+
+.tileImage {
+    height: auto;
+    padding: 5px;
+    margin: 10px;
+}
+
+.tileDescription {
+    height: auto;
+    display: block;
+    font-size: 30px;
+    padding: 5px;
+    margin: 8px;
+    font-weight: bold;
+}

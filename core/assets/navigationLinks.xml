@@ -1,0 +1,152 @@
+<navifationLinks>
+    <feature>
+      <name>Student Result</name>
+      <id>studentResult</id>
+      <path>exam/viewResult</path>
+      <isAlive>0</isAlive>
+    </feature>
+    <feature>
+      <name>Student Attendance</name>
+      <id>studentAttendance</id>
+      <path>attendance/viewAttendance</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Appointment for Meeting</name>
+      <id>appointmentForMeeting</id>
+      <path>meeting/requestAppointment</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Hall Booking</name>
+      <id>hallBooking</id>
+      <path>hallBooking/makeBooking</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Personal Files</name>
+      <id>personalFile</id>
+      <path>googleFile/</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Contact Union</name>
+      <id>contactUnion</id>
+      <path>contactUnion/contactUnion</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Train Season</name>
+      <id>trainSeason</id>
+      <path>trainSeason/applyTrainSeason</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Past Paper</name>
+      <id>pastPaper</id>
+      <path>pastPaper/viewPastPaper</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Message</name>
+      <id>message</id>
+      <path>message/sendMessage</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Publish Notice</name>
+      <id>publishNotice</id>
+      <path>notification/addNotification</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Season Request Processing</name>
+      <id>seasonRequestProcessing</id>
+      <path>trainSeason/checkTrainSeason</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Add Attendance</name>
+      <id>addAttendance</id>
+      <path>attendance/addAttendance</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Add Exam Result</name>
+      <id>addExamResult</id>
+      <path>exam/addRawResult</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Get Exam Result</name>
+      <id>getExamResult</id>
+      <path>exam/getRawResult</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Add IQAC Report</name>
+      <id>addIQACReport</id>
+      <path>reportIQAC/addIQAC</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Upload Past Papers</name>
+      <id>uploadPastPaper</id>
+      <path>pastPaper/addPastPaper</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Upload Result</name>
+      <id>uploadResult</id>
+      <path>exam/addResult</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>View IQAC Report</name>
+      <id>viewIQACReport</id>
+      <path>reportIQAC/viewIQAC</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Respond for Meeting Request</name>
+      <id>respondForMeetingRequest</id>
+      <path>meeting/respondAppointment</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Update Availability</name>
+      <id>updateAvailability</id>
+      <path>meeting/</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Review Hall Booking Request</name>
+      <id>reviewHallBookingRequest</id>
+      <path>hallBooking/confirmBooking</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Assignment Management</name>
+      <id>assignmentManagement</id>
+      <path>assignment/assignmentManagement</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>View Workload</name>
+      <id>viewWorkload</id>
+      <path>workLoad/workloadReceive</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>Allocate Workload</name>
+      <id>allocatedWorkload</id>
+      <path>workLoad/workloadAllocation</path>
+      <isAlive>1</isAlive>
+    </feature>
+    <feature>
+      <name>USSP System Config</name>
+      <id>usspSystemConfig</id>
+      <path>config</path>
+      <isAlive>1</isAlive>
+    </feature>
+</navifationLinks>
