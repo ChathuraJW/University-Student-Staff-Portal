@@ -116,7 +116,7 @@ jQuery.get('assets/navigationLinks.xml', function (fileContent) {
     const isAliveList= $(fileContent).find("feature").find("isAlive").toArray();
     for (let i = 0; i < idList.length; i++) {
         if(isAliveList[i]['innerHTML'])
-            document.getElementById(idList[i]['innerHTML']).href="../../"+pathList[i]['innerHTML'];
+            document.getElementById(idList[i]['innerHTML']).href="../components/"+pathList[i]['innerHTML'];
         else
             document.getElementById(idList[i]['innerHTML']).style.display='none';
     }
