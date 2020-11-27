@@ -1,7 +1,5 @@
 <?php
-
-class BasicLoader
-{
+class BasicLoader{
     public static function loadHeader($positionNotation){
         echo("
         <header>
@@ -20,11 +18,10 @@ class BasicLoader
 </header>
 <div class='loginInfo'>
     <span class='backToHome' style='float: left;'><a href='../../' style='color: white;' title='Back to home'><i class='fas fa-home'></i></a></span>
-    <span>Login as " . $_COOKIE['fullName'] . " &nbsp;<span><a href='{$positionNotation} assets/php/logout.php' style='color: white;'><i class='fas fa-sign-out-alt' style='color: white;' title='Log out'></i></a></span></span>
+    <span>Login as ".$_COOKIE['fullName']." &nbsp;<span><a href='{$positionNotation}assets/php/logout.php' style='color: white;'><i class='fas fa-sign-out-alt' style='color: white;' title='Log out'></i></a></span></span>
 </div>
     ");
     }
-
     public static function loadFooter($positionNotation){
         echo("
         <footer class='mainFooter'>

@@ -15,27 +15,27 @@
 
 /*colors for notificationBlocks*/
 .blue {
-    background-color: #0303ff8a;
+    background-color: #0303ff;
     border: #2f2fb0;
 }
 
 .green {
-    background-color: #0fbe0fab;
+    background-color: #0fbe0f;
     border: #0e6e0e;
 }
 
 .red {
-    background-color: #f50a0acc;
+    background-color: #f50a0a;
     border: #a90d0d;
 }
 
 .gray {
-    background-color: #838181d6;
+    background-color: #838181;
     border: #4e4c4c;
 }
 
 .orange {
-    background-color: #faa4069e;
+    background-color: #faa406;
     border: #b87b06;
 }
 
