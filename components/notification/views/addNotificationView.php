@@ -24,90 +24,90 @@
                 <label class="subHeading">Announcement for:</label>
             </div>
             <div>
-                <div>
+                <div class="divStyle">
                     <input type="checkbox" class="check" id="checkAll" value="1100" >
                     <label for="checkAll">All</label>
                 </div>
-                <div>
+                <div class="divStyle">
                     <input type="checkbox" class="checkFirstSet" id="checkAcademicStaff" value="1300">
                     <label for="checkAcademicStaff">Academic Staff</label>
                 </div>
-                <div>
+                <div class="divStyle">
                     <input type="checkbox" class="checkFirstSet" id="checkAcademicSupport" value="1400">
                     <label for="checkAcademicSupport">Academic Support Staff</label>
                 </div>
-                <div>
+                <div class="divStyle">
                     <input type="checkbox" id="checkAdministrative" class="checkFirstSet" value="1500">
                     <label for="checkAdministrative">Administrative Staff</label>
                 </div>
-                <div>
+                <div class="divStyle">
                     <input type="checkbox" class="checkFirstSet" id="checkStudent" value="1200">
                     <label for="checkStudent">Student</label>
-                </div>
+                </div class="divStyle">
                 <div class="row col-4">
-                    <div>
+                    <div class="divStyle">
                         <input type="checkbox" class="checkSecondSet" id="checkFirstYear" value="1210">
                         <label for="checkFirstYear">First Year</label>
-                        <div>
-                            <div>
+                        <div class="divStyle">
+                            <div class="divStyle">
                                 <input type="checkbox" class="checkThirdSet" id="check1CSGroup1" value="1211">
                                 <label for="check1CSGroup1">CS Group 1</label>
                             </div>
-                            <div>
+                            <div class="divStyle">
                                 <input type="checkbox" class="checkThirdSet" id="check1CSGroup2" value="1212">
                                 <label for="check1CSGroup2">CS Group 2</label>
                             </div>
-                            <div>
+                            <div class="divStyle">
                                 <input type="checkbox" class="checkThirdSet" id="check1IS" value="1213">
                                 <label for="check1IS">IS</label>
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div class="divStyle">
                         <input type="checkbox" class="checkSecondSet" id="CheckSecondYear" value="1220">
                         <label for="CheckSecondYear">Second Year</label>
                         <div>
-                            <div>
+                            <div class="divStyle">
                                 <input type="checkbox" class="checkThirdSet" id="check2CSGroup1" value="1221">
                                 <label for="check2CSGroup1">CS Group 1</label>
                             </div>
-                            <div>
+                            <div class="divStyle">
                                 <input type="checkbox" class="checkThirdSet" id="check2CSGroup2" value="1222">
                                 <label for="check2CSGroup2">CS Group 2</label>
-                            </div>
-                            <div>
+                            </div class="divStyle">
+                            <div class="divStyle">
                                 <input type="checkbox" class="checkThirdSet" id="check2IS" value="1223">
                                 <label for="check2IS">IS</label>
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div class="divStyle">
                         <input type="checkbox" class="checkSecondSet" id="CheckThirdYear" value="1230">
                         <label for="CheckThirdYear">Third Year</label>
                         <div>
-                            <div>
+                            <div class="divStyle">
                                 <input type="checkbox" class="checkThirdSet" id="check3CSGroup1" value="1231">
                                 <label for="check3CSGroup1">CS</label>
                             </div>
-                            <div>
+                            <div class="divStyle">
                                 <input type="checkbox" class="checkThirdSet" id="check3IS" value="1232">
                                 <label for="check3IS">IS</label>
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div class="divStyle">
                         <input type="checkbox" class="checkSecondSet" id="CheckFourthYear" value="1240">
                         <label for="CheckFourthYear">Fourth Year</label>
                         <div>
-                            <div>
+                            <div class="divStyle">
                                 <input type="checkbox" class="checkThirdSet" id="check4CS" value="1241">
                                 <label for="check4CS">CS</label>
                             </div>
-                            <div>
+                            <div class="divStyle">
                                 <input type="checkbox" class="checkThirdSet" id="check4IS" value="1242">
                                 <label for="check4IS">IS</label>
                             </div>
-                            <div>
+                            <div class="divStyle">
                                 <input type="checkbox" class="checkThirdSet" id="check4SE" value="1243">
                                 <label for="check4IS">SE</label>
                             </div>
