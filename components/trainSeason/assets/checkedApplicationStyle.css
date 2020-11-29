@@ -16,6 +16,11 @@
 
 }
 
+.featureBody{
+    font-family: Varela;
+    src: url('../../../assets/font/Varela-Regular.ttf');
+}
+
 .fullName{
     font-size: 18px;
 }
@@ -28,20 +33,21 @@
     font-size: 18px;
 }
 
-.submit{
+.checkedButton{
     text-align: center;
     font-size: 14px;
-    background-color: rgb(2, 116, 2);
+    background-color: rgb(7, 143, 7);
     font: bold;
     padding: 6px;
     box-shadow: 0 8px 16px 0 grey;
     margin-right: 20px;
     color: white;
-    left: 80%;
+    left: 110%;
     position: relative;
 }
 
-.cancel{
+
+.cancelButton{
     text-align: center;
     font-size: 14px;
     background-color:rgb(201, 6, 6);
@@ -50,7 +56,39 @@
     box-shadow: 0 8px 16px 0 grey;
     margin-right: 20px;
     color: white;
-    left: 80%;
+    left: 75%;
     position: relative;
 }
 
+.dataEntry{
+    display: table;
+    width:100%;
+    margin-bottom:20px;
+    
+  }
+  .dataLabel{
+    display:table-cell;
+    width:50%;
+    text-align:center;
+    font-size:15px;
+    font-weight:bold;
+
+  }
+  .data{
+    display:table-cell;
+    width:50%;
+  }
+  .head{
+    padding:20px;
+    text-align:center;
+    font-size:25px;
+    font-weight:bold;
+    background-color: rgb(225, 247, 192);
+
+  }
+   
+
+  
+  .requestMessage{
+    font-size:18px;
+  }

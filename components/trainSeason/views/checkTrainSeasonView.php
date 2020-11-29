@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="assets/checkTrainSeasonStyle.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" />
 
      
      
@@ -22,67 +23,92 @@
      
     
       <div class="featureBody">
-        <h1><b>Season Application List<b></h1><br>
+        <div class="row col-1">
+          <div> 
+        <h1 style="text-align:center;"><b>Application List<b></h1><br>
         <div class="container"> 
           <div class="btn-group">
             <br>
             <a class=application href="checkedApplication">
-            <button class="button">Application Set 1</button>
+            <div class="button">
+              <div>Appliciant Name: Mr. Kamal</div>
+              <div>Station: Moratuwa to Bambalapitiya</div>
+            </div><br>
             </a>
-            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox" class="label">Mark as checked</label><br><br>
             <a class=application href="checkedApplication">
-            <button class="button">Application Set 2</button>
+            <div class="button">
+              <div>Appliciant Name: Mr. Kamal</div>
+              <div>Station: Moratuwa to Bambalapitiya</div>
+            </div><br>
             </a>
-            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox" class="label">Mark as checked</label><br><br>
             <a class=application href="checkedApplication">
-            <button class="button">Application Set 3</button>
+            <div class="button">
+              <div>Appliciant Name: Mr. Kamal</div>
+              <div>Station: Moratuwa to Bambalapitiya</div>
+            </div><br>
             </a>
-            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox" class="label">Mark as checked</label><br><br>
             <a class=application href="checkedApplication">
-            <button class="button">Application Set 4</button>
+            <div class="button">
+              <div>Appliciant Name: Mr. Kamal</div>
+              <div>Station: Moratuwa to Bambalapitiya</div>
+            </div><br>
             </a>
-            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox" class="label">Mark as checked</label><br><br>
             <a class=application href="checkedApplication">
-            <button class="button">Application Set 5</button>
+            <div class="button">
+              <div>Appliciant Name: Mr. Kamal</div>
+              <div>Station: Moratuwa to Bambalapitiya</div>
+            </div><br>
             </a>
-            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox" class="label">Mark as checked</label><br><br>
             <a class=application href="checkedApplication">
-            <button class="button">Application Set 6</button>
+            <div class="button">
+              <div>Appliciant Name: Mr. Kamal</div>
+              <div>Station: Moratuwa to Bambalapitiya</div>
+            </div><br>
             </a>
-            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox" class="label">Mark as checked</label><br><br>
+            <!--<a class=application href="checkedApplication">
+            <button class="button">Application Set 2</button><br><br>
+            </a>
+             
             <a class=application href="checkedApplication">
-            <button class="button">Application Set 7</button>
+            <button class="button">Application Set 3</button><br><br>
             </a>
-            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox" class="label">Mark as checked</label><br><br>
+             
             <a class=application href="checkedApplication">
-            <button class="button">Application Set 8</button>
+            <button class="button">Application Set 4</button><br><br>
             </a>
-            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox" class="label">Mark as checked</label><br><br>
+             
             <a class=application href="checkedApplication">
-            <button class="button">Application Set 9</button>
+            <button class="button">Application Set 5</button><br><br>
             </a>
-            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox" class="label">Mark as checked</label><br><br>
+             
             <a class=application href="checkedApplication">
-            <button class="button">Application Set 10</button>
+            <button class="button">Application Set 6</button><br><br>
             </a>
-            <input type="checkbox" class="checkbox" id="checkbox" name="checkbox" value="checkbox">
-            <label for="checkbox" class="label">Mark as checked</label><br><br> 
-            <input type="submit" class="submit" value="Submit">
+             
+            <a class=application href="checkedApplication">
+            <button class="button">Application Set 7</button><br><br>
+            </a>
+             
+            <a class=application href="checkedApplication">
+            <button class="button">Application Set 8</button><br><br>
+            </a>
+             
+            <a class=application href="checkedApplication">
+            <button class="button">Application Set 9</button><br><br>
+            </a>
+             
+            <a class=application href="checkedApplication">
+            <button class="button">Application Set 10</button><br><br>
+            </a>-->
+             
+             
             
           </div>
         </div>
         <br>
         <br>
-      
+        </div>
+      </div>
       </div>
        
 

@@ -1,11 +1,5 @@
-.lecturer{
-    font-size: 18px;
-    box-shadow: 0 8px 16px 0 rgb(95, 93, 93);
-    border-radius: 4px;
-    padding: 4px;
-    position: relative;
-    left: 32%;
-    background-color: rgba(204, 127, 83, 0.815);
+.dropDownList label{
+    font-size: 20px;
 }
 
 .heading{
@@ -18,38 +12,35 @@
 }
 
 
-.course{
-    font-size: 18px;
-    box-shadow: 0 8px 16px 0 rgb(95, 93, 93);
+select {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid gray;
     border-radius: 4px;
-    padding: 4px;
-    position: relative;
-    left: 35%;
-    background-color: rgba(204, 127, 83, 0.815);
-    
+    box-sizing: border-box;
+    font-size: 18px;
+    min-width: 250px;
+    box-shadow: 0 8px 16px 0 gray;
 }
 
-.container{
-    position: relative;
-    left: 25%;
-    box-shadow: 0 8px 16px 0 rgb(95, 93, 93);
-    width: 700px;
-    
-    border-radius: 4px;
+.uploadReport{
+    border-left: 4px solid rgb(209, 206, 206);
+    padding-left: 6px;
 }
 
 .file{
-    position: relative;
-    left: 22%;
-    border: groove;
-    width: 400px;
+    
+    width: 700px;
     padding: 8px; 
     background-color: white;
-    box-shadow: 0 8px 16px 0 rgb(95, 93, 93);
+     
 }
 
 .myFile{
     color: solid black;
+    font-size: 16px;
+    position: relative;
+    left: 10%;
 }
 
 .submit{
@@ -58,7 +49,8 @@
     padding: 4px;
     border-radius: 4px;
     position: relative;
-    left: 40%;
+    left: 10%;
+    font-size: 20px;
 }
 
  

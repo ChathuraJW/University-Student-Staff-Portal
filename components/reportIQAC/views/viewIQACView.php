@@ -8,78 +8,127 @@
     <link rel="stylesheet" href="assets/viewIQACStyle.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" />
-     
-     
-     
 
 </head>
 <body>
-    <!-- include header section -->
-    <?php require_once('../../assets/php/basicLoader.php') ?>
-    <?php basicLoader::loadHeader('../../'); ?>
-    
-    <!-- feature body section -->
-     
-     
-      <div class="featureBody">
-      <div class="row col-1">
-         <h1 class="heading"><b>View IQAC Report</b></h1><br>
-         </div>
-          
-         <div class="container"> 
+<!-- include header section -->
+<?php require_once('../../assets/php/basicLoader.php') ?>
+<?php basicLoader::loadHeader('../../'); ?>
 
-         <br>
-          <div class="dropdownList"> 
-          <br> <br>
-           
-            <select name="academicYear" id="academicYear" class="academicYear">
-              <option value="Select Academic Year">Select Academic Year</option>
-              <option value="2018/2019">2018/2019</option>
-              <option value="2017/2018">2017/2018</option>
-              <option value="2016/2017">2016/2017</option>
-            </select>
-            <br><br>
-            <select name="course" id="course" class="course">
-              <option value="Select Course Code">Select Course Code</option>
-              <option value="SCS1201">SCS1201</option>
-              <option value="SCS1202">SCS1202</option>
-              <option value="SCS1203">SCS1203</option>
-            </select>
-            <br>
-            <br>
-            <br>
-         
-          </div>
-          <div class="buttonSet"> 
-            <br>
-            
-             
-            <input type="button" onclick="searchFunction()" value="Search" id="search" action="" class="search" >
-            <br><br>
-            <button class="download"  disabled="disabled" id="download" onclick="download()"><i class="fa fa-download"></i> Download </button>
-            <br><br>
-          </div>
-          <br><br>
-           
+<!-- feature body section -->
+
+
+<div class="featureBody">
+    <div class="row col-1">
+        <h1 class="heading"><b>View IQAC Report</b></h1><br>
+    </div>
+
+    <div class="row col-2">
+        <div>
+            <div class="Container row col-2">
+                <div class="dropDownList">
+                    <label>Academic Year</label>
+                    <select name="academicYear">
+                        <option value=2016>2016</option>
+                        <option value=2017>2017</option>
+                        <option value=2018>2018</option>
+                        <option value=2019>2019</option>
+                    </select>
+                </div>
+                <div class="dropDownList">
+                    <label >Batch Year</label>
+                    <select name="batchYear">
+                        <option value=1>1<sup>st</sup> Year</option>
+                        <option value=2>2<sup>nd</sup> Year</option>
+                        <option value=3>3<sup>rd</sup> Year</option>
+                        <option value=4>4<sup>th</sup> Year</option>
+                    </select>
+                </div>
+            </div>
+            <div class=" dropdownContainer row col-2">
+                <div class="dropDownList">
+                    <label >Semester</label>
+                    <select name="semester">
+                        <option value=1>1</option>
+                        <option value=2>2</sup></option>
+                    </select>
+                </div>
+                <div class="dropDownList">
+                    <label >Subject</label>
+                    <select name="subject">
+                        <option value="SCS2209">SCS2209-Database 2</option>
+                        <option value="SCS2212">SCS2212-Automata Theory</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row col-2">
+                <div>
+                    <button class="submitButton red">Cancel</button>
+                </div>
+                <div>
+                    <button class="submitButton green" type="button" onclick="searchResult();">Search</button>
+                </div>
+            </div>
         </div>
-        <br><br>
+        <div class="search">
+            <div class=" labelStyle row col-1" id="recentDetail">
+                <label  >Resent Files:</label>
+                <hr>
+                <div class="row col-5">
+                    <div class="reportDetails">
+                        <a class="reportName" href="#"><span onclick="download()">IQAC Report for SCS2212-Automata Theory<br>(Second Year-Second Semester-2019)</span></a>
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div class="download">
+                        <a class="iqacReport" href="#">  <i class="fa fa-download" onclick="download()"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div style ="display:none;" class="labelStyle row col-1" id="searchResult">
+                  
+                    <label  >Search Results:</label>
+                    <hr>
+                    <div class="row col-5">
+                        <div class="reportDetails">
+                            <a class="reportName" href="#" ><span onclick="download()">IQAC Report for SCS2209-Database 2<br>(Second Year-Second Semester-2019)</span></a>
+                        </div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div class="download">
+                            <a class="iqacReport" href="#" >  <i class="fa fa-download" onclick="download()"></i></a>
+                        </div>
+                    </div>
+                 
+            </div>
 
-      </div>
+            </div>
+
+</div>
 
 
-    <!-- include footer section -->
-    <?php basicLoader::loadFooter('../../'); ?>
+<!-- include footer section -->
+<?php basicLoader::loadFooter('../../'); ?>
 
-    <script>
-      function searchFunction(){
-        document.getElementById('download').removeAttribute('disabled');
-        
-      }
-
-      function download() {
+<script>
+    // function searchFunction(){
+    //     document.getElementById('download').removeAttribute('disabled');
+    //
+    // }
+    //
+    function download() {
         alert("Download Successfully!");
-      }
-      
-    </script>
+    }
+    function searchResult(){
+        //document.getElementById("recentDetail").style.visibility = 'hidden';
+        document.getElementById("recentDetail").style.display = 'none';
+        //document.getElementById("searchResult").style.visibility = 'visible';
+        document.getElementById("searchResult").style.display = '';
+
+    }
+
+</script>
 </body>
 </html>
