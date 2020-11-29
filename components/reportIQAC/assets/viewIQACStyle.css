@@ -1,13 +1,40 @@
-.academicYear{
-    font-size: 18px;
-    box-shadow: 0 8px 16px 0 rgb(160, 157, 157);
-    border-radius: 4px;
-    padding: 4px;
-    position: relative;
-    left: 35%;
-    background-color: rgba(204, 127, 83, 0.815); 
+.reportDetails{
+    width: 400%;
+}
+.download{
+    justify-self: flex-end;
+}
+.heading {
+    text-align: center;
+    font-weight: bold;
     
+}
+.iqacReport,
+.reportName{
+    text-decoration: none;
+    display: inline-block;
+}
+.dropDownList label{
+    font-size: 20px;
+}
+.submitButton {
+    height: auto;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 9px;
+    margin: 4px;
+    width: 200px;
+}
 
+.search{
+     
+    border-left: 4px solid rgb(209, 206, 206);
+     
 }
 
 .featureBody{
@@ -15,65 +42,19 @@
     src: url('../../../assets/font/Varela-Regular.ttf');
 }
 
-.heading{
-    text-align: center;
-}
-
-.buttonSet{
-    position: relative;
-    left: 30%;
-    border: groove;
-    width: 300px;
-    padding: 8px; 
-    background-color: white;
-    box-shadow: 0 8px 16px 0 rgb(95, 93, 93);
-    
-}
-
-.course{
+select {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
     font-size: 18px;
-    box-shadow: 0 8px 16px 0 rgb(160, 157, 157);
-    border-radius: 4px;
-    padding: 4px;
-    position: relative;
-    left: 36%;
-    background-color: rgba(204, 127, 83, 0.815); 
-    
-    
+    min-width: 300px;
+    box-shadow: 0 8px 16px 0 gray;
 }
-
-.container{
-    position: relative;
-    left: 23%;
-    box-shadow: 0 8px 16px 0 rgb(95, 93, 93);
-    width: 700px;
-
-    border-radius: 4px;
-}
-
-.search{
-    background-color: green;
-    color: white;
-    padding: 4px;
-    border-radius: 4px;
-    position: relative;
-    left: 10%;
-    box-shadow: 0 8px 16px 0  rgb(160, 157, 157);
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.download{
-    position: relative;
-    left: 37%;
-    cursor: pointer;
-    font-size: 14px;
-    padding: 4px;
-    border-radius: 4px;
-    background-color: rgb(12, 14, 145);
-    color: white;
-}
-
-
 
  
+
+.Container{
+    margin-top: 10px;
+}

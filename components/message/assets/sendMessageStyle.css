@@ -116,6 +116,9 @@
   cursor: pointer;
   border-radius: 4px;
   box-shadow: 0 8px 16px 0 grey;
+  width: 150px;
+  position: relative;
+  left: 44%;
 }
 
 .receiveMessages{
@@ -133,6 +136,7 @@
   box-shadow: 0 8px 16px 0 grey;
   position: relative;
   left: 44%;
+  width: 150px;
 }
  
 

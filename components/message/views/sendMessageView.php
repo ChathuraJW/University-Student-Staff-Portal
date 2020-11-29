@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="assets/sendMessageStyle.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" />
 </head>
 <body>
 <!-- include header section -->
@@ -33,7 +34,7 @@
         </div>
         <div class="row col-2">
             <div class="contacts">
-                <label for="option"><b> Select the contacts</b> </label>
+                <label for="option">Select the contacts</label>
                 <br>
                 <br>
 
@@ -45,7 +46,7 @@
                 if (isset($_COOKIE['role']) & $_COOKIE['role'] !== 'ST') {
                     echo("
                 <div>
-                <select style='border-radius: 6px; height:50px; width:200px; font-size:18px; color: white; background-color: #116141; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);' id='academicStaffList' name='academicStaffList' onchange='addStaffRecipient('academicStaffList');'>
+                <select style='border-radius: 6px; padding: 8px; width:200px; font-size:18px; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);' id='academicStaffList' name='academicStaffList' onchange='addStaffRecipient('academicStaffList');'>
                 <option value=''>Academic Staff</option>
                 ");
                     foreach ($controllerData[0] as $data) {
@@ -58,7 +59,7 @@
             </div>
 
             <div>
-                <select style='border-radius: 6px; height:50px; width:200px; color: white; background-color: #116141; font-size:18px; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);'
+                <select style='border-radius: 6px; padding: 8px;padding: 8px; width:200px; font-size:18px; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);'
                         id='academicSupportiveList' name='academicSupportiveList' onchange='addStaffRecipient('
                         academicSupportiveList');' >
                 <option value=''>Academic Supportive Staff</option>
@@ -76,7 +77,7 @@
             </div>
 
             <div>
-                <select style='border-radius: 6px; height:50px; width:200px; color: white; background-color: #116141; font-size:18px; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);'
+                <select style='border-radius: 6px; padding: 8px; width:200px; font-size:18px; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);'
                         id='administrativeList' name='administrativeList' onchange='addStaffRecipient('
                         administrativeList');'>
                 <option value=''>Administrative Staff</option>
@@ -98,7 +99,7 @@
 
                 <div>
 
-                    <select style="border-radius: 6px; height:50px; width:200px; color: white; background-color: #116141; font-size:18px; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);"
+                    <select style="border-radius: 6px; padding: 8px; width:200px; font-size:18px; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);"
                             id="studentList" name="studentList"
                             onchange="addStaffRecipient('studentList');">
                         <option value="">Student</option>
