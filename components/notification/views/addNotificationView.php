@@ -41,7 +41,7 @@
                     <label for="checkAdministrative">Administrative Staff</label>
                 </div>
                 <div>
-                    <input type="checkbox" class="checkFirstSet" id="checkStudent" value="">
+                    <input type="checkbox" class="checkFirstSet" id="checkStudent" value="checkStudent">
                     <label for="checkStudent">Student</label>
                 </div>
                 <div class="row col-4">
@@ -162,7 +162,8 @@
     </div>
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../')?>
-    <script src="../assets/js/jquery.js"></script>
+    <script src="../../assets/js/jquery.js"></script>
     <script src="assets/addNotification.js"></script>
+
 </body>
 </html>
