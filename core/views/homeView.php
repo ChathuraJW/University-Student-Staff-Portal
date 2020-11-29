@@ -60,6 +60,9 @@
                     <i class="fas fa-map-marked-alt"></i>&nbsp;&nbsp;S204 <br>
                     <i class="far fa-clock"></i>&nbsp; 15:00 - 17:00 <br>
                 </div>
+                <div class="readMoreLink">
+                    <a href="#">See All..</a>
+                </div>
             </div>
             <div class="notificationStack">
                 <div class="stackHeader">
@@ -73,6 +76,9 @@
                 <div class="notificationEntry green">
                     <div class="notificationIcon"><i class="fas fa-school"></i></div>
                     <div class="notificationContent">2nd semester exam will commence on 6th September.</div>
+                </div>
+                <div class="readMoreLink">
+                    <a href="../components/notification/viewNotification">See All..</a>
                 </div>
             </div>
             <div class="profileSection">
@@ -127,6 +133,9 @@
                         activity.
                     </div>
                 </div>
+                <div class="readMoreLink">
+                    <a href="../components/notification/viewNotification">See All..</a>
+                </div>
             </div>
             <div class="notificationStack">
                 <div class="stackHeader">
@@ -136,6 +145,9 @@
                 <div class="notificationEntry orange">
                     <div class="notificationIcon"><i class="fas fa-laptop-house"></i></i></div>
                     <div class="notificationContent">System will shutdown for next 5 hours for maintenance</div>
+                </div>
+                <div class="readMoreLink">
+                    <a href="../components/notification/viewNotification">See All..</a>
                 </div>
             </div>
         </div>
