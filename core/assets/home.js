@@ -58,8 +58,8 @@ if (userRole === 'ST') {
     $('#contactUnion').hide();
     $('#seasonRequestProcessing').hide();
     $('#addAttendance').hide();
-    $('#addExamResult').hide();
-    $('#getExamResult').hide();
+    // $('#addExamResult').hide();
+    // $('#getExamResult').hide();
     $('#addIQACReport').hide();
     $('#uploadPastPaper').hide();
     $('#uploadResult').hide();

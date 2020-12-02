@@ -69,11 +69,11 @@
                     <span class="stackLabel">Academic Notification</span>
                     <span class="notificationCount">57</span>
                 </div>
-                <div class="notificationEntry blue">
+                <div class="notificationEntry" style="border-left-color:#0303ff;">
                     <div class="notificationIcon"><i class="fas fa-school"></i></div>
                     <div class="notificationContent">SCS2203 In class assignment 1 will be on 22th november.</div>
                 </div>
-                <div class="notificationEntry green">
+                <div class="notificationEntry" style="border-left-color:#0fbe0f;">
                     <div class="notificationIcon"><i class="fas fa-school"></i></div>
                     <div class="notificationContent">2nd semester exam will commence on 6th September.</div>
                 </div>
@@ -117,17 +117,17 @@
                     <span class="stackLabel">General Notification</span>
                     <span class="notificationCount">67</span>
                 </div>
-                <div class="notificationEntry blue">
+                <div class="notificationEntry" style="border-left-color:#0303ff;">
                     <div class="notificationIcon"><i class="fas fa-scroll"></i></div>
                     <div class="notificationContent">Calling application for Mahapola scholarship</div>
                 </div>
-                <div class="notificationEntry red">
-                    <div class="notificationIcon red"><i class="fas fa-scroll"></i></div>
+                <div class="notificationEntry" style="border-left-color:#f50a0a;">
+                    <div class="notificationIcon"><i class="fas fa-scroll"></i></div>
                     <div class="notificationContent">Academic activities for 2nd semester will commence on 19th October
                         2020.
                     </div>
                 </div>
-                <div class="notificationEntry gray">
+                <div class="notificationEntry" style="border-left-color:#838181;">
                     <div class="notificationIcon"><i class="fas fa-scroll"></i></div>
                     <div class="notificationContent">Welfare society of staff will plan to have a fund racing
                         activity.
@@ -142,7 +142,7 @@
                     <span class="stackLabel">System Notification</span>
                     <span class="notificationCount">46</span>
                 </div>
-                <div class="notificationEntry orange">
+                <div class="notificationEntry" style="border-left-color:#faa406;">
                     <div class="notificationIcon"><i class="fas fa-laptop-house"></i></i></div>
                     <div class="notificationContent">System will shutdown for next 5 hours for maintenance</div>
                 </div>

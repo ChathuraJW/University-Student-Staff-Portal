@@ -184,13 +184,17 @@ img {
 
 /*notification entry styles*/
 .notificationEntry, .notificationEntryTimeTable {
+    border-right: 1px solid gray;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    border-left-style:solid;
+    border-left-width:10px;
     display: block;
     height: 19%;
     width: 230px;
     margin: 5px;
     border-radius: 6px;
     padding: 5px;
-    color: white;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -199,15 +203,14 @@ img {
 .notificationEntryTimeTable {
     width: 95%;
     padding-left: 8px;
-    background-color: #d2691e94;
-    border: #24160c;
+    border-left-color:#d2691e94;
 }
 
 .notificationIcon {
     width: 12%;
     display: inline-flex;
     padding: 5px;
-    color: white;
+    color: black;
 }
 
 .linkSection {
