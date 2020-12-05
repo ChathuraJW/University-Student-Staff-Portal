@@ -47,7 +47,7 @@ class Timetable {
     // attributes of Timetable
     private $entryID;
     private $hallID;
-    private $subjectCode $string;
+    private $subjectCode;
     private $conductingLecture;
     private $group;
     private $day;
@@ -62,18 +62,18 @@ class Timetable {
     }
 }
 class PastPaper{
-    // attributes of Pastpapers
+    // attributes of PastPapers
     private $paperID;
     private $examinationYear;
     private $year;
     private $semester;
     private $subjectName;
     private $subjectCode;
-    // mothods of Pastpapers
-    protected function addPastpapers(){
+    // methods of PastPapers
+    protected function addPastPapers(){
 
     }
-    protected function viewPastpaper(){
+    protected function viewPastPaper(){
 
     }
 }
@@ -96,19 +96,19 @@ class TrainSeason{
     private $trainSeasonIndex;
     private $studentName;
     private $academicYear;
-    private $addres;
+    private $address;
     private $contactNumber;
     private $dob;
     private $ageToNextBirthDay;
     private $fromMonth;
     private $toMonth;
     private $nearRailwayStationHome;
-    private $nearRailwayStationUnivercity;
+    private $nearRailwayStationUniversity;
     private $requestId;
     private $requestDate;
     private $completeDate;
     private $collectedDate;
-    // methods of Trainseason
+    // methods of TrainSeason
     protected function requestSeason(){
 
     }
@@ -137,7 +137,7 @@ class AppointmentsForMeeting{
     }
 }
 class AppointmentType{
-    // atrributes of AppointmentType
+    // attributes of AppointmentType
     private $appointmentCode;
     private $appointmentColor;
     private $appointmentName;
@@ -184,7 +184,7 @@ class AllocatedWorkload{
     private $to;
     private $title;
     private $allocateDate;
-    // mothods of AllocatedWorkload
+    // methods of AllocatedWorkload
     protected function addWorkload(){
 
     }
@@ -198,8 +198,8 @@ class AssignmentPlan{
     private $subject;
     private $academicYear;
     private $assignmentWeight;
-    private $totalNumberofAssignment;
-    private $degreeStreem;
+    private $totalNumberOfAssignment;
+    private $degreeStream;
     private $assignment;
     private $description;
     // methods of AssignmentPlan
@@ -212,7 +212,7 @@ class AssignmentPlan{
     protected function addInstructors(){
 
     }
-    protected function genarateFinalReport(){
+    protected function generateFinalReport(){
 
     }
 }
@@ -236,14 +236,14 @@ class Notification{
     // attributes of Notification
     private $notificationID;
     private $notificationTitle;
-    private $notificationConten;
+    private $notificationContent;
     private $notificationType;
     private $timeStamp;
     private $sender;
     private $validityEndTimeStamp;
     private $isViewed;
     private $viewTimeStamp;
-    private $targetAudiance;
+    private $targetAudience;
     // methods of Notification
     protected function setNotification(){
 
@@ -254,7 +254,7 @@ class Notification{
 }
 class Result{
     // attributes of Result
-    private $coursECode;
+    private $courseECode;
     private $academicYear;
     private $yearOfExam;
     private $semester;
@@ -263,8 +263,8 @@ class Result{
     private $updatedData;
     private $updatedBy;
     private $reviewedTimestamp;
-    private $submitedBy;
-    // mehtods of Result
+    private $submittedBy;
+    // methods of Result
     protected function addResultData(){
 
     }
@@ -280,8 +280,8 @@ class NotificationType{
 }
 class AssignmentType{
     // attributes of AssignmentType
-    private $assignmentName:
-    private $assingmentCode;
+    private $assignmentName;
+    private $assignmentCode;
 }
 class Assignment{
     // attributes pf Assignment
@@ -292,7 +292,7 @@ class Assignment{
     private $description;
     private $type;
     // methods of Assignment
-    protected function addassignment(){
+    protected function addAssignment(){
 
     }
     protected function addMark(){
@@ -322,9 +322,6 @@ class EnrollmentDetails{
     private $enrolledDate;
     private $semester;
     // methods of EnrollmentDetails
-    protected function makeEnrollment(){
-
-    }
     protected function makeEnrollment(){
 
     }
@@ -369,7 +366,7 @@ class courseModule{
     private $name;
     private $creditVale;
     private $description;
-    // methods of courseModeule
+    // methods of courseModule
     protected function createModule(){
 
     }
@@ -385,7 +382,7 @@ class EnrollFor{
     private $indexNo;
     private $courseCode;
     private $courseName;
-    private $dailyAtendance;
+    private $dailyAttendance;
     private $percentage;
     // methods of EnrollFor
     protected function calculatePercentage(){
