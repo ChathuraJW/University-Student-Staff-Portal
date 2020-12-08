@@ -5,8 +5,8 @@
     height: auto;
     display: flex;
 }
-.notificationStack{
-    width: 15%;
+.notificationStackContainer{
+    width: 25%;
     height: auto;
 }
 .content{
@@ -65,5 +65,119 @@
     display: block;
     color: white;
     border-radius: 5px;
+    font-weight: bold;
+}
+/*profileSection re-ordering*/
+@media screen and (max-width: 992px) {
+    .profileSection {
+        order: -1;
+    }
+}
+
+.notificationStack {
+    border: 1px solid #a5a2a2;
+    border-radius: 5px;
+    height: 700px;
+    padding: 10px;
+    min-height: 360px;
+    /*margin: 10px;*/
+}
+
+/*notification header styles*/
+.stackHeader {
+    display: flex;
+}
+
+.stackLabel {
+    text-align: left;
+    height: 15%;
+    width: 88%;
+    margin: 5px;
+    font-family: BioRhyme, sans-serif;
+    font-weight: bold;
+}
+
+.notificationCount {
+    text-align: center;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    border: 1px solid red;
+    color: white;
+    background-color: red;
+    font-weight: bold;
+    font-family: BioRhyme, sans-serif;
+    padding: 6px;
+    overflow: hidden;
+}
+
+/*notification entry styles*/
+.notificationEntry, .notificationEntryTimeTable {
+    display: block;
+    height: 20%;
+    width: 95%;
+    border: 1px solid;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    overflow: hidden;
+    color: white;
+}
+
+.notificationEntryTimeTable {
+    width: 95%;
+    padding-left: 8px;
+    background-color: #d2691e94;
+    border: #24160c;
+}
+
+.notificationIcon {
+    width: 12%;
+    display: inline-flex;
+    padding: 5px;
+    color: white;
+}
+.linkSection {
+    height: auto;
+    /*border: 2px solid #a5a2a2;*/
+    /*border-radius: 5px;*/
+    padding: 0px;
+    margin: 0px;
+}
+/*link tile styles*/
+.tile {
+    height: 200px;
+    overflow: hidden;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #ecebeb;
+    transition: all .5s linear;
+    opacity: 0.7;
+    background-color: darkviolet;
+}
+
+.tile:hover {
+    color: #ffffff;
+    transition: all .5s linear;
+    opacity: 1;
+    box-shadow: #b4b8b8 2px 2px;
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px);
+}
+
+.tileImage {
+    height: auto;
+    padding: 5px;
+    margin: 10px;
+}
+
+.tileDescription {
+    height: auto;
+    display: block;
+    font-size: 30px;
+    padding: 5px;
+    margin: 8px;
     font-weight: bold;
 }

@@ -23,10 +23,137 @@
     </h4>
 </div>
 
-<div class="container">
-    <div class="notificationStack">
+<div class="container ">
+    <div class="notificationStackContainer">
+        <div class="row col-1">
+            <div class="notificationStack">
+                <div class="stackHeader">
+                    <span class="stackLabel">Academic Notification</span>
+                    <span class="notificationCount">57</span>
+                </div>
+                <div class="notificationEntry blue">
+                    <div class="notificationIcon"><i class="fas fa-school"></i></div>
+                    <div class="notificationContent">SCS2203 In class assignment 1 will be on 22th november.</div>
+                </div>
+                <div class="notificationEntry green">
+                    <div class="notificationIcon"><i class="fas fa-school"></i></div>
+                    <div class="notificationContent">2nd semester exam will commence on 6th September.</div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="content">
+        <div class="linkSection">
+            <div class="row col-5">
+                <div></div>
+                <div></div>
+                <a href="https://ugvle.ucsc.cmb.ac.lk/" target="_blank" class="tile" id="accessToVLE">
+                    <div class="tileImage"><i class="fas fa-laptop-code fa-3x"></i></div>
+                    <div class="tileDescription">Access to VLE</div>
+                </a>
+                <a href="#" class="tile" id="studentResult">
+                    <div class="tileImage"><i class="fas fa-poll fa-3x"></i></div>
+                    <div class="tileDescription">Student Result</div>
+                </a>
+                <a href="#" class="tile" id="studentAttendance">
+                    <div class="tileImage"><i class="fas fa-file-signature fa-3x"></i></div>
+                    <div class="tileDescription">Student Attendance</div>
+                </a>
+                <a href="#" class="tile" id="appointmentForMeeting">
+                    <div class="tileImage"><i class="fas fa-calendar-check fa-3x"></i></div>
+                    <div class="tileDescription">Appointment for Meeting</div>
+                </a>
+                <a href="#" class="tile" id="hallBooking">
+                    <div class="tileImage"><i class="fas fa-university fa-3x"></i></div>
+                    <div class="tileDescription">Hall Booking</div>
+                </a>
+                <a href="#" class="tile" id="personalFile">
+                    <div class="tileImage"><i class="fas fa-folder-open fa-3x"></i></div>
+                    <div class="tileDescription">Personal Files</div>
+                </a>
+                <a href="#" class="tile" id="contactUnion">
+                    <div class="tileImage"><i class="fas fa-headset fa-3x"></i></div>
+                    <div class="tileDescription">Contact Union</div>
+                </a>
+                <a href="#" class="tile" id="trainSeason">
+                    <div class="tileImage"><i class="fas fa-train fa-3x"></i></div>
+                    <div class="tileDescription">Train Season</div>
+                </a>
+                <a href="#" class="tile" id="pastPaper">
+                    <div class="tileImage"><i class="fas fa-file-pdf fa-3x"></i></div>
+                    <div class="tileDescription">Past Paper</div>
+                </a>
+                <a href="#" class="tile" id="message">
+                    <div class="tileImage"><i class="fas fa-comment-dots fa-3x"></i></div>
+                    <div class="tileDescription">Message</div>
+                </a>
+                <a href="#" class="tile" id="publishNotice">
+                    <div class="tileImage"><i class="fas fa-bullhorn fa-3x"></i></div>
+                    <div class="tileDescription">Publish Notice</div>
+                </a>
+                <a href="#" class="tile" id="seasonRequestProcessing">
+                    <div class="tileImage"><i class="fas fa-pen fa-3x"></i></div>
+                    <div class="tileDescription">Season Request Processing</div>
+                </a>
+                <a href="#" class="tile" id="addAttendance">
+                    <div class="tileImage"><i class="fas fa-file-contract fa-3x"></i></div>
+                    <div class="tileDescription">Add Attendance</div>
+                </a>
+                <a href="#" class="tile" id="addExamResult">
+                    <div class="tileImage"><i class="fas fa-laptop-code  fa-3x"></i></div>
+                    <div class="tileDescription">Add Exam Result</div>
+                </a>
+                <a href="#" class="tile" id="getExamResult">
+                    <div class="tileImage"><i class="fas fa-handshake fa-3x"></i></div>
+                    <div class="tileDescription">Get Exam Result</div>
+                </a>
+                <a href="#" class="tile" id="addIQACReport">
+                    <div class="tileImage"><i class="fas fa-plus-square fa-3x"></i></div>
+                    <div class="tileDescription">Add IQAC Report</div>
+                </a>
+                <a href="#" class="tile" id="uploadPastPaper">
+                    <div class="tileImage"><i class="fas fa-file-upload fa-3x"></i></div>
+                    <div class="tileDescription">Upload Past Papers</div>
+                </a>
+                <a href="#" class="tile" id="uploadResult">
+                    <div class="tileImage"><i class="fas fa-file-csv fa-3x"></i></div>
+                    <div class="tileDescription">Upload Result</div>
+                </a>
+                <a href="#" class="tile" id="viewIQACReport">
+                    <div class="tileImage"><i class="fas fa-file-alt fa-3x"></i></div>
+                    <div class="tileDescription">View IQAC Report</div>
+                </a>
+                <a href="#" class="tile" id="respondForMeetingRequest">
+                    <div class="tileImage"><i class="fas fa-reply fa-3x"></i></div>
+                    <div class="tileDescription">Respond for Meeting Request</div>
+                </a>
+                <a href="#" class="tile" id="updateAvailability">
+                    <div class="tileImage"><i class="fas fa-check-double fa-3x"></i></div>
+                    <div class="tileDescription">Update Availability</div>
+                </a>
+                <a href="#" class="tile" id="reviewHallBookingRequest">
+                    <div class="tileImage"><i class="fas fa-eye fa-3x"></i></div>
+                    <div class="tileDescription">Review Hall Booking Request</div>
+                </a>
+                <a href="#" class="tile" id="assignmentManagement">
+                    <div class="tileImage"><i class="fas fa-tasks fa-3x"></i></div>
+                    <div class="tileDescription">Assignment Management</div>
+                </a>
+                <a href="#" class="tile" id="viewWorkload">
+                    <div class="tileImage"><i class="fas fa-briefcase fa-3x"></i></div>
+                    <div class="tileDescription">View Workload</div>
+                </a>
+                <a href="#" class="tile" id="allocatedWorkload">
+                    <div class="tileImage"><i class="fas fa-hand-point-right fa-3x"></i></div>
+                    <div class="tileDescription">Allocate Workload</div>
+                </a>
+                <a href="#" class="tile" id="usspSystemConfig">
+                    <div class="tileImage"><i class="fas fa-user-cog fa-3x"></i></div>
+                    <div class="tileDescription">USSP System Config</div>
+                </a>
+
+            </div>
+        </div>
     </div>
     <div class="userInformation">
         <div class="profileSection">
