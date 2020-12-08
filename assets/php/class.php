@@ -2,20 +2,80 @@
 
 class User{
     //attributes of User
+    protected $salutation;
     protected $userName;
     protected $firstName;
     protected $lastName;
+    protected $fullName;
     protected $personalEmail;
     protected $universityEmail;
+    protected $nic;
     protected $gender;
     protected $address;
-    protected $nic;
+    protected $teleNo;
     protected $password;
     protected $profilePictureURL;
-    protected $teleNo;
+    protected $isFirstLogIn;
+
+    public function getSalutation(){
+        return $this->salutation;
+    }
+
+    public function getUserName(){
+        return $this->userName;
+    }
+
+    public function getFirstName(){
+        return $this->firstName;
+    }
+
+    public function getLastName(){
+        return $this->lastName;
+    }
+
+    public function getFullName(){
+        return $this->fullName;
+    }
+
+    public function getProfilePictureURL(){
+        return $this->profilePictureURL;
+    }
+
+    public function getIsFirstLogIn(){
+        return $this->isFirstLogIn;
+    }
+
+    public function setUserName($userName): User{
+        $this->userName = $userName;
+        return $this;
+    }
+
 
     //methods of User
-
+    public function createUser($salutation,$userName,$firstName,$lastName,$fullName,$personalEmail,$universityEmail,$nic,$gender,$address,$teleNo,$password,$profilePictureURL,$isFirstLogIn): User{
+        $this->salutation=$salutation;
+        $this->userName=$userName;
+        $this->firstName=$firstName;
+        $this->lastName=$lastName;
+        $this->fullName=$fullName;
+        $this->personalEmail=$personalEmail;
+        $this->universityEmail=$universityEmail;
+        $this->nic=$nic;
+        $this->gender=$gender;
+        $this->address=$address;
+        $this->teleNo=$teleNo;
+        $this->password=$password;
+        $this->profilePictureURL=$profilePictureURL;
+        $this->isFirstLogIn=$isFirstLogIn;
+        return $this;
+    }
+    public function createBasicUser($salutation,$userName,$firstName,$lastName): User{
+        $this->salutation=$salutation;
+        $this->userName=$userName;
+        $this->firstName=$firstName;
+        $this->lastName=$lastName;
+        return $this;
+    }
 }
 
 class Student extends User{
@@ -47,7 +107,7 @@ class Timetable {
     // attributes of Timetable
     private $entryID;
     private $hallID;
-    private $subjectCode $string;
+    private $subjectCode;
     private $conductingLecture;
     private $group;
     private $day;
@@ -62,18 +122,18 @@ class Timetable {
     }
 }
 class PastPaper{
-    // attributes of Pastpapers
+    // attributes of PastPapers
     private $paperID;
     private $examinationYear;
     private $year;
     private $semester;
     private $subjectName;
     private $subjectCode;
-    // mothods of Pastpapers
-    protected function addPastpapers(){
+    // methods of PastPapers
+    protected function addPastPapers(){
 
     }
-    protected function viewPastpaper(){
+    protected function viewPastPaper(){
 
     }
 }
@@ -96,19 +156,19 @@ class TrainSeason{
     private $trainSeasonIndex;
     private $studentName;
     private $academicYear;
-    private $addres;
+    private $address;
     private $contactNumber;
     private $dob;
     private $ageToNextBirthDay;
     private $fromMonth;
     private $toMonth;
     private $nearRailwayStationHome;
-    private $nearRailwayStationUnivercity;
+    private $nearRailwayStationUniversity;
     private $requestId;
     private $requestDate;
     private $completeDate;
     private $collectedDate;
-    // methods of Trainseason
+    // methods of TrainSeason
     protected function requestSeason(){
 
     }
@@ -137,7 +197,7 @@ class AppointmentsForMeeting{
     }
 }
 class AppointmentType{
-    // atrributes of AppointmentType
+    // attributes of AppointmentType
     private $appointmentCode;
     private $appointmentColor;
     private $appointmentName;
@@ -184,35 +244,11 @@ class AllocatedWorkload{
     private $to;
     private $title;
     private $allocateDate;
-    // mothods of AllocatedWorkload
+    // methods of AllocatedWorkload
     protected function addWorkload(){
 
     }
     protected function notifyWorkload(){
-
-    }
-}
-class AssignmentPlan{
-    // attributes of AssignmentPlan
-    private $planID;
-    private $subject;
-    private $academicYear;
-    private $assignmentWeight;
-    private $totalNumberofAssignment;
-    private $degreeStreem;
-    private $assignment;
-    private $description;
-    // methods of AssignmentPlan
-    protected function addAssignment(){
-
-    }
-    protected function changeAssignmentPlanSetting(){
-
-    }
-    protected function addInstructors(){
-
-    }
-    protected function genarateFinalReport(){
 
     }
 }
@@ -236,14 +272,14 @@ class Notification{
     // attributes of Notification
     private $notificationID;
     private $notificationTitle;
-    private $notificationConten;
+    private $notificationContent;
     private $notificationType;
     private $timeStamp;
     private $sender;
     private $validityEndTimeStamp;
     private $isViewed;
     private $viewTimeStamp;
-    private $targetAudiance;
+    private $targetAudience;
     // methods of Notification
     protected function setNotification(){
 
@@ -254,7 +290,7 @@ class Notification{
 }
 class Result{
     // attributes of Result
-    private $coursECode;
+    private $courseECode;
     private $academicYear;
     private $yearOfExam;
     private $semester;
@@ -263,8 +299,8 @@ class Result{
     private $updatedData;
     private $updatedBy;
     private $reviewedTimestamp;
-    private $submitedBy;
-    // mehtods of Result
+    private $submittedBy;
+    // methods of Result
     protected function addResultData(){
 
     }
@@ -278,28 +314,115 @@ class NotificationType{
     private $notificationColor;
     private $notificationName;
 }
+class AssignmentPlan{
+    // attributes of AssignmentPlan
+    private $planID;
+    private $subjectCode;
+    private $degreeStream;
+    private $assignmentWeight;
+    private $totalNumberOfAssignment;
+    private $description;
+    private $assignments;
+    private $assignmentConductBy;
+
+
+    public function getAssignmentConductBy(){
+        return $this->assignmentConductBy;
+    }
+
+
+    public function setAssignmentConductBy($assignmentConductBy): AssignmentPlan{
+        $this->assignmentConductBy = $assignmentConductBy;
+        return $this;
+    }
+    // methods of AssignmentPlan
+
+    public function getPlanID(){
+        return $this->planID;
+    }
+
+    public function getSubjectCode(){
+        return $this->subjectCode;
+    }
+
+    public function getDegreeStream(): string{
+        return $this->degreeStream;
+
+    }
+
+    public function getAssignmentWeight(){
+        return $this->assignmentWeight;
+    }
+
+    public function getTotalNumberOfAssignment(){
+        return $this->totalNumberOfAssignment;
+    }
+
+    public function getDescription(){
+        return $this->description;
+    }
+
+    public function createAssignmentPlan($planID,$subjectCode,$degreeStream,$assignmentWeight,$totalNumberOfAssignment,$description): AssignmentPlan{
+        $this->planID=$planID;
+        $this->subjectCode=$subjectCode;
+        $this->degreeStream=$degreeStream;
+        $this->assignmentWeight=$assignmentWeight;
+        $this->totalNumberOfAssignment=$totalNumberOfAssignment;
+        $this->description=$description;
+        return $this;
+    }
+    public function addDataToSystem(){
+        $sqlQuery="";
+    }
+    public function addAssignment($assignment){
+        return $this->assignments[]=$assignment;
+    }
+}
 class AssignmentType{
     // attributes of AssignmentType
-    private $assignmentName:
-    private $assingmentCode;
+    private $assignmentName;
+    private $assignmentCode;
 }
 class Assignment{
     // attributes pf Assignment
     private $assignmentID;
     private $assignmentName;
-    private $weight;
-    private $marks;
-    private $description;
     private $type;
+    private $weight;
+    private $description;
+    private $marks;
+
     // methods of Assignment
-    protected function addassignment(){
-
+    public function getAssignmentID(){
+        return $this->assignmentID;
     }
-    protected function addMark(){
 
+    public function getAssignmentName(){
+        return $this->assignmentName;
     }
-    protected function changeSettings(){
 
+    public function getType(){
+        return $this->type;
+    }
+
+    public function getWeight(){
+        return $this->weight;
+    }
+
+    public function getDescription(){
+        return $this->description;
+    }
+
+    public function createAssignment($assignmentID,$assignmentName,$type,$weight,$description):Assignment{
+        $this->assignmentID=$assignmentID;
+        $this->assignmentName=$assignmentName;
+        $this->type=$type;
+        $this->weight=$weight;
+        $this->description=$description;
+        return $this;
+    }
+    public function addMarks($mark){
+        return $this->marks[]=$mark;
     }
 }
 class StudentMark{
@@ -322,9 +445,6 @@ class EnrollmentDetails{
     private $enrolledDate;
     private $semester;
     // methods of EnrollmentDetails
-    protected function makeEnrollment(){
-
-    }
     protected function makeEnrollment(){
 
     }
@@ -363,21 +483,45 @@ class AttendanceInstance{
 
     }
 }
-class courseModule{
+class CourseModule{
     // attributes of courseModule
-    private $CourseCode;
+    private $courseCode;
     private $name;
     private $creditVale;
+    private $semester;
     private $description;
-    // methods of courseModeule
-    protected function createModule(){
 
+    // methods of courseModule
+    public function createCourseModule($courseCode,$name,$creditVale,$semester,$description): CourseModule{
+        $this->courseCode=$courseCode;
+        $this->name=$name;
+        $this->creditVale=$creditVale;
+        $this->semester=$semester;
+        $this->description=$description;
+        return $this;
     }
-    protected function editModule(){
-
+//    getter function
+    public function getCourseCode(){
+        return $this->courseCode;
     }
-    protected function removeModule(){
-
+    public function getName(){
+        return $this->name;
+    }
+    public function getCreditVale(){
+        return $this->creditVale;
+    }
+    public function getSemester(){
+        return $this->semester;
+    }
+    public function getDescription(){
+        return $this->description;
+    }
+//    other function
+    public function getForYear(): int{
+        return ceil($this->semester / 2) - 1;
+    }
+    public function getForSemester(): int{
+        return ($this->semester % 2) ? 0 : 1;
     }
 }
 class EnrollFor{
@@ -385,7 +529,7 @@ class EnrollFor{
     private $indexNo;
     private $courseCode;
     private $courseName;
-    private $dailyAtendance;
+    private $dailyAttendance;
     private $percentage;
     // methods of EnrollFor
     protected function calculatePercentage(){

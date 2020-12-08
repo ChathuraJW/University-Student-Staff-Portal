@@ -20,38 +20,41 @@
         <div class="assignmentList">
             <span class="columnHeader">Current Assignment Planes</span>
             <?php
-            for ($i = 0; $i < 5; $i++) {
+            foreach ($controllerData[0] as $row) {
+
                 echo("
                         <a href='#' class='planItem' id=''>
                             <div class='row col-2'>
                                 <div class='planInfo'>
                                     <span class='planItemHeader'>Basic Info:</span>
-
                                     <div>
                                         <span class='dataPoint'>Data Structures and Algorithms 3</span>
                                     </div>
                                     <div>
-                                        <span class='dataPoint'>Subject Code: <b>SCS2201</b></span>
-                                        <span class='dataPoint'>Degree Stream: <b>Computer Science</b></span>
-                                        <span class='dataPoint'>Total Assignments: <b>15</b></span>
-                                        <span class='dataPoint'>Assignment Weight: <b>40%</b></span>
+                                        <span class='dataPoint'>Subject Code: <b>" . $row->getSubjectCode() . "</b></span>
+                                        <span class='dataPoint'>Degree Stream: <b>" . ($row->getDegreeStream()==='CS'?'Computer Science':'Information system') . "</b></span>
+                                        <span class='dataPoint'>Total Assignments: <b>" . $row->getTotalNumberOfAssignment() . "</b></span>
+                                        <span class='dataPoint'>Assignment Weight: <b>" . $row->getAssignmentWeight() . "%</b></span>
                                     </div>
                                 </div>
                                 <div class='staffList'>
                                     <span class='planItemHeader'>Conducted By:</span>
                                     <ol class='conductBy'>
-                                        <li>Mr. Ruwan Wijesingha (Owner)</li>
-                                        <li>Mr. Kamal Gunaasekare</li>
-                                        <li>Mrs. Samanthi Hemachandra</li>
-                                        <li>Miss. Ruvani Gamage</li>
+                ");
+
+                foreach ($row->getAssignmentConductBy() as $data) {
+                    echo("<li>" . $data->getUserName() . "</li>");
+                }
+
+                echo("
                                     </ol>
                                 </div>
                             </div>
                             <div class='row col-1'>
-                                 <span class='dataPoint'>Description:<br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias aut eum in natus quam quis quos sit suscipit. Maiores!</span>
+                                 <span class='dataPoint'>Description:<br>" . $row->getDescription() . "</span>
                             </div>
                         </a>
-                    ");
+              ");
             }
             ?>
         </div>
@@ -107,15 +110,13 @@
                         <span>Subject <button style="border: none;background-color: transparent;"
                                               onclick="location.reload();"><i class="fas fa-sync"></i></button></span>
                         <select name="subject" id="subject" required>
-                            <option value="12">DSA</option>
-                            <!--                        --><?php
-                            //                        foreach ($controllerData as $data) {
-                            //                            $year = ceil($data[semester] / 2) - 1;
-                            //                            $semester = ($data[semester] % 2) ? 0 : 1;
-                            //                            $semList = array(array(1, 2), array(3, 4), array(5, 6), array(7, 8));
-                            //                            echo("<option value='$data[courseCode]'>" . $semList[$year][$semester] . ". $data[name]</option>");
-                            //                        }
-                            //                        ?>
+                            <?php
+                            foreach ($controllerData[1] as $data) {
+                                echo("
+                                    <option value='" . $data->getCourseCode() . "'>" . $data->getSemester() . ". " . $data->getName() . "</option>
+                                ");
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="showRest">
@@ -129,8 +130,7 @@
                 <div class="row col-2">
                     <div class="showRest">
                         <span>Assignment Weight</span>
-                        <input type="number" name="assignmentWeight" id="assignmentWeight" max="1" min="0" step="0.01"
-                               required>
+                        <input type="number" name="assignmentWeight" id="assignmentWeight" max="100" min="0" required>
                     </div>
                     <div class="showRest">
                         <span>Number of Assignments </span>
@@ -151,10 +151,11 @@
                     <div>
                         <select name="academicSupportList" id="academicSupportList" onchange="addStaffRecipient();">
                             <option value="">Academic Support Staff</option>
-                            <option value="Samanthika Perera-nim">Samanthika Perera</option>
-                            <option value="Saman Perera-abc">Saman Perera</option>
-                            <option value="Soma Gunasekare-mnh">Soma Gunasekare</option>
-                            <option value="Ruvan Hemarathna-qqw">Ruvan Hemarathna</option>
+                            <?php
+                            foreach ($controllerData[2] as $data) {
+                                echo("<option value='" . $data->getUserName() . "'>" . $data->getSalutation() . " " . $data->getFirstName() . " " . $data->getLastName() . "</option>");
+                            }
+                            ?>
                         </select>
                     </div>
                     <div>
@@ -164,8 +165,9 @@
                 </div>
                 <br>
                 <div class="row col-2">
-                    <input type="submit" class="submitCancelButton green" value="Create New Assignment Plan">
-                    <input type="reset" class="submitCancelButton red" value="Cancel">
+                    <input type="submit" class="submitCancelButton green" value="Create New Assignment Plan"
+                           name="createPlan">
+                    <input type="reset" class="submitCancelButton red" value="Cancel" name="cancel">
                 </div>
             </form>
         </div>
