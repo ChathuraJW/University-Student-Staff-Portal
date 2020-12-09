@@ -1,5 +1,4 @@
 <?php
-require_once('../../assets/php/class.php');
 
 class AssignmentManagementModel extends Model{
     public static function loadSubjectData(): array{

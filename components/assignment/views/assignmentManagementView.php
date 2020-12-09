@@ -23,12 +23,12 @@
             foreach ($controllerData[0] as $row) {
 
                 echo("
-                        <a href='#' class='planItem' id=''>
+                        <a href='assignmentOperation?planID=".$row->getPlanID()."' class='planItem' id=''>
                             <div class='row col-2'>
                                 <div class='planInfo'>
                                     <span class='planItemHeader'>Basic Info:</span>
                                     <div>
-                                        <span class='dataPoint'>Data Structures and Algorithms 3</span>
+                                        <span class='dataPoint'>".$row->getAssignmentSubjectName()."</span>
                                     </div>
                                     <div>
                                         <span class='dataPoint'>Subject Code: <b>" . $row->getSubjectCode() . "</b></span>
@@ -43,7 +43,7 @@
                 ");
 
                 foreach ($row->getAssignmentConductBy() as $data) {
-                    echo("<li>" . $data->getUserName() . "</li>");
+                    echo("<li>" . $data->getFullName() . "</li>");
                 }
 
                 echo("
