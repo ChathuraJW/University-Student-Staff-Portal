@@ -31,21 +31,47 @@
                     <span class="stackLabel">Academic Notification</span>
                     <span class="notificationCount">57</span>
                 </div>
-                <div class="notificationEntry blue">
+                <div class="notificationEntry ">
                     <div class="notificationIcon"><i class="fas fa-school"></i></div>
-                    <div class="notificationContent">SCS2203 In class assignment 1 will be on 22th november.</div>
+                    <div class="notificationContent">SCS2203 In class assignment 1 will be on 22th november...</div>
                 </div>
-                <div class="notificationEntry green">
+                <div class="notificationEntry ">
                     <div class="notificationIcon"><i class="fas fa-school"></i></div>
-                    <div class="notificationContent">2nd semester exam will commence on 6th September.</div>
+                    <div class="notificationContent">2nd semester exam will commence on 6th September...</div>
                 </div>
             </div>
         </div>
     </div>
     <div class="content">
         <div class="linkSection">
-            <div class="row col-5">
-                <div></div>
+            <div class="row col-4">
+                <div class="timetable">
+                    <div class="stackHeader">
+                        <span class="stackLabel" style="padding-bottom: 7px;">Academic Schedule</span>
+                    </div>
+                    <dic class="timeSlots row col-2">
+                        <div class="notificationEntryTimeTable">
+                            <i class="fas fa-chalkboard-teacher"></i>&nbsp;&nbsp;SCS2201 Lecture<br>
+                            <i class="fas fa-map-marked-alt"></i>&nbsp;&nbsp;S203 <br>
+                            <i class="far fa-clock"></i>&nbsp; 08:00 - 10:00 <br>
+                        </div>
+                        <div class="notificationEntryTimeTable">
+                            <i class="fas fa-chalkboard-teacher"></i>&nbsp;&nbsp;SCS2204 Practical<br>
+                            <i class="fas fa-map-marked-alt"></i>&nbsp;&nbsp;LabA LabB LabC<br>
+                            <i class="far fa-clock"></i>&nbsp; 10:00 - 12:00 <br>
+                        </div>
+                        <div class="notificationEntryTimeTable">
+                            <i class="fas fa-chalkboard-teacher"></i>&nbsp;&nbsp;S2205 Tutorial<br>
+                            <i class="fas fa-map-marked-alt"></i>&nbsp;&nbsp;E401 <br>
+                            <i class="far fa-clock"></i>&nbsp; 13:00 - 15:00 <br>
+                        </div>
+                        <div class="notificationEntryTimeTable">
+                            <i class="fas fa-chalkboard-teacher"></i>&nbsp;&nbsp;SCS2206 Lecture<br>
+                            <i class="fas fa-map-marked-alt"></i>&nbsp;&nbsp;S204 <br>
+                            <i class="far fa-clock"></i>&nbsp; 15:00 - 17:00 <br>
+                        </div>
+                    </dic>
+                </div>
                 <div></div>
                 <a href="https://ugvle.ucsc.cmb.ac.lk/" target="_blank" class="tile" id="accessToVLE">
                     <div class="tileImage"><i class="fas fa-laptop-code fa-3x"></i></div>
@@ -156,37 +182,39 @@
         </div>
     </div>
     <div class="userInformation">
-        <div class="profileSection">
-            <a href="" class="userSetting"><i class="fas fa-cog fa-2x"></i></a>
-            <div class="profilePic">
-                <!--                    update profile picture based on the picture availability and the gender-->
-                <?php
-                $filePath = '';
-                if ($controllerData[0][0]['profilePicURL'] === "") {
-                    if ($controllerData[0][0]['gender'] === 'M')
-                        $filePath = "userMale.jpg";
-                    else
-                        $filePath = "userFemale.jpg";
-                } else {
-                    $filePath = $controllerData[0][0]['profilePicURL'];
-                }
-                echo("
+        <dic class="row col-1">
+            <div class="profileSection">
+                <a href="" class="userSetting"><i class="fas fa-cog fa-2x"></i></a>
+                <div class="profilePic">
+                    <!--                    update profile picture based on the picture availability and the gender-->
+                    <?php
+                    $filePath = '';
+                    if ($controllerData[0][0]['profilePicURL'] === "") {
+                        if ($controllerData[0][0]['gender'] === 'M')
+                            $filePath = "userMale.jpg";
+                        else
+                            $filePath = "userFemale.jpg";
+                    } else {
+                        $filePath = $controllerData[0][0]['profilePicURL'];
+                    }
+                    echo("
                         <img src='assets/profile picture/{$filePath}' alt='profilePic' style='height: auto;width: 100%;margin: auto'>
                         ");
-                ?>
+                    ?>
 
-            </div>
-            <div class="userInfo">
-                <?php
-                echo("
+                </div>
+                <div class="userInfo">
+                    <?php
+                    echo("
                             <span class='name'><span style='font-size: 20px'>(" . $controllerData[0][0]['salutation'] . ")&nbsp;</span>" . $controllerData[0][0]['firstName'] . "<br>" . $controllerData[0][0]['lastName'] . "</span><br>
                             <span class='emailPersonal'>" . $controllerData[0][0]['personalEmail'] . "</span><br>
                             <span class='emailUniversity'>" . $controllerData[0][0]['universityEmail'] . "</span><br>
                             <span class='gpa green' id='displayGPA'>" . $controllerData[0][0]['currentGPA'] . "</span>
                         ");
-                ?>
+                    ?>
+                </div>
             </div>
-        </div>
+        </dic>
     </div>
 </div>
 
@@ -195,6 +223,6 @@
 <?php BasicLoader::loadFooter("../"); ?>
 
 <script src="../assets/js/jquery.js"></script>
-<!--<script src="assets/home.js"></script>-->
+<script src="assets/home.js"></script>
 </body>
 </html>

@@ -80,6 +80,8 @@
     height: 700px;
     padding: 10px;
     min-height: 360px;
+    background-color: #9400d396;
+    opacity: 0.7;
     /*margin: 10px;*/
 }
 
@@ -89,12 +91,12 @@
 }
 
 .stackLabel {
-    text-align: left;
-    height: 15%;
+    height: 15px;
     width: 88%;
     margin: 5px;
     font-family: BioRhyme, sans-serif;
     font-weight: bold;
+    text-align: center;
 }
 
 .notificationCount {
@@ -123,13 +125,15 @@
     padding: 5px;
     overflow: hidden;
     color: white;
+    opacity: 0.7;
 }
 
 .notificationEntryTimeTable {
-    width: 95%;
+    width: auto;
     padding-left: 8px;
     background-color: #d2691e94;
     border: #24160c;
+    height: auto;
 }
 
 .notificationIcon {
@@ -140,13 +144,11 @@
 }
 .linkSection {
     height: auto;
-    /*border: 2px solid #a5a2a2;*/
-    /*border-radius: 5px;*/
     padding: 0px;
     margin: 0px;
 }
 /*link tile styles*/
-.tile {
+.tile  {
     height: 200px;
     overflow: hidden;
     margin: 10px;
@@ -155,7 +157,7 @@
     color: #ecebeb;
     transition: all .5s linear;
     opacity: 0.7;
-    background-color: darkviolet;
+    background-color: #9400d396;
 }
 
 .tile:hover {
@@ -180,4 +182,15 @@
     padding: 5px;
     margin: 8px;
     font-weight: bold;
+}
+.timetable{
+    width: 192%;
+    height: 200px;
+    padding-top: -20px;
+    /*overflow: hidden;*/
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    opacity: 0.7;
+    background-color: rgba(130, 120, 134, 0.59);
 }
