@@ -181,40 +181,108 @@
             </div>
         </div>
     </div>
-    <div class="userInformation">
-        <dic class="row col-1">
-            <div class="profileSection">
-                <a href="" class="userSetting"><i class="fas fa-cog fa-2x"></i></a>
-                <div class="profilePic">
-                    <!--                    update profile picture based on the picture availability and the gender-->
-                    <?php
-                    $filePath = '';
-                    if ($controllerData[0][0]['profilePicURL'] === "") {
-                        if ($controllerData[0][0]['gender'] === 'M')
-                            $filePath = "userMale.jpg";
-                        else
-                            $filePath = "userFemale.jpg";
-                    } else {
-                        $filePath = $controllerData[0][0]['profilePicURL'];
-                    }
-                    echo("
+    <div >
+        <div class="userInformation">
+            <div class="row col-1">
+                <div class="profileSection">
+                    <a href="" class="userSetting"><i class="fas fa-cog fa-2x"></i></a>
+                    <div class="profilePic">
+                        <!--                    update profile picture based on the picture availability and the gender-->
+                        <?php
+                        $filePath = '';
+                        if ($controllerData[0][0]['profilePicURL'] === "") {
+                            if ($controllerData[0][0]['gender'] === 'M')
+                                $filePath = "userMale.jpg";
+                            else
+                                $filePath = "userFemale.jpg";
+                        } else {
+                            $filePath = $controllerData[0][0]['profilePicURL'];
+                        }
+                        echo("
                         <img src='assets/profile picture/{$filePath}' alt='profilePic' style='height: auto;width: 100%;margin: auto'>
                         ");
-                    ?>
+                        ?>
 
-                </div>
-                <div class="userInfo">
-                    <?php
-                    echo("
+                    </div>
+                    <div class="userInfo">
+                        <?php
+                        echo("
                             <span class='name'><span style='font-size: 20px'>(" . $controllerData[0][0]['salutation'] . ")&nbsp;</span>" . $controllerData[0][0]['firstName'] . "<br>" . $controllerData[0][0]['lastName'] . "</span><br>
                             <span class='emailPersonal'>" . $controllerData[0][0]['personalEmail'] . "</span><br>
                             <span class='emailUniversity'>" . $controllerData[0][0]['universityEmail'] . "</span><br>
                             <span class='gpa green' id='displayGPA'>" . $controllerData[0][0]['currentGPA'] . "</span>
                         ");
-                    ?>
+                        ?>
+                    </div>
                 </div>
             </div>
-        </dic>
+        </div>
+        <div class="calenderContainer">
+            <div class="calender">
+                <div class="month">
+                    <i class="fas fa-angle-left
+                prev"></i>
+                    <div class="date">
+                        <h4>May</h4>
+                        <p>Fri May 29, 2020</p>
+                    </div>
+                    <i class="fas fa-angle-right
+                prev"></i>
+                </div>
+                <div class="weeksDays">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                </div>
+                <div class="days">
+                        <div class="prevDate">26</div>
+                        <div class="prevDate">27</div>
+                        <div class="prevDate">28</div>
+                        <div class="prevDate">29</div>
+                        <div class="prevDate">30</div>
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+                        <div>16</div>
+                        <div>17</div>
+                        <div>18</div>
+                        <div>19</div>
+                        <div>20</div>
+                        <div>21</div>
+                        <div>22</div>
+                        <div>23</div>
+                        <div>24</div>
+                        <div>25</div>
+                        <div>26</div>
+                        <div>27</div>
+                        <div>28</div>
+                        <div>29</div>
+                        <div>30</div>
+                        <div>31</div>
+                        <div class="nextDate">1</div>
+                        <div class="nextDate">2</div>
+                        <div class="nextDate">3</div>
+                        <div class="nextDate">4</div>
+                        <div class="nextDate">5</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
