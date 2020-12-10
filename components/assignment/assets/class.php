@@ -36,6 +36,7 @@ class User{
         if(isset($this->fullName))
             return $this->fullName;
         else{
+            //@TODO change database credentials
             $sqlQuery="SELECT fullName FROM user WHERE userName='".$this->userName."'";
             return Database::executeQuery('root','',$sqlQuery)[0]['fullName'];
         }
@@ -151,6 +152,7 @@ class AssignmentPlan{
     }
 //    this function is to get the subject name according to the subject code
     public function getAssignmentSubjectName():string{
+        //@TODO change database credentials
         $sqlQuery="SELECT name FROM course_module WHERE courseCode='$this->subjectCode'";
         return Database::executeQuery('root','',$sqlQuery)[0]['name'];
     }
@@ -162,36 +164,42 @@ class AssignmentPlan{
 
 class Assignment{
     // attributes pf Assignment
-    private $assignmentID;
-    private $assignmentName;
-    private $type;
-    private $weight;
-    private $description;
-    private $marks;
+    private int $assignmentID;
+    private int $assignmentPlanID;
+    private string $assignmentName;
+    private int $type;
+    private int $weight;
+    private string $description;
+    private array $marks;
 
     // methods of Assignment
-    public function getAssignmentID(){
+    public function getAssignmentID(): int{
         return $this->assignmentID;
     }
 
-    public function getAssignmentName(){
+    public function getAssignmentPlanID(): int{
+        return $this->assignmentPlanID;
+    }
+
+    public function getAssignmentName(): string{
         return $this->assignmentName;
     }
 
-    public function getType(){
+    public function getType():int{
         return $this->type;
     }
 
-    public function getWeight(){
+    public function getWeight(): int{
         return $this->weight;
     }
 
-    public function getDescription(){
+    public function getDescription():string{
         return $this->description;
     }
 
-    public function createAssignment($assignmentID,$assignmentName,$type,$weight,$description):Assignment{
+    public function createAssignment($assignmentID,$assignmentPlanID,$assignmentName,$type,$weight,$description):Assignment{
         $this->assignmentID=$assignmentID;
+        $this->assignmentPlanID=$assignmentPlanID;
         $this->assignmentName=$assignmentName;
         $this->type=$type;
         $this->weight=$weight;

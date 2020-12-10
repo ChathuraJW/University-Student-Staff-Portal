@@ -1,6 +1,9 @@
 <?php
 class AssignmentOperationController extends Controller{
   public static function init(){
-    self::createView('assignmentOperationView');
+      if(isset($_GET['planID'])){
+          $assignmentData=AssignmentOperationModel::loadAssignmentData($_GET['planID']);
+          self::createView('assignmentOperationView');
+      }
   }
 }
