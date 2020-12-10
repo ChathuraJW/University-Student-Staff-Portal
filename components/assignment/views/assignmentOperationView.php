@@ -18,29 +18,28 @@
     <h1 class="heading">Assignment Management</h1>
     <div class="row col-2">
         <div class="assignmentPlanManagement">
-            <span class="columnHeader">Welcome to SCS2204 Assignment Plan</span>
+            <span class="columnHeader">Welcome to <?php echo $controllerData->getSubjectCode();?> Assignment Plan</span>
             <div class="row col-2">
                 <div class="basicAssignmentInfo">
                     <span class="sectionHeader">Basic Info:</span>
                     <div>
-                        <span class='dataPoint'>Data Structures and Algorithms 3</span>
+                        <span class='dataPoint'><?php echo $controllerData->getAssignmentSubjectName();?></span>
                     </div>
                     <div>
-                        <span class='dataPoint'>Subject Code: <b>SCS2201</b></span><br>
-                        <span class='dataPoint'>Degree Stream: <b>Computer Science</b></span><br>
-                        <span class='dataPoint'>Total Assignments: <b>15</b></span><br>
-                        <span class='dataPoint'>Assignment Weight: <b>40%</b></span>
+                        <span class='dataPoint'>Subject Code: <b><?php echo $controllerData->getSubjectCode();?></b></span><br>
+                        <span class='dataPoint'>Degree Stream: <b><?php echo $controllerData->getDegreeStream();?></b></span><br>
+                        <span class='dataPoint'>Total Assignments: <b><?php echo $controllerData->getTotalNumberOfAssignment();?></b></span><br>
+                        <span class='dataPoint'>Assignment Weight: <b><?php echo $controllerData->getAssignmentWeight();?>%</b></span>
                     </div>
                 </div>
                 <div class="conductedBy">
                     <span class="sectionHeader">Conducted By:</span>
                     <ol class='conductBy'>
-                        <li>Mr. Ruwan Wijesingha (Owner)</li>
-                        <li>Mr. Kamal Gunaasekare</li>
-                        <li>Mrs. Samanthi Hemachandra</li>
-                        <li>Miss. Ruvani Gamage</li>
-                        <li>Miss. Ruvani Gamage</li>
-                        <li>Miss. Ruvani Gamage</li>
+                        <?php
+                            foreach ($controllerData->getAssignmentConductBy() as $row){
+                                echo ("<li>".$row->getSalutation().". ".$row->getFullName()."</li>");
+                            }
+                        ?>
                     </ol>
                 </div>
             </div>
@@ -52,17 +51,31 @@
                 <span class="sectionHeader">Current Assignment List:</span>
                 <div class="row col-2" style="margin:auto;">
                     <?php
-                    $namArray = $arrayName = array('Lorem ipsum dolor sit.', 'Lorem ipsum dolor sit amet, consectetur.', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, neque.');
-                    for ($i = 1; $i < 13; $i++) {
+//                    $namArray = $arrayName = array('Lorem ipsum dolor sit.', 'Lorem ipsum dolor sit amet, consectetur.', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, neque.');
+//                    for ($i = 1; $i < 13; $i++) {
+//                        echo("
+//                        <div class='assignment'>
+//                            <b><span>Assignment $i</span></b><hr>
+//                            <span class='assignmentTitle'>" . $namArray[$i % 3] . "</span>
+//                            <span>Weight: 20%</span>
+//                            <div class='row col-3'>
+//                                <div style='text-align: right;'><a href='#' style='color: black;'><i class='far fa-edit'></i></a></div>
+//                                <div></div>
+//                                <div style='text-align: left;'><a href='#' style='color: black;'><i class='far fa-folder-open'></i></a></div>
+//                            </div>
+//                        </div>
+//                    ");
+//                    }
+                    foreach ($controllerData->getAssignments()[0] as $row){
                         echo("
                         <div class='assignment'>
-                            <b><span>Assignment $i</span></b><hr>
-                            <span class='assignmentTitle'>" . $namArray[$i % 3] . "</span>
-                            <span>Weight: 20%</span>
+                            <b><span>Assignment ".$row->getAssignmentID()."</span></b><hr>
+                            <span class='assignmentTitle'>" . $row->getAssignmentName() . "</span>
+                            <span>Weight: ".$row->getWeight()."%</span>
                             <div class='row col-3'>
-                                <div style='text-align: right;'><a href='#' style='color: black;'><i class='far fa-edit'></i></a></div>
+                                <div style='text-align: right;'><a href='assignmentOperation?planID=".$controllerData->getPlanID()."&assignmentID=".$row->getAssignmentID()."&operation=edit' style='color: black;'><i class='far fa-edit'></i></a></div>
                                 <div></div>
-                                <div style='text-align: left;'><a href='#' style='color: black;'><i class='far fa-folder-open'></i></a></div>
+                                <div style='text-align: left;'><a href='assignmentOperation?planID=".$controllerData->getPlanID()."&assignmentID=".$row->getAssignmentID()."&operation=open' style='color: black;'><i class='far fa-folder-open'></i></a></div>
                             </div>
                         </div>
                     ");

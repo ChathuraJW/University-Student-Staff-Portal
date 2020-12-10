@@ -1,6 +1,6 @@
 <?php
 class AssignmentOperationModel extends Model{
-    public static function loadAssignmentData($assignmentID){
+    public static function loadAssignmentData($assignmentID): AssignmentPlan{
 //        get assignment plan data related to given assignment id
         //@TODO change database credentials
         $sqlQuery="SELECT * FROM assignment_plan WHERE planID=$assignmentID LIMIT 1";
@@ -23,7 +23,13 @@ class AssignmentOperationModel extends Model{
         //@TODO change database credentials
         $sqlQuery="SELECT * FROM assignment WHERE assignmentPlanID=$assignmentID";
         $result=Database::executeQuery('root','',$sqlQuery);
-        print_r($result);
-
+        $assignmentList=array();
+        foreach ($result as $row){
+            $assignmentPlanItem=new Assignment;
+            $assignmentPlanItem->createAssignment($row['assignmentID'],$row['assignmentPlanID'],$row['assignmentName'],$row['type'],$row['weight'],$row['description']);
+            $assignmentList[]=$assignmentPlanItem;
+        }
+        $assignmentPlanData->addAssignment($assignmentList);
+        return $assignmentPlanData;
     }
 }

@@ -17,7 +17,13 @@ class User{
     protected bool $isFirstLogIn;
 
     public function getSalutation():string{
-        return $this->salutation;
+        if(isset($this->salutation))
+            return $this->salutation;
+        else{
+            //@TODO change database credentials
+            $sqlQuery="SELECT salutation FROM user WHERE userName='".$this->userName."'";
+            return Database::executeQuery('root','',$sqlQuery)[0]['salutation'];
+        }
     }
 
     public function getUserName():string{
@@ -107,6 +113,10 @@ class AssignmentPlan{
 
     public function getAssignmentConductBy():array{
         return $this->assignmentConductBy;
+    }
+
+    public function getAssignments(): array{
+        return $this->assignments;
     }
 
 
