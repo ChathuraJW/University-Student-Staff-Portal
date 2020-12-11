@@ -224,7 +224,7 @@
                 prev"></i>
                     <div class="date">
                         <h4>May</h4>
-                        <p>Fri May 29, 2020</p>
+                        <p></p>
                     </div>
                     <i class="fas fa-angle-right
                 prev"></i>
@@ -280,6 +280,7 @@
                         <div class="nextDate">3</div>
                         <div class="nextDate">4</div>
                         <div class="nextDate">5</div>
+                        <div class="nextDate">6</div>
                 </div>
             </div>
         </div>
