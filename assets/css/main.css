@@ -38,6 +38,61 @@
     background-color: #faa406;
     border: #b87b06;
 }
+/*color themes*/
+:root{
+    /*close to natural theme color*/
+    --baseColor:#31708E;
+    --fontColor:#687864;
+    --successColor:#00800085;
+    --dangerColor:#f5090978;
+    --idleColor:#F7CB73;
+    --entryBackgroundColor:#6878640d;
+    --backgroundColor:#F7F9Fb;
+
+    /*Accent Colors That Pop theme color*/
+    /*--baseColor: #802BB1;*/
+    /*--fontColor: #D1D7E0;*/
+    /*--successColor: #00800085;*/
+    /*--dangerColor: #f5090978;*/
+    /*--idleColor: #F7CB73;*/
+    /*--entryBackgroundColor: #4C495D7A;*/
+    /*--backgroundColor: #2D283E;*/
+
+}
+.bodyBackground{
+    background-color:var(--backgroundColor);
+}
+.button{
+    color:white;
+    background-color: var(--baseColor);
+}
+buttonSubmit{
+    border-left: 5px solid var(--successColor);
+}
+buttonCancel{
+    border-left: 5px solid var(--dangerColor);
+}
+.text{
+    color:var(--fontColor);
+}
+.normalEntry{
+    background-color:var(--entryBackgroundColor);
+    border-left: 15px solid var(--baseColor);
+    color: var(--baseColor);
+}
+.warningEntry{
+    background-color:var(--entryBackgroundColor);
+    border-left: 20px solid var(--dangerColor);
+}
+.successEntry{
+    background-color:var(--entryBackgroundColor);
+    border-left: 20px solid var(--successColor);
+}
+.ideaEntry{
+    background-color:var(--entryBackgroundColor);
+    border-left: 20px solid var(--idleColor);
+}
+
 
 * {
     padding: 0;

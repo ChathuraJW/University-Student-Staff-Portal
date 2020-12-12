@@ -14,16 +14,20 @@
 <body>
 <?php require_once('../../assets/php/basicLoader.php') ?>
 <?php BasicLoader::loadHeader('../../'); ?>
-<div class="featureBody">
+<div class="featureBody bodyBackground text">
     <h1 class="heading">Assignment Management</h1>
     <div class="row col-2">
         <div class="assignmentList">
             <span class="columnHeader">Current Assignment Planes</span>
             <?php
+                if(sizeof($controllerData[0])===0)
+                    echo("
+                        <span class='emptyMessage'>No Assignment Currently Belongs to You.</span>
+                    ");
             foreach ($controllerData[0] as $row) {
 
                 echo("
-                        <a href='assignmentOperation?planID=".$row->getPlanID()."' class='planItem' id=''>
+                        <a href='assignmentOperation?planID=".$row->getPlanID()."' class='planItem normalEntry' id=''>
                             <div class='row col-2'>
                                 <div class='planInfo'>
                                     <span class='planItemHeader'>Basic Info:</span>
@@ -107,7 +111,7 @@
                 </div>
                 <div class="row col-2">
                     <div class="showRest">
-                        <span>Subject <button style="border: none;background-color: transparent;"
+                        <span>Subject <button style="border: none;background-color: transparent;color: var(--fontColor);"
                                               onclick="location.reload();"><i class="fas fa-sync"></i></button></span>
                         <select name="subject" id="subject" required>
                             <?php
@@ -140,12 +144,12 @@
                 <div class="row col-1">
                     <div class="showRest">
                         <span>Description</span><br>
-                        <textarea name="assignmentDescription" id="assignmentDescription" cols="30"
+                        <textarea name="assignmentDescription" id="assignmentDescription" cols="50"
                                   rows="10"></textarea>
                     </div>
                 </div>
                 <span class="staffAddSectionHead">Assignment Plane Conducted By <button
-                            style="border: none;background-color: transparent;" onselect="location.reload();"><i
+                            style="border: none;background-color: transparent;color: var(--fontColor);" onselect="location.reload();"><i
                                 class="fas fa-sync"></i></button></span>
                 <div class="row col-2">
                     <div>
@@ -165,9 +169,9 @@
                 </div>
                 <br>
                 <div class="row col-2">
-                    <input type="submit" class="submitCancelButton green" value="Create New Assignment Plan"
+                    <input type="submit" class="submitCancelButton buttonSubmit button" value="Create New Assignment Plan"
                            name="createPlan">
-                    <input type="reset" class="submitCancelButton red" value="Cancel" name="cancel">
+                    <input type="reset" class="submitCancelButton button buttonCancel" value="Cancel" name="cancel">
                 </div>
             </form>
         </div>
