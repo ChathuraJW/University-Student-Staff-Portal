@@ -8,6 +8,7 @@
     font-family: BioRhyme;
     src: url('../font/BioRhyme-Regular.ttf');
 }
+
 @font-face {
     font-family: Alegreya;
     src: url('../font/Alegreya-Italic.ttf');
@@ -38,16 +39,21 @@
     background-color: #faa406;
     border: #b87b06;
 }
+
 /*color themes*/
-:root{
+:root {
+    --headerFooterText: #F7F9Fb;
+
     /*close to natural theme color*/
-    --baseColor:#31708E;
-    --fontColor:#687864;
-    --successColor:#00800085;
-    --dangerColor:#f5090978;
-    --idleColor:#F7CB73;
-    --entryBackgroundColor:#6878640d;
-    --backgroundColor:#F7F9Fb;
+    --baseColor: #31708E;
+    --fontColor: #687864;
+    --successColor: #00800085;
+    --dangerColor: #f5090978;
+    --idleColor: #F7CB73;
+    --entryBackgroundColor: #6878640d;
+    --backgroundColor: #F7F9Fb;
+    --headerFooterBackground: #5085A5;
+    --headerSharding: #5085a578;
 
     /*Accent Colors That Pop theme color*/
     /*--baseColor: #802BB1;*/
@@ -57,47 +63,99 @@
     /*--idleColor: #F7CB73;*/
     /*--entryBackgroundColor: #4C495D7A;*/
     /*--backgroundColor: #2D283E;*/
+    /*--headerFooterBackground:#564F6F;*/
+    /*--headerSharding:#564f6fb3;*/
+}
 
+.bodyBackground {
+    background-color: var(--backgroundColor);
 }
-.bodyBackground{
-    background-color:var(--backgroundColor);
-}
-.button{
-    color:white;
-    background-color: var(--baseColor);
-}
-buttonSubmit{
+
+.buttonSubmit {
     border-left: 5px solid var(--successColor);
 }
-buttonCancel{
+
+.buttonCancel {
     border-left: 5px solid var(--dangerColor);
 }
-.text{
-    color:var(--fontColor);
+
+.text {
+    color: var(--fontColor);
 }
-.normalEntry{
-    background-color:var(--entryBackgroundColor);
+
+.normalEntry {
+    background-color: var(--entryBackgroundColor);
     border-left: 15px solid var(--baseColor);
     color: var(--baseColor);
 }
-.warningEntry{
-    background-color:var(--entryBackgroundColor);
+
+.warningEntry {
+    background-color: var(--entryBackgroundColor);
     border-left: 20px solid var(--dangerColor);
 }
-.successEntry{
-    background-color:var(--entryBackgroundColor);
+
+.successEntry {
+    background-color: var(--entryBackgroundColor);
     border-left: 20px solid var(--successColor);
 }
-.ideaEntry{
-    background-color:var(--entryBackgroundColor);
+
+.ideaEntry {
+    background-color: var(--entryBackgroundColor);
     border-left: 20px solid var(--idleColor);
 }
 
+/*common element styles*/
+
+input[type=number], input[type=text], input[type=email], textarea, select, option {
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    width: 280px;
+    color: var(--fontColor);
+    background-color: var(--backgroundColor);
+    resize: none;
+}
+
+/*input type number remove increase decrease arrow*/
+
+/*for chromium based browsers*/
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/*for firefox based browsers*/
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/*style for button*/
+.button {
+    height: auto;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 9px;
+    margin: 4px;
+    min-width: 200px;
+    color: white;
+    background-color: var(--baseColor);
+}
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+.featureBody {
+    padding-top: 10px;
+    padding-bottom: 30px;
 }
 
 /*styles for header of all component views*/
@@ -117,7 +175,7 @@ header .overlay {
     padding: 5px;
     color: #fff;
     text-shadow: 1px 1px 1px #333;
-    background-image: linear-gradient(135deg, #57585a75 10%, #7b817f9c 100%)
+    background-image: linear-gradient(135deg, var(--headerSharding) 20%, var(--headerSharding) 30%)
 }
 
 img {
@@ -152,9 +210,9 @@ img {
 /*top login information bar*/
 .loginInfo {
     height: auto;
-    background-image: linear-gradient(135deg, #383a3a 10%, #5b5544 100%);
+    background-color: var(--headerFooterBackground);
     text-align: right;
-    color: white;
+    color: var(--headerFooterText);
     font-weight: bold;
     font-size: 22px;
     border-radius: 0;
@@ -168,8 +226,8 @@ img {
     bottom: 0;
     height: auto;
     width: 100%;
-    background-color: #000000;
-    color: white;
+    background-color: var(--headerFooterBackground);
+    color: var(--headerFooterText);
     display: block;
 }
 

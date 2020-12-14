@@ -2,59 +2,6 @@
     font-family: Varela, sans-serif;
 }
 
-input[type=number], input[type=text], textarea, select {
-    width: fit-content;
-    padding: 8px;
-    border: 1px solid gray;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 16px;
-    min-width: 300px;
-    color: var(--fontColor);
-    background-color: var(--backgroundColor);
-    resize: none;
-}
-
-/*remove dropdown array form select*/
-select{
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-/*add new dropdown icon*/
-/*select{*/
-/*    !* Some browsers will not display the caret when using calc, so we put the fallback first *!*/
-/*    background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") white no-repeat 98.5% !important; !* !important used for overriding all other customisations *!*/
-/*    background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") white no-repeat calc(100% - 10px) !important; !* Better placement regardless of input width *!*/
-/*}*/
-
-/*input type number remove increase decrease arrow*/
-/*for chromium based browsers*/
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-/*for firefox based browsers*/
-input[type=number]{
-    -moz-appearance: textfield;
-}
-
-/*style for button*/
-.submitCancelButton {
-    height: auto;
-    color: white;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 4px;
-    padding: 9px;
-    margin: 4px;
-    min-width: 200px;
-}
-
 .heading {
     text-align: center;
     font-weight: bolder;
@@ -78,6 +25,10 @@ input[type=number]{
     padding: 20px 5px 5px;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.assignmentList, .resultAddSection {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .planItem {
@@ -165,7 +116,7 @@ input[type=number]{
     padding: 10px;
     margin: 0;
     border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 1px dotted gray;
 }
 
 .sectionHeader {
@@ -218,13 +169,15 @@ input[type=number]{
     margin: 10px;
     border-bottom: 1px solid #ddd;
 }
-.resultAddTable th{
+
+.resultAddTable th {
     color: white;
     padding: 10px;
     margin: 10px;
 }
+
 /*empty list message*/
-.emptyMessage{
+.emptyMessage {
     font-size: 20px;
     text-align: center;
     padding-top: 50px;

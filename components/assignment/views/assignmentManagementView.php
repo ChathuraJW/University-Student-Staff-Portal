@@ -169,9 +169,9 @@
                 </div>
                 <br>
                 <div class="row col-2">
-                    <input type="submit" class="submitCancelButton buttonSubmit button" value="Create New Assignment Plan"
+                    <input type="submit" class="button buttonSubmit" value="Create New Assignment Plan"
                            name="createPlan">
-                    <input type="reset" class="submitCancelButton button buttonCancel" value="Cancel" name="cancel">
+                    <input type="reset" class="button buttonCancel" value="Cancel" name="cancel">
                 </div>
             </form>
         </div>

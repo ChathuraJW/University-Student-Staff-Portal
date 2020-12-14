@@ -14,73 +14,64 @@
 <body>
 <?php require_once('../../assets/php/basicLoader.php') ?>
 <?php BasicLoader::loadHeader('../../'); ?>
-<div class="featureBody">
+<div class="featureBody bodyBackground text">
     <h1 class="heading">Assignment Management</h1>
     <div class="row col-2">
         <div class="assignmentPlanManagement">
-            <span class="columnHeader">Welcome to <?php echo $controllerData->getSubjectCode();?> Assignment Plan</span>
+            <span class="columnHeader">Welcome to <?php echo $controllerData->getSubjectCode(); ?> Assignment Plan</span>
             <div class="row col-2">
                 <div class="basicAssignmentInfo">
                     <span class="sectionHeader">Basic Info:</span>
                     <div>
-                        <span class='dataPoint'><?php echo $controllerData->getAssignmentSubjectName();?></span>
+                        <span class='dataPoint'><?php echo $controllerData->getAssignmentSubjectName(); ?></span>
                     </div>
                     <div>
-                        <span class='dataPoint'>Subject Code: <b><?php echo $controllerData->getSubjectCode();?></b></span><br>
-                        <span class='dataPoint'>Degree Stream: <b><?php echo $controllerData->getDegreeStream();?></b></span><br>
-                        <span class='dataPoint'>Total Assignments: <b><?php echo $controllerData->getTotalNumberOfAssignment();?></b></span><br>
-                        <span class='dataPoint'>Assignment Weight: <b><?php echo $controllerData->getAssignmentWeight();?>%</b></span>
+                        <span class='dataPoint'>Subject Code: <b><?php echo $controllerData->getSubjectCode(); ?></b></span><br>
+                        <span class='dataPoint'>Degree Stream: <b><?php echo $controllerData->getDegreeStream(); ?></b></span><br>
+                        <span class='dataPoint'>Total Assignments: <b><?php echo $controllerData->getTotalNumberOfAssignment(); ?></b></span><br>
+                        <span class='dataPoint'>Assignment Weight: <b><?php echo $controllerData->getAssignmentWeight(); ?>%</b></span>
                     </div>
                 </div>
                 <div class="conductedBy">
                     <span class="sectionHeader">Conducted By:</span>
                     <ol class='conductBy'>
-                        <?php
-                            foreach ($controllerData->getAssignmentConductBy() as $row){
-                                echo ("<li>".$row->getSalutation().". ".$row->getFullName()."</li>");
-                            }
-                        ?>
+						<?php
+							foreach ($controllerData->getAssignmentConductBy() as $row) {
+								echo("<li>" . $row->getSalutation() . ". " . $row->getFullName() . "</li>");
+							}
+						?>
                     </ol>
                 </div>
             </div>
             <div class="createNewAssignment">
-                <button class="submitCancelButton blue">Create New Assignment</button>
-                <button class="submitCancelButton green">Close and Complete Plane</button>
+                <button class="button">Create New Assignment</button>
+                <button class="button">Close and Complete Plane</button>
             </div>
             <div class="assignmentList">
                 <span class="sectionHeader">Current Assignment List:</span>
+				<?php
+					if (sizeof($controllerData->getAssignments()[0]) === 0)
+						echo("
+                                <span class='emptyMessage'>No Assignments Currently Available for This Plan.</span>
+                            ");
+				?>
                 <div class="row col-2" style="margin:auto;">
-                    <?php
-//                    $namArray = $arrayName = array('Lorem ipsum dolor sit.', 'Lorem ipsum dolor sit amet, consectetur.', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, neque.');
-//                    for ($i = 1; $i < 13; $i++) {
-//                        echo("
-//                        <div class='assignment'>
-//                            <b><span>Assignment $i</span></b><hr>
-//                            <span class='assignmentTitle'>" . $namArray[$i % 3] . "</span>
-//                            <span>Weight: 20%</span>
-//                            <div class='row col-3'>
-//                                <div style='text-align: right;'><a href='#' style='color: black;'><i class='far fa-edit'></i></a></div>
-//                                <div></div>
-//                                <div style='text-align: left;'><a href='#' style='color: black;'><i class='far fa-folder-open'></i></a></div>
-//                            </div>
-//                        </div>
-//                    ");
-//                    }
-                    foreach ($controllerData->getAssignments()[0] as $row){
-                        echo("
+					<?php
+						foreach ($controllerData->getAssignments()[0] as $row) {
+							echo("
                         <div class='assignment'>
-                            <b><span>Assignment ".$row->getAssignmentID()."</span></b><hr>
+                            <b><span>Assignment " . $row->getAssignmentID() . "</span></b><hr>
                             <span class='assignmentTitle'>" . $row->getAssignmentName() . "</span>
-                            <span>Weight: ".$row->getWeight()."%</span>
+                            <span>Weight: " . $row->getWeight() . "%</span>
                             <div class='row col-3'>
-                                <div style='text-align: right;'><a href='assignmentOperation?planID=".$controllerData->getPlanID()."&assignmentID=".$row->getAssignmentID()."&operation=edit' style='color: black;'><i class='far fa-edit'></i></a></div>
+                                <div style='text-align: right;'><a href='assignmentOperation?planID=" . $controllerData->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=edit' style='color: black;'><i class='far fa-edit'></i></a></div>
                                 <div></div>
-                                <div style='text-align: left;'><a href='assignmentOperation?planID=".$controllerData->getPlanID()."&assignmentID=".$row->getAssignmentID()."&operation=open' style='color: black;'><i class='far fa-folder-open'></i></a></div>
+                                <div style='text-align: left;'><a href='assignmentOperation?planID=" . $controllerData->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=open' style='color: black;'><i class='far fa-folder-open'></i></a></div>
                             </div>
                         </div>
                     ");
-                    }
-                    ?>
+						}
+					?>
                 </div>
             </div>
         </div>
@@ -115,16 +106,16 @@
                 <span class="sectionHeader">Result Adding Section:</span>
                 <form action="#" method="get">
                     <table class="resultAddTable">
-                        <tr style="background-color: black;">
+                        <tr style="background-color: var(--baseColor)">
                             <th>ID</th>
                             <th>Index Number</th>
                             <th colspan="2">Result</th>
                         </tr>
-                        <?php
-                        for ($i = 1; $i <= 10; $i++) {
-                            $elementID="studentResult$i";
-                            $checkBoxID="chkBox$i";
-                            echo("
+						<?php
+							for ($i = 1; $i <= 10; $i++) {
+								$elementID = "studentResult$i";
+								$checkBoxID = "chkBox$i";
+								echo("
                               <tr>
                                 <td>$i.</td>
                                 <td style='border-left: 1px solid #ddd;border-right: 1px solid #ddd;'>18001831</td>
@@ -132,13 +123,13 @@
                                 <td><input type='number' name='$elementID' class='assignmentResultValue'  id='$elementID' max='100' min='0' oninput='checkResultInput(`$elementID`);' disabled></td>
                               </tr>
                           ");
-                        }
-                        ?>
+							}
+						?>
                     </table>
 
                     <div class="row col-2">
-                        <input type="reset" class="submitCancelButton red" value="Cancel">
-                        <input type="submit" class="submitCancelButton green" value="Save Data" id="saveAssignmentResult" name="saveAssignmentResult">
+                        <input type="reset" class="button" value="Cancel">
+                        <input type="submit" class="button" value="Save Data" id="saveAssignmentResult" name="saveAssignmentResult">
                     </div>
                 </form>
             </div>
