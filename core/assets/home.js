@@ -122,3 +122,26 @@ jQuery.get('assets/navigationLinks.xml', function (fileContent) {
     }
 
 })
+// calender
+let clock = () =>{
+    let date = new Date();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let period = "Am";
+
+    if(hours == 0){
+        hours = 12;
+    }else if(hours >= 12){
+        hours = hours-12;
+        period = "PM";
+    }
+    hours = hours < 10 ? "0"+hours:hours;
+    minutes = minutes <10 ? "0"+minutes:minutes;
+
+    let time = `${hours}:${minutes}:${period}`;
+    console.log(time);
+    document.getElementById("time").innerHTML = time;
+    setTimeout(clock,1000);
+
+};
+clock();
