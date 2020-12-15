@@ -15,7 +15,7 @@
     <?php require('../../assets/php/basicLoader.php')?>
     <?php BasicLoader::loadHeader('../../')?>
     
-    <div class="featureBody">
+    <div class="featureBody bodyBackground text">
         <form>
             <div class="row col-1">
                 <P class="heading">Add PastPaper</P>
@@ -49,8 +49,13 @@
                 <div>
                     <label class="labelStyle">Subject:</label><br>
                     <select name="subject">
-                        <option value="SCS2209">Database 2</option>
-                        <option value="SCS2210">Discrete Maths 2</option>
+                        <?php
+                            foreach ($controllerData[0] as $row ){
+                                echo ("
+                                    <option value='".$row->getCourseCode()."'>".$row->getName()."</option>
+                                ");
+                            }
+                        ?>
                     </select>
                 </div>
             </div>
@@ -63,17 +68,9 @@
                     </div>
                 </form>
             </div>
-            <div class="row col-6">
-                <div></div>
-                <div></div>
-                <div>
-                    <button class="submitButton red"><i class="fa fa-ban" aria-hidden="true"></i> Cancel</button>
-                </div>
-                <div>
-                    <button class="submitButton green"type="submit" ><i class="fa fa-upload" aria-hidden="true"></i> Upload</button>
-                </div>
-                <div></div>
-                <div></div>
+            <div class="buttonCouple">
+                <button class="button"><i class="fa fa-ban" aria-hidden="true"></i> Cancel</button>
+                <button class="button"type="submit" ><i class="fa fa-upload" aria-hidden="true"></i> Upload</button>
             </div>
         </form>
     </div>

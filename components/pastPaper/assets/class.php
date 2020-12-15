@@ -2,7 +2,7 @@
 
 class PastPaper{
     // attributes of Pastpapers
-    private string $paperID;
+    private int $paperID;
     private string $examinationYear;
     private int $semester;
     private string $subjectName;
@@ -51,7 +51,7 @@ class PastPaper{
 
 class courseModule{
     // attributes of courseModule
-    private string $CourseCode;
+    private string $courseCode;
     private string $name;
     private string $creditVale;
     private string $description;
@@ -59,11 +59,30 @@ class courseModule{
     // methods of courseModule
 
     public function setCourseModule($courseCode, $name, $semester){
-        $this->$courseCode = $courseCode;
+        $this->courseCode = $courseCode;
         $this->name = $name;
         $this->semester = $semester;
         return $this;
     }
+
+
+    public function getCourseCode(): string
+    {
+        return $this->courseCode;
+    }
+
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+
+    public function getSemester(): int
+    {
+        return $this->semester;
+    }
+
 }
 
 

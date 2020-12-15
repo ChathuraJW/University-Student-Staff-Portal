@@ -10,7 +10,7 @@
     font-size: 20px;
     cursor: pointer;
     color: rgb(109, 109, 116);
-    border: 4px dashed #009578 ;
+    border: 4px dashed var(--baseColor) ;
     border-radius: 10px;
     margin-top: 30px;
     margin-bottom: 30px;
