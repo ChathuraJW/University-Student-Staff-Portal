@@ -17,7 +17,7 @@
     margin: 10px;
 }
 
-.assignmentList, .createNewAssignmentSection, .assignmentPlanManagement, .addResultToAssignment, .resultAddSection {
+.assignmentList, .createNewAssignmentSection, .assignmentPlanManagement, .addResultToAssignment, .resultAddSection, .assignmentCreateEdit {
     width: 100%;
     height: max-content;
     display: inline-grid;
@@ -25,6 +25,11 @@
     padding: 20px 5px 5px;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/*hide assignment crete/edit section and result adding section*/
+.addResultToAssignment, .assignmentCreateEdit {
+    display: none;
 }
 
 .assignmentList, .resultAddSection {
@@ -125,10 +130,6 @@
     padding-bottom: 10px;
     padding-left: 3px;
     display: block;
-}
-
-.createNewAssignment {
-    margin: 10px auto;
 }
 
 .assignment {

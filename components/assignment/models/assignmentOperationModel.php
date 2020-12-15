@@ -32,4 +32,39 @@ class AssignmentOperationModel extends Model{
         $assignmentPlanData->addAssignment($assignmentList);
         return $assignmentPlanData;
     }
+    public static function editAssignment($assignment){
+    	$sqlQuery="UPDATE assignment SET assignmentName='".$assignment->getAssignmentName()."',type=".$assignment->getType().",description='"
+		    .$assignment->getDescription()."',weight=".$assignment->getWeight()." WHERE assignmentID=".$assignment->getAssignmentID();
+//    	establish transaction to update assignment data
+    	$database=new Database;
+//	    @TODO change database credentials
+    	$database->establishTransaction('root','');
+    	$database->executeTransaction($sqlQuery);
+    	$database->transactionAudit($sqlQuery,'assignment',"UPDATE","Update existing assignment(#".$assignment->getAssignmentID().") on assignment Plan #" .$assignment->getAssignmentPlanID());
+    	if($database->getTransactionState()){
+    		$database->commitToDatabase();
+    		//@TODO Add success message
+	    }else{
+		    //@TODO Add fail message message
+	    }
+    	$database->closeConnection();
+    }
+    public static function createNewAssignment($assignment){
+	    $assignment=new Assignment();
+	    $sqlQuery="INSERT INTO assignment(assignmentPlanID, assignmentName, type, description, weight) VALUES (".$assignment->getAssignmentPlanID()
+		    .",'".$assignment->getAssignmentName()."',".$assignment->getType().",'".$assignment->getDescription()."',".$assignment->getWeight().")";
+	    //    	establish transaction to update assignment data
+	    $database=new Database;
+//	    @TODO change database credentials
+	    $database->establishTransaction('root','');
+	    $database->executeTransaction($sqlQuery);
+	    $database->transactionAudit($sqlQuery,'assignment',"UPDATE","Add new assignment for assignment Plan #" .$assignment->getAssignmentPlanID());
+	    if($database->getTransactionState()){
+		    $database->commitToDatabase();
+		    //@TODO Add success message
+	    }else{
+		    //@TODO Add fail message message
+	    }
+	    $database->closeConnection();
+    }
 }

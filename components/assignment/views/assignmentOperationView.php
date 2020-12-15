@@ -43,8 +43,8 @@
                     </ol>
                 </div>
             </div>
-            <div class="createNewAssignment">
-                <button class="button">Create New Assignment</button>
+            <div class="buttonCouple">
+                <a href="?planID=<?php echo($_GET['planID']); ?>&operation=create" class="button">Create New Assignment</a>
                 <button class="button">Close and Complete Plane</button>
             </div>
             <div class="assignmentList">
@@ -64,9 +64,9 @@
                             <span class='assignmentTitle'>" . $row->getAssignmentName() . "</span>
                             <span>Weight: " . $row->getWeight() . "%</span>
                             <div class='row col-3'>
-                                <div style='text-align: right;'><a href='assignmentOperation?planID=" . $controllerData->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=edit' style='color: black;'><i class='far fa-edit'></i></a></div>
-                                <div></div>
-                                <div style='text-align: left;'><a href='assignmentOperation?planID=" . $controllerData->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=open' style='color: black;'><i class='far fa-folder-open'></i></a></div>
+                                <div style='text-align: center;'><a href='assignmentOperation?planID=" . $controllerData->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=edit' style='color: var(--baseColor);'><i class='far fa-edit'></i></a></div>
+                                <div style='text-align: center;'><a href='assignmentOperation?planID=" . $controllerData->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=open' style='color: var(--baseColor);'><i class='far fa-folder-open'></i></a></div>
+                                <div style='text-align: center;'><a href='assignmentOperation?planID=" . $controllerData->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=delete' style='color: var(--dangerColor);'><i class='far fa-trash-alt'></i></a></div>
                             </div>
                         </div>
                     ");
@@ -76,6 +76,18 @@
             </div>
         </div>
 
+        <!--        load view for assignment open operation-->
+		<?php
+			if (isset($_GET['operation']) & $_GET['operation'] === 'open') {
+				echo("
+                    <style>
+                        .addResultToAssignment{
+                            display: block;
+                        }
+                    </style>
+                ");
+			}
+		?>
         <div class="addResultToAssignment">
             <span class="columnHeader">Welcome to SCS2204 Assignment Plan</span>
             <div class="row col-2">
@@ -127,12 +139,66 @@
 						?>
                     </table>
 
-                    <div class="row col-2">
+                    <div class="buttonCouple">
                         <input type="reset" class="button" value="Cancel">
                         <input type="submit" class="button" value="Save Data" id="saveAssignmentResult" name="saveAssignmentResult">
                     </div>
                 </form>
             </div>
+        </div>
+
+        <!--        load view for assignment create/update operation-->
+		<?php
+			if (isset($_GET['operation']) & ($_GET['operation'] === 'create' || $_GET['operation'] === 'edit')) {
+				echo("
+                    <style>
+                        .assignmentCreateEdit{
+                            display: block;
+                        }
+                    </style>
+                ");
+			}
+		?>
+        <!--        assignment create/update section-->
+        <div class="assignmentCreateEdit">
+            <span class="columnHeader">Create/Edit Assignment</span>
+            <!--            prepare data for get url-->
+			<?php
+				$currentPlanID = $_GET['planID'];
+				if (isset($_GET['assignmentID']))
+					$assignmentID = $_GET['assignmentID'];
+				else
+					$assignmentID = null;
+			?>
+            <form action="?planID=<?php echo($currentPlanID); ?>&assignmentID=<?php echo($assignmentID); ?>&operation=edit" method="post">
+                <div class="row col-2">
+                    <div class="showRest">
+                        <span>Assignment Name</span><br>
+                        <textarea name="assignmentName" id="assignmentName" cols="30" rows="10" required></textarea>
+                    </div>
+                    <div class="showRest">
+                        <span>Description</span><br>
+                        <textarea name="assignmentDescription" id="assignmentDescription" cols="30" rows="10" required></textarea>
+                    </div>
+                    <div class="showRest">
+                        <span>Assignment Weight</span><br>
+                        <input type="number" name="assignmentWeight" id="assignmentWeight" max="100" min="0" required>
+                    </div>
+                    <div class="showRest">
+                        <span>Assignment Type</span><br>
+                        <select name="assignmentType" id="assignmentType" required>
+                            <option value="4100">In Class Assignment</option>
+                            <option value="4200">Online Assignment</option>
+                            <option value="4300">Take Home Assignment</option>
+                            <option value="4400">Group Assignment</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="buttonCouple">
+                    <input type="submit" name="saveChanges" value="Save Changes" class="button">
+                    <input type="reset" value="Cancel" class="button">
+                </div>
+            </form>
         </div>
     </div>
 </div>

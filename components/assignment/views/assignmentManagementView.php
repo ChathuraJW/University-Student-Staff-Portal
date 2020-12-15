@@ -19,24 +19,24 @@
     <div class="row col-2">
         <div class="assignmentList">
             <span class="columnHeader">Current Assignment Planes</span>
-            <?php
-                if(sizeof($controllerData[0])===0)
-                    echo("
+			<?php
+				if (sizeof($controllerData[0]) === 0)
+					echo("
                         <span class='emptyMessage'>No Assignment Currently Belongs to You.</span>
                     ");
-            foreach ($controllerData[0] as $row) {
+				foreach ($controllerData[0] as $row) {
 
-                echo("
-                        <a href='assignmentOperation?planID=".$row->getPlanID()."' class='planItem normalEntry' id=''>
+					echo("
+                        <a href='assignmentOperation?planID=" . $row->getPlanID() . "' class='planItem normalEntry' id=''>
                             <div class='row col-2'>
                                 <div class='planInfo'>
                                     <span class='planItemHeader'>Basic Info:</span>
                                     <div>
-                                        <span class='dataPoint'>".$row->getAssignmentSubjectName()."</span>
+                                        <span class='dataPoint'>" . $row->getAssignmentSubjectName() . "</span>
                                     </div>
                                     <div>
                                         <span class='dataPoint'>Subject Code: <b>" . $row->getSubjectCode() . "</b></span>
-                                        <span class='dataPoint'>Degree Stream: <b>" . ($row->getDegreeStream()==='CS'?'Computer Science':'Information system') . "</b></span>
+                                        <span class='dataPoint'>Degree Stream: <b>" . ($row->getDegreeStream() === 'CS' ? 'Computer Science' : 'Information system') . "</b></span>
                                         <span class='dataPoint'>Total Assignments: <b>" . $row->getTotalNumberOfAssignment() . "</b></span>
                                         <span class='dataPoint'>Assignment Weight: <b>" . $row->getAssignmentWeight() . "%</b></span>
                                     </div>
@@ -46,11 +46,11 @@
                                     <ol class='conductBy'>
                 ");
 
-                foreach ($row->getAssignmentConductBy() as $data) {
-                    echo("<li>" . $data->getFullName() . "</li>");
-                }
+					foreach ($row->getAssignmentConductBy() as $data) {
+						echo("<li>" . $data->getFullName() . "</li>");
+					}
 
-                echo("
+					echo("
                                     </ol>
                                 </div>
                             </div>
@@ -59,10 +59,9 @@
                             </div>
                         </a>
               ");
-            }
-            ?>
+				}
+			?>
         </div>
-
         <div class="createNewAssignmentSection">
             <form action="" method="post">
                 <span class="columnHeader">Create New Assignment Plane</span>
@@ -114,13 +113,13 @@
                         <span>Subject <button style="border: none;background-color: transparent;color: var(--fontColor);"
                                               onclick="location.reload();"><i class="fas fa-sync"></i></button></span>
                         <select name="subject" id="subject" required>
-                            <?php
-                            foreach ($controllerData[1] as $data) {
-                                echo("
+							<?php
+								foreach ($controllerData[1] as $data) {
+									echo("
                                     <option value='" . $data->getCourseCode() . "'>" . $data->getSemester() . ". " . $data->getName() . "</option>
                                 ");
-                            }
-                            ?>
+								}
+							?>
                         </select>
                     </div>
                     <div class="showRest">
@@ -155,11 +154,11 @@
                     <div>
                         <select name="academicSupportList" id="academicSupportList" onchange="addStaffRecipient();">
                             <option value="">Academic Support Staff</option>
-                            <?php
-                            foreach ($controllerData[2] as $data) {
-                                echo("<option value='" . $data->getUserName() . "'>" . $data->getSalutation() . " " . $data->getFirstName() . " " . $data->getLastName() . "</option>");
-                            }
-                            ?>
+							<?php
+								foreach ($controllerData[2] as $data) {
+									echo("<option value='" . $data->getUserName() . "'>" . $data->getSalutation() . " " . $data->getFirstName() . " " . $data->getLastName() . "</option>");
+								}
+							?>
                         </select>
                     </div>
                     <div>
@@ -168,7 +167,7 @@
                     </div>
                 </div>
                 <br>
-                <div class="row col-2">
+                <div class="buttonCouple">
                     <input type="submit" class="button buttonSubmit" value="Create New Assignment Plan"
                            name="createPlan">
                     <input type="reset" class="button buttonCancel" value="Cancel" name="cancel">
