@@ -122,26 +122,74 @@ jQuery.get('assets/navigationLinks.xml', function (fileContent) {
     }
 
 })
-// calender
+// date and time
 let clock = () =>{
+    const months= [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+    ];
+    const  days =[
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+
+    ];
+
     let date = new Date();
     let hours = date.getHours();
     let minutes = date.getMinutes();
-    let period = "Am";
+    let year = date.getFullYear();
+    let month = months[date.getMonth()];
+    let day = days[date.getDay()];
+    let currentDate = date.getDate();
 
-    if(hours == 0){
+    let period = "Am";
+    //convert the ......time into .......
+    if(hours === 0){
         hours = 12;
     }else if(hours >= 12){
         hours = hours-12;
         period = "PM";
     }
+    
+    let date1;
+    if(currentDate === 1){
+         date1 = `${currentDate}st`;
+    }else if(currentDate === 2){
+        date1 = `${currentDate}nd`;
+    }else if(currentDate === 3){
+         date1 = `${currentDate}rd`;
+    }else{
+        date1 = `${currentDate}th`;
+    }
+
+    //ex -> replace 9 as 09
     hours = hours < 10 ? "0"+hours:hours;
     minutes = minutes <10 ? "0"+minutes:minutes;
 
     let time = `${hours}:${minutes}:${period}`;
-    console.log(time);
+    let monthYear = `${month} ${year}`;
+
     document.getElementById("time").innerHTML = time;
+    document.getElementById("month").innerHTML = monthYear;
+    document.getElementById("day").innerHTML = day;
+    document.getElementById("date").innerHTML = date1;
     setTimeout(clock,1000);
 
 };
 clock();
+

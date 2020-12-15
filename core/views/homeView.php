@@ -216,10 +216,10 @@
                     </div>
                 </div>
                 <div class="calenderContainer">
-                    <div class="dayContainer">Monday</div>
+                    <div id="day" class="dayContainer">Monday</div>
                     <div class="dateTime">
-                        <div id="month" class="month">Jan 2015</div>
-                        <div class="date">10th</div>
+                        <div id="month" class="month"></div>
+                        <div id="date" class="date"></div>
                         <div id="time" class="time"></div>
                     </div>
                 </div>
