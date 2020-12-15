@@ -49,7 +49,7 @@
                     <div class="stackHeader">
                         <span class="stackLabel" style="padding-bottom: 7px;">Academic Schedule</span>
                     </div>
-                    <dic class="timeSlots row col-2">
+                    <div class="timeSlots row col-2">
                         <div class="notificationEntryTimeTable">
                             <i class="fas fa-chalkboard-teacher"></i>&nbsp;&nbsp;SCS2201 Lecture<br>
                             <i class="fas fa-map-marked-alt"></i>&nbsp;&nbsp;S203 <br>
@@ -70,7 +70,7 @@
                             <i class="fas fa-map-marked-alt"></i>&nbsp;&nbsp;S204 <br>
                             <i class="far fa-clock"></i>&nbsp; 15:00 - 17:00 <br>
                         </div>
-                    </dic>
+                    </div>
                 </div>
                 <div></div>
                 <a href="https://ugvle.ucsc.cmb.ac.lk/" target="_blank" class="tile" id="accessToVLE">
@@ -181,7 +181,7 @@
             </div>
         </div>
     </div>
-    <div >
+<!--    <div >-->
         <div class="userInformation">
             <div class="row col-1">
                 <div class="profileSection">
@@ -215,75 +215,86 @@
                         ?>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="calenderContainer">
-            <div class="calender">
-                <div class="month">
-                    <i class="fas fa-angle-left
-                prev"></i>
-                    <div class="date">
-                        <h4>May</h4>
-                        <p></p>
+                <div class="calenderContainer">
+                    <div class="dayContainer">Monday</div>
+                    <div class="dateTime">
+                        <div id="month" class="month">Jan 2015</div>
+                        <div class="date">10th</div>
+                        <div id="time" class="time"></div>
                     </div>
-                    <i class="fas fa-angle-right
-                prev"></i>
                 </div>
-                <div class="weeksDays">
-                        <div>Sun</div>
-                        <div>Mon</div>
-                        <div>Tue</div>
-                        <div>Wed</div>
-                        <div>Thu</div>
-                        <div>Fri</div>
-                        <div>Sat</div>
-                </div>
-                <div class="days">
-                        <div class="prevDate">26</div>
-                        <div class="prevDate">27</div>
-                        <div class="prevDate">28</div>
-                        <div class="prevDate">29</div>
-                        <div class="prevDate">30</div>
-                        <div>1</div>
-                        <div>2</div>
-                        <div>3</div>
-                        <div>4</div>
-                        <div>5</div>
-                        <div>6</div>
-                        <div>7</div>
-                        <div>8</div>
-                        <div>9</div>
-                        <div>10</div>
-                        <div>11</div>
-                        <div>12</div>
-                        <div>13</div>
-                        <div>14</div>
-                        <div>15</div>
-                        <div>16</div>
-                        <div>17</div>
-                        <div>18</div>
-                        <div>19</div>
-                        <div>20</div>
-                        <div>21</div>
-                        <div>22</div>
-                        <div>23</div>
-                        <div>24</div>
-                        <div>25</div>
-                        <div>26</div>
-                        <div>27</div>
-                        <div>28</div>
-                        <div>29</div>
-                        <div>30</div>
-                        <div>31</div>
-                        <div class="nextDate">1</div>
-                        <div class="nextDate">2</div>
-                        <div class="nextDate">3</div>
-                        <div class="nextDate">4</div>
-                        <div class="nextDate">5</div>
-                        <div class="nextDate">6</div>
-                </div>
+<!--            </div>-->
             </div>
-        </div>
+
+
+
+<!--        <div class="calenderContainer">-->
+<!--            <div class="calender">-->
+<!--                <div class="month">-->
+<!--                    <i class="fas fa-angle-left-->
+<!--                prev"></i>-->
+<!--                    <div class="date">-->
+<!--                        <h4>May</h4>-->
+<!--                        <p></p>-->
+<!--                    </div>-->
+<!--                    <i class="fas fa-angle-right-->
+<!--                prev"></i>-->
+<!--                </div>-->
+<!--                <div class="weeksDays">-->
+<!--                        <div>Sun</div>-->
+<!--                        <div>Mon</div>-->
+<!--                        <div>Tue</div>-->
+<!--                        <div>Wed</div>-->
+<!--                        <div>Thu</div>-->
+<!--                        <div>Fri</div>-->
+<!--                        <div>Sat</div>-->
+<!--                </div>-->
+<!--                <div class="days">-->
+<!--                        <div class="prevDate">26</div>-->
+<!--                        <div class="prevDate">27</div>-->
+<!--                        <div class="prevDate">28</div>-->
+<!--                        <div class="prevDate">29</div>-->
+<!--                        <div class="prevDate">30</div>-->
+<!--                        <div>1</div>-->
+<!--                        <div>2</div>-->
+<!--                        <div>3</div>-->
+<!--                        <div>4</div>-->
+<!--                        <div>5</div>-->
+<!--                        <div>6</div>-->
+<!--                        <div>7</div>-->
+<!--                        <div>8</div>-->
+<!--                        <div>9</div>-->
+<!--                        <div>10</div>-->
+<!--                        <div>11</div>-->
+<!--                        <div>12</div>-->
+<!--                        <div>13</div>-->
+<!--                        <div>14</div>-->
+<!--                        <div>15</div>-->
+<!--                        <div>16</div>-->
+<!--                        <div>17</div>-->
+<!--                        <div>18</div>-->
+<!--                        <div>19</div>-->
+<!--                        <div>20</div>-->
+<!--                        <div>21</div>-->
+<!--                        <div>22</div>-->
+<!--                        <div>23</div>-->
+<!--                        <div>24</div>-->
+<!--                        <div>25</div>-->
+<!--                        <div>26</div>-->
+<!--                        <div>27</div>-->
+<!--                        <div>28</div>-->
+<!--                        <div>29</div>-->
+<!--                        <div>30</div>-->
+<!--                        <div>31</div>-->
+<!--                        <div class="nextDate">1</div>-->
+<!--                        <div class="nextDate">2</div>-->
+<!--                        <div class="nextDate">3</div>-->
+<!--                        <div class="nextDate">4</div>-->
+<!--                        <div class="nextDate">5</div>-->
+<!--                        <div class="nextDate">6</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 </div>
 
