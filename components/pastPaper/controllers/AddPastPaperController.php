@@ -3,7 +3,9 @@ class AddPastPaperController extends Controller{
 
     public static function AddPastPaper(){
 
-        // $passingSubjects=viewAttendanceModel::getSubjectData();
-        self::createView("addPastPaperView");
+        $passingSubjects=AddPastPaperModel::getSubjectData();
+        $recentUploads = AddPastPaperModel::getRecentUploads();
+        $sendingData = array($passingSubjects, $recentUploads);
+        self::createView("addPastPaperView",$sendingData);
     }
 }
