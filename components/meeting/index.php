@@ -8,6 +8,9 @@
         }else if(file_exists("./models/$className.php")){
             require_once "./models/$className.php";
         }
+//        import class.php inside the component
+        require_once ('./assets/class.php');
+
     }
 
 ?>
