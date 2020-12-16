@@ -165,16 +165,16 @@ let clock = () =>{
         hours = hours-12;
         period = "PM";
     }
-    
-    let date1;
+
+    let stringDate;
     if(currentDate === 1){
-         date1 = `${currentDate}st`;
+         stringDate = `${currentDate}st`;
     }else if(currentDate === 2){
-        date1 = `${currentDate}nd`;
+        stringDate = `${currentDate}nd`;
     }else if(currentDate === 3){
-         date1 = `${currentDate}rd`;
+        stringDate = `${currentDate}rd`;
     }else{
-        date1 = `${currentDate}th`;
+        stringDate = `${currentDate}th`;
     }
 
     //ex -> replace 9 as 09
@@ -187,7 +187,7 @@ let clock = () =>{
     document.getElementById("time").innerHTML = time;
     document.getElementById("month").innerHTML = monthYear;
     document.getElementById("day").innerHTML = day;
-    document.getElementById("date").innerHTML = date1;
+    document.getElementById("date").innerHTML = stringDate;
     setTimeout(clock,1000);
 
 };
