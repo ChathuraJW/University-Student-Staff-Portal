@@ -40,19 +40,20 @@
                         
                         <div class="row col-1">
                             <?php
-                                if($record['isApproved']=='A'){
+                                // echo $record->getAppointmentFor()->getGender();
+                                if($record->getIsApproved()=='A'){
                                     $isApprove="Approved";
                                 }
-                                elseif($record['isApproved']=='R'){
+                                elseif($record->getIsApproved()=='R'){
                                     $isApprove="Rejected";
                                 }
                                 else{
                                     $isApprove="Did not view yet";
                                 }
-                            $url="?appointID=".$record['appointmentID']."&salutation=".$record['salutation']."&firstName=".$record['firstName']."&lastName=".$record['lastName']."&staffID=".$record['staffID']."&title=".$record['title']."&message=".$record['message']."&duration=".$record['meetingDuration']."&time=".$record['timestamp']."&isapprove=".$isApprove;
+                            $url="?appointID=".$record->getAppointmentID()."&salutation=".$record->getAppointmentFor()->getSalutation()."&firstName=".$record->getAppointmentFor()->getFirstName()."&lastName=".$record->getAppointmentFor()->getLastName()."&staffID=".$record->getAppointmentFor()->getUserName()."&title=".$record->getTitle()."&message=".$record->getMessage()."&duration=".$record->getMeetingDuration()."&time=".$record->getTimestamp()."&isapprove=".$isApprove;
                             ?>
 
-                            <a href='<?php echo $url;?>'  id="<?php echo $record['isApproved'];?>"class="appointment" ><div style="margin-bottom:10px;" class="appointmentDescription messageHead"><?php echo $record['title'];?></div><div class="appointmentDescription"><?php echo substr($record['message'], 0, 80);?> </div><div class="appointmentDescription" style="float:right;"><i class='fa fa-clock-o' aria-hidden='true'></i>  <?php echo $record['timestamp'];?></div></a><br>
+                            <a href='<?php echo $url;?>'  id="<?php echo $record->getIsApproved();?>"class="appointment" ><div style="margin-bottom:10px;" class="appointmentDescription messageHead"><?php echo $record->getTitle();?></div><div class="appointmentDescription"><?php echo substr($record->getMessage(), 0, 80);?> </div><div class="appointmentDescription" style="float:right;"><i class='fa fa-clock-o' aria-hidden='true'></i>  <?php echo $record->getTimestamp();?></div></a><br>
                             
                             <?php 
                                     echo("
@@ -164,7 +165,7 @@
                                     <div class="profileFields col-2">
                                         <div class="profileField" >
                                             <div class="row col-1 " >
-                                                <h3><?php echo $profile['salutation'].".".$profile['fullName']?></h3>
+                                                <h3><?php echo $profile->getSalutation().".".$profile->getFullName()?></h3>
                                             </div>
                                             <div class="row col-1 img" style="margin-left:20px;">
                                                 <img src="../../assets/image/profilePicture.PNG" style="background-color: rgb(247, 226, 245,1);" alt="">
@@ -178,7 +179,7 @@
                                                     <h4>Email Address:</h4>
                                                 </div>
                                                 <div>
-                                                    <div><?php echo $profile['universityEmail']?></div>
+                                                    <div><?php echo $profile->getUniversityEmail()?></div>
                                                 </div>
                                             </div>
                                             <div class="row col-2 profData">
@@ -186,7 +187,7 @@
                                                     <h4>Available From</h4>
                                                 </div>
                                                 <div >
-                                                    <div><?php echo $profile['availableFrom']?></div>
+                                                    <div><?php echo $profile->getAvailableFrom()?></div>
                                                 </div>
                                             </div>
                                             <div class="row col-2 profData">
@@ -194,7 +195,7 @@
                                                     <h4>Available To </h4>
                                                 </div>
                                                 <div >
-                                                    <div><?php echo $profile['availableTo']?></div>
+                                                    <div><?php echo $profile->getAvailableTo()?></div>
                                                 </div>
                                             </div>
                                             <div class="row col-2 profData">
@@ -202,7 +203,7 @@
                                                     <h4>Last Updated DateTime </h4>
                                                 </div>
                                                 <div > 
-                                                    <div><?php echo $profile['lastUpdateDate']?></div>
+                                                    <div><?php echo $profile->getLastUpdateDate()?></div>
                                                 </div>
                                             </div>
 
