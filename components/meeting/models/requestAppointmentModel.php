@@ -12,23 +12,28 @@
             $appointmentList= array();
             $appointments=Database::executeQuery("student","student@16","SELECT * FROM meeting_appointment M,user U WHERE M.studentID='$studentID' and M.staffID=U.userName");
             foreach($appointments as $appointment){
-                print_r($appointment);
                 $newAppointment= new AppointmentsForMeeting;
                 $newUser= new User;
-                // echo("hello");
-                // echo("$appointment['userName']");
-                $newUser->setUser($appointment['userName'],$appointment['password'],$appointment['nic'],$appointment['gender'],$appointment['salutation'],$appointment['firstName'],$appointment['lastName'],$appointment['fullName'],$appointment['dob'],$appointment['TPNO'],$appointment['personalEmail'],$appointment['universityEmail'],$appointment['role'],$appointment['profilePicURL'],$appointment['isFirstLogin']);
+                $newUser->setUser($appointment['userName'],$appointment['nic'],$appointment['gender'],$appointment['salutation'],$appointment['firstName'],$appointment['lastName'],$appointment['fullName'],$appointment['TPNO'],$appointment['personalEmail'],$appointment['universityEmail'],$appointment['role'],$appointment['profilePicURL']);
                 
-                $newAppointment->setAppointment($appointment['appointmentID'],$appointment['studentID'],$appointment['staffID'],$appointment['title'],$appointment['message'],$appointment['type'],$appointment['appointmentDate'],$appointment['appointmentTime'],$appointment['meetingDuration'],$appointment['reply'],$appointment['timestamp'],$appointment['requesValidity'],$appointment['isApproved']);
+                $newAppointment->setAppointment($appointment['appointmentID'],$appointment['studentID'],$appointment['title'],$appointment['message'],$appointment['type'],$appointment['appointmentDate'],$appointment['appointmentTime'],$appointment['meetingDuration'],$appointment['reply'],$appointment['timestamp'],$appointment['requesValidity'],$appointment['isApproved']);
+                
                 $newAppointment->setAppointmentFor($newUser);
                 $appointmentList[]=$newAppointment;
             }
-            
             return $appointmentList;
         }
         public static function getProfile(){
-            $query="SELECT user.universityEmail,user.fullName,user.userName,user.salutation,academic_staff.availableFrom,academic_staff.availableTo,academic_staff.lastUpdateDate FROM user INNER JOIN academic_staff ON academic_staff.staffID=user.userName";
-            return Database::executeQuery("academicStaff","academicStaff@16",$query);
+            $query="SELECT user.universityEmail,user.fullName,user.userName,user.salutation,academic_staff.availableFrom,academic_staff.availableTo,academic_staff.lastUpdateDate,academic_staff.availableLocation,academic_staff.availableDescription FROM user INNER JOIN academic_staff ON academic_staff.staffID=user.userName";
+            $profiles= Database::executeQuery("academicStaff","academicStaff@16",$query);
+            $profileList=array();
+            foreach($profiles as $profile){
+                $newProfile= new Staff;
+                $newProfile->setStaff($profile['universityEmail'],$profile['fullName'],$profile['userName'],$profile['salutation'],$profile['availableFrom'],$profile['availableTo'],$profile['availableLocation'],$profile['availableDescription'],$profile['lastUpdateDate']);
+                $profileList[]=$newProfile;
+            }
+            // print_r($profileList[0]);
+            return $profileList;
         }
         public static function getLectures(){
             $query="SELECT firstName,lastName,userName,salutation FROM user WHERE role='AS'";

@@ -58,7 +58,7 @@ class User{
         return $this->role;
     }
     
-    public function setUser($userName,$password,$nic,$gender,$salutation,$firstName,$lastName,$fullName,$dob,$TPNO,$personalEmail,$universityEmail,$role,$profilePicURL,$isFirstLogin){
+    public function setUser($userName,$nic,$gender,$salutation,$firstName,$lastName,$fullName,$TPNO,$personalEmail,$universityEmail,$role,$profilePicURL){
         $this->userName=$userName;
         $this->password=$password;
         $this->nic=$nic;
@@ -97,7 +97,43 @@ class Student extends User{
 class Staff extends User{
     //attributes of Staff
     protected $staffID;
+    private $availableFrom;
+    private $availableTo;
+    private $availableLocation;
+    private $availableDescription;
+    private $lastUpdateDate;
+    
+    public function getStaffID(){
+        return $this->staffID;
+    }
+    public function getAvailableFrom(){
+        return $this->availableFrom;
+    }
+    public function getAvailableTo(){
+        return $this->availableTo;
+    }
+    public function getAvailableLocation(){
+        return $this->availableLocation;
+    }
+    public function getAvailableDescription(){
+        return $this->availableDescription;
+    }
+    public function getLastUpdateDate(){
+        return $this->lastUpdateDate;
+    }
 
+    public function setStaff($universityEmail,$fullName,$userName,$salutation,$availableFrom,$availableTo,$availableLocation,$availableDescription,$lastUpdateDate){
+        $this->universityEmail=$universityEmail;
+        $this->fullName=$fullName;
+        $this->userName=$userName;
+        $this->salutation=$salutation;
+        $this->staffID=$staffID;
+        $this->availableFrom=$availableFrom;
+        $this->availableTo=$availableTo;
+        $this->availableLocation=$availableLocation;
+        $this->availableDescription=$availableDescription;
+        $this->lastUpdateDate=$lastUpdateDate;
+    }
     //methods of User
 
 }
@@ -114,10 +150,11 @@ class AdministrativeStaff extends Staff{
 
 class AppointmentsForMeeting{
     // attributes of AppointmentsForMeeting
+    private $appointmentID;
     private $title;
     private $message;
-    private $sender;
-    private $sendDate;
+    private $studentID;
+    private $timestamp;
     private $type;
     private $meetingDuration;
     private $requestValidity;
@@ -127,17 +164,20 @@ class AppointmentsForMeeting{
     private $appointmentTime;
     private $appointmentFor;
     // methods of AppointmentsForMeeting
+    public function getAppointmentID(){
+        return $this->appointmentID;
+    }
     public function getTitle(){
         return $this->title;
     }
     public function getMessage(){
         return $this->message;
     }
-    public function getSender(){
-        return $this->sender;
+    public function getStudentID(){
+        return $this->studentID;
     }
-    public function getSendDate(){
-        return $this->sendDate;
+    public function getTimestamp(){
+        return $this->timestamp;
     }
     public function getType(){
         return $this->type;
@@ -163,11 +203,13 @@ class AppointmentsForMeeting{
     public function getAppointmentFor(){
         return $this->appointmentFor;
     }
-    public function setAppointment($title,$message,$sender,$sendDate,$type,$requestValidity,$reply,$isApproved,$appointmentDate,$appointmentTime,$meetingDuration){
+    public function setAppointment($appointmentID,$studentID,$title,$message,$type,$appointmentDate,$appointmentTime,$meetingDuration,$reply,$timestamp,$requestValidity,$isApproved){
+        
+        $this->appointmentID=$appointmentID;
         $this->title=$title;
         $this->message=$message;
-        $this->sender=$sender;
-        $this->sendDate=$sendDate;
+        $this->studentID=$studentID;
+        $this->timestamp=$timestamp;
         $this->type=$type;
         $this->meetingDuration=$meetingDuration;
         $this->requestValidity=$requestValidity;
