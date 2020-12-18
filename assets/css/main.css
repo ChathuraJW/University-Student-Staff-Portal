@@ -45,26 +45,26 @@
     --headerFooterText: #F7F9Fb;
 
     /*close to natural theme color*/
-    --baseColor: #31708E;
-    --fontColor: #687864;
-    --successColor: #00800085;
-    --dangerColor: #f5090978;
-    --idleColor: #F7CB73;
-    --entryBackgroundColor: #6878640d;
-    --backgroundColor: #F7F9Fb;
-    --headerFooterBackground: #5085A5;
-    --headerSharding: #5085a578;
-
-    /*Accent Colors That Pop theme color*/
-    /*--baseColor: #802BB1;*/
-    /*--fontColor: #D1D7E0;*/
+    /*--baseColor: #31708E;*/
+    /*--fontColor: #687864;*/
     /*--successColor: #00800085;*/
     /*--dangerColor: #f5090978;*/
     /*--idleColor: #F7CB73;*/
-    /*--entryBackgroundColor: #4C495D7A;*/
-    /*--backgroundColor: #2D283E;*/
-    /*--headerFooterBackground:#564F6F;*/
-    /*--headerSharding:#564f6fb3;*/
+    /*--entryBackgroundColor: #6878640d;*/
+    /*--backgroundColor: #F7F9Fb;*/
+    /*--headerFooterBackground: #5085A5;*/
+    /*--headerSharding: #5085a578;*/
+
+    /*Accent Colors That Pop theme color*/
+    --baseColor: #802BB1;
+    --fontColor: #D1D7E0;
+    --successColor: #00800085;
+    --dangerColor: #f5090978;
+    --idleColor: #F7CB73;
+    --entryBackgroundColor: #4C495D7A;
+    --backgroundColor: #2D283E;
+    --headerFooterBackground:#564F6F;
+    --headerSharding:#564f6fb3;
 }
 
 .bodyBackground {
@@ -86,7 +86,6 @@
 .normalEntry {
     background-color: var(--entryBackgroundColor);
     border-left: 15px solid var(--baseColor);
-    color: var(--baseColor);
 }
 
 .warningEntry {

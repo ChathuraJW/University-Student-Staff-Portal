@@ -1,6 +1,7 @@
 <?php
 class ContactUnionController extends Controller{
     public static function init(){
-        self::createView('contactUnionView');
+    	$messageData=ContactUnionModel::getMessageData();
+        self::createView('contactUnionView',$messageData);
     }
 }

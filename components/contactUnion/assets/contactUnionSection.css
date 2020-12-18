@@ -1,26 +1,5 @@
-/*styles for submit and cancel buttons*/
-.submitCancelButton {
-    height: auto;
-    color: white;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    border-radius: 4px;
-    padding: 9px;
-    margin: 4px;
-    width: 200px;
-}
-
 input[type=text], textarea {
     width: 100%;
-    padding: 8px;
-    border: 1px solid gray;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 18px;
-    min-width: 300px;
 }
 
 .inputHeading {
@@ -66,7 +45,9 @@ input[type=text], textarea {
     padding: 5px;
     border-radius: 5px;
     max-height: 100%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: var(--fontColor);
+    transition: 1s;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.19);
 }
 
 .messageEntryContent {
@@ -78,5 +59,13 @@ input[type=text], textarea {
 .readMore {
     border: none;
     background: none;
-    color: blue;
+    color: var(--baseColor);
+}
+
+/*empty list message*/
+.emptyMessage {
+    font-size: 20px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
 }
