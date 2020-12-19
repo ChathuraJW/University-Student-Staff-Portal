@@ -1,3 +1,23 @@
+// popup message
+const loginPopup = document.querySelector(".popupMessageContainer");
+
+window.addEventListener("load",function (){
+    showPopup();
+});
+
+function showPopup(){
+    const timeLimit = 3; //seconds
+    let i = 0;
+    const timer = setInterval(function (){
+        i++;
+        if(i === timeLimit){
+            clearInterval(timer);
+            loginPopup.classList.add("show");
+        }
+        console.log(i);
+    },1000);
+}
+
 // apply color for different tile
 function applyTileColor() {
     let colors = ['#e06363', '#5ac65a', '#6161ca', '#c170cf'
@@ -157,7 +177,7 @@ let clock = () =>{
     let day = days[date.getDay()];
     let currentDate = date.getDate();
 
-    let period = "Am";
+    let period = "AM";
     //convert the ......time into .......
     if(hours === 0){
         hours = 12;
@@ -192,4 +212,5 @@ let clock = () =>{
 
 };
 clock();
+
 

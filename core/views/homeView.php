@@ -22,9 +22,6 @@
                                                                                              style="color: white;"></i></a></span>
     </h4>
 </div>
-<div style="visibility: hidden; display: none" class="popupMessageContainer">
-    <div class="popupMessage">GOOD MORNING! S.G RATHNAYAKE</div>
-</div>
 <div class="container ">
     <div class="notificationStackContainer">
         <div class="row col-1">
@@ -228,6 +225,16 @@
 <!--            </div>-->
             </div>
 
+    </div>
+
+
+</div>
+<div  class="popupMessageContainer">
+    <div class="icon">
+        <i class="fa fa-check"></i>
+    </div>
+    <div class="popupMessage">
+        <span class="message">GOOD MORNING! <?php echo $_COOKIE["fullName"]; ?></span>
     </div>
 </div>
 
