@@ -23,7 +23,7 @@
             <?php
 	            if (sizeof($controllerData[0]) === 0)
 		            echo("
-                        <span class='emptyMessage'>No Assignment Currently Belongs to You.</span>
+                        <span class='emptyMessage'>No Message History.</span>
                     ");
 
 	            for ($i = 0; $i < sizeof($controllerData); $i++) {
@@ -55,12 +55,26 @@
         </div>
         <div class="newMessageSection">
             <span class="columnHeader">Send New Message</span>
-            <form class="" action="" method="post">
+            <form class="" method="post">
                 <span class="inputHeading">Title:</span>
                 <input type="text" name="messageTitle" required><br><br>
                 <span class="inputHeading">Message:</span>
                 <textarea name="messageContent" id="messageContent" rows="20" style=" resize: none;" required>
-                </textarea>
+                </textarea><br><br>
+                <span class="inputHeading">Anonymous Messages:</span><br>
+                <div class="row col-3">
+                    <div>If you want to send that message anonymously turn on the switch.</div>
+                    <div style="margin: auto;">
+                        <label class="switch">
+                            <input type="checkbox" name="anonymousCheck" id="anonymousCheck" onclick="isAnonymous();">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div style="margin-left: 20px;">
+                        <i class="fa fa-file-signature fa-2x" style="color: var(--successColor);" id="confident"></i>
+                        <i class="fa fa-user-secret fa-2x" id="anonymous" style="display: none;color: var(--dangerColor);"></i>
+                    </div>
+                </div>
                 <div class="actionArea row col-2">
                     <input type="submit" name="sendMessage" value="Send The Message" class="button"
                            style="margin:auto;">

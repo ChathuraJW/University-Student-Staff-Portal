@@ -14,3 +14,14 @@ function loadMore(id) {
         readMoreButton.innerText = "Read More...";
     }
 }
+
+function isAnonymous(){
+    let isChecked=document.getElementById('anonymousCheck').checked;
+    if(isChecked){
+        document.getElementById('confident').style.display='none';
+        document.getElementById('anonymous').style.display='block';
+    }else{
+        document.getElementById('confident').style.display='block';
+        document.getElementById('anonymous').style.display='none';
+    }
+}

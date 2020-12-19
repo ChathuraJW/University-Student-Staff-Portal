@@ -1,6 +1,35 @@
 <?php
 
-class ContactUnion{
+	class User {
+		protected string $salutation;
+		protected string $userName;
+		protected string $fullName;
+
+		public function getSalutation(): string {
+			if (isset($this->salutation))
+				return $this->salutation;
+			else {
+				//@TODO change database credentials
+				$sqlQuery = "SELECT salutation FROM user WHERE userName='" . $this->userName . "'";
+				return Database::executeQuery('root', '', $sqlQuery)[0]['salutation'];
+			}
+		}
+		public function getFullName(): string {
+			if (isset($this->fullName))
+				return $this->fullName;
+			else {
+				//@TODO change database credentials
+				$sqlQuery = "SELECT fullName FROM user WHERE userName='" . $this->userName . "'";
+				return Database::executeQuery('root', '', $sqlQuery)[0]['fullName'];
+			}
+		}
+		public function setUserName(string $userName): User {
+			$this->userName = $userName;
+			return $this;
+		}
+
+	}
+	class ContactUnion{
     // attributes of contactUnion
 	private int $messageID;
     private string $title;
@@ -17,6 +46,12 @@ class ContactUnion{
 		$this->sender=$sender;
 		$this->timeStamp=$sendTimestamp;
 		$this->isAnonymous=$isAnonymous;
+		return $this;
+	}
+	public function setBasicMessage($title, $message, $sender): contactUnion {
+		$this->title=$title;
+		$this->message=$message;
+		$this->sender=$sender;
 		return $this;
 	}
 
