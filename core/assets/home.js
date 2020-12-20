@@ -1,3 +1,20 @@
+// Set greeting message according to the time
+let timeIn = new Date();
+let timeInHours = timeIn.getHours();
+console.log(timeInHours);
+let greetingMessage;
+
+if (0<=timeInHours && timeInHours <=11){
+    greetingMessage = "Good Morning!"
+}else if (12<= timeInHours && timeInHours<=15){
+    greetingMessage = "Good Afternoon!";
+}else{
+    greetingMessage = "Good Evening!";
+}
+// greetingMessage = `${greetingMessage} `;
+document.getElementById("greetingMessage").innerHTML = greetingMessage ;
+
+
 // popup message
 const loginPopup = document.querySelector(".popupMessageContainer");
 
@@ -5,19 +22,18 @@ window.addEventListener("load",function (){
     showPopup();
 });
 
-function showPopup(){
+function showPopup() {
     const timeLimit = 3; //seconds
     let i = 0;
-    const timer = setInterval(function (){
+    const timer = setInterval(function () {
         i++;
-        if(i === timeLimit){
+        if (i === timeLimit) {
             clearInterval(timer);
             loginPopup.classList.add("show");
         }
         console.log(i);
-    },1000);
+    }, 1000);
 }
-
 // apply color for different tile
 function applyTileColor() {
     let colors = ['#e06363', '#5ac65a', '#6161ca', '#c170cf'
@@ -141,8 +157,8 @@ jQuery.get('assets/navigationLinks.xml', function (fileContent) {
             document.getElementById(idList[i]['innerHTML']).style.display='none';
     }
 
-})
-// date and time
+});
+// set date and time
 let clock = () =>{
     const months= [
         "Jan",
@@ -212,5 +228,3 @@ let clock = () =>{
 
 };
 clock();
-
-

@@ -230,11 +230,11 @@
 
 </div>
 <div  class="popupMessageContainer">
-    <div class="icon">
-        <i class="fa fa-check"></i>
+    <div class="popupMessage">
+        <span id="greetingMessage" class="message"> </span>
     </div>
     <div class="popupMessage">
-        <span class="message">GOOD MORNING! <?php echo $_COOKIE["fullName"]; ?></span>
+        <span  class="message"> <?php echo $_COOKIE["fullName"]; ?></span>
     </div>
 </div>
 

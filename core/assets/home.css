@@ -237,9 +237,10 @@
 }
 /*popup*/
 .popupMessageContainer{
-    background-color: cornflowerblue;
-    width: 50%;
-    height: auto%;
+    background-color: #98a4ec;
+    opacity: 0.5;
+    width: auto;
+    height: auto;
     font-family: "fantasy";
     text-align: center;
     align-items: center;
@@ -249,8 +250,9 @@
     left: 0%;
     /*transform: translate(-50%, -50%);*/
     visibility: hidden;
-    opacity: 0;
     transition: all 1s ease;
+    display: flex;
+    padding: 15px;
 }
 .popupMessage{
     font-size: 45px;
