@@ -15,7 +15,7 @@
     <?php require('../../assets/php/basicLoader.php')?>
     <?php BasicLoader::loadHeader('../../')?>
     
-    <div class="featureBody">
+    <div class="featureBody bodyBackground text">
         <form>
             <div class="row col-1">
                 <p class="heading">PastPapers</p>
@@ -58,13 +58,11 @@
                             </select>
                         </div>
                     </div>
-                    <div class="row col-2">
-                        <div>
-                            <button class="submitButton red"><i class="fa fa-ban" aria-hidden="true"></i> Cancel</button>
-                        </div>
-                        <div>
-                            <button class="submitButton green"type="button" onclick="searchResulta();"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
-                        </div>
+                    <div class="buttonCouple">
+                            <button class="button"> Cancel</button>
+
+                            <button class="button"type="button" onclick="searchResulta();"> Search</button>
+
                     </div>
                 </div>
                 <div>

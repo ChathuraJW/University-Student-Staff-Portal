@@ -69,6 +69,7 @@
 
 .bodyBackground {
     background-color: var(--backgroundColor);
+    /*position: absolute;*/
 }
 
 .buttonSubmit {
@@ -86,7 +87,6 @@
 .normalEntry {
     background-color: var(--entryBackgroundColor);
     border-left: 15px solid var(--baseColor);
-    color: var(--baseColor);
 }
 
 .warningEntry {
@@ -126,6 +126,7 @@ input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
 /*for firefox based browsers*/
 input[type=number] {
     -moz-appearance: textfield;
@@ -147,6 +148,7 @@ input[type=number] {
     color: white;
     background-color: var(--baseColor);
 }
+
 .buttonCouple {
     margin: 10px auto;
     text-align: center;
@@ -169,7 +171,8 @@ header {
     width: 100%;
     height: auto;
     background-size: cover;
-    background: url("../image/headerBackground.jpg") fixed;
+    background-color: white;
+    /*background: url("../image/headerBackground.jpg") fixed;*/
     position: relative;
     overflow: hidden;
     border-radius: 0 0 85% 85% / 0;
