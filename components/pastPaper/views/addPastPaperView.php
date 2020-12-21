@@ -16,66 +16,62 @@
     <?php BasicLoader::loadHeader('../../')?>
     
     <div class="featureBody bodyBackground text">
+        <div class="row col-1">
+            <P class="heading">Add PastPaper</P>
+        </div>
         <form>
-            <div class="row col-1">
-                <P class="heading">Add PastPaper</P>
-            </div>
-            <div class="row col-4">
-                <div>
-                    <label class="labelStyle">Examination Year:</label><br>
-                    <select name="examinationYear">
-                        <option value=2016>2016</option>
-                        <option value=2017>2017</option>
-                        <option value=2018>2018</option>
-                        <option value=2019>2019</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="labelStyle">Academic Year:</label><br>
-                    <select name="academicYear">
-                        <option value=1>1<sup>st</sup>Year</option>
-                        <option value=2>1<sup>nd</sup>Year</option>
-                        <option value=3>1<sup>rd</sup>Year</option>
-                        <option value=4>1<sup>th</sup>Year</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="labelStyle">Semester:</label><br>
-                    <select name="semester">
-                        <option value=1>1<sup>st</sup></option>
-                        <option value=2>2<sup>nd</sup></option>
-                    </select>
-                </div>
-                <div>
-                    <label class="labelStyle">Subject:</label><br>
-                    <select name="subject">
-                        <?php
+            <div class="row col-2">
+                <div class="row col-2">
+                    <div>
+                        <label class="labelStyle">Examination Year:</label><br>
+                        <select name="examinationYear">
+                            <option value=2016>2016</option>
+                            <option value=2017>2017</option>
+                            <option value=2018>2018</option>
+                            <option value=2019>2019</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="labelStyle">Academic Year:</label><br>
+                        <select name="academicYear">
+                            <option value=1>First Year</option>
+                            <option value=2>Second Year</option>
+                            <option value=3>Third Year</option>
+                            <option value=4>Fourth Year</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="labelStyle">Semester:</label><br>
+                        <select  name="semester">
+                            <option value=1>First Semester</option>
+                            <option value=2>Second Semester</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="labelStyle">Subject:</label><br>
+                        <select name="subject">
+                            <?php
                             foreach ($controllerData[0] as $row ){
                                 echo ("
                                     <option value='".$row->getCourseCode()."'>".$row->getName()."</option>
                                 ");
                             }
-                        ?>
-                    </select>
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="dropZone row col-1">
+                    <input type="file" id="fileInput">
+                    <label for="fileInput" class="dropZonePrompt">Drop file here or click to upload</label>
                 </div>
             </div>
-            <div class="row col-1">
-                <form action="" method="post">
-                    <div class="dropZone">
-                        <span class="dropZonePrompt">Drop file here or click to upload</span>
-                        <!-- <div class="dropZoneThumb" data-label="myFile.txt"></div> -->
-                        <input type="file" name="myFile" id="" class="dropZoneInput" multiple>
-                    </div>
-                </form>
-            </div>
             <div class="buttonCouple">
-                <button class="button"><i class="fa fa-ban" aria-hidden="true"></i> Cancel</button>
-                <button class="button"type="submit" ><i class="fa fa-upload" aria-hidden="true"></i> Upload</button>
+                <button class="button"> Cancel</button>
+                <button class="button" type="submit" > Upload</button>
             </div>
         </form>
-    </div>
-    
 
+            </div>
     
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../')?>

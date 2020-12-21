@@ -35,10 +35,10 @@
                         <div>
                             <label class="labelStyle">Academic Year:</label>
                             <select name="academicYear">
-                                <option value=1>1<sup>st</sup> Year</option>
-                                <option value=2>2<sup>nd</sup> Year</option>
-                                <option value=3>3<sup>rd</sup> Year</option>
-                                <option value=4>4<sup>th</sup> Year</option>
+                                <option value=1>First Year</option>
+                                <option value=2>Second Year</option>
+                                <option value=3>Third Year</option>
+                                <option value=4>Fourth Year</option>
                             </select>
                         </div>
                     </div>
@@ -46,8 +46,8 @@
                         <div>
                             <label class="labelStyle">Semester:</label>
                             <select name="semester">
-                                <option value=1>1<sup>st</sup></option>
-                                <option value=2>2<sup>nd</sup></option>
+                                <option value=1>First Semester</option>
+                                <option value=2>Second Semester</option>
                             </select>
                         </div>
                         <div>
