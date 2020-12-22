@@ -14,7 +14,7 @@
 <body>
 <?php require_once('../../assets/php/basicLoader.php') ?>
 <?php basicLoader::loadHeader('../../'); ?>
-<div class="featureBody">
+<div class="featureBody bodyBackground text">
     <span class="heading">Review Hall Reservation Request</span>
     <div class="row col-2">
         <div class="bookingRequest">
@@ -37,7 +37,7 @@
             $arrContent = array('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus corporis nihil optio, facere molestiae repellendus laborum, earum harum reprehenderit provident nesciunt id aut.', 'Lorem ipsum dolor sit.', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed cumque dolorem ratione, ipsam quibusdam suscipit sunt consectetur soluta id a placeat magni, explicabo libero aliquid eaque nemo voluptatem provident, ut atque architecto excepturi aut facere quam officiis nobis. Ipsa provident sit totam quod, cum amet fuga fugiat a exercitationem iusto! Eveniet quas quis, molestias, explicabo voluptatem in.');
             for ($i = 0; $i < 10; $i++) {
                 echo("
-                    <div class='bookingEntry red' style='display:grid;'>
+                    <div class='bookingEntry normalEntry' style='display:grid;'>
                       <div class='row col-2' style='padding:0;'>
                         <span class='bookingEntryContent'>Lecture Hall/Lab: <b>S104</b></span>
                         <span class='bookingEntryContent'>For: <b>Lecture</b></span>
@@ -81,7 +81,7 @@
                 for ($i = 0; $i < 5; $i++) {
                     echo("
                         <tr>
-                            <td><a href='#' style='text-decoration: none;' title='Click hear for go to review hall reservation request RID$i.'>RID$i</a></td>
+                            <td><a href='#' style='text-decoration: none;color:var(--baseColor)' title='Click hear for go to review hall reservation request RID$i.'>RID$i</a></td>
                             <td>Saman Perera</td>
                             <td>Tutorial</td>
                             <td>12/11/2020 15:44:32</td>
@@ -91,13 +91,9 @@
                 ?>
             </table>
             <span class="respondingSectionHead">Confirm reservation</span>
-            <div class="row col-2 confirmSection">
-                <button type="radio" class="green" style="margin-left: auto;margin-right:0;" value="confirm"
-                        id="requestConfirm"><i class="fas fa-check"></i>&emsp; Confirm
-                </button>
-                <button type="radio" class="red" value="reject" id="requestReject"><i class="fas fa-times"></i>&emsp;
-                    Reject
-                </button>
+            <div class="buttonCouple">
+                <button type="submit" class="button" value="confirm" id="requestConfirm">Confirm</button>
+                <button type="button" class="button" value="reject" id="requestReject">Reject</button>
             </div>
         </div>
     </div>

@@ -1,8 +1,8 @@
 .featureBody {
     font-family: Varela, sans-serif;
 }
-
-input[type=date], input[type=time], textarea, select {
+/*input date text and textarea style overriding*/
+input[type=date], input[type=time],textarea {
     width: fit-content;
     padding: 10px;
     border: 1px solid gray;
@@ -13,21 +13,6 @@ input[type=date], input[type=time], textarea, select {
     margin-left: auto;
     margin-right: auto;
     display: block;
-}
-
-/*styles for submit and cancel buttons*/
-.submitCancelButton {
-    height: auto;
-    color: white;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    border-radius: 4px;
-    padding: 9px;
-    margin: 4px;
-    width: 200px;
 }
 
 .heading {
@@ -70,7 +55,7 @@ input[type=date], input[type=time], textarea, select {
 }
 
 .bookingEntry {
-    color: white;
+    color: var(--fontColor);
     margin: 0 25px 15px;
     padding: 10px;
     border-radius: 5px;
@@ -118,7 +103,7 @@ input[type=date], input[type=time], textarea, select {
 .closeButton {
     width: min-content;
     padding: 10px;
-    background-color: white;
+    background-color: var(--backgroundColor);
     border: none;
     float: right;
     margin-left: auto;
@@ -136,11 +121,11 @@ input[type=date], input[type=time], textarea, select {
 #loadMoreLessButton {
     border: none;
     outline: none;
-    background-color: white;
+    background-color: var(--backgroundColor);
     float: left;
     width: max-content;
     font-size: 15px;
-    color: blue;
+    color: var(--baseColor);
     padding: 10px 10px 10px 15px;
 }
 
@@ -154,7 +139,7 @@ input[type=date], input[type=time], textarea, select {
 
 .OptionWrapper button {
     border: none;
-    background-color: rgb(20, 68, 215);
+    background-color: var(--baseColor);
     color: white;
     padding: 10px;
     border-radius: 5px;
