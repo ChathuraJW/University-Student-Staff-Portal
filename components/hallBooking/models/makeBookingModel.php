@@ -22,17 +22,18 @@ class MakeBookingModel extends Model{
         $userName=$_COOKIE['userName'];
 //        query DB for get all request belong to the current logged in user
         //@TODO Check query order by part and change database credentials
-        $sqlQuery="SELECT * FROM user_receive_hall WHERE reserveUserName='$userName' ORDER BY reservationID DESC;";
+        $sqlQuery="SELECT * FROM hall_reservation_details WHERE reserveUserName='$userName' ORDER BY reservationID DESC;";
         $result=Database::executeQuery('root','',$sqlQuery);
 //        create array yo store objects
         $requestList=array();
 //        insert object by object to array
         foreach ($result as $row){
+            $fullName=$row['salutation'].'. '.$row['fullName'];
             $request=new HallAllocation();
 //            call function to set data to the object
-            $request->setAllocation($row['reservationID'], $row['reserveUserName'], $row['hallID'], $row['description'],
+            $request->setAllocationFull($row['reservationID'], $row['reserveUserName'], $row['hallID'], $row['description'],
             $row['type'], $row['fromTimestamp'], $row['toTimestamp'],$row['requestMadeAt'], $row['reservationStates'],
-                $row['approvedBy'], $row['approvalTimestamp']);
+                $row['approvedBy'], $row['approvalTimestamp'],$fullName);
 //            add object to  the list
             $requestList[]=$request;
         }

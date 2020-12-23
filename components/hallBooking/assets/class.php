@@ -1,96 +1,9 @@
 <?php
-
-class User {
-    //attributes of User
-    protected $userName;
-    protected $firstName;
-    protected $lastName;
-    protected $personalEmail;
-    protected $universityEmail;
-    protected $gender;
-    protected $address;
-    protected $nic;
-    protected $password;
-    protected $profilePictureURL;
-    protected $teleNo;
-
-    //methods of User
-
-}
-
-class Student extends User {
-    // attributes of Student
-    private $indexNo;
-    private $regNo;
-    private $group;
-
-    //methods of Student
-
-}
-
-//this class for both academic and academic support staff
-class Staff extends User {
-    //attributes of Staff
-    protected $staffID;
-
-    //methods of User
-
-}
-
-class AdministrativeStaff extends Staff {
-    //attributes of AdministrativeStaff
-    private $roleID;
-
-    //methods for AdministrativeStaff
-}
-
-class courseModule {
-    // attributes of courseModule
-    private $CourseCode;
-    private $name;
-    private $creditVale;
-    private $description;
-
-    // methods of courseModeule
-    protected function createModule() {
-
-    }
-
-    protected function editModule() {
-
-    }
-
-    protected function removeModule() {
-
-    }
-}
-
-class EnrollFor {
-    // attributes of EnrollFor
-    private $indexNo;
-    private $courseCode;
-    private $courseName;
-    private $dailyAtendance;
-    private $percentage;
-
-    // methods of EnrollFor
-    protected function calculatePercentage() {
-
-    }
-
-    protected function addDate() {
-
-    }
-
-    protected function viewAttendance() {
-
-    }
-}
-
 class HallAllocation {
     // attributes of HallAllocation
     private int $reservationID;
     private string $reservedBy;
+    private string $reservedFullName;
     private string $hallID;
     private int $reservationType;
     private string $from;
@@ -100,12 +13,14 @@ class HallAllocation {
     private string $reservationState;
     private string $approvalTimestamp;
     private string $requestMadeAt;
+    private bool $isUnderReview;
 
     // methods of HallAllocation
-    public function setAllocation($reservationID, $reserveUserName, $hallID, $description, $type, $fromTimestamp,
-                                  $toTimestamp, $requestMadeAt, $reservationStates, $approvedBy, $approvalTimestamp): HallAllocation {
+    public function setAllocationFull($reservationID, $reserveUserName, $hallID, $description, $type, $fromTimestamp,
+                                      $toTimestamp, $requestMadeAt, $reservationStates, $approvedBy, $approvalTimestamp, $fullName): HallAllocation {
         $this->reservationID = $reservationID;
         $this->reservedBy = $reserveUserName;
+        $this->reservedFullName = $fullName;
         $this->hallID = $hallID;
         $this->description = $description;
         $this->reservationType = $type;
@@ -118,6 +33,21 @@ class HallAllocation {
         return $this;
     }
 
+    public function setAllocation($reservationID, $reserveUserName, $reserveFullName, $hallID, $description, $type, $fromTimestamp,
+                                  $toTimestamp, $requestMadeAt, $reservationStates): HallAllocation {
+        $this->reservationID = $reservationID;
+        $this->reservedBy = $reserveUserName;
+        $this->reservedFullName = $reserveFullName;
+        $this->hallID = $hallID;
+        $this->description = $description;
+        $this->reservationType = $type;
+        $this->from = $fromTimestamp;
+        $this->to = $toTimestamp;
+        $this->requestMadeAt = $requestMadeAt;
+        $this->reservationState = $reservationStates;
+        return $this;
+    }
+
     public function createBasicAllocation($reserveUserName, $hallID, $description, $type, $fromTimestamp, $toTimestamp): HallAllocation {
         $this->reservedBy = $reserveUserName;
         $this->hallID = $hallID;
@@ -125,6 +55,19 @@ class HallAllocation {
         $this->reservationType = $type;
         $this->from = $fromTimestamp;
         $this->to = $toTimestamp;
+        return $this;
+    }
+
+    public function createSameSlotEntry($reservationID, $hallID, $reserveUserName, $fullName, $type, $requestMadeAt,
+                                        $reservationStates, $isUnderReview): HallAllocation {
+        $this->reservationID = $reservationID;
+        $this->reservedBy = $reserveUserName;
+        $this->reservedFullName = $fullName;
+        $this->hallID = $hallID;
+        $this->reservationType = $type;
+        $this->requestMadeAt = $requestMadeAt;
+        $this->reservationState = $reservationStates;
+        $this->isUnderReview = $isUnderReview;
         return $this;
     }
 
@@ -159,7 +102,6 @@ class HallAllocation {
         return $this->reservationType;
     }
 
-
     public function getFrom(): string {
         return $this->from;
     }
@@ -180,7 +122,6 @@ class HallAllocation {
         return $this->approvedBy;
     }
 
-    //TODO think on default case of switch
     public function getReservationState(): string {
         switch ($this->reservationState) {
             case "A":
@@ -195,6 +136,7 @@ class HallAllocation {
     }
 
     //TODO think on default case of switch
+
     public function getColorClassForReservationState(): string {
         switch ($this->reservationState) {
             case "A":
@@ -208,10 +150,20 @@ class HallAllocation {
         }
     }
 
+    //TODO think on default case of switch
+
     public function getApprovalTimestamp(): string {
         return $this->approvalTimestamp;
     }
 
+    public function getReservedFullName(): string {
+        return $this->reservedFullName;
+    }
+
+    public function setReservedFullName(string $reservedFullName): HallAllocation {
+        $this->reservedFullName = $reservedFullName;
+        return $this;
+    }
 
 }
 
@@ -247,8 +199,5 @@ class Hall {
         else
             return false;
     }
-
-
 }
-
 ?>

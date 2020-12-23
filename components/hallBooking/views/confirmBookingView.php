@@ -33,73 +33,97 @@
                     </button>
                 </div>
             </div>
+            <!--            load request to review-->
             <?php
-            $arrContent = array('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus corporis nihil optio, facere molestiae repellendus laborum, earum harum reprehenderit provident nesciunt id aut.', 'Lorem ipsum dolor sit.', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed cumque dolorem ratione, ipsam quibusdam suscipit sunt consectetur soluta id a placeat magni, explicabo libero aliquid eaque nemo voluptatem provident, ut atque architecto excepturi aut facere quam officiis nobis. Ipsa provident sit totam quod, cum amet fuga fugiat a exercitationem iusto! Eveniet quas quis, molestias, explicabo voluptatem in.');
-            for ($i = 0; $i < 10; $i++) {
+            //                iterate throughout each request send form model and create entries
+            foreach ($controllerData[0] as $row) {
                 echo("
-                    <div class='bookingEntry normalEntry' style='display:grid;'>
-                      <div class='row col-2' style='padding:0;'>
-                        <span class='bookingEntryContent'>Lecture Hall/Lab: <b>S104</b></span>
-                        <span class='bookingEntryContent'>For: <b>Lecture</b></span>
-                      </div>
-                      <div class='row col-2' style='padding:0;'>
-                        <span class='bookingEntryContent'>From: <b>01/03/2020 13:00:00</b></span>
-                        <span class='bookingEntryContent'>To: <b>01/03/2020 14:00:00</b></span>
-                      </div>
-                      <span class='bookingEntryContent' style='padding:10px;text-align: justify;'>Description:<br><b> " . $arrContent[$i % 3] . " </b></span>
-                      <span class='bookingEntryContent'>Appointment made at: <b>01/03/2020 14:00:00</b></span>
-                      <span class='bookingEntryContent'>Appointment made by: <b>Saman Wikramanayake-SWK (Staff)</b></span>
-                    </div>
-                ");
+                         <a class='bookingEntry normalEntry' id='resReq" . $row->getReservationID() . "' style='display:block;' href='?operation=review&requestID=" . $row->getReservationID() . "#respondingSection'>
+                            <span class='bookingEntryContent'>Request ID: <b>" . $row->getReservationID() . "</b></span>
+                            <div class='row col-2' style='padding:0;'>
+                                <span class='bookingEntryContent'>Lecture Hall/Lab: <b>" . $row->getHallID() . "</b></span>
+                                <span class='bookingEntryContent'>For: <b>" . $row->getReservationType() . "</b></span>
+                            </div>
+                            <div class='row col-2' style='padding:0;'>
+                                <span class='bookingEntryContent'>From: <b>" . $row->getFrom() . "</b></span>
+                                <span class='bookingEntryContent'>To: <b>" . $row->getTo() . "</b></span>
+                            </div>
+                            <span class='bookingEntryContent' style='padding:10px;text-align: justify;'>Description:<br><b>" . $row->getDescription() . "</b></span>
+                            <span class='bookingEntryContent' style='float: right;'><b>Appointment made at: " . $row->getRequestMadeAt() . "</b></span>
+                         </a>
+                    ");
             }
             ?>
         </div>
-        <div class="respondingSection">
-            <span class="columnHeader">Review Request (#11344)</span>
-            <span class="respondingSectionHead">Basic Information</span>
-            <span class="respondingSectionContent"><b>Requested By:</b> A.B.C Perera-2018CS124 (Student)</span>
-            <span class="respondingSectionContent"><b>Booking For:</b> Student Meeting</span>
-            <span class="respondingSectionContent"><b>Booking Description:</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur dolore, enim iusto nam nemo quia sit vel voluptatum. Accusantium blanditiis error iure nostrum pariatur repudiandae saepe. Assumenda dolores eaque illo magnam nesciunt pariatur praesentium quas quisquam, soluta. Sequi, voluptatibus.</span>
-            <span class="respondingSectionHead">Renovation Details</span>
-            <span class="respondingSectionContent"><b>Requested Date:</b> 13/11/2020 12:23:34</span>
-            <span class="respondingSectionContent"><b>Hall/ Lab:</b> E401</span>
-            <span class="respondingSectionContent"><b>Time Period:</b></span>
-            <div class="row col-2"
-                 style="padding-top: 0;padding-bottom: 0;margin-bottom: 0;margin-top: 0;font-size: 16px;">
-                <span class="respondingSectionContent"><b>From:</b> 23/11/2020 08:00</span>
-                <span class="respondingSectionContent"><b>To:</b> 23/11/2020 10:00</span>
-            </div>
-            <span class="respondingSectionContent"><b>Reservation Request for Same Slot:</b></span>
-            <table class="sameSlotDetails">
-                <tr>
-                    <th>Request ID</th>
-                    <th>Reservation From</th>
-                    <th>Reservation For</th>
-                    <th>Requested Date</th>
-                </tr>
-                <?php
-                for ($i = 0; $i < 5; $i++) {
-                    echo("
-                        <tr>
-                            <td><a href='#' style='text-decoration: none;color:var(--baseColor)' title='Click hear for go to review hall reservation request RID$i.'>RID$i</a></td>
-                            <td>Saman Perera</td>
-                            <td>Tutorial</td>
-                            <td>12/11/2020 15:44:32</td>
-                        </tr>
+        <!--        load selected request to review-->
+        <?php
+        //            check whether user clicked a request to review
+        if (isset($controllerData[1][0])) {
+            $openReservationData = $controllerData[1][0];
+            //                create request view
+            echo("
+                        <div class='respondingSection' id='respondingSection'>
+                            <span class='columnHeader'>Review Request (#" . $openReservationData->getReservationID() . ")</span>
+                            <span class='respondingSectionHead'>Basic Information</span>
+                            <span class='respondingSectionContent'><b>Requested By:</b> " . $openReservationData->getReservedFullName() . " (" . $openReservationData->getReservedBy() . ")</span>
+                            <span class='respondingSectionContent'><b>Booking For:</b> " . $openReservationData->getReservationType() . "</span>
+                            <span class='respondingSectionContent'><b>Booking Description:</b> " . $openReservationData->getDescription() . "</span>
+                            <span class='respondingSectionHead'>Reservation Details</span>
+                            <span class='respondingSectionContent'><b>Requested Date:</b> " . $openReservationData->getRequestMadeAt() . "</span>
+                            <span class='respondingSectionContent'><b>Hall/ Lab:</b> " . $openReservationData->getHallID() . "</span>
+                            <span class='respondingSectionContent'><b>Time Period:</b></span>
+                            <div class='row col-2' style='padding-top: 0;padding-bottom: 0;margin-bottom: 0;margin-top: 0;font-size: 16px;'>
+                                <span class='respondingSectionContent'><b>From:</b> " . $openReservationData->getFrom() . "</span>
+                                <span class='respondingSectionContent'><b>To:</b> " . $openReservationData->getTo() . "</span>
+                            </div>
+                            <span class='respondingSectionContent'><b>Reservation Request for Same Slot:</b></span>
+                            <table class='sameSlotDetails'>
+                                <tr>
+                                    <th>Request ID</th>
+                                    <th>Reservation From</th>
+                                    <th>Reservation For</th>
+                                    <th>Requested Date</th>
+                                </tr>
                     ");
-                }
-                ?>
-            </table>
-            <span class="respondingSectionHead">Confirm reservation</span>
-            <div class="buttonCouple">
-                <button type="submit" class="button" value="confirm" id="requestConfirm">Confirm</button>
-                <button type="button" class="button" value="reject" id="requestReject">Reject</button>
-            </div>
-        </div>
+            //                similar slot request loading
+            foreach ($controllerData[1][1] as $row) {
+                $requestID = $row->getReservationID();
+                echo("
+                                <tr>
+                                    <td>
+                                        <a href='#resReq$requestID' style='text-decoration: none;color:var(--baseColor)' 
+                                        title='Click hear for go to review hall reservation request (Req.ID $requestID).'>Req.ID $requestID
+                                        </a>
+                                    </td>
+                                    <td>" . $row->getReservedFullName() . "</td>
+                                    <td>" . $row->getReservationType() . "</td>
+                                    <td>" . $row->getRequestMadeAt() . "</td>
+                                </tr>
+                            ");
+            }
+            //                display message if there have no request for same slot
+            echo("</table>");
+            if (sizeof($controllerData[1][1]) == 0)
+                echo("
+                         <span style='font-size: 18px;text-align: center;padding-top: 10px;'>No more request for same slot.
+                         </span>
+                     ");
+
+            echo("
+                     <span class='respondingSectionHead'>Confirm reservation</span>
+                        <div class='buttonCouple'>
+                            <button type='submit' class='button' value='confirm' id='requestConfirm'>Confirm</button>
+                            <button type='button' class='button' value='reject' id='requestReject'>Reject</button>
+                        </div>
+                     </div>
+                ");
+        }
+        ?>
     </div>
 </div>
 <?php basicLoader::loadFooter('../../'); ?>
 <script src="../../assets/js/jquery.js"></script>
+<script src="../../assets/js/toast.js"></script>
 <script src="assets/confirmBooking.js"></script>
 </body>
 </html>
