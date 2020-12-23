@@ -47,7 +47,7 @@ class MakeBookingModel extends Model{
         $databaseInstance->establishTransaction('root','');
         $sqlQuery="INSERT INTO user_receive_hall(reserveUserName, hallID, description, type, fromTimestamp, toTimestamp, requestMadeAt) 
         VALUES ('".$reservation->getReservedBy()."','".$reservation->getHallID()."','".$reservation->getDescription()."',
-        ".$reservation->getReservationTypeAsInt().",'".$reservation->getFrom()."','".$reservation->getTo()."','NOW()')";
+        ".$reservation->getReservationTypeAsInt().",'".$reservation->getFrom()."','".$reservation->getTo()."',NOW())";
 //        execute query
         $databaseInstance->executeTransaction($sqlQuery);
 //        create audit

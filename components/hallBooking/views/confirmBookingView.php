@@ -34,10 +34,10 @@
                 </div>
             </div>
             <!--            load request to review-->
-            <?php
-            //                iterate throughout each request send form model and create entries
-            foreach ($controllerData[0] as $row) {
-                echo("
+			<?php
+				//                iterate throughout each request send form model and create entries
+				foreach ($controllerData[0] as $row) {
+					echo("
                          <a class='bookingEntry normalEntry' id='resReq" . $row->getReservationID() . "' style='display:block;' href='?operation=review&requestID=" . $row->getReservationID() . "#respondingSection'>
                             <span class='bookingEntryContent'>Request ID: <b>" . $row->getReservationID() . "</b></span>
                             <div class='row col-2' style='padding:0;'>
@@ -52,16 +52,17 @@
                             <span class='bookingEntryContent' style='float: right;'><b>Appointment made at: " . $row->getRequestMadeAt() . "</b></span>
                          </a>
                     ");
-            }
-            ?>
+				}
+			?>
         </div>
         <!--        load selected request to review-->
-        <?php
-        //            check whether user clicked a request to review
-        if (isset($controllerData[1][0])) {
-            $openReservationData = $controllerData[1][0];
-            //                create request view
-            echo("
+		<?php
+			//            check whether user clicked a request to review
+			//TODO try to implement this section using more easy to read way such as block php statements
+			if (isset($controllerData[1][0])) {
+				$openReservationData = $controllerData[1][0];
+				//                create request view
+				echo("
                         <div class='respondingSection' id='respondingSection'>
                             <span class='columnHeader'>Review Request (#" . $openReservationData->getReservationID() . ")</span>
                             <span class='respondingSectionHead'>Basic Information</span>
@@ -85,10 +86,10 @@
                                     <th>Requested Date</th>
                                 </tr>
                     ");
-            //                similar slot request loading
-            foreach ($controllerData[1][1] as $row) {
-                $requestID = $row->getReservationID();
-                echo("
+				//                similar slot request loading
+				foreach ($controllerData[1][1] as $row) {
+					$requestID = $row->getReservationID();
+					echo("
                                 <tr>
                                     <td>
                                         <a href='#resReq$requestID' style='text-decoration: none;color:var(--baseColor)' 
@@ -100,30 +101,57 @@
                                     <td>" . $row->getRequestMadeAt() . "</td>
                                 </tr>
                             ");
-            }
-            //                display message if there have no request for same slot
-            echo("</table>");
-            if (sizeof($controllerData[1][1]) == 0)
-                echo("
+				}
+				//                display message if there have no request for same slot
+				echo("</table>");
+				if (sizeof($controllerData[1][1]) == 0)
+					echo("
                          <span style='font-size: 18px;text-align: center;padding-top: 10px;'>No more request for same slot.
                          </span>
                      ");
+				echo("
+                <span class='respondingSectionHead'>Confirm reservation</span>
+                <form action='' method='post'>
+                <div class='row col-2'>
+                <div>
+                    <span class='respondingSectionHead' style='font-size: 17px;'>Selected request:</span>
+                    <select name='selectedRequestID' id='selectedRequestID' style='margin: 10px;' required>
+                    <option value='" . $_GET['requestID'] . "'>Request #" . $_GET['requestID'] . "</option>
+            ");
+				foreach ($controllerData[1][1] as $row) {
+					$requestID = $row->getReservationID();
+					echo("<option value='$requestID'>Request #$requestID</option>");
+				}
+				echo("
+                </select>
+                </div>
+                <div style='padding: 10px;'>
+                <input type='checkbox' name='confirmBooking' id='confirmBooking' style='display: inline;' required> 
+                <span style='font-size: 17px;text-align: justify;display: grid;'>
+                    I reviewed all requests for the same slot carefully, and decided to reserve the timeslot for the selected request.
+                </span>
+                </div>
+                </div>
 
-            echo("
-                     <span class='respondingSectionHead'>Confirm reservation</span>
+
+
+    ");
+				echo("
                         <div class='buttonCouple'>
-                            <button type='submit' class='button' value='confirm' id='requestConfirm'>Confirm</button>
-                            <button type='button' class='button' value='reject' id='requestReject'>Reject</button>
+                            <button type='button' class='button' name='requestConfirm' value='Confirm' onclick='confirmSelectedBooking();' id='requestConfirm'>Confirm</button>
+                            <button type='button' class='button' name='respondLater' value='Respond Later' id='respondLater' onclick='respondOperation(" . $_GET['requestID'] . ")'>Respond Later</button>
                         </div>
                      </div>
+                     </form>
                 ");
-        }
-        ?>
+			}
+		?>
     </div>
 </div>
 <?php basicLoader::loadFooter('../../'); ?>
 <script src="../../assets/js/jquery.js"></script>
 <script src="../../assets/js/toast.js"></script>
 <script src="assets/confirmBooking.js"></script>
+
 </body>
 </html>

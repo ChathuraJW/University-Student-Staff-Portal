@@ -120,12 +120,12 @@
                     <div>
                         <span class="inputHeading">From</span>
                         Date: <input type="date" name="fromData"><br>
-                        Time: <input type="time" name="fromTime" min="08:00" max="19:00">
+                        Time: <input type="time" name="fromTime" min="08:00" max="19:00" value="13:00:00">
                     </div>
                     <div>
                         <span class="inputHeading">To</span>
                         Date: <input type="date" name="toData"><br>
-                        Time: <input type="time" name="toTime" min="08:00" max="19:00">
+                        Time: <input type="time" name="toTime" min="08:00" max="19:00" value="15:00:00">
                     </div>
                 </div>
                 <span class="inputHeading">description</span>
