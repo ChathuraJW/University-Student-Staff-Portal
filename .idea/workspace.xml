@@ -23,6 +23,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.last.introduce.type" value="VAR" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../bin/php/php7.4.0/php.exe" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -38,6 +39,7 @@
       <workItem from="1606118223894" duration="601000" />
       <workItem from="1607949921710" duration="767000" />
       <workItem from="1608001295177" duration="6370000" />
+      <workItem from="1608696887843" duration="7456000" />
     </task>
     <servers />
   </component>

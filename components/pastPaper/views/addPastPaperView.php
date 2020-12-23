@@ -60,9 +60,9 @@
                         </select>
                     </div>
                 </div>
-                <div class="dropZone row col-1">
+                <div id="dropZone" class="dropZone row col-1">
                     <input type="file" id="fileInput">
-                    <label for="fileInput" class="dropZonePrompt">Drop file here or click to upload</label>
+                    <label for="fileInput" class="dropZonePrompt" id="fileInputLabel">Drop file here or click to upload</label>
                 </div>
             </div>
             <div class="buttonCouple">
@@ -72,9 +72,11 @@
         </form>
 
             </div>
-    
+
+
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../')?>
     <script src="assets/addPastPaper.js"></script>
+    <script src="../../assets/js/jquery.js"></script>
 </body>
 </html>
