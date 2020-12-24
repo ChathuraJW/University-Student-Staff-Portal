@@ -117,7 +117,7 @@
                 </div>
             </div>
             <div><label class="subHeading" id="category">Category:</label></div>
-            <div class="radioToolbar row col-5" >
+            <div class="radioToolbar row col-6" >
                 <div>
                     <input value="1" type="radio"  id = "radioDirectorNotices" name="category">
                     <label class ="" for = "radioDirectorNotices">Director Notices</label>
@@ -138,6 +138,10 @@
                     <input value="5" type="radio"  id = "radioAssignmentScholarship&LectureRe-scheduling" name="category">
                     <label class ="" for = "radioAssignmentScholarship&LectureRe-scheduling">Assignment, Scholarship & Lecture Re-scheduling</label>
                 </div>
+                <div>
+                    <input value="5" type="radio"  id = "other" name="category">
+                    <label class ="" for = "other">Other</label>
+                </div>
 
             </div>
                 <div class="row col-1">
@@ -146,13 +150,9 @@
                 <div class="row col-1">
                     <textarea class="textareaStyle" name="message" rows="7" cols="130" placeholder="message"></textarea>
                 </div>
-                <div class="row col-2">
-                        <div class="buttonContainer">
-                            <button class="submitButton red"><i class="fa fa-ban" aria-hidden="true"></i> Cancel</button>
-                        </div>
-                        <div class="buttonContainer">
-                            <button class="submitButton green" type="submit" ><i class="fa fa-upload" aria-hidden="true"></i> Send</button>
-                        </div>
+                <div class="buttonCouple">
+                            <button class="button "> Cancel</button>
+                            <button class="button" type="submit" > Send</button>
                     </div>
                 </div>
 

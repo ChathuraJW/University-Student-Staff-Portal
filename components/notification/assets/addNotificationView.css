@@ -23,37 +23,20 @@ input[type=text]{
 select{
     width: 25%;
     padding: 8px;
-    border: 1px solid gray;
+    border: 1px solid var(--baseColor);
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 18px;
     min-width: 300px;
 }
-.submitButton {
-    height: auto;
-    color: white;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    border-radius: 4px;
-    padding: 9px;
-    margin: 4px;
-    width: 200px;
-    
-}
-.buttonContainer{
-    margin-right: auto;
-    margin-left: auto;
-    
-}
+
+
 input[type=checkbox]{
     font-size: 32px;
 }
 textarea{
     font-size: 20px;
-    /* text-align: center; */
+    width: auto;
     padding-left: 25px;
 }
 .check +label,.checkFirstSet+label,.checkSecondSet+label, .checkThirdSet+label{
@@ -85,7 +68,7 @@ textarea{
 }
 .radioToolbar label {
     display: inline-block;
-    background-color: #ddd;
+    background-color: var(--headerSharding);
     padding: 8px 5px;
     font-size: 17px;
     cursor: pointer;
@@ -97,7 +80,7 @@ textarea{
     margin-bottom: auto;
 }
 .radioToolbar input[type="radio"]:checked+label {
-    background-color: rgb(169, 177, 174)
+    background-color: var(--headerFooterBackground);
 }
 textarea {
     resize: none;
