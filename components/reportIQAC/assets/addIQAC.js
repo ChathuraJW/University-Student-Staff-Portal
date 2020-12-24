@@ -8,5 +8,10 @@ while (beginYear <= currentYear) {
 }
 yearValues.value = currentYear.toString();
 
+function selectValue(){
+    var val = document.getElementById("lecturer").value;
+    return val;
+}
+
  
 

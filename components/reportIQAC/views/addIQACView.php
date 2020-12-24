@@ -26,13 +26,15 @@
             <div class="Container row col-2">
                 <div class="dropDownList">
                     <label>Lecturer</label><br>
-                    <select name='lecturer'>
+                    <?php
+                    echo ("<select name='lecturer' id='lecturer' $val=selectValue()>
                     <?php
                       foreach($controllerData[0] as $data){
                           echo("<option value='$data[userName]'>" .$data['fullName'] . " - " . $data['userName']. "</option>");
                         }
                     ?>
-                    </select>
+                    </select>");
+                    ?>
                 </div>
                 <div class="dropDownList">
                     <label >Subject</label><br>
@@ -75,7 +77,7 @@
                         <option value=2>5</sup></option>
                         <option value=2>6</sup></option>
                         <option value=2>7</sup></option>
-                        <option value=2>8</sup></option>
+                        <option value=2>8  </sup></option>
                     </select>
                 </div>
             </div>
@@ -89,7 +91,7 @@
               <br>
             <div class="upload">
               
-              <form action="/action_page.php" id="file" class="file"><br>
+              <form action="/action_page.php" id="file" class="file" method="POST" enctype="multipart/form-data"><br>
                 <input type="file" id="file" name="file" class="myFile"><br><br>
                 <input type="submit" class="submit"><br><br>
               </form>
