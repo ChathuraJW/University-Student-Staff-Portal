@@ -38,13 +38,12 @@
 				$selectedRequest['reservationStates']);
 
 			if ($selectedRequest['reservationStates'] === "N") {
-				$fromTime = $selectedRequest['fromTimestamp'];
 				$hallID = $selectedRequest['hallID'];
 				$fromTS = $selectedRequest['fromTimestamp'];
 				$toTS = $selectedRequest['toTimestamp'];
 				//TODO check weather there have further more optimization
 				$sqlQuery = "SELECT reservationID,hallID,reserveUserName,fullName,type,requestMadeAt,reservationStates,isUnderReview 
-            FROM hall_reservation_details WHERE hallID='$hallID' AND ((fromTimestamp < '$toTS' AND toTimestamp > '$fromTS') OR fromTimestamp='$fromTS') ";
+            	FROM hall_reservation_details WHERE hallID='$hallID' AND ((fromTimestamp < '$toTS' AND toTimestamp > '$fromTS') OR fromTimestamp='$fromTS') ";
 				$requestInSameSlot = $dbInstance->executeTransaction($sqlQuery);
 				$isSlotFree = true;
 				$isUnderReview = false;
@@ -89,19 +88,27 @@
 							return array($openedRequest, $sameSlotRequestList);
 						} else {
 							//display error for saying failed to open
+							//close connection
+							$dbInstance->closeConnection();
 							return 1;
 						}
 					} else {
 						//display error for saying failed to open
+						//close connection
+						$dbInstance->closeConnection();
 						return 2;
 					}
 
 				} else {
 					//display error that saying slot already occupy or another one is review
+					//close connection
+					$dbInstance->closeConnection();
 					return 3;
 				}
 			} else {
 				//display warring it is timeout/already review
+				//close connection
+				$dbInstance->closeConnection();
 				return 4;
 			}
 		}
@@ -146,12 +153,17 @@
 //        check all operation get success
 			if ($dbInstance->getTransactionState()) {
 				if ($dbInstance->commitToDatabase()) {
+					//close connection
 					$dbInstance->closeConnection();
 					return true;
 				} else {
+					//close connection
+					$dbInstance->closeConnection();
 					return false;
 				}
 			} else {
+				//close connection
+				$dbInstance->closeConnection();
 				return false;
 			}
 		}

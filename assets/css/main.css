@@ -91,22 +91,26 @@
 
 .normalEntry {
     background-color: var(--entryBackgroundColor);
-    border-left: 15px solid var(--baseColor);
+    border-left: 15px solid;
+    border-color: var(--baseColor);
 }
 
 .warningEntry {
     background-color: var(--entryBackgroundColor);
-    border-left: 15px solid var(--dangerColor);
+    border-left: 15px solid;
+    border-color: var(--dangerColor);
 }
 
 .successEntry {
     background-color: var(--entryBackgroundColor);
-    border-left: 15px solid var(--successColor);
+    border-left: 15px solid;
+    border-color: var(--successColor);
 }
 
 .ideaEntry {
     background-color: var(--entryBackgroundColor);
-    border-left: 15px solid var(--idleColor);
+    border-left: 15px solid;
+    border-color: var(--idleColor);
 }
 
 /*common element styles*/

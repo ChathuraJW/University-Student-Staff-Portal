@@ -19,20 +19,21 @@
     <div class="row col-2">
         <div class="bookingRequest">
             <span class="columnHeader">Booking Requests</span>
-            <div class="orderingSection">
-                <span>Order By</span>
-                <div class="OptionWrapper row col-4">
-                    <button type="radio" id="orderByDate" onclick="rearrangeContent('orderByDate');">Request Date
-                    </button>
-                    <button type="radio" id="orderByRole" onclick="rearrangeContent('orderByRole');">Requester Role
-                    </button>
-                    <button type="radio" id="orderByHall" onclick="rearrangeContent('orderByHall');">Requested Hall
-                    </button>
-                    <button type="radio" id="orderByRequestedType" onclick="rearrangeContent('orderByRequestedType');">
-                        Requested Type
-                    </button>
-                </div>
-            </div>
+<!--            TODO if needed will apply-->
+<!--            <div class="orderingSection">-->
+<!--                <span>Order By</span>-->
+<!--                <div class="OptionWrapper row col-4">-->
+<!--                    <button type="radio" id="orderByDate" onclick="rearrangeContent('orderByDate');">Request Date-->
+<!--                    </button>-->
+<!--                    <button type="radio" id="orderByRole" onclick="rearrangeContent('orderByRole');">Requester Role-->
+<!--                    </button>-->
+<!--                    <button type="radio" id="orderByHall" onclick="rearrangeContent('orderByHall');">Requested Hall-->
+<!--                    </button>-->
+<!--                    <button type="radio" id="orderByRequestedType" onclick="rearrangeContent('orderByRequestedType');">-->
+<!--                        Requested Type-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--            </div>-->
             <!--            load request to review-->
 			<?php
 				//                iterate throughout each request send form model and create entries

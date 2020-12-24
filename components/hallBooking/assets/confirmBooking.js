@@ -42,6 +42,7 @@ function confirmSelectedBooking() {
             if (operationState === 1) {
                 createToast('Info', 'successfully confirm the reservation request.', 'I');
                 // wait 4.5s and redirect to main page
+                //TODO came back after confirmation
                 setTimeout(function () {
                     history.go(-1);
                 }, 4500);

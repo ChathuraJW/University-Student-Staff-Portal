@@ -1,5 +1,8 @@
 <?php
-class MakeBookingModel extends Model{
+
+	use JetBrains\PhpStorm\NoReturn;
+
+	class MakeBookingModel extends Model{
 
     public static function getHallData(): array {
 //        query DB for get hall and lab data
@@ -40,6 +43,47 @@ class MakeBookingModel extends Model{
         return $requestList;
     }
 
+//    check same slot already occupy
+	public static function sameSlotTimetableEntry($hallID,$fromTS,$toTS): bool {
+//    	get date form timestamps
+		$fromDay = strtoupper(date('D', strtotime($fromTS)));
+		$toDay = strtoupper(date('D', strtotime($toTS)));
+		$fromTime=date('H:m:s', strtotime($fromTS));
+		$toTime=date('H:m:s', strtotime($toTS));
+
+//		these value for further improvement of query
+		$hours=(strtotime($toTS)-strtotime($fromTS))/3600;
+		$days=$hours/24;
+
+		//TODO this think about query for further modification to improve efficiency
+		$sqlQuery="SELECT * FROM timetable WHERE hallID='$hallID' AND day='$fromDay' 
+                          AND ((fromTime < '$toTime' AND toTime > '$fromTime') OR fromTime='$fromTime')";
+		$result=Database::executeQuery('root','',$sqlQuery);
+//		check whether there have result, if have that mean can not book the slot
+		if(sizeof($result)!==0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+    public static function sameSlotReservations($hallID,$fromTS,$toTS):bool{
+//	    list out same slot request states
+    	$sqlQuery = "SELECT reservationID,reservationStates FROM hall_reservation_details 
+		WHERE hallID='$hallID' AND ((fromTimestamp < '$toTS' AND toTimestamp > '$fromTS') OR fromTimestamp='$fromTS') ORDER BY reservationStates";
+	    //TODO change database credentials
+	    $result=Database::executeQuery('root','',$sqlQuery);
+	    $isSlotReserved=false;
+//	    check whether one of them was already occupy the slot
+	    foreach ($result as $row){
+	    	if($row['reservationStates']==='A'){
+			    $isSlotReserved=true;
+			    break;
+		    }
+	    }
+	    return $isSlotReserved;
+    }
+
     public static function makeNewReservation($reservation){
 //        get database instance
         $databaseInstance=new Database;
@@ -52,17 +96,20 @@ class MakeBookingModel extends Model{
         $databaseInstance->executeTransaction($sqlQuery);
 //        create audit
         $databaseInstance->transactionAudit($sqlQuery,'user_receive_hall','INSERT','Create a new reservation request.');
+
         if($databaseInstance->getTransactionState()){
             if($databaseInstance->commitToDatabase()){
 //                display success message
-                echo("<script>createToast('Success','Hall reservation request successfully placed.','S')</script>");
+                echo("<script>createToast('Success','Hall reservation request successfully placed.','S');</script>");
             }else{
 //                display fail message
-                echo("<script>createToast('Warning','Hall reservation request failed placed.','W')</script>");
+                echo("<script>createToast('Warning (error code: #HBM08)','Hall reservation request failed placed.','W')</script>");
             }
         }else{
 //            display fail message
-            echo("<script>createToast('Warning','Hall reservation request failed placed.','W')</script>");
+            echo("<script>createToast('Warning (error code: #HBM08)','Hall reservation request failed placed.','W')</script>");
         }
+//        close connection
+	    $databaseInstance->closeConnection();
     }
 }

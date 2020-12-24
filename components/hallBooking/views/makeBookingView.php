@@ -70,7 +70,7 @@
             <input type="button" name="displayAllocationMap" onclick="loadAllocationMap();"
                    class="button orange" value="Goto Current Allocation Map"
                    style="width:95%;margin: auto auto 30px;">
-            <form action="" method="post">
+            <form action="" method="post" id="creteRequestForm">
                 <div class="row col-2">
                     <div>
                         <span class="inputHeading">Selected Hall/Lab</span>
