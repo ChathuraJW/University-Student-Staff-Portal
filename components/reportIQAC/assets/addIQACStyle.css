@@ -1,0 +1,56 @@
+.dropDownList label{
+    font-size: 20px;
+}
+
+.heading{
+    text-align: center;
+}
+
+.featureBody{
+    font-family: Varela;
+    src: url('../../../assets/font/Varela-Regular.ttf');
+}
+
+
+select {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 18px;
+    min-width: 250px;
+    box-shadow: 0 8px 16px 0 gray;
+}
+
+.uploadReport{
+    border-left: 4px solid rgb(209, 206, 206);
+    padding-left: 6px;
+}
+
+.file{
+    
+    width: 700px;
+    padding: 8px; 
+    background-color: white;
+     
+}
+
+.myFile{
+    color: solid black;
+    font-size: 16px;
+    position: relative;
+    left: 10%;
+}
+
+.submit{
+    background-color: green;
+    color: white;
+    padding: 4px;
+    border-radius: 4px;
+    position: relative;
+    left: 10%;
+    font-size: 20px;
+}
+
+ 
