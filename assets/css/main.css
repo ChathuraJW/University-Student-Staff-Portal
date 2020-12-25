@@ -45,30 +45,36 @@
     --headerFooterText: #F7F9Fb;
 
     /*close to natural theme color*/
-    --baseColor: #31708E;
-    --fontColor: #687864;
-    --successColor: #00800085;
-    --dangerColor: #f5090978;
-    --idleColor: #F7CB73;
-    --entryBackgroundColor: #6878640d;
-    --backgroundColor: #F7F9Fb;
-    --headerFooterBackground: #5085A5;
-    --headerSharding: #5085a578;
-
-    /*Accent Colors That Pop theme color*/
-    /*--baseColor: #802BB1;*/
-    /*--fontColor: #D1D7E0;*/
+    /*--baseColor: #31708E;*/
+    /*--fontColor: #687864;*/
     /*--successColor: #00800085;*/
     /*--dangerColor: #f5090978;*/
     /*--idleColor: #F7CB73;*/
-    /*--entryBackgroundColor: #4C495D7A;*/
-    /*--backgroundColor: #2D283E;*/
-    /*--headerFooterBackground:#564F6F;*/
-    /*--headerSharding:#564f6fb3;*/
+    /*--entryBackgroundColor: #6878640d;*/
+    /*--backgroundColor: #F7F9Fb;*/
+    /*--headerFooterBackground: #5085A5;*/
+    /*--headerSharding: #5085a578;*/
+
+    /*Accent Colors That Pop theme color*/
+    --baseColor: #802BB1;
+    --fontColor: #D1D7E0;
+    --successColor: #00800085;
+    --dangerColor: #f5090978;
+    --idleColor: #F7CB73;
+    --entryBackgroundColor: #4C495D7A;
+    --backgroundColor: #2D283E;
+    --headerFooterBackground:#564F6F;
+    --headerSharding:#564f6fb3;
+
+
+    --notificationDanger: #f509099e;
+    --notificationSuccess: #00800085;
+    --notificationInfo: #0000ffa6;
 }
 
 .bodyBackground {
     background-color: var(--backgroundColor);
+    /*position: absolute;*/
 }
 
 .buttonSubmit {
@@ -85,28 +91,31 @@
 
 .normalEntry {
     background-color: var(--entryBackgroundColor);
-    border-left: 15px solid var(--baseColor);
-    color: var(--baseColor);
+    border-left: 15px solid;
+    border-color: var(--baseColor);
 }
 
 .warningEntry {
     background-color: var(--entryBackgroundColor);
-    border-left: 20px solid var(--dangerColor);
+    border-left: 15px solid;
+    border-color: var(--dangerColor);
 }
 
 .successEntry {
     background-color: var(--entryBackgroundColor);
-    border-left: 20px solid var(--successColor);
+    border-left: 15px solid;
+    border-color: var(--successColor);
 }
 
 .ideaEntry {
     background-color: var(--entryBackgroundColor);
-    border-left: 20px solid var(--idleColor);
+    border-left: 15px solid;
+    border-color: var(--idleColor);
 }
 
 /*common element styles*/
 
-input[type=number], input[type=text], input[type=email], textarea, select, option {
+input[type=number], input[type=text], input[type=email], input[type=time], input[type=date], textarea, select, option {
     padding: 8px;
     border: 1px solid gray;
     border-radius: 4px;
@@ -119,7 +128,6 @@ input[type=number], input[type=text], input[type=email], textarea, select, optio
 }
 
 /*input type number remove increase decrease arrow*/
-
 /*for chromium based browsers*/
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -154,6 +162,10 @@ input[type=number] {
     text-align: center;
 }
 
+.buttonCouple button, .buttonCouple input {
+    margin: 40px;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -165,12 +177,21 @@ input[type=number] {
     padding-bottom: 30px;
 }
 
+/*input heading*/
+.inputHeading {
+    font-size: 18px;
+    display: block;
+    padding-bottom: 14px;
+    font-weight: bold;
+}
+
 /*styles for header of all component views*/
 header {
     text-align: center;
     width: 100%;
     height: auto;
     background-size: cover;
+    /*background-color: white;*/
     background: url("../image/headerBackground.jpg") fixed;
     position: relative;
     overflow: hidden;
@@ -276,4 +297,43 @@ img {
 .content {
     display: block;
     margin: 20px;
+}
+
+/*notification*/
+.alert {
+    height: fit-content;
+    padding: 20px;
+    color: white;
+    transition: opacity 0.6s;
+    margin-bottom: 15px;
+    width: 450px;
+    float: right;
+    position: inherit;
+}
+
+.alert .closeButton {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    background: none;
+}
+
+.alert .closeButton:hover {
+    color: black;
+}
+
+.alert .msgContent {
+    display: inline-block;
+    margin-left: 25px;
+    position: absolute;
+    font-size: 17px;
+}
+
+.alert .icon {
+    display: contents;
 }
