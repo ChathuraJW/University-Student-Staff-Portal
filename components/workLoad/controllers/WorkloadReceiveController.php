@@ -5,7 +5,13 @@ class WorkloadReceiveController extends Controller{
     // }
     public static function open(){
         
-        self::createView("workloadReceiveView");
+        $checked=1;
+        $unChecked=0;
+
+        $newMessages=WorkLoadReceiveModel::getWorkLoadMessages($unChecked);
+        $viewedMessages=WorkLoadReceiveModel::getWorkLoadMessages($checked);
+        $passingData=array($newMessages,$viewedMessages);
+        self::createView("workloadReceiveView",$passingData);
     }
     
 }
