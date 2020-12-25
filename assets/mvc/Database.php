@@ -40,6 +40,7 @@ class Database{
         error_reporting(E_ERROR | E_PARSE);
         $conn = new mysqli(self::$serverStatic, $userName, $password, self::$databaseStatic);
         if ($conn->connect_errno) {
+        	//TODO need to comment on implementation
             echo("Exception ::: << " . $conn->connect_error . " >>");
             exit();
         }
@@ -100,6 +101,7 @@ class Database{
             }
         } catch (Exception $exception) {
             $this->transactionState = false;
+	        //TODO need to comment on implementation
             echo("Exception ::: << " . $exception->getMessage() . " >>  " . $exception->getTraceAsString());
             return array();
         }

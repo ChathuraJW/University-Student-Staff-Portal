@@ -20,45 +20,47 @@
         <div class="assignmentList">
             <span class="columnHeader">Current Assignment Planes</span>
 			<?php
-				if (sizeof($controllerData[0]) === 0)
+				if (!$controllerData[0] || (sizeof($controllerData[0]) === 0))
 					echo("
-                        <span class='emptyMessage'>No Assignment Currently Belongs to You.</span>
+                        <span class='emptyMessage'>No Assignment Currently Belongs to You or Something Went Wrong.</span>
                     ");
-				foreach ($controllerData[0] as $row) {
+				else {
+					foreach ($controllerData[0] as $row) {
 
-					echo("
-                        <a href='assignmentOperation?planID=" . $row->getPlanID() . "' class='planItem normalEntry' id=''>
-                            <div class='row col-2'>
-                                <div class='planInfo'>
-                                    <span class='planItemHeader'>Basic Info:</span>
-                                    <div>
-                                        <span class='dataPoint'>" . $row->getAssignmentSubjectName() . "</span>
+						echo("
+                            <a href='assignmentOperation?planID=" . $row->getPlanID() . "' class='planItem normalEntry' id=''>
+                                <div class='row col-2'>
+                                    <div class='planInfo'>
+                                        <span class='planItemHeader'>Basic Info:</span>
+                                        <div>
+                                            <span class='dataPoint'>" . $row->getAssignmentSubjectName() . "</span>
+                                        </div>
+                                        <div>
+                                            <span class='dataPoint'>Subject Code: <b>" . $row->getSubjectCode() . "</b></span>
+                                            <span class='dataPoint'>Degree Stream: <b>" . ($row->getDegreeStream() === 'CS' ? 'Computer Science' : 'Information system') . "</b></span>
+                                            <span class='dataPoint'>Total Assignments: <b>" . $row->getTotalNumberOfAssignment() . "</b></span>
+                                            <span class='dataPoint'>Assignment Weight: <b>" . $row->getAssignmentWeight() . "%</b></span>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <span class='dataPoint'>Subject Code: <b>" . $row->getSubjectCode() . "</b></span>
-                                        <span class='dataPoint'>Degree Stream: <b>" . ($row->getDegreeStream() === 'CS' ? 'Computer Science' : 'Information system') . "</b></span>
-                                        <span class='dataPoint'>Total Assignments: <b>" . $row->getTotalNumberOfAssignment() . "</b></span>
-                                        <span class='dataPoint'>Assignment Weight: <b>" . $row->getAssignmentWeight() . "%</b></span>
+                                    <div class='staffList'>
+                                        <span class='planItemHeader'>Conducted By:</span>
+                                        <ol class='conductBy'>
+                            ");
+
+						foreach ($row->getAssignmentConductBy() as $data) {
+							echo("<li>" . $data->getFullName() . "</li>");
+						}
+
+						echo("
+                                        </ol>
                                     </div>
                                 </div>
-                                <div class='staffList'>
-                                    <span class='planItemHeader'>Conducted By:</span>
-                                    <ol class='conductBy'>
-                ");
-
-					foreach ($row->getAssignmentConductBy() as $data) {
-						echo("<li>" . $data->getFullName() . "</li>");
+                                <div class='row col-1'>
+                                     <span class='dataPoint'>Description:<br>" . $row->getDescription() . "</span>
+                                </div>
+                            </a>
+                            ");
 					}
-
-					echo("
-                                    </ol>
-                                </div>
-                            </div>
-                            <div class='row col-1'>
-                                 <span class='dataPoint'>Description:<br>" . $row->getDescription() . "</span>
-                            </div>
-                        </a>
-              ");
 				}
 			?>
         </div>
@@ -178,6 +180,7 @@
 </div>
 <?php BasicLoader::loadFooter('../../'); ?>
 <script src="../../assets/js/jquery.js"></script>
+<script src="../../assets/js/toast.js"></script>
 <script src="assets/assignmentSection.js"></script>
 </body>
 </html>

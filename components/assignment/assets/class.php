@@ -208,8 +208,8 @@ class Assignment{
     }
 
     public function createAssignment($assignmentID,$assignmentPlanID,$assignmentName,$type,$weight,$description):Assignment{
-        $this->assignmentID=$assignmentID;
-        $this->assignmentPlanID=$assignmentPlanID;
+        $this->assignmentID=(int)$assignmentID;
+        $this->assignmentPlanID=(int)$assignmentPlanID;
         $this->assignmentName=$assignmentName;
         $this->type=$type;
         $this->weight=$weight;

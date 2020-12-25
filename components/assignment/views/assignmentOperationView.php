@@ -45,7 +45,7 @@
             </div>
             <div class="buttonCouple">
                 <a href="?planID=<?php echo($_GET['planID']); ?>&operation=create" class="button">Create New Assignment</a>
-                <button class="button">Close and Complete Plane</button>
+                <button class="button" onclick="confirm('Are you sure to preform this action?');">Close and Complete Plane</button>
             </div>
             <div class="assignmentList">
                 <span class="sectionHeader">Current Assignment List:</span>
@@ -66,7 +66,7 @@
                             <div class='row col-3'>
                                 <div style='text-align: center;'><a href='assignmentOperation?planID=" . $controllerData->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=edit' style='color: var(--baseColor);'><i class='far fa-edit'></i></a></div>
                                 <div style='text-align: center;'><a href='assignmentOperation?planID=" . $controllerData->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=open' style='color: var(--baseColor);'><i class='far fa-folder-open'></i></a></div>
-                                <div style='text-align: center;'><a href='assignmentOperation?planID=" . $controllerData->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=delete' style='color: var(--dangerColor);'><i class='far fa-trash-alt'></i></a></div>
+                                <div style='text-align: center;'><a href='assignmentOperation?planID=" . $controllerData->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=delete' style='color: var(--dangerColor);' onclick='confirm(`Are you sure to to preform this operation? You going to delete a assignment that belong to this assignment plan.`)'><i class='far fa-trash-alt'></i></a></div>
                             </div>
                         </div>
                     ");
@@ -170,7 +170,7 @@
 				else
 					$assignmentID = null;
 			?>
-            <form action="?planID=<?php echo($currentPlanID); ?>&assignmentID=<?php echo($assignmentID); ?>&operation=edit" method="post">
+            <form action="#" method="post">
                 <div class="row col-2">
                     <div class="showRest">
                         <span>Assignment Name</span><br>
@@ -195,7 +195,7 @@
                     </div>
                 </div>
                 <div class="buttonCouple">
-                    <input type="submit" name="saveChanges" value="Save Changes" class="button">
+                    <input type="submit" name="saveChanges" value="Save Changes" class="button" onclick="confirm('Are you sure to perform this action? ')">
                     <input type="reset" value="Cancel" class="button">
                 </div>
             </form>
@@ -204,6 +204,7 @@
 </div>
 <?php BasicLoader::loadFooter('../../'); ?>
 <script src="../../assets/js/jquery.js"></script>
+<script src="../../assets/js/toast.js"></script>
 <script src="assets/assignmentSection.js"></script>
 </body>
 </html>
