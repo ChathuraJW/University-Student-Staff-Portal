@@ -146,13 +146,13 @@
         <div class="dataTableArea" style="padding: 0 30px 30px;box-shadow:none">
             <div class="controlSection" style="margin:auto;padding: 0 20px 20px;">
                 <span class="inputHeading">Select the date to search:</span>
-                <input type="date" id="selectedDate">
+                <input type="date" id="selectedDate" onchange="fillCurrentAllocationMap();">
 
             </div>
             <table border="1" id="allocationMap" class="allocationMap">
                 <tr style="background-color: rgba(0, 0, 0, 0.281);">
                     <th rowspan="2">Lecture Halls & Computer Labs</th>
-                    <th colspan="22" style="text-align: center;">Time Slots ( Between 08:00 and 17:00 )</th>
+                    <th colspan="22" style="text-align: center;">Time Slots ( Between 08:00 and 19:00 )</th>
                 </tr>
                 <tr>
 
@@ -180,13 +180,17 @@
                     ?>
                 </tr>
                 <?php
-                for ($i = 0; $i < 10; $i++) {
-                    echo("<tr><td>S104</td>");
-                    for ($j = 0; $j < 22; $j++) {
-                        echo("<td></td>");
-                    }
-                    echo("</tr>");
-                }
+//                    load hall list and rest of the table
+	                foreach ($controllerData[0] as $row){
+		                $hallID = $row->getHallID();
+//		                left corner column create base on db data
+		                echo("<tr><td>$hallID</td>");
+//		                add rest cells
+		                for ($j = 0; $j < 22; $j++) {
+			                echo("<td></td>");
+		                }
+		                echo("</tr>");
+	                }
                 ?>
             </table>
         </div>

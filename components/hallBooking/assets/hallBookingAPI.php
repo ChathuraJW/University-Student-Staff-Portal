@@ -69,7 +69,6 @@
 //            ignore approved request
 			if ($row['reservationID'] !== $requestID) {
 				$sqlQuery = "UPDATE user_receive_hall SET reservationStates='R' WHERE reservationID=" . $row['reservationID'];
-				//TODO make sure to uncomment below statement
 				$dbInstance->executeTransaction($sqlQuery);
 				$dbInstance->transactionAudit($sqlQuery, 'user_receive_hall', 'UPDATE',
 					'Change the the state of rest of the request to `R` state.');
@@ -86,4 +85,77 @@
 		} else {
 			echo false;
 		}
+	} elseif (isset($_GET['operation']) & $_GET['operation'] == 'loadCurrentAllocation') {
+
+//		get date from link
+		$selectedDate = $_GET['dateSelected'];
+//		generate date to corresponding date
+		$day = strtoupper(date('D', strtotime($_GET['dateSelected'])));
+
+		$dbInstance = new Database;
+		//TODO change database credentials
+		$dbInstance->establishTransaction('root', '');
+//		take a list of hall details to maintain row indexes
+		$sqlQuery = "SELECT hallID FROM hall_and_lab ORDER BY hallType DESC";
+		$hallData = ($dbInstance->executeTransaction($sqlQuery));
+//		setup hall list indexes
+		$hallDataList = array();
+		$key = 2;
+		foreach ($hallData as $row) {
+			$hallDataList[$row['hallID']] = $key;
+			$key++;
+		}
+//		list uot timetable entries
+		$sqlQuery = "SELECT * FROM timetable WHERE day='$day' ORDER BY hallID;";
+		$result = $dbInstance->executeTransaction($sqlQuery);
+		$finalResult = array();
+		$rowIndex = 2;
+		foreach ($result as $row) {
+//			add additional date to array for support entry creation
+			$timeDiff = $row['toTime'] - $row['fromTime'];
+			$row['rowNumber'] = $hallDataList[$row['hallID']];
+			$row['neededSlot'] = $timeDiff * 2;
+			$row['beginCell'] = ($row['fromTime'] - '08:00:00') * 2 + 1;
+			$row['endCell'] = $row['neededSlot'] + $row['beginCell'];
+			$row['degreeStreamColor'] = strlen($row['subjectCode']) == 7 ? 'rgba(255, 0, 0, 0.6)' : 'rgba(0, 0, 255, 0.6)';
+			$row['displayMessage'] = '[' . $row['subjectCode'] . ' for ' . $row['relatedGroup'] . '] [From: ' . $row['fromTime'] . ' To: ' . $row['toTime'] . '] ['
+				. $row['description'] . ']';
+			$rowIndex++;
+//			add modified row into new array created
+			$finalResult[] = $row;
+		}
+
+//		list out reservation entries
+		//TODO try to improve query for further accuracy
+		$sqlQuery = "SELECT * from hall_reservation_details WHERE reservationStates='A' AND (DATE(fromTimestamp)='$selectedDate' OR DATE (toTimestamp)='$selectedDate');";
+		$result = $dbInstance->executeTransaction($sqlQuery);
+		$rowIndex = 2;
+		foreach ($result as $row) {
+			if (date('d-m-Y', strtotime($row['fromTimestamp'])) !== date('d-m-Y', strtotime($selectedDate))) {
+//				handle entries has time more than one day
+				$timeDiff = (strtotime($row['toTimestamp']) - strtotime("$selectedDate 08:00:00")) / 3600;
+				$row['neededSlot'] = $timeDiff * 2;
+				$row['beginCell'] = 1;
+				$row['endCell'] = $row['neededSlot'] + $row['beginCell'];
+			} else {
+//				handle one day entry
+				$timeDiff = (strtotime($row['toTimestamp']) - strtotime($row['fromTimestamp'])) / 3600;
+				$row['neededSlot'] = $timeDiff * 2;
+				$row['beginCell'] = ((strtotime($row['fromTimestamp']) - strtotime("$selectedDate 08:00:00")) / 3600) * 2 + 1;
+			}
+
+			$row['rowNumber'] = $hallDataList[$row['hallID']];
+			$row['endCell'] = $row['neededSlot'] + $row['beginCell'];
+			//end cell correction
+			$row['endCell'] = $row['endCell'] > 23 ? 23 : $row['endCell'];
+//			color assign for appointment entry
+			$row['degreeStreamColor'] = 'rgba(0, 128, 0, 0.6)';
+			$row['displayMessage'] = '[Reserved By: ' . $row['salutation'] . '. ' . $row['fullName'] . ' (' . $row['reserveUserName'] . ') ] [From: ' . $row['fromTimestamp'] . ' To: ' . $row['toTimestamp']
+				. '] [' . $row['description'] . ']';
+			$rowIndex++;
+
+//			add data to the same array already created
+			$finalResult[] = $row;
+		}
+		echo json_encode($finalResult);
 	}

@@ -1,7 +1,4 @@
 <?php
-
-	use JetBrains\PhpStorm\NoReturn;
-
 	class MakeBookingModel extends Model{
 
     public static function getHallData(): array {

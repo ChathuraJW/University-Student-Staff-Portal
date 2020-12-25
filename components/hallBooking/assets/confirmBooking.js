@@ -15,7 +15,7 @@ function rearrangeContent(buttonID) {
 function respondOperation(requestID) {
     confirm(`Are you user to temporally close the session?`);
     // call confirmBookingAPI for operation
-    const requestURL = "http://localhost/USSP/components/hallBooking/assets/confirmBookingAPI.php?operation=respond&requestID=" + requestID;
+    const requestURL = "http://localhost/USSP/components/hallBooking/assets/hallBookingAPI.php?operation=respond&requestID=" + requestID;
     $.getJSON(requestURL, function (operationState) {
         if (operationState === 1) {
             createToast('Info', 'Operation successful. You can review it again.', 'I');
@@ -37,7 +37,7 @@ function confirmSelectedBooking() {
     // check whether declaration checked
     if (isChecked) {
         // call confirmBookingAPI for operation
-        const requestURL = "http://localhost/USSP/components/hallBooking/assets/confirmBookingAPI.php?operation=confirm&requestID=" + selectedRequestID;
+        const requestURL = "http://localhost/USSP/components/hallBooking/assets/hallBookingAPI.php?operation=confirm&requestID=" + selectedRequestID;
         $.getJSON(requestURL, function (operationState) {
             if (operationState === 1) {
                 createToast('Info', 'successfully confirm the reservation request.', 'I');
