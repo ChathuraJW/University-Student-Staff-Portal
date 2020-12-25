@@ -109,7 +109,7 @@
                             </div>
                             <div class="divStyle">
                                 <input type="checkbox" class="checkThirdSet" id="check4SE" value="1243">
-                                <label for="check4IS">SE</label>
+                                <label for="check4SE">SE</label>
                             </div>
                         </div>
                     </div>
@@ -151,10 +151,10 @@
                     <textarea class="textareaStyle" name="message" rows="7" cols="130" placeholder="message"></textarea>
                 </div>
                 <div class="buttonCouple">
-                            <button class="button "> Cancel</button>
-                            <button class="button" type="submit" > Send</button>
+                            <button type="reset" class="button "> Cancel</button>
+                            <button class="button" type="submit" name="send" > Send</button>
                     </div>
-                </div>
+
 
 
 
