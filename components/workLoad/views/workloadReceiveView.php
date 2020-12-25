@@ -21,18 +21,28 @@
         <div style="float:left;"><button class="link" id="linkOne" check="0" onclick="scheduleCheck()">History</button><br></div>
         <div class="row col-2" id="main">
 
+        <?php $records=$controllerData[0];?>
             <div>
                 <!-- this div will display all the workload allocation messages for specific supportive staff member-->
                 <h3 class="head">Workload Attachments</h3>
                 <?php 
-                    for($x=1;$x<6;$x++){
-                        echo "  
-                            <div class='workloadMessage' onclick='openMessage()' >
-                                <div>Dr Noyel</div>
-                                <div>Dear Sir There have a allocated task for you according to ...</div>
+                    foreach($records as $record){
+                        // $url="?fullName=".$record->getFullName()."&workLoadDescription=".$record->getWorkLoadDescription()."&title=".$record->getTitle()."&location=".$record->getLocation()."&Date=".$record->getDate()."&fromTime=".$record->getFromTime()."&toTime=".$record->getToTime()."&salutation=".$record->getSalutation()."&fullName=".$record->getFullName()."&requestDate=".$record->getRequestDate();
+                        $title=$record->getTitle();
+                        $name=$record->getFullName();
+                        $location=$record->getLocation();
+                        $date=$record->getDate();
+                        $fromTime=$record->getFromTime();
+                        $toTime=$record->getToTime();
+                        $description=$record->getWorkLoadDescription();
+                        echo " 
+                            <div class='workloadMessage' onclick='openMessage(`$title`,`$name`,`$location`,`$date`,`$fromTime`,`$toTime`,`$description`)' >
+                                <div>".$record->getFullName()."</div>
+                                <div>".$record->getTitle()."</div>
                                 
-                                <div style='margin-left:85%;'>2020/02/17 </div>
-                            </div><br>" ;
+                                <div style='margin-left:85%;'>".$record->getRequestDate()."</div>
+                            </div><br>
+                        " ;
                     }
                 ?>
 
@@ -44,37 +54,54 @@
                     <p class="messageView" id="messageView"  >Message Display</p>
                 </div>
                 
-                <div id="workloadRequest"style="display:none;">
-                <button class="close" style="float:right;padding-right:10px;" onclick="closeFirst()" ><i class="fa fa-times-circle" aria-hidden="true"></i></button>
-                
+                    <div id="workloadRequest" style="display:none;">
+                        <button class="close" style="float:right;padding-right:10px;" onclick="closeFirst()" ><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+                    
 
-                    <h3 class="topic">Assignment conducting for DSA</h3>
-                    
-                    <div class="displayingMessage">
-                        <div class="label">Lecturer</div>
-                        <div class="value">Dr Manju</div>
+                        <h3 class="topic" id="oldTitle"></h3>
+                        
+                        <div class="displayingMessage">
+                            <div class="label">Lecturer</div>
+                            <div class="value" id="oldLecture"></div>
+                        </div>
+                        
+                        <div class="displayingMessage">
+                            <div class="label">Location</div>
+                            <div class="value" id="oldLocation"></div>
+                        </div>
+                        <div class="displayingMessage">
+                            <div class="label">Date</div>
+                            <div class="value" id="oldDate"></div>
+                        </div>
+                        <div class="displayingMessage">
+                            <div class="label">From Time</div>
+                            <div class="value" id="oldFromTime"></div>
+                        </div>
+                        <div class="displayingMessage">
+                            <div class="label">To Time</div>
+                            <div class="value" id="oldToTime"></div>
+                        </div>
+                        <div class="displayingMessage" style="margin-bottom:10px;" >
+                            <div class="label">Description</div>
+                            <div class="value" id="oldDescription"></div>
+                        </div>
+                        <form action="">
+                            <div class="displayingMessage">
+                                <div class="label"></div>
+                                <div class="value">
+                                    
+                                        <textarea style="background-color:none"name="reply" id="" cols="50" rows="10"></textarea><br>
+                                    
+                                </div>
+                            </div>
+                            <div class="buttonCouple">
+                                <input class="button"type="submit" name="reject" value="Reject">
+                                <input class="button"type="submit" name="accept" value="Accept">
+                            </div>
+                        </form>
+                        
                     </div>
-                    
-                    <div class="displayingMessage">
-                        <div class="label">Location</div>
-                        <div class="value">Hall no1</div>
-                    </div>
-                    <div class="displayingMessage">
-                        <div class="label">Date</div>
-                        <div class="value">2020/02/17</div>
-                    </div>
-                    <div class="displayingMessage">
-                        <div class="label">Time</div>
-                        <div class="value">3.00 PM</div>
-                    </div>
-                    <div class="displayingMessage" style="margin-bottom:10px;" >
-                        <div class="label">Description</div>
-                        <div class="value"> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in</div>
-                    </div>
-                    
-                    
-                </div>
-                    
+                
                 
             </div>
         </div>
@@ -86,26 +113,34 @@
                 
                 <!-- style='float:right;' -->
                 <?php
+                $newMessages=$controllerData[1];
                 // view all past workload messages of the supportive staff member
-                    for($i=0;$i<5;$i++){
+                    foreach($newMessages as $newMessage){
+                        $title=$newMessage->getTitle();
+                        $name=$newMessage->getFullName();
+                        $location=$newMessage->getLocation();
+                        $date=$newMessage->getDate();
+                        $time=$newMessage->getFromTime();
+                        $description=$newMessage->getWorkLoadDescription();
+                        // $reply=$newMessage->getReply();
                         echo"
-                        <div class='row col-1 workloadHistory' onclick='openMsg()'>
+                        <div class='row col-1 workloadHistory' onclick='openMsg(`$title`,`$name`,`$location`,`$date`,`$time`,`$description`)'>
                             <div style='float:right;' >
                                 <!--<div class='data'>Date</div>-->
-                                <div >2020/2/17</div>
+                                <div >".$newMessage->getRequestDate()."</div>
                             </div>
                             <div>
                                 <div class='dataSet'>
                                     <div class='data left'>Lecturer</div>
-                                    <div class='data right'>Dr Manju</div>
+                                    <div class='data right'>".$newMessage->getSalutation()." ".$newMessage->getFullName()."</div>
                                 </div>
                                 <div class='dataSet'>
                                     <div class='data left'>Title</div>
-                                    <div class='data right'>Assignment conducting</div>
+                                    <div class='data right'>".$newMessage->getTitle()."</div>
                                 </div>
                                 <div class='dataSet'>
                                     <div class='data left'>Description</div>
-                                    <div class='data right'>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an<span id='dots'>...</span></div>
+                                    <div class='data right'>".$newMessage->getWorkLoadDescription()."</div>
                                 </div>
                             </div>
                         </div>
@@ -126,32 +161,32 @@
                 <div class="scheduleDescription" id="scheduleDescription" style="display:none;">
                     <div class="scheduleMessage">
                     <button class="close" style="float:right;padding-right:10px;" onclick="closeSecond()" ><i class="fa fa-times-circle" aria-hidden="true"></i></button>
-                        <h3 class="topic">Assignment conducting for DSA</h3>
+                        <h3 class="topic" id="newTitle">Assignment conducting for DSA</h3>
                         <div style="padding-top:40px;">
                             <div class="displayingMessage">
                                 <div class="label">Lecturer</div>
-                                <div class="value">Dr Manju</div>
+                                <div class="value" id="newLecture">Dr Manju</div>
                             </div>
                             
                             <div class="displayingMessage">
                                 <div class="label">Location</div>
-                                <div class="value">Hall no1</div>
+                                <div class="value" id="newLocation">Hall no1</div>
                             </div>
                             <div class="displayingMessage">
                                 <div class="label">Date</div>
-                                <div class="value">2020/02/17</div>
+                                <div class="value" id="newDate" >2020/02/17</div>
                             </div>
                             <div class="displayingMessage">
                                 <div class="label">Time</div>
-                                <div class="value">3.00 PM</div>
+                                <div class="value" id="newTime">3.00 PM</div>
                             </div>
                             <div class="displayingMessage" style="margin-bottom:10px;" >
                                 <div class="label">Description</div>
-                                <div class="value"> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five</div>
+                                <div class="value" id="newDescription"> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five</div>
                             </div>
                             <div class="displayingMessage">
                                 <div class="label">Reply</div>
-                                <div class="value">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer </div>
+                                <div class="value" id="newReply">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer </div>
                             </div>
                         </div>
                     </div>

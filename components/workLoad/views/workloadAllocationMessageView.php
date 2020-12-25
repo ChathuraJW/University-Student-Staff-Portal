@@ -17,22 +17,25 @@
     <?php BasicLoader::loadHeader('../../') ?>
     
     <!-- feature body section -->
-    <div class="featureBody" >
-
+    <div class="featureBody bodyBackground text">
+    
         <!-- in this class main div is use for display workload request messages -->
         <div class="row col-2" id="main"  >
             <div>
                 <!-- in this div list the all new requests -->
                 <h3 class="head">Workload Requests</h3>
                 <?php 
-                    for($x=1;$x<6;$x++){
+                    $records=$controllerData;
+                    foreach($records as $record){
+                        $url="?fullName=".$record->getFullName()."&workLoadDescription=".$record->getWorkLoadDescription()."&title=".$record->getTitle()."&location=".$record->getLocation()."&Date=".$record->getDate()."&fromTime=".$record->getFromTime()."&toTime=".$record->getToTime()."&salutation=".$record->getSalutation()."&requestDate=".$record->getRequestDate();
                         echo "
-                        <div class='workloadRequestMessage' onclick='openMessage()' >
-                            <div>Dr Noyel</div>
-                            <div>Dear Sir I want to few Instructors for conduct my assignment.... </div>
-                            <div style='margin-left:85%;'>2020/02/17</div>
-                            
-                        </div><br>" ;
+                        <a style='text-decoration: none;'href='".$url."'  onclick='openMessage()' >
+                            <div class='normalEntry'>
+                                <div>".$record->getSalutation().".".$record->getFullName()."</div>
+                                <div>".$record->getTitle()."</div>
+                                <div style='margin-left:85%;'>".$record->getRequestDate()."</div>
+                            </div>
+                        </a><br>" ;
                     }
                 ?>
 
@@ -45,36 +48,50 @@
                     <p class="messageView" id="messageView">Message Display</p>
                 </div>
                 
-                <div id="workloadRequest"style="display:none;">
-                    <h3 class="topic">Assignment conducting for DSA</h3>
-                    <!-- here list all informations -->
-                    <div class="displayingMessage">
-                        <div class="label">Lecturer</div>
-                        <div class="value">Dr Manju</div>
+                <?php if(isset($_GET['fullName'])):?>
+                    <style>
+                        .messageView{
+                            display:none;
+                        }
+                    </style>
+                    <div id="workloadRequest">
+                        <h3 class="topic"><?php echo $_GET['title']?></h3>
+                        <!-- here list all information -->
+                        <div class="displayingMessage">
+                            <div class="label">Lecturer</div>
+                            <div class="value"><?php echo $_GET['fullName']?></div>
+                        </div>
+                        
+                        <div class="displayingMessage">
+                            <div class="label">Location</div>
+                            <div class="value"><?php echo $_GET['location']?></div>
+                        </div>
+                        <div class="displayingMessage">
+                            <div class="label">Date</div>
+                            <div class="value"><?php echo $_GET['Date']?></div>
+                        </div>
+                        <div class="displayingMessage">
+                            <div class="label">From Time</div>
+                            <div class="value"><?php echo $_GET['fromTime']?></div>
+                        </div>
+                        <!-- <div class="displayingMessage">
+                            <div class="label">To Date</div>
+                            <div class="value"><?php echo $_GET['toDate']?></div>
+                        </div> -->
+                        <div class="displayingMessage">
+                            <div class="label">To Time</div>
+                            <div class="value"><?php echo $_GET['toTime']?></div>
+                        </div>
+                        <div class="displayingMessage" style="margin-bottom:10px;" >
+                            <div class="label">Description</div>
+                            <div class="value"> <?php echo $_GET['workLoadDescription']?></div>
+                        </div>
+                        <div style="margin-top:10px;"class="displayingMessage">
+                            <div  class="label"><button  class="button" onclick="messageClose()">Cancel</button></div>
+                            <div style="text-align:center;" class="value"> <button class="button" onclick="allocation()">Allocate</button></div>
+                        </div>
                     </div>
-                    
-                    <div class="displayingMessage">
-                        <div class="label">Location</div>
-                        <div class="value">Hall no1</div>
-                    </div>
-                    <div class="displayingMessage">
-                        <div class="label">Date</div>
-                        <div class="value">2020/02/17</div>
-                    </div>
-                    <div class="displayingMessage">
-                        <div class="label">Time</div>
-                        <div class="value">3.00 PM</div>
-                    </div>
-                    <div class="displayingMessage" style="margin-bottom:10px;" >
-                        <div class="label">Description</div>
-                        <div class="value"> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in</div>
-                    </div>
-                    <div style="margin-top:10px;"class="displayingMessage">
-                        <div  class="label"><button  class="button cancel" onclick="messageClose()">Cancel</button></div>
-                        <div style="text-align:center;" class="value"> <button class="button allocate" onclick="allocation()">Allocate</button></div>
-                    </div>
-                </div>
-                    
+                <?php endif; ?>    
                 
             </div>
         </div>
@@ -91,34 +108,33 @@
                         
                         <!-- <div></div> -->
                         <div>
-                            <div><h4 style="text-align:center;"> From</h4></div>
+                            <!-- <div><h4 style="text-align:center;"> From</h4></div> -->
                             <div class="row col-2">
                                 <label class="searchLabel" for="startDate">Date</label>
-                                <input class="searchInput" id="startDate" type="date" name="fromDate" require>
+                                <input class="searchInput" id="startDate" type="date" value="<?php echo $_GET['Date']?>" name="fromDate" require>
                             </div>
 
-                            <div class="row col-2">
-                                <label class="searchLabel" for="startTime">Time</label>
-                                <input type="time" class="searchInput" id="startTime"  name="startTime" require>
-                            </div>
+                            
                         </div>
 
                         <div>
-                            <h4 style="text-align:center;"> To</h4>
+                            <!-- <h4 style="text-align:center;"> To</h4>
                             <div class="row col-2">
                                 <label class="searchLabel" for="endDate">Date</label>
-                                <input class="searchInput" id="endDate" type="date" name="endDate" require>
-                            </div>
-
+                                <input class="searchInput" id="endDate" type="date" value="<?php echo $_GET['toDate']?>"  name="toDate" require>
+                            </div> -->
                             <div class="row col-2">
-                                <label class="searchLabel" for="endTime">Time</label>
-                                <input type="time" class="searchInput" id="endTime"  name="endTime" require>
+                                <label class="searchLabel" for="startTime">From Time</label>
+                                <input type="time" class="searchInput" id="startTime" value="<?php echo $_GET['fromTime']?>"   name="startTime" require>
+                            </div>
+                            <div class="row col-2">
+                                <label class="searchLabel" for="endTime">Time Time</label>
+                                <input type="time" class="searchInput" id="endTime"  name="toTime" value="<?php echo $_GET['toTime']?>"  require>
                             </div>
                         </div>
 
                         <div style="text-align:center;margin-top:50px;" >
-                            <span class="searchButton" id="search" type="button" onclick="displaySearch()" name="submit" >Search <i class="fa fa-search" aria-hidden="true"></i>
-</span>
+                            <button class="searchButton" id="search" type="button" onclick="displaySearch()" name="submit" >Search <i class="fa fa-search" aria-hidden="true"></i></button>
                         </div>
                     </div>
                 </form>
@@ -191,6 +207,7 @@
 
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../') ?>
+    <script src="../../assets/js/jquery.js"></script>
     <script src="assets/workloadAllocation.js"></script>
 
 </body>
