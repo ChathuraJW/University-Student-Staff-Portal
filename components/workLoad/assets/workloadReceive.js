@@ -37,9 +37,16 @@
                 document.getElementById(more).style.display = "inline";
             }
             }
-        function openMsg(){
+        function openMsg(title,FullName,location,date,time,description){
             document.getElementById("scheduleDescription").style.display="";
             document.getElementById("beforeMessage").style.display="none";
+            document.getElementById("newTitle").innerHTML=title;
+            // console.log(title);
+            document.getElementById("newLecture").innerHTML= FullName ;
+            document.getElementById("newLocation").innerHTML=location;
+            document.getElementById("newDate").innerHTML=date;
+            document.getElementById("newTime").innerHTML=time;
+            document.getElementById("newDescription").innerHTML=description;
         }
         function closeFirst(){
             document.getElementById("workloadRequest").style.display="none";
@@ -65,9 +72,18 @@
                 document.getElementById("linkOne").innerHTML='History';
                 }
         }
-        function openMessage(){
+        function openMessage(title,FullName,location,date,fromTime,toTime,description){
             document.getElementById("messageView").style.display="none";
             document.getElementById("workloadRequest").style.display="";
+
+            document.getElementById("oldTitle").innerHTML=title;
+            // console.log(title);
+            document.getElementById("oldLecture").innerHTML= FullName ;
+            document.getElementById("oldLocation").innerHTML=location;
+            document.getElementById("oldDate").innerHTML=date;
+            document.getElementById("oldFromTime").innerHTML=fromTime;
+            document.getElementById("oldToTime").innerHTML=toTime;
+            document.getElementById("oldDescription").innerHTML=description;
         }
         
         function messageClose(){

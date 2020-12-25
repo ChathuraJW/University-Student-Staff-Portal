@@ -28,25 +28,37 @@ function deallocateForm(){
     
 }
 function displaySearch(){
-    var date1=document.getElementById("startDate").value;
-    var date2=document.getElementById("endDate").value;
-    var time1=document.getElementById("startTime").value;
-    var time2=document.getElementById("endTime").value;
+
+    var fromDate=document.getElementById("startDate").value;
+    // var toDate=document.getElementById("endDate").value;
+    var fromTime=document.getElementById("startTime").value;
+    // var toTime=document.getElementById("endTime").value;
+
+    var url="http://localhost/USSP/components/workload/assets/workLoadMembersAPI.php?fromDate="+fromDate+"&fromTime="+fromTime+"&toTime=";
+    console.log(url); 
+    $.getJSON(url,function(dataList){
+        console.log(dataList);
+        //
+    });
+    // var date1=document.getElementById("startDate").value;
+    // var date2=document.getElementById("endDate").value;
+    // var time1=document.getElementById("startTime").value;
+    // var time2=document.getElementById("endTime").value;
     
-    if(date1==""||date2==""||time1==""||time2==""){
-        // document.getElementById("search").reset();
-        window.alert("Please select Date and Time!");
+    // if(date1==""||date2==""||time1==""||time2==""){
+    //     // document.getElementById("search").reset();
+    //     window.alert("Please select Date and Time!");
         
         
-    }else{
-        document.getElementById("preMessage").style.display="none";
-        document.getElementById("searchStaff").style.display="";
-        // document.getElementById("search").reset();
-    }
+    // }else{
+    //     document.getElementById("preMessage").style.display="none";
+    //     document.getElementById("searchStaff").style.display="";
+    //     // document.getElementById("search").reset();
+    // }
 
 }
 function openMessage(){
-    document.getElementById("messageView").style.display="none";
+    document.getElementById("firstMessage").style.display="none";
     document.getElementById("workloadRequest").style.display="";
 }
 function allocation(){
