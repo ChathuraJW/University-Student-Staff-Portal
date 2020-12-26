@@ -142,17 +142,17 @@
                 <div  > 
                     <p id="preMessage" class="messageView" id="">Search Members</p>
 
-                    <div id="searchStaff" style="display:none;"><!-- here display the all supportive staff free in mentioned time slot -->
+                    <div id="searchStaff" style="color:black;display:none;"><!-- here display the all supportive staff free in mentioned time slot -->
                         <form action="" id="searchForm"method="post"><!-- -->
                             <?php
                                 // for($i=1;$i<12;$i++){
-                                    echo 
-                                        "<div class='member' >
-                                            <label  for='member' id='supportMemberSalutation'></label>.<label  for='member' id='supportMember'></label>
-                                            <input class='memberLabel memberInput'  type='checkbox' id='member' name='member' require><br>
-                                        </div>";
-                                        
+                                    // echo 
+                                    //     "<div class='member' >
+                                    //         <label class='supportMemberSalutation' for='member' id=''></label>.<label class='supportMember' for='member' id=''></label>
+                                    //         <input class='memberLabel memberInput'  type='checkbox' id='member' name='member' require><br>
+                                    //     </div>";
                                 // }
+                                
                             ?>
                             <div class="row col-2">
                                 <div style="text-align:center;"><input onclick='deallocateForm()' class="button cancel"type="reset" value="Cancel"></div>
