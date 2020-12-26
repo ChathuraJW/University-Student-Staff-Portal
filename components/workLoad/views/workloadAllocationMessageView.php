@@ -101,7 +101,7 @@
 
             <div class="searchMembers"><!--from this div we can display search free time available supportive members -->
                 
-                <form class="search" action="">
+                <form class="search" method="post"action="">
                 <h2 style="margin-top:30px;margin-bottom:20px;" class="head">Select Members</h2>
                     <div class="row col-3">
                         
@@ -145,14 +145,14 @@
                     <div id="searchStaff" style="display:none;"><!-- here display the all supportive staff free in mentioned time slot -->
                         <form action="" id="searchForm"method="post"><!-- -->
                             <?php
-                                for($i=1;$i<12;$i++){
+                                // for($i=1;$i<12;$i++){
                                     echo 
                                         "<div class='member' >
-                                            <label  for='member'>Staff Member".$i."</label>
+                                            <label  for='member' id='supportMemberSalutation'></label>.<label  for='member' id='supportMember'></label>
                                             <input class='memberLabel memberInput'  type='checkbox' id='member' name='member' require><br>
                                         </div>";
                                         
-                                }
+                                // }
                             ?>
                             <div class="row col-2">
                                 <div style="text-align:center;"><input onclick='deallocateForm()' class="button cancel"type="reset" value="Cancel"></div>

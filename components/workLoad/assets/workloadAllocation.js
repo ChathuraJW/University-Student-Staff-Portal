@@ -32,12 +32,27 @@ function displaySearch(){
     var fromDate=document.getElementById("startDate").value;
     // var toDate=document.getElementById("endDate").value;
     var fromTime=document.getElementById("startTime").value;
-    // var toTime=document.getElementById("endTime").value;
+    var toTime=document.getElementById("endTime").value;
 
-    var url="http://localhost/USSP/components/workload/assets/workLoadMembersAPI.php?fromDate="+fromDate+"&fromTime="+fromTime+"&toTime=";
+    var url="http://localhost/USSP/components/workload/assets/workLoadMembersAPI.php?fromDate="+fromDate+"&fromTime="+fromTime+"&toTime="+toTime+"";
     console.log(url); 
     $.getJSON(url,function(dataList){
-        console.log(dataList);
+        // console.log(dataList);
+        for(var i in dataList) {
+            document.write(dataList[i]['fullName']);
+            // let week = "week "+dataList[i]['week'];
+            // let salutation = dataList[i]['salutation'];
+            // let fullName = dataList[i]['fullName'];
+            // let description = attendance[i]['description'];
+            // let color = (attendance[i]['attendance']==1 ? 'green':'red');
+            // console.log(week);
+
+            // document.getElementById("supportMemberSalutation").innerHTML = salutation;
+            // document.getElementById("supportMember").innerHTML = fullName;
+            // document.getElementById("attendanceType"+i).innerHTML = description;
+            // document.getElementById(i).style.backgroundColor = color;
+        }
+
         //
     });
     // var date1=document.getElementById("startDate").value;
