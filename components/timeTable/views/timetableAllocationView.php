@@ -93,5 +93,6 @@
 
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../') ?>
+    <script src="assets/timetable.js"></script>
 </body>
 </html>
