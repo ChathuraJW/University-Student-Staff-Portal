@@ -8,7 +8,7 @@
             require_once "./models/$className.php";
         }
 //        import class.php inside the component
-        require_once ('./assets/class.php');
+//        require_once ('./assets/class.php');
 
     }
     spl_autoload_register('autoload');
