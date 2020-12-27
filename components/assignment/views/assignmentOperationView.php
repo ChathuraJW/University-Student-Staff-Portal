@@ -18,25 +18,25 @@
     <h1 class="heading">Assignment Management</h1>
     <div class="row col-2">
         <div class="assignmentPlanManagement">
-            <span class="columnHeader">Welcome to <?php echo $controllerData->getSubjectCode(); ?> Assignment Plan</span>
+            <span class="columnHeader">Welcome to <?php echo $controllerData[0]->getSubjectCode(); ?> Assignment Plan</span>
             <div class="row col-2">
                 <div class="basicAssignmentInfo">
                     <span class="sectionHeader">Basic Info:</span>
                     <div>
-                        <span class='dataPoint'><?php echo $controllerData->getAssignmentSubjectName(); ?></span>
+                        <span class='dataPoint'><?php echo $controllerData[0]->getAssignmentSubjectName(); ?></span>
                     </div>
                     <div>
-                        <span class='dataPoint'>Subject Code: <b><?php echo $controllerData->getSubjectCode(); ?></b></span><br>
-                        <span class='dataPoint'>Degree Stream: <b><?php echo $controllerData->getDegreeStream(); ?></b></span><br>
-                        <span class='dataPoint'>Total Assignments: <b><?php echo $controllerData->getTotalNumberOfAssignment(); ?></b></span><br>
-                        <span class='dataPoint'>Assignment Weight: <b><?php echo $controllerData->getAssignmentWeight(); ?>%</b></span>
+                        <span class='dataPoint'>Subject Code: <b><?php echo $controllerData[0]->getSubjectCode(); ?></b></span><br>
+                        <span class='dataPoint'>Degree Stream: <b><?php echo $controllerData[0]->getDegreeStream(); ?></b></span><br>
+                        <span class='dataPoint'>Total Assignments: <b><?php echo $controllerData[0]->getTotalNumberOfAssignment(); ?></b></span><br>
+                        <span class='dataPoint'>Assignment Weight: <b><?php echo $controllerData[0]->getAssignmentWeight(); ?>%</b></span>
                     </div>
                 </div>
                 <div class="conductedBy">
                     <span class="sectionHeader">Conducted By:</span>
                     <ol class='conductBy'>
 						<?php
-							foreach ($controllerData->getAssignmentConductBy() as $row) {
+							foreach ($controllerData[0]->getAssignmentConductBy() as $row) {
 								echo("<li>" . $row->getSalutation() . ". " . $row->getFullName() . "</li>");
 							}
 						?>
@@ -50,23 +50,28 @@
             <div class="assignmentList">
                 <span class="sectionHeader">Current Assignment List:</span>
 				<?php
-					if (sizeof($controllerData->getAssignments()[0]) === 0)
+					if (sizeof($controllerData[0]->getAssignments()[0]) === 0)
 						echo("
                                 <span class='emptyMessage'>No Assignments Currently Available for This Plan.</span>
                             ");
 				?>
                 <div class="row col-2" style="margin:auto;">
 					<?php
-						foreach ($controllerData->getAssignments()[0] as $row) {
+						foreach ($controllerData[0]->getAssignments()[0] as $row) {
+//						    operation buttons/links for each assignment
 							echo("
                         <div class='assignment'>
                             <b><span>Assignment " . $row->getAssignmentID() . "</span></b><hr>
                             <span class='assignmentTitle'>" . $row->getAssignmentName() . "</span>
                             <span>Weight: " . $row->getWeight() . "%</span>
                             <div class='row col-3'>
-                                <div style='text-align: center;'><a href='assignmentOperation?planID=" . $controllerData->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=edit' style='color: var(--baseColor);'><i class='far fa-edit'></i></a></div>
-                                <div style='text-align: center;'><a href='assignmentOperation?planID=" . $controllerData->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=open' style='color: var(--baseColor);'><i class='far fa-folder-open'></i></a></div>
-                                <div style='text-align: center;'><a href='assignmentOperation?planID=" . $controllerData->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=delete' style='color: var(--dangerColor);' onclick='confirm(`Are you sure to to preform this operation? You going to delete a assignment that belong to this assignment plan.`)'><i class='far fa-trash-alt'></i></a></div>
+                                <div style='text-align: center;'>
+                                <a href='assignmentOperation?planID=" . $controllerData[0]->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=edit&assignmentName=" . $row->getAssignmentName() . "&assignmentDescription=" . $row->getDescription() . "&assignmentWeight=" . $row->getWeight() . "'
+                                 style='color: var(--baseColor);'><i class='far fa-edit'></i>
+                                 </a>
+                                 </div>
+                                <div style='text-align: center;'><a href='assignmentOperation?planID=" . $controllerData[0]->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=open' style='color: var(--baseColor);'><i class='far fa-folder-open'></i></a></div>
+                                <div style='text-align: center;'><a href='assignmentOperation?planID=" . $controllerData[0]->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=delete' style='color: var(--dangerColor);' onclick='confirm(`Are you sure to to preform this operation? You going to delete a assignment that belong to this assignment plan.`)'><i class='far fa-trash-alt'></i></a></div>
                             </div>
                         </div>
                     ");
@@ -76,9 +81,9 @@
             </div>
         </div>
 
-        <!--        load view for assignment open operation-->
 		<?php
 			if (isset($_GET['operation']) & $_GET['operation'] === 'open') {
+//				load view for assignment open operation
 				echo("
                     <style>
                         .addResultToAssignment{
@@ -86,31 +91,83 @@
                         }
                     </style>
                 ");
+			} elseif (isset($_GET['operation']) & ($_GET['operation'] == 'create' || $_GET['operation'] == 'edit')) {
+//				load view for assignment create/update operation and hide operation button for open assignment operation
+				echo("
+                    <style>
+                        .assignmentCreateEdit{
+                            display: block;
+                        }
+                    </style>
+                ");
 			}
 		?>
+
         <div class="addResultToAssignment">
-            <span class="columnHeader">Welcome to SCS2204 Assignment Plan</span>
+            <span class="columnHeader">
+                <?php
+	                if (isset($_GET['assignmentID']) & isset($_GET['planID'])) {
+		                echo "Welcome to Assignment ID#" . $_GET['assignmentID'] . " [ Assignment Plan ID #" . $_GET['planID'] . "]";
+	                }
+                ?>
+            </span>
             <div class="row col-2">
                 <div class="basicAssignmentInfo">
-                    <span class="sectionHeader">Assignment Plane Info:</span>
-                    <div>
-                        <span class='dataPoint dataPointTop'><b>Data Structures and Algorithms 3</b></span>
-                    </div>
-                    <div>
-                        <span class='dataPoint'>Subject Code: <b>SCS2201</b></span><br>
-                        <span class='dataPoint'>Degree Stream: <b>Computer Science</b></span><br>
-                        <span class='dataPoint'>Total Assignment Weight: <b>40%</b></span>
-                    </div>
+                    <span class="sectionHeader">Assignment Info:</span>
+                    <span class='dataPoint'>
+                            <b>
+                                <?php
+	                                if (isset($controllerData[2]))
+		                                echo $controllerData[2]->getAssignmentName();
+	                                else
+		                                echo "";
+                                ?>
+                            </b>
+                        </span><br>
+                    <span class='dataPoint'>Assignment Weight:
+                            <b>
+                                <?php
+	                                if (isset($controllerData[2]))
+		                                echo $controllerData[2]->getWeight();
+	                                else
+		                                echo "";
+                                ?> %
+                            </b>
+                            </span><br>
                 </div>
                 <div class="basicAssignmentInfo">
-                    <span class="sectionHeader">Assignment Info:</span>
+                    <span class="sectionHeader">Assignment Info (Statistics):</span>
                     <div>
-                        <span class='dataPoint dataPointTop'><b>Lorem ipsum dolor sit amet.</b></span>
-                    </div>
-                    <div>
-                        <span class='dataPoint'>Assignment Code: <b>1243453</b></span><br>
-                        <span class='dataPoint'>Assignment Weight: <b>40%</b></span><br>
-                        <span class='dataPoint'>Total Enrollment: <b>200</b></span>
+                        <span class='dataPoint'>Total Student Enrollment:
+                            <b>
+                                <?php
+	                                if (isset($controllerData[2]))
+		                                echo $controllerData[2]->getTotalStudentEnrollment();
+	                                else
+		                                echo "";
+                                ?>
+                            </b>
+                        </span><br>
+                        <span class='dataPoint'>Currently Attempted:
+                            <b>
+                                <?php
+	                                if (isset($controllerData[2]))
+		                                echo $controllerData[2]->getCurrentAttempts();
+	                                else
+		                                echo "";
+                                ?>
+                            </b>
+                        </span><br>
+                        <span class='dataPoint'>Average Performance:
+                            <b>
+                                <?php
+	                                if (isset($controllerData[2]))
+		                                echo $controllerData[2]->getMarkAverage();
+	                                else
+		                                echo "";
+                                ?>
+                            </b>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -121,47 +178,41 @@
                         <tr style="background-color: var(--baseColor)">
                             <th>ID</th>
                             <th>Index Number</th>
-                            <th colspan="2">Result</th>
+                            <th colspan="3">Result</th>
                         </tr>
 						<?php
-							for ($i = 1; $i <= 10; $i++) {
-								$elementID = "studentResult$i";
-								$checkBoxID = "chkBox$i";
+							$i = 1;
+							foreach ($controllerData[1] as $row) {
+//                                $row=new StudentMark();
+								$markID = $row->getMarkID();
+								$studentIndex = $row->getStudentIndex();
+								$studentMark = $row->getMark();
+								$elementID = "studentResult$markID";
+								$buttonID = "saveButton$markID";
+								$checkBoxID = "chkBox$markID";
 								echo("
-                              <tr>
-                                <td>$i.</td>
-                                <td style='border-left: 1px solid #ddd;border-right: 1px solid #ddd;'>18001831</td>
-                                <td><input type='checkbox' id='$checkBoxID' onchange='enableDisableInput(`$elementID`);'></td>
-                                <td><input type='number' name='$elementID' class='assignmentResultValue'  id='$elementID' max='100' min='0' oninput='checkResultInput(`$elementID`);' disabled></td>
-                              </tr>
-                          ");
+                                      <tr>
+                                        <td>$i.</td>
+                                        <td style='border-left: 1px solid #ddd;border-right: 1px solid #ddd;'>$studentIndex</td>
+                                        <td><input type='checkbox' id='$checkBoxID' onchange='enableDisableInput($markID);'></td>
+                                        <td><input type='number' name='$elementID' style='width: 150px' class='assignmentResultValue'  id='$elementID' max='100' min='0' disabled value='$studentMark'></td>
+                                        <td><button type='button' class='resultSaveButton' onclick='saveStudentMark($markID);' id='$buttonID'><i class='fa fa-save fa-2x'></i></button></td>
+                                      </tr>
+                                  ");
+
+								$i++;
 							}
 						?>
                     </table>
-
-                    <div class="buttonCouple">
-                        <input type="reset" class="button" value="Cancel">
-                        <input type="submit" class="button" value="Save Data" id="saveAssignmentResult" name="saveAssignmentResult">
-                    </div>
                 </form>
             </div>
         </div>
 
-        <!--        load view for assignment create/update operation-->
-		<?php
-			if (isset($_GET['operation']) & ($_GET['operation'] === 'create' || $_GET['operation'] === 'edit')) {
-				echo("
-                    <style>
-                        .assignmentCreateEdit{
-                            display: block;
-                        }
-                    </style>
-                ");
-			}
-		?>
+
         <!--        assignment create/update section-->
         <div class="assignmentCreateEdit">
-            <span class="columnHeader">Create/Edit Assignment</span>
+            <!--            based on url operation value show the name related to operation-->
+            <span class="columnHeader"><?php echo (isset($_GET['operation']) && $_GET['operation'] == 'edit') ? 'Edit' : 'Create'; ?> Assignment</span>
             <!--            prepare data for get url-->
 			<?php
 				$currentPlanID = $_GET['planID'];
@@ -169,20 +220,36 @@
 					$assignmentID = $_GET['assignmentID'];
 				else
 					$assignmentID = null;
+
+				//				this function is use to set edit time value for assignments
+				function setValue($key): string {
+					if (isset($_GET['operation']) && $_GET['operation'] == 'edit') {
+						return $_GET[$key];
+					} else {
+						return "";
+					}
+				}
+
 			?>
+            <!--            form for edit and create assignments-->
             <form action="#" method="post">
                 <div class="row col-2">
                     <div class="showRest">
                         <span>Assignment Name</span><br>
-                        <textarea name="assignmentName" id="assignmentName" cols="30" rows="10" required></textarea>
+                        <textarea name="assignmentName" id="assignmentName" cols="30" rows="10" equired>
+                            <?php echo setValue('assignmentName'); ?>
+                        </textarea>
                     </div>
                     <div class="showRest">
                         <span>Description</span><br>
-                        <textarea name="assignmentDescription" id="assignmentDescription" cols="30" rows="10" required></textarea>
+                        <textarea name="assignmentDescription" id="assignmentDescription" cols="30" rows="10" required>
+                            <?php echo setValue('assignmentDescription'); ?>
+                        </textarea>
                     </div>
                     <div class="showRest">
                         <span>Assignment Weight</span><br>
-                        <input type="number" name="assignmentWeight" id="assignmentWeight" max="100" min="0" required>
+                        <input type="number" name="assignmentWeight" id="assignmentWeight" max="100" min="0"
+                               value="<?php echo setValue('assignmentWeight'); ?>" required>
                     </div>
                     <div class="showRest">
                         <span>Assignment Type</span><br>
@@ -194,8 +261,10 @@
                         </select>
                     </div>
                 </div>
+                <!--                operation button couple-->
                 <div class="buttonCouple">
-                    <input type="submit" name="saveChanges" value="Save Changes" class="button" onclick="confirm('Are you sure to perform this action? ')">
+                    <input type="submit" name="saveChanges" value="Save Changes" class="button"
+                           onclick="confirm('Are you sure to perform this action? ')">
                     <input type="reset" value="Cancel" class="button">
                 </div>
             </form>

@@ -153,11 +153,6 @@
     text-overflow: ellipsis;
 }
 
-.dataPointTop {
-    padding: 0 0 7px;
-    display: block;
-}
-
 .resultAddTable {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
@@ -183,4 +178,10 @@
     text-align: center;
     padding-top: 50px;
     padding-bottom: 20px;
+}
+.resultSaveButton{
+    background: none;
+    color: var(--baseColor);
+    border: none;
+    display: none;
 }
