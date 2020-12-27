@@ -16,6 +16,12 @@
     
     <!-- feature body section -->
     <div class="featureBody" >
+        <?php
+        //TODO Delete the setcookie
+            setcookie('userName','kek');
+            $studentID=$_COOKIE['userName'];
+        ?>
+        <div id="username" style="display:none;" value="<?php echo $studentID?>" ></div>
         <div  id="main"  >
             <h2 class="head">Time Table</h2>
             <!-- the structure of the timetable is create in here  -->
@@ -78,6 +84,8 @@
 
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../') ?>
+    <script src="../../assets/js/jquery.js"></script>
+<script src="../../assets/js/toast.js"></script>
     <script src="assets/timetable.js"></script>
 </body>
 </html>
