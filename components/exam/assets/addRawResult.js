@@ -64,13 +64,17 @@ let rawResultFileUploaded = document.getElementById("rawResultFile");
 let rawResultFileLabel = document.getElementById("rawResultFileLabel");
 rawResultFileUploaded.addEventListener("change", function () {
     if (rawResultFileUploaded.value != '') {
-        console.log("File Size is(KB): "+rawResultFileUploaded.files[0].size/1000);
+        // TODO file size validation can done
+        // console.log("File Size is(KB): "+rawResultFileUploaded.files[0].size/1000);
         let uploadFormat = rawResultFileUploaded.value.toString().split('.')[1].toLowerCase();
         if (uploadFormat == "ussp") {
-            rawResultFileLabel.style.backgroundColor = "green";
+            rawResultFileLabel.style.backgroundColor = "var(--successColor)";
+            createToast('Info','Result file format is compatible with system.','I');
         } else {
-            rawResultFileLabel.style.backgroundColor = "red";
-            alert("Invalid file format. Please upload ussp formatted file.");
+            rawResultFileLabel.style.backgroundColor = "var(--dangerColor)";
+            // clear file queue
+            rawResultFileUploaded.value = "";
+            createToast('Warning (error code: #ERM01)','Invalid file format. Upload ussp formatted file.','W');
         }
     }
 })

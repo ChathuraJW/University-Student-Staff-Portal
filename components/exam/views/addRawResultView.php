@@ -16,7 +16,7 @@
 <?php BasicLoader::loadHeader('../../');?>
 
 <!-- feature body section -->
-<div class="featureBody">
+<div class="featureBody bodyBackground text">
     <div class="row col-1">
         <div>
             <h1 class="heading">Send Raw Result to Examination SAR</h1>
@@ -75,15 +75,14 @@
         <br>
         <div class="row col-4">
             <div class="showRest">
-                <span>Subject <button onclick="location.reload();"><i class="fas fa-sync"></i></button></span>
+                <span>Subject &nbsp;<button style="background: none;color: var(--fontColor);" onclick="location.reload();"><i class="fas
+                fa-sync"></i></button></span>
                 <select name="subject" id="subject" required>
                     <?php
-                    foreach ($controllerData as $data){
-                        $year=ceil($data[semester]/2) -1;
-                        $semester=($data[semester]%2) ? 0 : 1 ;
-                        $semList=Array(Array(1,2),Array(3,4),Array(5,6),Array(7,8));
-                        echo ("<option value='$data[courseCode]'>".$semList[$year][$semester].". $data[name]</option>");
-                    }
+//                        create subject dropdown
+                        foreach ($controllerData as $data){
+                            echo ("<option value='".$data->getCourseCode()."'>".$data->getSemester().". ".$data->getName()."</option>");
+                        }
                     ?>
                 </select>
             </div>
@@ -99,25 +98,25 @@
             </div>
             <div class="showRest">
                 <span>USSP Formatted Result Dataset</span>
-                <label for="rawResultFile" class="fileLabel" id="rawResultFileLabel">Upload System Genarated File</label>
+                <label for="rawResultFile" class="fileLabel" id="rawResultFileLabel">Upload System Generated File</label>
                 <input type="file" name="rawResultFile" id="rawResultFile" required><br>
             </div>
         </div>
         <br>
-        <div class="row col-1">
-            <div class="showRest row col-2" id="actionSection">
-                <div><input type="submit" value="Submit to SAR" name="submit" id="submit" class="submitCancelButton"
-                            style="background-color: rgb(23, 193, 23);"></div>
-                <div><input type="reset" value="Cancel" name="cancel" id="cancel" class="submitCancelButton"
-                            style="background-color: rgb(255,0,0);"></div>
+            <div class="buttonCouple" id="actionSection">
+                <input type="submit" value="Submit to SAR" name="submit" id="submit" class="button" onsubmit="confirm('Are you sure to send this ' +
+                 'result file to examination SAR?')">
+                <input type="reset" value="Cancel" name="cancel" id="cancel" class="button">
             </div>
-        </div>
     </form>
 </div>
 
 <!-- include footer section -->
 <?php BasicLoader::loadFooter('../../');?>
+<script src="../../assets/js/jquery.js"></script>
+<script src="../../assets/js/toast.js"></script>
 <script src="assets/addRawResult.js"></script>
+
 
 </body>
 </html>

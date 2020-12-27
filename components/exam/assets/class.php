@@ -29,193 +29,7 @@ class Student extends User{
 }
 
 //this class for both academic and academic support staff
-class Staff extends User{
-    //attributes of Staff
-    protected $staffID;
 
-    //methods of User
-
-}
-
-class AdministrativeStaff extends Staff{
-    //attributes of AdministrativeStaff
-    private $roleID;
-
-    //methods for AdministrativeStaff
-}
-class Timetable {
-    // attributes of Timetable
-    private $entryID;
-    private $hallID;
-    private $subjectCode $string;
-    private $conductingLecture;
-    private $group;
-    private $day;
-    private $from;
-    private $to;
-    // methods of Timetable
-    function setTimetable(){
-
-    }
-    function showTimetable(){
-
-    }
-}
-class PastPaper{
-    // attributes of Pastpapers
-    private $paperID;
-    private $examinationYear;
-    private $year;
-    private $semester;
-    private $subjectName;
-    private $subjectCode;
-    // mothods of Pastpapers
-    protected function addPastpapers(){
-
-    }
-    protected function viewPastpaper(){
-
-    }
-}
-class contactUnion{
-    // attributes of contactUnion
-    private $title;
-    private $message;
-    private $timeStamp;
-    private $sender;
-    // methods of contactUnion
-    protected function pushNotification(){
-
-    }
-    protected function operateMail(){
-
-    }
-}
-class TrainSeason{
-    // attributes of TrainSeason
-    private $trainSeasonIndex;
-    private $studentName;
-    private $academicYear;
-    private $addres;
-    private $contactNumber;
-    private $dob;
-    private $ageToNextBirthDay;
-    private $fromMonth;
-    private $toMonth;
-    private $nearRailwayStationHome;
-    private $nearRailwayStationUnivercity;
-    private $requestId;
-    private $requestDate;
-    private $completeDate;
-    private $collectedDate;
-    // methods of Trainseason
-    protected function requestSeason(){
-
-    }
-    protected function setReady(){
-
-    }
-    protected function setCollect(){
-
-    }
-}
-class AppointmentsForMeeting{
-    // attributes of AppointmentsForMeeting
-    private $title;
-    private $message;
-    private $sender;
-    private $sendDate;
-    private $type;
-    private $requestValidity;
-    private $reply;
-    // methods of AppointmentsForMeeting
-    protected function makeAppointment(){
-
-    }
-    protected function respondForAppointment(){
-
-    }
-}
-class AppointmentType{
-    // atrributes of AppointmentType
-    private $appointmentCode;
-    private $appointmentColor;
-    private $appointmentName;
-}
-class IQACReport{
-    // attributes of IQACReport
-    private $reportID;
-    private $subject;
-    private $fileLocation;
-    private $issuedDate;
-    // methods of IQACReport
-    protected function addReport(){
-
-    }
-    protected function viewReport(){
-
-    }
-}
-class LectureAvailability{
-    // attributes of LectureAvailability
-    private $lectureCode;
-    private $lectureName;
-    private $lastUpdateDate;
-    private $location;
-    private $description;
-    private $availableFrom;
-    private $availableTo;
-    // methods of LectureAvailability
-    protected function addAvailability(){
-
-    }
-    protected function viewAvailability(){
-
-    }
-}
-class AllocatedWorkload{
-    // attributes of AllocatedWorkload
-    private $workLoadOwner;
-    private $workLoadDescription;
-    private $senderTimestamp;
-    private $date;
-    private $where;
-    private $from;
-    private $to;
-    private $title;
-    private $allocateDate;
-    // mothods of AllocatedWorkload
-    protected function addWorkload(){
-
-    }
-    protected function notifyWorkload(){
-
-    }
-}
-class AssignmentPlan{
-    // attributes of AssignmentPlan
-    private $planID;
-    private $subject;
-    private $academicYear;
-    private $assignmentWeight;
-    private $totalNumberofAssignment;
-    private $degreeStreem;
-    private $assignment;
-    private $description;
-    // methods of AssignmentPlan
-    protected function addAssignment(){
-
-    }
-    protected function changeAssignmentPlanSetting(){
-
-    }
-    protected function addInstructors(){
-
-    }
-    protected function genarateFinalReport(){
-
-    }
-}
 class RawResult{
     // attributes of RawResult
     private $courseCode;
@@ -232,26 +46,7 @@ class RawResult{
 
     }
 }
-class Notification{
-    // attributes of Notification
-    private $notificationID;
-    private $notificationTitle;
-    private $notificationConten;
-    private $notificationType;
-    private $timeStamp;
-    private $sender;
-    private $validityEndTimeStamp;
-    private $isViewed;
-    private $viewTimeStamp;
-    private $targetAudiance;
-    // methods of Notification
-    protected function setNotification(){
 
-    }
-    protected function updateView(){
-
-    }
-}
 class Result{
     // attributes of Result
     private $coursECode;
@@ -272,35 +67,54 @@ class Result{
 
     }
 }
-class NotificationType{
-    // attributes of NotificationType
-    private $notificationCode;
-    private $notificationColor;
-    private $notificationName;
-}
-class AssignmentType{
-    // attributes of AssignmentType
-    private $assignmentName:
-    private $assingmentCode;
-}
-class Assignment{
-    // attributes pf Assignment
-    private $assignmentID;
-    private $assignmentName;
-    private $weight;
-    private $marks;
-    private $description;
-    private $type;
-    // methods of Assignment
-    protected function addassignment(){
+class ResultFile{
+	private string $subjectCode;
+	private int $semester;
+	private string $yearOfExam;
+	private string $attempt;
+	private string $batch;
+	private bool $isEncrypted;
+	private string $fileName;
 
-    }
-    protected function addMark(){
+	public function setResultFile($subjectCode,$semester,$examinationYear,$attempt,$batch,$isEncrypted, $fileName): ResultFile{
+		$this->subjectCode=$subjectCode;
+		$this->semester=$semester;
+		$this->yearOfExam=$examinationYear;
+		$this->attempt=$attempt;
+		$this->batch=$batch;
+		$this->isEncrypted=$isEncrypted;
+		$this->fileName=$fileName;
+		return $this;
+	}
 
-    }
-    protected function changeSettings(){
+	public function getSubjectCode(): string {
+		return $this->subjectCode;
+	}
 
-    }
+	public function getSemester(): int {
+		return $this->semester;
+	}
+
+	public function getYearOfExam(): string {
+		return $this->yearOfExam;
+	}
+
+	public function getAttempt(): string {
+		return $this->attempt;
+	}
+
+	public function getBatch(): string {
+		return $this->batch;
+	}
+
+	public function isEncrypted(): bool {
+		return $this->isEncrypted;
+	}
+
+	public function getFileName(): string {
+		return $this->fileName;
+	}
+
 }
 class StudentMark{
     // attributes of StudentMark
@@ -325,60 +139,50 @@ class EnrollmentDetails{
     protected function makeEnrollment(){
 
     }
-    protected function makeEnrollment(){
 
-    }
     protected function makeEnrollmentDeactivated(){
 
     }
 }
-class SelectedGroupMessage{
-    // attribute of SelectedGroupMessage
-    private $title;
-    private $message;
-    private $sender;
-    private $timeStamp;
-    private $viewTimeStamp;
-    // method of SelectedGroupMessage
-    protected function sendMessage(){
 
-    }
-    protected function pushMessageNotification(){
-
-    }
-}
-class AttendanceInstance{
-    // attribute of AttendanceInstance
-    private $entryID;
-    private $description;
-    private $date;
-    private $week;
-    private $attendance;
-    private $uploadedTime;
-    // method of AttendanceInstance
-    protected function addAttendance(){
-
-    }
-    protected function viewAttendance(){
-
-    }
-}
-class courseModule{
+class CourseModule{
     // attributes of courseModule
-    private $CourseCode;
-    private $name;
-    private $creditVale;
-    private $description;
-    // methods of courseModeule
-    protected function createModule(){
+    private string $CourseCode;
+    private string $name;
+    private int $creditVale;
+    private int $semester;
+    private string $description;
 
+    public function createCourseModule($courseCode,$name,$creditValue,$semester,$description): CourseModule {
+    	$this->CourseCode=$courseCode;
+    	$this->name=$name;
+    	$this->creditVale=$creditValue;
+    	$this->semester=$semester;
+    	$this->description=$description;
+    	return $this;
     }
-    protected function editModule(){
 
-    }
-    protected function removeModule(){
+	public function getCourseCode(): string {
+		return $this->CourseCode;
+	}
 
-    }
+	public function getName(): string {
+		return $this->name;
+	}
+
+	public function getCreditVale(): int {
+		return $this->creditVale;
+	}
+
+	public function getSemester(): int {
+		return $this->semester;
+	}
+
+	public function getDescription(): string {
+		return $this->description;
+	}
+
+
 }
 class EnrollFor{
     // attributes of EnrollFor
@@ -398,48 +202,3 @@ class EnrollFor{
 
     }
 }
-class HallAllocation{
-    // attributes of HallAllocation
-    private $reservationID;
-    private $hallID;
-    private $from;
-    private $to;
-    private $category;
-    private $bookedBy;
-    private $description;
-    private $approvedBy;
-    private $approvalTime;
-    // methods of HallAllocation
-    protected function makeAllocation(){
-
-    }
-    protected function confirmAllocation(){
-
-    }
-    protected function rejectAllocationRequest(){
-
-    }
-}
-class Hall{
-    // attributes of Hall
-    private $hallID;
-    private $capacity;
-    private $type;
-    // methods of Hall
-    protected function createHall(){
-
-    }
-    protected function deleteHall(){
-
-    }
-    protected function editHall(){
-
-    }
-}
-class BookingCategory{
-    // attributes of BookingCategory
-    private $categoryCode;
-    private $categoryColor;
-    private $categoryName;
-}
-?>
