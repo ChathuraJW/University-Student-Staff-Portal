@@ -210,4 +210,27 @@
 				return false;
 			}
 		}
+		public static function closeAssignmentPlan($planID){
+			$dbInstance=new Database;
+			//TODO change database credentials
+			$dbInstance->establishTransaction('root','');
+			$sqlQuery="UPDATE assignment_plan SET isActive=FALSE WHERE planID=$planID";
+			$dbInstance->executeTransaction($sqlQuery);
+			if($dbInstance->getTransactionState()){
+				if($dbInstance->commitToDatabase()){
+//					operation success
+					echo("<script>createToast('Success','Assignment Plan(#$planID) Close Successfully.','S')</script>");
+					//TODO navigate to assignmentManagement page
+					//TODO send mail notification to all staff members as well
+				}else{
+//					display fail message
+					echo("<script>createToast('Warning (error code: #AOM10)','Fail to close assignment plan.','W')</script>");
+				}
+			}else{
+//				display fail message
+				echo("<script>createToast('Warning (error code: #AOM10)','Fail to close assignment plan.','W')</script>");
+			}
+			$dbInstance->closeConnection();
+
+		}
 	}

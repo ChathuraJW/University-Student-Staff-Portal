@@ -23,6 +23,12 @@
 					self::createView('assignmentOperationView', [$assignmentData]);
 				}
 
+//				close assignment section
+				if(isset($_POST['closeAssignment'])){
+//					calling model function for close assignment
+					AssignmentOperationModel::closeAssignmentPlan($_GET['planID']);
+				}
+
 //				display error by saying unable to load
 				//TODO check form load error handling
 				if (!$assignmentData)

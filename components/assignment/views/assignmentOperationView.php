@@ -45,7 +45,18 @@
             </div>
             <div class="buttonCouple">
                 <a href="?planID=<?php echo($_GET['planID']); ?>&operation=create" class="button">Create New Assignment</a>
-                <button class="button" onclick="confirm('Are you sure to preform this action?');">Close and Complete Plane</button>
+                <a href="assets/Finalreport.php?planID=<?php echo($_GET['planID']);?>&operation=ClosePlan" class="button" target="_blank">
+                    Generate Assignment Report
+                </a>
+                <form action="" method="post">
+                    <button type="submit" name="closeAssignment" value="close" class="button" style="background-color: var(--dangerColor)" onclick="confirm
+                    ('Are you sure to preform ' +
+                     'this ' +
+                     'action? Once you do this action can not work with assignment further more and you' +
+                    ' will navigate to another page that shows the final assignment report. Make sure to download it as well.');">
+                        Close Assignment
+                    </button>
+                </form>
             </div>
             <div class="assignmentList">
                 <span class="sectionHeader">Current Assignment List:</span>

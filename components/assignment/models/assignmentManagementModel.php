@@ -44,14 +44,12 @@
 			//@TODO change database credentials
 			$dbInstance = new Database;
 			$dbInstance->establishTransaction('root', '');
-			$sqlQuery = "SELECT assignmentPlanID FROM assignment_plan_conducted_by WHERE staffID='$userName'";
+			$sqlQuery = "SELECT assignmentPlanID FROM active_assignment_plan_conduct_staff WHERE staffID='$userName'";
 			$assignmentIDs = $dbInstance->executeTransaction($sqlQuery);
-
 			foreach ($assignmentIDs as $assignmentID) {
 				$assignmentPlanID = $assignmentID['assignmentPlanID'];
-				$sqlQuery = "SELECT * FROM assignment_plan WHERE planID=$assignmentPlanID AND isActive=TRUE";
-				$result = Database::executeQuery('root', '', $sqlQuery)[0];
-
+				$sqlQuery = "SELECT * FROM assignment_plan WHERE planID=$assignmentPlanID";
+				$result = $dbInstance->executeTransaction($sqlQuery)[0];
 //            create object for each assignment plan
 				$newAssignmentPlan = new AssignmentPlan;
 				$newAssignmentPlan->createAssignmentPlan($result['planID'], $result['subject'], $result['degreeStream'], $result['assignmentWeigh'], $result['totalAssignmentAmount'], $result['description']);
