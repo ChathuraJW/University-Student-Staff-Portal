@@ -153,12 +153,12 @@
 }
 .search{
     /* background: rgba(248, 247, 248, 0.856); */
-    background: linear-gradient( to bottom right,rgba(233, 233, 233, 0.856),white);
+    /* background: linear-gradient( to bottom right,rgba(233, 233, 233, 0.856),white); */
     padding-top: 40px;
     padding-bottom: 40px;
     font-size: 15px;
     font-weight: bold;
-    color: rgb(77, 73, 73);
+    color: rgb(204, 198, 198);
     /* height: 80px; */
     
 }

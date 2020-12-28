@@ -1,24 +1,16 @@
+
 function allocationCancel(){
     document.getElementById("allocateForm").style.display='none';
 }
 function allocationForm(){
-        var checkBox=document.getElementsByClassName("memberInput");
-        var i;
-        var check=0;
-        for(i=0;i<checkBox.length;i++){
-            if(checkBox[i].checked == true) {
-                check++;
-            }
-        }
-        
-        if(check>0) {
-                document.getElementById("allocateForm").style.display='';
-            }else{
-                window.alert("Please select members!");
-            }
-    
-    
-
+    var memberValues=document.getElementById("searchMembersOptions").value;
+    if(memberValues){
+        document.getElementById("allocateForm").style.display='';
+    }
+    else{
+        document.getElementById("allocateForm").style.display='none';
+        window.alert("Please select members!");
+    }
 }
 function deallocateForm(){
     document.getElementById("allocationForm").reset();
@@ -33,7 +25,10 @@ function displaySearch(){
     // var toDate=document.getElementById("endDate").value;
     var fromTime=document.getElementById("startTime").value;
     var toTime=document.getElementById("endTime").value;
-
+    $('#searchMembersOptions')
+        .find('option')
+        .remove()
+    ;
      // var date1=document.getElementById("startDate").value;
     // var date2=document.getElementById("endDate").value;
     // var time1=document.getElementById("startTime").value;
@@ -83,9 +78,9 @@ function displaySearch(){
         // }
 
         //
-    
+        
     });
-   
+    
         
         
     // }else{
@@ -95,6 +90,7 @@ function displaySearch(){
     // }
 
 }
+
 function openMessage(){
     // document.getElementById("firstMessage").style.display="none";
     document.getElementById("workloadRequest").style.display="";

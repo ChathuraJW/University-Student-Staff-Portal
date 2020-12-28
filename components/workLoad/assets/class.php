@@ -175,6 +175,7 @@ class LectureAvailability{
 }
 class AllocatedWorkload{
     // attributes of AllocatedWorkload
+    private $workloadID;
     private $workLoadOwner;
     private $workLoadDescription;
     private $title;
@@ -222,9 +223,12 @@ class AllocatedWorkload{
     public function getRequestDate(){
         return $this->requestDate;
     }
+    public function getWorkloadID(){
+        return $this->workloadID;
+    }
         
     
-    public function setWorkLoad($workLoadOwner,$title,$workLoadDescription,$location,$Date,$fromTime,$toTime,$salutation,$fullName,$requestDate){
+    public function setWorkLoad($workLoadOwner,$title,$workLoadDescription,$location,$Date,$fromTime,$toTime,$salutation,$fullName,$requestDate,$workloadID){
         $this->workLoadOwner=$workLoadOwner;
         $this->workLoadDescription=$workLoadDescription;
         $this->title=$title;
@@ -235,6 +239,7 @@ class AllocatedWorkload{
         $this->salutation=$salutation;
         $this->fullName=$fullName;
         $this->requestDate=$requestDate;
+        $this->workloadID=$workloadID;
         return $this;
     }
 

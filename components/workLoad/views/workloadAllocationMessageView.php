@@ -27,7 +27,7 @@
                 <?php 
                     $records=$controllerData;
                     foreach($records as $record){
-                        $url="?fullName=".$record->getFullName()."&workLoadDescription=".$record->getWorkLoadDescription()."&title=".$record->getTitle()."&location=".$record->getLocation()."&Date=".$record->getDate()."&fromTime=".$record->getFromTime()."&toTime=".$record->getToTime()."&salutation=".$record->getSalutation()."&requestDate=".$record->getRequestDate();
+                        $url="?fullName=".$record->getFullName()."&workLoadDescription=".$record->getWorkLoadDescription()."&title=".$record->getTitle()."&location=".$record->getLocation()."&Date=".$record->getDate()."&fromTime=".$record->getFromTime()."&toTime=".$record->getToTime()."&salutation=".$record->getSalutation()."&requestDate=".$record->getRequestDate()."&workloadOwner".$record->getWorkLoadOwner()."&workloadID".$record->getWorkloadID();
                         echo "
                         <a style='text-decoration: none;'href='".$url."'  onclick='openMessage()' >
                             <div class='normalEntry'>
@@ -101,8 +101,8 @@
 
             <div class="searchMembers"><!--from this div we can display search free time available supportive members -->
                 
-                <form class="search" id="search" method="post"action="">
-                <h2 style="margin-top:30px;margin-bottom:20px;" class="head">Select Members</h2>
+                <form id="allocationForm" class="search" id="search" method="post"action="">
+                    <h2 style="margin-top:30px;margin-bottom:20px;" class="head">Select Members</h2>
                     <div class="row col-3">
                         
                         
@@ -139,67 +139,73 @@
                     </div>
                 </form>
             
-                <div  > 
+                <div> 
                     <p id="preMessage" class="messageView" id="">Search Members</p>
-
-                    <div id="searchStaff" style="color:black;display:none;"><!-- here display the all supportive staff free in mentioned time slot -->
-                        <form action="" id="searchForm"method="post"><!-- -->
-                            <?php
-                                // for($i=1;$i<12;$i++){
-                                    // echo 
-                                    //     "<div class='member' >
-                                    //         <label class='supportMemberSalutation' for='member' id=''></label>.<label class='supportMember' for='member' id=''></label>
-                                    //         <input class='memberLabel memberInput'  type='checkbox' id='member' name='member' require><br>
-                                    //     </div>";
-                                // }
-                                echo "
-                                    <select name='cmbService[]' id='searchMembersOptions' multiple ></select>
+        <form action="" id="allocationForm" >
+                        <div id="searchStaff" style="color:black;display:none;"><!-- here display the all supportive staff free in mentioned time slot -->
+                            <!-- <form action="" id="searchForm"method="post"> -->
+                                <div style="margin-top:10px;color:white;">If You Want Select More Than One Member Select Members with Pressing CTRL Button</div>
+                                <?php
+                                    // for($i=1;$i<12;$i++){
+                                        // echo 
+                                        //     "<div class='member' >
+                                        //         <label class='supportMemberSalutation' for='member' id=''></label>.<label class='supportMember' for='member' id=''></label>
+                                        //         <input class='memberLabel memberInput'  type='checkbox' id='member' name='member' require><br>
+                                        //     </div>";
+                                    // }
+                                    echo "
+                                        <select name='members[]' id='searchMembersOptions' multiple ></select>
+                                        
+                                        ";
                                     
-                                    ";
-                                
-                            ?>
-                            <div class="row col-2">
-                                <div style="text-align:center;"><input onclick='deallocateForm()' class="button cancel"type="reset" value="Cancel"></div>
-                                <div style="text-align:center;"><input onclick='allocationForm()' class="button allocate"type="button" value="Allocate"></div>
-                            </div>
+                                ?>
+                                <div class="row col-2">
+                                    <div style="text-align:center;"><input onclick='deallocateForm()' class="button cancel"type="reset" value="Cancel"></div>
+                                    <div style="text-align:center;"><input onclick='allocationForm()' class="button allocate"type="button" value="Allocate"></div>
+                                </div>
 
-                        </form>
-                    </div>
+                            <!-- </form> -->
+                        </div>
                 </div>
                 <!-- style="display:none;" -->
             </div>
             <div class="allocateForm" id="allocateForm" style="display:none;">
                 <h2 style="margin-top:30px;margin-bottom:20px;"class="head">Create Allocation</h2>
-                <form action="" id="allocationForm" ><!--  in this div containing the allocation message form -->
+                <!-- <form action="" id="allocationForm" > in this div containing the allocation message form -->
+                    <input type="hidden" name="workloadID" value="<?php echo $_GET['workloadID']?>">
                     <div class="displayingMessage allocationInput">
                         <div class="label"><label for="title">Title</label> </div>
-                        <div class="value"><input class="input" type="text" id="title"></div>
+                        <div class="value"><input class="input" type="text" value="<?php echo $_GET['title']?>" id="title"></div>
                     </div>
                     <div class="displayingMessage allocationInput">
                         <div class="label"><label for="lecturer">Lecturer</label> </div>
-                        <div class="value"><input class="input" type="text" id="lecturer"></div>
+                        <div class="value"><input class="input" type="text" value="<?php echo $_GET['fullName']?>" id="lecturer"></div>
                     </div>
                     <div class="displayingMessage allocationInput">
-                        <div class="label"><label for="subject">Subject</label> </div>
-                        <div class="value"><input class="input" type="text" id="subject"></div>
+                        <div class="label"><label for="location">Location</label> </div>
+                        <div class="value"><input class="input" type="text" value="<?php echo $_GET['location']?>" id="location"></div>
                     </div>
                     <div class="displayingMessage allocationInput">
-                        <div class="label"><label for="date">Date</label> </div>
-                        <div class="value"><input class="input" type="date" id="date"></div>
+                        <div class="label"><label for="Date">From Date</label> </div>
+                        <div class="value"><input class="input" type="date" value="<?php echo $_GET['Date']?>" id="Date"></div>
                     </div>
                     <div class="displayingMessage allocationInput">
-                        <div class="label"><label for="time">Time</label> </div>
-                        <div class="value"><input class="input"type="time" id="time"></div>
+                        <div class="label"><label for="fromTime">From Time</label> </div>
+                        <div class="value"><input class="input"type="time" value="<?php echo $_GET['fromTime']?>" id="fromTime"></div>
+                    </div>
+                    <div class="displayingMessage allocationInput">
+                        <div class="label"><label for="toTime">To Time</label> </div>
+                        <div class="value"><input class="input"type="time" value="<?php echo $_GET['toTime']?>" id="toTime"></div>
                     </div>
                     <div class="displayingMessage allocationInput" >
                         <div class="label" style="vertical-align:top;" ><label  for="description">Description</label></div>
-                        <div class="value"><textarea class="input" type="" id="description"></textarea></div>
+                        <div class="value"><textarea class="input" type="" value="" id="description"><?php echo $_GET['workLoadDescription']?></textarea></div>
                     </div>
                     <div class="row col-2">
                         <div style="text-align:center;"><input onclick="allocationCancel()"class="button cancel"type="reset" value="Cancel"></div>
-                        <div style="text-align:center;"><input onclick="allocationApprove()"class="button allocate"type="button" value="Allocate"></div>
+                        <div style="text-align:center;"><input class="button allocate" type="submit" name="setMembers"value="Allocate"></div>
                     </div>
-                </form>
+        </form>
             </div>
         </div>
         <div id="finalMsg" class="finalMsg" style="display:none;">

@@ -8,15 +8,17 @@
             foreach($workLoads as $workLoad){
                 $newWorkLoad= new AllocatedWorkload;
                 
-                $newWorkLoad->setWorkLoad($workLoad['workloadOwner'],$workLoad['title'],$workLoad['description'],$workLoad['location'],$workLoad['Date'],$workLoad['fromTime'],$workLoad['toTime'],$workLoad['salutation'],$workLoad['fullName'],$workLoad['requestDate']);
+                $newWorkLoad->setWorkLoad($workLoad['workloadOwner'],$workLoad['title'],$workLoad['description'],$workLoad['location'],$workLoad['Date'],$workLoad['fromTime'],$workLoad['toTime'],$workLoad['salutation'],$workLoad['fullName'],$workLoad['requestDate'],$workLoad['workloadID']);
                 
                 $workLoadList[]=$newWorkLoad;
             }
             return $workLoadList;
         }
-        public static function searchMembers($fromDate,$fromTime,$toDate,$toTime){
-            $membersList=array();
-            $members=Database::executeQuery("root","","SELECT ");
-        }
+        // public static function setWorkload($members,$workloadID){
+        //     $timestamp=date("F j, Y \a\t g:ia");
+        //     $length
+        //     for($i=0)
+        //     $query="INSERT INTO academic_support_staff_workload(staffID, workloadID, allocationTimestamp, isChecked) VALUES (2,3,4,5)"
+        // }
     }
 ?>
