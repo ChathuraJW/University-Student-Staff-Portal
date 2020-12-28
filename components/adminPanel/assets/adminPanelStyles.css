@@ -46,6 +46,8 @@
     margin-bottom: 2px;
     padding: 10px;
     color: rgb(92, 91, 91);
+    cursor: pointer;
+
 }
 .task:hover{
     background-color: rgb(223, 222, 222);
@@ -60,9 +62,26 @@
     margin-top: 1px;
     margin-bottom: 1px;
     color: rgb(92, 91, 91);
+    cursor: pointer;
 
 }
 .subTask:hover{
+    background-color: rgb(226, 225, 225);
+    color: black;
+    font-weight: bold;
+}
+.superSubTask{
+    margin-left: 20%;
+    background-color: rgb(238, 236, 236);
+    padding: 8px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    color: rgb(92, 91, 91);
+    cursor: pointer;
+
+
+}
+.superSubTask:hover{
     background-color: rgb(226, 225, 225);
     color: black;
     font-weight: bold;
