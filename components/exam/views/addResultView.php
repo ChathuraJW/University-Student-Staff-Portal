@@ -14,7 +14,7 @@
 <!-- include header section -->
 <?php BasicLoader::loadHeader('../../');?>
 <!-- feature body section -->
-<div class="featureBody">
+<div class="featureBody bodyBackground text">
     <h1 class="heading">Upload Board Confirmed Exam Result</h1>
     <div class="row" id="mainSection">
         <div>
@@ -77,15 +77,13 @@
                 <br>
                 <div class="row col-4" id="dropDownSection">
                     <div class="showRest">
-                        <span>Subject <button onclick="location.reload();"><i class="fas fa-sync"></i></button></span>
+                        <span>Subject <button style="background: none;color: var(--fontColor);" onclick="location.reload();"><i class="fas fa-sync"></i></button></span>
                         <select name="subject" id="subject" required>
                             <?php
-                            foreach ($controllerData as $data) {
-                                $year = ceil($data[semester] / 2) - 1;
-                                $semester = ($data[semester] % 2) ? 0 : 1;
-                                $semList = array(array(1, 2), array(3, 4), array(5, 6), array(7, 8));
-                                echo("<option value='$data[courseCode]'>" . $semList[$year][$semester] . ". $data[name]</option>");
-                            }
+//	                            create subject dropdown
+                                foreach ($controllerData as $data){
+                                    echo ("<option value='".$data->getCourseCode()."'>".$data->getSemester().". ".$data->getName()."</option>");
+                                }
                             ?>
                         </select>
                     </div>
@@ -108,18 +106,18 @@
                 <br>
                 <div class="row col-1">
                     <div class="showRest row col-2" id="actionSection">
-                        <div><input type="submit" value="Upload Result" name="submit" id="submit"
-                                    class="submitCancelButton"
-                                    style="background-color: rgb(23, 193, 23);"></div>
-                        <div><input type="reset" value="Cancel" name="cancel" id="cancel" class="submitCancelButton"
-                                    style="background-color: rgb(255,0,0);" onclick="location.reload()"></div>
+                        <input type="submit" value="Upload Result" name="submit" id="submit" class="button" onclick="confirm('Are you sure that all ' +
+                         'parameters are set correctly? After you done this operation, you can not recover it again. So please double check again ' +
+                          'all data as well as the student results.' +
+                         '')">
+                        <input type="reset" value="Cancel" name="cancel" id="cancel" class="button" onclick="location.reload()">
                     </div>
                 </div>
             </form>
         </div>
 
         <div id="displayResultSection">
-            <span>Check again the result again that you uploaded.</span>
+            <span>Check the result again that you uploaded before process further.</span>
             <div class="searchSection">
                 <span id="entryCount"></span>
                 <input type="search" id="searchKey" onkeyup="searchOnTable();" placeholder="Search...">
@@ -139,6 +137,7 @@
 <!-- include footer section -->
 <?php BasicLoader::loadFooter('../../');?>
 <script src="../../assets/js/jquery.js"></script>
+<script src="../../assets/js/toast.js"></script>
 <script src="assets/addResult.js"></script>
 </body>
 </html>

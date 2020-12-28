@@ -154,7 +154,7 @@
                         <!--                        <button><i class="fas fa-file-csv fa-3x"></i></button>-->
                     </div>
                     <div class="actionButton">
-                        <input type="submit" value="Confirm result Received" name="confirmation" class="button" onsubmit="confirm('Are you sure to ' +
+                        <input type="submit" value="Confirm result Received" name="confirmation" class="button" onclick="confirm('Are you sure to ' +
                          'preform this action ? Before doing that make sure that you already downloaded the result file.' +
                          '')">
                         <input type="button" value="Cancel" name="cancel" id="cancel" class="button"
