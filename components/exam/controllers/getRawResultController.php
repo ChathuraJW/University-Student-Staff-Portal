@@ -3,23 +3,13 @@ class GetRawResultController extends Controller{
     public static function init(){
         $passingData=GetRawResultModel::loadReviewData();
         self::createView("getRawResultView",$passingData);
+//        display error toast for data loading error
+		if(!$passingData)
+			echo("<script>createToast('Warning (error code: #ERM03-F)','Failed to load review list.','W')</script>");
 
+//		confirm result receive section
         if(isset($_POST['confirmation'])){
-            $result=GetRawResultModel::sendResultReceiveConfirmation($_GET['fileID']);
-            if($result){
-                echo("
-                    <script>
-                        alert('Successfully send confirmation.');
-                        window.location.href=document.location.href.toString().split('getRawResult')[0]+'getRawResult';
-                    </script>
-                ");
-            }else{
-                echo("
-                    <script>
-                        alert('Sorry, something went wrong.');
-                    </script>
-                ");
-            }
+            GetRawResultModel::sendResultReceiveConfirmation($_GET['fileID']);
         }
     }
 }

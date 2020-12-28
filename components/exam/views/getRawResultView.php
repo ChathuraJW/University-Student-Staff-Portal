@@ -15,24 +15,33 @@
 <?php BasicLoader::loadHeader('../../');?>
 
 <!-- feature body section -->
-<div class="featureBody">
+<div class="featureBody bodyBackground text">
     <h1 class="heading">Get Raw Result</h1>
     <div class="row col-3">
         <div class="reviewList">
             <span class="columnHeader">Received Result List</span>
-            <?php
-            //            print_r($controllerData);
-            $i = 0;
-            foreach ($controllerData as $row) {
-//                echo($row[1]['subjectCode']);
-                $url = "?fileID=" . $row[1]['fileID'] . "&examinationYear=" . $row[1]['yearOfExam'] . "&semester=" . $row[1]['semester'] . "&batch=" . $row[1]['batch'] . "&subject=" . $row[1]['subjectCode'] . "&attempt=" . $row[1]['attempt'] . "&filePath=" . $row[1]['fileLocation']."&sendBy=".strtoupper($row[0]);
-                $attempt = ($row[1]['attempt'] == 'F') ? 'First Attempt' : 'Repeat Attempt';
-                $semester = ceil($row[1]['semester'] / 2) . "Y (" . ($row[1]['semester'] % 2 == 0 ? 2 : 1) . " S)";
-                echo("
-                     <a href='$url' class='reviewListEntry' id='" . $row[1]['fileID'] . "'>
+			<?php
+				if(!$controllerData | sizeof($controllerData)==0){
+//				    display below message if list is empty
+					echo("<span class='emptyMessage'>No Result files for listing.</span>");
+				}else{
+				    //TODO hear is the place to re-engineer, apply object function
+					$i = 0;
+					foreach ($controllerData as $row) {
+//                        set get url for pass data
+						$url = "?fileID=" . $row->getFileID() . "&examinationYear=" . $row->getYearOfExam() . "&semester=" . $row->getSemester() . "&batch=" .
+                            $row->getBatch() . "&subject=" . $row->getSubjectCode()." [".$row->getSubjectName() . "] &attempt=" . $row->getAttempt()
+                            . "&filePath=" .
+                            $row->getFileName()."&sendBy=".$row->getSendBy()." [".$row->getSenderFullName()."]";
+//						set attempt string
+						$attempt = ($row->getAttempt() == 'F') ? 'First Attempt' : 'Repeat Attempt';
+//						get year semester value form semester(1-8)
+						$semester = ceil($row->getSemester() / 2) . "Y (" . ($row->getSemester() % 2 == 0 ? 2 : 1) . " S)";
+						echo("
+                     <a href='$url' class='reviewListEntry' id='" . $row->getFileID() . "'>
                         <div>
                             <span class='dataPointHead'>Subject</span>
-                            <span class='dataPointTail'> : " . explode('_', $row[1]['subjectCode'])[0] . "</span>
+                            <span class='dataPointTail'> : " . $row->getSubjectCode() . "</span>
                         </div>
                         <div>
                             <span class='dataPointHead'>Year (Semester)</span>
@@ -40,32 +49,33 @@
                         </div>
                         <div>
                             <span class='dataPointHead'>Attempt</span>
-                            <span class='dataPointTail'> : " . $attempt . "</span>
+                            <span class='dataPointTail'> : " . $row->getAttempt() . "</span>
                         </div>
                         <div>
                             <span class='dataPointHead'>Batch</span>
-                            <span class='dataPointTail'> : " . $row[1]['batch'] . "</span>
+                            <span class='dataPointTail'> : " . $row->getBatch() . "</span>
                         </div>
                         <div>
-                            <div class='sendByResult'>Result Submitted By: " . strtoupper($row[0]) . "</div>
+                            <div class='sendByResult'>Result Submitted By: " . $row->getSendBy() . "</div>
                         </div>
                     </a>
                 ");
-            }
-            ?>
+					}
+				}
+			?>
 
         </div>
         <div class="showFileContent" id="showFileContent">
             <div id="printArea">
-                <span class="columnHeader">Result Review of SCS1201</span>
+                <span class="columnHeader">Result Review of <?php echo $_GET['subject'];?></span>
                 <br>
-                <?php
-                if (isset($_GET['fileID'])) {
-                    $attempt = ($_GET['attempt'] == 'F') ? 'First Attempt' : 'Repeat Attempt';
-                    $subject = explode('_', $_GET['subject'])[1] . " ( " . explode('_', $_GET['subject'])[0] . " )";
+				<?php
+					if (isset($_GET['fileID'])) {
+						$attempt = ($_GET['attempt'] == 'F') ? 'First Attempt' : 'Repeat Attempt';
+						$subject = explode('_', $_GET['subject'])[1] . " ( " . explode('_', $_GET['subject'])[0] . " )";
 //                    year calculation based on semester with a?b:c statement
-                    $year = ceil($_GET['semester'] / 2) == 1 ? "1st Year" : (ceil($_GET['semester'] / 2) == 2 ? "2nd Year" : (ceil($_GET['semester'] / 2) == 3 ? "3rd Year" : "4th Year"));
-                    echo("
+						$year = ceil($_GET['semester'] / 2) == 1 ? "1st Year" : (ceil($_GET['semester'] / 2) == 2 ? "2nd Year" : (ceil($_GET['semester'] / 2) == 3 ? "3rd Year" : "4th Year"));
+						echo("
                                     <table>
                                         <tr>
                                             <td>Examination Year</td>
@@ -75,7 +85,7 @@
                                         <tr>
                                             <td>Semester</td>
                                             <td class='Separator'>:</td>
-                                            <td>" . ($_GET['semester'] % 2 == 0 ? 2 : 1) . "</td>
+                                            <td>" . $_GET['semester'] . "</td>
                                         </tr>
                                         <tr>
                                             <td>Examination for</td>
@@ -90,7 +100,7 @@
                                         <tr>
                                             <td>Subject</td>
                                             <td class='Separator'>:</td>
-                                            <td>" . $subject . "</td>
+                                            <td>" . $_GET['subject'] . "</td>
                                         </tr>
                                         <tr>
                                             <td>Attempt</td>
@@ -105,8 +115,8 @@
                                     </table>
                                 
                                 ");
-                }
-                ?>
+					}
+				?>
                 <br><br>
                 <div class="showResult">
                     <table class="resultTable" id="dataList">
@@ -115,23 +125,23 @@
                             <th>Index Number</th>
                             <th>Mark</th>
                         </tr>
-                        <?php
-                        //                                read URL
-                        if (isset($_GET['fileID'])) {
-                            $myFile = fopen($_GET['filePath'], "r");
-                            fgets($myFile);
-                            while (!feof($myFile)) {
-                                $dataArray = fgets($myFile);
-                                if (strlen($dataArray) > 0) {
-                                    $serialNumber = explode(",", $dataArray)[0];
-                                    $indexNumber = explode(",", $dataArray)[1];
-                                    $result = explode(",", $dataArray)[2];
-                                    echo("<tr><td>$serialNumber</td><td>$indexNumber</td><td>$result</td></tr>");
-                                }
-                            }
-                            fclose($myFile);
-                        }
-                        ?>
+						<?php
+							//                                read URL
+							if (isset($_GET['fileID'])) {
+								$myFile = fopen($_GET['filePath'], "r");
+								fgets($myFile);
+								while (!feof($myFile)) {
+									$dataArray = fgets($myFile);
+									if (strlen($dataArray) > 0) {
+										$serialNumber = explode(",", $dataArray)[0];
+										$indexNumber = explode(",", $dataArray)[1];
+										$result = explode(",", $dataArray)[2];
+										echo("<tr><td>$serialNumber</td><td>$indexNumber</td><td>$result</td></tr>");
+									}
+								}
+								fclose($myFile);
+							}
+						?>
                     </table>
                 </div>
                 <br>
@@ -140,15 +150,15 @@
             <form action="" method="post">
                 <div class="row col-2">
                     <div class="fileExportSection">
-                        <button onclick="savePDF();"><i class="fas fa-file-pdf fa-3x"></i></button>
-<!--                        <button><i class="fas fa-file-csv fa-3x"></i></button>-->
+                        <button onclick="savePDF();"><i class="fas fa-file-pdf fa-3x" style="color: var(--fontColor)"></i></button>
+                        <!--                        <button><i class="fas fa-file-csv fa-3x"></i></button>-->
                     </div>
                     <div class="actionButton">
-                        <input type="submit" value="Confirm result Received" name="confirmation" class="submitCancelButton"
-                               style="background-color: rgb(23, 193, 23);">
-                        <input type="button" value="Cancel" name="cancel" id="cancel"
-                               class="submitCancelButton" onclick="window.location.href=document.location.href.toString().split('getRawResult')[0]+'getRawResult';"
-                               style="background-color: rgb(255,0,0);">
+                        <input type="submit" value="Confirm result Received" name="confirmation" class="button" onsubmit="confirm('Are you sure to ' +
+                         'preform this action ? Before doing that make sure that you already downloaded the result file.' +
+                         '')">
+                        <input type="button" value="Cancel" name="cancel" id="cancel" class="button"
+                               onclick="window.location.href=document.location.href.toString().split('getRawResult')[0]+'getRawResult';">
                     </div>
                 </div>
             </form>
@@ -157,6 +167,8 @@
 </div>
 <!-- include footer section -->
 <?php BasicLoader::loadFooter('../../');?>
+<script src="../../assets/js/jquery.js"></script>
+<script src="../../assets/js/toast.js"></script>
 <script src="assets/getRawResult.js"></script>
 </body>
 </html>

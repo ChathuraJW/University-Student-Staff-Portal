@@ -23,6 +23,6 @@ let elementID=document.location.href.toString().split("getRawResult")[1];
 if(elementID!=""){
     document.getElementById("showFileContent").style.display="inline-grid";
     let notificationCard=document.getElementById(elementID.split("=")[1].split("&")[0]);
-    notificationCard.style.backgroundColor="#93599E";
+    notificationCard.style.backgroundColor="var(--baseColor)";
     notificationCard.style.color="white";
 }
