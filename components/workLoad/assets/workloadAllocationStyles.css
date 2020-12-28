@@ -299,3 +299,6 @@
 .fileDownload:hover{
     color: rgb(87, 87, 87);
 }
+#searchMembersOptions{
+    width:98%
+}

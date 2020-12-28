@@ -101,7 +101,7 @@
 
             <div class="searchMembers"><!--from this div we can display search free time available supportive members -->
                 
-                <form class="search" method="post"action="">
+                <form class="search" id="search" method="post"action="">
                 <h2 style="margin-top:30px;margin-bottom:20px;" class="head">Select Members</h2>
                     <div class="row col-3">
                         
@@ -152,12 +152,17 @@
                                     //         <input class='memberLabel memberInput'  type='checkbox' id='member' name='member' require><br>
                                     //     </div>";
                                 // }
+                                echo "
+                                    <select name='cmbService[]' id='searchMembersOptions' multiple ></select>
+                                    
+                                    ";
                                 
                             ?>
                             <div class="row col-2">
                                 <div style="text-align:center;"><input onclick='deallocateForm()' class="button cancel"type="reset" value="Cancel"></div>
                                 <div style="text-align:center;"><input onclick='allocationForm()' class="button allocate"type="button" value="Allocate"></div>
                             </div>
+
                         </form>
                     </div>
                 </div>

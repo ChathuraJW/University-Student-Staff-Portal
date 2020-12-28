@@ -28,38 +28,13 @@ function deallocateForm(){
     
 }
 function displaySearch(){
-
+    document.getElementById("searchStaff").style.display="";
     var fromDate=document.getElementById("startDate").value;
     // var toDate=document.getElementById("endDate").value;
     var fromTime=document.getElementById("startTime").value;
     var toTime=document.getElementById("endTime").value;
 
-    var url="http://localhost/USSP/components/workload/assets/workLoadMembersAPI.php?fromDate="+fromDate+"&fromTime="+fromTime+"&toTime="+toTime+"";
-    console.log(url); 
-    $.getJSON(url,function(dataList){
-        // document.getElementById("preMessage").style.display="none";
-        // document.getElementById("searchStaff").style.display="";
-        // document.getElementById("search").reset();
-
-        // console.log(dataList);
-        for(var i in dataList) {
-            // let week = "week "+dataList[i]['week'];
-            let salutation = dataList[0][i]['salutation'];
-            let fullName = dataList[0][i]['fullName'];
-            // let description = attendance[i]['description'];
-            // let color = (attendance[i]['attendance']==1 ? 'green':'red');
-            // console.log(week);
-            // document.write(salutation,fullName);
-
-            document.getElementsByClassName("supportMemberSalutation").innerHTML = salutation;
-            document.getElementsByClassName("supportMember").innerHTML = fullName;
-            // document.getElementById("attendanceType"+i).innerHTML = description;
-            // document.getElementById(i).style.backgroundColor = color;
-        }
-
-        //
-    });
-    // var date1=document.getElementById("startDate").value;
+     // var date1=document.getElementById("startDate").value;
     // var date2=document.getElementById("endDate").value;
     // var time1=document.getElementById("startTime").value;
     // var time2=document.getElementById("endTime").value;
@@ -67,17 +42,61 @@ function displaySearch(){
     // if(date1==""||date2==""||time1==""||time2==""){
     //     // document.getElementById("search").reset();
     //     window.alert("Please select Date and Time!");
+    // }
+
+    var url="http://localhost/USSP/components/workload/assets/workLoadMembersAPI.php?fromDate="+fromDate+"&fromTime="+fromTime+"&toTime="+toTime+"";
+    console.log(url);
+    
+    $.getJSON(url,function(dataList){
+        
+        // document.getElementById("preMessage").style.display="none";
+        // document.getElementById("searchStaff").style.display="";
+        // document.getElementById("search").reset();
+
+        var selectBox=document.getElementById("searchMembersOptions");
+        document.getElementById("searchMembersOptions").multiple=true;
+
+        var len=dataList.length;
+        for(i=0;i<len;i++){
+            var name= dataList[i]['salutation']+"."+dataList[i]['firstName']+" "+dataList[i]['lastName'];
+            var userName=dataList[i]['userName'];
+            let newOption=new Option(name,userName);
+            newOption.style.width="98%";
+            selectBox.add(newOption,undefined);
+        }
+        
+                
+        // for(i=0;i<)
+        // for(var i in dataList) {
+            // let week = "week "+dataList[i]['week'];
+            // let salutation = dataList[0][i]['salutation'];
+            // let fullName = dataList[0][i]['fullName'];
+            // let description = attendance[i]['description'];
+            // let color = (attendance[i]['attendance']==1 ? 'green':'red');
+            // console.log(week);
+            // document.write(salutation,fullName);
+
+            // document.getElementsByClassName("supportMemberSalutation").innerHTML = salutation;
+            // document.getElementsByClassName("supportMember").innerHTML = fullName;
+            // document.getElementById("attendanceType"+i).innerHTML = description;
+            // document.getElementById(i).style.backgroundColor = color;
+        // }
+
+        //
+    
+    });
+   
         
         
     // }else{
-        document.getElementById("preMessage").style.display="none";
-        document.getElementById("searchStaff").style.display="";
-        document.getElementById("search").reset();
+    //     document.getElementById("preMessage").style.display="none";
+    //     document.getElementById("searchStaff").style.display="";
+    //     document.getElementById("search").reset();
     // }
 
 }
 function openMessage(){
-    document.getElementById("firstMessage").style.display="none";
+    // document.getElementById("firstMessage").style.display="none";
     document.getElementById("workloadRequest").style.display="";
 }
 function allocation(){

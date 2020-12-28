@@ -34,7 +34,7 @@ if(isset($_GET['fromDate'])){
         $queryFour="SELECT * FROM user WHERE userName='".$freeStaff."'";
         $staffData=Database::executeQuery("root","",$queryFour);
         
-        $staffDataSet[]=$staffData;
+        $staffDataSet[]=$staffData[0];
     }
     // $query="SELECT * FROM user";
     // $data=Database::executeQuery("root","","$query");
