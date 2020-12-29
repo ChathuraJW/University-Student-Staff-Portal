@@ -1,0 +1,88 @@
+@font-face {
+    font-family: Varela;
+    src: url('../../../assets/font/Varela-Regular.ttf');
+}
+
+.featureBody {
+    font-family: Varela, sans-serif;
+}
+
+.default{
+    min-height: 650px;
+    height: fit-content;
+}
+
+.mainBar{
+    padding: 15px;
+    background-color: rgb(252, 250, 250);
+}
+.mainPage{
+    display: table;
+    width: 100%;
+}
+.taskList{
+    display: table-cell;
+    width: 30%;
+    height: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    
+}
+.taskPage{
+    display: table-cell;
+    width: 70%;
+    height: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+
+}
+.topic{
+    padding-left: 20px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: rgb(78, 78, 78);
+}
+.task{
+    background-color: rgb(231, 231, 231);
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: 10px;
+    color: rgb(92, 91, 91);
+    cursor: pointer;
+
+}
+.task:hover{
+    background-color: rgb(223, 222, 222);
+    color: black;
+    font-weight: bold;
+
+}
+.subTask{
+    margin-left: 10%;
+    background-color: rgb(238, 236, 236);
+    padding: 8px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    color: rgb(92, 91, 91);
+    cursor: pointer;
+
+}
+.subTask:hover{
+    background-color: rgb(226, 225, 225);
+    color: black;
+    font-weight: bold;
+}
+.superSubTask{
+    margin-left: 20%;
+    background-color: rgb(238, 236, 236);
+    padding: 8px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    color: rgb(92, 91, 91);
+    cursor: pointer;
+
+
+}
+.superSubTask:hover{
+    background-color: rgb(226, 225, 225);
+    color: black;
+    font-weight: bold;
+}
