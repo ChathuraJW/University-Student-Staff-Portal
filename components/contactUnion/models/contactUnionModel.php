@@ -1,20 +1,24 @@
 <?php
 
 	class ContactUnionModel extends Model {
-		public static function getMessageData(): array {
+		public static function getMessageData(): array|bool {
 			$userName = $_COOKIE['userName'];
 			$sqlQuery = "SELECT * FROM send_message_to_union where sender='$userName'";
 			$result = Database::executeQuery('student', 'student@16', $sqlQuery);
 //		initialize returning array
-			$returnData = array();
-			foreach ($result as $row) {
+			if ($result) {
+				$returnData = array();
+				foreach ($result as $row) {
 //			create individual objects and store those data for add into array
-				$contactUnionItem = new ContactUnion;
-				$contactUnionItem->setMessage($row['messageID'], $row['title'], $row['message'], $row['sender'], $row['sendTimestamp'], $row['isAnonymous']);
+					$contactUnionItem = new ContactUnion;
+					$contactUnionItem->setMessage($row['messageID'], $row['title'], $row['message'], $row['sender'], $row['sendTimestamp'], $row['isAnonymous']);
 //			append created object to returning array
-				$returnData[] = $contactUnionItem;
+					$returnData[] = $contactUnionItem;
+				}
+				return $returnData;
+			} else {
+				return false;
 			}
-			return $returnData;
 		}
 
 		public static function createMail($newUnionMessage) {
@@ -57,44 +61,36 @@
 		        ";
 //      start transaction
 			$dbInstance = new Database;
-			$dbInstance->establishTransaction('student', 'student@16');
+			//TODO change database credentials 'student', 'student@16'
+			$dbInstance->establishTransaction('root', '');
 
-//		read xml file to get union email address
-			$xmlData = simplexml_load_file("../../assets/config/systemParameters.xml");
-			$receiver = $xmlData->parameter[0]->value;
-
-//		generate main details
+//		generate title
 			$title = "USSP System Generated Message";
-			$headers[] = 'MIME-Version: 1.0';
-			$headers[] = 'Content-type: text/html; charset=iso-8859-1';
 
-//		send the mail
-			//@TODO Care on mail server debugging
-			$isSuccess = mail($receiver, $title, $mailContent, implode("\r\n", $headers));
 //		insert data and log into database
-			$anonymousString = $newUnionMessage->isAnonymous() ? 'true' : 'false';
-			$sqlQuery = "INSERT INTO send_message_to_union(title, message, sender, sendTimestamp, isAnonymous) VALUES ('" . $newUnionMessage->getTitle() . "','" . $newUnionMessage->getMessage() . "','" . $_COOKIE['userName'] . "','NOW()','$anonymousString')";
+			$anonymousString = $newUnionMessage->isAnonymous() ? 'TRUE' : 'FALSE';
+			$sqlQuery = "INSERT INTO send_message_to_union(title, message, sender, sendTimestamp, isAnonymous) VALUES ('" . $newUnionMessage->getTitle() . "','" . $newUnionMessage->getMessage() . "','" . $_COOKIE['userName'] . "',NOW(),$anonymousString)";
 			$dbInstance->executeTransaction($sqlQuery);
-			$dbInstance->transactionAudit($sqlQuery, 'send_message_to_union', INSERT, 'Create new message and that send to the Union.');
+			$dbInstance->transactionAudit($sqlQuery, 'send_message_to_union', 'INSERT', 'Create new message and that send to the Union.');
 
 //		check whether all execute successfully
-			if ($isSuccess && $dbInstance->getTransactionState()) {
-				$dbInstance->commitToDatabase();
-//			show success toast
-				echo("
-				<script>
-				    createToast('Success','Message Sent Successfully.','S');
-				</script> 
-			");
+			if ($dbInstance->getTransactionState()) {
+//				import mail function and call it
+				require_once('../../assets/php/sendMail.php');
+				$isSuccess = sendMail($title, $mailContent, true);
+				if ($isSuccess) {
+//					commit and display success toast
+					$dbInstance->commitToDatabase();
+					echo("<script>createToast('Success','Message Sent Successfully.','S');</script>");
+				} else {
+					echo("<script>createToast('Warning (error code: #SMU01-M)','Failed send email.','W');</script>");
+				}
 			} else {
 //			show failed toast
-				echo("
-				<script>
-				    createToast('Warning','Message Sent Failed. Please Try Again.','W');
-				</script> 
-			");
+				echo("<script>createToast('Warning (error code: #SMU01-D)','Message Sent Failed. Please Try Again.','W');</script>");
 			}
 //		close db connection
 			$dbInstance->closeConnection();
 		}
+
 	}

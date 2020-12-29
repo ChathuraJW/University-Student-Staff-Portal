@@ -21,7 +21,7 @@
         <div class="historySection">
             <span class="columnHeader">Message History</span>
 			<?php
-				if (sizeof($controllerData[0]) === 0)
+				if (sizeof($controllerData) === 0)
 					echo("
                         <span class='emptyMessage'>No Message History.</span>
                     ");
