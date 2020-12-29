@@ -124,16 +124,19 @@ $.getJSON(url,function(dataList){
                 // }
                 // console.log(dataList[i]['subjectCode']);
                 var width=row2-row1+1;
-                for(k=row1+1;k<=row2;k++){
+                
+                var start = document.getElementById("timetable").rows[row1];
+                // start.cells[columnNumber].style.backgroundColor = "rgb(253, 144, 144)";
+                start.cells[columnNumber].style.textAlign = "center";
+                for(k=row1;k<=row2;k++){
                         var allocatedCell = document.getElementById("timetable").rows[k];
+                        allocatedCell.cells[columnNumber].style.backgroundColor = "rgb(229, 170, 252)";
+                        allocatedCell.cells[columnNumber].title = subjects[i]+" "+halls[i];
                         
-                        allocatedCell.deleteCell(columnNumber);
+                        // allocatedCell.cells[columnNumber].style.backgroundColor = "rgb(229, 170, 252)";
                         
                 }
-                var start = document.getElementById("timetable").rows[row1];
-                start.cells[columnNumber].style.backgroundColor = "rgb(253, 144, 144)";
-                start.cells[columnNumber].style.textAlign = "center";
-                start.cells[columnNumber].rowSpan  = width;
+                // start.cells[columnNumber].rowSpan  = width;
                 console.log(i);
                 console.log(subjects[i]);
                 start.cells[columnNumber].innerHTML = "<div>"+subjects[i]+"</div><div>"+halls[i]+"</div>";
