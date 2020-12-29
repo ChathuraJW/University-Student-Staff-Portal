@@ -1,6 +1,17 @@
 document.querySelectorAll(".dropZoneInput").forEach(inputElement =>{
    const dropZoneElement = inputElement.closest(".dropZone");
 
+   // created click to upload part
+   dropZoneElement.addEventListener("click",e=>{
+       inputElement.click();
+   });
+   inputElement.addEventListener("change",e=>{
+       if(inputElement.files.length) {
+           updateThumbnail(dropZoneElement, inputElement.files[0]);
+       }
+
+       });
+
    // change the border when drag an element
    dropZoneElement.addEventListener("dragover",e=>{
        e.preventDefault();
@@ -41,6 +52,7 @@ function updateThumbnail(dropZoneElement,file){
     if(!thumbnailElement){
         thumbnailElement = document.createElement("div");
         thumbnailElement.classList.add("dropZoneThumb");
+        thumbnailElement.backgroundImage = "url('assets/pdf.jpg')";
         dropZoneElement.appendChild(thumbnailElement);
     }
 
@@ -67,43 +79,3 @@ function updateThumbnail(dropZoneElement,file){
 
 
 
-// let dropArea = document.getElementById('dropZone');
-//
-// // prevent default behaviors and stop few events
-// ['dragEnter' , 'dragover', 'dragleave','drop'].forEach(eventName =>{
-//     dropArea.addEventListener(eventName, preventDefaults, false)
-// });
-// function preventDefaults(e){
-//     e.preventDefault();
-//     e.stopPropagation();
-// }
-//
-// // Change the color of dragZone border color
-// ['dragenter', 'dragover'].forEach(eventName =>{
-//     dropArea.addEventListener(eventName, highlight,false)
-// });
-//
-// ['dragleave', 'drop'].forEach(eventName=>{
-//     dropArea.addEventListener(eventName,unHighlight, false);
-// })
-//
-// function highlight(e){
-//     dropArea.classList.add('highlight');
-// }
-// function unHighlight(e){
-//     dropArea.classList.remove('highlight');
-//
-// }
-//
-// dropArea.addEventListener('drop', handleDrop, false);
-//
-// function handleDrop(e){
-//     let dt = e.dataTransfer;
-//     let files = dt.files;
-//
-//     handleFiles(files);
-// }
-//
-// function handleFiles(files){
-//     ([...files]).forEach(uploadFile);
-// }

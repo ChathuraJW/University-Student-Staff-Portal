@@ -27,9 +27,10 @@
     width: 25%;
     height: 100%;
     border-radius: 10px;
-    background-color: #0fbe0f;
+    background-color: #d4d4d4;
     background-size: cover;
     position: relative;
+
 }
 .dropZoneThumb::after{
     content: attr(data-label);
@@ -38,34 +39,8 @@
     left: 0;
     width: 100%;
     padding: 5px 0;
-    color: #4e4c4c;
+    color: #faf7f7;
     background: rgba(0,0,0,0.75);
     font-size: 14px;
     text-align: center;
 }
-/*.dropZone{*/
-/*    text-align: center;*/
-/*    align-items: center;*/
-/*    overflow: hidden;*/
-/*    border: 4px dashed var(--baseColor);*/
-/*    height: 200px;*/
-/*    padding: 25px;*/
-/*    border-radius: 10px;*/
-/*    font-weight: 500;*/
-/*    font-size: 20px;*/
-/*    cursor: pointer;*/
-/*    margin-top: 30px;*/
-/*    margin-bottom: 30px;*/
-/*    color: rgb(109, 109, 116);*/
-/*}*/
-/*.dropZonePrompt{*/
-/*    cursor: pointer;*/
-/*}*/
-
-/*.dropZone.highlight{*/
-/*    border: 4px dashed white ;*/
-/*}*/
-/*#fileInput{*/
-/*    display: none;*/
-/*}*/
-
