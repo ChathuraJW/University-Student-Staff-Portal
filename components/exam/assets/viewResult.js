@@ -23,7 +23,8 @@ if (overAllGPA >= 3.7) {
 
 //Batch GPA Distribution Graph
 let gpaDistribution = document.getElementById('gpaDistribution').getContext('2d');
-const gpaDistributionURL = "http://localhost/USSP/assets/API/getExamResultDataAPI.php?activity=GPADistribution&regNo=" + regNo;
+const gpaDistributionURL = "http://localhost/USSP/components/exam/assets/getExamResultDataAPI.php?activity=GPADistribution&regNo=" + regNo;
+console.log(gpaDistributionURL);
 let userPosition = Math.round(overAllGPA * 10) / 10;
 $.getJSON(gpaDistributionURL, function (studentCounts) {
     new Chart(gpaDistribution, {
@@ -65,7 +66,7 @@ $.getJSON(gpaDistributionURL, function (studentCounts) {
 
 //Individual GPA Distribution for Each Semester
 let individualGPADistribution = document.getElementById('individualGPADistribution').getContext('2d');
-const gpaSemesterURL = "http://localhost/USSP/assets/API/getExamResultDataAPI.php?activity=IndividualGPADistribution&regNo=" + regNo;
+const gpaSemesterURL = "http://localhost/USSP/components/exam/assets/getExamResultDataAPI.php?activity=IndividualGPADistribution&regNo=" + regNo;
 $.getJSON(gpaSemesterURL, function (gpaValues) {
     new Chart(individualGPADistribution, {
         type: 'line',
@@ -97,7 +98,7 @@ $.getJSON(gpaSemesterURL, function (gpaValues) {
 
 //Grade Contribution for Overall Result
 let gradeContribution = document.getElementById('gradeContribution').getContext('2d');
-const gradeContributionURL = "http://localhost/USSP/assets/API/getExamResultDataAPI.php?activity=GradeContribution&regNo=" + regNo;
+const gradeContributionURL = "http://localhost/USSP/components/exam/assets/getExamResultDataAPI.php?activity=GradeContribution&regNo=" + regNo;
 $.getJSON(gradeContributionURL, function (data) {
     // ready dataset
     let colorList = ['rgba(20,63,196)', 'rgb(212,30,30)', 'rgb(6,200,6)', 'rgb(204,4,238)',

@@ -1,75 +1,61 @@
 <?php
 
-	class User {
-		//attributes of User
-		protected $userName;
-		protected $firstName;
-		protected $lastName;
-		protected $personalEmail;
-		protected $universityEmail;
-		protected $gender;
-		protected $address;
-		protected $nic;
-		protected $password;
-		protected $profilePictureURL;
-		protected $teleNo;
-
-		//methods of User
-
-	}
-
-	class Student extends User {
-		// attributes of Student
-		private $indexNo;
-		private $regNo;
-		private $group;
-
-		//methods of Student
-
-	}
-
-//this class for both academic and academic support staff
-
-	class RawResult {
-		// attributes of RawResult
-		private $courseCode;
-		private $courseName;
-		private $date;
-		private $uploadedBy;
-		private $submitTimestamp;
-		private $fileLocation;
-
-		// methods of RawResult
-		protected function sendResult() {
-
-		}
-
-		protected function viewResult() {
-
-		}
-	}
-
 	class Result {
 		// attributes of Result
-		private $coursECode;
-		private $academicYear;
-		private $yearOfExam;
-		private $semester;
-		private $result;
-		private $GPA;
-		private $updatedData;
-		private $updatedBy;
-		private $reviewedTimestamp;
-		private $submitedBy;
+		private string $courseCode;
+		private string $courseName;
+		private int $semester;
+		private int $courseCredit;
+		private string $yearOfExam;
+		private string $result;
+		private string $attempt;
 
-		// mehtods of Result
-		protected function addResultData() {
-
+		public function addResult($courseCode, $courseName, $courseCredit, $semester, $examinationYear, $result, $attempt): Result {
+			$this->courseCode = $courseCode;
+			$this->courseName = $courseName;
+			$this->courseCredit = $courseCredit;
+			$this->semester = $semester;
+			$this->yearOfExam = $examinationYear;
+			$this->result = $result;
+			$this->attempt = $attempt;
+			return $this;
 		}
 
-		protected function displayResult() {
-
+		public function getCourseCode(): string {
+			return $this->courseCode;
 		}
+
+		public function getCourseName(): string {
+			return $this->courseName;
+		}
+
+		public function getSemester(): int {
+			return $this->semester;
+		}
+
+		public function getCourseCredit(): int {
+			return $this->courseCredit;
+		}
+
+		public function getYearOfExam(): string {
+			return $this->yearOfExam;
+		}
+
+		public function getResult(): string {
+			return $this->result;
+		}
+
+		public function getAttempt(): string {
+			return $this->attempt;
+		}
+
+		public function isRepeatedAttempt(): bool {
+			if ($this->attempt == 'F')
+				return false;
+			else
+				return true;
+		}
+
 	}
 
 	class ResultFile {
@@ -154,37 +140,6 @@
 
 	}
 
-	class StudentMark {
-		// attributes of StudentMark
-		private $studentIndex;
-		private $mark;
-
-		// methods of StudentMark
-		protected function setMarks() {
-
-		}
-	}
-
-	class EnrollmentDetails {
-		// attributes of EnrollmentDetails
-		private $indexNo;
-		private $courseCode;
-		private $academicYear;
-		private $attempt;
-		private $activeState;
-		private $result;
-		private $enrolledDate;
-		private $semester;
-
-		// methods of EnrollmentDetails
-		protected function makeEnrollment() {
-
-		}
-
-		protected function makeEnrollmentDeactivated() {
-
-		}
-	}
 
 	class CourseModule {
 		// attributes of courseModule
@@ -224,26 +179,4 @@
 		}
 
 
-	}
-
-	class EnrollFor {
-		// attributes of EnrollFor
-		private $indexNo;
-		private $courseCode;
-		private $courseName;
-		private $dailyAtendance;
-		private $percentage;
-
-		// methods of EnrollFor
-		protected function calculatePercentage() {
-
-		}
-
-		protected function addDate() {
-
-		}
-
-		protected function viewAttendance() {
-
-		}
 	}

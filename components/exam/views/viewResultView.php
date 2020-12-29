@@ -14,7 +14,7 @@
 <!-- include header section -->
 <?php BasicLoader::loadHeader('../../');?>
 <!-- feature body section -->
-<div class="featureBody">
+<div class="featureBody bodyBackground text">
     <div class="basicInfo">
         <span class="captionLabel">Overall Information</span>
         <div class="row col-4">
@@ -65,19 +65,20 @@
             <canvas id="individualGPADistribution" class="graphCanvas"></canvas>
         </div>
         <div class="gradeContribution">
-            <span class="captionLabel">Grade Contribution for GPA</span>
+            <span class="captionLabel">Grade Contribution</span>
             <canvas id="gradeContribution" class="graphCanvas"></canvas>
         </div>
     </div>
 
     <div class="resultViewer">
-        <span class="captionLabel">Semester Vice Result</span>
+        <span class="captionLabel">Semester Wise Result</span>
         <div class="row col-3">
             <?php
-            $semester = 1;
             foreach ($controllerData[3] as $semesterData){
-                $sem = (round($semester % 2) == 0) ? 2 : 1;
-                $year = round($semester / 2);
+//                get year semester combination form semester
+                $sem = (round($semesterData['semester'] % 2) == 0) ? 2 : 1;
+                $year = round($semesterData['semester'] / 2);
+//                create header of result show sections
                 echo("
                         <div class='semesterResult'>
                             <span class='semesterResultHeader'>$year<sup>st</sup> Year $sem<sup>st</sup> Semester</span>
@@ -85,11 +86,14 @@
                                 <table>
                   ");
                 //create subject entry
-                foreach ($semesterData as $subjectEntry){
+                foreach ($semesterData['results'] as $subjectEntry){
+                    $repeatSign=$subjectEntry->isRepeatedAttempt()?'[ R ]':'';
+//                    create individual result entries
                     echo("
                          <tr>
-                             <td>".$subjectEntry['name']." <br> <span>".$subjectEntry['courseCode']." / ".$subjectEntry['creditValue']." Credits /Examination Year:".$subjectEntry['yearOfExam']."</span></td>
-                             <td class='result'>".$subjectEntry['result']."</td>
+                             <td>$repeatSign ".$subjectEntry->getCourseName()." <br> <span>".$subjectEntry->getCourseCode()." / "
+                        .$subjectEntry->getCourseCredit()." Credits /Examination Year:".$subjectEntry->getYearOfExam()."</span></td>
+                             <td class='result'>".$subjectEntry->getResult()."</td>
                          </tr>
                     ");
                 }
@@ -98,8 +102,6 @@
                         </div>
                     </div>
                 ");
-//                increase semester value by 1
-                $semester++;
             }
             ?>
         </div>
@@ -110,6 +112,7 @@
 <!-- include footer section -->
 <?php BasicLoader::loadFooter('../../');?>
 <script src="../../assets/js/jquery.js"></script>
+<script src="../../assets/js/toast.js"></script>
 <script src="../../assets/js/Chart.js"></script>
 <script src="assets/viewResult.js"></script>
 </body>

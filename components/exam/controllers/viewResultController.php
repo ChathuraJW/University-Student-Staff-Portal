@@ -7,7 +7,10 @@ class ViewResultController extends Controller{
         $currentGPA=ViewResultModel::getCurrentGPA();
         $currentRank=ViewResultModel::getCurrentRank();
         $sendData=array($currentGPA,$currentRank,$totalCredit,$resultData);
-//        print_r($resultData);
+
         self::createView("viewResultView",$sendData);
+
+        if(!$resultData || !$totalCredit || !$currentGPA || !$currentRank)
+	        echo("<script>createToast('Warning (error code: #ERM07)','Failed to load data.','W')</script>");
     }
 }

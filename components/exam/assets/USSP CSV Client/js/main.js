@@ -1,5 +1,5 @@
 function loadSubjectData(){
-    let url = "http://localhost/USSP/assets/API/resultCreateClinetAPI.php?loadSubjectData=true";
+    let url = "http://localhost/USSP/components/exam/assets/resultCreateClinetAPI.php?loadSubjectData=true";
     $.getJSON(url,function (data) {
         if(data){
             data.forEach(function (item) {
@@ -18,7 +18,7 @@ function processData(){
         alert("Complete all fields before authenticate and make sure to use correct credentials.");
         location.reload();
     }
-    let url = "http://localhost/USSP/assets/API/resultCreateClinetAPI.php?username=" + username + "&role=AD" + "&password=" + CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+    let url = "http://localhost/USSP/components/exam/assets/resultCreateClinetAPI.php?username=" + username + "&role=AD" + "&password=" + CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
     // console.log(url);
     $.getJSON(url,function(data){
             if(data){
@@ -41,7 +41,7 @@ function processData(){
 }
 let totalIndex=0;
 function createList(subjectCode,attempt){
-    let url = "http://localhost/USSP/assets/API/resultCreateClinetAPI.php?subjectCode=" + subjectCode + "&attempt=" + attempt;
+    let url = "http://localhost/USSP/components/exam/assets/resultCreateClinetAPI.php?subjectCode=" + subjectCode + "&attempt=" + attempt;
     // console.log(url);
     $.getJSON(url, function (data) {
         let table = document.getElementById("loadHear");
