@@ -17,8 +17,8 @@
     <?php BasicLoader::loadHeader('../../') ?>
     
     <!-- feature body section -->
-    <div class="featureBody row col-1" >
-        <div style="float:left;"><button class="link" id="linkOne" check="0" onclick="scheduleCheck()">History</button><br></div>
+    <div class="featureBody row col-1  bodyBackground text" >
+        <div style="float:left;"><button class="button link" id="linkOne" check="0" onclick="scheduleCheck()">History</button><br></div>
         <div class="row col-2" id="main">
 
         <?php $records=$controllerData[0];?>
@@ -35,12 +35,13 @@
                         $fromTime=$record->getFromTime();
                         $toTime=$record->getToTime();
                         $description=$record->getWorkLoadDescription();
+                        $workloadID=$record->getWorkloadID();
                         echo " 
-                            <div class='workloadMessage' onclick='openMessage(`$title`,`$name`,`$location`,`$date`,`$fromTime`,`$toTime`,`$description`)' >
+                            <div class=' normalEntry' onclick='openMessage(`$title`,`$name`,`$location`,`$date`,`$fromTime`,`$toTime`,`$description`,`$workloadID`)' >
                                 <div>".$record->getFullName()."</div>
                                 <div>".$record->getTitle()."</div>
                                 
-                                <div style='margin-left:85%;'>".$record->getRequestDate()."</div>
+                                <div style='margin-left:80%;'>".$record->getRequestDate()."</div>
                             </div><br>
                         " ;
                     }
@@ -85,7 +86,8 @@
                             <div class="label">Description</div>
                             <div class="value" id="oldDescription"></div>
                         </div>
-                        <form action="">
+                        <form action="" method="post">
+                            <input type="hidden" name="workloadID"id="inputWorkloadID">
                             <div class="displayingMessage">
                                 <div class="label"></div>
                                 <div class="value">
@@ -95,8 +97,8 @@
                                 </div>
                             </div>
                             <div class="buttonCouple">
-                                <input class="button"type="submit" name="reject" value="Reject">
-                                <input class="button"type="submit" name="accept" value="Accept">
+                                <input class="button"type="submit" name="submit" value="Reject">
+                                <input class="button"type="submit" name="submit" value="Accept">
                             </div>
                         </form>
                         
@@ -124,7 +126,7 @@
                         $description=$newMessage->getWorkLoadDescription();
                         // $reply=$newMessage->getReply();
                         echo"
-                        <div class='row col-1 workloadHistory' onclick='openMsg(`$title`,`$name`,`$location`,`$date`,`$time`,`$description`)'>
+                        <div class='row col-1 normalEntry' onclick='openMsg(`$title`,`$name`,`$location`,`$date`,`$time`,`$description`)'>
                             <div style='float:right;' >
                                 <!--<div class='data'>Date</div>-->
                                 <div >".$newMessage->getRequestDate()."</div>
@@ -148,7 +150,7 @@
                     }
                 ?>
                 <div>
-                    <button class="fileDownload" onclick="getFile()"><i class="fa fa-file" aria-hidden="true"></i></button>  Download
+                    <button class="button" onclick="getFile()"><i class="fa fa-file" aria-hidden="true"></i>Download</button>  
                 </div>
             </div>
 

@@ -72,7 +72,7 @@
                 document.getElementById("linkOne").innerHTML='History';
                 }
         }
-        function openMessage(title,FullName,location,date,fromTime,toTime,description){
+        function openMessage(title,FullName,location,date,fromTime,toTime,description,workloadID){
             document.getElementById("messageView").style.display="none";
             document.getElementById("workloadRequest").style.display="";
 
@@ -84,6 +84,7 @@
             document.getElementById("oldFromTime").innerHTML=fromTime;
             document.getElementById("oldToTime").innerHTML=toTime;
             document.getElementById("oldDescription").innerHTML=description;
+            document.getElementById("inputWorkloadID").value=workloadID;
         }
         
         function messageClose(){
