@@ -76,18 +76,7 @@
     width: 150px;
     outline: none;
 }
-.cancel{
-    background-color:rgb(255, 248, 145);
-}
-.cancel:hover{
-    background-color: rgb(253, 235, 76);
-}
-.allocate{
-    background-color: rgb(145, 245, 158);
-}
-.allocate:hover{
-    background-color: rgb(96, 241, 83);
-}
+
 .accept{
     background-color: rgb(0, 167, 75);
 }
@@ -103,16 +92,14 @@
 .link{
     border: none;
     font-size: 16px;
-    color: rgb(199, 98, 202);
+    /* color: rgb(199, 98, 202); */
     text-decoration: none;
-    background-color: rgb(255, 255, 143);
+    /* background-color: rgb(255, 255, 143); */
     width: 150px;
     padding: 12px;
     /* float: left; */
 }
-.link:hover{
-    background-color:rgb(255, 255, 71);
-}
+
 .topic{
     text-align: center;
     /* height: 20px; */
@@ -187,18 +174,16 @@
 
 .searchButton{
     border: none;
-    padding:5%; 
-    padding-bottom: 10px;
+    /* padding:5%;  */
+    /* padding-bottom: 10px; */
     font-size: 15px;
     border-radius: 2px;
     font-weight: bold;
     outline: none;
-    background-color: rgb(255, 254, 184);
     cursor: pointer;
+    
 }
-.searchButton:hover{
-    background-color: rgb(253, 255, 137);
-}
+
 .finalMsg{
     /* overflow: auto; */
     position: fixed; 

@@ -9,12 +9,8 @@ class WorkloadAllocationMessageController extends Controller{
 
         if(isset($_POST["setMembers"])){
             $members=$_POST["members"];
-            echo $members;
-            $Date=$_POST['date'];
-            $fromTime=$_POST['fromTime'];
-            $toTime=$_POST['toTime'];
-            
-            $members=WorkLoadAllocationModel::setWorkload($members,$workloadID);
+            $workloadID=$_POST['workloadID'];
+            WorkLoadAllocationModel::setWorkload($members,$workloadID);
             // self::createView("workloadAllocationMessageView",$members);
         }
 

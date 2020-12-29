@@ -14,11 +14,41 @@
             }
             return $workLoadList;
         }
-        // public static function setWorkload($members,$workloadID){
-        //     $timestamp=date("F j, Y \a\t g:ia");
-        //     $length
-        //     for($i=0)
-        //     $query="INSERT INTO academic_support_staff_workload(staffID, workloadID, allocationTimestamp, isChecked) VALUES (2,3,4,5)"
-        // }
+        public static function setWorkload($members,$workloadID){
+            $timestamp=date("F j, Y \a\t g:ia");
+            $length=sizeof($members);
+            $databaseInstance=new Database;
+            $databaseInstance->establishTransaction('root','');
+            for($i=0;$i<$length;$i++){
+                print_r($members[$i]);
+                $query="INSERT INTO academic_support_staff_workload(staffID, workloadID, allocationTimestamp, isChecked) VALUES ('".$members[$i]."',".$workloadID.",NOW(),0)";
+                // echo $databaseInstance->getTransactionState();
+                $databaseInstance->executeTransaction($query);
+                $databaseInstance->transactionAudit($query,"academic_support_staff_workload" , "INSERT", "Allocate a Workload for Supportive Staff");
+            }
+            $queryTwo="UPDATE workload SET checkValue=1 WHERE workloadID=".$workloadID;
+            $databaseInstance->executeTransaction($queryTwo);
+            $databaseInstance->transactionAudit($queryTwo,"workload" , "UPDATE", "View the Workload Request");
+            // echo $databaseInstance->getTransactionState();
+
+
+            if($databaseInstance->getTransactionState()){
+            // echo $databaseInstance->getTransactionState();
+
+                if($databaseInstance->commitToDatabase()){
+    //                display success message
+                    echo("<script>createToast('Success','Workload Allocated successfully.','S');</script>");
+                }else{
+    //                display fail message
+                    echo("<script>createToast('Warning (error code: #WLA01)','Workload Allocation failed .','W')</script>");
+                }
+            }else{
+    //            display fail message
+                echo("<script>createToast('Warning (error code: #WLA01)','Workload Allocation failed .','W')</script>");
+            }
+    //        close connection
+            $databaseInstance->closeConnection();
+
+        }
     }
 ?>

@@ -27,7 +27,7 @@
                 <?php 
                     $records=$controllerData;
                     foreach($records as $record){
-                        $url="?fullName=".$record->getFullName()."&workLoadDescription=".$record->getWorkLoadDescription()."&title=".$record->getTitle()."&location=".$record->getLocation()."&Date=".$record->getDate()."&fromTime=".$record->getFromTime()."&toTime=".$record->getToTime()."&salutation=".$record->getSalutation()."&requestDate=".$record->getRequestDate()."&workloadOwner".$record->getWorkLoadOwner()."&workloadID".$record->getWorkloadID();
+                        $url="?fullName=".$record->getFullName()."&workLoadDescription=".$record->getWorkLoadDescription()."&title=".$record->getTitle()."&location=".$record->getLocation()."&Date=".$record->getDate()."&fromTime=".$record->getFromTime()."&toTime=".$record->getToTime()."&salutation=".$record->getSalutation()."&requestDate=".$record->getRequestDate()."&workloadOwner=".$record->getWorkLoadOwner()."&workloadID=".$record->getWorkloadID();
                         echo "
                         <a style='text-decoration: none;'href='".$url."'  onclick='openMessage()' >
                             <div class='normalEntry'>
@@ -133,15 +133,15 @@
                             </div>
                         </div>
 
-                        <div style="text-align:center;margin-top:50px;" >
-                            <button class="searchButton" id="search" type="button" onclick="displaySearch()" name="submit" >Search <i class="fa fa-search" aria-hidden="true"></i></button>
+                        <div style="text-align:center;margin-top:45px;width:80px;" >
+                            <button class="button searchButton" id="search" type="button" onclick="displaySearch()" name="submit" >Search <i class="fa fa-search" aria-hidden="true"></i></button>
                         </div>
                     </div>
                 </form>
             
                 <div> 
                     <p id="preMessage" class="messageView" id="">Search Members</p>
-        <form action="" id="allocationForm" >
+        <form action="" method="post" id="allocationForm" >
                         <div id="searchStaff" style="color:black;display:none;"><!-- here display the all supportive staff free in mentioned time slot -->
                             <!-- <form action="" id="searchForm"method="post"> -->
                                 <div style="margin-top:10px;color:white;">If You Want Select More Than One Member Select Members with Pressing CTRL Button</div>
@@ -160,8 +160,8 @@
                                     
                                 ?>
                                 <div class="row col-2">
-                                    <div style="text-align:center;"><input onclick='deallocateForm()' class="button cancel"type="reset" value="Cancel"></div>
-                                    <div style="text-align:center;"><input onclick='allocationForm()' class="button allocate"type="button" value="Allocate"></div>
+                                    <div style="text-align:center;"><input onclick='deallocateForm()' class="button"type="reset" value="Cancel"></div>
+                                    <div style="text-align:center;"><input onclick='allocationForm()' class="button "type="button" value="Allocate"></div>
                                 </div>
 
                             <!-- </form> -->
@@ -202,8 +202,8 @@
                         <div class="value"><textarea class="input" type="" value="" id="description"><?php echo $_GET['workLoadDescription']?></textarea></div>
                     </div>
                     <div class="row col-2">
-                        <div style="text-align:center;"><input onclick="allocationCancel()"class="button cancel"type="reset" value="Cancel"></div>
-                        <div style="text-align:center;"><input class="button allocate" type="submit" name="setMembers"value="Allocate"></div>
+                        <div style="text-align:center;"><input onclick="allocationCancel()"class="button "type="reset" value="Cancel"></div>
+                        <div style="text-align:center;"><input class="button " type="submit" name="setMembers"value="Allocate"></div>
                     </div>
         </form>
             </div>
@@ -218,7 +218,8 @@
 
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../') ?>
-    <script src="../../assets/js/jquery.js"></script>
+    <script src="../../assets/js/jquery.js">
+        <script src="../../assets/js/toast.js"></script>
     <script src="assets/workloadAllocation.js"></script>
 
 </body>
