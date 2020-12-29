@@ -19,7 +19,7 @@
         <div class="row col-1">
             <P class="heading">Add PastPaper</P>
         </div>
-        <form>
+        <form method="post">
             <div class="row col-2">
                 <div class="row col-2">
                     <div>
@@ -66,8 +66,8 @@
                 </div>
             </div>
             <div class="buttonCouple">
-                <button class="button"> Cancel</button>
-                <button class="button" type="submit" > Upload</button>
+                <button class="button" name="reset"> Cancel</button>
+                <button class="button" type="submit" name="upload" > Upload</button>
             </div>
         </form>
 

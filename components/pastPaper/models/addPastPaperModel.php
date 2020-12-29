@@ -30,4 +30,19 @@ class AddPastPaperModel extends Model
         return $subjectList;
     }
 
+    public static function addPastPaperDetails($pastPaper){
+        $databaseInstance = new Database();
+        $databaseInstance->establishTransaction('root','');
+        $sqlQuery = "INSERT INTO pastpaper(subjectCode, yearOfExam, semester) VALUES ('".$pastPaper->getSubjectCode()."',".$pastPaper->getExaminationYear().",".$pastPaper->getSemester().")";
+        $databaseInstance->executeTransaction($sqlQuery);
+//        create audit trail
+        $databaseInstance->transactionAudit($sqlQuery,'pastpaper', 'PastPaper uploaded to the system.' );
+        echo($sqlQuery);
+
+        if($databaseInstance->getTransactionState()){
+
+        }
+        $databaseInstance->closeConnection();
+    }
+
 }
