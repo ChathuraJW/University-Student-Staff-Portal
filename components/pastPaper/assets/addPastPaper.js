@@ -38,8 +38,7 @@ document.querySelectorAll(".dropZoneInput").forEach(inputElement =>{
 });
 
 
-// @param {HTMLElement} dropZoneElement
-// @param {File} file
+
 
 function updateThumbnail(dropZoneElement,file){
     // console.log(file);
@@ -60,6 +59,22 @@ function updateThumbnail(dropZoneElement,file){
 
 
 }
+
+//pdf or zip file operation
+let pastPaper = document.getElementById("fileInput");
+
+pastPaper.addEventListener("change",function (){
+    if(pastPaper.value !== ''){
+        console.log("File Size is(KB): "+pastPaper.files[0].size/1000);
+        let uploadFormat = pastPaper.value.toString().split('.')[1].toLowerCase();
+        if (uploadFormat === "pdf" || uploadFormat==="zip") {
+        } else {
+            alert("Invalid file format. Please upload pdf or zip formatted file.");
+        }
+
+    }
+});
+
 
 
 
