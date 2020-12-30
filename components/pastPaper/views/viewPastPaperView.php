@@ -53,8 +53,13 @@
                         <div>
                             <label class="labelStyle">Subject:</label>
                             <select name="subject">
-                                <option value="SCS2209">Database 2</option>
-                                <option value="SCS2210">Discrete Maths 2</option>
+                                <?php
+                                foreach ($controllerData[0] as $row ){
+                                    echo ("
+                                    <option value='".$row->getCourseCode()."'>".$row->getName()."</option>
+                                ");
+                                }
+                                ?>
                             </select>
                         </div>
                     </div>

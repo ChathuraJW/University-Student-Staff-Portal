@@ -3,19 +3,7 @@
 
 class AddPastPaperModel extends Model
 {
-    public static function getRecentUploads():array{
-        $sqlQuery = "SELECT paperID, subjectCode, yearOfExam, semester FROM pastpaper ORDER BY paperID DESC LIMIT 10";
-        $recentUploads = Database::executeQuery('root','',$sqlQuery);
 
-        $pastPaperList = array();
-        foreach ($recentUploads as $row){
-            $newPastPaper = new PastPaper();
-            $newPastPaper->setPastPaper($row['paperID'],$row['subjectCode'],$row['yearOfExam'],$row['semester']);
-            $pastPaperList[] = $newPastPaper;
-
-        }
-        return $pastPaperList;
-    }
 
     public static function getSubjectData(){
         $sqlQuery = "SELECT courseCode, name, semester FROM course_module ORDER BY semester";
@@ -41,6 +29,8 @@ class AddPastPaperModel extends Model
 
         if($databaseInstance->getTransactionState()){
 
+        }else{
+            echo("<script>createToast('Warning(error code:#PPM01-T)','Failed to submit past Paper.','W')</script>");
         }
         $databaseInstance->closeConnection();
     }

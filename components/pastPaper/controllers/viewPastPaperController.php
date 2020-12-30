@@ -2,7 +2,9 @@
 class ViewPastPaperController extends Controller{
 
     public static function viewPastPaper(){
-        
-        self::createView("viewPastPaperView");
+        $passingSubjects=ViewPastPaperModel::getSubjectData();
+        $recentUploads = ViewPastPaperModel::getRecentUploads();
+        $sendingData = array($passingSubjects, $recentUploads);
+        self::createView("viewPastPaperView",$sendingData);
     }
 }

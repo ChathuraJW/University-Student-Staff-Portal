@@ -76,7 +76,8 @@
 
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../')?>
-    <script src="assets/addPastPaper.js"></script>
     <script src="../../assets/js/jquery.js"></script>
+    <script src="../../assets/js/toast.js"></script>
+    <script src="assets/addPastPaper.js"></script>
 </body>
 </html>
