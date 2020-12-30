@@ -12,7 +12,13 @@ class WorkloadAllocationMessageController extends Controller{
             $workloadID=$_POST['workloadID'];
             WorkLoadAllocationModel::setWorkload($members,$workloadID);
             // self::createView("workloadAllocationMessageView",$members);
+            echo ("
+            <script>
+                window.location.href=document.location.href.toString().split('workloadAllocation')[0]+'workloadAllocation';
+            </script>
+        ");
         }
+ 
 
     }
     

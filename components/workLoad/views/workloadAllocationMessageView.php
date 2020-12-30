@@ -24,21 +24,26 @@
             <div>
                 <!-- in this div list the all new requests -->
                 <h3 class="head">Workload Requests</h3>
-                <?php 
-                    $records=$controllerData;
-                    foreach($records as $record){
-                        $url="?fullName=".$record->getFullName()."&workLoadDescription=".$record->getWorkLoadDescription()."&title=".$record->getTitle()."&location=".$record->getLocation()."&Date=".$record->getDate()."&fromTime=".$record->getFromTime()."&toTime=".$record->getToTime()."&salutation=".$record->getSalutation()."&requestDate=".$record->getRequestDate()."&workloadOwner=".$record->getWorkLoadOwner()."&workloadID=".$record->getWorkloadID();
-                        echo "
-                        <a style='text-decoration: none;'href='".$url."'  onclick='openMessage()' >
-                            <div class='normalEntry'>
-                                <div>".$record->getSalutation().".".$record->getFullName()."</div>
-                                <div>".$record->getTitle()."</div>
-                                <div style='margin-left:85%;'>".$record->getRequestDate()."</div>
-                            </div>
-                        </a><br>" ;
-                    }
-                ?>
+                <?php $records=$controllerData;?>
+                <?php if(count($records)):?>
 
+                    <?php 
+                        
+                        foreach($records as $record){
+                            $url="?fullName=".$record->getFullName()."&workLoadDescription=".$record->getWorkLoadDescription()."&title=".$record->getTitle()."&location=".$record->getLocation()."&Date=".$record->getDate()."&fromTime=".$record->getFromTime()."&toTime=".$record->getToTime()."&salutation=".$record->getSalutation()."&requestDate=".$record->getRequestDate()."&workloadOwner=".$record->getWorkLoadOwner()."&workloadID=".$record->getWorkloadID();
+                            echo "
+                            <a style='text-decoration: none;'href='".$url."'  onclick='openMessage()' >
+                                <div class='normalEntry'>
+                                    <div>".$record->getSalutation().".".$record->getFullName()."</div>
+                                    <div>".$record->getTitle()."</div>
+                                    <div style='margin-left:85%;'>".$record->getRequestDate()."</div>
+                                </div>
+                            </a><br>" ;
+                        }
+                    ?>
+                <?php else: ?>
+                    <p>Not find to Records</p>
+                <?php endif;?>
             </div >
                 
 
