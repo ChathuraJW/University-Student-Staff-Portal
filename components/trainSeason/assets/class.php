@@ -2,17 +2,51 @@
 
 class User{
     //attributes of User
-    protected $userName;
-    protected $firstName;
-    protected $lastName;
-    protected $personalEmail;
-    protected $universityEmail;
-    protected $gender;
-    protected $address;
-    protected $nic;
-    protected $password;
-    protected $profilePictureURL;
-    protected $teleNo;
+    private $userName;
+    private $firstName;
+    private $lastName;
+     
+    private $address;
+    private $dob;
+
+    public function setUser($userName,$firstName,$lastName,$address,$dob): User{
+        $this->userName=$userName;
+        $this->firstName=$firstName;
+        $this->lastName=$lastName;
+        $this->address=$address;
+        $this->dob=$dob;
+
+        return $this;
+    }
+
+    public function getUserName(): string{
+        return $this->userName;
+        
+    }
+
+    public function getFirstName(): string{
+        return $this->firstName;
+        
+    }
+
+    public function getLastName(): string{
+        return $this->lastName;
+        
+    }
+
+    public function getAddress(): string{
+        return $this->address;
+        
+    }
+    
+    public function getAge(): int{
+        
+        $bday = new DateTime('$this->dob'); // Your date of birth
+        $today = new Datetime(date('m.d.y'));
+        $diff = $today->diff($bday);
+        return $diff->y; 
+        
+    }
 
     //methods of User
 

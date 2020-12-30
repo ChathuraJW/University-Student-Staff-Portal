@@ -1,14 +1,20 @@
 .btn-group{
-    text-align: center;
+    
     font-size: 20px;
     font: bold;
     padding: 5px;
-    box-shadow: 8px 8px 16px 8px rgb(163, 160, 160);
+     
     position: relative;
-    width: 700px;
-    left: 30%;
+    width: 500px;
+    left: 25%;
+     
     
     
+}
+
+.featureBody{
+    font-family: Varela;
+    src: url('../../../assets/font/Varela-Regular.ttf');
 }
 
 /*.container{
@@ -16,26 +22,37 @@
     width: 500px;
     height: 200px;
     position: relative;
-    border: 3px solid green;
+    
 }*/
 
+.container{
+    box-shadow: 0 4px 8px 0 gray;
+    width: 800px;
+    position: relative;
+    left: 20%;
+}
+
 .button{
-    background-color: rgb(148, 16, 56);
-    color: white;
-    text-align: center;
+    background-color: rgb(179, 141, 152);
+    font-weight: normal;
+    color: solid black;
     padding: 10px 15px;
     font-size: 14px;
     cursor: pointer;
-    box-shadow: gray;
+    box-shadow: 0 4px 8px 0 gray;
     border-radius: 4px;
     position: relative;
-    right: 15%;
-    
+    right: 20%;
+    font-size: 20px;
+    text-decoration: none;
+    height: 100px;
+    width: 600px;
 
 }
 
 .application{
     text-decoration: none;
+    color: black;
 }
 
 .checkbox{
