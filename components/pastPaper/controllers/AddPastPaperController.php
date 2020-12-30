@@ -12,21 +12,51 @@ class AddPastPaperController extends Controller{
             $examinationYear = $_POST['examinationYear'];
             $academicYear = $_POST['academicYear'];
             $semester = $_POST['semester'];
-            $subject = $_POST['subject'];
+            $subjectCode = $_POST['subject'];
             $name = $_FILES['myFile']['name'];
             $fileLocation = $_FILES['myFile']['tmp_name'];
-//            echo ($name);
+//            $fileType = $_FILES['myFile']['type'];
+            $fileNameCmps = explode(".", $name);
+            $fileExtension = strtolower(end($fileNameCmps));
+            echo("Extension -  $fileExtension");
 
+//            echo("fileType - $fileType");
             //calculate semester as 1,2,3,4,5,6,7,8
             $semList = array(array(1, 2), array(3, 4), array(5, 6), array(7, 8));
 	        $realSemester = $semList[$academicYear - 1][$semester - 1];
-	        //to add
-            $pastPaperDetail = new PastPaper();
-            $pastPaperDetail->setPastPaper($subject, $examinationYear, $semester);
-	        $isSuccess =  AddPastPaperModel::addPastPaperDetails($pastPaperDetail);
 
+	        //get subject name according to the subject code
+	        $subjectName = AddPastPaperModel::getSubjectName($subjectCode);
 
-            echo("$examinationYear, $academicYear, $realSemester, $subject, $fileLocation");
+	        //semester in words
+            if($semester == 1){
+                $semesterInWords = "First Semester";
+            }else{
+                $semesterInWords = "Second Semester";
+            }
+
+            //Academic year in words
+            if($academicYear == 1){
+                $academicYearInWords = "First Year";
+            }else if($academicYear == 2){
+                $academicYearInWords = "Second Year";
+            }else if($academicYear == 3){
+                $academicYearInWords = "Third Year";
+            }else{
+                $academicYearInWords = "Fourth Year";
+            }
+
+            if($fileExtension == 'pdf' || $fileExtension == 'zip'){
+                //create the past paper name according to the paper detail
+                $paperName = "$subjectCode-$subjectName-$examinationYear $academicYearInWords,$semesterInWords.$fileExtension";
+                echo("$paperName");
+                //to add
+                $pastPaperDetail = new PastPaper();
+                $pastPaperDetail->setPastPaper($subjectCode, $examinationYear, $semester,$paperName);
+//	            $isSuccess =  AddPastPaperModel::addPastPaperDetails($pastPaperDetail);
+            }
+
+//            echo("$examinationYear, $academicYear, $realSemester, $subjectCode, $fileLocation");
         }
     }
 }
