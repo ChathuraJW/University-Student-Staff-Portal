@@ -9,7 +9,7 @@ class User{
     private $address;
     private $dob;
 
-    public function setUser($userName,$firstName,$lastName,$address,$dob): User{
+    public function setUser($fullName,$regNo,$address,$dob): User{
         $this->userName=$userName;
         $this->firstName=$firstName;
         $this->lastName=$lastName;
@@ -19,18 +19,13 @@ class User{
         return $this;
     }
 
-    public function getUserName(): string{
-        return $this->userName;
+    public function getFullName(): string{
+        return $this->fullName;
         
     }
 
-    public function getFirstName(): string{
-        return $this->firstName;
-        
-    }
-
-    public function getLastName(): string{
-        return $this->lastName;
+    public function getRegName(): string{
+        return $this->regNo;
         
     }
 
@@ -81,7 +76,7 @@ class Timetable {
     // attributes of Timetable
     private $entryID;
     private $hallID;
-    private $subjectCode $string;
+    private $subjectCode;
     private $conductingLecture;
     private $group;
     private $day;
@@ -314,7 +309,7 @@ class NotificationType{
 }
 class AssignmentType{
     // attributes of AssignmentType
-    private $assignmentName:
+    private $assignmentName;
     private $assingmentCode;
 }
 class Assignment{
@@ -356,15 +351,7 @@ class EnrollmentDetails{
     private $enrolledDate;
     private $semester;
     // methods of EnrollmentDetails
-    protected function makeEnrollment(){
-
-    }
-    protected function makeEnrollment(){
-
-    }
-    protected function makeEnrollmentDeactivated(){
-
-    }
+     
 }
 class SelectedGroupMessage{
     // attribute of SelectedGroupMessage

@@ -30,16 +30,24 @@
 
                 <form method="POST" class="application">
                   <label for="fullName" class="inputLabel fullName">Full Name:</label><br>
-                  <input type="text" id="fullName" name="fullName" class="input fullNameText"><br><br>
-                  <label for="name" class="inputLabel name">Name with initials:</label><br>
-                  <input type="text" id="name" name="name" class="input nameText"><br><br>
+                  <?php
+                    foreach($controllerData as $data){
+                      echo ("
+                        <input type='text' id='fullName' name='fullName' class='input fullNameText' style='width:100%; value='$data->getFullName()'> 
+                      ");
+                    }
+                  ?>
+                  <br><br>
+                  <label for="userName" class="inputLabel name">Name With Initials:</label><br>
+                  <input type="text" id="name" name="name" class="input nameText" style="width:100%;"><br><br>
                   <label for="regNo" class="inputLabel regNo">Registration Number:</label><br>
-                  <input type="text" id="regNo" name="regNo" class="input regNoText"><br><br>
+                  <input type="text" id="regNo" name="regNo" class="input regNoText" style="width:100%;"><br><br>
+                  <label for="academicYear" class="inputLabel name">Academic Year:</label><br>
                   <select name="acYear" id="acYear" required>
                   </select>
-
+                  <br><br>
                   <label for="address" class="inputLabel name">Address:</label><br>
-                  <input type="text" id="address" name="address" class="input nameText"><br><br>
+                  <input type="text" id="address" name="address" class="input nameText" style="width:100%;"><br><br>
 
                   <label for="address" class="inputLabel name">Age:</label><br>
                   <input type="text" id="age" name="age" class="input nameText"><br><br>
