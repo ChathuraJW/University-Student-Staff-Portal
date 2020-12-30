@@ -16,20 +16,24 @@ class ViewPastPaperModel extends Model{
     }
 
     public static function getRecentUploads():array{
-        $sqlQuery = "SELECT paperID, subjectCode, yearOfExam, semester FROM pastpaper ORDER BY paperID DESC LIMIT 10";
+        $sqlQuery = "SELECT paperID, subjectCode, yearOfExam, semester, fileName FROM pastpaper ORDER BY paperID DESC LIMIT 15;";
         $recentUploads = Database::executeQuery('root','',$sqlQuery);
 
         $pastPaperList = array();
         foreach ($recentUploads as $row){
             $newPastPaper = new PastPaper();
-            $newPastPaper->setPastPaper($row['paperID'],$row['subjectCode'],$row['yearOfExam'],$row['semester']);
+            $newPastPaper->setPastPaper($row['paperID'],$row['subjectCode'],$row['yearOfExam'],$row['semester'],$row['fileName']);
             $pastPaperList[] = $newPastPaper;
+//            print_r($newPastPaper->getPaperName());
 
         }
+//        print_r($pastPaperList);
         return $pastPaperList;
     }
+    
 
-    public static function showSearchResult(){
+    public static function showSearchResult($examinationYear,$realSemester,$subject){
+
 
     }
 

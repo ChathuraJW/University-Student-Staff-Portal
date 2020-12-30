@@ -25,7 +25,7 @@
                     <div class="dropdownContainer row col-2">
                         <div>
                             <label class="labelStyle">Examination Year:</label>
-                            <select name="examinationYear">
+                            <select name="examinationYear" required>
                                 <option value="0"></option>
                                 <option value=2016>2016</option>
                                 <option value=2017>2017</option>
@@ -35,7 +35,7 @@
                         </div>
                         <div>
                             <label class="labelStyle">Academic Year:</label>
-                            <select name="academicYear">
+                            <select name="academicYear" required>
                                 <option value="0"></option>
                                 <option value=1>First Year</option>
                                 <option value=2>Second Year</option>
@@ -47,7 +47,7 @@
                     <div class=" dropdownContainer row col-2">
                         <div>
                             <label class="labelStyle">Semester:</label>
-                            <select name="semester">
+                            <select name="semester" required>
                                 <option value="0"></option>
                                 <option value=1>First Semester</option>
                                 <option value=2>Second Semester</option>
@@ -55,7 +55,7 @@
                         </div>
                         <div>
                             <label class="labelStyle">Subject:</label><br>
-                            <select name="subject">
+                            <select name="subject" required>
                                 <option value="0"></option>
                                 <?php
                                 foreach ($controllerData[0] as $row ){
@@ -77,50 +77,23 @@
                         <label class="labelStyle" >Resent Uploads:</label>
                         <hr>
                         <div style="overflow: hidden" class="row col-5">
-                            <div class="paperDetails">
-                                <a class="subjectName" href="#"><span >SCS2214 - Information and system security 2019 <br> Second Year, Second Semester</span></a>
-                            </div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div class="download">
-                                <a class="pastPapers" href="#">  <i class="fa fa-download" aria-hidden="true"></i></a>
-                            </div>
+                            <?php
+                            foreach ($controllerData[1] as $recent ){
+                                echo ("
+                                    <div class='paperDetails'>
+                                        <a class='subjectName' href=''><span >".$recent->getPaperName()."</span></a>
+                                    </div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div class='download'>
+                                        <a class='pastPapers' href='#'>  <i class='fa fa-download' aria-hidden='true'></i></a>
+                                    </div>
+                                ");
+                            }
+                            ?>
                         </div>
-                        <!-- sample data -->
-                        <div style="overflow: hidden" class="row col-5">
-                            <div class="paperDetails">
-                                <a class="subjectName" href="#"><span >SCS2201 - Data Structures and algorithm-2 2016 <br> First Year, Second Semester</span></a>
-                            </div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div class="download">
-                                <a class="pastPapers" href="#">  <i class="fa fa-download" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                        <div style="overflow: hidden" class="row col-5">
-                            <div class="paperDetails">
-                                <a class="subjectName" href="#"><span >SCS2213 - Electronics and physical computing 2016 <br> Second Year, Second Semester</span></a>
-                            </div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div class="download">
-                                <a class="pastPapers" href="#">  <i class="fa fa-download" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                        <div style="overflow: hidden" class="row col-5">
-                            <div class="paperDetails">
-                                <a class="subjectName" href="#"><span >SCS2212 - Automata Theory 2018 <br> Second Year, Second Semester</span></a>
-                            </div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div class="download">
-                                <a class="pastPapers" href="#">  <i class="fa fa-download" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
+
                     </div>
                     <div style ="display:none;" class="row col-1" id="searchResult">
                         <label class="labelStyle" >Search Results:</label>
@@ -145,6 +118,8 @@
     </div>
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../')?>
+    <script src="../../assets/js/jquery.js"></script>
+    <script src="../../assets/js/toast.js"></script>
     <script src="assets/viewPastPaper.js"></script>
 </body>
 </html>

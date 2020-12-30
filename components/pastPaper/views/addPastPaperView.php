@@ -62,7 +62,11 @@
                 </div>
                 <div id="dropZone" class="dropZone row col-1">
                     <span  class="dropZonePrompt" id="fileInputLabel">Drop file here or click to upload</span>
-                    <input type="file" name="myFile" id="fileInput" class="dropZoneInput" required>
+                    <input type="file" name="myFile" id="fileInput" class="dropZoneInput" required
+
+
+
+                    >
                 </div>
             </div>
             <div class="buttonCouple">

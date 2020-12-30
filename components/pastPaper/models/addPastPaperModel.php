@@ -56,6 +56,7 @@ class AddPastPaperModel extends Model
         $databaseInstance->closeConnection();
     }
 
+    //TO do apply course module class
     public static function getSubjectName($subjectCode){
         $sqlQuery = "SELECT name FROM course_module WHERE courseCode = '$subjectCode'";
         return Database::executeQuery('root', '',$sqlQuery)[0]['name'];

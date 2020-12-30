@@ -15,7 +15,6 @@ class AddPastPaperController extends Controller{
             $subjectCode = $_POST['subject'];
             $name = $_FILES['myFile']['name'];
             $fileLocation = $_FILES['myFile']['tmp_name'];
-//            $fileType = $_FILES['myFile']['type'];
             $fileNameCmps = explode(".", $name);
             $fileExtension = strtolower(end($fileNameCmps));
 
