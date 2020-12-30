@@ -16,7 +16,7 @@
     <?php BasicLoader::loadHeader('../../')?>
     
     <div class="featureBody bodyBackground text">
-        <form>
+        <form method="post" enctype="multipart/form-data">
             <div class="row col-1">
                 <p class="heading">PastPapers</p>
             </div>
@@ -26,6 +26,7 @@
                         <div>
                             <label class="labelStyle">Examination Year:</label>
                             <select name="examinationYear">
+                                <option value="0"></option>
                                 <option value=2016>2016</option>
                                 <option value=2017>2017</option>
                                 <option value=2018>2018</option>
@@ -35,6 +36,7 @@
                         <div>
                             <label class="labelStyle">Academic Year:</label>
                             <select name="academicYear">
+                                <option value="0"></option>
                                 <option value=1>First Year</option>
                                 <option value=2>Second Year</option>
                                 <option value=3>Third Year</option>
@@ -46,13 +48,15 @@
                         <div>
                             <label class="labelStyle">Semester:</label>
                             <select name="semester">
+                                <option value="0"></option>
                                 <option value=1>First Semester</option>
                                 <option value=2>Second Semester</option>
                             </select>
                         </div>
                         <div>
-                            <label class="labelStyle">Subject:</label>
+                            <label class="labelStyle">Subject:</label><br>
                             <select name="subject">
+                                <option value="0"></option>
                                 <?php
                                 foreach ($controllerData[0] as $row ){
                                     echo ("
@@ -64,10 +68,8 @@
                         </div>
                     </div>
                     <div class="buttonCouple">
-                            <button class="button"> Cancel</button>
-
-                            <button class="button"type="button" onclick="searchResulta();"> Search</button>
-
+                            <button class="button" name="reset"> Cancel</button>
+                            <button class="button" type="button" name="search" onclick="searchResulta();"> Search</button>
                     </div>
                 </div>
                 <div>
@@ -135,9 +137,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                    
-                    
                 </div>
             </div>
         </form>

@@ -19,7 +19,7 @@
         <div class="row col-1">
             <P class="heading">Add PastPaper</P>
         </div>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div class="row col-2">
                 <div class="row col-2">
                     <div>
@@ -51,7 +51,7 @@
                         <label class="labelStyle">Subject:</label><br>
                         <select name="subject">
                             <?php
-                            foreach ($controllerData[0] as $row ){
+                            foreach ($controllerData as $row ){
                                 echo ("
                                     <option value='".$row->getCourseCode()."'>".$row->getName()."</option>
                                 ");

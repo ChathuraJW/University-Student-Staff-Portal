@@ -29,4 +29,8 @@ class ViewPastPaperModel extends Model{
         return $pastPaperList;
     }
 
+    public static function showSearchResult(){
+
+    }
+
 }

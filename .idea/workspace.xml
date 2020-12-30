@@ -42,7 +42,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="VAR" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../bin/php/php7.4.0/php.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -58,6 +58,7 @@
       <workItem from="1607949921710" duration="767000" />
       <workItem from="1608001295177" duration="6370000" />
       <workItem from="1608696887843" duration="8696000" />
+      <workItem from="1609301261382" duration="2860000" />
     </task>
     <servers />
   </component>
@@ -74,6 +75,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="221" y="0" key="#CLI_Interpreters" timestamp="1608005975707">
@@ -88,10 +90,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="766" y="56" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1608007509886" />
-    <state x="421" y="95" key="FileChooserDialogImpl" timestamp="1608005970621">
+    <state x="421" y="95" key="FileChooserDialogImpl" timestamp="1609301256902">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1608005970621" />
+    <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1609301256902" />
     <state width="409" height="45" key="GridCell.Tab.0.bottom" timestamp="1609226558227">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -120,6 +122,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1608005982123" />
+    <state x="73" y="0" width="1221" height="668" key="dock-window-1" timestamp="1609300436543">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="73" y="0" width="1221" height="668" key="dock-window-1/0.0.1280.680@0.0.1280.680" timestamp="1609300436543" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1608006412076">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

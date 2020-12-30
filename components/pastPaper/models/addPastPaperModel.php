@@ -23,11 +23,15 @@ class AddPastPaperModel extends Model
         $databaseInstance->establishTransaction('root','');
         $sqlQuery = "INSERT INTO pastpaper(subjectCode, yearOfExam, semester) VALUES ('".$pastPaper->getSubjectCode()."',".$pastPaper->getExaminationYear().",".$pastPaper->getSemester().")";
         $databaseInstance->executeTransaction($sqlQuery);
-//        create audit trail
-        $databaseInstance->transactionAudit($sqlQuery,'pastpaper', 'PastPaper uploaded to the system.' );
         echo($sqlQuery);
+//        create audit trail
+        $databaseInstance->transactionAudit($sqlQuery,'pastpaper', 'INSERT',"PastPaper uploaded to the system." );
+
 
         if($databaseInstance->getTransactionState()){
+            if($databaseInstance->commitToDatabase()){
+                echo("success");
+            }
 
         }else{
             echo("<script>createToast('Warning(error code:#PPM01-T)','Failed to submit past Paper.','W')</script>");
