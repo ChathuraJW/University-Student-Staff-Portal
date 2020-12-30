@@ -21,18 +21,35 @@ class AddPastPaperModel extends Model
     public static function addPastPaperDetails($pastPaper){
         $databaseInstance = new Database();
         $databaseInstance->establishTransaction('root','');
-        $sqlQuery = "INSERT INTO pastpaper(subjectCode, yearOfExam, semester) VALUES ('".$pastPaper->getSubjectCode()."',".$pastPaper->getExaminationYear().",".$pastPaper->getSemester().")";
+        $sqlQuery = "INSERT INTO pastpaper(subjectCode, yearOfExam, semester,fileName) VALUES ('".$pastPaper->getSubjectCode()."',".$pastPaper->getExaminationYear().",".$pastPaper->getSemester().",'".$pastPaper->getPaperName()."')";
         $databaseInstance->executeTransaction($sqlQuery);
-        echo($sqlQuery);
+//        echo($sqlQuery);
 //        create audit trail
         $databaseInstance->transactionAudit($sqlQuery,'pastpaper', 'INSERT',"PastPaper uploaded to the system." );
 
 
         if($databaseInstance->getTransactionState()){
-            if($databaseInstance->commitToDatabase()){
-                echo("success");
-            }
+            $name = $_FILES['myFile']['name'];
+            $tempName = $_FILES['myFile']['tmp_name'];
+            if(isset($name) and !empty($tempName)){
+                $location = './assets/pastPapers/';
+                $fileName = $pastPaper->getPaperName();
+                echo("File name- $fileName");
+                if(move_uploaded_file($tempName, $location . $fileName)){
+                    //commit to database
+                    if($databaseInstance->commitToDatabase()) {
+                        echo("<script>createToast('Success','Past paper successfully uploaded','S')</script>");
+                    }else{
+                        echo("<script>createToast('Warning(error code:#PPM01-T)','Failed to submit past Paper.','W')</script>");
+                    }
+                }else{
+                    echo("<script>createToast('Warning(error code:#PPM01-T)','Failed to submit past Paper.','W')</script>");
 
+                }
+            }else{
+                echo("<script>createToast('Warning(error code:#PPM01-T)','Failed to submit past Paper.','W')</script>");
+
+            }
         }else{
             echo("<script>createToast('Warning(error code:#PPM01-T)','Failed to submit past Paper.','W')</script>");
         }

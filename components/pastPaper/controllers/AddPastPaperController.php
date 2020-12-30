@@ -18,9 +18,7 @@ class AddPastPaperController extends Controller{
 //            $fileType = $_FILES['myFile']['type'];
             $fileNameCmps = explode(".", $name);
             $fileExtension = strtolower(end($fileNameCmps));
-            echo("Extension -  $fileExtension");
 
-//            echo("fileType - $fileType");
             //calculate semester as 1,2,3,4,5,6,7,8
             $semList = array(array(1, 2), array(3, 4), array(5, 6), array(7, 8));
 	        $realSemester = $semList[$academicYear - 1][$semester - 1];
@@ -46,17 +44,18 @@ class AddPastPaperController extends Controller{
                 $academicYearInWords = "Fourth Year";
             }
 
+            //prevent un allowed file types.
             if($fileExtension == 'pdf' || $fileExtension == 'zip'){
                 //create the past paper name according to the paper detail
                 $paperName = "$subjectCode-$subjectName-$examinationYear $academicYearInWords,$semesterInWords.$fileExtension";
-                echo("$paperName");
+
                 //to add
                 $pastPaperDetail = new PastPaper();
                 $pastPaperDetail->setPastPaper($subjectCode, $examinationYear, $semester,$paperName);
-//	            $isSuccess =  AddPastPaperModel::addPastPaperDetails($pastPaperDetail);
+	            $isSuccess =  AddPastPaperModel::addPastPaperDetails($pastPaperDetail);
+	            //todo success message
             }
 
-//            echo("$examinationYear, $academicYear, $realSemester, $subjectCode, $fileLocation");
         }
     }
 }
