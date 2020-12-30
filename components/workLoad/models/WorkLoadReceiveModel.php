@@ -1,9 +1,10 @@
 <?php
     class WorkLoadReceiveModel extends Model{
         public static function getWorkLoadMessages($sign){
+            $username=$_COOKIE['userName'];
             // print_r($sign);
             $workLoadMessageList=array();
-            $query="SELECT * FROM workload,academic_support_staff_workload,user WHERE academic_support_staff_workload.staffID='kek' AND academic_support_staff_workload.workloadID=workload.workloadID AND user.username=workload.workloadOwner AND academic_support_staff_workload.isChecked=".$sign;
+            $query="SELECT * FROM workload,academic_support_staff_workload,user WHERE academic_support_staff_workload.staffID='".$username."' AND academic_support_staff_workload.workloadID=workload.workloadID AND user.username=workload.workloadOwner AND academic_support_staff_workload.isChecked=".$sign;
             $messages=Database::executeQuery("root","","$query");
             foreach($messages as $message){
                 $newMessage= new AllocatedWorkload;
@@ -17,10 +18,10 @@
         }
       //  // reply function
 
-        public static function setReply($reply,$workloadID){
+        public static function setReply($reply,$workloadID,$response,$username){
             $databaseInstance=new Database;
             $databaseInstance->establishTransaction('root','');
-            $query="UPDATE academic_support_staff_workload SET reply='".$reply."',isChecked=1 WHERE workloadID=".$workloadID;
+            $query="UPDATE academic_support_staff_workload SET reply='".$reply."',isChecked=1,response='".$response."' WHERE workloadID=".$workloadID." AND staffID='".$username."'";
             $databaseInstance->executeTransaction($query);
 
             if($databaseInstance->getTransactionState()){

@@ -22,9 +22,11 @@
         <div class="row col-2" id="main">
 
         <?php $records=$controllerData[0];?>
+        
             <div>
                 <!-- this div will display all the workload allocation messages for specific supportive staff member-->
                 <h3 class="head">Workload Attachments</h3>
+                <?php if(count($records)):?>
                 <?php 
                     foreach($records as $record){
                         // $url="?fullName=".$record->getFullName()."&workLoadDescription=".$record->getWorkLoadDescription()."&title=".$record->getTitle()."&location=".$record->getLocation()."&Date=".$record->getDate()."&fromTime=".$record->getFromTime()."&toTime=".$record->getToTime()."&salutation=".$record->getSalutation()."&fullName=".$record->getFullName()."&requestDate=".$record->getRequestDate();
@@ -46,9 +48,13 @@
                         " ;
                     }
                 ?>
+                <?php else: ?>
+                    <p>Not find to Records</p>
+                <?php endif;?>
 
             </div >
-                
+        
+     
 
             <div class="replyMessageViewer"><!-- View the message content of each message  -->
                 <div >
@@ -97,8 +103,8 @@
                                 </div>
                             </div>
                             <div class="buttonCouple">
-                                <input class="button"type="submit" name="submit" value="Reject">
-                                <input class="button"type="submit" name="submit" value="Accept">
+                                <input class="button"type="submit" name="reject" value="Reject">
+                                <input class="button"type="submit" name="accept" value="Accept">
                             </div>
                         </form>
                         
@@ -114,44 +120,51 @@
                 <h2 class='head' style="margin-bottom:20px;">My Workload</h2>
                 
                 <!-- style='float:right;' -->
-                <?php
-                $newMessages=$controllerData[1];
-                // view all past workload messages of the supportive staff member
-                    foreach($newMessages as $newMessage){
-                        $title=$newMessage->getTitle();
-                        $name=$newMessage->getFullName();
-                        $location=$newMessage->getLocation();
-                        $date=$newMessage->getDate();
-                        $time=$newMessage->getFromTime();
-                        $description=$newMessage->getWorkLoadDescription();
-                        // $reply=$newMessage->getReply();
-                        echo"
-                        <div class='row col-1 normalEntry' onclick='openMsg(`$title`,`$name`,`$location`,`$date`,`$time`,`$description`)'>
-                            <div style='float:right;' >
-                                <!--<div class='data'>Date</div>-->
-                                <div >".$newMessage->getRequestDate()."</div>
+                <?php $newMessages=$controllerData[1];?>
+
+                <?php if(count($newMessages)):?>
+
+                    <?php
+                    
+                    // view all past workload messages of the supportive staff member
+                        foreach($newMessages as $newMessage){
+                            $title=$newMessage->getTitle();
+                            $name=$newMessage->getFullName();
+                            $location=$newMessage->getLocation();
+                            $date=$newMessage->getDate();
+                            $time=$newMessage->getFromTime();
+                            $description=$newMessage->getWorkLoadDescription();
+                            // $reply=$newMessage->getReply();
+                            echo"
+                            <div class='row col-1 normalEntry' onclick='openMsg(`$title`,`$name`,`$location`,`$date`,`$time`,`$description`)'>
+                                <div style='float:right;' >
+                                    <!--<div class='data'>Date</div>-->
+                                    <div >".$newMessage->getRequestDate()."</div>
+                                </div>
+                                <div>
+                                    <div class='dataSet'>
+                                        <div class='data left'>Lecturer</div>
+                                        <div class='data right'>".$newMessage->getSalutation()." ".$newMessage->getFullName()."</div>
+                                    </div>
+                                    <div class='dataSet'>
+                                        <div class='data left'>Title</div>
+                                        <div class='data right'>".$newMessage->getTitle()."</div>
+                                    </div>
+                                    <div class='dataSet'>
+                                        <div class='data left'>Description</div>
+                                        <div class='data right'>".$newMessage->getWorkLoadDescription()."</div>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <div class='dataSet'>
-                                    <div class='data left'>Lecturer</div>
-                                    <div class='data right'>".$newMessage->getSalutation()." ".$newMessage->getFullName()."</div>
-                                </div>
-                                <div class='dataSet'>
-                                    <div class='data left'>Title</div>
-                                    <div class='data right'>".$newMessage->getTitle()."</div>
-                                </div>
-                                <div class='dataSet'>
-                                    <div class='data left'>Description</div>
-                                    <div class='data right'>".$newMessage->getWorkLoadDescription()."</div>
-                                </div>
-                            </div>
-                        </div>
-                        ";
-                    }
-                ?>
-                <div>
-                    <button class="button" onclick="getFile()"><i class="fa fa-file" aria-hidden="true"></i>Download</button>  
-                </div>
+                            ";
+                        }
+                    ?>
+                    <div>
+                        <button class="button" onclick="getFile()"><i class="fa fa-file" aria-hidden="true"></i>Download</button>  
+                    </div>
+                <?php else: ?>
+                    <p>Not find to Records</p>
+                <?php endif;?>
             </div>
 
             <div class="displayContent">
