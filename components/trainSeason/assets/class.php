@@ -9,7 +9,7 @@ class User{
     private $address;
     private $dob;
 
-    public function setUser($fullName,$regNo,$address,$dob): User{
+    public function setUser($firstName,$lastName,$regNo,$address,$dob): User{
         $this->userName=$userName;
         $this->firstName=$firstName;
         $this->lastName=$lastName;
@@ -20,11 +20,12 @@ class User{
     }
 
     public function getFullName(): string{
-        return $this->fullName;
+        return $this->firstName." ".$this->lastName;
         
     }
 
-    public function getRegName(): string{
+
+    public function getRegNo(): string{
         return $this->regNo;
         
     }

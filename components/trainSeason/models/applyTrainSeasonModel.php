@@ -4,14 +4,16 @@
             $userName = $_COOKIE['userName'];
             $sqlQuery = "SELECT * FROM user WHERE userName='$userName'";
             
-            $userData=Database::executeQuery("root","",$sqlQuery);
-            $userDataList=array();
-            foreach($userData as $data){
+            $userData=Database::executeQuery("root","",$sqlQuery)[0];
+            print_r($userData);
+            if($userData){
                 $newUserData = new User();
-                $newUserData->setUser($data['fullName'],$data['userName'],$data['address'],$data['dob']);
-                $userDataList=$newUserData;
+                $newUserData->setUser($userData['firstName'],$userData['lastName'],$userData['userName'],$userData['address'],$userData['dob']);
+                return $newUserData;
+            }else{
+                return false;
             }
-            return $userDataList;
+            
         }
          
 
@@ -23,7 +25,7 @@
             $insertDataList = array();
             foreach($insertData as $data){
                 $newInsertData = new TrainSeason();
-                $newInsertData->set
+                
             }
         }
     }
