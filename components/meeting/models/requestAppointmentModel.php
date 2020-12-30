@@ -1,12 +1,35 @@
 <?php
     class RequestAppointmentModel extends Model{                              
         public static function insertData($lecturer,$typecode,$title,$timeDuration,$message,$studentID,$date,$time){
-            
+            $databaseInstance=new Database;
+            $databaseInstance->establishTransaction('root','');
             $timestamp=date('Y-m-d H:i:s');
 
             $query="INSERT INTO meeting_appointment(studentID,staffID, title, message, type, meetingDuration, timestamp,appointmentTIme,appointmentDate) VALUES ('$studentID','$lecturer','$title','$message',$typecode,'$timeDuration','$timestamp','$time','$date')";
-            Database::executeQuery("student","student@16",$query);
-            self::createAudit($query, 'meeting_appointment', "INSERT", 'Insert a new Appointment Message into the system.');
+            $databaseInstance->executeTransaction($query);
+            if($databaseInstance->getTransactionState()){
+
+                $databaseInstance->transactionAudit($query, 'meeting_appointment', "INSERT", 'Insert a new Appointment Message into the system.');
+                
+                if($databaseInstance->getTransactionState()){
+                    if($databaseInstance->commitToDatabase()){
+        //                display success message
+                        echo("<script>createToast('Success','Request a Meeting Appointment Message successfully.','S');</script>");
+                    }
+                }
+                else{
+    //                display fail message
+                    echo("<script>createToast('Warning (error code: #WLR01)','Failed to Request .','W')</script>");
+                }
+            }
+            else{
+                echo("<script>createToast('Warning (error code: #WLR01)','Failed to Request  .','W')</script>");
+
+            }
+            $databaseInstance->closeConnection();
+
+            // Database::executeQuery("student","student@16",$query);
+            // self::createAudit($query, 'meeting_appointment', "INSERT", 'Insert a new Appointment Message into the system.');
         }
         public static function getData($studentID){
             $appointmentList= array();

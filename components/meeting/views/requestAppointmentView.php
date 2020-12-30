@@ -18,7 +18,7 @@
     <?php BasicLoader::loadHeader('../../') ?>
     
     <!-- feature body section -->
-    <div class="featureBody" >
+    <div class="featureBody bodyBackground text" >
         <div class="navigationBar">
             <button id="linkFirst"  class="navigationLink" style="background-color: rgb(58, 189, 212);" onclick="openTab('tabFirst');hover('linkFirst');">New Appointment</button>
             <button id="linkSecond" class="navigationLink" onclick="openTab('tabSecond');hover('linkSecond');">Lecturer Availability</button>
@@ -118,7 +118,7 @@
                         
                         </select> <br>
                     <div class="row col-1">
-                        <input  class="dataRaws" type="text"  name="title" placeholder="Title"><br>
+                        <input style="width:100%;" class="dataRaws" type="text"  name="title" placeholder="Title"><br>
                     </div>
 
                     <!-- <div class="row col-1">
@@ -141,10 +141,10 @@
                     </div>
 
                     <div class="row col-1">
-                        <input id="submitButton" class="button" type="submit" name="submit" value="Submit">
+                        <input style="width:100%;" id="submitButton" class="button" type="submit" name="submit" value="Submit">
                     </div>
                     <div class="row col-1">
-                        <input id="resetButton" class="button" type="reset" value="Reset">
+                        <input style="width:100%;" id="resetButton" class="button" type="reset" value="Reset">
                     </div>
 
                 </form>

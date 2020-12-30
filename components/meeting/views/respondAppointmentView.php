@@ -35,14 +35,14 @@
                             foreach($records as $record){
                                 
                                 
-                                $url="?appointID=".$record['appointmentID']."&category1=".$category1."&studentID=".$record['studentID']."&title=".$record['title']."&message=".$record['message']."&duration=".$record['meetingDuration']."&time=".$record['timestamp']."&isApproved=".$record['isApproved']."&type=".$record['type']."&validity=".$record['requesValidity'];
-                                if($record['type']==5100){ 
+                                $url="?appointID=".$record->getAppointmentID()."&category1=".$category1."&studentID=".$record->getStudentID()."&title=".$record->getTitle()."&message=".$record->getMessage()."&duration=".$record->getMeetingDuration()."&time=".$record->getTimestamp()."&isApproved=".$record->getIsApproved()."&type=".$record->getType()."&validity=".$record->getRequestValidity();
+                                if($record->getTitle()==5100){ 
                                     $background= "linear-gradient(to bottom right, rgb(130, 164, 182),white)";
                                 }
-                                elseif($record['type']==5200){
+                                elseif($record->getTitle()==5200){
                                     $background= "linear-gradient(to bottom right, rgb(255, 254, 183),white)";
                                 }
-                                elseif($record['type']==5300){
+                                elseif($record->getTitle()==5300){
                                     $background= "linear-gradient(to bottom right, rgb(231, 179, 208),white)";
                                 }
                                 else{
@@ -51,8 +51,8 @@
 
                                 echo("
                                     <div class='row col-1' onclick='close()'>
-                                        <a href='".$url."' id='".$record['appointmentID']."' class='appointment respond' style='background:$background;' ><div class='appointmentDescription messageHead'>".$record['title']."</div><br><div class='appointmentDescription'>".substr($record['message'], 0, 80).".....</div><div class='appointmentDescription'style='float:right;'> <i class='fa fa-clock-o' aria-hidden='true'></i>
-                                        ".$record['timestamp']."</div></a><br>
+                                        <a href='".$url."' id='".$record->getAppointmentID()."' class='appointment respond' style='background:$background;' ><div class='appointmentDescription messageHead'>".$record->getTitle()."</div><br><div class='appointmentDescription'>".substr($record->getMessage(), 0, 80).".....</div><div class='appointmentDescription'style='float:right;'> <i class='fa fa-clock-o' aria-hidden='true'></i>
+                                        ".$record->getTimestamp()."</div></a><br>
                                     </div>
                                 ");
                                 
@@ -80,13 +80,13 @@
                             
                                 foreach($dataSet as $data){ 
                                     
-                                    $url2="?appointID=".$data['appointmentID']."&category2=".$category2."&studentID=".$data['studentID']."&title=".$data['title']."&message=".$data['message']."&duration=".$data['meetingDuration']."&time=".$data['timestamp']."&isApproved=".$data['isApproved']."&type=".$data['type']."&validity=".$data['requesValidity'];
+                                    $url2="?appointID=".$data->getAppointmentID()."&category2=".$category2."&studentID=".$data->getStudentID()."&title=".$data->getTitle()."&message=".$data->getMessage()."&duration=".$data->getMeetingDuration()."&time=".$data->getTimestamp()."&isApproved=".$data->getIsApproved()."&type=".$data->getType()."&validity=".$data->getRequestValidity();
                                         
                                     echo("
                                         <div class='row col-1'>
                                         
-                                            <a href='".$url2."' id='".$data['isApproved']."' class='appointment' ><div class='appointmentDescription messageHead'>".$data['title']."</div><br><div class='appointmentDescription'>".substr($data['message'], 0, 80).".....</div><div class='appointmentDescription'style='float:right;'> <i class='fa fa-clock-o' aria-hidden='true'></i>
-                                            ".$data['timestamp']."</div></a><br>
+                                            <a href='".$url2."' id='".$data->getIsApproved()."' class='appointment' ><div class='appointmentDescription messageHead'>".$data->getTitle()."</div><br><div class='appointmentDescription'>".substr($data->getMessage(), 0, 80).".....</div><div class='appointmentDescription'style='float:right;'> <i class='fa fa-clock-o' aria-hidden='true'></i>
+                                            ".$data->getTimestamp()."</div></a><br>
                                         
                                         </div>
                                     ");
