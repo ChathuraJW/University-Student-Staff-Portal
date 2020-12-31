@@ -16,13 +16,13 @@ class ViewPastPaperModel extends Model{
     }
 
     public static function getRecentUploads():array{
-        $sqlQuery = "SELECT paperID, subjectCode, yearOfExam, semester, fileName FROM pastpaper ORDER BY paperID DESC LIMIT 15;";
+        $sqlQuery = "SELECT  subjectCode, yearOfExam, semester, fileName FROM pastpaper ORDER BY paperID DESC LIMIT 15;";
         $recentUploads = Database::executeQuery('root','',$sqlQuery);
 
         $pastPaperList = array();
         foreach ($recentUploads as $row){
             $newPastPaper = new PastPaper();
-            $newPastPaper->setPastPaper($row['paperID'],$row['subjectCode'],$row['yearOfExam'],$row['semester'],$row['fileName']);
+            $newPastPaper->setPastPaper($row['subjectCode'],$row['yearOfExam'],$row['semester'],$row['fileName']);
             $pastPaperList[] = $newPastPaper;
 //            print_r($newPastPaper->getPaperName());
 
@@ -30,11 +30,22 @@ class ViewPastPaperModel extends Model{
 //        print_r($pastPaperList);
         return $pastPaperList;
     }
-    
 
     public static function showSearchResult($examinationYear,$realSemester,$subject){
+        $sqlQuery = "SELECT subjectCode, yearOfExam, semester, fileName FROM pastpaper WHERE subjectCode='$subject' OR yearOfExam=$examinationYear OR semester=$realSemester ";
+        echo($sqlQuery);
+        $rearchResult = Database::executeQuery('root','',$sqlQuery);
 
+        $pastPaperList = array();
+        foreach ($rearchResult as $row){
+            $newPastPaper = new PastPaper();
+            $newPastPaper->setPastPaper($row['subjectCode'],$row['yearOfExam'],$row['semester'],$row['fileName']);
+            $pastPaperList[] = $newPastPaper;
+//            print_r($newPastPaper->getPaperName());
 
+        }
+        echo($pastPaperList);
+        return $pastPaperList;
     }
 
 }

@@ -43,8 +43,8 @@ class PastPaper{
     public function getPaperName(){
         return $this->paperName;
     }
-    public function setPastPaper($paperID,$subjectCode, $yearOfExam, $semester, $paperName){
-        $this->paperID = $paperID;
+    public function setPastPaper($subjectCode, $yearOfExam, $semester, $paperName){
+//        $this->paperID = $paperID;
         $this->examinationYear = $yearOfExam;
         $this->subjectCode = $subjectCode;
         $this->semester = $semester;

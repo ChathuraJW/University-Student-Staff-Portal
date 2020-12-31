@@ -26,7 +26,10 @@
                         <div>
                             <label class="labelStyle">Examination Year:</label>
                             <select name="examinationYear" required>
-                                <option value="0"></option>
+                                <option value="0" selected></option>
+                                <?php
+
+                                ?>
                                 <option value=2016>2016</option>
                                 <option value=2017>2017</option>
                                 <option value=2018>2018</option>
@@ -36,7 +39,7 @@
                         <div>
                             <label class="labelStyle">Academic Year:</label>
                             <select name="academicYear" required>
-                                <option value="0"></option>
+                                <option value="0" selected></option>
                                 <option value=1>First Year</option>
                                 <option value=2>Second Year</option>
                                 <option value=3>Third Year</option>
@@ -48,7 +51,7 @@
                         <div>
                             <label class="labelStyle">Semester:</label>
                             <select name="semester" required>
-                                <option value="0"></option>
+                                <option value="0" selected></option>
                                 <option value=1>First Semester</option>
                                 <option value=2>Second Semester</option>
                             </select>
@@ -56,7 +59,7 @@
                         <div>
                             <label class="labelStyle">Subject:</label><br>
                             <select name="subject" required>
-                                <option value="0"></option>
+                                <option value="0" selected></option>
                                 <?php
                                 foreach ($controllerData[0] as $row ){
                                     echo ("
@@ -69,19 +72,20 @@
                     </div>
                     <div class="buttonCouple">
                             <button class="button" name="reset"> Cancel</button>
-                            <button class="button" type="button" name="search" onclick="searchResulta();"> Search</button>
+                            <button class="button" type="submit" name="search" id="searchPastPaper" onclick="searchResulta();"> Search</button>
                     </div>
                 </div>
                 <div>
                     <div class="row col-1" id="recentDetail">
-                        <label class="labelStyle" >Resent Uploads:</label>
+                        <label class="labelStyle" ><?php echo($controllerData[2]); ?></label>
                         <hr>
                         <div style="overflow: hidden" class="row col-5">
                             <?php
+//                            print_r($controllerData[1]);
                             foreach ($controllerData[1] as $recent ){
                                 echo ("
                                     <div class='paperDetails'>
-                                        <a class='subjectName' href=''><span >".$recent->getPaperName()."</span></a>
+                                        <a class='subjectName' href='assets/pastPapers/".$recent->getPaperName()."' target='_blank'><span >".$recent->getPaperName()."</span></a>
                                     </div>
                                     <div></div>
                                     <div></div>
@@ -95,22 +99,6 @@
                         </div>
 
                     </div>
-                    <div style ="display:none;" class="row col-1" id="searchResult">
-                        <label class="labelStyle" >Search Results:</label>
-                        <hr>
-                        <div style="overflow: hidden" class="row col-5">
-                            <div class="paperDetails">
-                                <a class="subjectName" href="#"><span >SCS2214 - Information and system security 2019 <br> Second Year, Second Semester</span></a>
-                            </div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div class="download">
-                                <a class="pastPapers" href="#">  <i class="fa fa-download" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </form>
 

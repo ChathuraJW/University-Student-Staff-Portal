@@ -50,7 +50,7 @@ class AddPastPaperController extends Controller{
 
                 //to add
                 $pastPaperDetail = new PastPaper();
-                $pastPaperDetail->setPastPaper($subjectCode, $examinationYear, $semester,$paperName);
+                $pastPaperDetail->setPastPaper($subjectCode, $examinationYear, $realSemester,$paperName);
 	            $isSuccess =  AddPastPaperModel::addPastPaperDetails($pastPaperDetail);
 	            //todo success message
             }

@@ -3,9 +3,7 @@ class ViewPastPaperController extends Controller{
 
     public static function viewPastPaper(){
         $passingSubjects=ViewPastPaperModel::getSubjectData();
-        $recentUploads = ViewPastPaperModel::getRecentUploads();
-        $location = ViewPastPaperModel::getLocation();
-        $sendingData = array($passingSubjects, $recentUploads,$location);
+
 
 
         if(isset($_POST['search'])){
@@ -18,10 +16,14 @@ class ViewPastPaperController extends Controller{
             $semList = array(array(1, 2), array(3, 4), array(5, 6), array(7, 8));
             $realSemester = $semList[$academicYear - 1][$semester - 1];
 
+            echo("$examinationYear, $realSemester,$subject, $academicYear");
+            $searchResults = ViewPastPaperModel::showSearchResult($examinationYear,$realSemester,$subject);
 
-            $isSuccess = ViewPastPaperModel::showSearchResult($examinationYear,$realSemester,$subject);
-
+            $sendingData = array($passingSubjects, $searchResults,"Search Results");
+            self::createView("viewPastPaperView",$sendingData);
         }else{
+            $recentUploads = ViewPastPaperModel::getRecentUploads();
+            $sendingData = array($passingSubjects, $recentUploads,"Recent Uploads");
             self::createView("viewPastPaperView",$sendingData);
         }
     }
