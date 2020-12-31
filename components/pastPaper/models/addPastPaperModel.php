@@ -5,17 +5,23 @@ class AddPastPaperModel extends Model
 {
 
 
-    public static function getSubjectData(){
+    public static function getSubjectData():array|bool{
         $sqlQuery = "SELECT courseCode, name, semester FROM course_module ORDER BY semester";
         $subjects = Database::executeQuery('root','',$sqlQuery);
 
-        $subjectList = array();
-        foreach ($subjects as $row){
-            $newSubject = new courseModule();
-            $newSubject->setCourseModule($row['courseCode'], $row['name'], $row['semester']);
-            $subjectList[] = $newSubject;
+//        initialize the returning array
+        if($subjects){
+            $subjectList = array();
+            foreach ($subjects as $row){
+                $newSubject = new courseModule();
+                $newSubject->setCourseModule($row['courseCode'], $row['name'], $row['semester']);
+                $subjectList[] = $newSubject;
+            }
+            return $subjectList;
+        }else{
+           return false;
         }
-        return $subjectList;
+
     }
 
     public static function addPastPaperDetails($pastPaper){
@@ -57,10 +63,17 @@ class AddPastPaperModel extends Model
     }
 
     //TO do apply course module class
-    public static function getSubjectName($subjectCode){
+    public static function getSubjectName($subjectCode):array|bool{
         $sqlQuery = "SELECT name FROM course_module WHERE courseCode = '$subjectCode'";
-        return Database::executeQuery('root', '',$sqlQuery)[0]['name'];
+        $subjectName = Database::executeQuery('root', '',$sqlQuery)[0]['name'];
 
+//        initialize the returning array
+        if($subjectName){
+            return $subjectName;
+        }
+        else{
+            return false;
+        }
     }
 
 }
