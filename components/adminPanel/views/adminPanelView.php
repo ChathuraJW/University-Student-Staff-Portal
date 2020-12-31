@@ -129,8 +129,59 @@
 
 
             </div>
-            <div class="taskPage">
+            <div class="taskPage">  
+                <div class="">
+                    <div class="heading">Subject Management</div>
+                    <div id="coursePage" style="display:none;">
+                        <div class="addCourse"><i class="fa fa-plus" aria-hidden="true"></i> ADD New Course</div>
+                        <?php
+                            $records=$controllerData;
+                            foreach($records as $record){
+                                echo "
+                                <div class='courseTab'>
+                                    <div class='courseName'>".$record->getCourseCode()."   ".$record->getName()."</div>
+                                    <div class='courseEdit'>EDIT</div>
+                                    <div class='courseDelete'>DELETE</div>
+                                </div>
 
+                                ";
+                            }
+                            
+                        ?>
+                    </div>
+                    <div class="heading" style="font-size:20px;" id="headingEdit">EDIT Course</div>
+                    <form action="" method="post">
+                        <div class="dataForm" id="courseDetailForm">
+                            <div class="inputDiv">
+                                <label class="labelField" for="courseCode">Course Code</label>
+                                <input class="inputField" id="courseCode" type="text">
+                            </div>
+                            <div class="inputDiv">
+                                <label class="labelField" for="courseName">Course Name</label>
+                                <input class="inputField" id="courseName" type="text">
+                            </div>
+                            <div class="inputDiv">
+                                <label class="labelField" for="semester">Semester</label>
+                                <input class="inputField" id="semester" type="text">
+                            </div>
+                            <div class="inputDiv">
+                                <label class="labelField" for="creditValue">Credit Value</label>
+                                <input class="inputField" id="creditValue" type="text">
+                            </div>
+                            <div class="inputDiv">
+                                <label class="labelField" style="vertical-align:top;" for="description">Description</label>
+                                <textarea class="inputField" id="description" name="" id="" cols="30" rows="10"></textarea>
+                            </div>
+
+                            
+                        </div>
+                        <div class="buttonDual">
+                            <input type="button" value="Cancel" class="buttonSet">
+                            <input type="submit" value="Submit" class="buttonSet">
+                        </div>
+                    </form>
+                </div>
+                
             </div>
         </div>
     </div>
