@@ -1,5 +1,21 @@
 <?php
     class ApplyTrainSeasonModel extends Model{
+        public static function getHistory(){
+            $usName = $_COOKIE['userName'];
+            $sqlQueryGetHistory = "SELECT * request_train_season WHERE userName='$usName'";
+
+            $requesterData = Database::executeQuery("root","",$sqlQueryGetHistory);
+            if($requesterData){
+                $newRequesterData= new TrainSeason();
+                
+                $newRequesterData->setData($requesterData['requester'],$requesterData['academicYear'],$requesterData['age'],$requesterData['address'],
+                                            $requesterData['fromMonth'],$requesterData['toMonth'],$requesterData['nearRailwayStationHome'],$requesterData['nearRailwayStationUni']);
+                return $newRequesterData;
+            }else{
+                return false;
+            }
+
+        }
         public static function getData(){
             $userName = $_COOKIE['userName'];
             $sqlQuery = "SELECT * FROM user WHERE userName='$userName'";
@@ -17,15 +33,27 @@
         }
          
 
-        public static function insertData($fullName,$regNo,$address,$fromMonth,$toMonth,$homeStation,$universityStation){
+        public static function insertData($name,$regNo,$address,$fromMonth,$toMonth,$homeStation,$universityStation){
+            $dbObject = new Database();
+            $dbObject->establishTransaction('root','');
             $insertQuery = "INSERT INTO request_train_season(requester,regNo,address,fromMonth,toMonth,nearRailwayStationHome,nearRailwayStationUni)
-            VALUES('$fullName','$regNo','$address','$fromMonth','$toMonth','$homeStation','$universityStation')";
+            VALUES('$name','$regNo','$address','$fromMonth','$toMonth','$homeStation','$universityStation')";
+            //execute the query
+            $dbObject->executeTransaction($insertQuery);
 
-            $insertData = Database::executeQuery("root","",$insertQuery);
-            $insertDataList = array();
-            foreach($insertData as $data){
-                $newInsertData = new TrainSeason();
-                
+            //create audit trial
+            $dbObject->transactionAudit($insertQuery,'request_train_season','INSERT','Insert train season requester data into table.');
+
+            //check transaction state
+            if($dbObject->getTransactionState()){
+                if($dbObject->commitToDatabase()){
+                    echo ("<script>createToast('Success','Operation successfully completed.','S')</script>");
+                }else{
+                    echo ("<script>createToast('Warning(error code: #ERM04)','Failed to confirm.','W')</script>");
+                }
+            }else{
+                echo ("<script>createToast('Warning(error code: #ERM04)','Failed to confirm.','W')</script>");
             }
+            $dbObject->closeConnection();
         }
     }

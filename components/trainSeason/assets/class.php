@@ -123,32 +123,63 @@ class contactUnion{
 }
 class TrainSeason{
     // attributes of TrainSeason
-    private $trainSeasonIndex;
-    private $studentName;
+    
+    private $requester;
     private $academicYear;
-    private $addres;
-    private $contactNumber;
-    private $dob;
-    private $ageToNextBirthDay;
+    private $age;
+    private $address; 
     private $fromMonth;
     private $toMonth;
     private $nearRailwayStationHome;
-    private $nearRailwayStationUnivercity;
-    private $requestId;
-    private $requestDate;
-    private $completeDate;
-    private $collectedDate;
+    private $nearRailwayStationUni;
+     
     // methods of Trainseason
-    protected function requestSeason(){
+    public function setData($requester,$academicYear,$age,$address,$fromMonth,$toMonth,$nearRailwayStationHome,$nearRailwayStationUni){
+        $this->requester = $requester;
+        $this->academicYear = $academicYear;
+        $this->age = $age;
+        $this->address = $address;
+        $this->fromMonth = $fromMonth;
+        $this->toMonth = $toMonth;
+        $this->nearRailwayStationHome = $nearRailwayStationHome;
+        $this->nearRailwayStationUni = $nearRailwayStationUni;
 
+        return $this;
     }
-    protected function setReady(){
 
+    public function getRequester(): string{
+        return $this->requester;
     }
-    protected function setCollect(){
 
+    public function getAcademicYear(): string{
+        return $this->academicYear;
+    }
+
+    public function getAge(): string{
+        return $this->age;
+    }
+
+    public function getAddress(): string{
+        return $this->address;
+    }
+
+    public function getFromMonth(): string{
+        return $this->fromMonth;
+    }
+
+    public function getToMonth(): string{
+        return $this->toMonth;
+    }
+
+    public function getNearRailwayStationHome(): string{
+        return $this->nearRailwayStationHome;
+    }
+
+    public function getNearRailwayStationUni(): string{
+        return $this->nearRailwayStationUni;
     }
 }
+
 class AppointmentsForMeeting{
     // attributes of AppointmentsForMeeting
     private $title;

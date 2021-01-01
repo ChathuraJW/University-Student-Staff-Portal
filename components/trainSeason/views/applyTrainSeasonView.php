@@ -31,18 +31,18 @@
                 <form method="POST" class="application">
                     
                   <label for="userName" class="inputLabel name">Name With Initials:</label><br>
-                  <input type="text" id="name" name="name" class="input nameText" style="width:100%;" value="<?php $contro?>"><br><br>
+                  <input type="text" id="name" name="name" class="input nameText" style="width:100%;" value="<?php $controllerData[1]->getFullName(); ?>" ><br><br>
                   <label for="regNo" class="inputLabel regNo">Registration Number:</label><br>
-                  <input type="text" id="regNo" name="regNo" class="input regNoText" style="width:100%;"><br><br>
+                  <input type="text" id="regNo" name="regNo" class="input regNoText" style="width:100%;" value="<?php $controllerData[1]->getRegNo(); ?>"><br><br>
                   <label for="academicYear" class="inputLabel name">Academic Year:</label><br>
                   <select name="acYear" id="acYear" required>
                   </select>
                   <br><br>
                   <label for="address" class="inputLabel name">Address:</label><br>
-                  <input type="text" id="address" name="address" class="input nameText" style="width:100%;"><br><br>
+                  <input type="text" id="address" name="address" class="input nameText" style="width:100%;" value="<?php $controllerData[1]->getAddress(); ?>" ><br><br>
 
                   <label for="address" class="inputLabel name">Age:</label><br>
-                  <input type="text" id="age" name="age" class="input nameText"><br><br>
+                  <input type="text" id="age" name="age" class="input nameText" value="<?php $controllerData[1]->getAge(); ?>"><br><br>
 
                   <div class="row col-2">
                     <div>
@@ -128,11 +128,11 @@
             <hr>
             <br>
             <?php
-            for($x=0;$x<3;$x++){
+            foreach($controllerData[0] as $data){
               echo ("
               <div class='pastRequest'>
-                <div>From  Moratuwa</div>
-                <div>To    Bambalapitiya</div>
+                <div>From  .'$data->getNearStationHome'</div>
+                <div>To    .'$data->getNearStationUni'</div>
                 <div style='float:right'>2020/02/17</div>
               </div>
               ");
@@ -155,8 +155,11 @@
 
     </script>
      
+    <script src="../../assets/js/jquery.js"></script>
+    <script src="../../assets/js/toast.js "></script>
     <script src="assets/applyTrainSeasonJs.js">
     </script>
+
 
 </body>
 </html>
