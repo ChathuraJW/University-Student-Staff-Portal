@@ -2,17 +2,17 @@
 
 class User{
     //attributes of User
-    protected $userName;
-    protected $firstName;
-    protected $lastName;
-    protected $personalEmail;
-    protected $universityEmail;
-    protected $gender;
-    protected $address;
-    protected $nic;
-    protected $password;
-    protected $profilePictureURL;
-    protected $teleNo;
+    protected string $userName;
+    protected string $firstName;
+    protected string $lastName;
+    protected string $personalEmail;
+    protected string $universityEmail;
+    protected string $gender;
+    protected string $address;
+    protected string $nic;
+    protected string $password;
+    protected string $profilePictureURL;
+    protected string $teleNo;
 
     //methods of User
 
@@ -20,9 +20,9 @@ class User{
 
 class Student extends User{
     // attributes of Student
-    private $indexNo;
-    private $regNo;
-    private $group;
+    private int $indexNo;
+    private string $regNo;
+    private string $group;
 
     //methods of Student
 

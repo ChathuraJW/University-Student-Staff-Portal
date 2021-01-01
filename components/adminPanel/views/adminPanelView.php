@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Student-Staff Portal</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="assets/adminPanelStyles.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
+    <link rel="stylesheet" href="assets/adminPanelStyles.css">
+    <link rel="stylesheet" href="assets/userManagement.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -18,10 +19,8 @@
     <?php BasicLoader::loadHeader('../../') ?>
     
     <!-- feature body section -->
-    <div class="featureBody">
-        <div class="mainBar">
-            <div class="topic">ADMIN Panel</div>
-        </div>
+    <div class="featureBody bodyBackground text">
+        <div class="heading">ADMIN Panel</div>
         <div class="mainPage">
             <div class="taskList">
                 <div class="task one" onclick="subtaskOpen('subsetOne')">User Management</div>
@@ -131,11 +130,12 @@
             </div>
             <div class="taskPage">
 
+                <?php UserManagementController::init(); ?>
             </div>
         </div>
     </div>
     <script>
-        
+
         function subtaskOpen(element){
             if(document.getElementById(element).style.display=="none"){
                 document.getElementById(element).style.display="";
@@ -146,12 +146,12 @@
             }
             // document.getElementById("messageSecond").style.display="none";
             // window.location.href=document.location.href.toString().split('requestAppointment')[0]+'requestAppointment';
-            
+
         }
         function openTab(tabs){
             document.getElementById("tabFirst").style.display="none";
             document.getElementById("tabSecond").style.display="none";
-            
+
             document.getElementById(tabs).style.display="";
         }
 
@@ -166,5 +166,8 @@
 
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../') ?>
+
+    <script src="../../assets/js/jquery.js"></script>
+    <script src="../../assets/js/toast.js"></script>
 </body>
 </html>
