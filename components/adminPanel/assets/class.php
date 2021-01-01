@@ -7,14 +7,64 @@ class User{
     protected string $lastName;
     protected string $personalEmail;
     protected string $universityEmail;
-    protected string $gender;
+    protected string $fullName;
     protected string $address;
     protected string $nic;
+    protected string $dateOfBirth;
     protected string $password;
     protected string $profilePictureURL;
     protected string $teleNo;
 
     //methods of User
+	public function createUser($userName,$firstName,$lastName,$fullName,$personalEmail,$universityEmail,$dob,$nic): User{
+		$this->userName=$userName;
+		$this->firstName=$firstName;
+		$this->lastName=$lastName;
+		$this->fullName=$fullName;
+		$this->personalEmail=$personalEmail;
+		$this->universityEmail=$universityEmail;
+		$this->nic=$nic;
+		$this->dateOfBirth=$dob;
+		return $this;
+	}
+
+	public function getUserName(): string {
+		return $this->userName;
+	}
+
+	public function getFirstName(): string {
+		return $this->firstName;
+	}
+
+	public function getLastName(): string {
+		return $this->lastName;
+	}
+
+	public function getPersonalEmail(): string {
+		return $this->personalEmail;
+	}
+
+	public function getUniversityEmail(): string {
+		return $this->universityEmail;
+	}
+
+	public function getFullName(): string {
+		return $this->fullName;
+	}
+
+	public function getAddress(): string {
+		return $this->address;
+	}
+
+	public function getNic(): string {
+		return $this->nic;
+	}
+
+	public function getDateOfBirth(): string {
+		return $this->dateOfBirth;
+	}
+
+
 
 }
 
@@ -31,7 +81,7 @@ class Student extends User{
 //this class for both academic and academic support staff
 class Staff extends User{
     //attributes of Staff
-    protected $staffID;
+    protected string $staffID;
 
     //methods of User
 

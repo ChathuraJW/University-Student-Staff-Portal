@@ -1,4 +1,5 @@
-<div class="addStudentAsBulk" id="addStudentAsBulk">
+<!--add student bulk section-->
+<div class="addStudentAsBulk" id="addStudentAsBulk" style="display: none">
     <span class="sectionTitle">Add Students</span>
     <div class="row col-2">
         <div class="addStudentDescription">
@@ -28,7 +29,8 @@
                 <dd>format of this filed as, dd/mm/yyyy. <br>Eg: 20/06/2000</dd>
                 <dt>Address Filed</dt>
                 <dd>When you enter, student address, make sure not to use ',' to separate two line. Than will reason to occur errors. Look at given
-                    example to identify the correct format.<br>Eg: No.24/2 MainRd Colombo</dd>
+                    example to identify the correct format.<br>Eg: No.24/2 MainRd Colombo
+                </dd>
             </dl>
             </p>
         </div>
@@ -102,7 +104,7 @@
             <div class="addStudentSection">
                 <form action="" method="post" enctype="multipart/form-data">
                     <span class="inputHeading">Student Group</span>
-                    <select name="studentGroup" id="studentGroup">
+                    <select name="studentGroup" id="studentGroup" required>
                         <optgroup label="1st Year Student">
                             <option value="1CS1">1CS1</option>
                             <option value="1CS2">1CS2</option>
@@ -126,7 +128,7 @@
                     </select>
                     <br>
                     <span class="inputHeading">CSV Formatted Student List</span>
-                    <input type="file" name="studentListFile" id="studentListFile">
+                    <input type="file" name="studentListFile" id="studentListFile" required>
 
                     <div style="padding-top:30px;">
                         <input type="submit" class="button" name="addStudentData" value="Submit Data" onclick="confirm('Are you sure to proceed ' +
@@ -142,7 +144,60 @@
     </div>
 </div>
 
-<div></div>
+<!--add staff section-->
+<div class="addStaffAsIndividual">
+    <span class="sectionTitle">Add Staff</span>
+    <form action="" method="post">
+        <div class="row col-3">
+            <div>
+                <span class="inputHeading">Staff Code</span>
+                <input type="text" name="userName" required placeholder="Eg: vps">
+            </div>
+            <div>
+                <span class="inputHeading">First Name</span>
+                <input type="text" name="firstName" required placeholder="Eg: Sooriyasinghe">
+            </div>
+            <div>
+                <span class="inputHeading">Last Name</span>
+                <input type="text" name="lastName" required placeholder="Eg: S.V.P">
+            </div>
+            <div style="width: 300%">
+                <span class="inputHeading">Full Name</span>
+                <input type="text" name="fullName" style="width: 96.5%" required placeholder="Eg Sooriyasinghage Vimal Prasad Sooriyasinghe">
+            </div>
+            <div></div>
+            <div></div>
+            <div>
+                <span class="inputHeading">NIC Number</span>
+                <input type="text" name="nic" required placeholder="Eg: 199345682488, 9829461034V">
+            </div>
+            <div>
+                <span class="inputHeading">Date of Birth</span>
+                <input type="date" name="dob" required>
+            </div>
+            <div>
+                <span class="inputHeading">Personal Email</span>
+                <input type="email" name="personalEmail" required placeholder="Eg: vimalPrsad@gmail.com">
+            </div>
+            <div>
+                <span class="inputHeading">University Email</span>
+                <input type="email" name="universityEmail" required placeholder="Eg: vps@ucsc.cmb.ac.lk">
+            </div>
+            <div>
+                <span class="inputHeading">User Role</span>
+                <select name="userRole" required>
+                    <option value="AS">Academic Staff</option>
+                    <option value="SP">Academic Support Staff</option>
+                    <option value="AD">Administrative Staff</option>
+                </select>
+            </div>
+        </div>
+        <div class="buttonCouple">
+            <input type="submit" name="registerStaffMember" value="Register" class="button" onclick="confirm('Are you sure to procedure towards?')">
+            <input type="reset" name="cancel" value="Cancel" class="button">
+        </div>
+    </form>
+</div>
 
 
 <!--jquery with toast function-->
