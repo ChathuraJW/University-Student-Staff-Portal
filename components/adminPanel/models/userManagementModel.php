@@ -110,4 +110,64 @@
 //			close connection
 			$dbInstance->closeConnection();
 		}
+
+//		search user profile
+		public static function searchUser($userName): User|bool {
+			$sqlQuery = "SELECT * FROM user WHERE userName='$userName'";
+			//TODO need to change database credentials
+			$result = Database::executeQuery('root', '', $sqlQuery)[0];
+			if ($result) {
+				$user = new User;
+				$user->createUserForAdminEdit($result['firstName'], $result['lastName'], $result['fullName'], $result['universityEmail'],
+					$result['dob'], $result['nic'], $result['role']);
+				return $user;
+			} else {
+				return false;
+			}
+		}
+
+		public static function updateUserData($updatedUser) {
+			$dbInstance = new Database;
+			//TODO need to change database credentials
+			$dbInstance->establishTransaction('root', '');
+			//check previous user role and current user role are same or previous is different one and present is academic staff
+			//if so add new data entry to academic_staff table
+			$sqlQuery = "SELECT role FROM user WHERE userName='" . $updatedUser->getUserName() . "'";
+			$previousRole = $dbInstance->executeTransaction($sqlQuery)[0]['role'];
+
+			if ($previousRole !== 'AS' & $updatedUser->getUserType() === 'AS') {
+//				add new entry to academic staff table
+				$sqlQuery = "INSERT INTO academic_staff(staffID) VALUE ('" . $updatedUser->getUserName() . "')";
+				$dbInstance->executeTransaction($sqlQuery);
+				$dbInstance->transactionAudit($sqlQuery, 'academic_staff', 'INSERT', "Due to user details update add new entry to academic staff table.");
+			}
+//			update user data
+			$sqlQuery = "UPDATE user SET nic='" . $updatedUser->getNic() . "',firstName='" . $updatedUser->getFirstName() . "',lastName='"
+				. $updatedUser->getLastName() . "',fullName='" . $updatedUser->getFullName() . "',dob='" . $updatedUser->getDateOfBirth() . "',universityEmail='"
+				. $updatedUser->getUniversityEmail() . "',role='" . $updatedUser->getUserType() . "' WHERE userName='" . $updatedUser->getUserName() . "'";
+			$dbInstance->executeTransaction($sqlQuery);
+			$dbInstance->transactionAudit($sqlQuery, 'user', 'UPDATE', "Update user details by system admin.");
+
+//			check weather all queries are executed successfully
+			if ($dbInstance->getTransactionState()) {
+				if ($dbInstance->commitToDatabase()) {
+					echo("
+						<script>
+							createToast('Success','Operation successful.','S')
+//							redirect to previous page after 3seconds
+							setTimeout(function(){ 
+								history.go(-2);
+							 }, 3000);
+						</script>
+						");
+				} else {
+//					display error
+					echo("<script>createToast('Warning (error code: #ADMIN-UM-05)','Operation Failed.','W')</script>");
+				}
+			} else {
+//				display error
+				echo("<script>createToast('Warning (error code: #ADMIN-UM-05)','Operation Failed.','W')</script>");
+			}
+			$dbInstance->closeConnection();
+		}
 	}

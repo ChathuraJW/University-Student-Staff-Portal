@@ -14,6 +14,7 @@ class User{
     protected string $password;
     protected string $profilePictureURL;
     protected string $teleNo;
+    protected string $userType;
 
     //methods of User
 	public function createUser($userName,$firstName,$lastName,$fullName,$personalEmail,$universityEmail,$dob,$nic): User{
@@ -28,6 +29,47 @@ class User{
 		return $this;
 	}
 
+	public function createUserForAdminEdit($firstName,$lastName,$fullName,$universityEmail,$dob,$nic,$userType): static {
+		$this->firstName=$firstName;
+		$this->lastName=$lastName;
+		$this->fullName=$fullName;
+		$this->universityEmail=$universityEmail;
+		$this->dateOfBirth=$dob;
+		$this->nic=$nic;
+		$this->userType=$userType;
+		return $this;
+	}
+
+	public function setUserName(string $userName): User {
+		$this->userName = $userName;
+		return $this;
+	}
+
+
+	public function isStudent(): bool {
+		if($this->userType=='ST')
+			return true;
+		else
+			return false;
+	}
+	public function isAcademicStaff(): bool {
+		if($this->userType=='AS')
+			return true;
+		else
+			return false;
+	}
+	public function isSupportiveStaff(): bool {
+		if($this->userType=='SP')
+			return true;
+		else
+			return false;
+	}
+	public function isAdministrativeStaff(): bool {
+		if($this->userType=='AD')
+			return true;
+		else
+			return false;
+	}
 	public function getUserName(): string {
 		return $this->userName;
 	}
@@ -63,6 +105,12 @@ class User{
 	public function getDateOfBirth(): string {
 		return $this->dateOfBirth;
 	}
+
+	public function getUserType(): string {
+		return $this->userType;
+	}
+
+
 
 
 
