@@ -25,7 +25,7 @@ class ViewPastPaperModel extends Model{
         $recentUploads = Database::executeQuery('root','',$sqlQuery);
 
         //initialize the returning array
-        if($http_response_header){
+        if($recentUploads){
             $pastPaperList = array();
             foreach ($recentUploads as $row){
                 $newPastPaper = new PastPaper();

@@ -63,17 +63,17 @@ class AddPastPaperModel extends Model
     }
 
     //TO do apply course module class
-    public static function getSubjectName($subjectCode):array|bool{
+    public static function getSubjectName($subjectCode){
         $sqlQuery = "SELECT name FROM course_module WHERE courseCode = '$subjectCode'";
-        $subjectName = Database::executeQuery('root', '',$sqlQuery)[0]['name'];
+        return Database::executeQuery('root', '',$sqlQuery)[0]['name'];
 
-//        initialize the returning array
-        if($subjectName){
-            return $subjectName;
+////        initialize the returning array
+//        if($subjectName){
+//            return $subjectName;
+//        }
+//        else{
+//            return false;
         }
-        else{
-            return false;
-        }
-    }
+
 
 }

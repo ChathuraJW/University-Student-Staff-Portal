@@ -25,15 +25,8 @@
                     <div class="dropdownContainer row col-2">
                         <div>
                             <label class="labelStyle">Examination Year:</label>
-                            <select name="examinationYear" required>
+                            <select name="examinationYear" id="examinationYear" required>
                                 <option value="0" selected></option>
-                                <?php
-
-                                ?>
-                                <option value=2016>2016</option>
-                                <option value=2017>2017</option>
-                                <option value=2018>2018</option>
-                                <option value=2019>2019</option>
                             </select>
                         </div>
                         <div>
@@ -79,11 +72,27 @@
                     <div class="row col-1" id="recentDetail">
                         <label class="labelStyle" ><?php echo($controllerData[2]); ?></label>
                         <hr>
-                        <div style="overflow: hidden" class="row col-5">
+                        <div style="overflow: hidden" class="row col-3">
                             <?php
 //                            print_r($controllerData[1]);
+                            function getFileExtension($file_name) {
+                                return substr(strrchr($file_name,'.'),1);
+                            }
+
+
                             foreach ($controllerData[1] as $recent ){
-                                echo ("
+                                $extension = getFileExtension($recent->getPaperName());
+                                echo ("         
+                                    <div class='pastPaperTile'>
+                                <a class='subjectName' href='' target='_blank'>
+                                    <span >$recent->get</span><br>
+                                    <span >Data Structure & Algorithms 1</span><br>
+                                    <span >First Year </span>
+                                    <span >First Semester</span><br>
+                                    <span >2010</span><br>
+                                    <span><i class='fa fa-download' aria-hidden='true'></i></span>
+                                </a>
+                            </div>                    
                                     <div class='paperDetails'>
                                         <a class='subjectName' href='assets/pastPapers/".$recent->getPaperName()."' target='_blank'><span >".$recent->getPaperName()."</span></a>
                                     </div>
@@ -95,6 +104,7 @@
                                     </div>
                                 ");
                             }
+
                             ?>
                         </div>
 
