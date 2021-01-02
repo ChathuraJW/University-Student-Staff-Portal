@@ -5,16 +5,17 @@ class User{
     private $userName;
     private $firstName;
     private $lastName;
-     
+    
     private $address;
     private $dob;
 
     public function setUser($firstName,$lastName,$regNo,$address,$dob): User{
-        $this->userName=$userName;
+        $this->userName=$regNo;
         $this->firstName=$firstName;
         $this->lastName=$lastName;
         $this->address=$address;
         $this->dob=$dob;
+        
 
         return $this;
     }
@@ -26,7 +27,7 @@ class User{
 
 
     public function getRegNo(): string{
-        return $this->regNo;
+        return $this->userName;
         
     }
 
@@ -37,10 +38,10 @@ class User{
     
     public function getAge(): int{
         
-        $bday = new DateTime('$this->dob'); // Your date of birth
-        $today = new Datetime(date('m.d.y'));
-        $diff = $today->diff($bday);
-        return $diff->y; 
+        $dob = new DateTime($this->dob);
+        $today   = new DateTime('today');
+        return $dob->diff($today)->y;
+
         
     }
 

@@ -1,10 +1,10 @@
 <?php
     class ApplyTrainSeasonModel extends Model{
         public static function getHistory(){
-            $usName = $_COOKIE['userName'];
-            $sqlQueryGetHistory = "SELECT * request_train_season WHERE userName='$usName'";
-
-            $requesterData = Database::executeQuery("root","",$sqlQueryGetHistory);
+            $userName = $_COOKIE['userName'];
+            $sqlQueryGetHistory = "SELECT * FROM request_train_season WHERE requester='$userName'";
+            
+            $requesterData = Database::executeQuery("root","",$sqlQueryGetHistory)[0];
             if($requesterData){
                 $newRequesterData= new TrainSeason();
                 
@@ -17,11 +17,12 @@
 
         }
         public static function getData(){
+            
             $userName = $_COOKIE['userName'];
             $sqlQuery = "SELECT * FROM user WHERE userName='$userName'";
             
             $userData=Database::executeQuery("root","",$sqlQuery)[0];
-            print_r($userData);
+        
             if($userData){
                 $newUserData = new User();
                 $newUserData->setUser($userData['firstName'],$userData['lastName'],$userData['userName'],$userData['address'],$userData['dob']);
