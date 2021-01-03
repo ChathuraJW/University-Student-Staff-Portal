@@ -14,12 +14,13 @@
                     $regNo = $_POST['regNo'];
                     $academicYear = $_POST['acYear'];
                     $address = $_POST['address'];
+                    $age = $_POST['age'];
                     $fromMonth = $_POST['fromMonth'];
                     $toMonth = $_POST['toMonth'];
                     $homeStation = $_POST['homeStation'];
                     $universityStation = $_POST['universityStation'];
 
-                    $sendData = ApplyTrainSeasonModel::insertData($fullName,$regNo,$academicYear,$address,$fromMonth,$toMonth,$homeStation,$universityStation);
+                    $sendData = ApplyTrainSeasonModel::insertData($name,$regNo,$address,$academicYear,$age,$fromMonth,$toMonth,$homeStation,$universityStation);
 
                 }else{
                     echo "All feilds required";

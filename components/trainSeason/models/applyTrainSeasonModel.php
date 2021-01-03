@@ -17,28 +17,44 @@
 
         }
         public static function getData(){
+            $dbObject = new Database();
+            $dbObject->establishTransaction('root','');
+            
             
             $userName = $_COOKIE['userName'];
             $sqlQuery = "SELECT * FROM user WHERE userName='$userName'";
-            
-            $userData=Database::executeQuery("root","",$sqlQuery)[0];
+            $userData=$dbObject->executeTransaction($sqlQuery)[0];
         
             if($userData){
                 $newUserData = new User();
                 $newUserData->setUser($userData['firstName'],$userData['lastName'],$userData['userName'],$userData['address'],$userData['dob']);
+                $age=$newUserData->getAge();
+                $sqlQuery2 = "SELECT COUNT(requestID) FROM request_train_season WHERE requester='$userName' AND age=$age";
+                $count=$dbObject->executeTransaction($sqlQuery2)[0];
+                 
+                if($count>=2){
+                    echo ("
+                        <script>
+                            alert('The number of times you request is over');
+                        </script>
+                    ");
+                } 
+                $dbObject->closeConnection();
                 return $newUserData;
             }else{
                 return false;
             }
+
+             
             
         }
          
 
-        public static function insertData($name,$regNo,$address,$fromMonth,$toMonth,$homeStation,$universityStation){
+        public static function insertData($name,$regNo,$address,$academicYear,$age,$fromMonth,$toMonth,$homeStation,$universityStation){
             $dbObject = new Database();
             $dbObject->establishTransaction('root','');
-            $insertQuery = "INSERT INTO request_train_season(requester,regNo,address,fromMonth,toMonth,nearRailwayStationHome,nearRailwayStationUni)
-            VALUES('$name','$regNo','$address','$fromMonth','$toMonth','$homeStation','$universityStation')";
+            $insertQuery = "INSERT INTO request_train_season(requester,address,academicYear,age,fromMonth,toMonth,nearRailwayStationHome,nearRailwayStationUni)
+            VALUES('$regNo','$address','$academicYear','$age','$fromMonth','$toMonth','$homeStation','$universityStation')";
             //execute the query
             $dbObject->executeTransaction($insertQuery);
 
