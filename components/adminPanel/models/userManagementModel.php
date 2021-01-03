@@ -1,6 +1,5 @@
 <?php
 
-
 	class UserManagementModel extends Model {
 //		save student data
 		public static function addNewStudentBulk($selectedGroup, $fileName, $filePath): bool {
@@ -162,11 +161,59 @@
 						");
 				} else {
 //					display error
-					echo("<script>createToast('Warning (error code: #ADMIN-UM-05)','Operation Failed.','W')</script>");
+					echo("<script>createToast('Warning (error code: #ADMIN-UM-06)','Operation Failed.','W')</script>");
 				}
 			} else {
 //				display error
-				echo("<script>createToast('Warning (error code: #ADMIN-UM-05)','Operation Failed.','W')</script>");
+				echo("<script>createToast('Warning (error code: #ADMIN-UM-06)','Operation Failed.','W')</script>");
+			}
+			$dbInstance->closeConnection();
+		}
+
+//		get student data for change there group
+		public static function getStudentData($userName): bool|Student {
+			$sqlQuery="SELECT * FROM student_basic_data WHERE regNo='$userName'";
+			//TODO need to change database credentials
+			$result=Database::executeQuery('root','',$sqlQuery)[0];
+			if($result){
+				$student=new Student;
+				$student->createBasicStudent($result['regNo'],$result['indexNo'],$result['nic'],$result['studentGroup'],$result['firstName'],$result['lastName'],$result['fullName']);
+				return $student;
+			}else{
+				return false;
+			}
+		}
+
+		public static function updateStudentGroup($studentUsername,$newGroup){
+			$dbInstance=new Database;
+			//TODO need to change database credentials
+			$dbInstance->establishTransaction('root','');
+
+//			execute update query and audit the action
+			$sqlQuery="UPDATE student SET studentGroup='$newGroup' WHERE regNo='$studentUsername'";
+			$dbInstance->executeTransaction($sqlQuery);
+			$dbInstance->transactionAudit($sqlQuery,'student','UPDATE',"Update $studentUsername, group to $newGroup by admin.");
+
+			if($dbInstance->getTransactionState()){
+				if($dbInstance->commitToDatabase()){
+					//TODO send email to inform the situation (nice to have)
+//					display success message and redirect to previous page
+					echo("
+						<script>
+							createToast('Success','Operation successful.','S')
+//							redirect to previous page after 3seconds
+							setTimeout(function(){ 
+								history.go(-3);
+							 }, 3000);
+						</script>
+						");
+				}else{
+//					display fail message
+					echo("<script>createToast('Warning (error code: #ADMIN-UM-08)','Operation Failed.','W')</script>");
+				}
+			}else{
+//				display fail message
+				echo("<script>createToast('Warning (error code: #ADMIN-UM-08)','Operation Failed.','W')</script>");
 			}
 			$dbInstance->closeConnection();
 		}

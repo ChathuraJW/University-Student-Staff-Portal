@@ -200,7 +200,7 @@
 </div>
 
 <!--update profile section-->
-<div class="updateProfileSection">
+<div class="updateProfileSection" style="display: none">
     <span class="sectionTitle">Update User Profile</span>
     <div class="row">
         <form method="get" action="#editDataSection">
@@ -211,7 +211,8 @@
     </div>
     <!--    check weather data are loaded if,so then load form -->
 	<?php
-		if (isset($controllerData) && $controllerData) {
+		//        check weather user press search profile to edit and data also available for the particular search
+		if (isset($controllerData) && $controllerData && isset($_GET['searchUserProfile'])) {
 //		    create, data update view iff data is available
 			echo("
                 <form method='post' id='editDataSection'>
@@ -243,10 +244,10 @@
                         <div>
                             <span class='inputHeading'>User Category</span>
                             <select name='userRole' required>
-                                <option value='ST' " . ($controllerData->isStudent() ? 'selected':''). ">Student</option>
-                                <option value='AS' " . ($controllerData->isAcademicStaff() ? 'selected':''). ">Academic Staff</option>
-                                <option value='SP' " . ($controllerData->isSupportiveStaff() ? 'selected':''). ">Academic Support Staff</option>
-                                <option value='AD' " . ($controllerData->isAdministrativeStaff() ? 'selected':''). ">Administrative Staff</option>
+                                <option value='ST' " . ($controllerData->isStudent() ? 'selected' : '') . ">Student</option>
+                                <option value='AS' " . ($controllerData->isAcademicStaff() ? 'selected' : '') . ">Academic Staff</option>
+                                <option value='SP' " . ($controllerData->isSupportiveStaff() ? 'selected' : '') . ">Academic Support Staff</option>
+                                <option value='AD' " . ($controllerData->isAdministrativeStaff() ? 'selected' : '') . ">Administrative Staff</option>
                             </select>
                         </div>
                         <div>
@@ -263,7 +264,82 @@
 		}
 	?>
 </div>
+<div class="changeStudentGroupIndividual">
+    <span class="sectionTitle">Change Student Group</span>
+    <div class="row">
+        <form method="get" action="#groupEditSection">
+            <span class="inputHeading">Search student profile by username</span>
+            <input type="search" name="searchStudent" style="margin-right: 15px;"><input type="submit" value="Search" name="searchStudentProfile"
+                                                                                         class="button">
+        </form>
+        <div class="row col-2" id="groupEditSection">
+			<?php
+				//				check weather user press search button for find student profile and data also available for the given key
+				if (isset($controllerData) && $controllerData && isset($_GET['searchStudentProfile'])) {
+//	                create view for show data and necessary modifications
+					echo("
+                        <div>
+                            <span class='inputHeading'>Student Details</span>
+                            <table>
+                                <tr>
+                                    <td>Registration Number</td>
+                                    <td>" . $controllerData->getUserName() . "</td>
+                                </tr>
+                                <tr>
+                                    <td>Index Number</td>
+                                    <td>" . $controllerData->getIndexNo() . "</td>
+                                </tr>
+                                <tr>
+                                    <td>Current Student Group</td>
+                                    <td>" . $controllerData->getGroup() . "</td>
+                                </tr>
+                                <tr>
+                                    <td>First Name</td>
+                                    <td>" . $controllerData->getFirstName() . "</td>
+                                </tr>
+                                <tr>
+                                    <td>Last Name</td>
+                                    <td>" . $controllerData->getLastName() . "</td>
+                                </tr>
+                                <tr>
+                                    <td>Full Name</td>
+                                    <td>" . $controllerData->getFullName() . "</td>
+                                </tr>
+                            </table>
+                           <span class='inputHeading'>Select the New Group Going to Assign</span>
+                          <form action='' method='post'>
+                           <!-group dropdown load hear-->
+                            <div id='groupDropdown'>
+                            </div>
+                            <div style='padding-top: 20px;'>
+                                <input type='submit' value='Change Group' name='updateStudentGroup' class='button' onclick='confirm(`Are you sure to save changes?`)'>
+                                <input type='reset' value='Cancel' name='cancel' class='button'>
+                            </div>
+                        </form>
+                        </div>
+                    ");
+				}
+			?>
+            <div>
+                <!--                group detail list load hear-->
+                <span class='inputHeading'>Group Details</span>
+                <div id="groupList">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!--jquery with toast function-->
 <script src="../../assets/js/jquery.js"></script>
 <script src="../../assets/js/toast.js"></script>
+<script>
+    // autoload group table to edit group section
+    let groupTable = $('.studentGroupTable').clone();
+    $('#groupList').append(groupTable);
+
+    // load group dropdown to update group section
+    let groupDropdown = $('#studentGroup').clone();
+    $('#groupDropdown').append(groupDropdown);
+</script>

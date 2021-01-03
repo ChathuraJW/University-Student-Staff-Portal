@@ -2,7 +2,7 @@
 
 	class UserManagementController extends Controller {
 		public static function init() {
-			if (!isset($_GET['searchUserProfile']))
+			if (!isset($_GET['searchUserProfile']) && !isset($_GET['searchStudentProfile']))
 				self::createView('userManagementView');
 
 			if (isset($_POST['addStudentData'])) {
@@ -32,7 +32,6 @@
 //				display error if user did not exist
 				if (!$userData)
 					echo("<script>createToast('Warning (error code: #ADMIN-UM-05)','Failed to load user data or invalid username.','W')</script>");
-
 			}
 
 //				save updated date of user
@@ -43,6 +42,22 @@
 				$updatedUser->setUserName($_GET['searchUser']);
 //				call model function for operation
 				UserManagementModel::updateUserData($updatedUser);
+			}
+
+			if(isset($_GET['searchStudentProfile'])){
+				$username=$_GET['searchStudent'];
+				$studentData=UserManagementModel::getStudentData($username);
+//				create view with selected user data
+				self::createView('userManagementView', $studentData);
+				if(!$studentData)
+					echo("<script>createToast('Warning (error code: #ADMIN-UM-07)','Failed to load user data or invalid username.','W')</script>");
+			}
+
+			if(isset($_POST['updateStudentGroup'])){
+				$selectedGroup=$_POST['studentGroup'];
+				$studentUsername=$_GET['searchStudent'];
+//				call model function
+				UserManagementModel::updateStudentGroup($studentUsername,$selectedGroup);
 			}
 		}
 	}

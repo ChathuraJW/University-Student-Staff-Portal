@@ -110,19 +110,32 @@ class User{
 		return $this->userType;
 	}
 
-
-
-
-
 }
 
 class Student extends User{
     // attributes of Student
     private int $indexNo;
-    private string $regNo;
     private string $group;
 
-    //methods of Student
+    public function createBasicStudent($userName,$indexNumber,$nic,$group,$firstName,$lastName,$fullName):Student{
+		$this->userName=$userName;
+		$this->indexNo=$indexNumber;
+		$this->nic=$nic;
+		$this->group=$group;
+		$this->firstName=$firstName;
+		$this->lastName=$lastName;
+		$this->fullName=$fullName;
+		return $this;
+    }
+
+	public function getIndexNo(): int {
+		return $this->indexNo;
+	}
+
+	public function getGroup(): string {
+		return $this->group;
+	}
+
 
 }
 
