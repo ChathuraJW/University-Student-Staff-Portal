@@ -1,7 +1,8 @@
 <?php
-class BasicLoader{
-    public static function loadHeader($positionNotation){
-        echo("
+
+	class BasicLoader {
+		public static function loadHeader($positionNotation) {
+			echo("
         <header>
     <div class='overlay row col-3'>
         <div class='imgSection'>
@@ -18,12 +19,14 @@ class BasicLoader{
 </header>
 <div class='loginInfo'>
     <span class='backToHome' style='float: left;'><a href='../../' style='color: white;' title='Back to home'><i class='fas fa-home'></i></a></span>
-    <span>Login as ".$_COOKIE['fullName']." &nbsp;<span><a href='{$positionNotation} assets/php/logout.php' style='color: white;'><i class='fas fa-sign-out-alt' style='color: white;' title='Log out'></i></a></span></span>
+    <span>Login as " . $_COOKIE['fullName'] . " &nbsp;<span><a href='{$positionNotation}assets/php/logout.php' style='color: white;'><i class='fas fa-sign-out-alt' style='color: white;' title='Log out'></i></a></span></span>
 </div>
+<div class='toastArea' id='toastArea'></div>
     ");
-    }
-    public static function loadFooter($positionNotation){
-        echo("
+		}
+
+		public static function loadFooter($positionNotation) {
+			echo("
         <footer class='mainFooter'>
             <div class='row col-2'>
                 <div class='addressBlock'>
@@ -60,6 +63,6 @@ class BasicLoader{
             </div>
         </footer>
     ");
-    }
-}
+		}
+	}
 
