@@ -116,8 +116,10 @@
 
                 </div>
             </div>
-            <div><label class="subHeading" id="category">Category:</label></div>
-            <div class="radioToolbar row col-6" >
+
+            <div class="row col-2">
+            <div><label class="subHeading" id="category">Category:</label>
+            <div class="radioToolbar row col-3" >
                 <div>
                     <input value="1" type="radio"  id = "radioDirectorNotices" name="category">
                     <label class ="" for = "radioDirectorNotices">Director Notices</label>
@@ -142,8 +144,15 @@
                     <input value="5" type="radio"  id = "other" name="category">
                     <label class ="" for = "other">Other</label>
                 </div>
-
             </div>
+            </div>
+                <div class="weeks">
+                    <label for="weeks" class="subHeading">Weeks:</label><br>
+                    <input type="text" id="weeks"><br>
+                    <label class="message">* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cupiditate dolore fugiat hic.</label>
+                </div>
+            </div>
+
                 <div class="row col-1">
                     <textarea class="textareaStyle" name="title" rows="1" cols="130" placeholder="title"></textarea>
                 </div>

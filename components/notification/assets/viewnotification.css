@@ -72,7 +72,6 @@ form.example::after {
     display: inline-block;
     background-color:#bbb;
     padding: 8px 20px;
-    font-family: Arial;
     font-size: 16px;
     cursor: pointer;
     position: relative;
