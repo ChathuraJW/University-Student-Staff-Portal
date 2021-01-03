@@ -24,35 +24,13 @@
         <div class="taskList">
             <div class="task one" onclick="subtaskOpen('subsetOne')">User Management</div>
             <div id="subsetOne" style="display:none;" class="subTasksSet">
-                <div class="subTask">Add Student as a Bulk</div>
-                <div class="subTask">Add Staff(Individual)</div>
-                <div class="subTask" onclick="subtaskOpen('superSubsetOne')">UserProfile Update</div>
-                <div class="superSubTaskSet" id="superSubsetOne" style="display:none;">
-                    <div class="superSubTask">Academic Staff</div>
-                    <div class="superSubTask">Student</div>
-                    <div class="superSubTask">Administrative Staff</div>
-                </div>
-                <div class="subTask" onclick="subtaskOpen('superSubsetTwo')">Delete profile</div>
-                <div class="superSubTaskSet" id="superSubsetTwo" style="display:none;">
-                    <div class="superSubTask">Delete as Bulk(Students)</div>
-                </div>
-                <div class="subTask">Batch miss Management</div>
-
+                <div class="subTask" onclick="createLink('addStudent')">Add Student(Bulk)</div>
+                <div class="subTask" onclick="createLink('addStaff')">Add Staff(Individual)</div>
+                <div class="subTask" onclick="createLink('editUserProfile')">UserProfile Update</div>
+                <div class="subTask" onclick="createLink('studentGroupOperation')">Student Group Operations</div>
             </div>
-            <div class="task two" onclick="subtaskOpen('subsetTwo')">Subject Management</div>
-            <div id="subsetTwo" style="display:none;" class="subTasksSet">
-                <div class="subTask">Add a New Subject</div>
-                <div class="subTask">Update Subject Details</div>
-                <div class="subTask">Delete Subject</div>
-
-            </div>
-            <div class="task three" onclick="subtaskOpen('subsetThree')">Facility Management(Lecture Hall/Lab)</div>
-            <div id="subsetThree" style="display:none;" class="subTasksSet">
-                <div class="subTask">Add a New Hall</div>
-                <div class="subTask">Update Hall Details</div>
-                <div class="subTask">Delete Hall Details</div>
-
-            </div>
+            <div class="task two" onclick="createLink('subjectManagement')">Subject Management(Add/Update/Remove)</div>
+            <div class="task three" onclick="createLink('facilityManagement')">Facility Management(Lecture Hall/Lab)</div>
             <div class="task four" onclick="subtaskOpen('subsetFour')">User Privilege Management</div>
             <div id="subsetFour" style="display:none;" class="subTasksSet">
                 <div class="subTask">Add User Privilege</div>
@@ -127,9 +105,10 @@
 
 
         </div>
-        <div class="taskPage">
-
-			<?php UserManagementController::init(); ?>
+        <div class="taskPage" class="taskPage">
+            <?php
+                UserManagementController::updateProfile();
+            ?>
         </div>
     </div>
 </div>
@@ -160,6 +139,9 @@
         document.getElementById(link).style.backgroundColor = "rgb(58, 189, 212)";
     }
 
+    function createLink(featureName){
+        window.location="?" + featureName;
+    }
 </script>
 
 
