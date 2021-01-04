@@ -6,7 +6,7 @@
     <title>University Student-Staff Portal</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
-    <link rel="stylesheet" href="assets/applyTrainSeasonStyle.css">
+    
     <link rel="stylesheet" href="assets/applyTrainSeasonStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" />
 
@@ -17,9 +17,9 @@
     <?php require_once('../../assets/php/basicLoader.php') ?>
     <?php basicLoader::loadHeader('../../'); ?>
 
-    
+
     <!-- feature body section -->
-     
+
     <div class="featureBody">
         <div class="row col-2">
           <div class="applicationForm">
@@ -27,9 +27,9 @@
             <h1 style="text-align:center;"><b>Apply Train Season<b></h1><br>
             <div class="container2">
                 <!-- <div class="vertical-center"> -->
+                
+                <form method="POST" class="application" action="">
 
-                <form method="POST" class="application">
-                    
                   <label for="userName" class="inputLabel name">Name With Initials:</label><br>
                   <input type="text" id="name" name="name" class="input nameText" style="width:100%;" value="<?php echo $controllerData[1]->getFullName(); ?>" ><br><br>
                   <label for="regNo" class="inputLabel regNo">Registration Number:</label><br>
@@ -47,26 +47,26 @@
                       <input type="text" id="age" name="age" class="input nameText" value="<?php echo $controllerData[1]->getAge(); ?>"><br><br>
                     </div>
                   </div>
-    
+
 
                   <div class="row col-2">
                     <div>
                     <label for="fromMonth" class="inputLabel name">From Month:</label>
 
                       <select class="input"  name="fromMonth" placeholder="From Month" id="fromMonth">
-                          <option data-value="">January</option>
-                          <option data-value="">February</option>
-                          <option data-value="">March</option>
-                          <option data-value="">April</option>
-                          <option data-value="">May</option>
-                          <option data-value="">June</option>
-                          <option data-value="">July</option>
-                          <option data-value="">August</option>
-                          <option data-value="">September</option>
-                          <option data-value="">October</option>
-                          <option data-value="">November</option>
-                          <option data-value="">December</option>
-                          
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+
                       </select> <br>
                     </div>
 
@@ -74,19 +74,18 @@
                       <label for="fromMonth" class="inputLabel name">To Month:</label>
 
                       <select class="input"  name="toMonth" placeholder="To month" id="toMonth">
-                          <option data-value="">January</option>
-                          <option data-value="">February</option>
-                          <option data-value="">March</option>
-                          <option data-value="">April</option>
-                          <option data-value="">May</option>
-                          <option data-value="">June</option>
-                          <option data-value="">July</option>
-                          <option data-value="">August</option>
-                          <option data-value="">September</option>
-                          <option data-value="">October</option>
-                          <option data-value="">November</option>
-                          <option data-value="">December</option>
-                      
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
                       </select> <br>
                     </div>
                     <div>
@@ -99,36 +98,21 @@
                     </div>
 
                   </div>
-                    
-
-                    
-
 
                   <input type="submit" value="Submit" class="button submitButton" name="submit">
                   <br>
-                  <a class="backPage" href="applyTrainSeason"> 
+                  <a class="backPage" href="applyTrainSeason">
                     <input type="button" value="Cancel" class="button cancelButton" name="cancel">
                   </a>
                 </form>
-                
-                    <!-- <button class="viewHistory" id="viewHistory" onclick="alertFunction()">View Request History</button> 
-                    <br><br> -->
-                    
-                    
-                    <!-- <a class=application href="application">
-                    
-                        <button class="apply" id="apply">Request Season</button>
-                    </a> -->
-                    <!-- <button class="cancel" id="cancel ">Cancel</button> -->
-                <!-- </div> -->
-                
+
             </div>
             <br>
             <br>
           </div>
           <br><br>
           <div class="history">
-            
+
             <label style="font-size: 20px"><b>Request History</b></label>
             <hr>
             <br>
@@ -145,20 +129,13 @@
             ?>
           </div>
         </div>
-    
+
     </div>
-    
-     
+
+
 
     <!-- include footer section -->
     <?php basicLoader::loadFooter('../../'); ?>
-    <script>
-      function alertFunction(){
-        alert("You can request twice more");
-
-      }
-
-    </script>
      
     <script src="../../assets/js/jquery.js"></script>
     <script src="../../assets/js/toast.js "></script>
@@ -168,3 +145,4 @@
 
 </body>
 </html>
+

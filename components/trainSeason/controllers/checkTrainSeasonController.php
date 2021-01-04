@@ -1,11 +1,8 @@
 <?php
     class CheckTrainSeasonController extends Controller{
         public static function checkTrainSeason(){
-             
-        
-
-             
-            self::createView("checkTrainSeasonView");
+            $trainSeasonRequesterData = CheckTrainSeasonModel::getData();
+            self::createView("checkTrainSeasonView",$trainSeasonRequesterData);
 
 
         }

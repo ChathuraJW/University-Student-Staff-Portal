@@ -29,48 +29,18 @@
         <div class="container"> 
           <div class="btn-group">
             <br>
-            <a class=application href="checkedApplication">
-            <div class="button">
-              <div>Appliciant Name: Mr. Kamal</div>
-              <div>Station: Moratuwa to Bambalapitiya</div>
-              <div style="float:right;">Date: 2020/02/07</div>
-            </div><br>
-            </a>
-            <a class=application href="checkedApplication">
-            <div class="button">
-              <div>Appliciant Name: Mr. Kamal</div>
-              <div>Station: Moratuwa to Bambalapitiya</div>
-              <div style="float:right;">Date: 2020/02/07</div>
-            </div><br>
-            </a>
-            <a class=application href="checkedApplication">
-            <div class="button">
-              <div>Appliciant Name: Mr. Kamal</div>
-              <div>Station: Moratuwa to Bambalapitiya</div>
-              <div style="float:right;">Date: 2020/02/07</div>
-            </div><br>
-            </a>
-            <a class=application href="checkedApplication">
-            <div class="button">
-              <div>Appliciant Name: Mr. Kamal</div>
-              <div>Station: Moratuwa to Bambalapitiya</div>
-              <div style="float:right;">Date: 2020/02/07</div>
-            </div><br>
-            </a>
-            <a class=application href="checkedApplication">
-            <div class="button">
-              <div>Appliciant Name: Mr. Kamal</div>
-              <div>Station: Moratuwa to Bambalapitiya</div>
-              <div style="float:right;">Date: 2020/02/07</div>
-            </div><br>
-            </a>
-            <a class=application href="checkedApplication">
-            <div class="button">
-              <div>Appliciant Name: Mr. Kamal</div>
-              <div>Station: Moratuwa to Bambalapitiya</div>
-              <div style="float:right;">Date: 2020/02/07</div>
-            </div><br>
-            </a>
+            <?php
+            for($i=0;$i<=5;$i++){
+              echo ("<a class='application' href='checkedApplication'>
+                    <div class='button'>
+                      <div>Appliciant Name: Mr. Kamal</div>
+                      <div>Station: Moratuwa to Bambalapitiya</div>
+                      <div style='float:right;'>Date: 2020/02/07</div>
+                    </div><br>
+                  </a>");
+            }
+            ?>
+             
             <!--<a class=application href="checkedApplication">
             <button class="button">Application Set 2</button><br><br>
             </a>
