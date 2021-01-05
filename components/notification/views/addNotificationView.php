@@ -16,7 +16,7 @@
     <?php BasicLoader::loadHeader('../../')?>
     
     <div class="featureBody">
-        <form id="form" method ="post" class="container">
+        <form id="form" method ="get" class="container">
             <div class="row col-1">
                 <p class="heading">Announcements</p>
             </div>
@@ -29,86 +29,86 @@
                     <label for="checkAll">All</label>
                 </div>
                 <div class="divStyle">
-                    <input type="checkbox" class="checkFirstSet" id="checkAcademicStaff" value="1300">
+                    <input type="checkbox" class="checkFirstSet checkAll" id="checkAcademicStaff" value="1300" onchange="changeState();">
                     <label for="checkAcademicStaff">Academic Staff</label>
                 </div>
                 <div class="divStyle">
-                    <input type="checkbox" class="checkFirstSet" id="checkAcademicSupport" value="1400">
+                    <input type="checkbox" class="checkFirstSet checkAll" id="checkAcademicSupport" value="1400" onchange="changeState();">
                     <label for="checkAcademicSupport">Academic Support Staff</label>
                 </div>
                 <div class="divStyle">
-                    <input type="checkbox" id="checkAdministrative" class="checkFirstSet" value="1500">
+                    <input type="checkbox" id="checkAdministrative" class="checkFirstSet checkAll" value="1500" onchange="changeState();">
                     <label for="checkAdministrative">Administrative Staff</label>
                 </div>
                 <div class="divStyle">
-                    <input type="checkbox" class="checkFirstSet" id="checkStudent" value="1200">
+                    <input type="checkbox" class="checkFirstSet checkAll" id="checkStudent" value="1200" onchange="changeState();">
                     <label for="checkStudent">Student</label>
                 </div class="divStyle">
                 <div class="row col-4">
                     <div class="divStyle">
-                        <input type="checkbox" class="checkSecondSet" id="checkFirstYear" value="1210">
+                        <input type="checkbox" class="checkSecondSet checkAll checkStudent" id="checkFirstYear" value="1210" onchange="changeState();">
                         <label for="checkFirstYear">First Year</label>
                         <div class="divStyle">
                             <div class="divStyle">
-                                <input type="checkbox" class="checkThirdSet" id="check1CSGroup1" value="1211">
+                                <input type="checkbox" class="checkThirdSet checkAll checkStudent checkFirstYear" id="check1CSGroup1" value="1211" onchange="changeState();">
                                 <label for="check1CSGroup1">CS Group 1</label>
                             </div>
                             <div class="divStyle">
-                                <input type="checkbox" class="checkThirdSet" id="check1CSGroup2" value="1212">
+                                <input type="checkbox" class="checkThirdSet checkAll checkStudent checkFirstYear" id="check1CSGroup2" value="1212" onchange="changeState();">
                                 <label for="check1CSGroup2">CS Group 2</label>
                             </div>
                             <div class="divStyle">
-                                <input type="checkbox" class="checkThirdSet" id="check1IS" value="1213">
+                                <input type="checkbox" class="checkThirdSet checkAll checkStudent checkFirstYear" id="check1IS" value="1213" onchange="changeState();">
                                 <label for="check1IS">IS</label>
                             </div>
                         </div>
                     </div>
                     <div class="divStyle">
-                        <input type="checkbox" class="checkSecondSet" id="CheckSecondYear" value="1220">
-                        <label for="CheckSecondYear">Second Year</label>
+                        <input type="checkbox" class="checkSecondSet checkAll checkStudent" id="checkSecondYear " value="1220" onchange="changeState();">
+                        <label for="checkSecondYear ">Second Year</label>
                         <div>
                             <div class="divStyle">
-                                <input type="checkbox" class="checkThirdSet" id="check2CSGroup1" value="1221">
+                                <input type="checkbox" class="checkThirdSet checkAll checkStudent checkSecondYear" id="check2CSGroup1" value="1221" onchange="changeState();">
                                 <label for="check2CSGroup1">CS Group 1</label>
                             </div>
                             <div class="divStyle">
-                                <input type="checkbox" class="checkThirdSet" id="check2CSGroup2" value="1222">
+                                <input type="checkbox" class="checkThirdSet checkAll checkStudent checkSecondYear" id="check2CSGroup2" value="1222" onchange="changeState();">
                                 <label for="check2CSGroup2">CS Group 2</label>
                             </div class="divStyle">
                             <div class="divStyle">
-                                <input type="checkbox" class="checkThirdSet" id="check2IS" value="1223">
+                                <input type="checkbox" class="checkThirdSet checkAll checkStudent checkSecondYear" id="check2IS" value="1223" onchange="changeState();">
                                 <label for="check2IS">IS</label>
                             </div>
                         </div>
                     </div>
                     <div class="divStyle">
-                        <input type="checkbox" class="checkSecondSet" id="CheckThirdYear" value="1230">
-                        <label for="CheckThirdYear">Third Year</label>
+                        <input type="checkbox" class="checkSecondSet checkAll checkStudent " id="checkThirdYear" value="1230" onchange="changeState();">
+                        <label for="checkThirdYear">Third Year</label>
                         <div>
                             <div class="divStyle">
-                                <input type="checkbox" class="checkThirdSet" id="check3CSGroup1" value="1231">
+                                <input type="checkbox" class="checkThirdSet checkAll checkStudent checkThirdYear" id="check3CSGroup1" value="1231" onchange="changeState();">
                                 <label for="check3CSGroup1">CS</label>
                             </div>
                             <div class="divStyle">
-                                <input type="checkbox" class="checkThirdSet" id="check3IS" value="1232">
+                                <input type="checkbox" class="checkThirdSet checkAll checkStudent checkThirdYear " id="check3IS" value="1232" onchange="changeState();">
                                 <label for="check3IS">IS</label>
                             </div>
                         </div>
                     </div>
                     <div class="divStyle">
-                        <input type="checkbox" class="checkSecondSet" id="CheckFourthYear" value="1240">
-                        <label for="CheckFourthYear">Fourth Year</label>
+                        <input type="checkbox" class="checkSecondSet checkAll checkStudent" id="checkFourthYear" value="1240" onchange="changeState();">
+                        <label for="checkFourthYear">Fourth Year</label>
                         <div>
                             <div class="divStyle">
-                                <input type="checkbox" class="checkThirdSet" id="check4CS" value="1241">
+                                <input type="checkbox" class="checkThirdSet checkAll checkStudent checkFourthYear" id="check4CS" value="1241" onchange="changeState();">
                                 <label for="check4CS">CS</label>
                             </div>
                             <div class="divStyle">
-                                <input type="checkbox" class="checkThirdSet" id="check4IS" value="1242">
+                                <input type="checkbox" class="checkThirdSet checkAll checkStudent checkFourthYear" id="check4IS" value="1242" onchange="changeState();">
                                 <label for="check4IS">IS</label>
                             </div>
                             <div class="divStyle">
-                                <input type="checkbox" class="checkThirdSet" id="check4SE" value="1243">
+                                <input type="checkbox" class="checkThirdSet checkAll checkStudent checkFourthYear" id="check4SE" value="1243" onchange="changeState();">
                                 <label for="check4SE">SE</label>
                             </div>
                         </div>

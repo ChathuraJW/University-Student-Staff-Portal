@@ -29,7 +29,7 @@ var check4SE = $("input[type='checkbox'][value='1243']");
 
 var checkStudent = $("input[type='checkbox'][value='1200']");
 
-checkStudent.on('change',function(){
+checkStudent.on('click',function(){
     checkFirstYear.prop('checked',this.checked);
     checkSecondYear.prop('checked',this.checked);
     checkFourthYear.prop('checked',this.checked);
@@ -51,29 +51,133 @@ checkStudent.on('change',function(){
     check4SE.prop('checked',this.checked);
 });
 
-checkFirstYear.on('change', function(){
+checkFirstYear.on('click', function(){
     check1CSGroup1.prop('checked',this.checked);
     check1CSGroup2.prop('checked',this.checked);
     check1IS.prop('checked',this.checked);
 
 });
-checkSecondYear.on('change', function(){
+checkSecondYear.on('click', function(){
     check2CSGroup1.prop('checked',this.checked);
     check2CSGroup2.prop('checked',this.checked);
     check2IS.prop('checked',this.checked);
 
 });
-checkThirdYear.on('change', function(){
+checkThirdYear.on('click', function(){
     check3CS.prop('checked',this.checked);
     check3IS.prop('checked',this.checked);
 
 });
-checkFourthYear.on('change', function(){
+checkFourthYear.on('click', function(){
     check4CS.prop('checked',this.checked);
     check4IS.prop('checked',this.checked);
     check4SE.prop('checked',this.checked);
 
 });
+
+let selectAll = document.getElementsByClassName('checkAll')
+let selectStudent = document.getElementsByClassName('checkStudent');
+let selectFirstYear = document.getElementsByClassName('checkFirstYear');
+let selectSecondYear = document.getElementsByClassName('checkSecondYear');
+let selectThirdYear = document.getElementsByClassName('checkThirdYear');
+let selectFourthYear =  document.getElementById('checkFourthYear');
+
+
+
+
+function changeState(){
+    let count =0;
+    // check all operations
+    for (let i=0; i<selectAll.length; i++){
+        if(!selectAll[i].checked){
+            //uncheck all option when uncheck uncheck below checkboxes.
+            document.getElementById('checkAll').checked = false;
+            break;
+        }
+        else{
+            // check all option when below all checkboxes are selected
+            count = count+1;
+            if(count === selectAll.length) {
+                document.getElementById('checkAll').checked = true;
+            }
+        }
+    }
+
+    // Student Selection
+    count=0;
+    for (let i=0; i<selectStudent.length; i++){
+        if(!selectStudent[i].checked){
+            document.getElementById('checkStudent').checked = false;
+            break;
+        }else{
+            count = count+1;
+            if(count === selectStudent.length) {
+                document.getElementById('checkStudent').checked = true;
+            }
+        }
+    }
+
+    // First year selection
+    count=0;
+    for (let i=0; i<selectFirstYear.length; i++){
+        if(!selectFirstYear[i].checked){
+            document.getElementById('checkFirstYear').checked = false;
+            break;
+        }else{
+            count = count+1;
+            if(count === selectFirstYear.length) {
+                document.getElementById('checkFirstYear').checked = true;
+            }
+        }
+    }
+
+    // Second year selection
+    count=0;
+    for (let i=0; i<selectSecondYear.length; i++){
+        if(!selectSecondYear[i].checked){
+            document.getElementById('checkSecondYear ').checked = false;
+            break;
+        }else{
+            count = count+1;
+            if(count === selectSecondYear.length) {
+                document.getElementById('checkSecondYear ').checked = true;
+            }
+        }
+    }
+
+    // third year selection
+    count=0;
+    for (let i=0; i<selectThirdYear.length; i++){
+        if(!selectThirdYear[i].checked){
+            document.getElementById('checkThirdYear').checked = false;
+            break;
+        }else{
+            count = count+1;
+            if(count === selectThirdYear.length) {
+                document.getElementById('checkThirdYear').checked = true;
+            }
+        }
+    }
+
+
+    //fourth year selection
+    count=0;
+    for (let i=0; i<selectFourthYear.length; i++){
+        if(!selectFourthYear[i].checked){
+            document.getElementById('checkFourthYear').checked = false;
+            break;
+        }else{
+            count = count+1;
+            if(count === selectFourthYear.length) {
+                document.getElementById('checkFourthYear').checked = true;
+            }
+        }
+    }
+
+
+}
+
+
 
 
 
