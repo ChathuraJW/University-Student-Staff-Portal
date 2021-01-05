@@ -41,20 +41,22 @@
                         <div class="subTask">Batch miss Management</div>
                         
                     </div>
-                <div class="task two" onclick="subtaskOpen('subsetTwo')">Subject Management</div>
-                    <div id="subsetTwo" style="display:none;"class="subTasksSet">
+                <div class="task two" >Subject Management</div>
+                <!-- onclick="subtaskOpen('subsetTwo')" -->
+                    <!-- <div id="subsetTwo" style="display:none;"class="subTasksSet">
                         <div class="subTask">Add a New Subject</div>
                         <div class="subTask">Update Subject Details</div>
                         <div class="subTask">Delete Subject</div>
                         
-                    </div>
-                <div class="task three" onclick="subtaskOpen('subsetThree')">Facility Management(Lecture Hall/Lab)</div>
-                    <div id="subsetThree" style="display:none;"class="subTasksSet">
+                    </div> -->
+                <div class="task three" >Facility Management(Lecture Hall/Lab)</div>
+                <!-- onclick="subtaskOpen('subsetThree')" -->
+                    <!-- <div id="subsetThree" style="display:none;"class="subTasksSet">
                         <div class="subTask">Add a New Hall</div>
                         <div class="subTask">Update Hall Details</div>
                         <div class="subTask">Delete Hall Details</div>
                         
-                    </div>
+                    </div> -->
                 <div class="task four" onclick="subtaskOpen('subsetFour')">User Privilege Management</div>
                     <div id="subsetFour" style="display:none;"class="subTasksSet">
                         <div class="subTask">Add User Privilege</div>
@@ -130,61 +132,14 @@
 
             </div>
             <div class="taskPage">  
-                <div class="">
-                    <div class="heading">Subject Management</div>
-                    <div id="coursePage" style="display:none;">
-                        <div class="addCourse"><i class="fa fa-plus" aria-hidden="true"></i> ADD New Course</div>
-                        <?php
-                            $records=$controllerData;
-                            foreach($records as $record){
-                                echo "
-                                <div class='courseTab'>
-                                    <div class='courseName'>".$record->getCourseCode()."   ".$record->getName()."</div>
-                                    <div class='courseEdit'>EDIT</div>
-                                    <div class='courseDelete'>DELETE</div>
-                                </div>
-
-                                ";
-                            }
-                            
-                        ?>
-                    </div>
-                    <div class="heading" style="font-size:20px;" id="headingEdit">EDIT Course</div>
-                    <form action="" method="post">
-                        <div class="dataForm" id="courseDetailForm">
-                            <div class="inputDiv">
-                                <label class="labelField" for="courseCode">Course Code</label>
-                                <input class="inputField" id="courseCode" type="text">
-                            </div>
-                            <div class="inputDiv">
-                                <label class="labelField" for="courseName">Course Name</label>
-                                <input class="inputField" id="courseName" type="text">
-                            </div>
-                            <div class="inputDiv">
-                                <label class="labelField" for="semester">Semester</label>
-                                <input class="inputField" id="semester" type="text">
-                            </div>
-                            <div class="inputDiv">
-                                <label class="labelField" for="creditValue">Credit Value</label>
-                                <input class="inputField" id="creditValue" type="text">
-                            </div>
-                            <div class="inputDiv">
-                                <label class="labelField" style="vertical-align:top;" for="description">Description</label>
-                                <textarea class="inputField" id="description" name="" id="" cols="30" rows="10"></textarea>
-                            </div>
-
-                            
-                        </div>
-                        <div class="buttonDual">
-                            <input type="button" value="Cancel" class="buttonSet">
-                            <input type="submit" value="Submit" class="buttonSet">
-                        </div>
-                    </form>
-                </div>
+                
+                <?php subjectManagementController::subjectManagementOpen();?>
                 
             </div>
         </div>
     </div>
+    <script src="../../assets/js/jquery.js"></script>
+<script src="../../assets/js/toast.js"></script>
     <script>
         
         function subtaskOpen(element){
@@ -198,18 +153,6 @@
             // document.getElementById("messageSecond").style.display="none";
             // window.location.href=document.location.href.toString().split('requestAppointment')[0]+'requestAppointment';
             
-        }
-        function openTab(tabs){
-            document.getElementById("tabFirst").style.display="none";
-            document.getElementById("tabSecond").style.display="none";
-            
-            document.getElementById(tabs).style.display="";
-        }
-
-        function hover(link){
-            document.getElementById("linkFirst").style.backgroundColor  = "rgb(148, 195, 238)";
-            document.getElementById("linkSecond").style.backgroundColor  = "rgb(148, 195, 238)";
-            document.getElementById(link).style.backgroundColor  = "rgb(58, 189, 212)";
         }
 
     </script>

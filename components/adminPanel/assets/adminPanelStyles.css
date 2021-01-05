@@ -86,60 +86,61 @@
     color: black;
     font-weight: bold;
 }
-.courseTab{
+.elementTab{
     margin: auto;
     width:96%;
     display: table;
     background-color: rgb(240, 240, 240);
     margin-bottom: 5px;
 }
-.courseName{
+.elementName{
     width:82%;
     display: table-cell;
     padding: 1.5%;
 }
-.courseEdit{
+.elementEdit{
     width:9%;
     display: table-cell;
     margin: auto;
     text-align: center;
     /* padding: 1.5%; */
 }
-.courseEdit:hover{
+.elementEdit:hover{
     background-color: rgb(221, 220, 220);
     font-weight:bold;
     cursor: pointer;
 }
-.courseDelete{
+.elementDelete{
     width:9%;
     display: table-cell;
     margin: auto;
     text-align: center;
     /* padding: 1.5%; */
 }
-.courseDelete:hover{
+.elementDelete:hover{
     background-color: rgb(221, 220, 220);
     font-weight:bold;
     cursor: pointer;
 }
 .heading{
-    color: darkgray;
+    color: rgb(129, 127, 127);
     font-size: 25px;
     font-weight: bolder;
     margin-top: 4%;
     margin-bottom: 2%;
     margin-left: 2%;
 }
-.addCourse{
+.addElement{
     text-align: center;
     width:20%;
     float: right;
     padding: 1.5%;
     margin-right: 2%;
     margin-bottom: 2%;
+    cursor: pointer;
     background-color: rgb(236, 236, 236);
 }
-.addCourse:hover{
+.addElement:hover{
     background-color: rgb(221, 217, 217);
     font-weight: bold;
 }
@@ -148,7 +149,7 @@
 }
 .inputDiv{
     display: table;
-    color: darkgray;
+    color: rgb(124, 122, 122);
     width: 100%;
     margin-bottom: 10px;
 }
@@ -178,6 +179,7 @@
     font-size: 18px;
     text-align: center;
     outline: none;
+    border-color: rgb(180, 180, 180);
     border-width: 0.5px;
     cursor: pointer;
     margin-left: 12.5%;
