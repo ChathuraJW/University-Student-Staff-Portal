@@ -2,6 +2,7 @@
 
 class User{
     //attributes of User
+	protected string $salutation;
     protected string $userName;
     protected string $firstName;
     protected string $lastName;
@@ -29,13 +30,22 @@ class User{
 		return $this;
 	}
 
-	public function createUserForAdminEdit($firstName,$lastName,$fullName,$universityEmail,$dob,$nic,$userType): static {
+	public function createUserForAdminEdit($firstName,$lastName,$fullName,$universityEmail,$dob,$nic,$userType): User {
 		$this->firstName=$firstName;
 		$this->lastName=$lastName;
 		$this->fullName=$fullName;
 		$this->universityEmail=$universityEmail;
 		$this->dateOfBirth=$dob;
 		$this->nic=$nic;
+		$this->userType=$userType;
+		return $this;
+	}
+
+	public function createUserForPrivilegeSearch($salutation,$firstName,$lastName,$userName,$userType):User{
+		$this->salutation=$salutation;
+		$this->userName=$userName;
+		$this->firstName=$firstName;
+		$this->lastName=$lastName;
 		$this->userType=$userType;
 		return $this;
 	}
@@ -110,6 +120,21 @@ class User{
 		return $this->userType;
 	}
 
+	public function getSalutation(): string {
+		return $this->salutation;
+	}
+
+	public function getUserTypeAsWord(): string {
+		switch ($this->userType){
+			case 'ST':return 'Student';
+			case 'AS':return 'Academic Staff';
+			case 'SP':return 'Academic Supportive Staff';
+			case 'AA':return 'Administrator';
+			case 'AD':return 'Administrative Staff';
+		}
+	}
+
+
 }
 
 class Student extends User{
@@ -136,6 +161,38 @@ class Student extends User{
 		return $this->group;
 	}
 
+
+}
+
+class SpecialRole{
+	private int $entryID;
+	private string $role;
+	private string $userName;
+	private string $displayUserName;
+
+	public function createRole($entryID,$role,$userName,$salutation,$firstName,$lastName):SpecialRole{
+		$this->entryID=$entryID;
+		$this->role=$role;
+		$this->userName=$userName;
+		$this->displayUserName="$salutation. $firstName $lastName";
+		return $this;
+	}
+
+	public function getEntryID(): int {
+		return $this->entryID;
+	}
+
+	public function getRole(): string {
+		return $this->role;
+	}
+
+	public function getUserName(): string {
+		return $this->userName;
+	}
+
+	public function getDisplayUserName(): string {
+		return $this->displayUserName;
+	}
 
 }
 

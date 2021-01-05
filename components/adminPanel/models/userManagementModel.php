@@ -172,30 +172,30 @@
 
 //		get student data for change there group
 		public static function getStudentData($userName): bool|Student {
-			$sqlQuery="SELECT * FROM student_basic_data WHERE regNo='$userName'";
+			$sqlQuery = "SELECT * FROM student_basic_data WHERE regNo='$userName'";
 			//TODO need to change database credentials
-			$result=Database::executeQuery('root','',$sqlQuery)[0];
-			if($result){
-				$student=new Student;
-				$student->createBasicStudent($result['regNo'],$result['indexNo'],$result['nic'],$result['studentGroup'],$result['firstName'],$result['lastName'],$result['fullName']);
+			$result = Database::executeQuery('root', '', $sqlQuery)[0];
+			if ($result) {
+				$student = new Student;
+				$student->createBasicStudent($result['regNo'], $result['indexNo'], $result['nic'], $result['studentGroup'], $result['firstName'], $result['lastName'], $result['fullName']);
 				return $student;
-			}else{
+			} else {
 				return false;
 			}
 		}
 
-		public static function updateStudentGroup($studentUsername,$newGroup){
-			$dbInstance=new Database;
+		public static function updateStudentGroup($studentUsername, $newGroup) {
+			$dbInstance = new Database;
 			//TODO need to change database credentials
-			$dbInstance->establishTransaction('root','');
+			$dbInstance->establishTransaction('root', '');
 
 //			execute update query and audit the action
-			$sqlQuery="UPDATE student SET studentGroup='$newGroup' WHERE regNo='$studentUsername'";
+			$sqlQuery = "UPDATE student SET studentGroup='$newGroup' WHERE regNo='$studentUsername'";
 			$dbInstance->executeTransaction($sqlQuery);
-			$dbInstance->transactionAudit($sqlQuery,'student','UPDATE',"Update $studentUsername, group to $newGroup by admin.");
+			$dbInstance->transactionAudit($sqlQuery, 'student', 'UPDATE', "Update $studentUsername, group to $newGroup by admin.");
 
-			if($dbInstance->getTransactionState()){
-				if($dbInstance->commitToDatabase()){
+			if ($dbInstance->getTransactionState()) {
+				if ($dbInstance->commitToDatabase()) {
 					//TODO send email to inform the situation (nice to have)
 //					display success message and redirect to previous page
 					echo("
@@ -207,11 +207,11 @@
 							 }, 3000);
 						</script>
 						");
-				}else{
+				} else {
 //					display fail message
 					echo("<script>createToast('Warning (error code: #ADMIN-UM-08)','Operation Failed.','W')</script>");
 				}
-			}else{
+			} else {
 //				display fail message
 				echo("<script>createToast('Warning (error code: #ADMIN-UM-08)','Operation Failed.','W')</script>");
 			}

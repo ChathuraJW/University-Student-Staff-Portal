@@ -107,7 +107,7 @@
         </div>
         <div class="taskPage" class="taskPage">
             <?php
-                UserManagementController::updateProfile();
+                PrivilegeManagementController::init();
             ?>
         </div>
     </div>
