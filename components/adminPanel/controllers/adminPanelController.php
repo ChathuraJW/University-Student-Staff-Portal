@@ -4,8 +4,9 @@ class AdminPanelController extends Controller{
     //     parent::__construct();
     // }
     public static function open(){
-        $data=AdminPanelModel::getCourse();
-        self::createView("adminPanelView",$data);
+        setcookie("userName","kek");
+        
+        self::createView("adminPanelView");
 
         
     }

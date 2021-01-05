@@ -472,16 +472,23 @@ class Hall{
     // attributes of Hall
     private $hallID;
     private $capacity;
-    private $type;
+    private $hallType;
     // methods of Hall
-    protected function createHall(){
-
+    public function getHallID(){
+        return $this->hallID;
     }
-    protected function deleteHall(){
-
+    public function getCapacity(){
+        return $this->capacity;
     }
-    protected function editHall(){
-
+    public function getHallType(){
+        return $this->hallType;
+    }
+        
+    
+    public function setHall($hallID,$capacity,$hallType){
+        $this->hallID=$hallID;
+        $this->capacity=$capacity;
+        $this->hallType=$hallType;
     }
 }
 class BookingCategory{
