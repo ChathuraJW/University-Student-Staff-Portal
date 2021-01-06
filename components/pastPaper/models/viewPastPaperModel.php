@@ -40,8 +40,23 @@ class ViewPastPaperModel extends Model{
     }
 
     public static function showSearchResult($examinationYear,$realSemester,$subject):array|bool{
-        $sqlQuery = "SELECT subjectCode, yearOfExam, semester, fileName FROM pastpaper WHERE subjectCode='$subject' OR yearOfExam=$examinationYear OR semester=$realSemester ";
+        $sqlQuery = "SELECT subjectCode, yearOfExam, semester, fileName FROM pastpaper WHERE";
+
+        if($examinationYear != '0'){
+            $sqlQuery.=" yearOfExam = $examinationYear AND";
+        }
+        if($realSemester != '0'){
+            $sqlQuery.=" semester = $realSemester AND";
+        }
+        if($subject != '0'){
+            $sqlQuery.=" subjectCode = $subject";
+        }
+
+        $sqlQuery=trim($sqlQuery,"AND");
+        $sqlQuery=trim($sqlQuery,"WHERE");
+//        echo($sqlQuery);
         $searchResult = Database::executeQuery('root','',$sqlQuery);
+
 
         //initialize the returning array
         if($searchResult){
