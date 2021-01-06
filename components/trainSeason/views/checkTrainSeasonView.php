@@ -30,11 +30,11 @@
           <div class="btn-group">
             <br>
             <?php
-            for($i=0;$i<=5;$i++){
+            foreach($controllerData as $data){
               echo ("<a class='application' href='checkedApplication'>
                     <div class='button'>
-                      <div>Appliciant Name: Mr. Kamal</div>
-                      <div>Station: Moratuwa to Bambalapitiya</div>
+                      <div>Appliciant: ".$data->getRequester()."</div>
+                      <div>Station: </div>
                       <div style='float:right;'>Date: 2020/02/07</div>
                     </div><br>
                   </a>");

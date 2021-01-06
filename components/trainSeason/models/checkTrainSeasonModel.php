@@ -2,7 +2,9 @@
     class CheckTrainSeasonModel extends Model{
         public static function getData(){
             $sqlQuery = "SELECT * FROM request_train_season";
-            $requesterData = Database::executeQuery("root","",$sqlQuery); 
+            
+            $requesterData = Database::executeQuery("root","",$sqlQuery);
+            echo $requesterData; 
             if($data){
                 $requesterDataList = array();
                 

@@ -51,11 +51,11 @@
         }
 
 
-        public static function insertData($name,$regNo,$address,$academicYear,$age,$fromMonth,$toMonth,$homeStation,$universityStation){
+        public static function insertData($requesterDetail){
             $dbObject = new Database();
             $dbObject->establishTransaction('root','');
-            $insertQuery = "INSERT INTO request_train_season(requester,address,academicYear,age,fromMonth,toMonth,nearRailwayStationHome,nearRailwayStationUni)
-            VALUES('$regNo','$address','$academicYear','$age','$fromMonth','$toMonth','$homeStation','$universityStation')";
+            $insertQuery = "INSERT INTO request_train_season(requester,address,academicYear,age,fromMonth,toMonth,nearRailwayStationHome,nearRailwayStationUni) VALUES('".$requesterDetail->getRequester()."','".$requesterDetail->getAddress()."','".$requesterDetail->getAcademicYear()."','.$requesterDetail->getAge().','".$requesterDetail->getFromMonth()."','".$requesterDetail->getToMonth()."','".$requesterDetail->getNearRailwayStationHome()."','".$requesterDetail->getNearRailwayStationUni()."')";
+            echo $insertQuery;
              
             //execute the query
             $dbObject->executeTransaction($insertQuery);
@@ -69,10 +69,10 @@
                 if($dbObject->commitToDatabase()){
                     echo ("<script>createToast('Success','Operation successfully completed.','S')</script>");
                 }else{
-                    echo ("<script>createToast('Warning(error code: #ERM04)','Failed to confirm.','W')</script>");
+                    echo ("<script>createToast('Warning(error code: #TSM01)','Failed to confirm.','W')</script>");
                 }
             }else{
-                echo ("<script>createToast('Warning(error code: #ERM04)','Failed to confirm.','W')</script>");
+                echo ("<script>createToast('Warning(error code: #TSM01)','Failed to confirm.','W')</script>");
             }
             $dbObject->closeConnection();
         }
