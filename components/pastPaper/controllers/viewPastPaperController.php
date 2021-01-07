@@ -15,18 +15,21 @@ class ViewPastPaperController extends Controller{
                 echo("<script>createToast('Warning(error code:#PPM02-T)','Failed to get inputs.','W')</script>");
             }
 
+
             //calculate semester as 1,2,3,4,5,6,7,8
-            if($semester == 0){
-                $realSemester= 0;
-            }else{
-                $semList = array(array(1, 2), array(3, 4), array(5, 6), array(7, 8));
-                $realSemester = $semList[$academicYear - 1][$semester - 1];
-            }
+//            if($semester == 0){
+//                $realSemester= 0;
+//            }else{
+//                $semList = array(array(1, 2), array(3, 4), array(5, 6), array(7, 8));
+//                $realSemester = $semList[$academicYear - 1][$semester - 1];
+//            }
+
 //            echo("$examinationYear, $realSemester,$subject, $academicYear");
-            $searchResults = ViewPastPaperModel::showSearchResult($examinationYear,$realSemester,$subject);
+            $searchResults = ViewPastPaperModel::showSearchResult($examinationYear,$semester,$subject,$academicYear);
 
             $sendingData = array($passingSubjects, $searchResults,"Search Results");
             self::createView("viewPastPaperView",$sendingData);
+
 
             //        display error toast for data loading error
             if(!$passingSubjects)
@@ -42,3 +45,5 @@ class ViewPastPaperController extends Controller{
         }
     }
 }
+
+

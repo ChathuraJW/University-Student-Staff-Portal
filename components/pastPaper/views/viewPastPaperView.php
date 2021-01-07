@@ -25,7 +25,7 @@
                     <div class="dropdownContainer row col-2">
                         <div>
                             <label class="labelStyle">Examination Year:</label>
-                            <select name="examinationYear" id="examinationYear" required>
+                            <select name="examinationYear" id="examinationYear" required >
                                 <option value="0" selected></option>
                             </select>
                         </div>
@@ -80,28 +80,49 @@
                             }
 
 
+
+
                             foreach ($controllerData[1] as $recent ){
                                 $extension = getFileExtension($recent->getPaperName());
+
+//                                convert real semesters in to academic yaer and semester format
+                                 if($recent->getSemester%2==0){
+                                     $semester = "Semester 2";
+                                 }else{
+                                     $semester = "Semester 1";
+                                 }
+                                 
+                                 switch ($recent->getSemester()){
+                                     case 1:
+                                     case 2:
+                                         $academicYear = "Year 1";
+                                         break;
+                                     case 3:
+                                     case 4:
+                                         $academicYear = "Year 2";
+                                         break;
+                                     case 5:
+                                     case 6:
+                                         $academicYear = "Year 3";
+                                         break;
+                                     case 7:
+                                     case 8:
+                                         $academicYear = "Year 4";
+                                         break;
+                                 }
+
                                 echo ("         
                                     <div class='pastPaperTile'>
                                 <a class='subjectName' href='' target='_blank'>
                                     <span >$recent->get</span><br>
-                                    <span >Data Structure & Algorithms 1</span><br>
-                                    <span >First Year </span>
-                                    <span >First Semester</span><br>
-                                    <span >2010</span><br>
+                                    <span >".$recent->getSubjectCode()."</span><br>
+                                    <span >$academicYear </span>
+                                    <span >$semester</span><br>
+                                    <span >".$recent->getExaminationYear()."</span><br>
                                     <span><i class='fa fa-download' aria-hidden='true'></i></span>
                                 </a>
                             </div>                    
-                                    <div class='paperDetails'>
-                                        <a class='subjectName' href='assets/pastPapers/".$recent->getPaperName()."' target='_blank'><span >".$recent->getPaperName()."</span></a>
-                                    </div>
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                    <div class='download'>
-                                        <a class='pastPapers' href='#'>  <i class='fa fa-download' aria-hidden='true'></i></a>
-                                    </div>
+                                    
                                 ");
                             }
 
