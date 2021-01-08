@@ -107,7 +107,7 @@
         </div>
         <div class="taskPage" class="taskPage">
             <?php
-                DangerousZoneController::startNewSemester();
+                DangerousZoneController::changeAdminUser();
             ?>
         </div>
     </div>

@@ -8,7 +8,7 @@
 </style>
 <div class="startNewSemester">
     <span class="sectionTitle">Start a New Semester</span>
-    <span style="text-align: justify;">
+    <span style="text-align: justify;display: block;">
         Hear you can start a new semester. When you press the button, all student's course enrolment will be disable. As well as all student group also
         promoted to next level if needed. This is a dangerous activity because of that. So before doing this please make sure that actually you need to
         perform this activity.
@@ -18,9 +18,9 @@
         <div class="row col-2">
         <div>
             <span class="inputHeading">Admin Username</span>
-            <input type="text" name="adminUserName"> <br>
+            <input type="text" name="adminUserName" required> <br>
             <span class="inputHeading">Admin Password</span>
-            <input type="password" name="adminPassword">
+            <input type="password" name="adminPassword" required>
         </div>
         <div>
             <span class="inputHeading">Confirmation</span>

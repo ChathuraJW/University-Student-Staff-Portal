@@ -2,16 +2,17 @@
 
 	class DangerousZoneModel extends Model {
 
-		public static function validateAdmin($username,$password): bool {
+		public static function validateAdmin($username, $password): bool {
 //			based on the data pass check weather user is admin and credential is valid
-			$sqlQuery="SELECT U.password FROM user U,special_role UR WHERE U.userName=UR.assignedUser AND U.userName='$username' AND UR.userRole='ADM'";
-			$dbGetPassword=Database::executeQuery('root','',$sqlQuery)[0]['password'];
-			if($dbGetPassword && $password===$dbGetPassword){
+			$sqlQuery = "SELECT U.password FROM user U,special_role UR WHERE U.userName=UR.assignedUser AND U.userName='$username' AND UR.userRole='ADM'";
+			$dbGetPassword = Database::executeQuery('root', '', $sqlQuery)[0]['password'];
+			if ($dbGetPassword && $password === $dbGetPassword) {
 				return true;
-			}else{
+			} else {
 				return false;
 			}
 		}
+
 		public static function startNewSemester() {
 			$dbInstance = new Database;
 			//TODO need to change database credentials
@@ -175,5 +176,38 @@
 				echo("<script>createToast('Warning (error code: #ADMIN-DZ-01)','Failed to start a new semester.','W')</script>");
 			}
 			$dbInstance->closeConnection();
+		}
+
+		public static function changeAdminUser($selectedUser) {
+			$dbInstance = new Database;
+			//TODO need to change database credentials
+			$dbInstance->establishTransaction('root', '');
+
+//			update special role table and audit the operation
+			$sqlQuery = "UPDATE special_role SET assignedUser='$selectedUser', assignedDate=NOW() WHERE userRole='ADM'";
+			$dbInstance->executeTransaction($sqlQuery);
+
+			$currentUser = $_COOKIE['userName'];
+			$dbInstance->transactionAudit($sqlQuery, 'special_role', 'UPDATE', "Change system administrator to $selectedUser by current system administrator[$currentUser].");
+
+//			check operation status
+			if ($dbInstance->getTransactionState()) {
+				if ($dbInstance->commitToDatabase()) {
+					//procured towards
+					//TODO send notification with email to both parties inform the situation
+					//close the connection and logout from user current session
+					$dbInstance->closeConnection();
+					//TODO check logout operation
+					require_once('../../assets/php/logout.php');
+				} else {
+//					close connection and display error
+					$dbInstance->closeConnection();
+					echo("<script>createToast('Warning (error code: #ADMIN-DZ-04)','Operation failed.','W')</script>");
+				}
+			} else {
+//				close connection and display error
+				$dbInstance->closeConnection();
+				echo("<script>createToast('Warning (error code: #ADMIN-DZ-04)','Operation failed.','W')</script>");
+			}
 		}
 	}
