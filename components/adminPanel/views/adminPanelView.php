@@ -107,7 +107,7 @@
         </div>
         <div class="taskPage" class="taskPage">
             <?php
-                PrivilegeManagementController::init();
+                DangerousZoneController::startNewSemester();
             ?>
         </div>
     </div>

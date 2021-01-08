@@ -111,7 +111,7 @@
 
 /*common element styles*/
 
-input[type=number], input[type=text], input[type=email],input[type=date], input[type=search], textarea, select, option {
+input[type=number], input[type=text], input[type=email], input[type=password], input[type=date], input[type=search], textarea, select, option {
     padding: 8px;
     border: 1px solid gray;
     border-radius: 4px;
