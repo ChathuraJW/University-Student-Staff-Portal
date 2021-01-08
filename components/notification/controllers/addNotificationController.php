@@ -3,13 +3,7 @@
 class AddNotificationController extends Controller{
 
     public static function addNotification(){
-//        $newNotification = new Notification();
-//        $newNotification->createNotification('Hi','shubangi');
-//        $newNotification->setSender('asd');
-//        $newNotification->setTimeout(4);
-//        $newNotification->setReceivers(array('2018cs136','2018cs134'));
-//        $newNotification->publishNotification();
-
+//
         self::createView("addNotificationView");
 
         if(isset($_POST['send'])){
@@ -17,47 +11,49 @@ class AddNotificationController extends Controller{
             $notificationContent = $_POST['message'];
             $notificationCategory = $_POST['category'];
             $weeks = $_POST['weeks'];
+            $senderRegNo = $_COOKIE['userName'];
 
             if(!empty($_POST['receiverList'])){
 
             // Loop to store and display values of individual checked checkbox.
-                $receiversTemp = array();
+                $receivers = array();
                 $temp =0;
                 foreach($_POST['receiverList'] as $selected){
 //                    echo $selected."</br>";
                     if($selected == '1100'){ // all users
-                        $receiversTemp[] = $selected;
+                        $receivers[] = $selected;
                         break;
                     }elseif ($selected == '1200'){// all students
-                        $receiversTemp[] = $selected;
+                        $receivers[] = $selected;
                         break;
                     }elseif($selected == '1210'){// first years
-                        $receiversTemp[] = $selected;
-                        $temp = 3;
+                        $receivers[] = $selected;
+                        $temp = 3;// skip 3 element after found first year code.
                         continue;
                     }elseif($selected == '1220'){// second years
-                        $receiversTemp[] = $selected;
-                        $temp = 3;
+                        $receivers[] = $selected;
+                        $temp = 3;// skip 3 element after found first year code.
                         continue;
                     }elseif($selected == '1230'){// third years
-                        $receiversTemp[] = $selected;
-                        $temp = 2;
+                        $receivers[] = $selected;
+                        $temp = 2;// skip 2 element after found third year code.
                         continue;
                     }elseif($selected == '1240'){// fourth years
-                        $receiversTemp[] = $selected;
-                        $temp = 3;
+                        $receivers[] = $selected;
+                        $temp = 3;// skip 3 element after found fourth year code.
                         continue;
                     }elseif($temp == 0){
-                        $receiversTemp[] = $selected;
+                        $receivers[] = $selected;
                     }else{
                         $temp--;
                     }
 
 
                 }
-                print_r($receiversTemp);
+//                print_r($receivers);
+//                print_r("$notificationTitle $notificationContent $notificationCategory,$weeks");
+                AddNotificationModel::saveNotificationDetails($senderRegNo,$notificationTitle,$notificationContent,$weeks,$notificationCategory,$receivers);
             }
-//            print_r("$notificationTitle $notificationContent $notificationCategory,$weeks");
 
         }
     }

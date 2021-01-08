@@ -20,6 +20,14 @@
             <div class="row col-1">
                 <p class="heading">Announcements</p>
             </div>
+            <div><label class="subHeading" id="">Title:</label></div>
+            <div class="row col-1">
+                <textarea class="textareaStyle" name="title" rows="1" cols="130" ></textarea>
+            </div>
+            <div><label class="subHeading" id="">Message:</label></div>
+            <div class="row col-1">
+                <textarea class="textareaStyle" name="message" rows="7" cols="130" ></textarea>
+            </div>
             <div>
                 <label class="subHeading">Announcement for:</label>
             </div>
@@ -153,12 +161,7 @@
                 </div>
             </div>
 
-                <div class="row col-1">
-                    <textarea class="textareaStyle" name="title" rows="1" cols="130" placeholder="title"></textarea>
-                </div>
-                <div class="row col-1">
-                    <textarea class="textareaStyle" name="message" rows="7" cols="130" placeholder="message"></textarea>
-                </div>
+
                 <div class="buttonCouple">
                             <button type="reset" class="button "> Cancel</button>
                             <button class="button" type="submit" name="send" > Send</button>
