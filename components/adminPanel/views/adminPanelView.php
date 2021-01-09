@@ -79,8 +79,8 @@
             <div id="subsetNine" style="display:none;" class="subTasksSet">
                 <div class="subTask" onclick="subtaskOpen('superSubsetFive')">Enroll Student for course</div>
                 <div class="superSubTaskSet" id="superSubsetFive" style="display:none;">
-                    <div class="superSubTask">As Individual</div>
-                    <div class="superSubTask">As a Bulk</div>
+                    <div class="superSubTask">First Attempt Enrollment</div>
+                    <div class="superSubTask">Repeated Attempt Enrollment</div>
                 </div>
                 <div class="subTask" onclick="subtaskOpen('superSubsetSix')">Delete Enrollment</div>
                 <div class="superSubTaskSet" id="superSubsetSix" style="display:none;">
@@ -107,7 +107,7 @@
         </div>
         <div class="taskPage" class="taskPage">
             <?php
-                StudentEnrollCourseController::makeEnrollment();
+                StudentEnrollCourseController::makeRepeatEnrollment();
             ?>
         </div>
     </div>

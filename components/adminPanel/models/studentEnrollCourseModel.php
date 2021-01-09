@@ -99,4 +99,37 @@
 //			close connection
 			$dbInstance->closeConnection();
 		}
+
+		public static function repeatedStudentEnrollment($subject, $indexList) {
+			$dbInstance = new Database;
+			//TODO need to change database credentials
+			$dbInstance->establishTransaction('root', '');
+//			make enrollment for created student list
+//			create insert query for student list
+			$sqlQuery = "INSERT INTO student_enroll_course(studentIndexNo, courseCode, attempt, enrollDate) VALUES ";
+			foreach ($indexList as $individualIndex) {
+				$sqlQuery .= "($individualIndex,'$subject','R',NOW()), ";
+			}
+//					remove extra commas and spaces in the query
+			$sqlQuery = trim($sqlQuery, ', ');
+//					execute query and create audit
+			echo $sqlQuery;
+			$dbInstance->executeTransaction($sqlQuery);
+			$dbInstance->transactionAudit($sqlQuery, 'student_enroll_course', 'INSERT', "Repeated student set enroll for $subject course.");
+
+//			check connection state and commit to database
+			if ($dbInstance->getTransactionState()) {
+				if ($dbInstance->commitToDatabase()) {
+//							create success message
+					echo("<script>createToast('Success',' Enrollment successful [R] >>> [$subject].','S')</script>");
+					//TODO send notification to student to inform about new enrollment
+				} else {
+//							fail to enroll student to course
+					echo("<script>createToast('Warning (error code: #ADMIN-EC-05)','Failed to enroll students[R] to course[$subject].','W')</script>");
+				}
+			} else {
+//						fail to enroll student to course
+				echo("<script>createToast('Warning (error code: #ADMIN-EC-05)','Failed to enroll students[R] to course[$subject].','W')</script>");
+			}
+		}
 	}
