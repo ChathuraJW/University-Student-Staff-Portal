@@ -106,16 +106,15 @@ let attendanceCSVFile = document.getElementById("attendanceFile");
 let attendanceCSVFileLabel = document.getElementById("attendanceFileLabel");
 
 attendanceCSVFile.addEventListener("change",function (){
-    if(attendanceCSVFile.value != ''){
+    if(attendanceCSVFile.value !== ''){
         console.log("File Size is(KB): "+attendanceCSVFile.files[0].size/1000);
         let uploadFormat = attendanceCSVFile.value.toString().split('.')[1].toLowerCase();
-        if (uploadFormat == "csv") {
+        if (uploadFormat === "csv") {
             attendanceCSVFileLabel.style.backgroundColor = "green";
         } else {
             attendanceCSVFileLabel.style.backgroundColor = "red";
             alert("Invalid file format. Please upload csv formatted file.");
         }
-
     }
 });
 //filter data based on radio values

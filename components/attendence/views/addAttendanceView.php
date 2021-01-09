@@ -59,14 +59,13 @@
                         <label for="subjectCSV">Subject:</label>
                         <select id="subjectCSV" name="subject" class="dropDown" required>
                             <option></option>
-                        <?php
-                        foreach ($controllerData[0] as $data){
-                            $year=ceil($data[semester]/2) -1;
-                            $semester=($data[semester]%2) ? 0 : 1 ;
-                            $semList=Array(Array(1,2),Array(3,4),Array(5,6),Array(7,8));
-                            echo ("<option value='$data[courseCode]'>".$semList[$year][$semester].". $data[name]</option>");
-                        }
-                        ?>
+                            <?php
+                            //create subject dropdown
+                            foreach ($controllerData[0] as $data){
+                                echo ("<option value='".$data->getCourseCode()."'>".$data->getSemester().". ".$data->getName()."</option>");
+                            }
+                            ?>
+
                         </select>
                     </div>
                 </div>
@@ -103,14 +102,9 @@
                         <input type="file" id="attendanceFile" name="csvFile"  required>
                     </div>
                 </div>
-                <div class="row col-2" id="buttonsCSV" >
-                    <div class = "buttonStyle">
-                        <input type="reset" value = "Cancel"  class="submitCancelButton red">
-                    </div>
-                    <div class = "buttonStyle">
-                        <input type ="submit" name="submit" value = "submit"  class="submitCancelButton green">
-                    </div>
-                    
+                <div class="buttonCouple" id="buttonsCSV" >
+                        <input type="reset" value = "Cancel"  class="button">
+                        <input type ="submit" name="submit" value = "submit"  class="button">
                 </div>
             </form> 
             </div>

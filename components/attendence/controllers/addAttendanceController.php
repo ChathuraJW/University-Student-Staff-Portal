@@ -6,8 +6,10 @@ class AddAttendanceController extends Controller{
 
         $passingSubjects=AddAttendanceModel::getSubjectData();
         $passingInquiryMessage = AddAttendanceModel::getInquiryMessage();
-        // print_r($passingInquiryMessage);
+//        print_r($passingSubjects);
+//         print_r($passingInquiryMessage);
         $sendData = array($passingSubjects,$passingInquiryMessage);
+//        print_r($sendData);
         // self::createView("addAttendanceView",$sendData);
         
         if(isset($_POST['submit'])){
@@ -16,14 +18,35 @@ class AddAttendanceController extends Controller{
             $date=$_POST['attendDate'];
             $week=$_POST['week'];
             $attempt=$_POST['attempt'];
-            // echo("$semester $subject $date $week $attempt");
-            // file operation
-            //upload file into directory
             // $name = $_FILES['csvFile']['name'];
             $fileLocation = $_FILES['csvFile']['tmp_name'];
-            // echo(" $temp_name");
+             echo("$semester $subject $date $week $attempt");
+             echo(" $fileLocation");
+            $attendanceFile = fopen($fileLocation,"r");
+                $isHeader = true;//to ignore header
+                $description = "General";
+
+                // get data from the csv file
+                while(!feof($attendanceFile)){
+                    $attendanceEntry = explode(",",fgets($attendanceFile));
+                    if($isHeader){
+                        $isHeader = false;
+                    }else{
+                        $studentIndex = $attendanceEntry[1];
+                        $attendance = $attendanceEntry[2];
+                        print_r($attendance);
+                        echo $studentIndex;
+//                        $enrollmentDetails = new enrollment();
+                        $enrollmentDetails =  AddAttendanceModel::getEnrollmentID($studentIndex,$subject,$attendance);
+                        echo("enrollmentId");
+                        echo $enrollmentDetails->getEnrollmentID();
+                    }
+                }
+
+
+
             // print_r($_FILES);
-            $isSuccess = AddAttendanceModel::ProcessAttendanceData( $subject,$date,$week, $attempt, $fileLocation);
+//            $isSuccess = AddAttendanceModel::ProcessAttendanceData( $subject,$date,$week, $attempt, $fileLocation);
             self::createView("addAttendanceView",$sendData);
 
         }elseif (isset($_POST['search'])){
@@ -36,7 +59,7 @@ class AddAttendanceController extends Controller{
             $attendanceData = AddAttendanceModel::getAttendanceDataFromDatabase($index, $subject,$attempt);
             array_push($sendData,$attendanceData);
             
-        //     // print_r($attendanceData);
+             // print_r($attendanceData);
             self::createView("addAttendanceView",$sendData);
             echo("<script>
                 document.getElementById('attendanceTable').style.display = '';
