@@ -528,23 +528,33 @@ class AttendanceInstance{
 
     }
 }
-class courseModule{
-    // attributes of courseModule
-    private $CourseCode;
-    private $name;
-    private $creditVale;
-    private $description;
-    // methods of courseModule
-    protected function createModule(){
+	class CourseModule {
+		// attributes of courseModule
+		private string $CourseCode;
+		private string $name;
+		private int $semester;
 
-    }
-    protected function editModule(){
+		public function createCourseModule($courseCode, $name,$semester): CourseModule {
+			$this->CourseCode = $courseCode;
+			$this->name = $name;
+			$this->semester=$semester;
+			return $this;
+		}
 
-    }
-    protected function removeModule(){
+		public function getCourseCode(): string {
+			return $this->CourseCode;
+		}
 
-    }
-}
+		public function getName(): string {
+			return $this->name;
+		}
+
+		public function getStudentForYear(): int {
+			return ceil($this->semester/2);
+		}
+
+	}
+
 class EnrollFor{
     // attributes of EnrollFor
     private $indexNo;
