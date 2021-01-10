@@ -133,7 +133,7 @@
             </div>
             <div class="taskPage">  
                 
-                <?php subjectManagementController::subjectManagementOpen();?>
+                <?php timetableManagementController::timetableManagementOpen();?>
                 
             </div>
         </div>

@@ -189,3 +189,44 @@
     background-color: rgb(214, 210, 210);
     font-weight: bold;
 }
+.group{
+    padding: 10px;
+    width: 80%;
+    margin: auto;
+    background-color: rgb(243, 242, 242);
+    margin-bottom: 10px;
+}
+.group:hover{
+    background-color: rgb(236, 236, 236);
+    font-weight: bold;
+    cursor: pointer;
+}
+tr{
+    margin-left: 20%;
+    /* background-color: aqua; */
+}
+table{
+    border-collapse: collapse;
+    width: 70%;
+    margin: auto;
+}
+th{
+    width: 16%;
+    height: 40px;
+    border: 1px solid rgb(206, 216, 224);
+    /* border-color: rgb(218, 215, 218); */
+    border-width: 3px;
+}
+.line9{
+    background-color: rgb(206, 216, 224);
+}
+.head{
+    /* margin: auto; */
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    /* background: linear-gradient(to bottom right,rgb(255, 252, 104),white); */
+}
+.day{
+    background:linear-gradient(to bottom right,rgb(148, 210, 252),rgb(231, 248, 250));
+}
