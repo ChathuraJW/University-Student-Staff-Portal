@@ -49,15 +49,42 @@ class ViewAttendanceModel extends Model{
     public static function sendInquiryMessage($week , $subject ,$message){
         $regNo = $_COOKIE['userName'];
         $finalMessage = (" Week :$week<br>\n Subject :$subject<br>\n message :$message");
-        // echo("$finalMessage");
+        $dbInstance = new Database();
+        $dbInstance->establishTransaction('root','');
+        print_r($regNo );
+        echo($finalMessage);
         $sqlQuery = "INSERT INTO attendance_inquiry( sendBy, message, sendDate) VALUES ('$regNo','$finalMessage',NOW())";
-        $isSend = Database::executeQuery("student","student@16",$sqlQuery);
-        if($isSend){
-            echo("Send Successfully!!");
+        echo($sqlQuery);
+        $dbInstance->executeTransaction($sqlQuery);
+        //create audit trail
+        $dbInstance->transactionAudit($sqlQuery, 'attendance_inquiry', 'INSERT', 'Insert inquiry message.');
+        if($dbInstance->getTransactionState()){
+            if($dbInstance->commitToDatabase()){
+                echo("<script>createToast('Success','Inquiry Message sent successfully.','S')</script>");
+            }else{
+                echo("<script>createToast('Warning (error code: #SAM02-D)','Failed to send inquiry message.','W')</script>");
+            }
+        }else{
+            echo("<script>createToast('Warning (error code: #SAM02-D)','Failed to send inquiry message.','W')</script>");
         }
-        else{
-            echo("Send Failed!!");
-        }
+    }
 
+    //subject data getting function
+    public static function getSubjectData(): bool|array {
+        $sqlQuery = "Select * from course_module";
+        //TODO change DB credentials
+        $result = Database::executeQuery("root", "", $sqlQuery);
+        if ($result) {
+            $subjectList = array();
+            //read subject list and add them into above array as CourseModule objects
+            foreach ($result as $row) {
+                $subject = new CourseModule;
+                $subject->createCourseModule($row['courseCode'], $row['name'], $row['creditValue'], $row['semester'], $row['description']);
+                $subjectList[] = $subject;
+            }
+            return $subjectList;
+        } else {
+            return false;
+        }
     }
 }

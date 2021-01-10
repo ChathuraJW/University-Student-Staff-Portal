@@ -17,9 +17,9 @@
     <div class="featureBody">
         <?php
             // print_r($controllerData[1][1]);
-            foreach($controllerData[1] as $row){
+            //foreach($controllerData[1] as $row){
                 // print_r($row);
-            }
+            //}
             // print_r($controllerData[1][1]);
             // $temp  = ($controllerData[1][1])
             // print_r($controllerData[1][1]);
@@ -33,26 +33,15 @@
                     <span class="close">&times;</span>
                     <p class="popupTopic">Inquiry</p>
                     <div class="row col-2">
+                        <div class="floatLeft row col-1">
                         <div class = "inputStyle">
                             <label for="week">Week:</label><br>
                             <select id="week" name= "week">
                                 <?php
                                     for($week=1; $week<=15; $week++)
                                     {
-                                        switch($week){
-                                            case 1:
-                                            echo("<option value='$week'>$week<sup>st</sup></option>");  
-                                            break;
-                                        case 2:
-                                            echo("<option value='$week'>$week<sup>nd</sup></option>");  
-                                            break;
-                                        case 3:
-                                            echo("<option value='$week'>$week<sup>rd</sup></option>");  
-                                            break;
-                                        default:
-                                            echo("<option value='$week'>$week<sup>th</sup></option>"); 
-                                        }
-                                    
+                                        echo("<option value='$week'>Week $week</option>");
+
                                     }
                                 ?>
                             </select>
@@ -61,33 +50,28 @@
                             <label for="subject">Subject:</label><br>
                             <select id="subject" name="subject"  required>
                                 <?php
-                                    $subjectCount=0;
-                                    foreach($controllerData[0] as $data){
-                                        $subjectCount++;
-                                        echo("<option value='".$data['courseCode']."'>".$data['name']."</option>");
-                                    }
-                                    ;
+                                //create subject dropdown
+                                foreach ($controllerData as $data){
+                                    echo ("<option value='".$data->getCourseCode()."'>".$data->getSemester().". ".$data->getName()."</option>");
+                                }
                                 ?>
                             </select>
                             <?php
-                                    // print_r($subjectCount)
-                                // print_r($controllerData);
+
                             ?>
                         </div>
+                        </div>
+
+
+                    <div class="inputStyle row col 1">
+                        <label for="message">Message:</label>
+                        <textarea name="message" id= "message"></textarea>
 
                     </div>
-                    <div class=" message row col 1">
-                        <textarea name="message" placeholder = "message"></textarea>
                     </div>
-                    <div class="row col-3" >
-                            <div class = "buttonStyle">
-                                <input type="reset" value = "Cancel" class="submitCancelButton red ">
-                            </div>
-                            <div></div>
-                            <div class = "buttonStyle">
-                                <input type ="submit" value = "Send" name="send" class="submitCancelButton green ">
-                            </div>
-                            
+                    <div class="buttonCouple" >
+                        <input type ="submit" value = "Send" name="send" class="button">
+                        <input type="reset" value = "Cancel" class="button">
                     </div>
                 </div>
             </div>
@@ -105,30 +89,30 @@
             $sumOfPercentage = 0;
             $totalPercentage = 0;
             $maxWeek = 0;
-            foreach($controllerData[1] as $courseDetails){
-                $attendedDays = 0;
-                $totalDays = 0;
-                $subjectPercentage = 0;
-                foreach($courseDetails[1] as $attendance){
-                    if($attendance['attendance']){
-                        $attendedDays++;
-                    }
-                    $totalDays++;
-                    if($totalDays>=$maxWeek){
-                        $maxWeek = $totalDays;
-                    }
-
-                }
-                if($totalDays != 0){
-                    $subjectPercentage = ($attendedDays/$totalDays)*100;
-                    $sumOfPercentage = $subjectPercentage +$sumOfPercentage;
-                    $markedSubjects+=1;
-                }
-                
-
-            }
-            $totalPercentage = $sumOfPercentage/$markedSubjects;
-            $totalPercentage = round($totalPercentage);
+//            foreach($controllerData[1] as $courseDetails){
+//                $attendedDays = 0;
+//                $totalDays = 0;
+//                $subjectPercentage = 0;
+//                foreach($courseDetails[1] as $attendance){
+//                    if($attendance['attendance']){
+//                        $attendedDays++;
+//                    }
+//                    $totalDays++;
+//                    if($totalDays>=$maxWeek){
+//                        $maxWeek = $totalDays;
+//                    }
+//
+//                }
+//                if($totalDays != 0){
+//                    $subjectPercentage = ($attendedDays/$totalDays)*100;
+//                    $sumOfPercentage = $subjectPercentage +$sumOfPercentage;
+//                    $markedSubjects+=1;
+//                }
+//
+//
+//            }
+//            $totalPercentage = $sumOfPercentage/$markedSubjects;
+//            $totalPercentage = round($totalPercentage);
             ?>
         <div id="container1" class="row col-4">
             <div class="basicStyle">
@@ -230,6 +214,8 @@
             
 
             <script src="assets/viewAttendance.js"></script>
+        <script src="../../assets/js/jquery.js"></script>
+        <script src="/../../assets/js/toast.js"></script>
             </div>
         <!-- </div> -->
     
