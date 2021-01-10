@@ -10,46 +10,45 @@ class AttendanceInstance{
     private int $week;
     private bool $attendance;
     private String $uploadedTime;
+    private int $enrollmentId;
 
     // method of AttendanceInstance
 
-    public function getEntryID()
-    {
+    public function getEntryID(){
         return $this->entryID;
     }
 
-    public function getDescription()
-    {
+    public function getDescription(){
         return $this->description;
     }
 
 
-    public function getDate()
-    {
+    public function getDate(){
         return $this->date;
     }
 
-    public function getWeek()
-    {
+    public function getWeek(){
         return $this->week;
     }
 
-    public function getAttendance()
-    {
+    public function getAttendance(){
         return $this->attendance;
     }
 
-    public function getUploadedTime()
-    {
+    public function getUploadedTime(){
         return $this->uploadedTime;
     }
+    public function getEnrollmentId(){
+        return $this->enrollmentId;
+    }
 
-    public function setAttendance($attendance,$week,$date,$description,$uploadTime){
+    public function setAttendance($attendance,$week,$date,$description,$enrollmentId){
         $this->attendance = $attendance;
         $this->week = $week;
         $this->date = $date;
         $this->description = $description;
-        $this->uploadedTime = $uploadTime;
+        $this->enrollmentId = $enrollmentId;
+        return $this;
     }
 
 
@@ -114,6 +113,46 @@ class EnrollFor{
     }
 }
 
+class AttendanceInquiry{
+    //attributes of enrollment
+    private string $sentBy;
+    private string $message;
+    private string $date;
+    private int $isViewed;
+
+    //methods for enrollment
+    public function setInquiryDetails($sentBy, $message, $date, $isViewed){
+        $this->sentBy = $sentBy;
+        $this->message = $message;
+        $this->date = $date;
+        $this->isViewed = $isViewed;
+        return $this;
+    }
+
+    public function getSentBy(): string
+    {
+        return $this->sentBy;
+    }
+
+    public function getMessage(): string
+    {
+        return $this->message;
+    }
+
+    public function getDate(): string
+    {
+        return $this->date;
+    }
+
+
+    public function isViewed(): bool
+    {
+        return $this->isViewed;
+    }
+
+
+}
+
 class enrollment{
     //attributes of enrollment
     private int $enrollmentID;
@@ -123,7 +162,7 @@ class enrollment{
     private string $enrollDate;
 
     //methods for enrollment
-    public function setEnrollmentDetails($enrollmentId,$studentIndexNo,$courseCode,$attempt,$enrollDate){
+    public function setEnrollmentDetails($enrollmentId,  $studentIndexNo,$courseCode,$attempt,$enrollDate){
         $this->enrollmentID;
         $this->studentIndexNo;
         $this->courseCode;

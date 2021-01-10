@@ -34,19 +34,13 @@ class AddAttendanceController extends Controller{
                     }else{
                         $studentIndex = $attendanceEntry[1];
                         $attendance = $attendanceEntry[2];
-                        print_r($attendance);
-                        echo $studentIndex;
-//                        $enrollmentDetails = new enrollment();
-                        $enrollmentDetails =  AddAttendanceModel::getEnrollmentID($studentIndex,$subject,$attendance);
-                        echo("enrollmentId");
-                        echo $enrollmentDetails->getEnrollmentID();
+
+                        $enrollmentID =  AddAttendanceModel::getEnrollmentID($studentIndex,$subject,$attempt);
+                        $singleAttendance = new AttendanceInstance();
+                        $singleAttendance->setAttendance($attendance,$week,$date,$description,$enrollmentID);
+                        AddAttendanceModel::processAttendanceData($singleAttendance);
                     }
                 }
-
-
-
-            // print_r($_FILES);
-//            $isSuccess = AddAttendanceModel::ProcessAttendanceData( $subject,$date,$week, $attempt, $fileLocation);
             self::createView("addAttendanceView",$sendData);
 
         }elseif (isset($_POST['search'])){

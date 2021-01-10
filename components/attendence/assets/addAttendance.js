@@ -1,5 +1,4 @@
 
-
 // Checked Upload CSV file radio button when load the page.
 var radioBtn = document.getElementById("radioCSV");
 radioBtn.checked = true;

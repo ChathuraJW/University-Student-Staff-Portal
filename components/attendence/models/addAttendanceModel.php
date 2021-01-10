@@ -20,66 +20,65 @@ class AddAttendanceModel extends Model{
         }
     }
 
-//    public static function ProcessAttendanceData( $subject,$date,$week, $attempt, $fileLocation){
-//         echo(" $subject $date $week $attempt $fileLocation");
-//        $attendanceFile = fopen($fileLocation,"r");
-//        // to ignore header
-//        $isHeader = true;
-//        $description = "General";
-//        // get data from the csv file
-//        while(!feof($attendanceFile)){
-//            $attendanceEntry = explode(",",fgets($attendanceFile));
-//            if($isHeader){
-//                $isHeader = false;
-//            }
-//            else{
-//                $studentIndex = $attendanceEntry[1];
-//                $attendance = $attendanceEntry[2];
-//                $enrollmentID = self::getEnrollmentID($studentIndex, $subject, $attempt);
-//                // echo(" $enrollmentID $date $week $attendance $description");
-//                $sqlQuery = "INSERT INTO attendance (enrollmentID, date, week, attendance, description, uploadTimestamp) VALUES ($enrollmentID, '$date', $week, $attendance, '$description', current_timestamp());";
-////                self::createAudit($sqlQuery, 'attendance', "INSERT", 'Insert a new attendance to the system.');
-//                // echo($query);
-//                // print_r($sqlQuery);
-//                Database::executeQuery("administrativeAttendance","administrativeAttendance@16",$sqlQuery);
-//            }
-//        }
-//        fclose($attendanceFile);
-//    }
-
-//    public static function getAttendanceDataFromDatabase($studentIndex,$subject,$attempt){
-//        $enrollmentID = self::getEnrollmentID($studentIndex, $subject, $attempt);
-//        echo($enrollmentID);
-//        $sqlQuery = "SELECT date, week, attendance, description FROM attendance WHERE enrollmentID=$enrollmentID";
-//        return Database::executeQuery("administrativeAttendance","administrativeAttendance@16",$sqlQuery);
-//    }
-
-    public static function getEnrollmentID($studentID, $courseCode, $attempt):bool|enrollment{
-
-        $sqlQuery = "SELECT * FROM student_enroll_course WHERE studentIndexNo='$studentID' AND courseCode='$courseCode' AND attempt='$attempt' AND isActive=TRUE LIMIT 1";
+    public static function processAttendanceData($attendance)
+    {
+        $dbInstance = new Database();
+        //TODO change db credentials
+        $dbInstance->establishTransaction('root', '');
+        //query for insert file data
+        $sqlQuery = "INSERT INTO attendance (enrollmentID, date, week, attendance, description, uploadTimestamp) VALUES 
+                    (" . $attendance->getEnrollmentId() . ", '" . $attendance->getDate() . "', " . $attendance->getWeek() . ", 
+                    " . $attendance->getAttendance() . ", '" . $attendance->getDescription() . "', current_timestamp());";
         echo $sqlQuery;
-        $result = Database::executeQuery("administrativeAttendance", "administrativeAttendance@16", $sqlQuery);
-        if($result){
-            foreach ($result as $row){
-                $enrollment = new enrollment();
-                $enrollment->setEnrollmentDetails($row['enrollmentID'],$row['studentIndexNo'],$row['courseCode'],$row['attempt'],$row['enrollDate']);
-                return $enrollment;
+        $dbInstance->executeTransaction($sqlQuery);
+        //create audit trail
+        $dbInstance->transactionAudit($sqlQuery, 'attendance', 'INSERT', 'Insert weekly attendance.');
+        //check current transaction state before proceed towards
+        if ($dbInstance->getTransactionState()) {
+            if ($dbInstance->commitToDatabase()) {
+                //operation success message
+                echo("<script>createToast('Success','Attendance file successfully uploaded','S')</script>");
+            } else {
+                //display error
+                echo("<script>createToast('Warning (error code: #SAM01-D)','Failed submit result file.','W')</script>");
             }
+
+        }else{
+            //display error
+            echo("<script>createToast('Warning (error code: #SAM01-D)','Failed submit attendance file.','W')</script>");
+        }
+        $dbInstance->closeConnection();
+    }
+
+
+    public static function getEnrollmentID($studentID, $courseCode, $attempt):bool|int{
+        $sqlQuery = "SELECT enrollmentID FROM student_enroll_course WHERE studentIndexNo='$studentID' AND courseCode='$courseCode' AND attempt='$attempt' AND isActive=TRUE LIMIT 1";
+        $isResult = Database::executeQuery("administrativeAttendance", "administrativeAttendance@16", $sqlQuery)[0]['enrollmentID'];
+        if($isResult){
+            return $isResult;
+        }else{
+            return  false;
+        }
+        // $sqlQuery1=Database::executeQuery("root", "", $sqlQuery)[0]['enrollmentID'];
+
+    }
+
+
+    public static function getInquiryMessage():array|bool{
+        $sqlQuery = "SELECT sendBy, message, sendDate, isViewed FROM attendance_inquiry";
+        $result = Database::executeQuery("administrativeAttendance","administrativeAttendance@16",$sqlQuery);
+        if($result){
+            $messageList = array();
+            //read subject list and add them into above array as attendance inquiry objects
+            foreach ($result as $row) {
+                $message = new AttendanceInquiry();
+                $message->setInquiryDetails($row['sendBy'], $row['message'], $row['sendDate'], $row['isViewed']);
+                $messageList[] = $message;
+            }
+            return $messageList;
         }else{
             return false;
         }
-//        $enrollment = new enrollment();
-//        $enrollment->setEnrollmentDetails();
-//        return $enrollment;
-//        return Database::executeQuery("administrativeAttendance", "administrativeAttendance@16", $sqlQuery)[0]['enrollmentID'];
-        // $sqlQuery1=Database::executeQuery("root", "", $sqlQuery)[0]['enrollmentID'];
-        
-    }
-
-    public static function getInquiryMessage(){
-//        $sqlQuery = "SELECT `sendBy`, `message`, `sendDate` FROM `attendance_inquiry`";
-//        return Database::executeQuery("administrativeAttendance","administrativeAttendance@16",$sqlQuery);
-        // print_r($result);
     }
 }
 

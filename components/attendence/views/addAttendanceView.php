@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
     <link rel="stylesheet"  href="assets/addAttendance.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"/>
+    <script src="../../assets/js/jquery.js"></script>
+    <script src="/../../assets/js/toast.js"></script>
+    <script src="assets/addAttendance.js"></script>
 </head>
 
 <body>
@@ -115,25 +118,30 @@
             <div style="display:none; position:relative" id="singleAttendanceContainer"  >
                 <div class ="row col-2">
                     <div>
-                        <form>
+                        <form method="post">
                             <?php
                                 echo("
                                 <div >
                                     <p class='subHeading'>Inquiries:</p><hr>
                                 </div>");
                                 $count=1;
-                                foreach($controllerData[1] as $inquiryMessage){
+                                foreach($controllerData[1] as $inquiryMessage1){
                                     echo("
                                     
-                                    <div class = 'inquiryMessage' class ='row col-1'>
+                                    <div class = 'inquiryMessage'>
                                         
-                                        <label class='floatLeft'>Send By: ".$inquiryMessage['sendBy']."</label><br>
-                                        <label>".$inquiryMessage['message']."</label>
-                                    
-                                    </div>
+                                        <label class='floatLeft'>Send By: ".$inquiryMessage1
+                                            ->getSentBy()."</label><br>
+                                        <label>".$inquiryMessage1->getMessage()."</label><br>
+                                        <div class='markAsRead'>
+                                            <input class='floatLeft' type='submit' id='markAsRead' value='markAsRead'>
+                                        </div>                                    
+                                        </div>
                                     ");
                                 }
                             ?>
+
+
                         </form>
                     </div>
                     <!-- Edit attendance -->
@@ -171,12 +179,10 @@
                                 <select id="subject" name="subject" class="dropDown" required>
                                     <option></option>
                                     <?php
-                                        foreach ($controllerData[0] as $data){
-                                            $year=ceil($data[semester]/2) -1;
-                                            $semester=($data[semester]%2) ? 0 : 1 ;
-                                            $semList=Array(Array(1,2),Array(3,4),Array(5,6),Array(7,8));
-                                            echo ("<option value='$data[courseCode]'>".$semList[$year][$semester].". $data[name]</option>");
-                                        }
+                                    //create subject dropdown
+                                    foreach ($controllerData[0] as $data){
+                                        echo ("<option value='".$data->getCourseCode()."'>".$data->getSemester().". ".$data->getName()."</option>");
+                                    }
                                     ?>
                                 </select>
                                 <?php
@@ -195,13 +201,9 @@
                             </div>
                             <div></div>
                         </div>
-                        <div id="buttons" class="row col-2">
-                            <div class = "buttonStyle">
-                                <button type="reset" value = "cancel"  class="submitCancelButton red">Cancel</button>
-                            </div>
-                            <div class = "buttonStyle">
-                                <button  type="button" name="search" onclick="displayAttendance()" class=" submitCancelButton green">Search</button>
-                            </div>
+                        <div id="buttons" class="buttonCouple">
+                            <button type="reset" value = "cancel"  class="button">Cancel</button>
+                            <button  type="button" name="search" onclick="displayAttendance()" class="button">Search</button>
                         </div>
                     </form>
                         <div style="display:none; position:relative" id="attendanceTable">
@@ -265,13 +267,19 @@
                     
                 </div>
         </div>
-            <!-- end of edit attendance -->
-                <script src="../../assets/js/jquery.js"></script>
-                <script src="assets/addAttendance.js"></script>
 
+
+
+    </div>
     </div>
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../')?>
+    <!-- end of edit attendance -->
+    <script src="../../assets/js/jquery.js"></script>
+    <script src="../../../assets/js/toast.js"></script>
+    <script src="assets/addAttendance.js"></script>
+
+
 </body>
 </html>
         
