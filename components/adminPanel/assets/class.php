@@ -196,6 +196,32 @@ class SpecialRole{
 
 }
 
+class SystemParameters{
+	private int $parameterID;
+	private string $parameterKey;
+	private string $parameterValue;
+
+	public function setParameter($parameterID,$parameterKey,$parameterValue):SystemParameters{
+		$this->parameterID=$parameterID;
+		$this->parameterKey=$parameterKey;
+		$this->parameterValue=$parameterValue;
+		return $this;
+	}
+
+	public function getParameterID(): int {
+		return $this->parameterID;
+	}
+
+	public function getParameterKey(): string {
+		return $this->parameterKey;
+	}
+
+	public function getParameterValue(): string {
+		return $this->parameterValue;
+	}
+
+}
+
 //this class for both academic and academic support staff
 class Staff extends User{
     //attributes of Staff

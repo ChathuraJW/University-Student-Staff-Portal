@@ -2,7 +2,7 @@
 
 	class StudentFeatureManagementController extends Controller {
 		public static function addHostelStudent() {
-			self::createModularView('StudentFeatureManagement', 'smfAddHostelStudentView');
+			self::createModularView('studentFeatureManagement', 'smfAddHostelStudentView');
 
 			if (isset($_POST['saveData'])) {
 				$studentList = $_POST['studentList'];
@@ -30,7 +30,7 @@
 		}
 
 		public static function scholarshipStudent() {
-			self::createModularView('StudentFeatureManagement', 'smfAddScholarshipView');
+			self::createModularView('studentFeatureManagement', 'smfAddScholarshipView');
 
 			if (isset($_POST['saveData'])) {
 				$studentList = $_POST['studentList'];

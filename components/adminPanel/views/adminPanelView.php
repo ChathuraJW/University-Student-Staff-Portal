@@ -107,7 +107,7 @@
         </div>
         <div class="taskPage" class="taskPage">
             <?php
-                StudentFeatureManagementController::scholarshipStudent();
+	            SystemConfigController::doSystemConfigs();
             ?>
         </div>
     </div>
