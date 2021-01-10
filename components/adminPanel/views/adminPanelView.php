@@ -107,7 +107,7 @@
         </div>
         <div class="taskPage" class="taskPage">
             <?php
-                StudentEnrollCourseController::makeRepeatEnrollment();
+                StudentFeatureManagementController::scholarshipStudent();
             ?>
         </div>
     </div>
