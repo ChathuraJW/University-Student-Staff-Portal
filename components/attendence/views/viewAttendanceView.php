@@ -33,7 +33,7 @@
                     <span class="close">&times;</span>
                     <p class="popupTopic">Inquiry</p>
                     <div class="row col-2">
-                        <div class="floatLeft row col-1">
+                        <div class="row col-1">
                         <div class = "inputStyle">
                             <label for="week">Week:</label><br>
                             <select id="week" name= "week">
@@ -50,8 +50,10 @@
                             <label for="subject">Subject:</label><br>
                             <select id="subject" name="subject"  required>
                                 <?php
+                                $subjectCount=0;
                                 //create subject dropdown
-                                foreach ($controllerData as $data){
+                                foreach ($controllerData[0] as $data){
+                                    $subjectCount++;
                                     echo ("<option value='".$data->getCourseCode()."'>".$data->getSemester().". ".$data->getName()."</option>");
                                 }
                                 ?>
@@ -75,13 +77,10 @@
                     </div>
                 </div>
             </div>
-        <!-- <button id="myBtn">Open Modal</button> -->
-            <!-- <button onclick="div_show()">Inquiry</button Inquiry</button> -->
         </div>
         </form>
 
         <div>
-            <!-- <button><i class="fa fa-question-circle" aria-hidden="true"></i></button> -->
             <p  class="heading" id="myAttendance">My Attendance</p>
         </div>
         <?php
@@ -89,30 +88,30 @@
             $sumOfPercentage = 0;
             $totalPercentage = 0;
             $maxWeek = 0;
-//            foreach($controllerData[1] as $courseDetails){
-//                $attendedDays = 0;
-//                $totalDays = 0;
-//                $subjectPercentage = 0;
-//                foreach($courseDetails[1] as $attendance){
-//                    if($attendance['attendance']){
-//                        $attendedDays++;
-//                    }
-//                    $totalDays++;
-//                    if($totalDays>=$maxWeek){
-//                        $maxWeek = $totalDays;
-//                    }
-//
-//                }
-//                if($totalDays != 0){
-//                    $subjectPercentage = ($attendedDays/$totalDays)*100;
-//                    $sumOfPercentage = $subjectPercentage +$sumOfPercentage;
-//                    $markedSubjects+=1;
-//                }
-//
-//
-//            }
-//            $totalPercentage = $sumOfPercentage/$markedSubjects;
-//            $totalPercentage = round($totalPercentage);
+            foreach($controllerData[1] as $courseDetails){
+                $attendedDays = 0;
+                $totalDays = 0;
+                $subjectPercentage = 0;
+                foreach($courseDetails[1] as $attendance){
+                    if($attendance['attendance']){
+                        $attendedDays++;
+                    }
+                    $totalDays++;
+                    if($totalDays>=$maxWeek){
+                        $maxWeek = $totalDays;
+                    }
+
+                }
+                if($totalDays != 0){
+                    $subjectPercentage = ($attendedDays/$totalDays)*100;
+                    $sumOfPercentage = $subjectPercentage +$sumOfPercentage;
+                    $markedSubjects+=1;
+                }
+
+
+            }
+            $totalPercentage = $sumOfPercentage/$markedSubjects;
+            $totalPercentage = round($totalPercentage);
             ?>
         <div id="container1" class="row col-4">
             <div class="basicStyle">

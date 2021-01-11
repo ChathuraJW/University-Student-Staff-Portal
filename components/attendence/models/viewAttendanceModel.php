@@ -5,44 +5,41 @@ class ViewAttendanceModel extends Model{
          $regNo = $_COOKIE['userName'];
         $sqlQuery = "SELECT indexNo FROM student WHERE regNo='$regNo'"; //getting index number from student table 
         $index = Database::executeQuery("student","student@16",$sqlQuery)[0]['indexNo'];
-        // print_r($index);
+        if($index){
+            $enrollmentDetail = self::getEnrollmentID($index);// get enrollment id of student's active courses.
+            print_r($enrollmentDetail);
+            $finalAttendanceArray = array();
+            foreach ($enrollmentDetail as $attendanceEntry){
+                $enrollmentId = $attendanceEntry['enrollmentID'];
+                print_r($enrollmentId);
+                $courseCode = $attendanceEntry['courseCode'];
+                $sqlQuery = "SELECT courseCode, name FROM course_module WHERE courseCode='$courseCode'";
+                $courseDetail = Database::executeQuery("student","student@16",$sqlQuery);
+                if($courseDetail){
+                    $sqlQuery = "SELECT date, week, attendance, description FROM attendance WHERE enrollmentID=$enrollmentId ORDER BY week LIMIT 15";//how to get enrollment id
+                    $attendanceDetail = Database::executeQuery("student","student@16",$sqlQuery);
+                        $temp = array($courseDetail[0],$attendanceDetail);
+                        array_push($finalAttendanceArray,$temp);
+                }else{
+                    echo("<script>createToast('Warning (error code: #SAM03-D)','Failed Load attendance Data.','W')</script>");
+                }
 
-        $enrollmentDetail = self::getEnrollmentID($index);
-        // print_r($enrollmentDetail);
-        $attendanceSet=array();
-        $courseSet = array();
-        $finalAttendanceArray = array();
-        foreach($enrollmentDetail as $attendanceEntry){
-            
-            $enrollmentId = $attendanceEntry['enrollmentID'];
-            $courseCode = $attendanceEntry['courseCode'];
-            $sqlQuery = "SELECT courseCode, name FROM course_module WHERE courseCode='$courseCode'";
-            $courseDetail = Database::executeQuery("student","student@16",$sqlQuery);
-            $sqlQuery = "SELECT date, week, attendance, description FROM attendance WHERE enrollmentID=$enrollmentId ORDER BY week";//how to get enrollment id
-            $attendanceDetail = Database::executeQuery("student","student@16",$sqlQuery);
-            $temp = array($courseDetail[0],$attendanceDetail);
-            array_push($finalAttendanceArray,$temp);
-
-            
-            if($attendanceDetail){
-                // array_push($courseSet,$courseDetail);
-                // array_push($attendanceSet,$attendanceDetail);
             }
-            // print_r($temp);
-            
+        }else{
+            echo("<script>createToast('Warning (error code: #SAM03-D)','Failed Load attendance Data.','W')</script>");
         }
-        
-        // print_r($courseSet);
-        // echo("<br>");
-        // print_r($attendanceSet);
-        // echo("<br>");
-        // print_r($finalAttendanceArray);
+
         return $finalAttendanceArray;
     }
 
-    public static function getEnrollmentID($studentID){
+    public static function getEnrollmentID($studentID):array|bool{
         $sqlQuery = "SELECT enrollmentID,courseCode FROM student_enroll_course WHERE studentIndexNo=$studentID AND isActive=TRUE";
-        return Database::executeQuery("student", "student@16", $sqlQuery);
+        $index =  Database::executeQuery("student", "student@16", $sqlQuery);
+        if($index){
+            return $index;
+        }else{
+            return false;
+        }
         
     }
 
@@ -51,10 +48,9 @@ class ViewAttendanceModel extends Model{
         $finalMessage = (" Week :$week<br>\n Subject :$subject<br>\n message :$message");
         $dbInstance = new Database();
         $dbInstance->establishTransaction('root','');
-        print_r($regNo );
-        echo($finalMessage);
+
         $sqlQuery = "INSERT INTO attendance_inquiry( sendBy, message, sendDate) VALUES ('$regNo','$finalMessage',NOW())";
-        echo($sqlQuery);
+
         $dbInstance->executeTransaction($sqlQuery);
         //create audit trail
         $dbInstance->transactionAudit($sqlQuery, 'attendance_inquiry', 'INSERT', 'Insert inquiry message.');
