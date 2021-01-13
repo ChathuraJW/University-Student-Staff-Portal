@@ -50,9 +50,21 @@ class AddNotificationController extends Controller{
 
 
                 }
+                if($receivers){
+                    $receiverRegNoList = array();
+                    foreach ($receivers as $category){
+                        $receiversResult = AddNotificationModel::getReceiverList($category);
+                        foreach ($receiversResult as $regNo){
+                            array_push($receiverRegNoList, $regNo['userName']);
+                        }
+                        print_r($receiverRegNoList);
+                        AddNotificationModel::saveNotificationDetails($senderRegNo,$notificationTitle,$notificationContent,$weeks,$notificationCategory,$receiversRegNoList);
+                    }
+
+                }
+
 //                print_r($receivers);
 //                print_r("$notificationTitle $notificationContent $notificationCategory,$weeks");
-                AddNotificationModel::saveNotificationDetails($senderRegNo,$notificationTitle,$notificationContent,$weeks,$notificationCategory,$receivers);
             }
 
         }
