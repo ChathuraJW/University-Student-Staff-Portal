@@ -11,24 +11,20 @@
     min-height: 650px;
     height: fit-content;
 }
-.mainPage{
-    display: table;
-    width: 100%;
-}
 .taskList{
     display: table-cell;
     width: 30%;
     height: 400px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
-    
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    border: 4px solid var(--backgroundColor);
 }
 .taskPage{
     padding: 30px;
     display: table-cell;
     width: 70%;
     height: 400px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
-
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    border-left: 4px solid var(--entryBackgroundColor);
 }
 .topic{
     padding-left: 20px;
@@ -37,51 +33,35 @@
     color: rgb(78, 78, 78);
 }
 .task{
-    background-color: rgb(231, 231, 231);
-    margin-top: 2px;
-    margin-bottom: 2px;
+    background-color: var(--backgroundColor);
     padding: 10px;
-    color: rgb(92, 91, 91);
+    color: var(--fontColor);
     cursor: pointer;
 
 }
 .task:hover{
-    background-color: rgb(223, 222, 222);
-    color: black;
+    border-bottom: 1px solid var(--baseColor);
+    border-top: 1px solid var(--baseColor);
+    border-right: 1px solid var(--baseColor);
     font-weight: bold;
 
 }
 .subTask{
     margin-left: 10%;
-    background-color: rgb(238, 236, 236);
+    background-color: var(--backgroundColor);
     padding: 8px;
-    margin-top: 1px;
-    margin-bottom: 1px;
-    color: rgb(92, 91, 91);
+    color: var(--fontColor);
+    border-left: 4px solid var(--baseColor);
     cursor: pointer;
 
 }
 .subTask:hover{
-    background-color: rgb(226, 225, 225);
-    color: black;
+    border-bottom: 1px solid var(--baseColor);
+    border-top: 1px solid var(--baseColor);
+    border-right: 1px solid var(--baseColor);
     font-weight: bold;
 }
-.superSubTask{
-    margin-left: 20%;
-    background-color: rgb(238, 236, 236);
-    padding: 8px;
-    margin-top: 1px;
-    margin-bottom: 1px;
-    color: rgb(92, 91, 91);
-    cursor: pointer;
 
-
-}
-.superSubTask:hover{
-    background-color: rgb(226, 225, 225);
-    color: black;
-    font-weight: bold;
-}
 
 /*costume styles*/
 .sectionTitle{
