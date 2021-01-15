@@ -47,3 +47,11 @@ function createToast(title, message, type) {
 if (window.history.replaceState) {
     window.history.replaceState( null, null, window.location.href);
 }
+
+// confirm message operation
+function confirmMessage(message){
+    let selection=window.confirm(message);
+    if (!selection){
+        event.preventDefault();
+    }
+}

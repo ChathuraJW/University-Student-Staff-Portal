@@ -10,6 +10,15 @@ class Database{
     private mysqli $connection;
     private string $auditDescription="";
 
+
+	public static function getServerStatic(): string {
+		return self::$serverStatic;
+	}
+
+	public static function getDatabaseStatic(): string {
+		return self::$databaseStatic;
+	}
+
     public static function executeQuery($userName, $password, $sqlQuery){
         try {
             $connection = self::connect($userName, $password);

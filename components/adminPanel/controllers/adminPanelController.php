@@ -57,10 +57,7 @@
 						$selectedFeature = "StudentEnrollCourseController::makeRepeatEnrollment";
 						break;
 					case "backupConfig":
-						$selectedFeature = "";
-						break;
-					case "restoreBackup":
-						$selectedFeature = "";
+						$selectedFeature = "BackupManagementController::configBackup";
 						break;
 					case "addNewFeature":
 						$selectedFeature = "";

@@ -63,11 +63,7 @@
                 <div class="subTask" onclick="createLink('repeatAttemptEnrollment')">Repeated Attempt Enrollment</div>
             </div>
 
-            <div class="task" onclick="subTaskOpen('subsetTen')">Backup/Restore Management</div>
-            <div id="subsetTen" style="display:none;" class="subTasksSet">
-                <div class="subTask" onclick="createLink('backupConfig')">Backup Configuration</div>
-                <div class="subTask" onclick="createLink('restoreBackup')">Restore Backup</div>
-            </div>
+            <div class="task" onclick="createLink('backupConfig')">Backup/Restore Management</div>
 
             <div class="task" onclick="subTaskOpen('subsetEleven')">Feature Management</div>
             <div id="subsetEleven" style="display:none;" class="subTasksSet">
@@ -107,7 +103,7 @@
     // cookie creation and reload page for open feature
     function createLink(featureName) {
         // create cookie
-        document.cookie = "adminSelectedFeature=" + featureName;
+        document.cookie = "adminSelectedFeature=" +featureName+";SameSite=Lax";
         // refresh page and navigate to featureBody div
         window.location.hash = '#featureBody';
         window.location.reload(true);
