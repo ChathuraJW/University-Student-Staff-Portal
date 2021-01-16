@@ -90,8 +90,8 @@
                     <th>Responsibilities</th>
                 </tr>
                 <tr>
-                    <td>SAR</td>
-                    <td>Senior Assistant Registrar for Examination</td>
+                    <td>RED</td>
+                    <td>Registrar for Examination Department</td>
                     <td>This user role is responsible to take result send by academic staff for examination board approval. Should be a
                         Administrative base login. System have only one SAR login.
                     </td>
