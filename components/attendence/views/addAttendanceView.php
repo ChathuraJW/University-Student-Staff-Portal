@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
     <link rel="stylesheet"  href="assets/addAttendance.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"/>
-    <script src="../../assets/js/jquery.js"></script>
-    <script src="/../../assets/js/toast.js"></script>
-    <script src="assets/addAttendance.js"></script>
 </head>
 
 <body>
@@ -134,7 +131,7 @@
                                             ->getSentBy()."</label><br>
                                         <label>".$inquiryMessage1->getMessage()."</label><br>
                                         <div class='markAsRead'>
-                                            <input class='floatLeft' type='submit' id='markAsRead' value='markAsRead'>
+                                            <input class='floatLeft' type='submit'  value='markAsRead'>
                                         </div>                                    
                                         </div>
                                     ");
@@ -253,13 +250,9 @@
                                          <label for="editDescription">Description</label>
                                         <textarea name="editDescription" id="editDescription"></textarea>
                                     </div>
-                                    <div class="row col-2" id="buttonsCSV" >
-                                        <div class = "buttonStyle">
-                                            <input type="submit" value = "Cancel"  class="submitCancelButton red ">
-                                        </div>
-                                        <div class = "buttonStyle">
-                                            <input type ="button" value = "Update"  class="submitCancelButton green " onclick="updateAttendance()">
-                                        </div>
+                                    <div class="buttonCouple" id="buttonsCSV" >
+                                        <input type ="button" value = "Update"  class="button " onclick="updateAttendance()">
+                                        <input type="submit" value = "Cancel"  class="button">
                                     </div>
                                 </div>  
                             </div>
@@ -267,18 +260,14 @@
                     
                 </div>
         </div>
-
-
-
     </div>
     </div>
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../')?>
     <!-- end of edit attendance -->
     <script src="../../assets/js/jquery.js"></script>
-    <script src="../../../assets/js/toast.js"></script>
     <script src="assets/addAttendance.js"></script>
-
+    <script src="../../assets/js/toast.js"></script>
 
 </body>
 </html>

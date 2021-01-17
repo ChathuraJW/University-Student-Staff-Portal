@@ -53,10 +53,11 @@ function displayAttendance(){
     subjectCode = document.getElementById("subject").value;
     // subjectName = document.getElementById("subject").innerText;
     console.log(subjectCode);
-    const getAttendanceForEditURL = "http://localhost/USSP/assets/API/getAttendanceDataAPI.php?activity=getAttendanceForEdit&studentIndex="+index+"&attempt="+attempt+"&subjectCode="+subjectCode;
+    const getAttendanceForEditURL = "http://localhost/USSP/components/attendence/assets/getAttendanceDataAPI.php?activity=getAttendanceForEdit&studentIndex="+index+"&attempt="+attempt+"&subjectCode="+subjectCode;
+    console.log(getAttendanceForEditURL);
     $.getJSON(getAttendanceForEditURL, function (attendance) {
         // console.log(attendance);
-        for(var i in attendance) {
+        for(let i in attendance) {
             let week = "week "+attendance[i]['week'];
             let data = attendance[i]['date'];
             let description = attendance[i]['description'];
@@ -93,7 +94,7 @@ function updateAttendance() {
         attendance = document.getElementById("radioNotAttended").value;
     }
 
-    const updateAttendanceURL = "http://localhost/USSP/assets/API/getAttendanceDataAPI.php?activity=updateAttendance&studentIndex=" + index + "&attendance=" + attendance + "&subjectCode=" + subjectCode + "&description=" + description + "&week=" + week + "&attempt=" + attempt;
+    const updateAttendanceURL = "http://localhost/USSP/components/attendence/assets/getAttendanceDataAPI.php?activity=updateAttendance&studentIndex=" + index + "&attendance=" + attendance + "&subjectCode=" + subjectCode + "&description=" + description + "&week=" + week + "&attempt=" + attempt;
     $.getJSON(updateAttendanceURL, function (attendance) {
             console.log(attendance);
 

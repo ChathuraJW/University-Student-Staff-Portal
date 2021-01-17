@@ -40,12 +40,12 @@ class AddAttendanceModel extends Model{
                 echo("<script>createToast('Success','Attendance file successfully uploaded','S')</script>");
             } else {
                 //display error
-                echo("<script>createToast('Warning (error code: #SAM01-D)','Failed submit result file.','W')</script>");
+                echo("<script>createToast('Warning (error code: #SAM01)','Failed submit result file.','W')</script>");
             }
 
         }else{
             //display error
-            echo("<script>createToast('Warning (error code: #SAM01-D)','Failed submit attendance file.','W')</script>");
+            echo("<script>createToast('Warning (error code: #SAM01)','Failed submit attendance file.','W')</script>");
         }
         $dbInstance->closeConnection();
     }
