@@ -4,7 +4,7 @@ class timetableManagementController extends Controller{
     //     parent::__construct();
     // }
     public static function timetableManagementOpen(){
-        setcookie("userName","kek");
+        // setcookie("userName","kek");
         // $data=subjectManagementModel::getCourse();
         self::createModularView("timetableManagementView","timetableManagementView");
 
@@ -17,11 +17,11 @@ class timetableManagementController extends Controller{
             $fromTime=$_POST['fromTime'];
             $description=$_POST['description'];
             $group=$_POST['groupNameHidden'];
-            echo ("
-            <script>
-                confirm('Confirm Add this Entry ');
-            </script>
-        ");
+        //     echo ("
+        //     <script>
+        //         confirm('Confirm Add this Entry ');
+        //     </script>
+        // ");
 
         timetableManagementModel::addEntry($hallID,$subjectCode,$day,$fromTime,$toTime,$description,$group);
         //     echo ("
@@ -40,22 +40,22 @@ class timetableManagementController extends Controller{
             $fromTime=$_POST['fromTime'];
             $description=$_POST['description'];
             $eventID=$_POST['eventHidden'];
-            echo ("
-            <script>
-                confirm('Confirm edit this Entry Details');
-            </script>
-        ");
+        //     echo ("
+        //     <script>
+        //         confirm('Confirm edit this Entry Details');
+        //     </script>
+        // ");
 
         timetableManagementModel::editEntry($hallID,$subjectCode,$day,$fromTime,$toTime,$description,$eventID);
 
         }
         if(isset($_POST['deleteEntry'])){
             $eventID=$_POST['deleteEventID'];
-            echo ("
-            <script>
-                confirm('Confirm Delete this Entry ');
-            </script>
-        ");
+        //     echo ("
+        //     <script>
+        //         confirm('Confirm Delete this Entry ');
+        //     </script>
+        // ");
 
         timetableManagementModel::deleteEntry($eventID);
         // window.location.href=document.location.href.toString().split('requestAppointment')[0]+'requestAppointment';
