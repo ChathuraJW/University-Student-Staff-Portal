@@ -228,5 +228,24 @@ th{
     /* background: linear-gradient(to bottom right,rgb(255, 252, 104),white); */
 }
 .day{
-    background:linear-gradient(to bottom right,rgb(148, 210, 252),rgb(231, 248, 250));
+    background-color: rgb(207, 217, 218);
 }
+/*costume styles*/
+.sectionTitle{​​
+    text-align: center;
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 15px;
+}
+input[type=time] {
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    width: 280px;
+    color: var(--fontColor);
+    background-color: var(--backgroundColor);
+    resize: none;
+  }
