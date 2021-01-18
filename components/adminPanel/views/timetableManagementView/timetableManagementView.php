@@ -13,7 +13,7 @@
         <div id="groupEntrySet">
             
         </div>
-        <input type="button" value="Back" onclick="backFunction()" class="buttonSet">
+        <input class="addElement"  type="button" value="Back" onclick="backFunction()" >
     </div>
     <div class="heading" style="display:none;font-size:20px;" id="headingEditEntry">EDIT Entry</div>
     <div class="heading" style="display:none;font-size:20px;" id="headingDeleteEntry">DELETE Entry</div>
@@ -49,7 +49,7 @@
         </div>
         <div class="buttonDual">
             <input type="button" value="Cancel" onclick="cancelFunctionEntry()" class="buttonSet">
-            <input id="submitButtonInputEntry" type="submit" value="Submit" name="submit" class="buttonSet">
+            <input id="submitButtonInputEntry" type="submit" onclick="confirm('Are you confirm this action?')" value="Submit" name="submit" class="buttonSet">
         </div>
     </form>
     <form id="EntryDeleteView" method="post" style="display:none;">
@@ -82,7 +82,7 @@
         <input type="hidden" name="deleteEventID" id="deleteEventID">
         <div class="buttonDual">
             <input type="button" value="Cancel" onclick="cancelFunctionEntry()" class="buttonSet">
-            <input type="submit" value="Delete" name="deleteEntry" class="buttonSet"></input>
+            <input type="submit" value="Delete" name="deleteEntry" onclick="confirm('Are you confirm this action?')" class="buttonSet"></input>
         </div>
     
     </form>
@@ -139,7 +139,7 @@
                 }
             ?>
         </table>
-        <div class="addElement" style="float:left;margin-left:15%;margin-top:10px;" onclick="cancelFunctionEntry()">Back</div>
+        <div class="addElement" style="float:left;margin-left:15%;margin-top:10px;" onclick="cancelFunctionEntry();emptyTable();">Back</div>
 
     </div>
 
