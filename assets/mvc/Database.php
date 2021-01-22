@@ -9,7 +9,7 @@
 		private bool $transactionState = true;
 		private mysqli $connection;
 		private string $auditDescription = "";
-
+		private string $descriptionMessages = "";
 
 		public static function getServerStatic(): string {
 			return self::$serverStatic;
@@ -77,15 +77,25 @@
 				$user = $_COOKIE['userName'];
 //        get log description
 			$description = $this->auditDescription;
+//			get current timestamp
+			$timestamp = date("Y-m-d H:i:s");
 //        create log
 			$auditQuery = "INSERT INTO database_log(userID, executedQuery,
                         affectedTable, eventType, description, timestamp)
-                        VALUES ('$user','TRANSACTION [Multiple Queries Possible]','TRANSACTION [Multiple Relations Possible]','TRANSACTION','$description',NOW())";
+                        VALUES ('$user','TRANSACTION [Multiple Queries Possible]','TRANSACTION [Multiple Relations Possible]','TRANSACTION','$description','$timestamp')";
 			$this->executeTransaction($auditQuery);
-
+//			get transaction id back
+			$sqlQuery = "SELECT eventID FROM database_log WHERE description='$description' AND userID='$user' AND timestamp='$timestamp'";
+			$transactionID = $this->executeTransaction($sqlQuery)[0]['eventID'];
 //        finally commit the transaction
 			if ($this->getTransactionState())
-				return $this->connection->commit();
+				if ($this->connection->commit()) {
+//				 	create log file entry
+					createLog($timestamp, $this->descriptionMessages, $transactionID);
+					return true;
+				} else {
+					return false;
+				}
 			else
 				return false;
 		}
@@ -124,26 +134,40 @@
 			if (isset($_COOKIE['userName']))
 				$user = $_COOKIE['userName'];
 //        make log
+			$timestamp = date("Y-m-d H:i:s");
 			$executedQuery = explode($affectedTable, str_replace("'", "", $sqlQuery))[1];
 			$auditQuery = "INSERT INTO database_log(userID, executedQuery,
                         affectedTable, eventType, description, timestamp)
-                        VALUES ('$user','$executedQuery','$affectedTable','$eventType','$description',NOW())";
-			$timestamp = date("Y-m-d H:i:s");
+                        VALUES ('$user','$executedQuery','$affectedTable','$eventType','$description','$timestamp')";
 
+//			get transaction id back
+			$sqlQuery = "SELECT eventID FROM database_log WHERE affectedTable='$affectedTable' AND eventType='$eventType' AND 
+                                       executedQuery='$executedQuery' AND timestamp='$timestamp' AND userID='$user'";
+			$transactionID = $this->executeTransaction($sqlQuery)[0]['eventID'];
 //        add each query executions to description
 			$this->auditDescription .= "
            ---------
            Timestamp= $timestamp\n
+           Transaction ID= $transactionID\n
            Event type= $eventType\n
            Affected table= $affectedTable\n
            Query description= $executedQuery\n
            Description= $description\n
            ---------\n
         ";
+//			add description messages to message list
+			$this->descriptionMessages .= "[$description] ";
 			return $this->executeTransaction($auditQuery);
 		}
 
 		public function closeConnection() {
 			$this->connection->close();
 		}
+	}
+
+	function createLog($timestamp, $description, $transactionID) {
+		$description = trim($description, ' ');
+		$fileEntry = "$timestamp      ::::    [Transaction ID: $transactionID]    ::::    $description\n";
+//		append to the log file
+		file_put_contents("../../system.log", $fileEntry, FILE_APPEND);
 	}

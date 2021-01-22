@@ -59,12 +59,13 @@
 					case "backupConfig":
 						$selectedFeature = "BackupManagementController::configBackup";
 						break;
-					case "addNewFeature":
-						$selectedFeature = "";
-						break;
-					case "disableEnableFeature":
-						$selectedFeature = "";
-						break;
+//						related to feature management
+//					case "addNewFeature":
+//						$selectedFeature = "";
+//						break;
+//					case "disableEnableFeature":
+//						$selectedFeature = "";
+//						break;
 				}
 //				call view creation function with selected function
 				self::createView("adminPanelView", $selectedFeature);

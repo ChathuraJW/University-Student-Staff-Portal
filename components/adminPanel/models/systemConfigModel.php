@@ -26,7 +26,7 @@
 //			execute update query and audit the operation
 			$sqlQuery = "UPDATE system_parameters SET parameterValue='$newValue' WHERE parameterID=$parameterID";
 			$dbInstance->executeTransaction($sqlQuery);
-			$dbInstance->transactionAudit($sqlQuery, 'system_parameters', 'UPDATE', "Update parameter(#$parameterID) value to $newValue.");
+			$dbInstance->transactionAudit($sqlQuery, 'system_parameters', 'UPDATE', "Update system parameter(#$parameterID) value to $newValue.");
 
 //			check transaction state and commit to database return only true/false after the operation
 			if ($dbInstance->getTransactionState()) {

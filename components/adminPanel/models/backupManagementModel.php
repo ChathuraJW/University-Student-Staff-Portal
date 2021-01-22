@@ -48,15 +48,20 @@
 
 		private static function createDatabaseLog($operation, $description) {
 			$user = $_COOKIE['userName'];//take from cookies
+			$timestamp = date("Y-m-d H:i:s");
 //			create audit query
 			$auditQuery = "INSERT INTO database_log(userID, executedQuery,
                         affectedTable, eventType, description, timestamp)
-                        VALUES ('$user','-----','All','$operation','$description',NOW())";
-
+                        VALUES ('$user','-----','All','$operation','$description','$timestamp')";
 			//TODO need to change database credentials
 			Database::executeQuery('root', '', $auditQuery);
 
-			//TODO need to create special entry for application log
+//			get transaction id back
+			$sqlQuery="SELECT eventID FROM database_log WHERE description='$description' AND userID='$user' AND timestamp='$timestamp'";
+			//TODO need to change database credentials
+			$transactionID=Database::executeQuery('root', '',$sqlQuery)[0]['eventID'];
+//			call log creation function
+			createLog($timestamp,$description,$transactionID);
 		}
 
 		public static function restoreBackup($selectedFile) {

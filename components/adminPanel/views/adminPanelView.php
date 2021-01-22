@@ -65,11 +65,12 @@
 
             <div class="task" onclick="createLink('backupConfig')">Backup/Restore Management</div>
 
-            <div class="task" onclick="subTaskOpen('subsetEleven')">Feature Management</div>
-            <div id="subsetEleven" style="display:none;" class="subTasksSet">
-                <div class="subTask" onclick="createLink('addNewFeature')">Add New Feature</div>
-                <div class="subTask" onclick="createLink('disableEnableFeature')">Disable/Enable Feature</div>
-            </div>
+<!--            TODO Better to be in near feature-->
+<!--            <div class="task" onclick="subTaskOpen('subsetEleven')">Feature Management</div>-->
+<!--            <div id="subsetEleven" style="display:none;" class="subTasksSet">-->
+<!--                <div class="subTask" onclick="createLink('addNewFeature')">Add New Feature</div>-->
+<!--                <div class="subTask" onclick="createLink('disableEnableFeature')">Disable/Enable Feature</div>-->
+<!--            </div>-->
         </div>
         <div class="taskPage" class="taskPage">
             <!--            selected view load hear-->
