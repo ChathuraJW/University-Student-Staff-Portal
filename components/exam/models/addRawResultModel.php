@@ -4,8 +4,7 @@
 
 		public static function saveFileData($fileData, $owner) {
 			$dbInstance = new Database;
-			//TODO change db credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('academicStaff', 'academicStaff@16');
 //			query for insert file data
 			$sqlQuery = "INSERT INTO result_data_file(subjectCode, semester, yearOfExam, attempt, batch, isEncrypted, fileLocation) 
 				VALUES ('" . $fileData->getSubjectCode() . "'," . $fileData->getSemester() . ",'" . $fileData->getYearOfExam() . "',
@@ -59,9 +58,8 @@
 
 		//subject data getting function
 		public static function getSubjectData(): bool|array {
-			$sqlQuery = "Select * from course_module";
-			//TODO change DB credentials
-			$result = Database::executeQuery("root", "", $sqlQuery);
+			$sqlQuery = "SELECT * FROM course_module";
+			$result = Database::executeQuery("academicStaff", "academicStaff@16", $sqlQuery);
 			if ($result) {
 				$subjectList = array();
 //			read subject list and add them into above array as CourseModule objects

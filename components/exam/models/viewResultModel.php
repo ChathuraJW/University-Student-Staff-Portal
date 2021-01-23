@@ -3,8 +3,7 @@
 	class ViewResultModel extends Model {
 		public static function loadResultData(): bool|array {
 			$dbInstance = new Database;
-			//TODO change db credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('student', 'student@16');
 
 			$regNo = $_COOKIE['userName'];
 //        get maximum semester for given student
@@ -52,8 +51,7 @@
 
 		public static function getCurrentRank(): int {
 			$dbInstance = new Database;
-			//TODO change db credentials ("student","student@16")
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('student', 'student@16');
 
 			$regNo = $_COOKIE['userName'];
 			$sqlQuery = "SELECT studentGroup,currentGPA FROM student WHERE regNo='$regNo'";

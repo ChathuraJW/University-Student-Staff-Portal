@@ -2,10 +2,8 @@
 	header('Access-Control-Allow-Origin: *');
 	require_once('../../../assets/mvc/Database.php');
 	$dbInstance = new Database();
-	//TODO change database credentials "academicStaff","academicStaff@16"
-	$dbInstance->establishTransaction('root', '');
+	$dbInstance->establishTransaction('academicStaff', 'academicStaff@16');
 	if (isset($_GET['dataSet'])) {
-		//dataSet=subjectData
 		if ($_GET['dataSet'] == 'subjectData') {
 			$sqlQuery = "SELECT * FROM course_module";
 			$dataSet = $dbInstance->executeTransaction($sqlQuery);
@@ -42,6 +40,12 @@
 			echo(json_encode($result));
 	} else if (isset($_GET['loadSubjectData'])) {
 		$sqlQuery = "SELECT courseCode,name FROM course_module";
+		$result = $dbInstance->executeTransaction($sqlQuery);
+		if ($dbInstance->getTransactionState())
+			echo(json_encode($result));
+	} else if (isset($_GET['takeUserPublicKey'])) {
+		$selectedUser = $_GET['userName'];
+		$sqlQuery = "SELECT publicKey FROM public_key WHERE staffID=$selectedUser";
 		$result = $dbInstance->executeTransaction($sqlQuery);
 		if ($dbInstance->getTransactionState())
 			echo(json_encode($result));

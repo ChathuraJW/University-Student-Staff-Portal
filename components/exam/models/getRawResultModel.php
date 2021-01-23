@@ -3,8 +3,7 @@
 	class GetRawResultModel extends Model {
 		public static function loadReviewData(): bool|array {
 			$dbInstance = new Database;
-			//TODO change db credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('administrativeSAR', 'administrativeSAR@16');
 //    	list out entries thar are not currently reviewed
 			$sqlQuery = "SELECT * FROM submit_raw_result WHERE isReceived=FALSE";
 			$notReviewedFileList = $dbInstance->executeTransaction($sqlQuery);
@@ -36,14 +35,16 @@
 
 		public static function sendResultReceiveConfirmation($fileID) {
 			$dbInstance = new Database;
-			//TODO change db credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('administrativeSAR', 'administrativeSAR@16');
 
 			$sqlQuery = "UPDATE submit_raw_result SET isReceived=TRUE,receivedTimestamp=NOW() WHERE fileID=$fileID";
 			$dbInstance->executeTransaction($sqlQuery);
 //        create audit trail
 			$dbInstance->transactionAudit($sqlQuery, 'submit_raw_result', "UPDATE", 'Update table after SAR take raw result file.');
 
+//		    get file sent user for create notification
+			$sqlQuery = "SELECT staffID FROM submit_raw_result WHERE fileID=$fileID";
+			$fileSentUser = $dbInstance->executeTransaction($sqlQuery)[0]['staffID'];
 //	    check transaction state
 			if ($dbInstance->getTransactionState()) {
 				if ($dbInstance->commitToDatabase()) {
@@ -57,7 +58,13 @@
 						}, 4000);
 			    	</script>
 			    	");
-//					TODO send notification to the user back to inform file is taken
+//					send notification to the user back to inform file is taken
+					$timestamp = date("d-m-Y H:i:s");
+					$notification = new Notification;
+					$notification->setReceivers(array($fileSentUser));
+					$notification->setSender($_COOKIE['userName']);
+					$notification->createNotification('Result file collected.', "Submitted result for the examination registrar is collected now[$timestamp].");
+					$notification->publishNotification();
 				} else {
 //	    		display error
 					echo("<script>createToast('Warning (error code: #ERM04)','Failed to confirm.','W')</script>");

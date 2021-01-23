@@ -91,31 +91,27 @@
 
 .normalEntry {
     background-color: var(--entryBackgroundColor);
-    border-left: 15px solid;
-    border-color: var(--baseColor);
+    border-left: 15px solid var(--baseColor);
 }
 
 .warningEntry {
     background-color: var(--entryBackgroundColor);
-    border-left: 15px solid;
-    border-color: var(--dangerColor);
+    border-left: 20px solid var(--dangerColor);
 }
 
 .successEntry {
     background-color: var(--entryBackgroundColor);
-    border-left: 15px solid;
-    border-color: var(--successColor);
+    border-left: 20px solid var(--successColor);
 }
 
 .ideaEntry {
     background-color: var(--entryBackgroundColor);
-    border-left: 15px solid;
-    border-color: var(--idleColor);
+    border-left: 20px solid var(--idleColor);
 }
 
 /*common element styles*/
 
-input[type=number], input[type=text], input[type=email], input[type=time], input[type=date], textarea, select, option {
+input[type=number], input[type=text], input[type=email], input[type=password], input[type=date], input[type=search], textarea, select, option {
     padding: 8px;
     border: 1px solid gray;
     border-radius: 4px;
@@ -128,6 +124,7 @@ input[type=number], input[type=text], input[type=email], input[type=time], input
 }
 
 /*input type number remove increase decrease arrow*/
+
 /*for chromium based browsers*/
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -166,6 +163,23 @@ input[type=number] {
     margin: 40px;
 }
 
+/*input heading styles*/
+.inputHeading {
+    font-size: 18px;
+    display: block;
+    padding-bottom: 14px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+.heading {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 45px;
+    padding: 15px;
+}
+
+
+
 * {
     padding: 0;
     margin: 0;
@@ -175,14 +189,6 @@ input[type=number] {
 .featureBody {
     padding-top: 10px;
     padding-bottom: 30px;
-}
-
-/*input heading*/
-.inputHeading {
-    font-size: 18px;
-    display: block;
-    padding-bottom: 14px;
-    font-weight: bold;
 }
 
 /*styles for header of all component views*/
@@ -320,7 +326,6 @@ img {
     line-height: 20px;
     cursor: pointer;
     transition: 0.3s;
-    background: none;
 }
 
 .alert .closeButton:hover {

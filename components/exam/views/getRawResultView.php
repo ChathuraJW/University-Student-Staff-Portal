@@ -12,7 +12,7 @@
 <body>
 <?php require('../../assets/php/basicLoader.php') ?>
 <!-- include header section -->
-<?php BasicLoader::loadHeader('../../');?>
+<?php BasicLoader::loadHeader('../../'); ?>
 
 <!-- feature body section -->
 <div class="featureBody bodyBackground text">
@@ -21,18 +21,17 @@
         <div class="reviewList">
             <span class="columnHeader">Received Result List</span>
 			<?php
-				if(!$controllerData | sizeof($controllerData)==0){
+				if (!$controllerData | sizeof($controllerData) == 0) {
 //				    display below message if list is empty
 					echo("<span class='emptyMessage'>No Result files for listing.</span>");
-				}else{
-				    //TODO hear is the place to re-engineer, apply object function
+				} else {
 					$i = 0;
 					foreach ($controllerData as $row) {
 //                        set get url for pass data
 						$url = "?fileID=" . $row->getFileID() . "&examinationYear=" . $row->getYearOfExam() . "&semester=" . $row->getSemester() . "&batch=" .
-                            $row->getBatch() . "&subject=" . $row->getSubjectCode()." [".$row->getSubjectName() . "] &attempt=" . $row->getAttempt()
-                            . "&filePath=" .
-                            $row->getFileName()."&sendBy=".$row->getSendBy()." [".$row->getSenderFullName()."]";
+							$row->getBatch() . "&subject=" . $row->getSubjectCode() . " [" . $row->getSubjectName() . "] &attempt=" . $row->getAttempt()
+							. "&filePath=" .
+							$row->getFileName() . "&sendBy=" . $row->getSendBy() . " [" . $row->getSenderFullName() . "]";
 //						set attempt string
 						$attempt = ($row->getAttempt() == 'F') ? 'First Attempt' : 'Repeat Attempt';
 //						get year semester value form semester(1-8)
@@ -67,7 +66,7 @@
         </div>
         <div class="showFileContent" id="showFileContent">
             <div id="printArea">
-                <span class="columnHeader">Result Review of <?php echo $_GET['subject'];?></span>
+                <span class="columnHeader">Result Review of <?php echo $_GET['subject']; ?></span>
                 <br>
 				<?php
 					if (isset($_GET['fileID'])) {
@@ -125,24 +124,34 @@
                             <th>Index Number</th>
                             <th>Mark</th>
                         </tr>
-						<?php
-							//                                read URL
-							if (isset($_GET['fileID'])) {
-								$myFile = fopen($_GET['filePath'], "r");
-								fgets($myFile);
-								while (!feof($myFile)) {
-									$dataArray = fgets($myFile);
-									if (strlen($dataArray) > 0) {
-										$serialNumber = explode(",", $dataArray)[0];
-										$indexNumber = explode(",", $dataArray)[1];
-										$result = explode(",", $dataArray)[2];
-										echo("<tr><td>$serialNumber</td><td>$indexNumber</td><td>$result</td></tr>");
-									}
-								}
-								fclose($myFile);
-							}
-						?>
                     </table>
+
+	                <?php
+		                //read URL
+		                if (isset($_GET['fileID'])) {
+//							    open file stream
+			                $myFile = fopen($_GET['filePath'], "r");
+//								take file parameter out
+			                $fileSignature = trim(preg_replace('/\s+/', '', fgets($myFile)));
+			                $encryptedSecret = trim(preg_replace('/\s+/', '', fgets($myFile)));
+			                $dataHash = trim(preg_replace('/\s+/', '', fgets($myFile)));
+			                $encryptedData = trim(preg_replace('/\s+/', '', fgets($myFile)));
+			                $sendUser = explode(' ', $_GET['sendBy'])[0];
+//                                call crypto function
+			                echo("
+                                    <script src='../../assets/js/jquery.js'></script>
+                                    <script src='../../assets/js/crypto-js.min.js'></script>
+                                    <script src='../../assets/js/js-encrypt.min.js'></script>
+                                    <script src='../../assets/js/toast.js'></script>
+                                    <script src='assets/getRawResult.js'></script>
+                                    
+                                    <input type='button' value='Unlock Result' id='dataDecrypt' class='button' style='margin: auto;display: block;' onclick='cryptoOperation(`$sendUser`,`$fileSignature`,`$encryptedSecret`,`$dataHash`,`$encryptedData`)'>
+                                ");
+//                                close file stream
+			                fclose($myFile);
+		                }
+	                ?>
+
                 </div>
                 <br>
             </div>
@@ -156,7 +165,7 @@
                     <div class="actionButton">
                         <input type="submit" value="Confirm result Received" name="confirmation" class="button" onclick="confirm('Are you sure to ' +
                          'preform this action ? Before doing that make sure that you already downloaded the result file.' +
-                         '')">
+                         '');">
                         <input type="button" value="Cancel" name="cancel" id="cancel" class="button"
                                onclick="window.location.href=document.location.href.toString().split('getRawResult')[0]+'getRawResult';">
                     </div>
@@ -166,9 +175,8 @@
     </div>
 </div>
 <!-- include footer section -->
-<?php BasicLoader::loadFooter('../../');?>
-<script src="../../assets/js/jquery.js"></script>
-<script src="../../assets/js/toast.js"></script>
-<script src="assets/getRawResult.js"></script>
+<?php BasicLoader::loadFooter('../../'); ?>
+<script>
+</script>
 </body>
 </html>

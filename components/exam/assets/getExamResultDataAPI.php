@@ -2,8 +2,7 @@
 	require_once('../../../assets/mvc/Database.php');
 	if (isset($_GET['activity']) & $_GET['activity'] == 'GPADistribution') {
 		$dbInstance = new Database();
-		//TODO change database credentials "student", "student@16"
-		$dbInstance->establishTransaction('root', '');
+		$dbInstance->establishTransaction('student', 'student@16');
 //    batch GPA distribution
 		$regNo = $_GET['regNo'];
 		$sqlQuery = "SELECT studentGroup FROM `student` WHERE regNo='$regNo'";
@@ -35,8 +34,7 @@
 
 	} elseif (isset($_GET['activity']) & $_GET['activity'] == 'IndividualGPADistribution') {
 		$dbInstance = new Database();
-		//TODO change database credentials "student", "student@16"
-		$dbInstance->establishTransaction('root', '');
+		$dbInstance->establishTransaction('student', 'student@16');
 //    individual GPA distribution
 		$regNo = $_GET['regNo'];
 		$sqlQuery = "SELECT MAX(semester) as maxSemester FROM student_result WHERE regNo='$regNo'";
@@ -61,8 +59,7 @@
 
 	} elseif (isset($_GET['activity']) & $_GET['activity'] == 'GradeContribution') {
 		$dbInstance = new Database();
-		//TODO change database credentials "student", "student@16"
-		$dbInstance->establishTransaction('root', '');
+		$dbInstance->establishTransaction('student', 'student@16');
 //    grade contribution
 		$regNo = $_GET['regNo'];
 		$sqlQuery = "SELECT MAX(semester) as maxSemester FROM student_result WHERE regNo='$regNo'";
@@ -86,40 +83,17 @@
 		$dbInstance->closeConnection();
 	}
 	function getGPV($result): float {
-		switch ($result) {
-			case 'A':
-			case 'A+':
-				$returnValue = 4.0000;
-				break;
-			case 'A-':
-				$returnValue = 3.7000;
-				break;
-			case 'B+':
-				$returnValue = 3.3000;
-				break;
-			case 'B':
-				$returnValue = 3.0000;
-				break;
-			case 'B-':
-				$returnValue = 2.7000;
-				break;
-			case 'C+':
-				$returnValue = 2.3000;
-				break;
-			case 'C':
-				$returnValue = 2.0000;
-				break;
-			case 'C-':
-				$returnValue = 1.7000;
-				break;
-			case 'D+':
-				$returnValue = 1.3000;
-				break;
-			case 'D':
-				$returnValue = 1.0000;
-				break;
-			default:
-				$returnValue = 0.0;
-		}
-		return $returnValue;
+		return match ($result) {
+			'A', 'A+' => 4.0000,
+			'A-' => 3.7000,
+			'B+' => 3.3000,
+			'B' => 3.0000,
+			'B-' => 2.7000,
+			'C+' => 2.3000,
+			'C' => 2.0000,
+			'C-' => 1.7000,
+			'D+' => 1.3000,
+			'D' => 1.0000,
+			default => 0.0,
+		};
 	}

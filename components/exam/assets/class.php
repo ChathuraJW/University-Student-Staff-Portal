@@ -128,14 +128,12 @@
 
 		public function getSenderFullName(): string {
 			$sqlQuery = "SELECT fullName FROM user WHERE userName='" . $this->sendBy . "'";
-			//TODO change db credentials
-			return Database::executeQuery('root', '', $sqlQuery)[0]['fullName'];
+			return Database::executeQuery('generalAccess', 'generalAccess@16', $sqlQuery)[0]['fullName'];
 		}
 
 		public function getSubjectName(): string {
 			$sqlQuery = "SELECT name FROM course_module WHERE courseCode='" . $this->subjectCode . "'";
-			//TODO change db credentials
-			return Database::executeQuery('root', '', $sqlQuery)[0]['name'];
+			return Database::executeQuery('generalAccess', 'generalAccess@16', $sqlQuery)[0]['name'];
 		}
 
 	}

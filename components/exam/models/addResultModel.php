@@ -3,9 +3,8 @@
 	class AddResultModel extends Model {
 
 		public static function getSubjectData(): bool|array {
-			$sqlQuery = "Select * from course_module";
-			//TODO change DB credentials
-			$result = Database::executeQuery("root", "", $sqlQuery);
+			$sqlQuery = "SELECT * FROM course_module";
+			$result = Database::executeQuery("administrativeGeneral", "administrativeGeneral@16", $sqlQuery);
 			if ($result) {
 				$subjectList = array();
 //			read subject list and add them into above array as CourseModule objects
@@ -22,14 +21,12 @@
 
 		public static function saveFileData($fileData) {
 			$dbInstance = new Database;
-			//TODO change db credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('administrativeGeneral', 'administrativeGeneral@16');
 //			query for insert file data
 			$sqlQuery = "INSERT INTO result_data_file(subjectCode, semester, yearOfExam, attempt, batch, isEncrypted, fileLocation) 
 				VALUES ('" . $fileData->getSubjectCode() . "'," . $fileData->getSemester() . ",'" . $fileData->getYearOfExam() . "',
 				'" . $fileData->getAttempt() . "','" . $fileData->getBatch() . "',FALSE,'assets/boardConfirmedResults/" . $fileData->getFileName() . "')";
 			$dbInstance->executeTransaction($sqlQuery);
-
 //        create audit trail
 			$dbInstance->transactionAudit($sqlQuery, 'result_data_file', "INSERT", 'Result file uploaded to the system.');
 
@@ -61,8 +58,7 @@
 		//hear academicYer is as same as batch value. that means to whom this exam for
 		private static function processFinalResultData($examinationYear, $attempt, $academicYear, $subject, $fileName) {
 			$dbInstance = new Database;
-			//TODO change db credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('administrativeGeneral', 'administrativeGeneral@16');
 			if ($fileName !== "") {
 //              get subject credit value
 				$sqlQuery = "SELECT creditValue FROM course_module WHERE courseCode='$subject'";
@@ -84,6 +80,7 @@
 						continue;
 					} else {
 						$studentIndex = $resultEntry[1];
+//						add student index to array
 //                      cleanup string for take result value
 						$result = trim(preg_replace('/[^a-zA-Z0-9 +-]/s', '', $resultEntry[2]), ' ');
 
@@ -106,7 +103,7 @@
 				$dbInstance->transactionAudit($sqlQuery, 'result', "INSERT", 'Insert all result as a bulk.');
 //				close file
 				fclose($resultFile);
-				//TODO check transaction state and close connection after commit
+
 				if ($dbInstance->getTransactionState()) {
 					if ($dbInstance->commitToDatabase()) {
 						echo("<script>createToast('Success','Result upload successfully completed.','S')</script>");
@@ -130,8 +127,7 @@
 //		this function update the student current GPA value
 		private static function updateGPA(&$dbInstance, $studentIndex, $subjectCredit, $result) {
 //			$dbInstance=new Database;
-			//TODO change db credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('administrativeGeneral', 'administrativeGeneral@16');
 
 //	    get total credit of given student
 			$sqlQuery = "SELECT SUM(creditValue) as totalCredit FROM student_result WHERE indexNo='$studentIndex'";
@@ -158,41 +154,18 @@
 		}
 
 		private static function getGPV($result): float {
-			switch ($result) {
-				case 'A+':
-				case 'A':
-					$returnValue = 4.0000;
-					break;
-				case 'A-':
-					$returnValue = 3.7000;
-					break;
-				case 'B+':
-					$returnValue = 3.3000;
-					break;
-				case 'B':
-					$returnValue = 3.0000;
-					break;
-				case 'B-':
-					$returnValue = 2.7000;
-					break;
-				case 'C+':
-					$returnValue = 2.3000;
-					break;
-				case 'C':
-					$returnValue = 2.0000;
-					break;
-				case 'C-':
-					$returnValue = 1.7000;
-					break;
-				case 'D+':
-					$returnValue = 1.3000;
-					break;
-				case 'D':
-					$returnValue = 1.0000;
-					break;
-				default:
-					$returnValue = 0.0;
-			}
-			return $returnValue;
+			return match ($result) {
+				'A+', 'A' => 4.0000,
+				'A-' => 3.7000,
+				'B+' => 3.3000,
+				'B' => 3.0000,
+				'B-' => 2.7000,
+				'C+' => 2.3000,
+				'C' => 2.0000,
+				'C-' => 1.7000,
+				'D+' => 1.3000,
+				'D' => 1.0000,
+				default => 0.0,
+			};
 		}
 	}
