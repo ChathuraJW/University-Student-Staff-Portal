@@ -337,7 +337,7 @@ input[type=file] {
 
 .gpaDistribution, .individualGPADistribution, .gradeContribution {
     height: fit-content;
-    display: flow-root;
+    display: inline-block;
     width: 95%;
     margin: auto;
     padding: 20px;

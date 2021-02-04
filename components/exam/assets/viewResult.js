@@ -24,7 +24,6 @@ if (overAllGPA >= 3.7) {
 //Batch GPA Distribution Graph
 let gpaDistribution = document.getElementById('gpaDistribution').getContext('2d');
 const gpaDistributionURL = "http://localhost/USSP/components/exam/assets/getExamResultDataAPI.php?activity=GPADistribution&regNo=" + regNo;
-console.log(gpaDistributionURL);
 let userPosition = Math.round(overAllGPA * 10) / 10;
 $.getJSON(gpaDistributionURL, function (studentCounts) {
     new Chart(gpaDistribution, {

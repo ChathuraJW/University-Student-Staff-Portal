@@ -49,8 +49,10 @@
 				$totalCreditSem = $totalCreditSem + $subjectData['creditValue'];
 				$fxValue = $fxValue + getGPV($subjectData['result']) * $subjectData['creditValue'];
 			}
-			$semGPA = round($fxValue / $totalCreditSem, 4);
-			array_push($returnValue, $semGPA);
+			if($fxValue!=0){
+				$semGPA = round($fxValue / $totalCreditSem, 4);
+				array_push($returnValue, $semGPA);
+			}
 		}
 		if ($dbInstance->getTransactionState()) {
 			echo(json_encode($returnValue));

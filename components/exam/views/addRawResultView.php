@@ -104,7 +104,7 @@
         </div>
         <br>
             <div class="buttonCouple" id="actionSection">
-                <input type="submit" value="Submit to SAR" name="submit" id="submit" class="button" onsubmit="confirm('Are you sure to send this ' +
+                <input type="submit" value="Submit to SAR" name="submit" id="submit" class="button" onsubmit="confirmMessage('Are you sure to send this ' +
                  'result file to examination SAR?')">
                 <input type="reset" value="Cancel" name="cancel" id="cancel" class="button">
             </div>

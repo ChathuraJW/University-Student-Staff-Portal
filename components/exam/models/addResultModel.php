@@ -90,7 +90,7 @@
 						if ($result !== '' & $studentIndex !== '' & $enrollmentID !== '') {
 //                          update GPA of student
 //							call GPA update function with same database object
-							self::updateGPA($dbInstance, $studentIndex, $creditForSubject, $result);
+							self::updateGPA($dbInstance, $studentIndex,$subject, $creditForSubject, $result, $attempt);
 							$sqlQuery .= "($enrollmentID,'$examinationYear','$academicYear','$result',NOW()),";
 						}
 					}
@@ -125,29 +125,58 @@
 		}
 
 //		this function update the student current GPA value
-		private static function updateGPA(&$dbInstance, $studentIndex, $subjectCredit, $result) {
+		private static function updateGPA(&$dbInstance, $studentIndex,$subjectCode, $subjectCredit, $result, $attempt) {
 //			$dbInstance=new Database;
-			$dbInstance->establishTransaction('administrativeGeneral', 'administrativeGeneral@16');
+//			$dbInstance->establishTransaction('administrativeGeneral', 'administrativeGeneral@16');
+			if ($attempt === 'F') {
+//				first attempt calculations
+//      	    get total credit of given student
+				$sqlQuery = "SELECT SUM(creditValue) as totalCredit FROM student_result WHERE indexNo='$studentIndex' AND attempt='F'";
+				$totalCredit = $dbInstance->executeTransaction($sqlQuery)[0]['totalCredit'];
 
-//	    get total credit of given student
-			$sqlQuery = "SELECT SUM(creditValue) as totalCredit FROM student_result WHERE indexNo='$studentIndex'";
-			$totalCredit = $dbInstance->executeTransaction($sqlQuery)[0]['totalCredit'];
+//              get current GPA of the student
+				$sqlQuery = "SELECT currentGPA FROM student WHERE indexNo='$studentIndex'";
+				$currentGPA = $dbInstance->executeTransaction($sqlQuery)[0]['currentGPA'];
 
-//        get current GPA of the student
-			$sqlQuery = "SELECT currentGPA FROM student WHERE indexNo='$studentIndex'";
-			$currentGPA = $dbInstance->executeTransaction($sqlQuery)[0]['currentGPA'];
-
-//        GPA calculation
-			if ($currentGPA == 0 || $totalCredit == 0) {
-				$newGPA = self::getGPV($result);
+//              GPA calculation
+				if ($currentGPA == 0 || $totalCredit == 0) {
+					$newGPA = self::getGPV($result);
+				} else {
+					//newGPA=(currentGPA*totalCredits + newSubjectGPV*subjectCredit) / all credits(including new result credit)
+					$newGPA = (($currentGPA * $totalCredit) + (self::getGPV($result) * $subjectCredit)) / ($totalCredit + $subjectCredit);
+				}
 			} else {
-				//newGPA=(currentGPA*totalCredits + newSubjectGPV*subjectCredit) / all credits(including new result credit)
-				$newGPA = (($currentGPA * $totalCredit) + (self::getGPV($result) * $subjectCredit)) / ($totalCredit + $subjectCredit);
+//				repeated attempt calculations
+				$sqlQuery="SELECT * FROM student_result WHERE indexNo=$studentIndex";
+				$resultEntryList=$dbInstance->executeTransaction($sqlQuery);
+				$totalCredit=0;
+				$sumGPV=0.0;
+				$selectedSubjectMaxGPV=self::getGPV($result);
+				foreach ($resultEntryList as $resultEntry){
+					if($resultEntry['courseCode']===$subjectCode){
+//						tackle repeats
+//						get GPV related to result
+						$entryResultGPV=self::getGPV($resultEntry['result']);
+//						if student attempt for several time get maximum result for GPA calculation
+						if($entryResultGPV>$selectedSubjectMaxGPV)
+							$selectedSubjectMaxGPV=$entryResultGPV;
+					}else{
+//						normal entries
+						$creditValue=$resultEntry['creditValue'];
+						$result=$resultEntry['result'];
+						$totalCredit=$totalCredit+$creditValue;
+						$sumGPV=$sumGPV+($creditValue*self::getGPV($result));
+					}
+				}
+//				consider about current subject result and add them into final GPA calculation
+				$totalCredit=$totalCredit+$subjectCredit;
+				$sumGPV=$sumGPV+($selectedSubjectMaxGPV*$subjectCredit);
+//				calculate final GPA value that goes to database
+				$newGPA=$sumGPV/$totalCredit;
 			}
-//        GPA correction
+//			GPA correction
 			if ($newGPA > 4.0000) $newGPA = 4.0000;
-
-//        update new GPA of the student
+//          update new GPA of the student
 			$sqlQuery = "UPDATE student SET currentGPA=$newGPA WHERE indexNo='$studentIndex'";
 			$dbInstance->executeTransaction($sqlQuery);
 			$dbInstance->transactionAudit($sqlQuery, 'student', "UPDATE", 'Modify GPA after add new result data into system.');

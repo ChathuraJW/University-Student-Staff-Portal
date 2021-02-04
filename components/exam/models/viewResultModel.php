@@ -49,6 +49,25 @@
 			return Database::executeQuery("student", "student@16", $sqlQuery)[0]['currentGPA'];
 		}
 
+		public static function getClassGPA(): float|bool {
+			$regNo = $_COOKIE['userName'];
+			$sqlQuery="SELECT * FROM student_result WHERE regNo='$regNo' AND attempt='F'";
+			$data=Database::executeQuery("student", "student@16", $sqlQuery);
+			if($data){
+				$totalCredit=0;
+				$sumGPV=0.0;
+				foreach ($data as $resultEntry){
+					$creditValue=$resultEntry['creditValue'];
+					$result=$resultEntry['result'];
+					$totalCredit=$totalCredit+$creditValue;
+					$sumGPV=$sumGPV+($creditValue*getGPV($result));
+				}
+				return  $sumGPV/$totalCredit;
+			}else{
+				return false;
+			}
+		}
+
 		public static function getCurrentRank(): int {
 			$dbInstance = new Database;
 			$dbInstance->establishTransaction('student', 'student@16');
@@ -92,3 +111,19 @@
 			return $rank;
 		}
 	}
+
+	function getGPV($result): float {
+	return match ($result) {
+		'A+', 'A' => 4.0000,
+		'A-' => 3.7000,
+		'B+' => 3.3000,
+		'B' => 3.0000,
+		'B-' => 2.7000,
+		'C+' => 2.3000,
+		'C' => 2.0000,
+		'C-' => 1.7000,
+		'D+' => 1.3000,
+		'D' => 1.0000,
+		default => 0.0,
+	};
+}

@@ -106,7 +106,8 @@
                 <br>
                 <div class="row col-1">
                     <div class="showRest row col-2" id="actionSection">
-                        <input type="submit" value="Upload Result" name="submit" id="submit" class="button" onclick="confirm('Are you sure that all ' +
+                        <input type="submit" value="Upload Result" name="submit" id="submit" class="button" onclick="confirmMessage('Are you sure that ' +
+                         'all ' +
                          'parameters are set correctly? After you done this operation, you can not recover it again. So please double check again ' +
                           'all data as well as the student results.' +
                          '')">
