@@ -157,19 +157,15 @@
                 <div class="weeks">
                     <label for="weeks" class="subHeading">Weeks:</label><br>
                     <input type="text" id="weeks" name="weeks"><br>
-                    <label class="message">* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cupiditate dolore fugiat hic.</label>
+                    <label class="message">*Notification appearing time period in weeks. </label>
                 </div>
             </div>
 
 
                 <div class="buttonCouple">
                             <button type="reset" class="button "> Cancel</button>
-                            <button class="button" type="submit" name="send" > Send</button>
+                            <button class="button" type="submit" name="send"> Send</button>
                     </div>
-
-
-
-
         </form>
     </div>
     <!-- include footer section -->

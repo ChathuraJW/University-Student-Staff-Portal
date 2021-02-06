@@ -13,8 +13,8 @@ class AddNotificationController extends Controller{
             $weeks = $_POST['weeks'];
             $senderRegNo = $_COOKIE['userName'];
 
-            if(!empty($_POST['receiverList'])){
-
+            //continue the process only when all the fields were filled.
+            if(!empty($_POST['receiverList'])&& $notificationTitle && $notificationContent && $notificationCategory && $weeks && $senderRegNo){
             // Loop to store and display values of individual checked checkbox.
                 $receivers = array();
                 $temp =0;
@@ -53,18 +53,26 @@ class AddNotificationController extends Controller{
                 if($receivers){
                     $receiverRegNoList = array();
                     foreach ($receivers as $category){
+//                        echo $category;
                         $receiversResult = AddNotificationModel::getReceiverList($category);
-                        foreach ($receiversResult as $regNo){
-                            array_push($receiverRegNoList, $regNo['userName']);
+//                        print_r($receiversResult);
+//                        echo $receiversResult;
+                        if($receiversResult){
+                            foreach ($receiversResult as $regNo){
+                                array_push($receiverRegNoList, $regNo['userName']);
+                            }
                         }
-                        print_r($receiverRegNoList);
-                        AddNotificationModel::saveNotificationDetails($senderRegNo,$notificationTitle,$notificationContent,$weeks,$notificationCategory,$receiversRegNoList);
+
+//                        print_r($receiverRegNoList);
+                        AddNotificationModel::saveNotificationDetails($senderRegNo,$notificationTitle,$notificationContent,$weeks,$notificationCategory,$receiverRegNoList,$receivers);
                     }
 
                 }
 
 //                print_r($receivers);
 //                print_r("$notificationTitle $notificationContent $notificationCategory,$weeks");
+            }else{
+                //create toast
             }
 
         }
