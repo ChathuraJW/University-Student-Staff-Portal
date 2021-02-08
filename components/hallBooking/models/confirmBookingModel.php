@@ -4,8 +4,7 @@
 		public static function loadReviewList(): array {
 //        get reservation request that need to be review ordered according to reservationID
 			$sqlQuery = "SELECT * FROM hall_reservation_details WHERE reservationStates='N' AND isUnderReview='false' ORDER BY reservationID;";
-			//TODO change database credentials
-			$result = Database::executeQuery('root', '', $sqlQuery);
+			$result = Database::executeQuery('generalAccess', 'generalAccess@16', $sqlQuery);
 //        create array yo store objects
 			$requestList = array();
 //        insert object by object to array
@@ -24,8 +23,7 @@
 
 		public static function loadSelectedRequest($requestID): array|int {
 			$dbInstance = new Database;
-			//TODO change database credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('generalAccess', 'generalAccess@16');
 //        get data for selected request
 			$sqlQuery = "SELECT * FROM hall_reservation_details WHERE reservationID=$requestID";
 			$selectedRequest = $dbInstance->executeTransaction($sqlQuery)[0];
@@ -41,7 +39,6 @@
 				$hallID = $selectedRequest['hallID'];
 				$fromTS = $selectedRequest['fromTimestamp'];
 				$toTS = $selectedRequest['toTimestamp'];
-				//TODO check weather there have further more optimization
 				$sqlQuery = "SELECT reservationID,hallID,reserveUserName,fullName,type,requestMadeAt,reservationStates,isUnderReview 
             	FROM hall_reservation_details WHERE hallID='$hallID' AND ((fromTimestamp < '$toTS' AND toTimestamp > '$fromTS') OR fromTimestamp='$fromTS') ";
 				$requestInSameSlot = $dbInstance->executeTransaction($sqlQuery);
@@ -71,7 +68,6 @@
 					}
 //                change state fo isUnderReview to true
 					$sqlQuery = "UPDATE user_receive_hall SET isUnderReview=true WHERE reservationID=" . $row['reservationID'];
-					//TODO make sure to uncomment below statement
 					$dbInstance->executeTransaction($sqlQuery);
 					$dbInstance->transactionAudit($sqlQuery, 'user_receive_hall', 'UPDATE',
 						'Update isUnderReview into true because user start review the entry.');
@@ -115,8 +111,7 @@
 
 		public static function confirmReservation($requestID): bool {
 			$dbInstance = new Database;
-			//TODO change database credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('generalAccess', 'generalAccess@16');
 			$confirmUser = $_COOKIE['userName'];
 //        change the state of request to 'A' state
 			$sqlQuery = "UPDATE user_receive_hall SET reservationStates='A', approvedBy='$confirmUser', approvalTimestamp=NOW() 
@@ -135,7 +130,7 @@
 			$fromTS = $selectedRequest['fromTimestamp'];
 			$toTS = $selectedRequest['toTimestamp'];
 
-			//TODO check weather there have further more optimization (similar Query for line 45)
+			//check weather there have further more optimization (similar Query for line 42)
 			$sqlQuery = "SELECT reservationID,hallID,reserveUserName,fullName,type,requestMadeAt,reservationStates,isUnderReview 
         FROM hall_reservation_details WHERE hallID='$hallID' AND ((fromTimestamp < '$toTS' AND toTimestamp > '$fromTS') OR fromTimestamp='$fromTS') ";
 			$result = $dbInstance->executeTransaction($sqlQuery);
@@ -144,7 +139,6 @@
 //            ignore approved request
 				if ($row['reservationID'] !== $requestID) {
 					$sqlQuery = "UPDATE user_receive_hall SET reservationStates='R' WHERE reservationID=" . $row['reservationID'];
-					//TODO make sure to uncomment below statement
 					$dbInstance->executeTransaction($sqlQuery);
 					$dbInstance->transactionAudit($sqlQuery, 'user_receive_hall', 'UPDATE',
 						'Change the the state of rest of the request to `R` state.');

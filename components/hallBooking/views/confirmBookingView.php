@@ -19,23 +19,28 @@
     <div class="row col-2">
         <div class="bookingRequest">
             <span class="columnHeader">Booking Requests</span>
-<!--            TODO if needed will apply-->
-<!--            <div class="orderingSection">-->
-<!--                <span>Order By</span>-->
-<!--                <div class="OptionWrapper row col-4">-->
-<!--                    <button type="radio" id="orderByDate" onclick="rearrangeContent('orderByDate');">Request Date-->
-<!--                    </button>-->
-<!--                    <button type="radio" id="orderByRole" onclick="rearrangeContent('orderByRole');">Requester Role-->
-<!--                    </button>-->
-<!--                    <button type="radio" id="orderByHall" onclick="rearrangeContent('orderByHall');">Requested Hall-->
-<!--                    </button>-->
-<!--                    <button type="radio" id="orderByRequestedType" onclick="rearrangeContent('orderByRequestedType');">-->
-<!--                        Requested Type-->
-<!--                    </button>-->
-<!--                </div>-->
-<!--            </div>-->
+
+            <!--            if needed will apply for future modifications-->
+            <!--            <div class="orderingSection">-->
+            <!--                <span>Order By</span>-->
+            <!--                <div class="OptionWrapper row col-4">-->
+            <!--                    <button type="radio" id="orderByDate" onclick="rearrangeContent('orderByDate');">Request Date-->
+            <!--                    </button>-->
+            <!--                    <button type="radio" id="orderByRole" onclick="rearrangeContent('orderByRole');">Requester Role-->
+            <!--                    </button>-->
+            <!--                    <button type="radio" id="orderByHall" onclick="rearrangeContent('orderByHall');">Requested Hall-->
+            <!--                    </button>-->
+            <!--                    <button type="radio" id="orderByRequestedType" onclick="rearrangeContent('orderByRequestedType');">-->
+            <!--                        Requested Type-->
+            <!--                    </button>-->
+            <!--                </div>-->
+            <!--            </div>-->
             <!--            load request to review-->
 			<?php
+				//				    display below message if list is empty
+				if (!$controllerData[0] | sizeof($controllerData[0]) == 0)
+					echo("<span class='emptyMessage'>No reservation request  for listing.</span>");
+
 				//                iterate throughout each request send form model and create entries
 				foreach ($controllerData[0] as $row) {
 					echo("
@@ -59,7 +64,6 @@
         <!--        load selected request to review-->
 		<?php
 			//            check whether user clicked a request to review
-			//TODO try to implement this section using more easy to read way such as block php statements
 			if (isset($controllerData[1][0])) {
 				$openReservationData = $controllerData[1][0];
 				//                create request view

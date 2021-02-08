@@ -11,9 +11,8 @@ function rearrangeContent(buttonID) {
 
 }
 
-//TODO go back and reload not implemented
 function respondOperation(requestID) {
-    confirm(`Are you user to temporally close the session?`);
+    confirmMessage(`Are you user to temporally close the session?`);
     // call confirmBookingAPI for operation
     const requestURL = "http://localhost/USSP/components/hallBooking/assets/hallBookingAPI.php?operation=respond&requestID=" + requestID;
     $.getJSON(requestURL, function (operationState) {
@@ -22,16 +21,16 @@ function respondOperation(requestID) {
             // wait 4.5s and redirect to main page
             setTimeout(function () {
                 history.go(-2);
-            }, 4500);
+                location.reload(true);
+            }, 3000);
         } else {
             createToast('Warning (error code: #HBM05)', 'Unable to close request temporally.', 'W');
         }
     });
 }
 
-//TODO go back and reload not implemented and lock removing is needed for confirmation process
 function confirmSelectedBooking() {
-    confirm(`Are you user to confirm for the selected request?`);
+    confirmMessage(`Are you user to confirm for the selected request?`);
     const selectedRequestID = document.getElementById('selectedRequestID').value;
     const isChecked = document.getElementById('confirmBooking').checked;
     // check whether declaration checked
@@ -41,11 +40,11 @@ function confirmSelectedBooking() {
         $.getJSON(requestURL, function (operationState) {
             if (operationState === 1) {
                 createToast('Info', 'successfully confirm the reservation request.', 'I');
-                // wait 4.5s and redirect to main page
-                //TODO came back after confirmation
+                // wait 3s and redirect to main page
                 setTimeout(function () {
-                    history.go(-1);
-                }, 4500);
+                    history.go(-2);
+                    location.reload(true);
+                }, 3000);
             } else {
                 createToast('Warning (error code: #HBM06)', 'Failed to complete request confirmation.', 'W');
             }

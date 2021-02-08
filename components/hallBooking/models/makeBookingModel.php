@@ -4,8 +4,7 @@
     public static function getHallData(): array {
 //        query DB for get hall and lab data
         $sqlQuery="SELECT * FROM hall_and_lab ORDER BY hallType DESC";
-        //@TODO Change database credentials
-        $result=Database::executeQuery('root','',$sqlQuery);
+        $result=Database::executeQuery('generalAccess','generalAccess@16',$sqlQuery);
 //        create array to store objects
         $hallList=array();
 //        add object to array
@@ -21,9 +20,8 @@
 //        get userName form cookie
         $userName=$_COOKIE['userName'];
 //        query DB for get all request belong to the current logged in user
-        //@TODO Check query order by part and change database credentials
         $sqlQuery="SELECT * FROM hall_reservation_details WHERE reserveUserName='$userName' ORDER BY reservationID DESC;";
-        $result=Database::executeQuery('root','',$sqlQuery);
+        $result=Database::executeQuery('generalAccess','generalAccess@16',$sqlQuery);
 //        create array yo store objects
         $requestList=array();
 //        insert object by object to array
@@ -52,7 +50,7 @@
 		$hours=(strtotime($toTS)-strtotime($fromTS))/3600;
 		$days=$hours/24;
 
-		//TODO this think about query for further modification to improve efficiency
+		//think about query for further modification to improve efficiency
 		$sqlQuery="SELECT * FROM timetable WHERE hallID='$hallID' AND day='$fromDay' 
                           AND ((fromTime < '$toTime' AND toTime > '$fromTime') OR fromTime='$fromTime')";
 		$result=Database::executeQuery('root','',$sqlQuery);
@@ -68,8 +66,7 @@
 //	    list out same slot request states
     	$sqlQuery = "SELECT reservationID,reservationStates FROM hall_reservation_details 
 		WHERE hallID='$hallID' AND ((fromTimestamp < '$toTS' AND toTimestamp > '$fromTS') OR fromTimestamp='$fromTS') ORDER BY reservationStates";
-	    //TODO change database credentials
-	    $result=Database::executeQuery('root','',$sqlQuery);
+	    $result=Database::executeQuery('generalAccess','generalAccess@16',$sqlQuery);
 	    $isSlotReserved=false;
 //	    check whether one of them was already occupy the slot
 	    foreach ($result as $row){
@@ -84,8 +81,7 @@
     public static function makeNewReservation($reservation){
 //        get database instance
         $databaseInstance=new Database;
-        //TODO change database credentials
-        $databaseInstance->establishTransaction('root','');
+        $databaseInstance->establishTransaction('generalAccess','generalAccess@16');
         $sqlQuery="INSERT INTO user_receive_hall(reserveUserName, hallID, description, type, fromTimestamp, toTimestamp, requestMadeAt) 
         VALUES ('".$reservation->getReservedBy()."','".$reservation->getHallID()."','".$reservation->getDescription()."',
         ".$reservation->getReservationTypeAsInt().",'".$reservation->getFrom()."','".$reservation->getTo()."',NOW())";

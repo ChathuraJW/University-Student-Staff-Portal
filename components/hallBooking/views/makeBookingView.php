@@ -132,7 +132,7 @@
                 <textarea name="description" rows="10" style="width:90%;resize: none;" required></textarea>
                 <div class="buttonCouple">
                     <input type="submit" name="createRequest" value="Create Request" class="button"
-                           onclick="confirm('Are you sure to place this reservation request?');">
+                           onclick="confirmMessage('Are you sure to place this reservation request?');">
                     <input type="reset" name="" value="Cancel" class="button">
                 </div>
             </form>

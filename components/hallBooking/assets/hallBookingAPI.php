@@ -1,11 +1,11 @@
 <?php
 	require_once('../../../assets/mvc/Database.php');
+	require_once('../../../assets/mvc/Notification.php');
 	if (isset($_GET['operation']) & $_GET['operation'] == 'respond') {
 		$requestID = $_GET['requestID'];
 
 		$dbInstance = new Database;
-		//TODO change database credentials
-		$dbInstance->establishTransaction('root', '');
+		$dbInstance->establishTransaction('generalAccess', 'generalAccess@16');
 //        get data for selected request
 		$sqlQuery = "SELECT * FROM hall_reservation_details WHERE reservationID=$requestID";
 		$selectedRequest = $dbInstance->executeTransaction($sqlQuery)[0];
@@ -14,13 +14,12 @@
 		$fromTS = $selectedRequest['fromTimestamp'];
 		$toTS = $selectedRequest['toTimestamp'];
 
-		//TODO check weather there have further more optimization (similar Query for line 45)
+		//try for further optimization
 		$sqlQuery = "SELECT reservationID,hallID,reserveUserName,fullName,type,requestMadeAt,reservationStates,isUnderReview 
         FROM hall_reservation_details WHERE hallID='$hallID' AND ((fromTimestamp < '$toTS' AND toTimestamp > '$fromTS') OR fromTimestamp='$fromTS') ";
 		$result = $dbInstance->executeTransaction($sqlQuery);
 		foreach ($result as $row) {
 			$sqlQuery = "UPDATE user_receive_hall SET isUnderReview=false WHERE reservationID=" . $row['reservationID'];
-			//TODO make sure to uncomment below statement
 			$dbInstance->executeTransaction($sqlQuery);
 			$dbInstance->transactionAudit($sqlQuery, 'user_receive_hall', 'UPDATE',
 				'Update isUnderReview into false to release the lock added before open request.');
@@ -40,8 +39,7 @@
 		$requestID = $_GET['requestID'];
 
 		$dbInstance = new Database;
-		//TODO change database credentials
-		$dbInstance->establishTransaction('root', '');
+		$dbInstance->establishTransaction('generalAccess', 'generalAccess@16');
 		$confirmUser = $_COOKIE['userName'];
 //        change the state of request to 'A' state
 		$sqlQuery = "UPDATE user_receive_hall SET reservationStates='A', approvedBy='$confirmUser', approvalTimestamp=NOW() 
@@ -50,6 +48,17 @@
 		$dbInstance->executeTransaction($sqlQuery);
 		$dbInstance->transactionAudit($sqlQuery, 'user_receive_hall', 'UPDATE',
 			'confirmed reservation request.');
+
+		//send notification with email to requester to inform accepted
+		$sqlQuery = "SELECT reserveUserName FROM user_receive_hall WHERE reservationID=$requestID";
+		$requestOwnerUserName = $dbInstance->executeTransaction($sqlQuery)[0]['reserveUserName'];
+
+		//TODO send notification
+//		$informConfirmation =new Notification;
+//		$informConfirmation->setReceivers(array($requestOwnerUserName));
+//		$informConfirmation->setSender($_COOKIE['userName']);
+//		$informConfirmation->createNotification('Reservation request accepted',"Reservation request #$requestID has been approved.");
+//		$informConfirmation->publishNotification(true);
 
 //        load same slot request to change state to 'R' state
 //        get data for selected request
@@ -60,7 +69,7 @@
 		$fromTS = $selectedRequest['fromTimestamp'];
 		$toTS = $selectedRequest['toTimestamp'];
 
-		//TODO check weather there have further more optimization (similar Query for line 45)
+		//try for further optimization 16 Line
 		$sqlQuery = "SELECT reservationID,hallID,reserveUserName,fullName,type,requestMadeAt,reservationStates,isUnderReview 
         FROM hall_reservation_details WHERE hallID='$hallID' AND ((fromTimestamp < '$toTS' AND toTimestamp > '$fromTS') OR fromTimestamp='$fromTS') ";
 		$result = $dbInstance->executeTransaction($sqlQuery);
@@ -93,8 +102,7 @@
 		$day = strtoupper(date('D', strtotime($_GET['dateSelected'])));
 
 		$dbInstance = new Database;
-		//TODO change database credentials
-		$dbInstance->establishTransaction('root', '');
+		$dbInstance->establishTransaction('generalAccess', 'generalAccess@16');
 //		take a list of hall details to maintain row indexes
 		$sqlQuery = "SELECT hallID FROM hall_and_lab ORDER BY hallType DESC";
 		$hallData = ($dbInstance->executeTransaction($sqlQuery));
@@ -126,7 +134,7 @@
 		}
 
 //		list out reservation entries
-		//TODO try to improve query for further accuracy
+		//improve query for further accuracy in further rounds
 		$sqlQuery = "SELECT * from hall_reservation_details WHERE reservationStates='A' AND (DATE(fromTimestamp)='$selectedDate' OR DATE (toTimestamp)='$selectedDate');";
 		$result = $dbInstance->executeTransaction($sqlQuery);
 		$rowIndex = 2;

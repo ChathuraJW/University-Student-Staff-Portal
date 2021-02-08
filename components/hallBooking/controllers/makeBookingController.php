@@ -20,7 +20,6 @@ class MakeBookingController extends Controller{
             $fromDay = strtoupper(date('D', strtotime($fromDate)));
             $toDay = strtoupper(date('D', strtotime($toDate)));
 
-            //TODO check weather there have booking for same slot or are there have timetable entry
 //	        check for same slot hall reservations
             if(!MakeBookingModel::sameSlotReservations($selectedHall,$fromTS,$toTS)){
 //            	can proceed to next step

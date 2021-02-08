@@ -215,3 +215,11 @@ input[type=date], input[type=time],textarea {
         transform: scale(1);
     }
 }
+
+/*empty list message*/
+.emptyMessage {
+    font-size: 20px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
