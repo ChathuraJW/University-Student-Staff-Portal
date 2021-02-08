@@ -66,3 +66,4 @@ function displayError(){
         txtPassword.style.backgroundColor="#ffffff";
     }, 3000);
 }
+

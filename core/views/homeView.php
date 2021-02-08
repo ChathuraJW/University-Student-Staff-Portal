@@ -11,7 +11,7 @@
 
 </head>
 <body>
-
+<div id="contentContainer" class="mainContainer">
 <!-- header section -->
 
 
@@ -229,19 +229,20 @@
 
 
 </div>
-<div  class="popupMessageContainer">
-    <div class="popupMessage">
-        <span id="greetingMessage" class="message"> </span>
-    </div>
-    <div class="popupMessage">
-        <span  class="message"> <?php echo $_COOKIE["fullName"]; ?></span>
-    </div>
-</div>
+
 
 <!--load footer-->
 <?php require_once('../assets/php/basicLoader.php') ?>
 <?php BasicLoader::loadFooter("../"); ?>
-
+</div>
+<div id="greeting" class="popupMessageContainer">
+    <div class="popupMessage">
+        <span id="greetingMessage" class="greetingMessage"> </span>
+    </div>
+    <div class="popupMessage">
+        <span  class="userName"> <?php echo $_COOKIE["fullName"]; ?></span>
+    </div>
+</div>
 <script src="../assets/js/jquery.js"></script>
 <script src="assets/home.js"></script>
 </body>

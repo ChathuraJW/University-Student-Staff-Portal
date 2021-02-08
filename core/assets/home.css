@@ -161,7 +161,7 @@
     color: #ecebeb;
     transition: all .5s linear;
     opacity: 0.7;
-    background-color: #9400d396;
+    background-color:var(--baseColor);
 }
 
 .tile:hover {
@@ -198,7 +198,7 @@
     opacity: 0.7;
     background-color: rgba(130, 120, 134, 0.59);
 }
-/*calender*/
+calender
 .calenderContainer{
     height: 250px;
     margin-top: 10px;
@@ -206,7 +206,7 @@
 }
 .dayContainer{
     height: 32px;
-    background: #0097a7;
+    background: var(--baseColor);
     color: white;
     line-height: 32px;
     font-size: 16px;
@@ -216,7 +216,7 @@
     text-align: center;
 }
 .dateTime{
-    background-color: #26bfd0;
+    background-color: var(--headerFooterBackground);
     color: white;
     text-align: center;
     padding: 5px;
@@ -235,9 +235,11 @@
     font-size: 25px;
     padding: 5px;
 }
-/*popup*/
+/*greeting message*/
+body{
+    background-color: var(--baseColor);
+}
 .popupMessageContainer{
-    background-color: #98a4ec;
     opacity: 0.5;
     width: auto;
     height: auto;
@@ -245,22 +247,47 @@
     text-align: center;
     align-items: center;
     position: absolute;
-    margin-top: 50px;
-    top: 0%;
-    left: 0%;
-    /*transform: translate(-50%, -50%);*/
-    visibility: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     transition: all 1s ease;
-    display: flex;
-    padding: 15px;
 }
 .popupMessage{
-    font-size: 45px;
-    align-items: center;
+    color: white;
+    text-transform: uppercase;
+}
+.greetingMessage{
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+    background-color: var(--baseColor);
+    position: relative;
+    animation: text 3s 1;
+}
+.userName{
+    font-size: 30px;
+    animation: text 3s 1;
+    letter-spacing: 8px;
+}
+@keyframes text {
+    0%{
+        color: var(--baseColor);
+    }
+    30%{
+        letter-spacing: 25px;
+    }
+    85%{
+       letter-spacing: 8px;
+    }
+    
 }
 .popupMessageContainer.show{
     visibility: visible;
     opacity: 1;
+}
 
-
+.mainContainer{
+    visibility: hidden;
+    display: none;
 }

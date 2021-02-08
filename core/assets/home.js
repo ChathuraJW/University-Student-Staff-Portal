@@ -1,14 +1,19 @@
+//testing
+
+
+
+//end
+
 // Set greeting message according to the time
 let timeIn = new Date();
 let timeInHours = timeIn.getHours();
-console.log(timeInHours);
 let greetingMessage;
 
-if (0<=timeInHours && timeInHours <=11){
+if (timeInHours<12){
     greetingMessage = "Good Morning!"
-}else if (12<= timeInHours && timeInHours<=15){
+}else if (timeInHours >= 12 && timeInHours <= 17){
     greetingMessage = "Good Afternoon!";
-}else{
+}else if(timeInHours >= 17 && timeInHours <= 24){
     greetingMessage = "Good Evening!";
 }
 // greetingMessage = `${greetingMessage} `;
@@ -23,35 +28,38 @@ window.addEventListener("load",function (){
 });
 
 function showPopup() {
-    const timeLimit = 3; //seconds
-    let i = 0;
-    const timer = setInterval(function () {
-        i++;
-        if (i === timeLimit) {
-            clearInterval(timer);
-            loginPopup.classList.add("show");
-        }
-        console.log(i);
-    }, 1000);
-}
-// apply color for different tile
-function applyTileColor() {
-    let colors = ['#e06363', '#5ac65a', '#6161ca', '#c170cf'
-        , '#3a3e3a', '#c12084', '#cfa62b', '#47baac'];
-    let totElement = document.getElementsByClassName('tile').length;
-    let colorIndex = Array();
-    for (let i = 0; i < totElement; i++) {
-        let randomValue = Math.floor(Math.random() * colors.length);
-        if (colorIndex[i - 1] === randomValue) {
-            i = i - 1;
-            continue;
-        }
-        colorIndex[i] = randomValue;
-        document.getElementsByClassName('tile')[i].style.backgroundColor = colors[randomValue];
-    }
+    loginPopup.classList.add("show"); //display greeting message
+
+    //Load the content after few seconds
+    setTimeout(function() {
+        document.getElementById("greeting").remove();
+        document.getElementById("contentContainer").style.visibility = 'visible';
+        document.getElementById("contentContainer").style.display = 'block';
+        document.querySelector('body').style.visibility = 'hidden';
+        document.querySelector('body').style.backgroundColor='white';
+
+    }, 3000);
 }
 
-applyTileColor();
+
+// apply color for different tile
+// function applyTileColor() {
+//     let colors = ['#e06363', '#5ac65a', '#6161ca', '#c170cf'
+//         , '#3a3e3a', '#c12084', '#cfa62b', '#47baac'];
+//     let totElement = document.getElementsByClassName('tile').length;
+//     let colorIndex = Array();
+//     for (let i = 0; i < totElement; i++) {
+//         let randomValue = Math.floor(Math.random() * colors.length);
+//         if (colorIndex[i - 1] === randomValue) {
+//             i = i - 1;
+//             continue;
+//         }
+//         colorIndex[i] = randomValue;
+//         document.getElementsByClassName('tile')[i].style.backgroundColor = colors[randomValue];
+//     }
+// }
+//
+// applyTileColor();
 
 // cookie value getting function
 function getCookieValue(searchKey) {
