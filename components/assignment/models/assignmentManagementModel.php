@@ -2,9 +2,8 @@
 
 	class AssignmentManagementModel extends Model {
 		public static function loadSubjectData(): array|bool {
-			//@TODO change database credentials
 			$sqlQuery = "SELECT * FROM course_module ORDER BY semester";
-			$result = Database::executeQuery('root', '', $sqlQuery);
+			$result = Database::executeQuery('academicSupportiveGeneral', 'academicSupportiveGeneral@16', $sqlQuery);
 			if ($result) {
 				$subjectDataList = array();
 				foreach ($result as $row) {
@@ -19,9 +18,8 @@
 		}
 
 		public static function loadSupportiveStaffData(): array|bool {
-			//@TODO change database credentials
 			$sqlQuery = "SELECT * FROM user WHERE role='SP'";
-			$result = Database::executeQuery('root', '', $sqlQuery);
+			$result = Database::executeQuery('academicSupportiveGeneral', 'academicSupportiveGeneral@16', $sqlQuery);
 			if ($result) {
 				$subjectDataList = array();
 				foreach ($result as $row) {
@@ -41,9 +39,8 @@
 //        take user name of logged in user
 			$userName = $_COOKIE['userName'];
 //        find active assignment plan that belongs to particular user
-			//@TODO change database credentials
 			$dbInstance = new Database;
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('academicSupportiveGeneral', 'academicSupportiveGeneral@16');
 			$sqlQuery = "SELECT assignmentPlanID FROM active_assignment_plan_conduct_staff WHERE staffID='$userName'";
 			$assignmentIDs = $dbInstance->executeTransaction($sqlQuery);
 			foreach ($assignmentIDs as $assignmentID) {
@@ -81,9 +78,8 @@
 		}
 
 		public static function addNewAssignmentPlanData($newAssignmentPlan, $conductStaffList) {
-			//@TODO change database credentials
 			$database = new Database;
-			$database->establishTransaction('root', '');
+			$database->establishTransaction('academicSupportiveGeneral', 'academicSupportiveGeneral@16');
 //        insert assignment plan data into assignment plan data table
 			$sqlQuery = "INSERT INTO assignment_plan (description, assignmentWeigh, totalAssignmentAmount, subject, degreeStream, isActive) VALUES ('" . $newAssignmentPlan->getDescription() . "'," . $newAssignmentPlan->getAssignmentWeight() . "," . $newAssignmentPlan->getTotalNumberOfAssignment() . ",'" . $newAssignmentPlan->getSubjectCode() . "','" . $newAssignmentPlan->getDegreeStream() . "',TRUE)";
 			$isSuccess = $database->executeTransaction($sqlQuery);
@@ -96,6 +92,7 @@
 
 //        convert staff list string into array
 			$staffList = explode("\n", $conductStaffList);
+			$staffList[] = $_COOKIE['userName'];
 //        assign each staff member to assignment plan
 			foreach ($staffList as $staff) {
 				$sqlQuery = "INSERT INTO assignment_plan_conducted_by(staffID, assignmentPlanID) VALUES ('$staff',$assignmentPlanID)";

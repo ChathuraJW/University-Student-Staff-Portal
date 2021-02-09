@@ -18,8 +18,8 @@
     </div>
 </header>
 <div class='loginInfo'>
-    <span class='backToHome' style='float: left;'><a href='../../' style='color: white;' title='Back to home'><i class='fas fa-home'></i></a></span>
-    <span>Login as " . $_COOKIE['fullName'] . " &nbsp;<span><a href='{$positionNotation}assets/php/logout.php' style='color: white;'><i class='fas fa-sign-out-alt' style='color: white;' title='Log out'></i></a></span></span>
+    <span class='backToHome' style='float: left;'><a href='../../' style='color: white;' title='Back to home'><i class='fa fa-home'></i></a></span>
+    <span>Login as " . $_COOKIE['fullName'] . " &nbsp;<span><a href='{$positionNotation}assets/php/logout.php' style='color: white;'><i class='fa fa-sign-out-alt' style='color: white;' title='Log out'></i></a></span></span>
 </div>
 <div class='toastArea' id='toastArea'></div>
     ");
@@ -41,10 +41,10 @@
                         Email: info@ucsc.cmb.ac.lk
                     </span>
                     <span>
-                        <a href='https://www.linkedin.com/school/ucsc-lk/'><i class='fab fa-linkedin fa-2x'></i></a>
-                        <a href='https://twitter.com/UCSC_LK'><i class='fab fa-twitter-square fa-2x'></i></a>
-                        <a href='https://www.facebook.com/UCSC.LK'><i class='fab fa-facebook-square fa-2x'></i></a>
-                        <a href='https://www.youtube.com/channel/UC0gdcqEL6ZZeT67s0IbOrHg'><i class='fab fa-youtube fa-2x'></i></a>
+                        <a href='https://www.linkedin.com/school/ucsc-lk/'><i class='fa fa-linkedin fa-2x'></i></a>
+                        <a href='https://twitter.com/UCSC_LK'><i class='fa fa-twitter-square fa-2x'></i></a>
+                        <a href='https://www.facebook.com/UCSC.LK'><i class='fa fa-facebook-square fa-2x'></i></a>
+                        <a href='https://www.youtube.com/channel/UC0gdcqEL6ZZeT67s0IbOrHg'><i class='fa fa-youtube fa-2x'></i></a>
                     </span>
                 </div>
                 <div class='basicDescription'>

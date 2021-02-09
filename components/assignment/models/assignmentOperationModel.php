@@ -3,8 +3,7 @@
 	class AssignmentOperationModel extends Model {
 		public static function loadAssignmentData($assignmentID): AssignmentPlan|bool {
 			$dbInstance = new Database;
-			//@TODO change database credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('academicSupportiveGeneral', 'academicSupportiveGeneral@16');
 //        get assignment plan data related to given assignment id
 			$sqlQuery = "SELECT * FROM assignment_plan WHERE planID=$assignmentID AND isActive=TRUE LIMIT 1";
 			$result = $dbInstance->executeTransaction($sqlQuery)[0];
@@ -50,8 +49,7 @@
 		public static function editAssignment($assignment) {
 //    	establish transaction to update assignment data
 			$database = new Database;
-			//TODO change database credentials
-			$database->establishTransaction('root', '');
+			$database->establishTransaction('academicSupportiveGeneral', 'academicSupportiveGeneral@16');
 			$sqlQuery = "UPDATE assignment SET assignmentName='" . $assignment->getAssignmentName() . "',type=" . $assignment->getType() . ",description='"
 				. $assignment->getDescription() . "',weight=" . $assignment->getWeight() . " WHERE assignmentID=" . $assignment->getAssignmentID();
 			$database->executeTransaction($sqlQuery);
@@ -76,8 +74,7 @@
 //    delete/disable assignment
 		public static function deleteAssignment($assignmentID) {
 			$dbInstance = new Database;
-			//TODO change database credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('academicSupportiveGeneral', 'academicSupportiveGeneral@16');
 //    	change isActive to false on given assignment plan
 			$sqlQuery = "UPDATE assignment SET isActive=FALSE WHERE assignmentID=$assignmentID";
 			$dbInstance->executeTransaction($sqlQuery);
@@ -103,8 +100,7 @@
 		public static function createNewAssignment($assignment) {
 //	    establish transaction to update assignment data
 			$database = new Database;
-//	        TODO change database credentials
-			$database->establishTransaction('root', '');
+			$database->establishTransaction('academicSupportiveGeneral', 'academicSupportiveGeneral@16');
 
 			$sqlQuery = "INSERT INTO assignment(assignmentPlanID, assignmentName, type, description, weight) VALUES (" . $assignment->getAssignmentPlanID()
 				. ",'" . $assignment->getAssignmentName() . "'," . $assignment->getType() . ",'" . $assignment->getDescription() . "'," . $assignment->getWeight() . ")";
@@ -133,7 +129,6 @@
 			foreach ($enrollmentList as $row) {
 				$studentID = $row['studentIndexNo'];
 				$sqlQuery = "INSERT INTO assignment_mark(assignmentID, studentID, mark) VALUE ($assignmentID,'$studentID',0)";
-				echo $sqlQuery;
 				$database->executeTransaction($sqlQuery);
 //			update student list with values
 				$studentList .= $studentID;
@@ -182,8 +177,7 @@
 //		use for get assignment information
 		public static function assignmentDetails($assignmentID): Assignment|bool {
 			$dbInstance = new Database;
-			//TODO change database credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('academicSupportiveGeneral', 'academicSupportiveGeneral@16');
 
 			$sqlQuery = "SELECT * FROM assignment WHERE assignmentID=$assignmentID AND isActive=TRUE LIMIT 1";
 			$assignmentDataResult = $dbInstance->executeTransaction($sqlQuery)[0];
@@ -210,23 +204,37 @@
 				return false;
 			}
 		}
-		public static function closeAssignmentPlan($planID){
-			$dbInstance=new Database;
-			//TODO change database credentials
-			$dbInstance->establishTransaction('root','');
-			$sqlQuery="UPDATE assignment_plan SET isActive=FALSE WHERE planID=$planID";
+
+		public static function closeAssignmentPlan($planID) {
+			$dbInstance = new Database;
+			$dbInstance->establishTransaction('academicSupportiveGeneral', 'academicSupportiveGeneral@16');
+			//create staff list to send mails
+			$sqlQuery = "SELECT staffID FROM active_assignment_plan_conduct_staff WHERE assignmentPlanID=$planID";
+			$queryResult = $dbInstance->executeTransaction($sqlQuery);
+			$mailSendList = array();
+			foreach ($queryResult as $row) {
+				$mailSendList[] = $row['staffID'];
+			}
+//			disable assignment plan
+			$sqlQuery = "UPDATE assignment_plan SET isActive=FALSE WHERE planID=$planID";
 			$dbInstance->executeTransaction($sqlQuery);
-			if($dbInstance->getTransactionState()){
-				if($dbInstance->commitToDatabase()){
+			if ($dbInstance->getTransactionState()) {
+				if ($dbInstance->commitToDatabase()) {
 //					operation success
 					echo("<script>createToast('Success','Assignment Plan(#$planID) Close Successfully.','S')</script>");
-					//TODO navigate to assignmentManagement page
-					//TODO send mail notification to all staff members as well
-				}else{
+
+//					send notifications for all staff who conduct this assignment
+					$notification = new Notification;
+					$notification->setReceivers($mailSendList);
+					$notification->setSender($_COOKIE['userName']);
+					$notification->createNotification('Assignment plan closed.', "Assignment plan[#$planID] closed by " . $_COOKIE['userName'] . '.');
+					$notification->publishNotification(true);
+
+				} else {
 //					display fail message
 					echo("<script>createToast('Warning (error code: #AOM10)','Fail to close assignment plan.','W')</script>");
 				}
-			}else{
+			} else {
 //				display fail message
 				echo("<script>createToast('Warning (error code: #AOM10)','Fail to close assignment plan.','W')</script>");
 			}

@@ -149,9 +149,12 @@
                                   rows="10"></textarea>
                     </div>
                 </div>
-                <span class="staffAddSectionHead">Assignment Plane Conducted By <button
-                            style="border: none;background-color: transparent;color: var(--fontColor);" onselect="location.reload();"><i
-                                class="fas fa-sync"></i></button></span>
+                <span class="staffAddSectionHead">Assignment Plane Conducted By
+                    <button style="border: none;background-color: transparent;color: var(--fontColor);"
+                            onclick="location.reload();document.getElementById('conductStaffList').value='';">
+                            <i class="fas fa-sync"></i>
+                    </button>
+                </span>
                 <div class="row col-2">
                     <div>
                         <select name="academicSupportList" id="academicSupportList" onchange="addStaffRecipient();">
@@ -164,8 +167,8 @@
                         </select>
                     </div>
                     <div>
-                        <textarea name="conductStaffList" id="conductStaffList" cols="30" rows="6" required
-                                  readonly></textarea>
+                        <textarea name="conductStaffList" id="conductStaffList" cols="30" rows="6" required readonly>
+                        </textarea>
                     </div>
                 </div>
                 <br>

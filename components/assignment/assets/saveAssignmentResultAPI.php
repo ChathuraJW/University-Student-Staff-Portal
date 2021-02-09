@@ -3,8 +3,7 @@
 	if (isset($_GET['operation']) & $_GET['operation'] === 'lockEntry') {
 		$markID = $_GET['markID'];
 		$dbInstance = new Database;
-		//TODO need to change DB credentials
-		$dbInstance->establishTransaction('root', '');
+		$dbInstance->establishTransaction('academicSupportiveGeneral', 'academicSupportiveGeneral@16');
 //		check current state of the entry
 		$sqlQuery = "SELECT isUnderReview FROM assignment_mark WHERE markID=$markID";
 		$isNuderReview = $dbInstance->executeTransaction($sqlQuery)[0]['isUnderReview'];
@@ -26,8 +25,7 @@
 	} elseif (isset($_GET['operation']) & $_GET['operation'] === 'unlockEntry') {
 		$markID = $_GET['markID'];
 		$dbInstance = new Database;
-		//TODO need to change DB credentials
-		$dbInstance->establishTransaction('root', '');
+		$dbInstance->establishTransaction('academicSupportiveGeneral', 'academicSupportiveGeneral@16');
 
 		$sqlQuery = "UPDATE assignment_mark SET isUnderReview=FALSE WHERE markID=$markID";
 		$dbInstance->executeTransaction($sqlQuery);
@@ -43,8 +41,7 @@
 		$markID = $_GET['markID'];
 		$newMark = $_GET['newMark'];
 		$dbInstance = new Database;
-		//TODO need to change DB credentials
-		$dbInstance->establishTransaction('root', '');
+		$dbInstance->establishTransaction('academicSupportiveGeneral', 'academicSupportiveGeneral@16');
 
 //		add mark to the entry
 		$sqlQuery = "UPDATE assignment_mark SET mark=$newMark WHERE markID=$markID";

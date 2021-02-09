@@ -45,11 +45,12 @@
             </div>
             <div class="buttonCouple">
                 <a href="?planID=<?php echo($_GET['planID']); ?>&operation=create" class="button">Create New Assignment</a>
-                <a href="assets/Finalreport.php?planID=<?php echo($_GET['planID']);?>&operation=ClosePlan" class="button" target="_blank">
+                <a href="assets/finalReport.php?planID=<?php echo($_GET['planID']); ?>&operation=ClosePlan" class="button" target="_blank">
                     Generate Assignment Report
                 </a>
                 <form action="" method="post">
-                    <button type="submit" name="closeAssignment" value="close" class="button" style="background-color: var(--dangerColor)" onclick="confirm
+                    <button type="submit" name="closeAssignment" value="close" class="button" style="background-color: var(--dangerColor)"
+                            onclick="confirmMessage
                     ('Are you sure to preform ' +
                      'this ' +
                      'action? Once you do this action can not work with assignment further more and you' +
@@ -82,7 +83,7 @@
                                  </a>
                                  </div>
                                 <div style='text-align: center;'><a href='assignmentOperation?planID=" . $controllerData[0]->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=open' style='color: var(--baseColor);'><i class='far fa-folder-open'></i></a></div>
-                                <div style='text-align: center;'><a href='assignmentOperation?planID=" . $controllerData[0]->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=delete' style='color: var(--dangerColor);' onclick='confirm(`Are you sure to to preform this operation? You going to delete a assignment that belong to this assignment plan.`)'><i class='far fa-trash-alt'></i></a></div>
+                                <div style='text-align: center;'><a href='assignmentOperation?planID=" . $controllerData[0]->getPlanID() . "&assignmentID=" . $row->getAssignmentID() . "&operation=delete' style='color: var(--dangerColor);' onclick='confirmMessage(`Are you sure to to preform this operation? You going to delete a assignment that belong to this assignment plan.`)'><i class='far fa-trash-alt'></i></a></div>
                             </div>
                         </div>
                     ");
@@ -205,9 +206,9 @@
                                       <tr>
                                         <td>$i.</td>
                                         <td style='border-left: 1px solid #ddd;border-right: 1px solid #ddd;'>$studentIndex</td>
-                                        <td><input type='checkbox' id='$checkBoxID' onchange='enableDisableInput($markID);'></td>
+                                        <td><input type='checkbox' id='$checkBoxID' onchange='enableDisableInput($markID)'></td>
                                         <td><input type='number' name='$elementID' style='width: 150px' class='assignmentResultValue'  id='$elementID' max='100' min='0' disabled value='$studentMark'></td>
-                                        <td><button type='button' class='resultSaveButton' onclick='saveStudentMark($markID);' id='$buttonID'><i class='fa fa-save fa-2x'></i></button></td>
+                                        <td><button type='button' class='resultSaveButton' onclick='saveStudentMark($markID)' id='$buttonID'><i class='fa fa-save fa-2x'></i></button></td>
                                       </tr>
                                   ");
 
@@ -275,7 +276,7 @@
                 <!--                operation button couple-->
                 <div class="buttonCouple">
                     <input type="submit" name="saveChanges" value="Save Changes" class="button"
-                           onclick="confirm('Are you sure to perform this action? ')">
+                           onclick="confirmMessage('Are you sure to perform this action? ')">
                     <input type="reset" value="Cancel" class="button">
                 </div>
             </form>
