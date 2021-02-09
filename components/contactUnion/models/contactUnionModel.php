@@ -61,8 +61,7 @@
 		        ";
 //      start transaction
 			$dbInstance = new Database;
-			//TODO change database credentials 'student', 'student@16'
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('student', 'student@16');
 
 //		generate title
 			$title = "USSP System Generated Message";

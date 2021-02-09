@@ -21,28 +21,28 @@
         <div class="historySection">
             <span class="columnHeader">Message History</span>
 			<?php
-				if (sizeof($controllerData) === 0)
+				if (!$controllerData)
 					echo("
                         <span class='emptyMessage'>No Message History.</span>
                     ");
+				else
+					for ($i = 0; $i < sizeof($controllerData); $i++) {
+						//text size based resize button enable and content height adjustment
+						if (strlen($controllerData[$i]->getMessage()) < 250) {
+							$heightValue = 'auto';
+							$displayStatus = 'none';
+						} else {
+							$heightValue = '110px';
+							$displayStatus = 'block';
+						}
+						//anonymous check
+						if ($controllerData[$i]->isAnonymous()) {
+							$anonymousIconDisplay = 'inline-block';
+						} else {
+							$anonymousIconDisplay = 'none';
+						}
 
-				for ($i = 0; $i < sizeof($controllerData); $i++) {
-					//text size based resize button enable and content height adjustment
-					if (strlen($controllerData[$i]->getMessage()) < 250) {
-						$heightValue = 'auto';
-						$displayStatus = 'none';
-					} else {
-						$heightValue = '110px';
-						$displayStatus = 'block';
-					}
-					//anonymous check
-					if ($controllerData[$i]->isAnonymous()) {
-						$anonymousIconDisplay = 'inline-block';
-					} else {
-						$anonymousIconDisplay = 'none';
-					}
-
-					echo("
+						echo("
                         <div class='messageEntry normalEntry' id='entry$i'>
                             <span class='messageEntryContent'><b>" . $controllerData[$i]->getTitle() . "</b></span>
                             <span class='messageEntryContent' style='overflow:hidden;height:$heightValue;text-overflow: ellipsis;text-align: justify;' id='content$i'>" . $controllerData[$i]->getMessage() . "</span>
@@ -50,7 +50,7 @@
                             <span class='messageEntryContent' style='float:right;'><b><i style='display:$anonymousIconDisplay ;' class='fa fa-user-secret''></i>&nbsp;&nbsp;&nbsp;<i class='fas fa-calendar-day'>&nbsp;" . $controllerData[$i]->getData() . "</i>&nbsp;&nbsp;<i class='fas fa-clock'>&nbsp;" . $controllerData[$i]->getTime() . "</i></b></span>
                         </div>
                     ");
-				}
+					}
 			?>
         </div>
         <div class="newMessageSection">
@@ -77,7 +77,7 @@
                 </div>
                 <div class="buttonCouple">
                     <input type="submit" name="sendMessage" value="Send The Message" class="button"
-                           onclick="confirm('Are You Sure to Send This Message ?');">
+                           onclick="confirmMessage('Are You Sure to Send This Message ?');">
                     <input type="reset" name="" value="Cancel" class="button">
                 </div>
             </form>
