@@ -9,14 +9,13 @@
 
 	function sendMail($title, $message, $isMessageToUnion, $receivers = null): bool {
 		$dbInstance = new Database;
-		//TODO change database credentials
-		$dbInstance->establishTransaction('root', '');
+		$dbInstance->establishTransaction('generalAccess', 'generalAccess@16');
 //		create phpMailer object
 		$mail = new PHPMailer(true);
 		try {
 			$mail->IsSMTP();
 			$mail->SMTPAuth = true;
-			$mail->SMTPSecure = "tls";
+			$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 			$mail->Host = "smtp.gmail.com";
 			$mail->Port = 587;
 
@@ -39,19 +38,19 @@
 			if (!$isMessageToUnion) {
 				foreach ($receivers as $receiverUserName) {
 //				get email form username
-					$sqlQuery = "SELECT personalEmail,fullName FROM user WHERE userName=$receiverUserName";
+					$sqlQuery = "SELECT personalEmail,fullName FROM user WHERE userName='$receiverUserName'";
 					$queryResult = $dbInstance->executeTransaction($sqlQuery)[0];
 					$userEmail = $queryResult['personalEmail'];
 					$fullName = $queryResult['fullName'];
 //				set email to mail function
-					$mail->AddAddress($userEmail, $fullName);
+					$mail->addBCC($userEmail, $fullName);
 				}
 			} else {
 //				read db to get union email address
 				$sqlQuery = "SELECT parameterValue FROM system_parameters WHERE parameterKey='union_email'";
 				$unionEmail = $dbInstance->executeTransaction($sqlQuery)[0]['parameterValue'];
 //				set union main address to receiver address
-				$mail->AddAddress($unionEmail,"UCSC Student Union");
+				$mail->AddAddress($unionEmail, "UCSC Student Union");
 			}
 
 			$mail->IsHTML(true);
@@ -64,7 +63,7 @@
 			} else {
 				return false;
 			}
-		} catch (Exception $e) {
+		} catch (Exception) {
 			return false;
 		}
 	}

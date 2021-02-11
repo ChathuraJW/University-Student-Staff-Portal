@@ -172,5 +172,8 @@
 		else
 			$fileEntry = "$timestamp      ::::    [Transaction ID: $transactionID]-$description\n";
 //		append to the log file
-		file_put_contents("../../system.log", $fileEntry, FILE_APPEND);
+		if (file_exists("../../system.log"))
+			file_put_contents("../../system.log", $fileEntry, FILE_APPEND);
+		else
+			file_put_contents("../../../system.log", $fileEntry, FILE_APPEND);
 	}
