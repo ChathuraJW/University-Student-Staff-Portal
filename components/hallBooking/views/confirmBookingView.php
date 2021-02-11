@@ -141,10 +141,11 @@
 
 
     ");
+				$requestID = $_GET['requestID'];
 				echo("
                         <div class='buttonCouple'>
                             <button type='button' class='button' name='requestConfirm' value='Confirm' onclick='confirmSelectedBooking();' id='requestConfirm'>Confirm</button>
-                            <button type='button' class='button' name='respondLater' value='Respond Later' id='respondLater' onclick='respondOperation(" . $_GET['requestID'] . ")'>Respond Later</button>
+                            <button type='button' class='button' name='respondLater' value='Respond Later' id='respondLater' onclick='respondOperation($requestID)'>Respond Later</button>
                         </div>
                      </div>
                      </form>

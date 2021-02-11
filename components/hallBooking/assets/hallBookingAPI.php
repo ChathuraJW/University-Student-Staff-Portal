@@ -1,6 +1,7 @@
 <?php
 	require_once('../../../assets/mvc/Database.php');
 	require_once('../../../assets/mvc/Notification.php');
+	require_once('../../../assets/php/sendMail.php');
 	if (isset($_GET['operation']) & $_GET['operation'] == 'respond') {
 		$requestID = $_GET['requestID'];
 
@@ -53,12 +54,11 @@
 		$sqlQuery = "SELECT reserveUserName FROM user_receive_hall WHERE reservationID=$requestID";
 		$requestOwnerUserName = $dbInstance->executeTransaction($sqlQuery)[0]['reserveUserName'];
 
-		//TODO send notification
-//		$informConfirmation =new Notification;
-//		$informConfirmation->setReceivers(array($requestOwnerUserName));
-//		$informConfirmation->setSender($_COOKIE['userName']);
-//		$informConfirmation->createNotification('Reservation request accepted',"Reservation request #$requestID has been approved.");
-//		$informConfirmation->publishNotification(true);
+		$informConfirmation = new Notification;
+		$informConfirmation->setReceivers(array($requestOwnerUserName));
+		$informConfirmation->setSender($_COOKIE['userName']);
+		$informConfirmation->createNotification('Reservation request accepted', "Reservation request #$requestID has been approved.");
+		$informConfirmation->publishNotification(true);
 
 //        load same slot request to change state to 'R' state
 //        get data for selected request
