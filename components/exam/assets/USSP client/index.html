@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>USSP Client</title>
+    <link href="css/main.css" rel="stylesheet"/>
+    <link href="css/gridSystem.css" rel="stylesheet"/>
+</head>
+<body onload="loadSubjectData();">
+<h1>USSP Result File Creation Platform</h1>
+<div class="basicInfo">
+    <form action="#" method="POST">
+        <div class="row col-2">
+            <div class="innerGroup">
+                <span class="header">Examination Info</span>
+                <div>
+                    <span>Subject Code:</span><br/>
+                    <select name="subject" id="subject"></select>
+                </div>
+                <div>
+                    <span>Examination Attempt:</span><br/>
+                    <select id="attempt" name="attempt">
+                        <option value="F">First Attempt</option>
+                        <option value="R">Repeated Attempt</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="innerGroup">
+                <span class="header" id="passwordSection">USSP Login Info</span>
+                <div class="row col-2">
+                    <div>
+                        <div>
+                            <span>Username</span><br/>
+                            <input id="username" name="username" required type="text" value="kek">
+                        </div>
+                        <div>
+                            <span>Password</span><br/>
+                            <input id="password" name="password" required type="password" autocomplete="false"
+                                   value="ucsc@123">
+                        </div>
+                    </div>
+                    <div class="uploadKey">
+                        <br/>
+                        <input type="file" name="privateKeyFile" id="privateKeyFile" accept=".key">
+                        <label for="privateKeyFile" id="privateKeyLabel">User Private Key File</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="buttonSection">
+            <button id="authenticate" style="background-color: green" type="button" onclick="processData();">
+                Authenticate
+            </button>
+            <button id="cancel" style="background-color: red" type="reset" onclick="location.reload();">Cancel</button>
+        </div>
+    </form>
+</div>
+<div id="container">
+    <span class="header">Enter result to the table</span>
+    <form action="" method="POST">
+        <table border="1" class="resultTable" id="loadHear">
+            <tr>
+                <th>Table Index</th>
+                <th>Student Index</th>
+                <th>Result</th>
+            </tr>
+        </table>
+        <div class="buttonSection">
+            <button id="submit" style="background-color: green" type="button" onclick="generateFile();">Generate File
+            </button>
+            <button id="cancelFile" style="background-color: red" type="reset" onclick="location.reload();">Cancel
+            </button>
+        </div>
+    </form>
+</div>
+<footer id="footer">
+    <span>Developed By <br>Team Binary Bits</span>
+</footer>
+<script src="js/jquery-3.5.1.js"></script>
+<script src="js/crypto-js.min.js"></script>
+<script src="js/jsencrypt.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
