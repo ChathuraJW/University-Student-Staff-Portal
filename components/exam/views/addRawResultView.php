@@ -115,6 +115,7 @@
 <?php BasicLoader::loadFooter('../../');?>
 <script src="../../assets/js/jquery.js"></script>
 <script src="../../assets/js/toast.js"></script>
+<script src="../../assets/js/changeTheme.js"></script>
 <script src="assets/addRawResult.js"></script>
 
 

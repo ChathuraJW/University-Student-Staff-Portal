@@ -150,7 +150,7 @@
 
             </div>
             <table border="1" id="allocationMap" class="allocationMap">
-                <tr style="background-color: rgba(0, 0, 0, 0.281);">
+                <tr style="background-color: rgba(0, 0, 0, 0.04);">
                     <th rowspan="2">Lecture Halls & Computer Labs</th>
                     <th colspan="22" style="text-align: center;">Time Slots ( Between 08:00 and 19:00 )</th>
                 </tr>
@@ -200,6 +200,7 @@
 <?php basicLoader::loadFooter('../../'); ?>
 <script src="../../assets/js/jquery.js"></script>
 <script src="../../assets/js/toast.js"></script>
+<script src="../../assets/js/changeTheme.js"></script>
 <script src="assets/makeBooking.js"></script>
 </body>
 </html>

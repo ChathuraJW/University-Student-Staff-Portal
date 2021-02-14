@@ -113,6 +113,7 @@
 <?php BasicLoader::loadFooter('../../');?>
 <script src="../../assets/js/jquery.js"></script>
 <script src="../../assets/js/toast.js"></script>
+<script src="../../assets/js/changeTheme.js"></script>
 <script src="../../assets/js/Chart.js"></script>
 <script src="assets/viewResult.js"></script>
 </body>

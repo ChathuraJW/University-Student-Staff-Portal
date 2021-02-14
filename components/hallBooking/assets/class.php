@@ -124,30 +124,24 @@
 		}
 
 		public function getReservationState(): string {
-			switch ($this->reservationState) {
-				case "A":
-					return "Approved";
-				case "R":
-					return "Rejected";
-				case "T":
-					return "Time Out";
-				case "N":
-					return "Pending";
-			}
+			return match ($this->reservationState) {
+				"A" => "Approved",
+				"R" => "Rejected",
+				"T" => "Time Out",
+				"N" => "Pending",
+				default => '',
+			};
 		}
 
 
 		public function getColorClassForReservationState(): string {
-			switch ($this->reservationState) {
-				case "A":
-					return "successEntry";
-				case "R":
-					return "warningEntry";
-				case "T":
-					return "ideaEntry";
-				case "N":
-					return "normalEntry";
-			}
+			return match ($this->reservationState) {
+				"A" => "successEntry",
+				"R" => "warningEntry",
+				"T" => "ideaEntry",
+				"N" => "normalEntry",
+				default => '',
+			};
 		}
 
 		public function getApprovalTimestamp(): string {

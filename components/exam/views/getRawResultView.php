@@ -143,6 +143,7 @@
                                     <script src='../../assets/js/crypto-js.min.js'></script>
                                     <script src='../../assets/js/js-encrypt.min.js'></script>
                                     <script src='../../assets/js/toast.js'></script>
+                                    <script src='../../assets/js/changeTheme.js'></script>
                                     <script src='assets/getRawResult.js'></script>
                                     
                                     <input type='button' value='Unlock Result' id='dataDecrypt' class='button' style='margin: auto;display: block;' onclick='cryptoOperation(`$sendUser`,`$fileSignature`,`$encryptedSecret`,`$dataHash`,`$encryptedData`)'>
