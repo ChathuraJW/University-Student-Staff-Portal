@@ -54,7 +54,7 @@
         public static function insertData($requesterDetail){
             $dbObject = new Database();
             $dbObject->establishTransaction('root','');
-            $insertQuery = "INSERT INTO request_train_season(requester,address,academicYear,age,fromMonth,toMonth,nearRailwayStationHome,nearRailwayStationUni) VALUES('".$requesterDetail->getRequester()."','".$requesterDetail->getAddress()."','".$requesterDetail->getAcademicYear()."','.$requesterDetail->getAge().','".$requesterDetail->getFromMonth()."','".$requesterDetail->getToMonth()."','".$requesterDetail->getNearRailwayStationHome()."','".$requesterDetail->getNearRailwayStationUni()."')";
+            $insertQuery = "INSERT INTO request_train_season(requester,address,academicYear,age,fromMonth,toMonth,nearRailwayStationHome,nearRailwayStationUni) VALUES('".$requesterDetail->getRequester()."','".$requesterDetail->getAddress()."','".$requesterDetail->getAcademicYear()."',".$requesterDetail->getAge().",'".$requesterDetail->getFromMonth()."','".$requesterDetail->getToMonth()."','".$requesterDetail->getNearRailwayStationHome()."','".$requesterDetail->getNearRailwayStationUni()."')";
             echo $insertQuery;
              
             //execute the query

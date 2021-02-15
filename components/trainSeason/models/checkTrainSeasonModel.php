@@ -5,7 +5,7 @@
             
             $requesterData = Database::executeQuery("root","",$sqlQuery);
             echo $requesterData; 
-            if($data){
+            if($requesterData){
                 $requesterDataList = array();
                 
                 foreach($requesterData as $data){

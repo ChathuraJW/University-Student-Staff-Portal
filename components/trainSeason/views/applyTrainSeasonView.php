@@ -28,7 +28,7 @@
             <div class="container2">
                 <!-- <div class="vertical-center"> -->
                 
-                <form method="POST" class="application" action="">
+                <form method="POST" class="application" enctype="multipart/form-data">
 
                   <label for="userName" class="inputLabel name">Name With Initials:</label><br>
                   <input type="text" id="name" name="name" class="input nameText" style="width:100%;" value="<?php echo $controllerData[1]->getFullName(); ?>" ><br><br>
@@ -117,7 +117,9 @@
             <hr>
             <br>
             <?php
+            print_r($controllerData[0]);
             foreach($controllerData[0] as $data){
+
               echo ("
               <div class='pastRequest'>
                 <div>From  ".$data->getNearRailwayStationHome()."</div>
