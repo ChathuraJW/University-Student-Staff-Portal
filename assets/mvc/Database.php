@@ -139,11 +139,11 @@
 			$auditQuery = "INSERT INTO database_log(userID, executedQuery,
                         affectedTable, eventType, description, timestamp)
                         VALUES ('$user','$executedQuery','$affectedTable','$eventType','$description','$timestamp')";
-
+			$this->executeTransaction($auditQuery);
 //			get transaction id back
-			$sqlQuery = "SELECT eventID FROM database_log WHERE affectedTable='$affectedTable' AND eventType='$eventType' AND 
-                                       executedQuery='$executedQuery' AND timestamp='$timestamp' AND userID='$user'";
+			$sqlQuery = "SELECT eventID FROM database_log WHERE affectedTable='$affectedTable' AND eventType='$eventType' AND timestamp='$timestamp' AND userID='$user'";
 			$transactionID = $this->executeTransaction($sqlQuery)[0]['eventID'];
+
 //        add each query executions to description
 			$this->auditDescription .= "
            ---------
@@ -172,5 +172,8 @@
 		else
 			$fileEntry = "$timestamp      ::::    [Transaction ID: $transactionID]-$description\n";
 //		append to the log file
-		file_put_contents("../../system.log", $fileEntry, FILE_APPEND);
+		if (file_exists("../../system.log"))
+			file_put_contents("../../system.log", $fileEntry, FILE_APPEND);
+		else
+			file_put_contents("../../../system.log", $fileEntry, FILE_APPEND);
 	}
