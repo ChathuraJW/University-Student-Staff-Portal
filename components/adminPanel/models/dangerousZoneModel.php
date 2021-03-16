@@ -2,6 +2,13 @@
 
 	class DangerousZoneModel extends Model {
 
+		public static function getSalt($userName): string {
+			$sqlQuery = "SELECT passwordSalt FROM user WHERE userName='$userName'";
+			$result = Database::executeQuery("generalAccess", "generalAccess@16", $sqlQuery);
+			return $result[0]['passwordSalt'];
+		}
+
+
 		public static function validateAdmin($username, $password): bool {
 //			based on the data pass check weather user is admin and credential is valid
 			$sqlQuery = "SELECT U.password FROM user U,special_role UR WHERE U.userName=UR.assignedUser AND U.userName='$username' AND UR.userRole='ADM'";
@@ -15,8 +22,7 @@
 
 		public static function startNewSemester() {
 			$dbInstance = new Database;
-			//TODO need to change database credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('admin', 'admin@16');
 
 			//get current academic year
 			$sqlQuery = "SELECT parameterValue FROM system_parameters WHERE parameterKey='current_academic_year' LIMIT 1";
@@ -180,8 +186,7 @@
 
 		public static function changeAdminUser($selectedUser) {
 			$dbInstance = new Database;
-			//TODO need to change database credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('admin', 'admin@16');
 
 //			update special role table and audit the operation
 			$sqlQuery = "UPDATE special_role SET assignedUser='$selectedUser', assignedDate=NOW() WHERE userRole='ADM'";
@@ -193,11 +198,21 @@
 //			check operation status
 			if ($dbInstance->getTransactionState()) {
 				if ($dbInstance->commitToDatabase()) {
-					//procured towards
-					//TODO send notification with email to both parties inform the situation
+//					create notification and inform the promotion
+					$notificationMessage = "<br><br><table border=`1`><tr><th>Code</th><th>Description</th><th>Responsibilities</th></tr>
+					<tr><td>ADM(#10)</td><td>System Administrator</td><td>This user role is the most powerful user in the system. Add initial data(such as 
+					subject, lecture hall information) and do student enrollments, like lot of thing can do for this user role. At the same time there 
+					have additional control panel to manage all of those system configurations. For further knowledge refer the help doc as well.
+					</td></tr></table>";
+					$informNotification = new Notification();
+					$informNotification->createNotification("Obtained new privilege level", "You had obtained new privilege System Administrator. To know what you can do please refer the below table. $notificationMessage");
+					$informNotification->setReceivers(array($selectedUser));
+					$informNotification->setSender(self::getAdminUser());
+					$informNotification->publishNotification(true);
 					//close the connection and logout from user current session
 					$dbInstance->closeConnection();
-					//TODO check logout operation
+					echo("<script>createToast('Success','Successfully transfer the role.','S')</script>");
+					sleep(6);
 					require_once('../../assets/php/logout.php');
 				} else {
 //					close connection and display error

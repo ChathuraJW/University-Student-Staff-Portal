@@ -8,10 +8,12 @@
 			if (isset($_POST['confirmToStartNewSemester'])) {
 				$adminUserName = $_POST['adminUserName'];
 				$adminPasswordPlain = $_POST['adminPassword'];
+//				get salt of admin user
+				$passwordSalt=DangerousZoneModel::getSalt($adminUserName);
 //				get password hash
-				$adminPasswordEnc = hash('sha256', "$adminPasswordPlain$adminUserName");
+				$adminPasswordHash = hash('sha256', "$adminPasswordPlain$passwordSalt");
 //				call model function to validate admin user
-				$result = DangerousZoneModel::validateAdmin($adminUserName, $adminPasswordEnc);
+				$result = DangerousZoneModel::validateAdmin($adminUserName, $adminPasswordHash);
 				if ($result) {
 //					call operation function
 					DangerousZoneModel::startNewSemester();
@@ -30,10 +32,12 @@
 				$adminUserName = $_POST['adminUserName'];
 				$adminPasswordPlain = $_POST['adminPassword'];
 				$appointedUser = $_POST['appointedUser'];
+//				get password salt
+				$passwordSalt=DangerousZoneModel::getSalt($adminUserName);
 //				get password hash
-				$adminPasswordEnc = hash('sha256', "$adminPasswordPlain$adminUserName");
+				$adminPasswordHash = hash('sha256', "$adminPasswordPlain$passwordSalt");
 //				call model function to validate admin user
-				$result = DangerousZoneModel::validateAdmin($adminUserName, $adminPasswordEnc);
+				$result = DangerousZoneModel::validateAdmin($adminUserName, $adminPasswordHash);
 				if ($result) {
 //					call operation function
 					DangerousZoneModel::changeAdminUser($appointedUser);

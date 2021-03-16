@@ -14,7 +14,7 @@ function createToast(title, message, type) {
     }
     // create content
     const content = "<div class='alert' style='background-color:" + color + ";'>" +
-        "        <i class='fa fa-times closeButton'></i>" +
+        "        <i class='fa fa-times closeButton' style='background: none;'></i>" +
         "        <div>" +
         "            <div class='icon'>" +
         "                <i class='fa " + icon + " fa-2x'></i>" +

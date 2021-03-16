@@ -3,8 +3,7 @@
 	class StudentEnrollCourseModel extends Model {
 		public static function loadSubjectsAccordingToSemester(): bool|array {
 			$dbInstance = new Database;
-			//TODO need to change database credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('admin', 'admin@16');
 
 //			take current semester to get subject related to that semester
 			$sqlQuery = "SELECT parameterValue FROM system_parameters WHERE parameterKey='current_semester'";
@@ -39,8 +38,7 @@
 
 		public static function makeEnrollment($group, $subject) {
 			$dbInstance = new Database;
-			//TODO need to change database credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('admin', 'admin@16');
 
 //			validate group to subject combination
 //			get year from student group
@@ -53,13 +51,15 @@
 //			comparison
 			if ($dbInstance->getTransactionState()) {
 				if ($studentGroupYear == $subjectYear) {
-//					procured towards
 //					get student list for given group
-					$sqlQuery = "SELECT indexNo FROM student WHERE studentGroup='$group'";
+					$sqlQuery = "SELECT indexNo,regNo FROM student WHERE studentGroup='$group'";
 					$result = $dbInstance->executeTransaction($sqlQuery);
 					$studentIndexList = array();
+					$studentUsernameList=array();
 					foreach ($result as $row) {
 						$studentIndexList[] = $row['indexNo'];
+//						add username of students to list for send notifications
+						$studentUsernameList[]=$row['regNo'];
 					}
 
 //					make enrollment for created student list
@@ -79,7 +79,12 @@
 						if ($dbInstance->commitToDatabase()) {
 //							create success message
 							echo("<script>createToast('Success',' Enrollment successful [$group] >>> [$subject].','S')</script>");
-							//TODO send notification to student to inform about new enrollment
+//							send notification to student to inform about enrollment
+							$sendNotification=new Notification();
+							$sendNotification->setReceivers($studentUsernameList);
+							$sendNotification->createNotification("Course[$subject] enrollment for the new semester.","You had been enrolled to the subject $subject for the first attempt.");
+							$sendNotification->setSender(self::getAdminUser());
+							$sendNotification->publishNotification();
 						} else {
 //							fail to enroll student to course
 							echo("<script>createToast('Warning (error code: #ADMIN-EC-03)','Failed to enroll students[$group] to course[$subject].','W')</script>");
@@ -102,18 +107,20 @@
 
 		public static function repeatedStudentEnrollment($subject, $indexList) {
 			$dbInstance = new Database;
-			//TODO need to change database credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('admin', 'admin@16');
 //			make enrollment for created student list
 //			create insert query for student list
 			$sqlQuery = "INSERT INTO student_enroll_course(studentIndexNo, courseCode, attempt, enrollDate) VALUES ";
+			$studentUsernameList=array();
 			foreach ($indexList as $individualIndex) {
 				$sqlQuery .= "($individualIndex,'$subject','R',NOW()), ";
+//				add each student username to the list for generate notifications
+				$studentUsernameList[]=self::getStudentUsernameForIndex($individualIndex);
 			}
-//					remove extra commas and spaces in the query
+//			remove extra commas and spaces in the query
 			$sqlQuery = trim($sqlQuery, ', ');
-//					execute query and create audit
-			echo $sqlQuery;
+//			execute query and create audit
+
 			$dbInstance->executeTransaction($sqlQuery);
 			$dbInstance->transactionAudit($sqlQuery, 'student_enroll_course', 'INSERT', "Repeated student set enroll for $subject course.");
 
@@ -122,7 +129,12 @@
 				if ($dbInstance->commitToDatabase()) {
 //							create success message
 					echo("<script>createToast('Success',' Enrollment successful [R] >>> [$subject].','S')</script>");
-					//TODO send notification to student to inform about new enrollment
+//					send notification to student to inform about enrollment
+					$sendNotification=new Notification();
+					$sendNotification->setReceivers($studentUsernameList);
+					$sendNotification->createNotification("Course[$subject - R] enrollment for the new semester.","You had been enrolled to the subject $subject for a repeated attempt.");
+					$sendNotification->setSender(self::getAdminUser());
+					$sendNotification->publishNotification();
 				} else {
 //							fail to enroll student to course
 					echo("<script>createToast('Warning (error code: #ADMIN-EC-05)','Failed to enroll students[R] to course[$subject].','W')</script>");
@@ -132,4 +144,5 @@
 				echo("<script>createToast('Warning (error code: #ADMIN-EC-05)','Failed to enroll students[R] to course[$subject].','W')</script>");
 			}
 		}
+
 	}

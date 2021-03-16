@@ -28,7 +28,8 @@
                 <dt>Date of birth filed</dt>
                 <dd>format of this filed as, dd/mm/yyyy. <br>Eg: 20/06/2000</dd>
                 <dt>Address Filed</dt>
-                <dd>When you enter, student address, make sure not to use ',' to separate two line. Than will reason to occur errors. Look at given
+                <dd>When you enter, student address, make sure <b>not to use ','</b> to separate two line. That will reason to occur errors. Look at
+                        given
                     example to identify the correct format.<br>Eg: No.24/2 MainRd Colombo
                 </dd>
             </dl>
@@ -138,7 +139,7 @@
                     </select>
                     <br>
                     <span class="inputHeading">CSV Formatted Student List</span>
-                    <input type="file" name="studentListFile" id="studentListFile" required>
+                    <input type="file" name="studentListFile" id="studentListFile" class="button fileUpload" required>
 
                     <div style="padding-top:30px;">
                         <input type="submit" class="button" name="addStudentData" value="Submit Data" onclick="confirm('Are you sure to proceed ' +

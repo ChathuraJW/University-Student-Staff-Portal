@@ -3,8 +3,7 @@
 	class SystemConfigModel extends Model {
 		public static function takeCurrentConfig(): bool|array {
 			$sqlQuery = "SELECT parameterID,parameterKey,parameterValue FROM system_parameters";
-			//TODO need to change database credentials
-			$result = Database::executeQuery('root', '', $sqlQuery);
+			$result = Database::executeQuery('admin', 'admin@16', $sqlQuery);
 			if ($result) {
 				$returnArray = array();
 				foreach ($result as $row) {
@@ -20,8 +19,7 @@
 
 		public static function editParameters($parameterID, $newValue): bool {
 			$dbInstance = new Database;
-			//TODO need to change database credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('admin', 'admin@16');
 
 //			execute update query and audit the operation
 			$sqlQuery = "UPDATE system_parameters SET parameterValue='$newValue' WHERE parameterID=$parameterID";

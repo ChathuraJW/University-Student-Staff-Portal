@@ -18,9 +18,8 @@
 //			setup basic parameter that need to run backup query
 			$database = Database::getDatabaseStatic();
 			$databaseHost = Database::getServerStatic();
-			//TODO need to change database credentials
-			$dbUser = 'root';
-			$dbPassword = '';
+			$dbUser = 'admin';
+			$dbPassword = 'admin@16';
 			$fileName = time() . '_backup';
 			$fileLocation = './assets/backup/' . $fileName . '.sql';
 
@@ -53,15 +52,13 @@
 			$auditQuery = "INSERT INTO database_log(userID, executedQuery,
                         affectedTable, eventType, description, timestamp)
                         VALUES ('$user','-----','All','$operation','$description','$timestamp')";
-			//TODO need to change database credentials
-			Database::executeQuery('root', '', $auditQuery);
+			Database::executeQuery('admin', 'admin@16', $auditQuery);
 
 //			get transaction id back
 			$sqlQuery="SELECT eventID FROM database_log WHERE description='$description' AND userID='$user' AND timestamp='$timestamp'";
-			//TODO need to change database credentials
-			$transactionID=Database::executeQuery('root', '',$sqlQuery)[0]['eventID'];
+			$transactionID=Database::executeQuery('admin', 'admin@16',$sqlQuery)[0]['eventID'];
 //			call log creation function
-			createLog($timestamp,$description,$transactionID);
+			self::createLog($timestamp,$description,$transactionID);
 		}
 
 		public static function restoreBackup($selectedFile) {
@@ -76,7 +73,6 @@
 			//TODO approach might be different in linux think it and care it
 			$command = "C:\wamp64\bin\mysql\mysql8.0.21\bin\mysql --user=$dbUser --password=$dbPassword --host=$databaseHost $database < $selectedFile";
 			exec($command, $output, $return_var);
-
 			if (!$return_var) {
 //				create audit
 				self::createDatabaseLog('Restore', "Full database restore with backup file [$selectedFile].");

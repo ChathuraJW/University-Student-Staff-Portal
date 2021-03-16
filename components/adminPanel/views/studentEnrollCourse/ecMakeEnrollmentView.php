@@ -60,7 +60,7 @@
 
                 <!--				attempt-->
                 <span class="inputHeading">Attempt</span>
-                <span>In this group Enrollment only can enroll student to there first attempts.</span>
+                <span>In group enrollment, only can enroll student, to there first attempts.</span>
 
                 <br><br><br>
                 <input type="submit" value="Proceed to Enrollment" name="gotoEnroll" class="button" onclick="confirm('Are you sure to preform this ' +

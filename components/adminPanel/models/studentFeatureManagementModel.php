@@ -3,8 +3,7 @@
 	class studentFeatureManagementModel extends Model {
 		public static function assignStudentForHostelFacility($indexList) {
 			$dbInstance = new Database;
-			//TODO need to change database credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('admin', 'admin@16');
 
 //			get student username corresponding to the index number and create a list
 			$usernameList = array();
@@ -42,8 +41,7 @@
 
 		public static function assignStudentForScholarship($scholarshipType, $studentList) {
 			$dbInstance = new Database;
-			//TODO need to change database credentials
-			$dbInstance->establishTransaction('root', '');
+			$dbInstance->establishTransaction('admin', 'admin@16');
 
 //			get student username corresponding to the index number and create a list
 			$usernameList = array();

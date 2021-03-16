@@ -7,46 +7,50 @@
     font-family: Varela, sans-serif;
 }
 
-.default{
+.default {
     min-height: 650px;
     height: fit-content;
 }
-.taskList{
+
+.taskList {
     display: table-cell;
-    width: 30%;
+    width: auto;
     height: 400px;
-    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     border: 4px solid var(--backgroundColor);
 }
-.taskPage{
+
+.taskPage {
     padding: 30px;
     display: table-cell;
     width: 70%;
     height: 400px;
-    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-    border-left: 4px solid var(--entryBackgroundColor);
+    border-left: 4px solid var(--fontColor);
 }
-.topic{
+
+.topic {
     padding-left: 20px;
     font-size: 40px;
     font-weight: bolder;
     color: rgb(78, 78, 78);
 }
-.task{
+
+.task {
     background-color: var(--backgroundColor);
     padding: 10px;
     color: var(--fontColor);
     cursor: pointer;
 
 }
-.task:hover{
+
+.task:hover {
     border-bottom: 1px solid var(--baseColor);
     border-top: 1px solid var(--baseColor);
     border-right: 1px solid var(--baseColor);
-    font-weight: bold;
+    font-weight: lighter;
 
 }
-.subTask{
+
+.subTask {
     margin-left: 10%;
     background-color: var(--backgroundColor);
     padding: 8px;
@@ -55,7 +59,8 @@
     cursor: pointer;
 
 }
-.subTask:hover{
+
+.subTask:hover {
     border-bottom: 1px solid var(--baseColor);
     border-top: 1px solid var(--baseColor);
     border-right: 1px solid var(--baseColor);
@@ -64,10 +69,23 @@
 
 
 /*costume styles*/
-.sectionTitle{
+.sectionTitle {
     text-align: center;
     display: block;
     font-size: 30px;
     font-weight: bold;
     padding: 15px;
+}
+
+
+/*This for file upload button hide*/
+/*for firefox flavor*/
+/*noinspection CssInvalidPseudoSelector*/
+.fileUpload::file-selector-button {
+    display: none;
+}
+
+/*chromium flavor*/
+.fileUpload::-webkit-file-upload-button {
+    display: none;
 }
