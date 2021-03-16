@@ -22,7 +22,7 @@
     <div class="row col-1">
         <h1 class="heading"><b>View IQAC Report</b></h1><br>
     </div>
-
+    <form method="post" enctype="multipart/form-data"> 
     <div class="row col-2">
         <div>
             <div class="Container row col-2">
@@ -45,22 +45,20 @@
             <div class=" dropdownContainer row col-2">
                 <div class="dropDownList">
                     <label >Semester</label>
-                    <select name="semester">
+                    <select name="semester" required>
                         <option value=1>1</option>
                         <option value=2>2</sup></option>
-                        <option value=2>3</sup></option>
-                        <option value=2>4</sup></option>
-                        <option value=2>5</sup></option>
-                        <option value=2>6</sup></option>
-                        <option value=2>7</sup></option>
-                        <option value=2>8</sup></option>
+                         
                     </select>
                 </div>
                 <div class="dropDownList">
                     <label >Subject</label>
-                    <select name="subject">
-                        <option value="SCS2209">SCS2209-Database 2</option>
-                        <option value="SCS2212">SCS2212-Automata Theory</option>
+                    <select name="subject" required>
+                    <?php
+                        foreach($controllerData as $data){
+                          echo("<option value='".$data->getCourseCode()."'>" .$data->getCourseCode(). " - " .$data->getName(). "</option>");
+                        }
+                    ?>
                     </select>
                 </div>
             </div>
@@ -69,49 +67,78 @@
                     <button class="submitButton red">Cancel</button>
                 </div>
                 <div>
-                    <button class="submitButton green" type="button" onclick="searchResult();">Search</button>
+                    <button name="search" class="submitButton green" type="button" onclick="searchResult();">Search</button>
                 </div>
             </div>
         </div>
         <div class="search">
-            <div class=" labelStyle row col-1" id="recentDetail">
-                <label  >Resent Files:</label>
+            <div class="row col-1" id="recentDetail">
+                <label class="labelStyle" >Recent Files:</label>
                 <hr>
-                <div class="row col-5">
-                    <div class="reportDetails">
-                        <a class="reportName" href="#"><span onclick="download()">IQAC Report for SCS2212-Automata Theory<br>(Second Year-Second Semester-2019)</span></a>
-                    </div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div class="download">
-                        <a class="iqacReport" href="#">  <i class="fa fa-download" onclick="download()"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div style ="display:none;" class="labelStyle row col-1" id="searchResult">
-                  
-                    <label  >Search Results:</label>
-                    <hr>
-                    
-                    <div class="row col-5">
-                         
-                        <div class="reportDetails">
-                            <a class="reportName" href="#" ><span onclick="download()">IQAC Report for SCS2209-Database 2<br>(Second Year-Second Semester-2019)</span></a>
-                        </div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div class="download">
-                            <a class="iqacReport" href="#" >  <i class="fa fa-download" onclick="download()"></i></a>
-                        </div>
+                <div style="overflow: hidden" class="row col-3">
+                <?php
+//                  print_r($controllerData[1]);
+                    function getFileExtension($file_name) {
+                        return substr(strrchr($file_name,'.'),1);
+                    }
+
+
+
+
+                    foreach ($controllerData[1] as $recent ){
+                        $extension = getFileExtension($recent->getReportName());
+
+//                      convert real semesters in to academic yaer and semester format
+                        if($recent->getSemester%2==0){
+                            $semester = "Semester 2";
+                        }else{
+                            $semester = "Semester 1";
+                        }
+                                 
+                        switch ($recent->getSemester()){
+                            case 1:
+                            case 2:
+                                $batchYear = "Year 1";
+                                break;
+                            case 3:
+                            case 4:
+                                $batchYear = "Year 2";
+                                break;
+                            case 5:
+                            case 6:
+                                $batchYear = "Year 3";
+                                break;
+                            case 7:
+                            case 8:
+                                $batchYear = "Year 4";
+                                break;
+                        }
+
+                        echo ("         
+                            <div class='pastPaperTile'>
+                                <a class='subjectName' href='' target='_blank'>
+                                    <span >$recent->get</span><br>
+                                    <span >".$recent->getSubject()."</span><br>
+                                    <span >$batchYear </span>
+                                    <span >$semester</span><br>
+                                    <span >".$recent->getAcademicYear()."</span><br>
+                                    <span><i class='fa fa-download' aria-hidden='true'></i></span>
+                                </a>
+                            </div>                    
+                                    
+                                ");
+                    }
+
+                ?>
+  
                         
-                    </div>
+                </div>
                     
                  
             </div>
 
-            </div>
+        </div>
+        </form>
 
 </div>
 

@@ -23,6 +23,7 @@
       </div>
       <div class="row col-2">
         <div>
+        <form  id="file" class="file" method="POST" enctype="multipart/form-data"><br>
             <div class="Container row col-2">
                 <div class="dropDownList">
                     <label>Lecturer</label><br>
@@ -30,7 +31,7 @@
                     <select name="lecturer" id="lecturer">
                     <?php
                       foreach($controllerData[0] as $data){
-                          echo("<option value='$data[userName]'>" .$data['fullName'] . " - " . $data['userName']. "</option>");
+                          echo("<option value='".$data->getUserName()."'>" .$data->getUserName(). " - " .$data->getFullName(). "</option>");
                         }
                     ?>
                     </select>
@@ -41,7 +42,7 @@
                     <select name="subject">
                     <?php
                       foreach($controllerData[1] as $data){
-                          echo("<option value='$data[courseCode]'>" .$data['courseCode'] . " - " . $data['name']. "</option>");
+                          echo("<option value='".$data->getCourseCode()."'>" .$data->getCourseCode(). " - " .$data->getName(). "</option>");
                         }
                     ?>
                          
@@ -57,7 +58,7 @@
                 </div>
                 <div class="dropDownList">
                     <label >Batch Year</label><br>
-                    <select name="batchYear">
+                    <select name="batchYear" required>
                         <option value=1>1<sup>st</sup> Year</option>
                         <option value=2>2<sup>nd</sup> Year</option>
                         <option value=3>3<sup>rd</sup> Year</option>
@@ -69,15 +70,10 @@
             <div class=" dropdownContainer row col-2">
                 <div class="dropDownList">
                     <label >Semester</label><br>
-                    <select name="semester">
+                    <select name="semester" required>
                         <option value=1>1</option>
                         <option value=2>2</sup></option>
-                        <option value=2>3</sup></option>
-                        <option value=2>4</sup></option>
-                        <option value=2>5</sup></option>
-                        <option value=2>6</sup></option>
-                        <option value=2>7</sup></option>
-                        <option value=2>8  </sup></option>
+                         
                     </select>
                 </div>
             </div>
@@ -91,9 +87,9 @@
               <br>
             <div class="upload">
               
-              <form  id="file" class="file" method="POST" enctype="multipart/form-data"><br>
-                <input type="file" id="file" name="file" class="myFile"><br><br>
-                <input type="submit" class="submit"><br><br>
+               
+                <input type="file" id="file" name="file" class="file"><br><br>
+                <input type="submit" class="submit" name="submit"><br><br>
               </form>
               <br><br>
             </div>

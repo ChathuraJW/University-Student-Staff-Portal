@@ -2,20 +2,24 @@
 
 class User{
     //attributes of User
-    protected $userName;
-    protected $firstName;
-    protected $lastName;
-    protected $personalEmail;
-    protected $universityEmail;
-    protected $gender;
-    protected $address;
-    protected $nic;
-    protected $password;
-    protected $profilePictureURL;
-    protected $teleNo;
+    private $userName;
+    private $fullName;
+     
 
     //methods of User
+    public function setUser($userName,$fullName){
+        $this->userName = $userName;
+        $this->fullName = $fullName;
+        return $this;
+    }
 
+    public function getUserName(){
+        return $this->userName;
+    }
+
+    public function getFullName(){
+        return $this->fullName;
+    }
 }
 
 class Student extends User{
@@ -47,7 +51,7 @@ class Timetable {
     // attributes of Timetable
     private $entryID;
     private $hallID;
-    private $subjectCode $string;
+    private $subjectCode;
     private $conductingLecture;
     private $group;
     private $day;
@@ -144,16 +148,53 @@ class AppointmentType{
 }
 class IQACReport{
     // attributes of IQACReport
-    private $reportID;
+    private $staffID;
     private $subject;
     private $fileLocation;
     private $issuedDate;
+    private $semester;
+    private $academicYear;
+    private $batchYear;
+
     // methods of IQACReport
-    protected function addReport(){
+    public function setDetail($staffID,$subject,$academicYear,$batchYear,$semester,$fileLocation,$reportName){
+        $this->staffID = $staffID;
+        $this->subject = $subject;
+        $this->academicYear = $academicYear;
+        $this->batchYear = $batchYear;
+        $this->semester = $semester;
+        $this->fileLocation = $fileLocation;
+        $this->reportName = $reportName;
 
+        return $this;
     }
-    protected function viewReport(){
 
+    public function getReportName(){
+        return $this->reportName;
+    }
+
+    public function getStaffID(){
+        return $this->staffID;
+    }
+
+    public function getSubject(){
+        return $this->subject;
+    }
+
+    public function getAcademicYear(){
+        return $this->academicYear;
+    }
+
+    public function getBatchYear(){
+        return $this->batchYear;
+    }
+
+    public function getSemester(){
+        return $this->semester;
+    }
+
+    public function getFileLocation(){
+        return $this->fileLocation;
     }
 }
 class LectureAvailability{
@@ -280,7 +321,7 @@ class NotificationType{
 }
 class AssignmentType{
     // attributes of AssignmentType
-    private $assignmentName:
+    private $assignmentName;
     private $assingmentCode;
 }
 class Assignment{
@@ -322,15 +363,7 @@ class EnrollmentDetails{
     private $enrolledDate;
     private $semester;
     // methods of EnrollmentDetails
-    protected function makeEnrollment(){
-
-    }
-    protected function makeEnrollment(){
-
-    }
-    protected function makeEnrollmentDeactivated(){
-
-    }
+     
 }
 class SelectedGroupMessage{
     // attribute of SelectedGroupMessage
@@ -365,19 +398,21 @@ class AttendanceInstance{
 }
 class courseModule{
     // attributes of courseModule
-    private $CourseCode;
+    private $courseCode;
     private $name;
-    private $creditVale;
-    private $description;
+
     // methods of courseModeule
-    protected function createModule(){
-
+    public function setSubjects($courseCode,$name){
+        $this->courseCode = $courseCode;
+        $this->name = $name;
     }
-    protected function editModule(){
 
+    public function getCourseCode(){
+        return $this->courseCode;
     }
-    protected function removeModule(){
 
+    public function getName(){
+        return $this->name;
     }
 }
 class EnrollFor{
