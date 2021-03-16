@@ -124,7 +124,7 @@
                     <br>
                     <textarea cols="70" rows="3" name="contacts"
                               style="font-size:15px; border-radius: 6px; box-shadow: 0 8px 16px 0 gray;" id="contacts"
-                              readonly></textarea>
+                              ></textarea>
                     <br><br>
             </div>
 
