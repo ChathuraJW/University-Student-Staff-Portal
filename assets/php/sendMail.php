@@ -38,7 +38,7 @@
 			if (!$isMessageToUnion) {
 				foreach ($receivers as $receiverUserName) {
 //				get email form username
-					$sqlQuery = "SELECT personalEmail,fullName FROM user WHERE userName=$receiverUserName";
+					$sqlQuery = "SELECT personalEmail,fullName FROM user WHERE userName='$receiverUserName'";
 					$queryResult = $dbInstance->executeTransaction($sqlQuery)[0];
 					$userEmail = $queryResult['personalEmail'];
 					$fullName = $queryResult['fullName'];
