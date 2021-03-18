@@ -20,4 +20,10 @@
 				return array(false);
 			}
 		}
+
+		public static function getSalt($userName):string{
+			$sqlQuery="SELECT passwordSalt FROM user WHERE userName='$userName'";
+			$result = Database::executeQuery("generalAccess", "generalAccess@16", $sqlQuery);
+			return $result[0]['passwordSalt'];
+		}
 	}

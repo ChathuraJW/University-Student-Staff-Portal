@@ -11,7 +11,8 @@
 //                check userName validity
 					$isUserNameValid = LoginModel::checkUserName($userName);
 					if ($isUserNameValid) {
-						$loginStatus = LoginModel::validateLogIn($userName, hash('sha256', "$password$userName"));
+						$passwordRemade = $password . LoginModel::getSalt($userName);
+						$loginStatus = LoginModel::validateLogIn($userName, hash('sha256', $passwordRemade));
 						if (!$loginStatus[0]) {
 //                        display error
 							echo("<script>displayError();</script>");
@@ -21,11 +22,13 @@
 							setcookie('role', $loginStatus[0]['role'], time() + 8400 * 2, "/");
 							$fullName = $loginStatus[0]['firstName'] . ' ' . $loginStatus[0]['lastName'];
 							setcookie('fullName', $fullName, time() + 8400 * 2, "/");
+							setcookie('accessTime', time(), time() + 8400 * 2, "/");
 
-//                        create entry in application log
+//                        create entry in access log
 							$timestamp = date("Y-m-d H:i:s");
-							$fileEntry = "$timestamp      ::::    User $userName login to the system as " . $loginStatus[0]['role'] . "\n";
-							file_put_contents("../system.log", $fileEntry, FILE_APPEND);
+							$userRole = $loginStatus[0]['role'];
+							$fileEntry = "$timestamp      ::::    User $userName login to the system as $userRole\n";
+							file_put_contents("../access.log", $fileEntry, FILE_APPEND);
 
 //                        redirect to home
 							header("location: home");
