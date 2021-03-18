@@ -174,7 +174,7 @@
                                     <div class="ttl">
                                         <div class="row col-1">
                                             
-                                                <input class="reply" type="text" id="" name="reply" placeholder="Reply"><br>
+                                                <input class="reply" type="textarea" id="" name="reply" placeholder="Reply"><br>
                                             
                                         </div>
                                     </div>

@@ -407,5 +407,7 @@
 .previousAppointments{
     background: linear-gradient(to bottom right,rgb(246, 226, 247),white);
 }
-
+.elementTab{
+    padding-bottom: 10px;
+}
 

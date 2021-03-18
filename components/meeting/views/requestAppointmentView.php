@@ -102,7 +102,7 @@
                             $lecturers=$controllerData[0];
                             foreach($lecturers as $lecturer){
                                 
-                                echo("<option value='".$lecturer['userName']."'>".$lecturer['salutation']." ".$lecturer['firstName']." ".$lecturer['lastName']."</option>");
+                                echo("<option fullName='".$lecturer['salutation']." ".$lecturer['firstName']." ".$lecturer['lastName']."' value='".$lecturer['userName']."'>".$lecturer['salutation']." ".$lecturer['firstName']." ".$lecturer['lastName']."</option>");
                             }
                             // ".$lecturer[''].$lecturer['']."
                         ?>
@@ -132,10 +132,14 @@
                         
                         </select> <br>
                     <div class="row col-2">
-                        <div><input style="width:100%;"class="dataRaws" type="date" name="date" ></div>
+                        <div><input id="dateValue" style="width:100%;"class="dataRaws" oninput="allocatedTime();" type="date" name="date" ></div>
                         <div><input style="width:100%;"class="dataRaws" type="time" name="time" ></div>
                     </div>
-                    
+                    <!-- <div id="allocationTitle">Allocated Times of <p id="lectureName"></p> in <p id="requestDate"></p><br><br></div> -->
+
+                    <div id="allocatedSlots">
+
+                    </div>
                     <div class="row col-1">
                         <textarea class="description" type="text" id="description" name="msg" placeholder="Description"></textarea><br>
                     </div>
@@ -288,6 +292,7 @@
         <?php endif; ?>
    
     </div>
+    <script src="../../assets/js/jquery.js"></script>
     <script>
         
         function remove(){
@@ -306,6 +311,39 @@
             document.getElementById("linkFirst").style.backgroundColor  = "rgb(148, 195, 238)";
             document.getElementById("linkSecond").style.backgroundColor  = "rgb(148, 195, 238)";
             document.getElementById(link).style.backgroundColor  = "rgb(58, 189, 212)";
+        }
+        function allocatedTime(){
+            
+            
+            document.getElementById("allocatedSlots").innerHTML="";
+
+            var username=document.getElementById("lecture2").value;
+            var date=document.getElementById("dateValue").value;
+            // document.getElementById("lectureName").innerHTML=document.getElementById("lecture2").fullName;
+            // document.getElementById("requestDate").innerHTML=document.getElementById("dateValue").value;
+            
+            var url="http://localhost/USSP/components/meeting/assets/allocatedTimeAPI.php?username="+username+"&date="+date+"";
+            console.log(url);
+            $.getJSON(url,function(dataList){
+                    console.log(dataList);
+
+                    element ='<div id="allocationTitle">Allocated Times of '+dataList[1][0]['salutation']+' '+dataList[1][0]['fullName']+' in '+dataList[2]+'<br><br></div>';
+                    $('#allocatedSlots').append(element);
+                    for (var i=0;i<dataList.length;i++){
+                    var element='';
+
+                    element +='<div class="elementTab">';
+                    element +='<div class="elementName">'+dataList[0][i]['day']+'  From-'+dataList[0][i]['fromTime']+'   To-'+dataList[0][i]['toTime']+'</div>';
+                    element +='</div>';
+                    $('#allocatedSlots').append(element);
+                    }
+
+                    
+            });
+            // document.getElementById("hallID").disabled= true;
+            console.clear();
+        
+
         }
 
     </script>
