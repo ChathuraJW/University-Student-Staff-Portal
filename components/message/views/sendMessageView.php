@@ -14,7 +14,7 @@
 <?php basicLoader::loadHeader('../../'); ?>
 
 <!-- feature body section -->
-<div class="featureBody">
+<div class="featureBody bodyBackgrond text">
     <div class="container">
         <div class="row col-1">
 
@@ -42,7 +42,7 @@
 
 
                 <?php
-                if (isset($_COOKIE['role']) & $_COOKIE['role'] !== 'ST') {
+                //if (isset($_COOKIE['role']) & $_COOKIE['role'] !== 'ST') {
                     echo("
                 <div>
                 <select style='border-radius: 6px; height:50px; width:200px; font-size:18px; color: white; background-color: #116141; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);' id='academicStaffList' name='academicStaffList' onchange='addStaffRecipient('academicStaffList');'>
@@ -93,7 +93,7 @@
 
             </div>
             ");
-                }
+                //}
                 ?>
 
                 <div>
@@ -149,15 +149,10 @@
 
                 <br>
                 <br>
-
-                <button class="button submit" name="submit" type="submit"
-                        style="background-color: green; border-radius:4px; box-shadow: 0 8px 16px 0 grey;">Send
-                </button>
-
-                <button class="button cancel" colour="green"
-                        style="background-color: #FF0000; border-radius:4px; box-shadow: 0 8px 16px 0 grey;">Cancel
-                </button>
-
+                <div class="buttonCouple"> 
+                    <button class="button" name="submit" type="submit">Send</button>
+                    <button class="button" name="cancel">Cancel</button>
+                </div>
 
                 </form>
 
