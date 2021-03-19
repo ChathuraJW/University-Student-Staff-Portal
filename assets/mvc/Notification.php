@@ -1,8 +1,4 @@
 <?php
-//import database class
-//	TODO make sure about path
-	require_once "Database.php";
-	require_once "../php/sendMail.php";
 
 	class Notification {
 //    parameters
@@ -14,10 +10,14 @@
 		private string $validWeeks;
 		private array $receivers;
 
-//    TODO constructor
 		function __construct() {
 			$this->notificationType = 2600;
-			$this->validWeeks = 4;
+			$sqlQuery = "SELECT parameterValue FROM system_parameters WHERE parameterKey='notification_validity_hours'";
+			$weeks = Database::executeQuery('generalAccess', 'generalAccess@16', $sqlQuery);
+			if ($weeks)
+				$this->validWeeks = $weeks[0]['parameterValue'];
+			else
+				$this->validWeeks = 4;
 		}
 
 		public function createNotification($title, $content): Notification {
@@ -25,6 +25,11 @@
 			$this->notificationContent = $content;
 			return $this;
 
+		}
+
+		public function setNotificationType(int $notificationType): Notification {
+			$this->notificationType = $notificationType;
+			return $this;
 		}
 
 		public function setSender($sender): Notification {
@@ -45,8 +50,7 @@
 		public function publishNotification($isSendMail = false): bool {
 			// get database instance
 			$databaseInstance = new Database();
-			//TODO need to change database credentials
-			$databaseInstance->establishTransaction('root', '');
+			$databaseInstance->establishTransaction('generalAccess', 'generalAccess@16');
 
 //			calculate validity period
 			$validUntil = $this->calculateValidityPeriod();
@@ -55,9 +59,8 @@
 			$sqlQuery = "INSERT INTO notification_detail(title, content, notificationType, timestamp, validUntil, publishedByUser)
             VALUES ('" . $this->notificationTitle . "','" . $this->notificationContent . "'," . $this->notificationType . ",NOW(),'$validUntil','" .
 				$this->sender . "')";
-
 			$databaseInstance->executeTransaction($sqlQuery);
-			$databaseInstance->transactionAudit($sqlQuery, 'notification_detail', 'INSERT', 'Publish notification Details');
+			$databaseInstance->transactionAudit($sqlQuery, 'notification_detail', 'INSERT', 'Publish notification Details.');
 
 //          get notification id for just entered notification details
 			$sqlQuery = "SELECT notificationID FROM notification_detail WHERE title='" . $this->notificationTitle . "'
@@ -116,8 +119,8 @@
 
 		private function calculateValidityPeriod(): string {
 			$validDays = ($this->validWeeks) * 7;
-			$date = strtotime("28-12-2020");
-			$endDate = date('d-m-Y', strtotime("+$validDays day", $date));
+			$date = strtotime(date("Y-m-d H:i:s"));
+			$endDate = date('Y-m-d', strtotime("+$validDays day", $date));
 			return "$endDate 23:59:59";
 		}
 	}

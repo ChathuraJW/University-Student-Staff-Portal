@@ -13,4 +13,5 @@ class HomeModel extends Model{
         $resultUser[0]['currentGPA']=$resultGPA;
         return $resultUser;
     }
+    
 }

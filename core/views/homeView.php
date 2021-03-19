@@ -27,7 +27,7 @@
         <div class="row col-1">
             <div class="notificationStack">
                 <div class="stackHeader">
-                    <span class="stackLabel">Academic Notification</span>
+                    <span class="stackLabel">Notifications</span>
                     <span class="notificationCount">57</span>
                 </div>
                 <div class="notificationEntry ">
@@ -245,5 +245,6 @@
 </div>
 <script src="../assets/js/jquery.js"></script>
 <script src="assets/home.js"></script>
+<script src="../assets/js/changeTheme.js"></script>
 </body>
 </html>

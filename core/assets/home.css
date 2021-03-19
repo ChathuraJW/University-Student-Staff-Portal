@@ -81,12 +81,12 @@
 .notificationStack {
     border: 1px solid #a5a2a2;
     border-radius: 5px;
-    height: 700px;
+    height: 900px;
     padding: 10px;
     min-height: 360px;
-    background-color: #9400d396;
     opacity: 0.7;
-    /*margin: 10px;*/
+
+    margin-left: 10px;
 }
 
 /*notification header styles*/
@@ -109,9 +109,9 @@
     width: 40px;
     height: 40px;
     border-radius: 50px;
-    border: 1px solid red;
+    border: 1px solid var(--baseColor);
     color: white;
-    background-color: red;
+    background-color: var(--baseColor);
     font-weight: bold;
     font-family: BioRhyme, sans-serif;
     padding: 6px;
@@ -121,7 +121,7 @@
 /*notification entry styles*/
 .notificationEntry, .notificationEntryTimeTable {
     display: block;
-    height: 20%;
+    height: auto;
     width: 95%;
     border: 1px solid;
     margin: 5px;
@@ -129,13 +129,14 @@
     padding: 5px;
     overflow: hidden;
     color: white;
-    opacity: 0.7;
+    background-color: var(--baseColor);
+    /*opacity: 0.7;*/
 }
 
 .notificationEntryTimeTable {
     width: auto;
     padding-left: 8px;
-    background-color: #d2691e94;
+    background-color: Var(--baseColor);
     border: #24160c;
     height: auto;
 }
@@ -144,6 +145,7 @@
     width: 12%;
     display: inline-flex;
     padding: 5px;
+    /*color: white;*/
     color: white;
 }
 .linkSection {
@@ -195,9 +197,11 @@
     margin: 10px;
     border-radius: 5px;
     text-decoration: none;
-    opacity: 0.7;
-    background-color: rgba(130, 120, 134, 0.59);
-}
+    border: 1px solid var(--baseColor);
+
+    /*opacity: 0.7;*/
+    /*background-color: var(--baseColor);*/
+}font
 calender
 .calenderContainer{
     height: 250px;
@@ -257,11 +261,11 @@ body{
     text-transform: uppercase;
 }
 .greetingMessage{
-    font-size: 60px;
+    font-size: 55px;
     font-weight: 400;
     letter-spacing: 8px;
     margin-bottom: 20px;
-    background-color: var(--baseColor);
+    background-color:var(--baseColor);
     position: relative;
     animation: text 3s 1;
 }
