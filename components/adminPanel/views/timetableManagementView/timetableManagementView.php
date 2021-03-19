@@ -3,8 +3,8 @@
     <div id="groupListPage">
         <div class="group" onclick="getEntries('1CS1')">1CS1</div>
         <div class="group" onclick="getEntries('1CS2')">1CS2</div>
-        <div class="group">Group3</div>
-        <div class="group">Group4</div>
+        <!-- <div class="group">Group3</div>
+        <div class="group">Group4</div> -->
     </div>
     <div id="timetablePage" style="display:none;">
         <div class="addElement" onclick="addEntry()"><i class="fa fa-plus"  aria-hidden="true"></i> ADD New Entry</div>

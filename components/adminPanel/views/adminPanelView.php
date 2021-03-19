@@ -41,7 +41,7 @@
                         <div class="subTask">Batch miss Management</div>
                         
                     </div>
-                <div class="task two" >Subject Management</div>
+                <div class="task two" onclick="createLink('subjectManagement');">Subject Management</div>
                 <!-- onclick="subtaskOpen('subsetTwo')" -->
                     <!-- <div id="subsetTwo" style="display:none;"class="subTasksSet">
                         <div class="subTask">Add a New Subject</div>
@@ -49,7 +49,7 @@
                         <div class="subTask">Delete Subject</div>
                         
                     </div> -->
-                <div class="task three" >Facility Management(Lecture Hall/Lab)</div>
+                <div class="task three" onclick="createLink('facilityManagement');">Facility Management(Lecture Hall/Lab)</div>
                 <!-- onclick="subtaskOpen('subsetThree')" -->
                     <!-- <div id="subsetThree" style="display:none;"class="subTasksSet">
                         <div class="subTask">Add a New Hall</div>
@@ -78,13 +78,13 @@
                                 <div class="superSubTask">Delete as Individual</div>
                             </div>
                     </div>
-                <div class="task six" onclick="subtaskOpen('subsetSix')">Timetable Management</div>
-                    <div id="subsetSix" style="display:none;"class="subTasksSet">
+                <div class="task six" onclick="createLink('timetableManagement');">Timetable Management</div>
+                    <!-- <div id="subsetSix" style="display:none;"class="subTasksSet">
                         <div class="subTask">Add/Edit/Delete Event</div>
                         <div class="subTask">View Timetable</div>
                         <div class="subTask">Exam Timetable Management</div>
                         
-                    </div>
+                    </div> -->
                 <div class="task seven" onclick="subtaskOpen('subsetSeven')">Basic System Configuration</div>
                     <div id="subsetSeven" style="display:none;"class="subTasksSet">
                         <div class="subTask">Appointment Validity Period</div>
@@ -133,13 +133,20 @@
             </div>
             <div class="taskPage">  
                 
-                <?php timetableManagementController::timetableManagementOpen();?>
+                    <!--            selected view load hear-->
+                <?php
+                    //call necessary module function to work
+                    if ($controllerData) {
+                        call_user_func($controllerData);
+                    }
+                ?>
                 
             </div>
         </div>
     </div>
     <script src="../../assets/js/jquery.js"></script>
 <script src="../../assets/js/toast.js"></script>
+<script src="../../assets/js/changeTheme.js"></script>
     <script>
         
         function subtaskOpen(element){
@@ -150,10 +157,17 @@
                 document.getElementById(element).style.display="none";
 
             }
-            // document.getElementById("messageSecond").style.display="none";
-            // window.location.href=document.location.href.toString().split('requestAppointment')[0]+'requestAppointment';
-            
         }
+        // cookie creation and reload page for open feature
+        function createLink(featureName) {
+            // create cookie
+            document.cookie = "adminSelectedFeature=" +featureName+";SameSite=Lax";
+            // refresh page and navigate to featureBody div
+            window.location.hash = '#featureBody';
+            window.location.reload(true);
+        }
+
+        
 
     </script>
     
