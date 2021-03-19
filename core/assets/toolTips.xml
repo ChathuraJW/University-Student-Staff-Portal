@@ -1,0 +1,14 @@
+<toolTip>
+    <newPassword>
+        Required field.
+        LowerCase letters, upperCase letters, numbers and special Characters must include and length of password should
+        grater than or equal to eight(>=8).
+    </newPassword>
+    <repeatPassword>
+        Required field.
+        Should equal to the password that you already input.
+    </repeatPassword>
+    <generalFiled>
+        Required field.
+    </generalFiled>
+</toolTip>

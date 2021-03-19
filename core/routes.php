@@ -3,7 +3,12 @@
     Route::set('login',function(){
         LoginController::initLogin();
     });
-
+    Route::set('forgetPassword',function(){
+        ForgetPasswordController::open();
+    });
+    Route::set('resetPassword',function(){
+        ResetPasswordController::open();
+    });
 
     // check weather the given file exist on the site if not redirect to 404 page
     $available=FALSE;

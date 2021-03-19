@@ -6,8 +6,8 @@ class ResetPasswordController extends Controller{
     public static function open(){
         
         self::createView("resetPasswordView");
-        if(isset($_POST['submitReset'])){
-            
+
+        if(isset($_POST['password'])){
             $userName=$_GET['secret'];
             $password=$_POST['password'];
             
@@ -29,12 +29,7 @@ class ResetPasswordController extends Controller{
 
 
             ResetPasswordModel::resetPassword($decryption,$password);
-            // echo("
-            //     <script>
-            //         document.getElementById('messageFirst').style.display = 'none';
-            //         window.location.href=document.location.href.toString().split('respondAppointment')[0]+'respondAppointment';
-            //     </script>
-            // ");
+            
         }
         
     } 

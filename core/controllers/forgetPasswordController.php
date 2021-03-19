@@ -1,9 +1,6 @@
 <?php
-require_once('../../assets/php/sendMail.php');
+require_once('../assets/php/sendMail.php');
 class ForgetPasswordController extends Controller{
-    // public function __construct(){
-    //     parent::__construct();
-    // }
     
     public static function open(){
         
@@ -35,18 +32,13 @@ class ForgetPasswordController extends Controller{
             $message="
             
                 <p>Dear ".$name."</p><br><br><br>
-                <p>You recently requested to reset your password for your USSp account. Click the link bellow to reset it.</p><br>
-                <br>
+                <p>You recently requested to reset your password for your USSP account. Click the link bellow to reset it.</p>
                 <a href='".$link."'>Reset Password</a><br><br>
                 <p>If you did not requested, please ignore this email or reply to let us know.</p><br>
                 <p>Thank you</p> 
             
             ";
-            // $message="Hello";
-            // $x =$name[0];
-            // $y =$x[0]['firstName'];
-            // echo $y;
-            // print_r(array($x));
+            
             sendMail($title, $message, false, array($userName));
 
         }
