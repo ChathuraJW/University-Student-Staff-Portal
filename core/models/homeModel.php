@@ -13,5 +13,32 @@ class HomeModel extends Model{
         $resultUser[0]['currentGPA']=$resultGPA;
         return $resultUser;
     }
-    
+
+    public static function notification(){
+        $userName=$_COOKIE['userName'];
+        $sqlQuery = "SELECT notificationID FROM user_view_notification WHERE userName='$userName' AND isViewed=0 ORDER BY notificationID DESC LIMIT 8";
+        $notificationIdList = Database::executeQuery('root','',$sqlQuery);
+
+        $notificationArray = array();
+        foreach($notificationIdList as $notificationId){
+             $notificationId = $notificationId['notificationID'];
+             print_r($notificationId);
+            $sqlQuery = "SELECT title,content,timestamp,publishedByUser FROM notification_detail WHERE notificationID=$notificationId AND isValid=1";
+            $notificationContent = Database::executeQuery('root','',$sqlQuery);
+            $notificationArray[]= $notificationContent;
+        }
+//        print_r($notificationArray);
+        return $notificationArray;
+    }
+    public static function countNotification(){
+        $userName=$_COOKIE['userName'];
+        $sqlQuery = "SELECT COUNT(notificationID) FROM user_view_notification WHERE userName='$userName' AND isViewed=0";
+        return Database::executeQuery('root','',$sqlQuery)[0];
+
+    }
+
+    public static function timetable(){
+        $userName=$_COOKIE['userName'];
+
+    }
 }

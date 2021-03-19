@@ -27,17 +27,35 @@
         <div class="row col-1">
             <div class="notificationStack">
                 <div class="stackHeader">
-                    <span class="stackLabel">Notifications</span>
-                    <span class="notificationCount">57</span>
+                    <?php
+                    print_r($controllerData[2]);//TODO
+                        echo("
+                            <span class='stackLabel'>Notifications</span>
+                            <span class='notificationCount'>".$controllerData[2]."</span> 
+                        ");
+                    ?>
+
                 </div>
-                <div class="notificationEntry ">
-                    <div class="notificationIcon"><i class="fas fa-school"></i></div>
-                    <div class="notificationContent">SCS2203 In class assignment 1 will be on 22th november...</div>
-                </div>
-                <div class="notificationEntry ">
-                    <div class="notificationIcon"><i class="fas fa-school"></i></div>
-                    <div class="notificationContent">2nd semester exam will commence on 6th September...</div>
-                </div>
+                <?php
+//                print_r($controllerData[1]);
+                    foreach ($controllerData[1] as $notification)
+                        echo("<div class='notificationEntry '>
+                    <div class='notificationIcon'><i class='fas fa-school'></i></div>
+                    <div class='notificationContent'>".$notification[0]['title']."</div>
+                    <div class='notificationContent'>".$notification[0]['publishedByUser']." </div>
+                    <div class='notificationContent'>".$notification[0]['timestamp']."</div>
+                    
+                </div>")
+
+                ?>
+<!--                <div class="notificationEntry ">-->
+<!--                    <div class="notificationIcon"><i class="fas fa-school"></i></div>-->
+<!--                    <div class="notificationContent">SCS2203 In class assignment 1 will be on 22th november...</div>-->
+<!--                </div>-->
+<!--                <div class="notificationEntry ">-->
+<!--                    <div class="notificationIcon"><i class="fas fa-school"></i></div>-->
+<!--                    <div class="notificationContent">2nd semester exam will commence on 6th September...</div>-->
+<!--                </div>-->
             </div>
         </div>
     </div>
