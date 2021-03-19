@@ -6,105 +6,95 @@
     <title>University Student-Staff Portal</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
-    <link rel="stylesheet" href="assets/addIQACStyle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" />
-
+    <link rel="stylesheet"  href="assets/addIQAC.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
+
 <body>
     <!-- include header section -->
-    <?php require_once('../../assets/php/basicLoader.php') ?>
-    <?php basicLoader::loadHeader('../../'); ?>
-
+    <?php require('../../assets/php/basicLoader.php')?>
+    <?php BasicLoader::loadHeader('../../')?>
     
-    <!-- feature body section -->
-    <div class="featureBody">
-      <div class="row col-1">
-        <h1 class="heading"><b>Add IQAC Report</b></h1><br>
-      </div>
-      <div class="row col-2">
-        <div>
-        <form  id="file" class="file" method="POST" enctype="multipart/form-data"><br>
-            <div class="Container row col-2">
-                <div class="dropDownList">
-                    <label>Lecturer</label><br>
-                    
-                    <select name="lecturer" id="lecturer">
-                    <?php
-                      foreach($controllerData[0] as $data){
-                          echo("<option value='".$data->getUserName()."'>" .$data->getUserName(). " - " .$data->getFullName(). "</option>");
-                        }
-                    ?>
-                    </select>
-                    
-                </div>
-                <div class="dropDownList">
-                    <label >Subject</label><br>
-                    <select name="subject">
-                    <?php
-                      foreach($controllerData[1] as $data){
-                          echo("<option value='".$data->getCourseCode()."'>" .$data->getCourseCode(). " - " .$data->getName(). "</option>");
-                        }
-                    ?>
-                         
-                    </select>
-                </div>
-            </div>
-            <div class=" dropdownContainer row col-2">
-                <div class="dropDownList">
-                    <label >Academic Year</label><br>
-                    <select name="academicYear" id="academicYear" required>
-                         
-                    </select>
-                </div>
-                <div class="dropDownList">
-                    <label >Batch Year</label><br>
-                    <select name="batchYear" required>
-                        <option value=1>1<sup>st</sup> Year</option>
-                        <option value=2>2<sup>nd</sup> Year</option>
-                        <option value=3>3<sup>rd</sup> Year</option>
-                        <option value=4>4<sup>th</sup> Year</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class=" dropdownContainer row col-2">
-                <div class="dropDownList">
-                    <label >Semester</label><br>
-                    <select name="semester" required>
-                        <option value=1>1</option>
-                        <option value=2>2</sup></option>
-                         
-                    </select>
-                </div>
-            </div>
-            <br>
-          </div>  
-        <div> 
-          <div class="uploadReport"> 
-            <label><b> Upload Report</b> </label>
-            <i class="fa fa-file-o"></i>
-              <hr>
-              <br>
-            <div class="upload">
-              
-               
-                <input type="file" id="file" name="file" class="file"><br><br>
-                <input type="submit" class="submit" name="submit"><br><br>
-              </form>
-              <br><br>
-            </div>
-          </div>
+    <div class="featureBody bodyBackground text">
+        <div class="row col-1">
+            <P class="heading">Add IQAC Report</P>
         </div>
+        <form method="post" enctype="multipart/form-data">
+            <div class="row col-2">
+                <div class="row col-2">
+                    <div>
+                        <label class="labelStyle">Lecturer:</label><br>
+                        <select name="lecturer" required>
+                            <option value="0"></option>
 
-         
+                            <?php
+                            foreach ($controllerData[0] as $data ){
+                                echo ("
+                                    <option value='".$data->getUserName()."'>" .$data->getUserName(). " - " .$data->getFullName(). "</option>
+                                ");
+                            }
+                            ?>
+                        </select>
+                    </div>
 
-      </div>
-        
-    </div>
+                    <div>
+                        <label class="labelStyle">Subject:</label><br>
+                        <select name="subject" required>
+                            <option value="0"></option>
+
+                            <?php
+                            foreach ($controllerData[1] as $data ){
+                                echo ("
+                                    <option value='".$data->getCourseCode()."'>".$data->getName()."</option>
+                                ");
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="labelStyle">Examination Year:</label><br>
+                        <select name="examinationYear" id="examinationYear" required>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="labelStyle">Academic Year:</label><br>
+                        <select name="academicYear" required>
+                            <option value="0"></option>
+                            <option value=1>First Year</option>
+                            <option value=2>Second Year</option>
+                            <option value=3>Third Year</option>
+                            <option value=4>Fourth Year</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="labelStyle">Semester:</label><br>
+                        <select  name="semester" required>
+                            <option value="0"></option>
+                            <option value=1>First Semester</option>
+                            <option value=2>Second Semester</option>
+                        </select>
+                    </div>
+                     
+                </div>
+                <div id="inputFile" class="inputFile row col-1">
+                     
+                    <input type="file" name="myFile" id="fileInput" class="fileInput" required>
+                </div>
+            </div>
+            <div class="buttonCouple">
+                <button class="button" name="cancel"> Cancel</button>
+                <button class="button" type="submit" name="upload" > Upload</button>
+            </div>
+        </form>
+
+            </div>
+
 
     <!-- include footer section -->
-    <?php basicLoader::loadFooter('../../'); ?>
-
+    <?php BasicLoader::loadFooter('../../')?>
+    <script src="../../assets/js/jquery.js"></script>
+    <script src="../../assets/js/toast.js"></script>
     <script src="assets/addIQAC.js"></script>
 </body>
 </html>
