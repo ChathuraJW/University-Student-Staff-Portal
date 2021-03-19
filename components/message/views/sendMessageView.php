@@ -22,12 +22,12 @@
             <br>
             <a class=inbox href="receiveMessage">
 
-                <button class="receiveMessages" id="receiveMessages">Inbox</button>
+                <button class="button" style="position: relative; left: 42%;" id="receiveMessages">Inbox</button>
             </a>
 
             <a class=sentBox href="sentBox">
 
-                <button class="sentMessages" id="sentMessages">Sent Box</button>
+                <button class="button" style="position: relative; left: 42%;" id="sentMessages">Sent Box</button>
             </a>
 
         </div>
@@ -45,7 +45,7 @@
                 //if (isset($_COOKIE['role']) & $_COOKIE['role'] !== 'ST') {
                     echo("
                 <div>
-                <select style='border-radius: 6px; height:50px; width:200px; font-size:18px; color: white; background-color: #116141; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);' id='academicStaffList' name='academicStaffList' onchange='addStaffRecipient('academicStaffList');'>
+                <select id='academicStaffList' name='academicStaffList' onchange='addStaffRecipient('academicStaffList');'>
                 <option value=''>Academic Staff</option>
                 ");
                     foreach ($controllerData[0] as $data) {
@@ -58,9 +58,7 @@
             </div>
 
             <div>
-                <select style='border-radius: 6px; height:50px; width:200px; color: white; background-color: #116141; font-size:18px; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);'
-                        id='academicSupportiveList' name='academicSupportiveList' onchange='addStaffRecipient('
-                        academicSupportiveList');' >
+                <select id='academicSupportiveList' name='academicSupportiveList' onchange='addStaffRecipient('academicSupportiveList');' >
                 <option value=''>Academic Supportive Staff</option>
                 ");
 
@@ -76,9 +74,7 @@
             </div>
 
             <div>
-                <select style='border-radius: 6px; height:50px; width:200px; color: white; background-color: #116141; font-size:18px; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);'
-                        id='administrativeList' name='administrativeList' onchange='addStaffRecipient('
-                        administrativeList');'>
+                <select id='administrativeList' name='administrativeList' onchange='addStaffRecipient('administrativeList');'>
                 <option value=''>Administrative Staff</option>
                 ");
 
@@ -98,9 +94,7 @@
 
                 <div>
 
-                    <select style="border-radius: 6px; height:50px; width:200px; color: white; background-color: #116141; font-size:18px; box-shadow:8px 8px 16px 0px rgba(0,0,0,0.2);"
-                            id="studentList" name="studentList"
-                            onchange="addStaffRecipient('studentList');">
+                    <select id="studentList" name="studentList" onchange="addStaffRecipient('studentList');">
                         <option value="">Student</option>
                         <?php
 
@@ -122,9 +116,7 @@
 
                     <label style="text-align: left;">Contacts </label>
                     <br>
-                    <textarea cols="70" rows="3" name="contacts"
-                              style="font-size:15px; border-radius: 6px; box-shadow: 0 8px 16px 0 gray;" id="contacts"
-                              ></textarea>
+                    <textarea cols="70" rows="3" name="contacts " class="textarea" id="contacts"></textarea>
                     <br><br>
             </div>
 
@@ -133,8 +125,7 @@
                 <br>
                 <label> Title </label>
                 <br>
-                <textarea name="title" cols="50"
-                          style="border-radius: 6px; font-size:16px; box-shadow:0 8px 16px 0 gray;"></textarea>
+                <textarea name="title" cols="50" class="textarea"></textarea>
 
 
                 <br>
@@ -143,8 +134,7 @@
 
                 <label> Message </label>
                 <br>
-                <textarea name="message" rows="5" cols="50"
-                          style="font-size:16px;  box-shadow:0 8px 16px 0 gray; border-radius: 6px"></textarea>
+                <textarea name="message" rows="5" cols="50" class="textarea"></textarea>
 
 
                 <br>

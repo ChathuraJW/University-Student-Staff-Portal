@@ -15,11 +15,11 @@
 
     
     <!-- feature body section -->
-    <div class="featureBody">
+    <div class="featureBody bodyBackground text">
       <span class="heading">Message Inbox</span>
         <a class=backToPage href="sendMessage">
            
-          <button class="back" id="back">Back</button>
+          <button class="button" style="position: relative; left: 1%;" id="back">Back</button>
         </a>
       <div class="row col-2">
         <div class="messageList">
