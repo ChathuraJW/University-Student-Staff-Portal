@@ -7,85 +7,89 @@
     font-family: Varela, sans-serif;
 }
 
-.default{
+.default {
     min-height: 650px;
     height: fit-content;
 }
 
-.mainBar{
-    padding: 15px;
-    background-color: rgb(252, 250, 250);
-}
-.mainPage{
-    display: table;
-    width: 100%;
-}
-.taskList{
+.taskList {
     display: table-cell;
-    width: 30%;
+    width: auto;
     height: 400px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
-    
+    border: 4px solid var(--backgroundColor);
 }
-.taskPage{
+
+.taskPage {
+    padding: 30px;
     display: table-cell;
     width: 70%;
     height: 400px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
-
+    border-left: 4px solid var(--fontColor);
 }
-.topic{
+
+.topic {
     padding-left: 20px;
     font-size: 40px;
     font-weight: bolder;
     color: rgb(78, 78, 78);
 }
-.task{
-    background-color: rgb(231, 231, 231);
-    margin-top: 2px;
-    margin-bottom: 2px;
+
+.task {
+    background-color: var(--backgroundColor);
     padding: 10px;
-    color: rgb(92, 91, 91);
+    color: var(--fontColor);
     cursor: pointer;
 
 }
-.task:hover{
-    background-color: rgb(223, 222, 222);
-    color: black;
-    font-weight: bold;
+
+.task:hover {
+    border-bottom: 1px solid var(--baseColor);
+    border-top: 1px solid var(--baseColor);
+    border-right: 1px solid var(--baseColor);
+    font-weight: lighter;
 
 }
-.subTask{
+
+.subTask {
     margin-left: 10%;
-    background-color: rgb(238, 236, 236);
+    background-color: var(--backgroundColor);
     padding: 8px;
-    margin-top: 1px;
-    margin-bottom: 1px;
-    color: rgb(92, 91, 91);
+    color: var(--fontColor);
+    border-left: 4px solid var(--baseColor);
     cursor: pointer;
 
 }
-.subTask:hover{
-    background-color: rgb(226, 225, 225);
-    color: black;
+
+.subTask:hover {
+    border-bottom: 1px solid var(--baseColor);
+    border-top: 1px solid var(--baseColor);
+    border-right: 1px solid var(--baseColor);
     font-weight: bold;
 }
-.superSubTask{
-    margin-left: 20%;
-    background-color: rgb(238, 236, 236);
-    padding: 8px;
-    margin-top: 1px;
-    margin-bottom: 1px;
-    color: rgb(92, 91, 91);
-    cursor: pointer;
 
 
-}
-.superSubTask:hover{
-    background-color: rgb(226, 225, 225);
-    color: black;
+/*costume styles*/
+.sectionTitle {
+    text-align: center;
+    display: block;
+    font-size: 30px;
     font-weight: bold;
+    padding: 15px;
 }
+
+
+/*This for file upload button hide*/
+/*for firefox flavor*/
+/*noinspection CssInvalidPseudoSelector*/
+.fileUpload::file-selector-button {
+    display: none;
+}
+
+/*chromium flavor*/
+.fileUpload::-webkit-file-upload-button {
+    display: none;
+}
+
 .elementTab{
     margin: auto;
     width:96%;
@@ -231,7 +235,7 @@ th{
     background-color: rgb(207, 217, 218);
 }
 /*costume styles*/
-.sectionTitle{​​
+.sectionTitle{
     text-align: center;
     display: block;
     font-size: 30px;

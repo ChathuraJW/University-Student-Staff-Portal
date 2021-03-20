@@ -43,7 +43,7 @@
             </div>
 
             <div class="task" onclick="createLink('timetableManagement')">Timetable Management</div>
-            
+
 
             <div class="task" onclick="createLink('basicSystemConfig')">Basic System Configuration</div>
 
@@ -61,7 +61,7 @@
 
             <div class="task" onclick="createLink('backupConfig')">Backup/Restore Management</div>
 
-<!--            TODO Better to be in near feature-->
+            TODO Better to be in near feature
 <!--            <div class="task" onclick="subTaskOpen('subsetEleven')">Feature Management</div>-->
 <!--            <div id="subsetEleven" style="display:none;" class="subTasksSet">-->
 <!--                <div class="subTask" onclick="createLink('addNewFeature')">Add New Feature</div>-->
@@ -100,7 +100,7 @@
     // cookie creation and reload page for open feature
     function createLink(featureName) {
         // create cookie
-        document.cookie = "adminSelectedFeature=" +featureName+";SameSite=Lax";
+        document.cookie = "adminSelectedFeature=" + featureName + ";SameSite=Lax";
         // refresh page and navigate to featureBody div
         window.location.hash = '#featureBody';
         window.location.reload(true);

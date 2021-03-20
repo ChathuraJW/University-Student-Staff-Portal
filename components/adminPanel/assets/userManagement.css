@@ -1,0 +1,18 @@
+.addStudentDescription{
+    text-align: justify;
+}
+.addStudentDescription > dl > dt{
+    font-weight: bold;
+}
+.addStudentDescription > dl > dd{
+    padding-left: 10px;
+}
+.studentGroupTable > table{
+    font-size: 16px;
+    width: 100%;
+    border-collapse: collapse;;
+}
+.studentGroupTable table, .studentGroupTable td, .studentGroupTable th{
+    border: 1px solid black;
+    padding: 5px;
+}

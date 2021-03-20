@@ -1,500 +1,306 @@
 <?php
 
-class User{
-    //attributes of User
-    protected $userName;
-    protected $firstName;
-    protected $lastName;
-    protected $personalEmail;
-    protected $universityEmail;
-    protected $gender;
-    protected $address;
-    protected $nic;
-    protected $password;
-    protected $profilePictureURL;
-    protected $teleNo;
+	class User {
+		//attributes of User
+		protected string $salutation;
+		protected string $userName;
+		protected string $firstName;
+		protected string $lastName;
+		protected string $personalEmail;
+		protected string $universityEmail;
+		protected string $fullName;
+		protected string $address;
+		protected string $nic;
+		protected string $dateOfBirth;
+		protected string $password;
+		protected string $userType;
 
-    //methods of User
+		//methods of User
+		public function createUser($userName, $firstName, $lastName, $fullName, $personalEmail, $universityEmail, $dob, $nic): User {
+			$this->userName = $userName;
+			$this->firstName = $firstName;
+			$this->lastName = $lastName;
+			$this->fullName = $fullName;
+			$this->personalEmail = $personalEmail;
+			$this->universityEmail = $universityEmail;
+			$this->nic = $nic;
+			$this->dateOfBirth = $dob;
+			return $this;
+		}
 
-}
+		public function createUserForAdminEdit($firstName, $lastName, $fullName, $universityEmail, $dob, $nic, $userType): User {
+			$this->firstName = $firstName;
+			$this->lastName = $lastName;
+			$this->fullName = $fullName;
+			$this->universityEmail = $universityEmail;
+			$this->dateOfBirth = $dob;
+			$this->nic = $nic;
+			$this->userType = $userType;
+			return $this;
+		}
 
-class Student extends User{
-    // attributes of Student
-    private $indexNo;
-    private $regNo;
-    private $group;
+		public function createUserForPrivilegeSearch($salutation, $firstName, $lastName, $userName, $userType): User {
+			$this->salutation = $salutation;
+			$this->userName = $userName;
+			$this->firstName = $firstName;
+			$this->lastName = $lastName;
+			$this->userType = $userType;
+			return $this;
+		}
 
-    //methods of Student
+		public function isStudent(): bool {
+			if ($this->userType == 'ST')
+				return true;
+			else
+				return false;
+		}
 
-}
+		public function isAcademicStaff(): bool {
+			if ($this->userType == 'AS')
+				return true;
+			else
+				return false;
+		}
 
-//this class for both academic and academic support staff
-class Staff extends User{
-    //attributes of Staff
-    protected $staffID;
+		public function isSupportiveStaff(): bool {
+			if ($this->userType == 'SP')
+				return true;
+			else
+				return false;
+		}
 
-    //methods of User
+		public function isAdministrativeStaff(): bool {
+			if ($this->userType == 'AD')
+				return true;
+			else
+				return false;
+		}
 
-}
+		public function getUserName(): string {
+			return $this->userName;
+		}
 
-class AdministrativeStaff extends Staff{
-    //attributes of AdministrativeStaff
-    private $roleID;
+		public function setUserName(string $userName): User {
+			$this->userName = $userName;
+			return $this;
+		}
 
-    //methods for AdministrativeStaff
-}
-class Timetable {
-    // attributes of Timetable
-    private $entryID;
-    private $hallID;
-    private $subjectCode;
-    private $conductingLecture;
-    private $group;
-    private $day;
-    private $from;
-    private $to;
-    // methods of Timetable
-    function setTimetable(){
+		public function getFirstName(): string {
+			return $this->firstName;
+		}
 
-    }
-    function showTimetable(){
+		public function getLastName(): string {
+			return $this->lastName;
+		}
 
-    }
-}
-class PastPaper{
-    // attributes of Pastpapers
-    private $paperID;
-    private $examinationYear;
-    private $year;
-    private $semester;
-    private $subjectName;
-    private $subjectCode;
-    // mothods of Pastpapers
-    protected function addPastpapers(){
+		public function getPersonalEmail(): string {
+			return $this->personalEmail;
+		}
 
-    }
-    protected function viewPastpaper(){
+		public function getUniversityEmail(): string {
+			return $this->universityEmail;
+		}
 
-    }
-}
-class contactUnion{
-    // attributes of contactUnion
-    private $title;
-    private $message;
-    private $timeStamp;
-    private $sender;
-    // methods of contactUnion
-    protected function pushNotification(){
+		public function getFullName(): string {
+			return $this->fullName;
+		}
 
-    }
-    protected function operateMail(){
+		public function getAddress(): string {
+			return $this->address;
+		}
 
-    }
-}
-class TrainSeason{
-    // attributes of TrainSeason
-    private $trainSeasonIndex;
-    private $studentName;
-    private $academicYear;
-    private $addres;
-    private $contactNumber;
-    private $dob;
-    private $ageToNextBirthDay;
-    private $fromMonth;
-    private $toMonth;
-    private $nearRailwayStationHome;
-    private $nearRailwayStationUnivercity;
-    private $requestId;
-    private $requestDate;
-    private $completeDate;
-    private $collectedDate;
-    // methods of Trainseason
-    protected function requestSeason(){
+		public function getNic(): string {
+			return $this->nic;
+		}
 
-    }
-    protected function setReady(){
+		public function getDateOfBirth(): string {
+			return $this->dateOfBirth;
+		}
 
-    }
-    protected function setCollect(){
+		public function getUserType(): string {
+			return $this->userType;
+		}
 
-    }
-}
-class AppointmentsForMeeting{
-    // attributes of AppointmentsForMeeting
-    private $title;
-    private $message;
-    private $sender;
-    private $sendDate;
-    private $type;
-    private $requestValidity;
-    private $reply;
-    // methods of AppointmentsForMeeting
-    protected function makeAppointment(){
+		public function getSalutation(): string {
+			return $this->salutation;
+		}
 
-    }
-    protected function respondForAppointment(){
+		public function getUserTypeAsWord(): string {
+			switch ($this->userType) {
+				case 'ST':
+					return 'Student';
+				case 'AS':
+					return 'Academic Staff';
+				case 'SP':
+					return 'Academic Supportive Staff';
+				case 'AA':
+					return 'Administrator';
+				case 'AD':
+					return 'Administrative Staff';
+			}
+			return "Undefined";
+		}
 
-    }
-}
-class AppointmentType{
-    // atrributes of AppointmentType
-    private $appointmentCode;
-    private $appointmentColor;
-    private $appointmentName;
-}
-class IQACReport{
-    // attributes of IQACReport
-    private $reportID;
-    private $subject;
-    private $fileLocation;
-    private $issuedDate;
-    // methods of IQACReport
-    protected function addReport(){
 
-    }
-    protected function viewReport(){
+	}
 
-    }
-}
-class LectureAvailability{
-    // attributes of LectureAvailability
-    private $lectureCode;
-    private $lectureName;
-    private $lastUpdateDate;
-    private $location;
-    private $description;
-    private $availableFrom;
-    private $availableTo;
-    // methods of LectureAvailability
-    protected function addAvailability(){
+	class Student extends User {
+		// attributes of Student
+		private int $indexNo;
+		private string $group;
 
-    }
-    protected function viewAvailability(){
+		public function createBasicStudent($userName, $indexNumber, $nic, $group, $firstName, $lastName, $fullName): Student {
+			$this->userName = $userName;
+			$this->indexNo = $indexNumber;
+			$this->nic = $nic;
+			$this->group = $group;
+			$this->firstName = $firstName;
+			$this->lastName = $lastName;
+			$this->fullName = $fullName;
+			return $this;
+		}
 
-    }
-}
-class AllocatedWorkload{
-    // attributes of AllocatedWorkload
-    private $workloadID;
-    private $workLoadOwner;
-    private $workLoadDescription;
-    private $title;
-    private $location;
-    private $Date;
-    private $fromTime;
-    // private $toDate;
-    private $toTime;
-    private $salutation;
-    private $fullName;
-    private $requestDate;
+		public function getIndexNo(): int {
+			return $this->indexNo;
+		}
 
-    // mothods of AllocatedWorkload
-    
-    public function getWorkLoadOwner(){
-        return $this->workLoadOwner;
-    }
-    public function getWorkLoadDescription(){
-        return $this->workLoadDescription;
-    }
-    public function getTitle(){
-        return $this->title;
-    }
-    public function getLocation(){
-        return $this->location;
-    }
-    public function getDate(){
-        return $this->Date;
-    }
-    public function getFromTime(){
-        return $this->fromTime;
-    }
-    // public function getToDate(){
-    //     return $this->toDate;
-    // }
-    public function getToTime(){
-        return $this->toTime;
-    }
-    public function getSalutation(){
-        return $this->salutation;
-    }
-    public function getFullName(){
-        return $this->fullName;
-    }
-    public function getRequestDate(){
-        return $this->requestDate;
-    }
-    public function getWorkloadID(){
-        return $this->workloadID;
-    }
-        
-    
-    public function setWorkLoad($workLoadOwner,$title,$workLoadDescription,$location,$Date,$fromTime,$toTime,$salutation,$fullName,$requestDate,$workloadID){
-        $this->workLoadOwner=$workLoadOwner;
-        $this->workLoadDescription=$workLoadDescription;
-        $this->title=$title;
-        $this->location=$location;
-        $this->Date=$Date;
-        $this->fromTime=$fromTime;
-        $this->toTime=$toTime;
-        $this->salutation=$salutation;
-        $this->fullName=$fullName;
-        $this->requestDate=$requestDate;
-        $this->workloadID=$workloadID;
-        return $this;
-    }
+		public function getGroup(): string {
+			return $this->group;
+		}
 
-}
-class AssignmentPlan{
-    // attributes of AssignmentPlan
-    private $planID;
-    private $subject;
-    private $academicYear;
-    private $assignmentWeight;
-    private $totalNumberofAssignment;
-    private $degreeStreem;
-    private $assignment;
-    private $description;
-    // methods of AssignmentPlan
-    protected function addAssignment(){
 
-    }
-    protected function changeAssignmentPlanSetting(){
+	}
 
-    }
-    protected function addInstructors(){
+	class SpecialRole {
+		private int $entryID;
+		private string $role;
+		private string $userName;
+		private string $displayUserName;
 
-    }
-    protected function genarateFinalReport(){
+		public function createRole($entryID, $role, $userName, $salutation, $firstName, $lastName): SpecialRole {
+			$this->entryID = $entryID;
+			$this->role = $role;
+			$this->userName = $userName;
+			$this->displayUserName = "$salutation. $firstName $lastName";
+			return $this;
+		}
 
-    }
-}
-class RawResult{
-    // attributes of RawResult
-    private $courseCode;
-    private $courseName;
-    private $date;
-    private $uploadedBy;
-    private $submitTimestamp;
-    private $fileLocation;
-    // methods of RawResult
-    protected function sendResult(){
+		public function getEntryID(): int {
+			return $this->entryID;
+		}
 
-    }
-    protected function viewResult(){
+		public function getRole(): string {
+			return $this->role;
+		}
 
-    }
-}
-class Notification{
-    // attributes of Notification
-    private $notificationID;
-    private $notificationTitle;
-    private $notificationConten;
-    private $notificationType;
-    private $timeStamp;
-    private $sender;
-    private $validityEndTimeStamp;
-    private $isViewed;
-    private $viewTimeStamp;
-    private $targetAudiance;
-    // methods of Notification
-    protected function setNotification(){
+		public function getUserName(): string {
+			return $this->userName;
+		}
 
-    }
-    protected function updateView(){
+		public function getDisplayUserName(): string {
+			return $this->displayUserName;
+		}
 
-    }
-}
-class Result{
-    // attributes of Result
-    private $coursECode;
-    private $academicYear;
-    private $yearOfExam;
-    private $semester;
-    private $result;
-    private $GPA;
-    private $updatedData;
-    private $updatedBy;
-    private $reviewedTimestamp;
-    private $submitedBy;
-    // mehtods of Result
-    protected function addResultData(){
+	}
 
-    }
-    protected function displayResult(){
+	class SystemParameters {
+		private int $parameterID;
+		private string $parameterKey;
+		private string $parameterValue;
 
-    }
-}
-class NotificationType{
-    // attributes of NotificationType
-    private $notificationCode;
-    private $notificationColor;
-    private $notificationName;
-}
-class AssignmentType{
-    // attributes of AssignmentType
-    private $assignmentName;
-    private $assingmentCode;
-}
-class Assignment{
-    // attributes pf Assignment
-    private $assignmentID;
-    private $assignmentName;
-    private $weight;
-    private $marks;
-    private $description;
-    private $type;
-    // methods of Assignment
-    protected function addassignment(){
+		public function setParameter($parameterID, $parameterKey, $parameterValue): SystemParameters {
+			$this->parameterID = $parameterID;
+			$this->parameterKey = $parameterKey;
+			$this->parameterValue = $parameterValue;
+			return $this;
+		}
 
-    }
-    protected function addMark(){
+		public function getParameterID(): int {
+			return $this->parameterID;
+		}
 
-    }
-    protected function changeSettings(){
+		public function getParameterKey(): string {
+			return $this->parameterKey;
+		}
 
-    }
-}
-class StudentMark{
-    // attributes of StudentMark
-    private $studentIndex;
-    private $mark;
-    // methods of StudentMark
-    protected function setMarks(){
+		public function getParameterValue(): string {
+			return $this->parameterValue;
+		}
 
-    }
-}
+	}
 
-class SelectedGroupMessage{
-    // attribute of SelectedGroupMessage
-    private $title;
-    private $message;
-    private $sender;
-    private $timeStamp;
-    private $viewTimeStamp;
-    // method of SelectedGroupMessage
-    protected function sendMessage(){
+	class CourseModule {
+		// attributes of courseModule
+		private string $courseCode;
+		private string $name;
+		private int $semester;
+		private $creditVale;
+		private $description;
 
-    }
-    protected function pushMessageNotification(){
+		public function createCourseModule($courseCode, $name, $semester): CourseModule {
+			$this->courseCode = $courseCode;
+			$this->name = $name;
+			$this->semester = $semester;
+			return $this;
+		}
 
-    }
-}
-class AttendanceInstance{
-    // attribute of AttendanceInstance
-    private $entryID;
-    private $description;
-    private $date;
-    private $week;
-    private $attendance;
-    private $uploadedTime;
-    // method of AttendanceInstance
-    protected function addAttendance(){
+		public function setCourse($courseCode, $name, $semester, $creditValue, $description) {
+			$this->courseCode = $courseCode;
+			$this->name = $name;
+			$this->semester = $semester;
+			$this->creditVale = $creditValue;
+			$this->description = $description;
+		}
 
-    }
-    protected function viewAttendance(){
+		public function getCourseCode(): string {
+			return $this->courseCode;
+		}
 
-    }
-}
-class courseModule{
-    // attributes of courseModule
-    private $courseCode;
-    private $name;
-    private $semester;
-    private $creditVale;
-    private $description;
-    // methods of courseModeule
-    
-    public function getCourseCode(){
-        return $this->courseCode;
-    }
-    public function getName(){
-        return $this->name;
-    }
-    public function getSemester(){
-        return $this->semester;
-    }
-    public function getCreditVale(){
-        return $this->creditVale;
-    }
-    public function getDescription(){
-        return $this->description;
-    }   
-    
-    public function setCourse($courseCode,$name,$semester,$creditValue,$description){
-        $this->courseCode=$courseCode;
-        $this->name=$name;
-        $this->semester=$semester;
-        $this->creditVale=$creditValue;
-        $this->description=$description;
-    }
-}
-class EnrollFor{
-    // attributes of EnrollFor
-    private $indexNo;
-    private $courseCode;
-    private $courseName;
-    private $dailyAtendance;
-    private $percentage;
-    // methods of EnrollFor
-    protected function calculatePercentage(){
+		public function getName(): string {
+			return $this->name;
+		}
 
-    }
-    protected function addDate(){
+		public function getSemester(): int {
+			return $this->semester;
+		}
 
-    }
-    protected function viewAttendance(){
+		public function getCreditVale(): int {
+			return $this->creditVale;
+		}
 
-    }
-}
-class HallAllocation{
-    // attributes of HallAllocation
-    private $reservationID;
-    private $hallID;
-    private $from;
-    private $to;
-    private $category;
-    private $bookedBy;
-    private $description;
-    private $approvedBy;
-    private $approvalTime;
-    // methods of HallAllocation
-    protected function makeAllocation(){
+		public function getDescription(): string {
+			return $this->description;
+		}
 
-    }
-    protected function confirmAllocation(){
+		public function getStudentForYear(): int {
+			return ceil($this->semester / 2);
+		}
 
-    }
-    protected function rejectAllocationRequest(){
+	}
 
-    }
-}
-class Hall{
-    // attributes of Hall
-    private $hallID;
-    private $capacity;
-    private $hallType;
-    // methods of Hall
-    public function getHallID(){
-        return $this->hallID;
-    }
-    public function getCapacity(){
-        return $this->capacity;
-    }
-    public function getHallType(){
-        return $this->hallType;
-    }
-        
-    
-    public function setHall($hallID,$capacity,$hallType){
-        $this->hallID=$hallID;
-        $this->capacity=$capacity;
-        $this->hallType=$hallType;
-    }
-}
-class BookingCategory{
-    // attributes of BookingCategory
-    private $categoryCode;
-    private $categoryColor;
-    private $categoryName;
-}
-?>
+	class Hall {
+		// attributes of Hall
+		private $hallID;
+		private $capacity;
+		private $hallType;
+
+		// methods of Hall
+		public function getHallID() {
+			return $this->hallID;
+		}
+
+		public function getCapacity() {
+			return $this->capacity;
+		}
+
+		public function getHallType() {
+			return $this->hallType;
+		}
+
+
+		public function setHall($hallID, $capacity, $hallType) {
+			$this->hallID = $hallID;
+			$this->capacity = $capacity;
+			$this->hallType = $hallType;
+		}
+	}
