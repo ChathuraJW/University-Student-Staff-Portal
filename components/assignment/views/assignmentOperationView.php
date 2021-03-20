@@ -15,6 +15,8 @@
 <?php require_once('../../assets/php/basicLoader.php') ?>
 <?php BasicLoader::loadHeader('../../'); ?>
 <div class="featureBody bodyBackground text">
+    <a href="assignmentManagement" title="Back to managment page" style="font-size: 30px;padding: 20px;color: var(--fontColor)"><i class="fas
+    fa-arrow-circle-left"></i></a>
     <h1 class="heading">Assignment Management</h1>
     <div class="row col-2">
         <div class="assignmentPlanManagement">
@@ -73,7 +75,7 @@
 //						    operation buttons/links for each assignment
 							echo("
                         <div class='assignment'>
-                            <b><span>Assignment " . $row->getAssignmentID() . "</span></b><hr>
+                            <b><span>Assignment (#" . $row->getAssignmentID() . ")</span></b><hr>
                             <span class='assignmentTitle'>" . $row->getAssignmentName() . "</span>
                             <span>Weight: " . $row->getWeight() . "%</span>
                             <div class='row col-3'>

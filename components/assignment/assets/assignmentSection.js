@@ -52,6 +52,7 @@ function enableDisableInput(markID) {
     let checkBox = document.getElementById('chkBox' + markID);
     if (inputField.disabled) {
         // going to lock entry for add mark
+        //TODO API Point
         const serviceURL = "http://localhost/USSP/components/assignment/assets/saveAssignmentResultAPI.php?operation=lockEntry&markID=" + markID;
         $.getJSON(serviceURL, function (operationState) {
             if (operationState) {
@@ -67,6 +68,7 @@ function enableDisableInput(markID) {
         });
     } else {
         // release the lock for entry already put
+        //TODO API Point
         const serviceURL = "http://localhost/USSP/components/assignment/assets/saveAssignmentResultAPI.php?operation=unlockEntry&markID=" + markID;
         $.getJSON(serviceURL, function (operationState) {
             if (operationState) {
@@ -92,6 +94,7 @@ function saveStudentMark(markID) {
     if (studentMark > 0 && studentMark < 101) {
         // temporally hide the save button
         saveDataButton.style.display = 'none';
+        //TODO API Point
         const serviceURL = "http://localhost/USSP/components/assignment/assets/saveAssignmentResultAPI.php?operation=addMark&markID=" + markID + "&newMark=" + studentMark;
         $.getJSON(serviceURL, function (operationState) {
             if (operationState) {

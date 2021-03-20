@@ -14,13 +14,16 @@
 		$userName = $_GET['username'];
 		$password = $_GET['password'];
 		$role = $_GET['role'];
+//		get password salt
+		$sqlQuery = "SELECT passwordSalt FROM user WHERE userName='$userName'";
+		$passwordSalt = $dbInstance->executeTransaction($sqlQuery)[0]['passwordSalt'];
 		$sqlQuery = "SELECT * FROM user WHERE userName='$userName' and role='$role' LIMIT 1";
 		$result = $dbInstance->executeTransaction($sqlQuery);
 		$returnValue = false;
 		if (sizeof($result) > 0) {
 			$sqlQuery = "SELECT userName,password, salutation, fullName, role FROM user WHERE userName='$userName'";
 			$result = $dbInstance->executeTransaction($sqlQuery);
-			if (($result[0]["password"]) == $password) {
+			if (($result[0]["password"]) == hash('sha256', "$password$passwordSalt")) {
 				$returnValue = $result;
 			}
 		}

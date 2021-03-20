@@ -47,6 +47,7 @@ function fillCurrentAllocationMap() {
     let selectedDate = document.getElementById('selectedDate').value;
 
     // create API calling link
+    //TODO API Point
     let requestURL = "http://localhost/USSP/components/hallBooking/assets/hallBookingAPI.php?operation=loadCurrentAllocation&dateSelected=" + selectedDate;
     // call API for data
     $.getJSON(requestURL, function (timetableEntryList) {

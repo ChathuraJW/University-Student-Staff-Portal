@@ -161,14 +161,14 @@
                             <option value="">Academic Support Staff</option>
 							<?php
 								foreach ($controllerData[2] as $data) {
-									echo("<option value='" . $data->getUserName() . "'>" . $data->getSalutation() . " " . $data->getFirstName() . " " . $data->getLastName() . "</option>");
+									if ($data->getUserName() != $_COOKIE['userName'])
+										echo("<option value='" . $data->getUserName() . "'>" . $data->getSalutation() . " " . $data->getFirstName() . " " . $data->getLastName() . "</option>");
 								}
 							?>
                         </select>
                     </div>
                     <div>
-                        <textarea name="conductStaffList" id="conductStaffList" cols="30" rows="6" required readonly>
-                        </textarea>
+                        <textarea name="conductStaffList" id="conductStaffList" cols="30" rows="6" required readonly></textarea>
                     </div>
                 </div>
                 <br>

@@ -104,7 +104,7 @@
 //            commit transaction
 				$isCommitted = $database->commitToDatabase();
 				if ($isCommitted) {
-					echo("<script>createToast('Success','Hall reservation request successfully placed.','S');</script>");
+					echo("<script>createToast('Success','Assignment plan creation successful.','S');</script>");
 
 				} else {
 					echo("<script>createToast('Warning (error code: #AOM01)','Failed to Create Assignment Plan.','W')</script>");

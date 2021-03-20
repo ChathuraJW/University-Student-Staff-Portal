@@ -1,4 +1,5 @@
 <?php
+	require_once('Model.php');
 
 	class Database {
 
@@ -91,7 +92,7 @@
 			if ($this->getTransactionState())
 				if ($this->connection->commit()) {
 //				 	create log file entry
-					createLog($timestamp, $this->descriptionMessages, $transactionID);
+					Model::createLog($timestamp, $this->descriptionMessages, $transactionID);
 					return true;
 				} else {
 					return false;
@@ -163,17 +164,4 @@
 		public function closeConnection() {
 			$this->connection->close();
 		}
-	}
-
-	function createLog($timestamp, $description, $transactionID = 0) {
-		$description = trim($description, ' ');
-		if ($transactionID == 0)
-			$fileEntry = "$timestamp      ::::    $description\n";
-		else
-			$fileEntry = "$timestamp      ::::    [Transaction ID: $transactionID]-$description\n";
-//		append to the log file
-		if (file_exists("../../system.log"))
-			file_put_contents("../../system.log", $fileEntry, FILE_APPEND);
-		else
-			file_put_contents("../../../system.log", $fileEntry, FILE_APPEND);
 	}

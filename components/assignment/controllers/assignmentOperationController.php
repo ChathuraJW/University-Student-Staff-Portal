@@ -42,54 +42,58 @@
 					echo("<script>createToast('Warning (error code: #AOM02-A)','Fail to load basic data.','W')</script>");
 
 //				this button can be click in multiple instances
-				if (isset($_POST['saveChanges'])) {
+				self::buttonOperation();
+			}
+		}
+
+		private static function buttonOperation() {
+			if (isset($_POST['saveChanges'])) {
 //					create object from assignment class to store new/edited data
-					$assignment = new Assignment;
-					if (isset($_GET['operation']) & $_GET['operation'] === 'edit') {
+				$assignment = new Assignment;
+				if (isset($_GET['operation']) & $_GET['operation'] === 'edit') {
 //          	        edit exist assignment
-						$assignment->createAssignment($_GET['assignmentID'], $_GET['planID'], $_POST['assignmentName'], $_POST['assignmentType'], $_POST['assignmentWeight'], $_POST['assignmentDescription']);
+					$assignment->createAssignment($_GET['assignmentID'], $_GET['planID'], $_POST['assignmentName'], $_POST['assignmentType'], $_POST['assignmentWeight'], $_POST['assignmentDescription']);
 //	                    call data update function in model
-						AssignmentOperationModel::editAssignment($assignment);
+					AssignmentOperationModel::editAssignment($assignment);
 //						location redirection
-						$redirectLocation = "assignmentOperation?planID=" . $_GET['planID'];
-						echo("
-						<script>
-							setTimeout(function () {
-						        window.location='$redirectLocation';
-						    }, 3000);
-						</script>
-					");
-
-					} elseif (isset($_GET['operation']) & $_GET['operation'] === 'create') {
-//          		    create new assignment section
-						$assignment->createAssignment(null, $_GET['planID'], $_POST['assignmentName'], $_POST['assignmentType'], $_POST['assignmentWeight'], $_POST['assignmentDescription']);
-//	                    call data update function in model
-						AssignmentOperationModel::createNewAssignment($assignment);
-//						location redirection
-						$redirectLocation = "assignmentOperation?planID=" . $_GET['planID'];
-						echo("
-						<script>
-							setTimeout(function () {
-						        window.location='$redirectLocation';
-						    }, 3000);
-						</script>
-					");
-					}
-
-				} elseif (isset($_GET['operation']) & $_GET['operation'] === 'delete') {
-//					handle delete assignment operation
-					$selectedAssignmentID = $_GET['assignmentID'];
-//					call model function to delete assignment
-					AssignmentOperationModel::deleteAssignment($selectedAssignmentID);
-//					location redirection
+					$redirectLocation = "assignmentOperation?planID=" . $_GET['planID'];
 					echo("
+						<script>
+							setTimeout(function () {
+						        window.location='$redirectLocation';
+						    }, 3000);
+						</script>
+					");
+
+				} elseif (isset($_GET['operation']) & $_GET['operation'] === 'create') {
+//          		    create new assignment section
+					$assignment->createAssignment(null, $_GET['planID'], $_POST['assignmentName'], $_POST['assignmentType'], $_POST['assignmentWeight'], $_POST['assignmentDescription']);
+//	                    call data update function in model
+					AssignmentOperationModel::createNewAssignment($assignment);
+//						location redirection
+					$redirectLocation = "assignmentOperation?planID=" . $_GET['planID'];
+					echo("
+						<script>
+							setTimeout(function () {
+						        window.location='$redirectLocation';
+						    }, 3000);
+						</script>
+					");
+				}
+
+			} elseif (isset($_GET['operation']) & $_GET['operation'] === 'delete') {
+//					handle delete assignment operation
+				$selectedAssignmentID = $_GET['assignmentID'];
+//					call model function to delete assignment
+				AssignmentOperationModel::deleteAssignment($selectedAssignmentID);
+//					location redirection
+				echo("
 						<script>
 							setTimeout(function () {
 						        window.location='assignmentManagement';
 						    }, 3000);
 						</script>
 					");
-				}
 			}
 		}
 	}

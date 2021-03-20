@@ -22,11 +22,15 @@
                 <span class="captionLabel">Current GPA</span>
                 <div class="row col-2">
                     <div>
-                        <span class="infoBoxValue" id="valueGPA" style="padding-bottom: 0;padding-top: 20px;"><?php echo(round($controllerData[0],2))?></span>
+                        <span class="infoBoxValue" id="valueGPADegree" style="padding-bottom: 0;padding-top: 20px;">
+                            <?php echo(round($controllerData[0],2))?>
+                        </span>
                         <span style="text-align: center;display: block;">Degree GPA</span>
                     </div>
                     <div style="border-left: 2px solid gray">
-                        <span class="infoBoxValue" id="valueGPA" style="padding-bottom: 0;padding-top: 20px;"><?php echo(round($controllerData[4], 2))?></span>
+                        <span class="infoBoxValue" id="valueGPAClass" style="padding-bottom: 0;padding-top: 20px;">
+                            <?php echo(round($controllerData[4], 2))?>
+                        </span>
                         <span style="text-align: center;display: block;">Class GPA</span>
                     </div>
                 </div>

@@ -119,16 +119,16 @@
                 <div class="row col-2">
                     <div>
                         <span class="inputHeading">From</span>
-                        Date: <input type="date" name="fromData"><br>
-                        Time: <input type="time" name="fromTime" min="08:00" max="19:00" value="13:00:00">
+                        Date: <input type="date" id="fromData" name="fromData" required"><br>
+                        Time: <input type="time" name="fromTime" min="08:00" max="19:00" step="30" required>
                     </div>
                     <div>
                         <span class="inputHeading">To</span>
-                        Date: <input type="date" name="toData"><br>
-                        Time: <input type="time" name="toTime" min="08:00" max="19:00" value="15:00:00">
+                        Date: <input type="date" name="toData" id="toData" required"><br>
+                        Time: <input type="time" name="toTime" min="08:00" max="19:00" step="30" required>
                     </div>
                 </div>
-                <span class="inputHeading">description</span>
+                <span class="inputHeading">Description</span>
                 <textarea name="description" rows="10" style="width:90%;resize: none;" required></textarea>
                 <div class="buttonCouple">
                     <input type="submit" name="createRequest" value="Create Request" class="button"

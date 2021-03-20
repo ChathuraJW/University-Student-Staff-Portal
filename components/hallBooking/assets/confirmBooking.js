@@ -14,6 +14,7 @@ function rearrangeContent(buttonID) {
 function respondOperation(requestID) {
     if (confirm('Are you user to temporally close the session?')) {
         // call confirmBookingAPI for operation
+        //TODO API Point
         const requestURL = "http://localhost/USSP/components/hallBooking/assets/hallBookingAPI.php?operation=respond&requestID=" + requestID;
         $.getJSON(requestURL, function (operationState) {
             if (operationState === 1) {
@@ -37,6 +38,7 @@ function confirmSelectedBooking() {
         // check whether declaration checked
         if (isChecked) {
             // call confirmBookingAPI for operation
+            //TODO API Point
             const requestURL = "http://localhost/USSP/components/hallBooking/assets/hallBookingAPI.php?operation=confirm&requestID=" + selectedRequestID;
             $.getJSON(requestURL, function (operationState) {
                 if (operationState === 1) {

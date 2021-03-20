@@ -18,8 +18,8 @@ function processData(){
         alert("Complete all fields before authenticate and make sure to use correct credentials.");
         location.reload();
     }
-    let url = "http://localhost/USSP/components/exam/assets/resultCreateClinetAPI.php?username=" + username + "&role=AD" + "&password=" + CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-    // console.log(url);
+
+    let url = "http://localhost/USSP/components/exam/assets/resultCreateClinetAPI.php?username=" + username + "&role=AD" + "&password=" + password;
     $.getJSON(url,function(data){
             if(data){
                 document.getElementById('container').style.display='block';
@@ -42,7 +42,6 @@ function processData(){
 let totalIndex=0;
 function createList(subjectCode,attempt){
     let url = "http://localhost/USSP/components/exam/assets/resultCreateClinetAPI.php?subjectCode=" + subjectCode + "&attempt=" + attempt;
-    // console.log(url);
     $.getJSON(url, function (data) {
         let table = document.getElementById("loadHear");
         let tempIndex=0;

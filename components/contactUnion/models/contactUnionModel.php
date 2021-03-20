@@ -50,13 +50,12 @@
 				        <p>
 				            Send By, <br>
 				            $sender <br>
-				            1 <sup>st</sup> Year CS Student.
 				        </p>
 				        <p style='font-size:10px;'>
 				            Client IP: $clientIP <br>
 				            Date: $date
 				        </p>
-				        <h6 style='color:red;padding:10px;border:1px solid red;text-align:center;'>Notice that this message is genarated acoring to the user message to the &#174;USSP system.</h6>
+				        <h6 style='color:red;padding:10px;border:1px solid red;text-align:center;'>Notice that this message is generated according to the user message to the &#174;USSP system.</h6>
 				    </div>
 		        ";
 //      start transaction

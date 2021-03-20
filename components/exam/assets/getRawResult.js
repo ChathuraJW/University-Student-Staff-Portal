@@ -34,6 +34,7 @@ function cryptoOperation(fileOwnerName, fileSign, encSecrete, dataHash, encrypte
     let SARPrivateKey = prompt("Enter the private key hear.");
     if (SARPrivateKey !== '') {
         // take sender public key
+        //TODO API Point
         let url = "http://localhost/USSP/components/exam/assets/resultCreateClinetAPI.php?task=takeUserPublicKey&userName=" + fileOwnerName;
         $.getJSON(url, function (key) {
             // get public key

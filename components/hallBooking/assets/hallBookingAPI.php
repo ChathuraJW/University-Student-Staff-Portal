@@ -2,12 +2,8 @@
 	require_once('../../../assets/mvc/Database.php');
 	require_once('../../../assets/mvc/Notification.php');
 	require_once('../../../assets/php/sendMail.php');
-	if (isset($_GET['operation']) & $_GET['operation'] == 'respond') {
-		$requestID = $_GET['requestID'];
 
-		$dbInstance = new Database;
-		$dbInstance->establishTransaction('generalAccess', 'generalAccess@16');
-//        get data for selected request
+	function getDataOfSelectedRequestEntry($dbInstance, $requestID) {
 		$sqlQuery = "SELECT * FROM hall_reservation_details WHERE reservationID=$requestID";
 		$selectedRequest = $dbInstance->executeTransaction($sqlQuery)[0];
 //        initialize variable for next query
@@ -18,7 +14,16 @@
 		//try for further optimization
 		$sqlQuery = "SELECT reservationID,hallID,reserveUserName,fullName,type,requestMadeAt,reservationStates,isUnderReview 
         FROM hall_reservation_details WHERE hallID='$hallID' AND ((fromTimestamp < '$toTS' AND toTimestamp > '$fromTS') OR fromTimestamp='$fromTS') ";
-		$result = $dbInstance->executeTransaction($sqlQuery);
+		return $dbInstance->executeTransaction($sqlQuery);
+	}
+
+	if (isset($_GET['operation']) & $_GET['operation'] == 'respond') {
+		$requestID = $_GET['requestID'];
+
+		$dbInstance = new Database;
+		$dbInstance->establishTransaction('generalAccess', 'generalAccess@16');
+//        get data for selected request
+		$result = getDataOfSelectedRequestEntry($dbInstance, $requestID);
 		foreach ($result as $row) {
 			$sqlQuery = "UPDATE user_receive_hall SET isUnderReview=false WHERE reservationID=" . $row['reservationID'];
 			$dbInstance->executeTransaction($sqlQuery);
@@ -62,17 +67,7 @@
 
 //        load same slot request to change state to 'R' state
 //        get data for selected request
-		$sqlQuery = "SELECT * FROM hall_reservation_details WHERE reservationID=$requestID";
-		$selectedRequest = $dbInstance->executeTransaction($sqlQuery)[0];
-//        initialize variable for next query
-		$hallID = $selectedRequest['hallID'];
-		$fromTS = $selectedRequest['fromTimestamp'];
-		$toTS = $selectedRequest['toTimestamp'];
-
-		//try for further optimization 16 Line
-		$sqlQuery = "SELECT reservationID,hallID,reserveUserName,fullName,type,requestMadeAt,reservationStates,isUnderReview 
-        FROM hall_reservation_details WHERE hallID='$hallID' AND ((fromTimestamp < '$toTS' AND toTimestamp > '$fromTS') OR fromTimestamp='$fromTS') ";
-		$result = $dbInstance->executeTransaction($sqlQuery);
+		$result = getDataOfSelectedRequestEntry($dbInstance, $requestID);
 //        change the state of rest of requests to 'R' state
 		foreach ($result as $row) {
 //            ignore approved request
