@@ -1,6 +1,5 @@
 <?php
 
-
 	class User {
 		//attributes of User
 		protected string $salutation;
@@ -232,27 +231,76 @@
 
 	class CourseModule {
 		// attributes of courseModule
-		private string $CourseCode;
+		private string $courseCode;
 		private string $name;
 		private int $semester;
+		private $creditVale;
+		private $description;
 
 		public function createCourseModule($courseCode, $name, $semester): CourseModule {
-			$this->CourseCode = $courseCode;
+			$this->courseCode = $courseCode;
 			$this->name = $name;
 			$this->semester = $semester;
 			return $this;
 		}
 
+		public function setCourse($courseCode, $name, $semester, $creditValue, $description) {
+			$this->courseCode = $courseCode;
+			$this->name = $name;
+			$this->semester = $semester;
+			$this->creditVale = $creditValue;
+			$this->description = $description;
+		}
+
 		public function getCourseCode(): string {
-			return $this->CourseCode;
+			return $this->courseCode;
 		}
 
 		public function getName(): string {
 			return $this->name;
 		}
 
+		public function getSemester(): int {
+			return $this->semester;
+		}
+
+		public function getCreditVale(): int {
+			return $this->creditVale;
+		}
+
+		public function getDescription(): string {
+			return $this->description;
+		}
+
 		public function getStudentForYear(): int {
 			return ceil($this->semester / 2);
 		}
 
+	}
+
+	class Hall {
+		// attributes of Hall
+		private $hallID;
+		private $capacity;
+		private $hallType;
+
+		// methods of Hall
+		public function getHallID() {
+			return $this->hallID;
+		}
+
+		public function getCapacity() {
+			return $this->capacity;
+		}
+
+		public function getHallType() {
+			return $this->hallType;
+		}
+
+
+		public function setHall($hallID, $capacity, $hallType) {
+			$this->hallID = $hallID;
+			$this->capacity = $capacity;
+			$this->hallType = $hallType;
+		}
 	}

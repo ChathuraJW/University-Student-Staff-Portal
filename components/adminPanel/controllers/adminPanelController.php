@@ -1,12 +1,10 @@
 <?php
-
 	class AdminPanelController extends Controller {
-
 		public static function open() {
-//			check weather the cookie is created or not
+//			heck weather the cookie is created or not
 			if (!isset($_COOKIE['adminSelectedFeature'])) {
 //				create initial view without feature loading
-				self::createView("adminPanelView",false);
+				self::createView("adminPanelView", false);
 			} else {
 //				get cookie value to a variable and select necessary function using below statements
 				$feature = $_COOKIE['adminSelectedFeature'];
@@ -24,10 +22,10 @@
 						$selectedFeature = "UserManagementController::changeStudentGroup";
 						break;
 					case "subjectManagement":
-						$selectedFeature = "";
+						$selectedFeature = "subjectManagementController::subjectManagementOpen";
 						break;
 					case "facilityManagement":
-						$selectedFeature = "";
+						$selectedFeature = "facilityManagementController::facilityManagementOpen";
 						break;
 					case "userPrivilegeManagement":
 						$selectedFeature = "PrivilegeManagementController::init";
@@ -38,8 +36,8 @@
 					case "scholarshipStudent":
 						$selectedFeature = "StudentFeatureManagementController::scholarshipStudent";
 						break;
-					case "":
-						$selectedFeature = "";
+					case "timetableManagement":
+						$selectedFeature = "timetableManagementController::timetableManagementOpen";
 						break;
 					case "basicSystemConfig":
 						$selectedFeature = "SystemConfigController::doSystemConfigs";
@@ -59,7 +57,7 @@
 					case "backupConfig":
 						$selectedFeature = "BackupManagementController::configBackup";
 						break;
-//						related to feature management
+//					related to feature management
 //					case "addNewFeature":
 //						$selectedFeature = "";
 //						break;
@@ -67,11 +65,8 @@
 //						$selectedFeature = "";
 //						break;
 				}
-//				call view creation function with selected function
+				//				call view creation function with selected function
 				self::createView("adminPanelView", $selectedFeature);
 			}
 		}
-
 	}
-
-?>
