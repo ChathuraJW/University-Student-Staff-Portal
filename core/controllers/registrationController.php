@@ -12,10 +12,7 @@
                 $address=ucwords($_POST['address']);
                 $personalEmail=$_POST['personalEmail'];
 //                backend password validation
-                if($password===$repeatPassword)
-                    $hashedPassword = hash('sha256', $password);
-                else
-                    die("Invalid password pair.");
+        
 //                save image to directory
                 $fileName=$_COOKIE['userName'].'.png';
                 $name = $_FILES['profilePic']['name'];
@@ -27,12 +24,25 @@
                         $isFileUploaded = true;
                     }
                 }
+                else{
+                    if($gender=='M'){
+                        $location = './assets/profile picture/userMale.jpg';
+                    }
+                    else{
+                        $location = './assets/profile picture/userFemale.jpg';
+                    }
+                }
                 if(isset($isFileUploaded) & $isFileUploaded){
-                    $isUpdated=RegistrationModel::updateUserData($hashedPassword,$gender,$salutation,$telephone,$address,$personalEmail,$fileName);
+                    if($password===$repeatPassword)
+                        $isUpdated=RegistrationModel::updateUserData($password,$gender,$salutation,$telephone,$address,$personalEmail,$fileName);
+                        
+                    else
+                        die("Invalid password pair.");
                     if(!$isUpdated)
                         die();
                     else{
                         //redirect to home
+                        header("location: home");
                     }
                 } else
                     die();
