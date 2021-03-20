@@ -1,9 +1,10 @@
 <?php
     class RespondAppointmentModel extends Model{
         public static function getData(){
-           setcookie('userName','kpk');
+            setcookie('userName','kpk');
             $staffID=$_COOKIE['userName'];
-            $queryOne="SELECT * FROM meeting_appointment WHERE staffID='$staffID' AND isApproved='N' AND requesValidity=1";
+            $current=date("Y-m-d");
+            $queryOne="SELECT * FROM meeting_appointment WHERE staffID='$staffID' AND isApproved='N' AND appointmentDate>='$current' AND requesValidity=1";
             $appointmentList= array();
             $appointments=Database::executeQuery("academicStaff","academicStaff@16",$queryOne);
             foreach($appointments as $appointment){
@@ -20,10 +21,11 @@
 
         }
         public static function getPastData(){
-           setcookie('userName','kpk');
+            setcookie('userName','kpk');
             $staffID=$_COOKIE['userName'];
-            
-            $query="SELECT * FROM meeting_appointment WHERE staffID='$staffID' AND isApproved='A' OR isApproved='R'";
+            $current=date("Y-m-d");
+            $past= date('Y-m-d',strtotime('-2 week',strtotime($current)));
+            $query="SELECT * FROM meeting_appointment WHERE staffID='$staffID' AND appointmentDate>='$past' AND isApproved='A' OR isApproved='R'";
             $appointments=Database::executeQuery("academicStaff","academicStaff@16",$query);
             foreach($appointments as $appointment){
                 $newAppointment= new AppointmentsForMeeting;

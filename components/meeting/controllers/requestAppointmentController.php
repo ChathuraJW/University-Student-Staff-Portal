@@ -35,12 +35,17 @@ class RequestAppointmentController extends Controller{
             else{
                 $typecode=5400;
             }
-            RequestAppointmentModel::insertData($lecturer,$typecode,$title,$timeDuration,$message,$studentID,$date,$time);
-            echo ("
-                <script>
-                    window.location.href=document.location.href.toString().split('requestAppointment')[0]+'requestAppointment';
-                </script>
-            ");
+            if($lecturer!="" && $typecode!=""&& $title!=""&& $timeDuration!=""&& $message!=""&& $date!=""&& $time!=""){
+                RequestAppointmentModel::insertData($lecturer,$typecode,$title,$timeDuration,$message,$studentID,$date,$time);
+            }
+            else{
+                echo("<script>createToast('Warning (error code: #APR01)','Failed to Request.Fill the all fields of form ','W')</script>");
+            }
+            // echo ("
+            //     <script>
+            //         window.location.href=document.location.href.toString().split('requestAppointment')[0]+'requestAppointment';
+            //     </script>
+            // ");
         }
     }
     

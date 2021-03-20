@@ -15,7 +15,7 @@
     <?php BasicLoader::loadHeader('../../') ?>
     
     <!-- feature body section -->
-    <div class="featureBody" >
+    <div class="featureBody bodyBackground text" >
         
         <div id="tabFirst" class="row col-2 tabContaint" >
             <div>
@@ -35,7 +35,7 @@
                             foreach($records as $record){
                                 
                                 
-                                $url="?appointID=".$record->getAppointmentID()."&category1=".$category1."&studentID=".$record->getStudentID()."&title=".$record->getTitle()."&message=".$record->getMessage()."&duration=".$record->getMeetingDuration()."&time=".$record->getTimestamp()."&isApproved=".$record->getIsApproved()."&type=".$record->getType()."&validity=".$record->getRequestValidity();
+                                $url="?appointID=".$record->getAppointmentID()."&category1=".$category1."&studentID=".$record->getStudentID()."&title=".$record->getTitle()."&message=".$record->getMessage()."&duration=".$record->getMeetingDuration()."&time=".$record->getAppointmentTime()."&date=".$record->getAppointmentDate()."&isApproved=".$record->getIsApproved()."&type=".$record->getType()."&validity=".$record->getRequestValidity();
                                 if($record->getTitle()==5100){ 
                                     $background= "linear-gradient(to bottom right, rgb(130, 164, 182),white)";
                                 }
@@ -80,7 +80,7 @@
                             
                                 foreach($dataSet as $data){ 
                                     
-                                    $url2="?appointID=".$data->getAppointmentID()."&category2=".$category2."&studentID=".$data->getStudentID()."&title=".$data->getTitle()."&message=".$data->getMessage()."&duration=".$data->getMeetingDuration()."&time=".$data->getTimestamp()."&isApproved=".$data->getIsApproved()."&type=".$data->getType()."&validity=".$data->getRequestValidity();
+                                    $url2="?appointID=".$data->getAppointmentID()."&category2=".$category2."&studentID=".$data->getStudentID()."&title=".$data->getTitle()."&message=".$data->getMessage()."&duration=".$data->getMeetingDuration()."&time=".$data->getAppointmentTime()."&date=".$data->getAppointmentDate()."&isApproved=".$data->getIsApproved()."&type=".$data->getType()."&validity=".$data->getRequestValidity();
                                         
                                     echo("
                                         <div class='row col-1'>
@@ -163,6 +163,16 @@
                                         <div class="row col-2">
                                             <div>
                                                 <p id="i" class="vale" style="font-weight:bold;">Date </p>
+                                            </div>
+                                            <div>
+                                                <p class="vale"> <?php echo $_GET['date']?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ttl">
+                                        <div class="row col-2">
+                                            <div>
+                                                <p id="i" class="vale" style="font-weight:bold;">Time </p>
                                             </div>
                                             <div>
                                                 <p class="vale"> <?php echo $_GET['time']?></p>
@@ -249,6 +259,16 @@
                                             <p id="i" class="vale" style="font-weight:bold;">Date </p>
                                         </div>
                                         <div>
+                                            <p class="vale"> <?php echo $_GET['date']?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ttl">
+                                    <div class="row col-2">
+                                        <div>
+                                            <p id="i" class="vale" style="font-weight:bold;">Time </p>
+                                        </div>
+                                        <div>
                                             <p class="vale"> <?php echo $_GET['time']?></p>
                                         </div>
                                     </div>
@@ -274,13 +294,11 @@
         </div>
         
         
-
-        
-
-
     </div>
     <!-- <p id="demo" onclick="myFunction()">Click me to change my text color.</p> -->
-
+    <script src="../../assets/js/jquery.js"></script>
+    <script src="../../assets/js/toast.js"></script>
+    <script src="../../assets/js/changeTheme.js"></script>
     <script>
         function close(){
             document.getElementById("default").style.display = "none";

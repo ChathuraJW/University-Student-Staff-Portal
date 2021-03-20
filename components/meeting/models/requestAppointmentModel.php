@@ -19,11 +19,11 @@
                 }
                 else{
     //                display fail message
-                    echo("<script>createToast('Warning (error code: #WLR01)','Failed to Request .','W')</script>");
+                    echo("<script>createToast('Warning (error code: #APR02)','Failed to Request .','W')</script>");
                 }
             }
             else{
-                echo("<script>createToast('Warning (error code: #WLR01)','Failed to Request  .','W')</script>");
+                echo("<script>createToast('Warning (error code: #APR02)','Failed to Request  .','W')</script>");
 
             }
             $databaseInstance->closeConnection();

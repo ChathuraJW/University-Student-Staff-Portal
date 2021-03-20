@@ -138,7 +138,7 @@
                     <!-- <div id="allocationTitle">Allocated Times of <p id="lectureName"></p> in <p id="requestDate"></p><br><br></div> -->
 
                     <div id="allocatedSlots">
-
+                        <!-- this will contain the allocated time slot of the specific lecturer -->
                     </div>
                     <div class="row col-1">
                         <textarea class="description" type="text" id="description" name="msg" placeholder="Description"></textarea><br>
@@ -172,7 +172,7 @@
                                                 <h3><?php echo $profile->getSalutation().".".$profile->getFullName()?></h3>
                                             </div>
                                             <div class="row col-1 img" style="margin-left:20px;">
-                                                <img src="../../assets/image/profilePicture.PNG" style="background-color: rgb(247, 226, 245,1);" alt="">
+                                                <img src="assets/profilePicture.JPG" style="background-color: rgb(247, 226, 245,1);" alt="">
                                             </div>
                                         </div >
                                         
@@ -180,7 +180,7 @@
                                             
                                             <div class="row col-2 profData">
                                                 <div>
-                                                    <h4>Email Address:</h4>
+                                                    <h4>Email Address</h4>
                                                 </div>
                                                 <div>
                                                     <div><?php echo $profile->getUniversityEmail()?></div>
@@ -293,60 +293,10 @@
    
     </div>
     <script src="../../assets/js/jquery.js"></script>
-    <script>
-        
-        function remove(){
-            document.getElementById("messageSecond").style.display="none";
-            // window.location.href=document.location.href.toString().split('requestAppointment')[0]+'requestAppointment';
-            
-        }
-        function openTab(tabs){
-            document.getElementById("tabFirst").style.display="none";
-            document.getElementById("tabSecond").style.display="none";
-            
-            document.getElementById(tabs).style.display="";
-        }
+    <script src="../../assets/js/toast.js"></script>
+    <script src="../../assets/js/changeTheme.js"></script>
 
-        function hover(link){
-            document.getElementById("linkFirst").style.backgroundColor  = "rgb(148, 195, 238)";
-            document.getElementById("linkSecond").style.backgroundColor  = "rgb(148, 195, 238)";
-            document.getElementById(link).style.backgroundColor  = "rgb(58, 189, 212)";
-        }
-        function allocatedTime(){
-            
-            
-            document.getElementById("allocatedSlots").innerHTML="";
-
-            var username=document.getElementById("lecture2").value;
-            var date=document.getElementById("dateValue").value;
-            // document.getElementById("lectureName").innerHTML=document.getElementById("lecture2").fullName;
-            // document.getElementById("requestDate").innerHTML=document.getElementById("dateValue").value;
-            
-            var url="http://localhost/USSP/components/meeting/assets/allocatedTimeAPI.php?username="+username+"&date="+date+"";
-            console.log(url);
-            $.getJSON(url,function(dataList){
-                    console.log(dataList);
-
-                    element ='<div id="allocationTitle">Allocated Times of '+dataList[1][0]['salutation']+' '+dataList[1][0]['fullName']+' in '+dataList[2]+'<br><br></div>';
-                    $('#allocatedSlots').append(element);
-                    for (var i=0;i<dataList.length;i++){
-                    var element='';
-
-                    element +='<div class="elementTab">';
-                    element +='<div class="elementName">'+dataList[0][i]['day']+'  From-'+dataList[0][i]['fromTime']+'   To-'+dataList[0][i]['toTime']+'</div>';
-                    element +='</div>';
-                    $('#allocatedSlots').append(element);
-                    }
-
-                    
-            });
-            // document.getElementById("hallID").disabled= true;
-            console.clear();
-        
-
-        }
-
-    </script>
+    <script src="assets/requestAppointment.js"></script>
     
 
     <!-- include footer section -->
