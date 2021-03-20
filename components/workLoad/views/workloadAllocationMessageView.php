@@ -108,7 +108,7 @@
                 
                 <form id="allocationForm" class="search" id="search" method="post"action="">
                     <h2 style="margin-top:30px;margin-bottom:20px;" class="head">Select Members</h2>
-                    <div class="row col-3">
+                    <div class="row col-2">
                         
                         
                         <!-- <div></div> -->
@@ -137,8 +137,8 @@
                                 <input type="time" class="searchInput" id="endTime"  name="toTime" value="<?php echo $_GET['toTime']?>"  require>
                             </div>
                         </div>
-
-                        <div style="text-align:center;margin-top:45px;width:80px;" >
+                        <div></div>
+                        <div style="text-align:center;width:80px;margin-left:25%;" >
                             <button class="button searchButton" id="search" type="button" onclick="displaySearch()" name="submit" >Search <i class="fa fa-search" aria-hidden="true"></i></button>
                         </div>
                     </div>
@@ -149,7 +149,7 @@
         <form action="" method="post" id="allocationForm" >
                         <div id="searchStaff" style="color:black;display:none;"><!-- here display the all supportive staff free in mentioned time slot -->
                             <!-- <form action="" id="searchForm"method="post"> -->
-                                <div style="margin-top:10px;color:white;">If You Want Select More Than One Member Select Members with Pressing CTRL Button</div>
+                                <div style="margin-top:10px;color:black;">If You Want Select More Than One Member Select Members with Pressing CTRL Button</div>
                                 <?php
                                     // for($i=1;$i<12;$i++){
                                         // echo 
@@ -159,7 +159,7 @@
                                         //     </div>";
                                     // }
                                     echo "
-                                        <select name='members[]' id='searchMembersOptions' multiple ></select>
+                                        <select class='memberSearch' name='members[]' id='searchMembersOptions' multiple ></select>
                                         
                                         ";
                                     

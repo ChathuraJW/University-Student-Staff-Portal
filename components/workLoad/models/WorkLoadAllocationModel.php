@@ -2,7 +2,7 @@
     class WorkLoadAllocationModel extends Model{ 
         public static function getWorkLoad(){
             $workLoadList= array();
-            $workLoads=Database::executeQuery("root","","SELECT * FROM workload,User where workload.workloadOwner=User.userName AND workload.checkValue=0;");
+            $workLoads=Database::executeQuery("academicSupportiveHead","academicSupportiveHead@16","SELECT * FROM workload,User where workload.workloadOwner=User.userName AND workload.checkValue=0;");
             // print_r($workLoads);
 
             foreach($workLoads as $workLoad){
@@ -18,7 +18,7 @@
             $timestamp=date("F j, Y \a\t g:ia");
             $length=sizeof($members);
             $databaseInstance=new Database;
-            $databaseInstance->establishTransaction('root','');
+            $databaseInstance->establishTransaction('academicSupportiveHead','academicSupportiveHead@16');
             for($i=0;$i<$length;$i++){
                 print_r($members[$i]);
                 $query="INSERT INTO academic_support_staff_workload(staffID, workloadID, allocationTimestamp, isChecked) VALUES ('".$members[$i]."',".$workloadID.",NOW(),0)";

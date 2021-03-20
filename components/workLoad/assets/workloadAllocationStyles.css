@@ -287,3 +287,6 @@
 #searchMembersOptions{
     width:98%
 }
+.memberSearch{
+    height: fit-content;
+}

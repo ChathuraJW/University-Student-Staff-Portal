@@ -5,7 +5,7 @@
             // print_r($sign);
             $workLoadMessageList=array();
             $query="SELECT * FROM workload,academic_support_staff_workload,user WHERE academic_support_staff_workload.staffID='".$username."' AND academic_support_staff_workload.workloadID=workload.workloadID AND user.username=workload.workloadOwner AND academic_support_staff_workload.isChecked=".$sign;
-            $messages=Database::executeQuery("root","","$query");
+            $messages=Database::executeQuery("academicSupportiveGeneral","academicSupportiveGeneral@16","$query");
             foreach($messages as $message){
                 $newMessage= new AllocatedWorkload;
                 
@@ -20,7 +20,7 @@
 
         public static function setReply($reply,$workloadID,$response,$username){
             $databaseInstance=new Database;
-            $databaseInstance->establishTransaction('root','');
+            $databaseInstance->establishTransaction('academicSupportiveGeneral','academicSupportiveGeneral@16');
             $query="UPDATE academic_support_staff_workload SET reply='".$reply."',isChecked=1,response='".$response."' WHERE workloadID=".$workloadID." AND staffID='".$username."'";
             $databaseInstance->executeTransaction($query);
 
