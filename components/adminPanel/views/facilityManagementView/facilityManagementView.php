@@ -66,6 +66,7 @@
 </div>
 <script src="../../assets/js/jquery.js"></script>
 <script src="../../assets/js/toast.js"></script>
+<script src="../../assets/js/changeTheme.js"></script>
 <script>
 function editFunctionHall(code){
     document.getElementById("hallPage").style.display="none";
