@@ -12,14 +12,14 @@
 </head>
 <body>
 <div id="contentContainer" class="mainContainer">
+    
 <!-- header section -->
 
 
 <!--login detail section-->
 <div class="loginInfo">
     <h4>Login as <?php echo $_COOKIE["fullName"]; ?> &nbsp;<span><a href="../assets/php/logout.php"
-                                                                    style="color: white;"><i class="fas fa-sign-out-alt"
-                                                                                             style="color: white;"></i></a></span>
+                                                                    style="color: white;"><i class="fas fa-sign-out-alt"style="color: white;"></i></a></span>
     </h4>
 </div>
 <div class="container ">
@@ -28,10 +28,9 @@
             <div class="notificationStack">
                 <div class="stackHeader">
                     <?php
-                    print_r($controllerData[2]);//TODO
                         echo("
                             <span class='stackLabel'>Notifications</span>
-                            <span class='notificationCount'>".$controllerData[2]."</span> 
+                            <span class='notificationCount'>".$controllerData[2]['COUNT(notificationID)']."</span> 
                         ");
                     ?>
 
@@ -48,14 +47,6 @@
                 </div>")
 
                 ?>
-<!--                <div class="notificationEntry ">-->
-<!--                    <div class="notificationIcon"><i class="fas fa-school"></i></div>-->
-<!--                    <div class="notificationContent">SCS2203 In class assignment 1 will be on 22th november...</div>-->
-<!--                </div>-->
-<!--                <div class="notificationEntry ">-->
-<!--                    <div class="notificationIcon"><i class="fas fa-school"></i></div>-->
-<!--                    <div class="notificationContent">2nd semester exam will commence on 6th September...</div>-->
-<!--                </div>-->
             </div>
         </div>
     </div>
@@ -67,26 +58,22 @@
                         <span class="stackLabel" style="padding-bottom: 7px;">Academic Schedule</span>
                     </div>
                     <div class="timeSlots row col-2">
-                        <div class="notificationEntryTimeTable">
-                            <i class="fas fa-chalkboard-teacher"></i>&nbsp;&nbsp;SCS2201 Lecture<br>
-                            <i class="fas fa-map-marked-alt"></i>&nbsp;&nbsp;S203 <br>
-                            <i class="far fa-clock"></i>&nbsp; 08:00 - 10:00 <br>
-                        </div>
-                        <div class="notificationEntryTimeTable">
-                            <i class="fas fa-chalkboard-teacher"></i>&nbsp;&nbsp;SCS2204 Practical<br>
-                            <i class="fas fa-map-marked-alt"></i>&nbsp;&nbsp;LabA LabB LabC<br>
-                            <i class="far fa-clock"></i>&nbsp; 10:00 - 12:00 <br>
-                        </div>
-                        <div class="notificationEntryTimeTable">
-                            <i class="fas fa-chalkboard-teacher"></i>&nbsp;&nbsp;S2205 Tutorial<br>
-                            <i class="fas fa-map-marked-alt"></i>&nbsp;&nbsp;E401 <br>
-                            <i class="far fa-clock"></i>&nbsp; 13:00 - 15:00 <br>
-                        </div>
-                        <div class="notificationEntryTimeTable">
-                            <i class="fas fa-chalkboard-teacher"></i>&nbsp;&nbsp;SCS2206 Lecture<br>
-                            <i class="fas fa-map-marked-alt"></i>&nbsp;&nbsp;S204 <br>
-                            <i class="far fa-clock"></i>&nbsp; 15:00 - 17:00 <br>
-                        </div>
+                        <?php
+//                        print_r($controllerData[3]);
+                            foreach ($controllerData[3] as $event){
+                                $from = strtoupper(substr($event['fromTime'],0,5));
+                                $to = strtoupper(substr($event['toTime'],0,5));
+//                                echo $from;
+                                echo("
+                                    <div class='notificationEntryTimeTable'>
+                                    <i class='fas fa-chalkboard-teacher'></i>&nbsp;&nbsp;".$event['subjectCode']."<br>
+                                    <i class='fas fa-map-marked-alt'></i>&nbsp;&nbsp;".$event['hallID']." <br>
+                                    <i class='far fa-clock'></i>&nbsp;$from - $to <br>
+                                    </div>
+                                ");
+                            }
+                        ?>
+
                     </div>
                 </div>
                 <div></div>

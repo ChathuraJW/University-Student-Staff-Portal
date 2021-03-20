@@ -4,9 +4,12 @@ class HomeController extends Controller{
         $basicInfo=HomeModel::loadBasicInfo();
         $notifications = HomeModel::notification();
         $notificationCount = HomeModel::countNotification();
-        $sendArray=array($basicInfo,$notifications,$notificationCount);
-        print_r($notificationCount);
+        $academicSchedule = HomeModel::timetable();
+        $userRole = HomeModel::getRole();
+        $sendArray=array($basicInfo,$notifications,$notificationCount,$academicSchedule,$userRole);
+//        print_r($notificationCount);
 //        print_r($sendArray);
+//        print_r($academicSchedule);
         self::createView("homeView",$sendArray);
     }
 }

@@ -1,8 +1,3 @@
-//testing
-
-
-
-//end
 
 // Set greeting message according to the time
 let timeIn = new Date();
