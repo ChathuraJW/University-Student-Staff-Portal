@@ -62,18 +62,18 @@ class Timetable {
     }
 }
 class PastPaper{
-    // attributes of PastPapers
+    // attributes of Pastpapers
     private $paperID;
     private $examinationYear;
     private $year;
     private $semester;
     private $subjectName;
     private $subjectCode;
-    // methods of PastPapers
-    protected function addPastPapers(){
+    // mothods of Pastpapers
+    protected function addPastpapers(){
 
     }
-    protected function viewPastPaper(){
+    protected function viewPastpaper(){
 
     }
 }
@@ -96,19 +96,19 @@ class TrainSeason{
     private $trainSeasonIndex;
     private $studentName;
     private $academicYear;
-    private $address;
+    private $addres;
     private $contactNumber;
     private $dob;
     private $ageToNextBirthDay;
     private $fromMonth;
     private $toMonth;
     private $nearRailwayStationHome;
-    private $nearRailwayStationUniversity;
+    private $nearRailwayStationUnivercity;
     private $requestId;
     private $requestDate;
     private $completeDate;
     private $collectedDate;
-    // methods of TrainSeason
+    // methods of Trainseason
     protected function requestSeason(){
 
     }
@@ -137,7 +137,7 @@ class AppointmentsForMeeting{
     }
 }
 class AppointmentType{
-    // attributes of AppointmentType
+    // atrributes of AppointmentType
     private $appointmentCode;
     private $appointmentColor;
     private $appointmentName;
@@ -175,22 +175,74 @@ class LectureAvailability{
 }
 class AllocatedWorkload{
     // attributes of AllocatedWorkload
+    private $workloadID;
     private $workLoadOwner;
     private $workLoadDescription;
-    private $senderTimestamp;
-    private $date;
-    private $where;
-    private $from;
-    private $to;
     private $title;
-    private $allocateDate;
-    // methods of AllocatedWorkload
-    protected function addWorkload(){
+    private $location;
+    private $Date;
+    private $fromTime;
+    // private $toDate;
+    private $toTime;
+    private $salutation;
+    private $fullName;
+    private $requestDate;
 
+    // mothods of AllocatedWorkload
+    
+    public function getWorkLoadOwner(){
+        return $this->workLoadOwner;
     }
-    protected function notifyWorkload(){
+    public function getWorkLoadDescription(){
+        return $this->workLoadDescription;
+    }
+    public function getTitle(){
+        return $this->title;
+    }
+    public function getLocation(){
+        return $this->location;
+    }
+    public function getDate(){
+        return $this->Date;
+    }
+    public function getFromTime(){
+        return $this->fromTime;
+    }
+    // public function getToDate(){
+    //     return $this->toDate;
+    // }
+    public function getToTime(){
+        return $this->toTime;
+    }
+    public function getSalutation(){
+        return $this->salutation;
+    }
+    public function getFullName(){
+        return $this->fullName;
+    }
+    public function getRequestDate(){
+        return $this->requestDate;
+    }
+    public function getWorkloadID(){
+        return $this->workloadID;
+    }
+        
+    
+    public function setWorkLoad($workLoadOwner,$title,$workLoadDescription,$location,$Date,$fromTime,$toTime,$salutation,$fullName,$requestDate,$workloadID){
+        $this->workLoadOwner=$workLoadOwner;
+        $this->workLoadDescription=$workLoadDescription;
+        $this->title=$title;
+        $this->location=$location;
+        $this->Date=$Date;
+        $this->fromTime=$fromTime;
+        $this->toTime=$toTime;
+        $this->salutation=$salutation;
+        $this->fullName=$fullName;
+        $this->requestDate=$requestDate;
+        $this->workloadID=$workloadID;
+        return $this;
+    }
 
-    }
 }
 class AssignmentPlan{
     // attributes of AssignmentPlan
@@ -198,8 +250,8 @@ class AssignmentPlan{
     private $subject;
     private $academicYear;
     private $assignmentWeight;
-    private $totalNumberOfAssignment;
-    private $degreeStream;
+    private $totalNumberofAssignment;
+    private $degreeStreem;
     private $assignment;
     private $description;
     // methods of AssignmentPlan
@@ -212,7 +264,7 @@ class AssignmentPlan{
     protected function addInstructors(){
 
     }
-    protected function generateFinalReport(){
+    protected function genarateFinalReport(){
 
     }
 }
@@ -236,14 +288,14 @@ class Notification{
     // attributes of Notification
     private $notificationID;
     private $notificationTitle;
-    private $notificationContent;
+    private $notificationConten;
     private $notificationType;
     private $timeStamp;
     private $sender;
     private $validityEndTimeStamp;
     private $isViewed;
     private $viewTimeStamp;
-    private $targetAudience;
+    private $targetAudiance;
     // methods of Notification
     protected function setNotification(){
 
@@ -254,7 +306,7 @@ class Notification{
 }
 class Result{
     // attributes of Result
-    private $courseECode;
+    private $coursECode;
     private $academicYear;
     private $yearOfExam;
     private $semester;
@@ -263,8 +315,8 @@ class Result{
     private $updatedData;
     private $updatedBy;
     private $reviewedTimestamp;
-    private $submittedBy;
-    // methods of Result
+    private $submitedBy;
+    // mehtods of Result
     protected function addResultData(){
 
     }
@@ -281,7 +333,7 @@ class NotificationType{
 class AssignmentType{
     // attributes of AssignmentType
     private $assignmentName;
-    private $assignmentCode;
+    private $assingmentCode;
 }
 class Assignment{
     // attributes pf Assignment
@@ -292,7 +344,7 @@ class Assignment{
     private $description;
     private $type;
     // methods of Assignment
-    protected function addAssignment(){
+    protected function addassignment(){
 
     }
     protected function addMark(){
@@ -311,24 +363,7 @@ class StudentMark{
 
     }
 }
-class EnrollmentDetails{
-    // attributes of EnrollmentDetails
-    private $indexNo;
-    private $courseCode;
-    private $academicYear;
-    private $attempt;
-    private $activeState;
-    private $result;
-    private $enrolledDate;
-    private $semester;
-    // methods of EnrollmentDetails
-    protected function makeEnrollment(){
 
-    }
-    protected function makeEnrollmentDeactivated(){
-
-    }
-}
 class SelectedGroupMessage{
     // attribute of SelectedGroupMessage
     private $title;
@@ -362,19 +397,35 @@ class AttendanceInstance{
 }
 class courseModule{
     // attributes of courseModule
-    private $CourseCode;
+    private $courseCode;
     private $name;
+    private $semester;
     private $creditVale;
     private $description;
-    // methods of courseModule
-    protected function createModule(){
-
+    // methods of courseModeule
+    
+    public function getCourseCode(){
+        return $this->courseCode;
     }
-    protected function editModule(){
-
+    public function getName(){
+        return $this->name;
     }
-    protected function removeModule(){
-
+    public function getSemester(){
+        return $this->semester;
+    }
+    public function getCreditVale(){
+        return $this->creditVale;
+    }
+    public function getDescription(){
+        return $this->description;
+    }   
+    
+    public function setCourse($courseCode,$name,$semester,$creditValue,$description){
+        $this->courseCode=$courseCode;
+        $this->name=$name;
+        $this->semester=$semester;
+        $this->creditVale=$creditValue;
+        $this->description=$description;
     }
 }
 class EnrollFor{
@@ -382,7 +433,7 @@ class EnrollFor{
     private $indexNo;
     private $courseCode;
     private $courseName;
-    private $dailyAttendance;
+    private $dailyAtendance;
     private $percentage;
     // methods of EnrollFor
     protected function calculatePercentage(){
@@ -421,16 +472,23 @@ class Hall{
     // attributes of Hall
     private $hallID;
     private $capacity;
-    private $type;
+    private $hallType;
     // methods of Hall
-    protected function createHall(){
-
+    public function getHallID(){
+        return $this->hallID;
     }
-    protected function deleteHall(){
-
+    public function getCapacity(){
+        return $this->capacity;
     }
-    protected function editHall(){
-
+    public function getHallType(){
+        return $this->hallType;
+    }
+        
+    
+    public function setHall($hallID,$capacity,$hallType){
+        $this->hallID=$hallID;
+        $this->capacity=$capacity;
+        $this->hallType=$hallType;
     }
 }
 class BookingCategory{
