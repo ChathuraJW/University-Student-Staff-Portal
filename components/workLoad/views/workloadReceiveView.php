@@ -218,7 +218,10 @@
 
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../') ?>
+    <script src="../../assets/js/jquery.js">
+    <script src="../../assets/js/toast.js"></script>
     <script src="assets/workloadReceive.js"></script>
+    <script src="../../assets/js/changeTheme.js"></script>
 
 
 </body>
