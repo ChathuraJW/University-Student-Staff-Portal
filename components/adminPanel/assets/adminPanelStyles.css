@@ -86,3 +86,166 @@
     color: black;
     font-weight: bold;
 }
+.elementTab{
+    margin: auto;
+    width:96%;
+    display: table;
+    background-color: rgb(240, 240, 240);
+    margin-bottom: 5px;
+}
+.elementName{
+    width:82%;
+    display: table-cell;
+    padding: 1.5%;
+}
+.elementEdit{
+    width:9%;
+    display: table-cell;
+    margin: auto;
+    text-align: center;
+    /* padding: 1.5%; */
+}
+.elementEdit:hover{
+    background-color: rgb(221, 220, 220);
+    font-weight:bold;
+    cursor: pointer;
+}
+.elementDelete{
+    width:9%;
+    display: table-cell;
+    margin: auto;
+    text-align: center;
+    /* padding: 1.5%; */
+}
+.elementDelete:hover{
+    background-color: rgb(221, 220, 220);
+    font-weight:bold;
+    cursor: pointer;
+}
+.heading{
+    color: rgb(129, 127, 127);
+    font-size: 25px;
+    font-weight: bolder;
+    margin-top: 4%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+}
+.addElement{
+    text-align: center;
+    width:20%;
+    float: right;
+    padding: 1.5%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    cursor: pointer;
+    background-color: rgb(236, 236, 236);
+}
+.addElement:hover{
+    background-color: rgb(221, 217, 217);
+    font-weight: bold;
+}
+.dataForm{
+    margin-left: 5%;
+}
+.inputDiv{
+    display: table;
+    color: rgb(124, 122, 122);
+    width: 100%;
+    margin-bottom: 10px;
+}
+.labelField{
+    display: table-cell;
+    width: 30%;
+    text-align: center;
+}
+.inputField{
+    display: table-cell;
+    width: 70%;
+    text-align: left;
+}
+.buttonDual{
+    display: table;
+    width: 70%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.buttonSet{
+    display: table-cell;
+    width:25%;
+    background-color: rgb(231, 228, 228);
+    color: rgb(73, 69, 69);
+    padding: 1%;
+    font-size: 18px;
+    text-align: center;
+    outline: none;
+    border-color: rgb(180, 180, 180);
+    border-width: 0.5px;
+    cursor: pointer;
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+}
+.buttonSet:hover{
+    background-color: rgb(214, 210, 210);
+    font-weight: bold;
+}
+.group{
+    padding: 10px;
+    width: 80%;
+    margin: auto;
+    background-color: rgb(243, 242, 242);
+    margin-bottom: 10px;
+}
+.group:hover{
+    background-color: rgb(236, 236, 236);
+    font-weight: bold;
+    cursor: pointer;
+}
+tr{
+    margin-left: 20%;
+    /* background-color: aqua; */
+}
+table{
+    border-collapse: collapse;
+    width: 70%;
+    margin: auto;
+}
+th{
+    width: 16%;
+    height: 40px;
+    border: 1px solid rgb(206, 216, 224);
+    /* border-color: rgb(218, 215, 218); */
+    border-width: 3px;
+}
+.line9{
+    background-color: rgb(206, 216, 224);
+}
+.head{
+    /* margin: auto; */
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    /* background: linear-gradient(to bottom right,rgb(255, 252, 104),white); */
+}
+.day{
+    background-color: rgb(207, 217, 218);
+}
+/*costume styles*/
+.sectionTitle{​​
+    text-align: center;
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 15px;
+}
+input[type=time] {
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    width: 280px;
+    color: var(--fontColor);
+    background-color: var(--backgroundColor);
+    resize: none;
+  }
