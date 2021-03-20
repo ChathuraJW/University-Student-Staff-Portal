@@ -1,21 +1,26 @@
 <?php
-class Model{
-    public static function createAudit($sqlQuery,$affectedTable,$eventType,$description){
-        $user=$_COOKIE['userName'];//take from cookies
-        $executedQuery=explode("$affectedTable",str_replace("'","",$sqlQuery))[1];
-        $auditQuery="INSERT INTO audit_log(userID, executedQuery,
-                        affectedTable, eventType, description, timestamp)
-                        VALUES ('$user','$executedQuery','$affectedTable','$eventType','$description',NOW())";
-        return Database::executeQuery("root","",$auditQuery);
-    }
+	class Model {
+		public static function createLog($timestamp, $description, $transactionID = 0) {
+			date_default_timezone_set('Asia/Colombo');
+			$description = trim($description, ' ');
+			if ($transactionID == 0)
+				$fileEntry = "$timestamp      ::::    $description\n";
+			else
+				$fileEntry = "$timestamp      ::::    [Transaction ID: $transactionID]-$description\n";
+//		append to the log file
+			if (file_exists("../../system.log"))
+				file_put_contents("../../system.log", $fileEntry, FILE_APPEND);
+			else
+				file_put_contents("../../../system.log", $fileEntry, FILE_APPEND);
+		}
 
-    //subject data getting function
-    public static function getSubjectData(){
-        $sqlQuery="Select * from course_module";
-        return Database::executeQuery("root","",$sqlQuery);
-    }
-    public static function getSubjectName($courseCode){
-        $sqlQuery="SELECT name FROM course_module WHERE courseCode='$courseCode' LIMIT 1";
-        return Database::executeQuery("root","",$sqlQuery)[0]['name'];
-    }
-}
+		public static function getAdminUser():string{
+			$sqlQuery="SELECT assignedUser FROM special_role WHERE userRole='ADM'";
+			return Database::executeQuery('admin','admin@16',$sqlQuery)[0]['assignedUser'];
+		}
+
+		public static function getStudentUsernameForIndex($indexNo):string{
+			$sqlQuery="SELECT regNo FROM student WHERE indexNo='$indexNo'";
+			return Database::executeQuery('admin','admin@16',$sqlQuery)[0]['regNo'];
+		}
+	}
