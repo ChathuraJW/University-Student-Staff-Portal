@@ -14,7 +14,15 @@
             self::createView("receiveMessageView",$getMessageData);
             if(isset($_GET['activity'])){
                 $messageID=$_GET['messageIDForReadConfirm'];
-                $insertMessageState=receiveMessageModel::insertMessageState($messageID);
+
+                if(!$messageID){
+                    echo("<script>createToast('Warning(error code:#UM03-T)','Failed to get messageID.','W')</script>");
+                }
+
+                $messageDetail = new Message();
+                $messageDetail->setMessageDetail(NULL,NULL,NULL,$messageID,NULL,NULL);
+                $insertMessageState = receiveMessageModel::insertMessageState($messageDetail);
+            
             }
 
 

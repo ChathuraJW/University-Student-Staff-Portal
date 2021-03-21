@@ -51,7 +51,8 @@
                     <option value=''>Academic Staff</option>
                     ");
                     foreach ($controllerData[0] as $data) {
-                        echo("<option value='$data[userName]'>" . $data['fullName'] . " - " . $data['userName'] . "</option>");
+                        echo("<option value='".$data->getUserName()."'>" .$data->getUserName(). " - " .$data->getFullName(). "</option>");
+                        
                     }
                     echo("
                     </select>
@@ -65,7 +66,7 @@
                     ");
 
                     foreach ($controllerData[2] as $data) {
-                        echo("<option value='$data[userName]'>" . $data['fullName'] . " - " . $data['userName'] . "</option>");
+                        echo("<option value='".$data->getUserName()."'>" .$data->getUserName(). " - " .$data->getFullName(). "</option>");
                     }
 
                     echo("
@@ -81,7 +82,7 @@
                     ");
 
                     foreach ($controllerData[1] as $data) {
-                        echo("<option value='$data[userName]'>" . $data['fullName'] . " - " . $data['userName'] . "</option>");
+                        echo("<option value='".$data->getUserName()."'>" .$data->getUserName(). " - " .$data->getFullName(). "</option>");
                     }
                     echo("
                     </select>
@@ -101,7 +102,7 @@
                         <?php
 
                         foreach ($controllerData[3] as $data) {
-                            echo("<option value='$data[userName]'>" . $data['fullName'] . " -  " . $data['userName'] . " </option>");
+                            echo("<option value='".$data->getUserName()."'>" .$data->getUserName(). " - " .$data->getFullName(). "</option>");
                         }
                         ?>
 
@@ -159,9 +160,9 @@
 
 
                 echo("
-              <a class='messageEntry' style='background-color: rgb(87, 6, 69)' href='?messageID=" . $data['messageID'] . ">
-                <span class='sender'>Sender: " . $data['sendBy'] . "</span><br>
-                <span class='messageContent'>" . $data['message'] . "</span><br>
+              <a class='messageEntry' style='background-color: rgb(87, 6, 69)' href='?messageID=" . $data->getMessageID() . ">
+                <span class='sender'>Sender: " . $data->getSendBy() . "</span><br>
+                <span class='messageContent'>" . $data->getMessage() . "</span><br>
                 <span class='messageSendTimestamp'>" . $data['timestamp'] . "</span>
               </a>
             ");
@@ -176,15 +177,15 @@
           <?php
             if (isset($_GET['messageID'])) {
                 foreach ($controllerData[3] as $data) {
-                    if ($data['messageID'] == $_GET['messageID']) {
+                    if ($data->getMessageID() == $_GET['messageID']) {
 
 
                     }
                     echo("
-                    <span class='senderDetail'>Sender: " . $data['sendBy'] . "</span><br>
+                    <span class='senderDetail'>Sender: " . $data->getSendBy() . "</span><br>
                     <span class='SendTimestampDetail'>Send at: " . $data['timestamp'] . "</span><br>
-                    <span class='titleDetail'>" . $data['title'] . "</span><br>
-                    <span class='messageDetail'>" . $data['message'] . "</span><br>
+                    <span class='titleDetail'>" . $data->getTitle() . "</span><br>
+                    <span class='messageDetail'>" . $data->getMessage() . "</span><br>
                      
                     
                   ");

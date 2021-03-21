@@ -32,9 +32,9 @@
 
             
             echo ("
-              <a class='messageEntry' style='background-color: #044e3a' href='?messageID=".$data['messageID']."'>
-                <span class='sender'>Sender: ".$data['sendBy']."</span><br>
-                <span class='messageContent'>".$data['message']."</span><br>
+              <a class='messageEntry' style='background-color: #044e3a' href='?messageID=".$data->getMessageID()."'>
+                <span class='sender'>Sender: ".$data->getSendBy()."</span><br>
+                <span class='messageContent'>".$data->getMessage()."</span><br>
                 <span class='messageSendTimestamp'>".$data['timestamp']."</span>
               </a>
             ");
@@ -50,11 +50,11 @@
               foreach ($controllerData as $data){
                   
                 if($data['messageID']==$_GET['messageID']){
-                  $receivedBy .= $data['receivedBy'];
+                  $receivedBy .= $data->getReceivedBy();
                   $receivedBy .="  ";
                   $timestamp=$data['timestamp'];
-                  $title=$data['title'];
-                  $message=$data['message'];
+                  $title=$data->getTitle();
+                  $message=$data->getMessage();
                   
                 }  
                 

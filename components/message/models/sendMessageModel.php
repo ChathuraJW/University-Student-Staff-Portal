@@ -2,13 +2,13 @@
     class sendMessageModel extends Model{
         public static function getAcademic(){
             $sqlQuery = "SELECT userName,fullName FROM user WHERE role='AS'";
-            $getAcademic = Database::executeQuery("generalAccess","generalAccess@16",$sqlQuery);
+            $getAcademic = Database::executeQuery("root","",$sqlQuery);
 
             if($getAcademic){
                 $getAcademicList = array();
                 foreach($getAcademic as $data){
                     $newAcademic = new User();
-                    $newAcademic->setUser($data['userName'],$data['fullName']);
+                    $newAcademic->setUser($data['userName'],$data['fullName'],NULL,NULL,NULL);
                     $getAcademicList[]=$newAcademic;
                 }
                 return $getAcademicList;
@@ -20,13 +20,13 @@
 
         public static function getAdministrative(){
             $sqlQuery = "SELECT userName,fullName FROM user WHERE role='AD'";
-            $getAdministrative = Database::executeQuery("generalAccess","generalAccess@16",$sqlQuery);
+            $getAdministrative = Database::executeQuery("root","",$sqlQuery);
 
             if($getAdministrative){
                 $getAdministrativeList = array();
                 foreach($getAdministrative as $data){
                     $newAdministrative = new User();
-                    $newAdministrative->setUser($data['userName'],$data['fullName']);
+                    $newAdministrative->setUser($data['userName'],$data['fullName'],NULL,NULL,NULL);
                     $getAdministrativeList[]=$newAdministrative;
                 }
                 return $getAdministrativeList;
@@ -38,13 +38,13 @@
 
         public static function getAcademicSupportive(){
             $sqlQuery = "SELECT userName,fullName FROM user WHERE role='SP'";
-            $getAcademicSupportive = Database::executeQuery("generalAccess","generalAccess@16",$sqlQuery);
+            $getAcademicSupportive = Database::executeQuery("root","",$sqlQuery);
 
             if($getAcademicSupportive){
                 $getAcademicSupportiveList = array();
                 foreach($getAcademicSupportive as $data){
                     $newAcademicSupportive = new User();
-                    $newAcademicSupportive->setUser($data['userName'],$data['fullName']);
+                    $newAcademicSupportive->setUser($data['userName'],$data['fullName'],NULL,NULL,NULL);
                     $getAcademicSupportiveList[]=$newAcademicSupportive;
                 }
                 return $getAcademicSupportiveList;
@@ -55,13 +55,13 @@
 
         public static function getStudent(){
             $sqlQuery = "SELECT userName,fullName FROM user WHERE role='ST'";
-            $getStudent = Database::executeQuery("generalAccess","generalAccess@16",$sqlQuery);
+            $getStudent = Database::executeQuery("root","",$sqlQuery);
 
             if($getStudent){
                 $getStudentList = array();
                 foreach($getStudent as $data){
                     $newStudent = new User();
-                    $newStudent->setUser($data['userName'],$data['fullName']);
+                    $newStudent->setUser($data['userName'],$data['fullName'],NULL,NULL,NULL);
                     $getStudentList[]=$newStudent;
                 }
                 return $getStudentList;
