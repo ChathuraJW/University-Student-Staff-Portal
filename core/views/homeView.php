@@ -12,7 +12,23 @@
 </head>
 <body>
 <div id="contentContainer" class="mainContainer">
-    
+    <?php
+//    print_r($controllerData[4]);
+    $role = $controllerData[4];
+    $day = date("l");// get the current day
+    $day = strtoupper(substr($day,0,3));
+    if($role == 'AD'OR $day =='SAT' OR $day == 'SUN' ){
+        echo("
+            <style>
+                .timetable{
+                    display: none;
+                    visibility: hidden;
+                }
+            </style>
+        ");
+
+    }
+    ?>
 <!-- header section -->
 
 
@@ -41,7 +57,7 @@
                         echo("<div class='notificationEntry '>
                     <div class='notificationIcon'><i class='fas fa-school'></i></div>
                     <div class='notificationContent'>".$notification[0]['title']."</div>
-                    <div class='notificationContent'>".$notification[0]['publishedByUser']." </div>
+                    <div class='notificationContent'>".$notification[0]['firstName']." ".$notification[0]['lastName']." </div>
                     <div class='notificationContent'>".$notification[0]['timestamp']."</div>
                     
                 </div>")

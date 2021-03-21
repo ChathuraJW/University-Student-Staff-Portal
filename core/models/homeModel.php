@@ -25,7 +25,7 @@ class HomeModel extends Model{
         foreach($notificationIdList as $notificationId){
              $notificationId = $notificationId['notificationID'];
 //             print_r($notificationId);
-            $sqlQuery = "SELECT title,content,timestamp,publishedByUser FROM notification_detail WHERE notificationID=$notificationId AND isValid=1";
+            $sqlQuery = "SELECT title,content,timestamp,firstName,lastName FROM publishername WHERE notificationID=$notificationId AND isValid=1";
             $notificationContent = Database::executeQuery('root','',$sqlQuery);
             $notificationArray[]= $notificationContent;
         }
