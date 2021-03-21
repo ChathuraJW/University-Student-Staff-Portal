@@ -1,4 +1,4 @@
-<div class="">
+<div class="bodyBackground text">
     <div class="heading">Facility Management(Lecture Hall/Lab)</div>
     <div id="hallPage" >
         <div class="addElement" onclick="addHall()"><i class="fa fa-plus"  aria-hidden="true"></i> ADD New Hall</div>

@@ -1,4 +1,4 @@
-<div class="">
+<div class="bodyBackground text">
     <div class="heading">Timetable Management</div>
     <div id="groupListPage">
         <div class="group" onclick="getEntries('1CS1')">1CS1</div>

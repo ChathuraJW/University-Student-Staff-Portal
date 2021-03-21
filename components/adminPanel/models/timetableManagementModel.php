@@ -4,7 +4,7 @@
         
         public static function editEntry($hallID,$subjectCode,$day,$fromTime,$toTime,$description,$eventID){
             $databaseInstance=new Database;
-            $databaseInstance->establishTransaction('root','');
+            $databaseInstance->establishTransaction('admin','admin@16');
             $query="UPDATE timetable SET hallID='".$hallID."',subjectCode='".$subjectCode."',day='".$day."',fromTime='".$fromTime."',toTime='".$toTime."',description='".$description."' WHERE eventID='".$eventID."'";
         
             $databaseInstance->executeTransaction($query);
@@ -23,7 +23,7 @@
 
         public static function addEntry($hallID,$subjectCode,$day,$fromTime,$toTime,$description,$group){
             $databaseInstance=new Database;
-            $databaseInstance->establishTransaction('root','');
+            $databaseInstance->establishTransaction('admin','admin@16');
 
             $query="INSERT INTO timetable(hallID,subjectCode,day,fromTime,toTime,description,relatedGroup) VALUES ('".$hallID."','".$subjectCode."','".$day."','".$fromTime."','".$toTime."','".$description."','".$group."')";
             $databaseInstance->executeTransaction($query);
@@ -40,7 +40,7 @@
         }
         public static function deleteEntry($eventID){
             $databaseInstance=new Database;
-            $databaseInstance->establishTransaction('root','');
+            $databaseInstance->establishTransaction('admin','admin@16');
 
             $query="UPDATE timetable SET entryValidity=1 WHERE eventID='".$eventID."'";
             $databaseInstance->executeTransaction($query);

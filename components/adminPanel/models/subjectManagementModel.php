@@ -4,7 +4,7 @@
         public static function getCourse(){
             $courseList= array();
             $query="SELECT * FROM course_module WHERE courseValidity=0";
-            $courses=Database::executeQuery("root","",$query);
+            $courses=Database::executeQuery("admin","admin@16",$query);
             foreach($courses as $course){
                 $newCourse= new courseModule;
                 
@@ -17,7 +17,7 @@
         }
         public static function editCourse($courseCode,$courseName,$semester,$creditValue,$description){
             $databaseInstance=new Database;
-            $databaseInstance->establishTransaction('root','');
+            $databaseInstance->establishTransaction('admin','admin@16');
             $query="UPDATE course_module SET name='".$courseName."',semester='".$semester."',creditValue='".$creditValue."',description='".$description."' WHERE courseCode='".$courseCode."'";
             // echo $query;
             $databaseInstance->executeTransaction($query);
@@ -35,7 +35,7 @@
         }
         public static function addCourse($courseCode,$courseName,$semester,$creditValue,$description){
             $databaseInstance=new Database;
-            $databaseInstance->establishTransaction('root','');
+            $databaseInstance->establishTransaction('admin','admin@16');
 
             $query="INSERT INTO course_module(courseCode, name, semester, creditValue, description) VALUES ('".$courseCode."','".$courseName."','".$semester."','".$creditValue."','".$description."')";
             // echo $courseCode.$courseName.$semester.$creditValue.$description;
@@ -54,7 +54,7 @@
         }
         public static function deleteCourse($courseCode){
             $databaseInstance=new Database;
-            $databaseInstance->establishTransaction('root','');
+            $databaseInstance->establishTransaction('admin','admin@16');
 
             $query="UPDATE course_module SET courseValidity=1 WHERE courseCode='".$courseCode."'";
             // echo $courseCode.$courseName.$semester.$creditValue.$description;

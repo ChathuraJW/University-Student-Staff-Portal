@@ -1,4 +1,4 @@
-<div class="">
+<div class="bodyBackground text">
     <div class="heading">Subject Management</div>
     <div id="coursePage" >
         <div class="addElement" onclick="addCourse()"><i class="fa fa-plus"  aria-hidden="true"></i> ADD New Course</div>

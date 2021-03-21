@@ -4,7 +4,7 @@
         public static function getHall(){
             $hallList= array();
             $query="SELECT * FROM  hall_and_lab WHERE hallValidity=0";
-            $halls=Database::executeQuery("root","",$query);
+            $halls=Database::executeQuery("admin","admin@16",$query);
             foreach($halls as $hall){
                 $newHall= new Hall;
                 
@@ -21,7 +21,7 @@
 
         public static function editHall($hallID,$capacity,$hallType){
             $databaseInstance=new Database;
-            $databaseInstance->establishTransaction('root','');
+            $databaseInstance->establishTransaction('admin','admin@16');
             $query="UPDATE hall_and_lab SET capacity='".$capacity."',hallType='".$hallType."' WHERE hallID='".$hallID."'";
         
             $databaseInstance->executeTransaction($query);
@@ -40,7 +40,7 @@
 
         public static function addHall($hallID,$capacity,$hallType){
             $databaseInstance=new Database;
-            $databaseInstance->establishTransaction('root','');
+            $databaseInstance->establishTransaction('admin','admin@16');
 
             $query="INSERT INTO hall_and_lab(hallID, capacity, hallType) VALUES ('".$hallID."','".$capacity."','".$hallType."')";
             
@@ -58,7 +58,7 @@
         }
         public static function deleteHall($hallID){
             $databaseInstance=new Database;
-            $databaseInstance->establishTransaction('root','');
+            $databaseInstance->establishTransaction('admin','admin@16');
 
             $query="UPDATE hall_and_lab SET hallValidity=1 WHERE hallID='".$hallID."'";
             
