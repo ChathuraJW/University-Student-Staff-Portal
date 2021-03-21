@@ -13,13 +13,23 @@
                 $title=$_POST['title'];
                 $message=$_POST['message'];
                 $sendBy=$_COOKIE['userName'];
+
+                if(!$title || !$message || $sendBy){
+                    echo("<script>createToast('Warning(error code:#UM01-T)','Failed to get inputs.','W')</script>"); 
+                }
                 //addd data to message table
-                $addData=sendMessageModel::addData($title,$message,$sendBy);
+                $messageDetail = new Message();
+                $messageDetail->setMessageDetail($title,$message,$sendBy,NULL,NULL,NULL);
+                $addDetail = sendMessageModel::addData($messageDetail);
                 
                 $contacts=$_POST['contacts'];
                 $splitData=(explode(" ",$contacts));
+
+                $receiverDetail = new Message();
+                $receiverDetail->setMessageDetail(NULL,NULL,NULL,$addDetail,$splitData,NULL);
+                $insertData = sendMessageModel::insertData($receiverDetail);
             
-                $insertData=sendMessageModel::insertData($splitData,$addData);
+                
 
                 
                  

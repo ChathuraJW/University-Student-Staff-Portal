@@ -20,6 +20,7 @@
 
             <h1><b> Send Messages </b></h1>
             <br>
+            
             <a class=inbox href="receiveMessage">
 
                 <button class="button" style="position: relative; left: 42%;" id="receiveMessages">Inbox</button>
@@ -31,6 +32,7 @@
             </a>
 
         </div>
+
         <div class="row col-2">
             <div class="contacts">
                 <label for="option"><b> Select the contacts</b> </label>
@@ -45,50 +47,50 @@
                 //if (isset($_COOKIE['role']) & $_COOKIE['role'] !== 'ST') {
                     echo("
                 <div>
-                <select id='academicStaffList' name='academicStaffList' onchange='addStaffRecipient('academicStaffList');'>
-                <option value=''>Academic Staff</option>
-                ");
+                    <select id='academicStaffList' name='academicStaffList' onchange='addStaffRecipient('academicStaffList');'>
+                    <option value=''>Academic Staff</option>
+                    ");
                     foreach ($controllerData[0] as $data) {
                         echo("<option value='$data[userName]'>" . $data['fullName'] . " - " . $data['userName'] . "</option>");
                     }
                     echo("
-                </select>
-                <br>
-                <br>
-            </div>
+                    </select>
+                    <br>
+                    <br>
+                </div>
 
-            <div>
-                <select id='academicSupportiveList' name='academicSupportiveList' onchange='addStaffRecipient('academicSupportiveList');' >
-                <option value=''>Academic Supportive Staff</option>
-                ");
+                <div>
+                    <select id='academicSupportiveList' name='academicSupportiveList' onchange='addStaffRecipient('academicSupportiveList');' >
+                    <option value=''>Academic Supportive Staff</option>
+                    ");
 
                     foreach ($controllerData[2] as $data) {
                         echo("<option value='$data[userName]'>" . $data['fullName'] . " - " . $data['userName'] . "</option>");
                     }
 
                     echo("
-                </select>
+                    </select>
 
-                <br>
-                <br>
-            </div>
+                    <br>
+                    <br>
+                </div>
 
-            <div>
-                <select id='administrativeList' name='administrativeList' onchange='addStaffRecipient('administrativeList');'>
-                <option value=''>Administrative Staff</option>
-                ");
+                <div>
+                    <select id='administrativeList' name='administrativeList' onchange='addStaffRecipient('administrativeList');'>
+                    <option value=''>Administrative Staff</option>
+                    ");
 
                     foreach ($controllerData[1] as $data) {
                         echo("<option value='$data[userName]'>" . $data['fullName'] . " - " . $data['userName'] . "</option>");
                     }
                     echo("
-                </select>
+                    </select>
 
-                <br>
-                <br>
+                    <br>
+                    <br>
 
-            </div>
-            ");
+                </div>
+                ");
                 //}
                 ?>
 

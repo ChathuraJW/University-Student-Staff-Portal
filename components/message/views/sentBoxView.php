@@ -17,6 +17,7 @@
     <!-- feature body section -->
     <div class="featureBody">
       <span class="heading">Sent Box</span>
+      
       <a class="back" href="sendMessage">
         <input type="button" value="Back" style="position: relative; left: 1%;" class="button">
       </a>
