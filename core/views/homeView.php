@@ -17,11 +17,12 @@
     $role = $controllerData[4];
     $day = date("l");// get the current day
     $day = strtoupper(substr($day,0,3));
-    if($role == 'AD'OR $day =='SAT' OR $day == 'SUN' ){
+//    $day ='SAT';
+    if($role == 'AD'OR $day =='SAT' OR $day == 'SUN' OR (!$controllerData[3])){
         echo("
             <style>
-                .timetable{
-                    display: none;
+                .timetable,.removableDiv{
+                   display: none;
                     visibility: hidden;
                 }
             </style>
@@ -75,7 +76,6 @@
                     </div>
                     <div class="timeSlots row col-2">
                         <?php
-//                        print_r($controllerData[3]);
                             foreach ($controllerData[3] as $event){
                                 $from = strtoupper(substr($event['fromTime'],0,5));
                                 $to = strtoupper(substr($event['toTime'],0,5));
@@ -92,7 +92,7 @@
 
                     </div>
                 </div>
-                <div></div>
+                <div class="removableDiv"></div>
                 <a href="https://ugvle.ucsc.cmb.ac.lk/" target="_blank" class="tile" id="accessToVLE">
                     <div class="tileImage"><i class="fas fa-laptop-code fa-3x"></i></div>
                     <div class="tileDescription">Access to VLE</div>
@@ -207,7 +207,7 @@
                 <div class="profileSection">
                     <a href="" class="userSetting"><i class="fas fa-cog fa-2x"></i></a>
                     <div class="profilePic">
-                        <!--                    update profile picture based on the picture availability and the gender-->
+                        <!--update profile picture based on the picture availability and the gender-->
                         <?php
                         $filePath = '';
                         if ($controllerData[0][0]['profilePicURL'] === "") {
@@ -243,12 +243,8 @@
                         <div id="time" class="time"></div>
                     </div>
                 </div>
-<!--            </div>-->
             </div>
-
     </div>
-
-
 </div>
 
 

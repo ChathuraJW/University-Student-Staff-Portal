@@ -1,6 +1,4 @@
 /*header section*/
-
-
 .container{
     height: auto;
     display: flex;
@@ -205,20 +203,16 @@
 }
 .timetable{
     padding-top: -20px;
-    /*overflow: hidden;*/
+    overflow: hidden;
     margin: 10px;
+    width: 192%;
     border-radius: 5px;
     text-decoration: none;
     border: 1px solid var(--baseColor);
-
-    /*opacity: 0.7;*/
-    /*background-color: var(--baseColor);*/
-}font
-calender
+}
 .calenderContainer{
     height: 250px;
     margin-top: 10px;
-
 }
 .dayContainer{
     height: 32px;
@@ -236,7 +230,6 @@ calender
     color: white;
     text-align: center;
     padding: 5px;
-
 }
 .month{
     font-size: 25px;
@@ -273,7 +266,7 @@ body{
     text-transform: uppercase;
 }
 .greetingMessage{
-    font-size: 55px;
+    font-size: 50px;
     font-weight: 400;
     letter-spacing: 8px;
     margin-bottom: 20px;
@@ -291,7 +284,7 @@ body{
         color: var(--baseColor);
     }
     30%{
-        letter-spacing: 25px;
+        letter-spacing: 20px;
     }
     85%{
        letter-spacing: 8px;

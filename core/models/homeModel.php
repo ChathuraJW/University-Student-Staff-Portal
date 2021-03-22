@@ -14,75 +14,79 @@ class HomeModel extends Model{
         return $resultUser;
     }
 
-    public static function notification(){
+    public static function notification():array|bool{
         //Get the most frequent unreaded notification, limit - 8
         $userName=$_COOKIE['userName'];
         $sqlQuery = "SELECT notificationID FROM user_view_notification WHERE userName='$userName' AND isViewed=0 ORDER BY notificationID DESC LIMIT 8";
         $notificationIdList = Database::executeQuery('root','',$sqlQuery);
 
-
-        $notificationArray = array();
-        foreach($notificationIdList as $notificationId){
-             $notificationId = $notificationId['notificationID'];
-//             print_r($notificationId);
-            $sqlQuery = "SELECT title,content,timestamp,firstName,lastName FROM publishername WHERE notificationID=$notificationId AND isValid=1";
-            $notificationContent = Database::executeQuery('root','',$sqlQuery);
-            $notificationArray[]= $notificationContent;
+        if($notificationIdList){
+            $notificationArray = array();
+            foreach($notificationIdList as $notificationId){
+                $notificationId = $notificationId['notificationID'];
+                $sqlQuery = "SELECT title,content,timestamp,firstName,lastName FROM publishername WHERE notificationID=$notificationId AND isValid=1";
+                $notificationContent = Database::executeQuery('root','',$sqlQuery);
+                $notificationArray[]= $notificationContent;
+            }
+            return $notificationArray;
+        }else{
+            return false;
         }
-//        print_r($notificationArray);
-        return $notificationArray;
+
+
     }
-    public static function countNotification(){
+    public static function countNotification():array{
         //get the notification count of unread notifications.
         $userName=$_COOKIE['userName'];
         $sqlQuery = "SELECT COUNT(notificationID) FROM user_view_notification WHERE userName='$userName' AND isViewed=0";
         return Database::executeQuery('root','',$sqlQuery)[0];
-
     }
 
-    public static function timetable(){
+    public static function timetable():array|bool{
         $userName=$_COOKIE['userName'];
         $role = self::getRole();
-//        print_r($role);
 
-        $day = date("l");// get the current day
-        $day = strtoupper(substr($day,0,3));// get the first three letters of day and convert in to uppercase
+        if($role){
+            $day = date("l");// get the current day
+            $day = strtoupper(substr($day,0,3));// get the first three letters of day and convert in to uppercase
 
-        if($day =='MON' OR $day =='TUE'OR $day =='WED' OR $day == 'TUR' OR $day == 'FRI'){
-            if($role == "ST"){
-                $sqlQuery = "SELECT studentGroup FROM student WHERE regNo='$userName' LIMIT 1";
-                $studentGroup = Database::executeQuery('root','',$sqlQuery)[0]['studentGroup'];
-//            echo $studentGroup;
+            if($day =='MON' OR $day =='TUE'OR $day =='WED' OR $day == 'TUR' OR $day == 'FRI'){
+                if($role == "ST"){
+                    $sqlQuery = "SELECT studentGroup FROM student WHERE regNo='$userName' LIMIT 1";
+                    $studentGroup = Database::executeQuery('root','',$sqlQuery)[0]['studentGroup'];
 
-//            echo $day;
-                $sqlQuery = "SELECT * FROM timetable WHERE relatedGroup='$studentGroup' AND date='$day'";
-                //            print_r($eventList);
-                return Database::executeQuery('root','',$sqlQuery);
+                    if($studentGroup){
+                        $sqlQuery = "SELECT * FROM timetable WHERE relatedGroup='$studentGroup' AND date='$day'";
+                        return Database::executeQuery('root','',$sqlQuery);
+                    }else{
+                        return false;
+                    }
 
+                }elseif ($role == "AS" OR $role =='SP' ){
+                    $sqlQuery ="SELECT eventID FROM staff_conduct_session WHERE staffID='$userName' ORDER by eventID ASC ";
+                    $eventIdList = Database::executeQuery('root','',$sqlQuery);
+//            ;
+                    if($eventIdList){
+                        $eventList = array();
+                        foreach($eventIdList as $eventId){
+                            $eventId= $eventId['eventID'];
+                            $sqlQuery = "SELECT * FROM timetable WHERE eventID=$eventId AND date='$day';";
+                            $event = Database::executeQuery('root','',$sqlQuery);
+                            $eventList[] = $event[0];
 
-
-            }elseif ($role == "AS" OR $role =='AD' ){
-                $sqlQuery ="SELECT eventID FROM staff_conduct_session WHERE staffID='$userName' ORDER by eventID ASC ";
-                $eventIdList = Database::executeQuery('root','',$sqlQuery);
-//            print_r($eventIdList);
-
-                $eventList = array();
-                foreach($eventIdList as $eventId){
-                    $eventId= $eventId['eventID'];
-//                    echo($eventId);
-                    $sqlQuery = "SELECT * FROM timetable WHERE eventID=$eventId AND date='$day';";
-                    $event = Database::executeQuery('root','',$sqlQuery);
-                    $eventList[] = $event[0];
-
+                        }
+                        return $eventList;
+                    }else{
+                        return false;
+                    }
                 }
-//            print_r($eventList);
-                return $eventList;
             }
+        }else{
+            return false;
         }
-
     }
 
-    public static function getRole(){
+    public static function getRole():string{
         $userName=$_COOKIE['userName'];
         $sqlQuery = "SELECT role FROM user WHERE userName='$userName' LIMIT 1;";
         return Database::executeQuery('root','',$sqlQuery)[0]['role'];
