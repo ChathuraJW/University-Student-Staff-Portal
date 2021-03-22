@@ -8,6 +8,7 @@ class Notification {
     private int $notificationType;
     private string $sender;
     private string $validWeeks;
+    private string $timeStamp;
     private array $receivers;
     private array $targetAudienceList;
 
@@ -53,6 +54,28 @@ class Notification {
         $this->validWeeks = $weeks;
         return $this;
     }
+
+
+    public function setTimeStamp($timestamp): Notification{
+        $this->timeStamp = $timestamp;
+        return $this;
+    }
+
+    public function getNotificationTitle(): string
+    {
+        return $this->notificationTitle;
+    }
+
+    public function getNotificationContent(): string
+    {
+        return $this->notificationContent;
+    }
+
+    public function getSender(): string
+    {
+        return $this->sender;
+    }
+
 
     public function publishNotification($isSendMail = false): bool {
         // get database instance

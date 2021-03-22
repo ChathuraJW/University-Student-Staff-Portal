@@ -16,10 +16,12 @@
     <?php BasicLoader::loadHeader('../../')?>
     
     <div class="featureBody">
+
         <div class="sample">
+            <form id="radioButton" method="post" >
             <div class="radioToolbar">
                 <div class="radioStyle">
-                    <input value="6" type="radio" id="radio6" name="notificationName" onclick="displayNotification(this)">
+                    <input value="6" type="radio" id="radio6" name="notificationName" onclick="submitForm()">
                     <label for="radio6"><i class="fa fa-desktop" aria-hidden="true"></i> System (35)</label><hr>
                 </div>
                 <div class="radioStyle">
@@ -44,6 +46,7 @@
                 </div>
                 <!-- <input type="radio> -->
             </div>
+            </form>
             <div class="inner">
             <div class=" row col-1" >
                 <p class="heading">Notifications</p>
@@ -54,11 +57,14 @@
                 </form>
                 <div class="inner row col-1" id="defaultNotification">
                     <?php
-                    for($count=1;$count<=15;$count++){
+                    print_r($controllerData);
+                    foreach($controllerData as $notification){
                         echo("
                             <div class='notification'>
-                                <labe class='topic'><i class='fa fa-bullhorn' aria-hidden='true'></i><b> IEEE Meeting Cancellation</b></labe>
-                                <label class='content'>The january 12, 2021 meeting has been cancelled.The next meeting scheduled for january 21<sup>st</sup> at 8.30 a.m.</label>
+                                <labe class='topic'><i class='fa fa-bullhorn' aria-hidden='true'></i><b>".$notification->getNotificationTitle()."</b></labe>
+                                <label class='content'>".$notification->getNotificationContent()."</label>
+                                <label class='lastRow'>Sender - ".$notification->getSender()."</label>
+                                <label class='lastRow'>2019.02.4</label>
                             </div>
                         ");
                     }
@@ -85,5 +91,6 @@
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../')?>
     <script src="assets/viewNotification.js"></script>
+    <script src="../../assets/js/changeTheme.js"></script>
 </body>
 </html>

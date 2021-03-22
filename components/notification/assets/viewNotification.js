@@ -50,3 +50,7 @@ function displayNotification(c){
 
     }
 }
+
+function submitForm(){
+    document.getElementById("radioButton").submit();
+}

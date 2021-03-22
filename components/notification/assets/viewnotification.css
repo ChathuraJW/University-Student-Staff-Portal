@@ -60,7 +60,7 @@ form.example::after {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 10px;
     margin-top: 5px;
-    background-color: yellow;
+    /*background-color: yellow;*/
 }
 /* radio */
 .radioToolbar input[type="radio"] {
@@ -99,6 +99,9 @@ form.example::after {
     margin-left: 250px;
     padding: 1px 16px;
     height: auto;
+}
+.lastRow{
+    display: flex;
 }
 
 
