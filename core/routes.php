@@ -1,5 +1,14 @@
 <?php
-	// structure of code need to write
+// structure of code need to write
+	Route::set('home', function () {
+		HomeController::init();
+	});
+	Route::set('login', function () {
+		LoginController::initLogin();
+	});
+	Route::set('registration', function () {
+		RegistrationController::open();
+	});
 	Route::set('login', function () {
 		LoginController::initLogin();
 	});
@@ -10,7 +19,7 @@
 		ResetPasswordController::open();
 	});
 
-	// check weather the given file exist on the site if not redirect to 404 page
+// check weather the given file exist on the site if not redirect to 404 page
 	$available = FALSE;
 	foreach (Route::$validRoutes as $pages) {
 		if ($_GET['url'] == $pages) {
