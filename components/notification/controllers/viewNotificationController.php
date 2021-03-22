@@ -3,16 +3,19 @@ class ViewNotificationController extends Controller{
 
     public static function viewNotification(){
 
+        $notificationCount = viewNotificationModel::getNotificationCount();
         if(isset($_POST['notificationName'])) {
             //
             $notificationType = $_POST['notificationName'];
 //            print_r($notificationType);
             $sortedNotifications = viewNotificationModel::getSortedNotification($notificationType);
-            self::createView("viewNotificationView",$sortedNotifications);
+            $controllerData = array($sortedNotifications,$notificationCount);
+            self::createView("viewNotificationView",$controllerData);
 
         }else{
             $allNotifications = viewNotificationModel::getAllNotifications();
-            self::createView("viewNotificationView",$allNotifications);
+            $controllerData = array($allNotifications,$notificationCount);
+            self::createView("viewNotificationView",$controllerData);
         }
     }
 }

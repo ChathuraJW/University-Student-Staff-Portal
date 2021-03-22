@@ -5,7 +5,6 @@ class viewNotificationModel extends Model {
 
     public static function getAllNotifications():array|bool{
         $userName = $_COOKIE['userName'];
-
         $userName = 'kpk';
 //        print_r($userName);
         $sqlQuery = "SELECT * FROM notification WHERE reciever='$userName' AND isValid=1 ORDER by notificationID DESC ,isViewed";
@@ -17,8 +16,6 @@ class viewNotificationModel extends Model {
         } else {
             return false;
         }
-
-
     }
 
     public static function getSortedNotification($notificationType):array|bool{
@@ -46,6 +43,23 @@ class viewNotificationModel extends Model {
             $notifications[] = $notification;
         }
         return $notifications;
+    }
+
+    public static function getNotificationCount(){
+        $userName = $_COOKIE['userName'];
+        $userName = 'kpk';
+        $notificationTypes = array(6,2,3,4,5,1,7);//notification types
+        $notificationCount = array();
+        foreach ($notificationTypes as $type){
+//            echo $type;
+            $sqlQuery = "SELECT COUNT(notificationID) FROM notification WHERE notificationType=$type AND isValid=1 AND isViewed=0 AND reciever='$userName'";
+            $count = Database::executeQuery('root','',$sqlQuery)[0]['COUNT(notificationID)'];
+            $notificationCount[] = $count;
+
+        }
+        print_r($notificationCount);
+        return $notificationCount;
+
     }
 
 }
