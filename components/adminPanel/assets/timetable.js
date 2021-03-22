@@ -15,7 +15,7 @@ function getEntries(groupName){
                 for (var i=0;i<dataList.length;i++){
                 var element='';
                 element +='<div class="elementTab">';
-                element +='<div class="elementName">'+dataList[i]['day']+'<P>     </p>From-'+dataList[i]['fromTime']+'<P>  </p>To-'+dataList[i]['toTime']+'</div>';
+                element +='<div class="elementName">'+dataList[i]['day']+'<P>     </p>Subject-'+dataList[i]['subjectCode']+'<P>     </p>Group-'+dataList[i]['relatedGroup']+'<P>     </p>From-'+dataList[i]['fromTime']+'<P>  </p>To-'+dataList[i]['toTime']+'</div>';
                 element +='<div class="elementEdit" onclick="editFunctionEntry(`'+dataList[i]['eventID']+'`)">EDIT</div>';
                 element +='<div class="elementDelete" onclick="deleteFunctionEntry(`'+dataList[i]['eventID']+'`)">DELETE</div>';
                 element +='</div>';
@@ -125,8 +125,8 @@ function timetableDisplay(){
         var indexValue=0;
         // var username=document.getElementById("username").value;
         // console.log(username);
-        const username = document.cookie.split('userName')[1].split(';')[0].split('=')[1];
-        console.log(username);
+        // const username = document.cookie.split('userName')[1].split(';')[0].split('=')[1];
+        // console.log(username);
         var url="http://localhost/USSP/components/adminPanel/assets/timetableDisplayAPI.php?&groupName="+group+"";
         console.log(url);
         $.getJSON(url,function(dataList){
@@ -241,7 +241,7 @@ function timetableDisplay(){
                         start.cells[columnNumber].style.textAlign = "center";
                         for(k=row1;k<=row2;k++){
                                 var allocatedCell = document.getElementById("timetable").rows[k];
-                                allocatedCell.cells[columnNumber].style.backgroundColor = "rgb(233, 237, 240)";
+                                allocatedCell.cells[columnNumber].style.backgroundColor = "var(--entryBackgroundColor)";
                                 allocatedCell.cells[columnNumber].title = subjects[i]+" "+halls[i];
                                 
                                 // allocatedCell.cells[columnNumber].style.backgroundColor = "rgb(229, 170, 252)";

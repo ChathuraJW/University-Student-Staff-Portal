@@ -91,11 +91,12 @@
 }
 
 .elementTab{
-    margin: auto;
-    width:96%;
+    width:115%;
     display: table;
-    background-color: rgb(240, 240, 240);
-    margin-bottom: 5px;
+    margin: auto auto 5px;
+    background-color: var(--entryBackgroundColor);
+    color: var(--fontColor);
+    padding: 10px;
 }
 .elementName{
     width:82%;
@@ -110,7 +111,7 @@
     /* padding: 1.5%; */
 }
 .elementEdit:hover{
-    background-color: rgb(221, 220, 220);
+    background-color: var(--entryBackgroundColor);
     font-weight:bold;
     cursor: pointer;
 }
@@ -122,7 +123,7 @@
     /* padding: 1.5%; */
 }
 .elementDelete:hover{
-    background-color: rgb(221, 220, 220);
+    background-color: var(--entryBackgroundColor);
     font-weight:bold;
     cursor: pointer;
 }
@@ -136,16 +137,17 @@
 }
 .addElement{
     text-align: center;
-    width:20%;
-    float: right;
+    width:30%;
+    /* float: right; */
     padding: 1.5%;
     margin-right: 2%;
     margin-bottom: 2%;
     cursor: pointer;
     background-color: rgb(236, 236, 236);
+    background-color: var(--entryBackgroundColor);
 }
 .addElement:hover{
-    background-color: rgb(221, 217, 217);
+    background-color: var(--entryBackgroundColor);
     font-weight: bold;
 }
 .dataForm{
@@ -164,7 +166,23 @@
 }
 .inputField{
     display: table-cell;
-    width: 70%;
+    width: 100%;
+    text-align: left;
+}
+.deleteDiv{
+    display: table;
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+}
+.labelDelete{
+    display: table-cell;
+    width: 60%;
+    text-align: center;
+}
+.valueDelete{
+    display: table-cell;
+    width:40%;
     text-align: left;
 }
 .buttonDual{
@@ -173,35 +191,35 @@
     margin: auto;
     margin-top: 30px;
     margin-bottom: 30px;
+    text-align: center;
+
 }
 .buttonSet{
     display: table-cell;
     width:25%;
-    background-color: rgb(231, 228, 228);
-    color: rgb(73, 69, 69);
+    background-color: var(--entryBackgroundColor);
     padding: 1%;
     font-size: 18px;
     text-align: center;
     outline: none;
-    border-color: rgb(180, 180, 180);
-    border-width: 0.5px;
+    border:none;
     cursor: pointer;
     margin-left: 12.5%;
     margin-right: 12.5%;
 }
 .buttonSet:hover{
-    background-color: rgb(214, 210, 210);
+    background-color:var(--entryBackgroundColor);
     font-weight: bold;
 }
 .group{
     padding: 10px;
-    width: 80%;
+    width: 115%;
     margin: auto;
-    background-color: rgb(243, 242, 242);
+    background-color:var(--entryBackgroundColor);
     margin-bottom: 10px;
 }
 .group:hover{
-    background-color: rgb(236, 236, 236);
+    background-color:var(--entryBackgroundColor);
     font-weight: bold;
     cursor: pointer;
 }
@@ -217,12 +235,12 @@ table{
 th{
     width: 16%;
     height: 40px;
-    border: 1px solid rgb(206, 216, 224);
+    border: 1px solid var(--entryBackgroundColor);
     /* border-color: rgb(218, 215, 218); */
     border-width: 3px;
 }
 .line9{
-    background-color: rgb(206, 216, 224);
+    background-color: var(--entryBackgroundColor);
 }
 .head{
     /* margin: auto; */
@@ -232,7 +250,7 @@ th{
     /* background: linear-gradient(to bottom right,rgb(255, 252, 104),white); */
 }
 .day{
-    background-color: rgb(207, 217, 218);
+    background-color: var(--entryBackgroundColor);
 }
 /*costume styles*/
 .sectionTitle{

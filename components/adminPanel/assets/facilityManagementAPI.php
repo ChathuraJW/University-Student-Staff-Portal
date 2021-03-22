@@ -4,7 +4,7 @@ require_once('class.php');
 if(isset($_GET['code'])){
     $code=$_GET['code'];
     $query="SELECT * FROM hall_and_lab WHERE hallID='".$code."'";
-    $halls=Database::executeQuery("root","",$query);
+    $halls=Database::executeQuery("admin","admin@16",$query);
     // print_r($courses);
     $hall=$halls[0];
         $newCourse= new courseModule;

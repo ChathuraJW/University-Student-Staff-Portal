@@ -47,35 +47,35 @@
             
         </div>
         <div class="buttonDual">
-            <input type="button" value="Cancel" onclick="cancelFunction()" class="buttonSet">
-            <input id="submitButtonInput" type="submit" value="Submit" name="submit" class="buttonSet">
+            <input type="button" value="Cancel" onclick="cancelFunction()" class="buttonSet text">
+            <input id="submitButtonInput" type="submit" value="Submit" name="submit" class="buttonSet text">
         </div>
     </form>
     <form id="courseDeleteView" method="post" style="display:none;">
-        <div class="inputDiv">
-            <label class="labelField" for="deleteCourseCode">Course Code</label>
-            <div class="inputField" id="deleteCourseCode">kk</div>
+        <div class="deleteDiv">
+            <label class="labelDelete" for="deleteCourseCode">Course Code</label>
+            <div class="valueDelete" id="deleteCourseCode">kk</div>
         </div>
-        <div class="inputDiv">
-            <label class="labelField" for="deleteCourseName">Course Name</label>
-            <div class="inputField" id="deleteCourseName">kk</div>
+        <div class="deleteDiv">
+            <label class="labelDelete" for="deleteCourseName">Course Name</label>
+            <div class="valueDelete" id="deleteCourseName">kk</div>
         </div>
-        <div class="inputDiv">
-            <label class="labelField" for="deleteSemester">Semester</label>
-            <div class="inputField" id="deleteSemester">kk</div>
+        <div class="deleteDiv">
+            <label class="labelDelete" for="deleteSemester">Semester</label>
+            <div class="valueDelete" id="deleteSemester">kk</div>
         </div>
-        <div class="inputDiv">
-            <label class="labelField" for="deleteCreditValue">Credit Value</label>
-            <div class="inputField" id="deleteCreditValue">kk</div>
+        <div class="deleteDiv">
+            <label class="labelDelete" for="deleteCreditValue">Credit Value</label>
+            <div class="valueDelete" id="deleteCreditValue">kk</div>
         </div>
-        <div class="inputDiv">
-            <label class="labelField" for="deleteDescription">Description</label>
-            <div class="inputField" id="deleteDescription">kk</div>
+        <div class="deleteDiv">
+            <label class="labelDelete" for="deleteDescription">Description</label>
+            <div class="valueDelete" id="deleteDescription">kk</div>
         </div>
         <input type="hidden" name="deleteCourseCodeInput" id="deleteCourseCodeInput">
         <div class="buttonDual">
-            <input type="button" value="Cancel" onclick="cancelFunction()" class="buttonSet">
-            <input type="submit" value="Delete" name="delete" class="buttonSet"></input>
+            <input type="button" value="Cancel" onclick="cancelFunction()" class="buttonSet text">
+            <input type="submit" value="Delete" name="delete" class="buttonSet text"></input>
         </div>
     
     </form>

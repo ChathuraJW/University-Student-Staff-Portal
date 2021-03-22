@@ -20,7 +20,7 @@
     <div class="heading" style="display:none;font-size:20px;" id="headingEditHall">EDIT Hall</div>
     <div class="heading" style="display:none;font-size:20px;" id="headingDeleteHall">DELETE Hall</div>
     <div class="heading" style="display:none;font-size:20px;" id="headingAddHall">ADD Hall</div>
-    <form id="hallDetailForm" style="display:none;" action="" method="post">
+    <form class="deleteForm"id="hallDetailForm" style="display:none;" action="" method="post">
         <div class="dataForm"  >
             <div class="inputDiv">
                 <label class="labelField" for="hallID">Hall ID</label>
@@ -38,28 +38,28 @@
             
         </div>
         <div class="buttonDual">
-            <input type="button" value="Cancel" onclick="cancelFunctionHall()" class="buttonSet">
-            <input id="submitButtonInputHall" type="submit" value="Submit" name="submit" class="buttonSet">
+            <input type="button" value="Cancel" onclick="cancelFunctionHall()" class="buttonSet text">
+            <input id="submitButtonInputHall" type="submit" value="Submit" name="submit" class="buttonSet text">
         </div>
     </form>
     <form id="hallDeleteView" method="post" style="display:none;">
-        <div class="inputDiv">
-            <label class="labelField" for="deleteHallID">Hall ID</label>
-            <div class="inputField" id="deleteHallID">kk</div>
+        <div class="deleteDiv">
+            <label class="labelDelete" for="deleteHallID">Hall ID</label>
+            <div class="valueDelete" id="deleteHallID">kk</div>
         </div>
-        <div class="inputDiv">
-            <label class="labelField" for="deleteCapacity">Capacity</label>
-            <div class="inputField" id="deleteCapacity">kk</div>
+        <div class="deleteDiv">
+            <label class="labelDelete" for="deleteCapacity">Capacity</label>
+            <div class="valueDelete" id="deleteCapacity">kk</div>
         </div>
-        <div class="inputDiv">
-            <label class="labelField" for="deleteHallType">Hall Type</label>
-            <div class="inputField" id="deleteHallType">kk</div>
+        <div class="deleteDiv">
+            <label class="labelDelete" for="deleteHallType">Hall Type</label>
+            <div class="valueDelete" id="deleteHallType">kk</div>
         </div>
         
         <input type="hidden" name="deleteHallIDInput" id="deleteHallIDInput">
         <div class="buttonDual">
-            <input type="button" value="Cancel" onclick="cancelFunctionHall()" class="buttonSet">
-            <input type="submit" value="Delete" name="deleteHall" class="buttonSet"></input>
+            <input type="button" value="Cancel" onclick="cancelFunctionHall()" class="buttonSet text">
+            <input type="submit" value="Delete" name="deleteHall" class="buttonSet text"></input>
         </div>
     
     </form>

@@ -13,7 +13,7 @@
         <div id="groupEntrySet">
             
         </div>
-        <input class="addElement"  type="button" value="Back" onclick="backFunction()" >
+        <input class="addElement text" style="font-size: large;"  type="button" value="Back" onclick="backFunction()" >
     </div>
     <div class="heading" style="display:none;font-size:20px;" id="headingEditEntry">EDIT Entry</div>
     <div class="heading" style="display:none;font-size:20px;" id="headingDeleteEntry">DELETE Entry</div>
@@ -44,45 +44,47 @@
             </div>
             <div class="inputDiv">
                 <label class="labelField" for="description">Description</label>
-                <input class="inputField" name="description" id="description" type="text">
+                <!-- <input class="inputField" name="description" id="description" type="text"> -->
+                <textarea class="inputField" id="description" name="description" id="" cols="30" rows="10"></textarea>
+
             </div>
         </div>
         <div class="buttonDual">
-            <input type="button" value="Cancel" onclick="cancelFunctionEntry()" class="buttonSet">
-            <input id="submitButtonInputEntry" type="submit" onclick="confirm('Are you confirm this action?')" value="Submit" name="submit" class="buttonSet">
+            <input type="button" value="Cancel" onclick="cancelFunctionEntry()" class="buttonSet text">
+            <input  id="submitButtonInputEntry" type="submit" onclick="confirm('Are you confirm this action?')" value="Submit" name="submit" class="buttonSet text">
         </div>
     </form>
     <form id="EntryDeleteView" method="post" style="display:none;">
-            <div class="inputDiv">
-                <label class="labelField" for="deleteHallID">Hall ID</label>
-                <div class="inputField"  id="deleteHallID" ></div>
+            <div class="deleteDiv">
+                <label class="labelDelete" for="deleteHallID">Hall ID</label>
+                <div class="valueDelete"  id="deleteHallID" ></div>
             </div>
-            <div class="inputDiv">
-                <label class="labelField" for="deleteSubjectCode">Subject Code</label>
-                <div class="inputField"  id="deleteSubjectCode" ></div>
+            <div class="deleteDiv">
+                <label class="labelDelete" for="deleteSubjectCode">Subject Code</label>
+                <div class="valueDelete"  id="deleteSubjectCode" ></div>
             </div>
-            <div class="inputDiv">
-                <label class="labelField" for="deleteDay">Day</label>
-                <div class="inputField"  id="deleteDay" ></div>
+            <div class="deleteDiv">
+                <label class="labelDelete" for="deleteDay">Day</label>
+                <div class="valueDelete"  id="deleteDay" ></div>
             </div>
-            <div class="inputDiv">
-                <label class="labelField" for="deleteFromTime">From Time</label>
-                <div class="inputField" id="deleteFromTime" ></div>
+            <div class="deleteDiv">
+                <label class="labelDelete" for="deleteFromTime">From Time</label>
+                <div class="valueDelete" id="deleteFromTime" ></div>
             </div>
-            <div class="inputDiv">
-                <label class="labelField" for="deleteToTime">To Time</label>
-                <div class="inputField" id="deleteToTime" ></div>
+            <div class="deleteDiv">
+                <label class="labelDelete" for="deleteToTime">To Time</label>
+                <div class="valueDelete" id="deleteToTime" ></div>
             </div>
-            <div class="inputDiv">
-                <label class="labelField" for="deleteDescription">Description</label>
-                <div class="inputField" id="deleteDescription" ></div>
+            <div class="deleteDiv">
+                <label class="labelDelete" for="deleteDescription">Description</label>
+                <div class="valueDelete" id="deleteDescription" ></div>
             </div>
         
         <input type="hidden" name="deleteEntryInput" id="deleteEntryInput">
         <input type="hidden" name="deleteEventID" id="deleteEventID">
         <div class="buttonDual">
-            <input type="button" value="Cancel" onclick="cancelFunctionEntry()" class="buttonSet">
-            <input type="submit" value="Delete" name="deleteEntry" onclick="confirm('Are you confirm this action?')" class="buttonSet"></input>
+            <input type="button" value="Cancel" onclick="cancelFunctionEntry()" class="buttonSet text">
+            <input type="submit" value="Delete" name="deleteEntry" onclick="confirm('Are you confirm this action?')" class="buttonSet text"></input>
         </div>
     
     </form>
