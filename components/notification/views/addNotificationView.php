@@ -172,7 +172,7 @@
     <?php BasicLoader::loadFooter('../../')?>
     <script src="../../assets/js/jquery.js"></script>
     <script src="assets/addNotification.js"></script>
-    <script src="../../assets/js/changeTheme.js"></script>
+    <script src="../assets/js/changeTheme.js"></script>
 
 </body>
 </html>

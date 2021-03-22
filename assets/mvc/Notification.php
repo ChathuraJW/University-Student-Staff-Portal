@@ -75,6 +75,10 @@ class Notification {
     {
         return $this->sender;
     }
+    public function getTimeStamp(): string
+    {
+        return $this->timeStamp;
+    }
 
 
     public function publishNotification($isSendMail = false): bool {

@@ -25,23 +25,23 @@
                     <label for="radio6"><i class="fa fa-desktop" aria-hidden="true"></i> System (35)</label><hr>
                 </div>
                 <div class="radioStyle">
-                    <input  value="2" type="radio" id="radio2" name="notificationName" onclick="displayNotification(this)">
+                    <input  value="2" type="radio" id="radio2" name="notificationName" onclick="submitForm()">
                     <label for="radio2"><i class="fa fa-users" aria-hidden="true"></i> Social & Events(35)</label><hr>
                 </div>
                 <div class="radioStyle">
-                    <input value="3" type="radio" id="radio3" name="notificationName" onclick="displayNotification(this)">
+                    <input value="3" type="radio" id="radio3" name="notificationName" onclick="submitForm()">
                     <label class="notificationLabel" for="radio3"><i class="fa fa-bullhorn" aria-hidden="true"></i> Director Notices(35)</label><hr>
                 </div>
                 <div class="radioStyle">
-                    <input value="4" type="radio" id="radio4" name="notificationName" onclick="displayNotification(this)">
+                    <input value="4" type="radio" id="radio4" name="notificationName" onclick="submitForm()">
                     <label for="radio4"><i class="fa fa-calendar" aria-hidden="true"></i> Fundraising Events (35)</label><hr>
                 </div>
                 <div class="radioStyle">
-                    <input value="5" type="radio" id="radio5" name="notificationName" onclick="displayNotification(this)">
+                    <input value="5" type="radio" id="radio5" name="notificationName" onclick="submitForm()">
                     <label for="radio5"><i class="fa fa-book" aria-hidden="true"></i> Administrative & Exam(35)</label><hr>
                 </div>
                 <div class="radioStyle">
-                    <input value="1" type="radio" id="radio1" name="notificationName" onclick="displayNotification(this)">
+                    <input value="1" type="radio" id="radio1" name="notificationName" onclick="submitForm()">
                     <label for="radio1"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Assignment, Scholarship & Lecture re-scheduling(35)</label><hr>
                 </div>
                 <!-- <input type="radio> -->
@@ -57,14 +57,14 @@
                 </form>
                 <div class="inner row col-1" id="defaultNotification">
                     <?php
-                    print_r($controllerData);
+//                    print_r($controllerData);
                     foreach($controllerData as $notification){
                         echo("
                             <div class='notification'>
                                 <labe class='topic'><i class='fa fa-bullhorn' aria-hidden='true'></i><b>".$notification->getNotificationTitle()."</b></labe>
                                 <label class='content'>".$notification->getNotificationContent()."</label>
                                 <label class='lastRow'>Sender - ".$notification->getSender()."</label>
-                                <label class='lastRow'>2019.02.4</label>
+                                <label class='lastRow'>".$notification->getTimeStamp()."</label>
                             </div>
                         ");
                     }
@@ -72,14 +72,17 @@
                 </div>
                 <div  class="inner row col-1" style="display:none"; id="sortedNotification">
                     <?php
-                        for($count=1;$count<=8;$count++){
-                            echo("
-                                <div class='notification' id='notificationColor'>
-                                    <labe class='topic'><i class='fa fa-bullhorn' aria-hidden='true'></i><b> IEEEE Meeting Cancellation</b></labe>
-                                    <label class='content'>The january 12, 2021 meeting has been cancelled.The next meeting scheduled for january 21<sup>st</sup> at 8.30 a.m.</label>
-                                </div>
-                                ");
-                            }
+//                    print_r($controllerData);
+                    foreach($controllerData as $notification) {
+                        echo("
+                            <div class='notification'>
+                                <labe class='topic'><i class='fa fa-bullhorn' aria-hidden='true'></i><b>" . $notification->getNotificationTitle() . "</b></labe>
+                                <label class='content'>" . $notification->getNotificationContent() . "</label>
+                                <label class='lastRow'>Sender - " . $notification->getSender() . "</label>
+                                <label class='lastRow'>" . $notification->getTimeStamp() . "</label>
+                            </div>
+                        ");
+                    }
                     ?>
                 </div>
                 

@@ -53,4 +53,8 @@ function displayNotification(c){
 
 function submitForm(){
     document.getElementById("radioButton").submit();
+    document.getElementById("sortedNotification").style.visibility='visible';
+    document.getElementById("sortedNotification").style.display="";
+    document.getElementById("defaultNotification").style.visibility='hidden';
+    document.getElementById("defaultNotification").style.display="none";
 }
