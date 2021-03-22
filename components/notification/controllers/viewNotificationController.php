@@ -12,6 +12,13 @@ class ViewNotificationController extends Controller{
             $controllerData = array($sortedNotifications,$notificationCount);
             self::createView("viewNotificationView",$controllerData);
 
+        }elseif (isset($_POST['search'])){
+            $keyWord = $_POST['keyWord'];
+            $searchResult = viewNotificationModel::search($keyWord);
+            echo $keyWord;
+            $controllerData = array($searchResult,$notificationCount);
+            self::createView("viewNotificationView",$controllerData);
+
         }else{
             $allNotifications = viewNotificationModel::getAllNotifications();
             $controllerData = array($allNotifications,$notificationCount);

@@ -1,9 +1,11 @@
 
-
 .heading {
     text-align: center;
     font-weight: bold;
     font-size: 45px;
+}
+.featureBody{
+    min-height: 520px;
 }
 /* Search bar */
 * {
@@ -22,7 +24,7 @@ form.example input[type=text] {
     margin-left: -12px;
 }
 
-  /* Style the submit button */
+   Style the submit button
 form.example button {
     float: left;
     width: 10%;

@@ -53,14 +53,14 @@
             </div>
             ");
             ?>
-            </form>
+
             <div class="inner">
             <div class=" row col-1" >
                 <p class="heading">Notifications</p>
             
-                <form class="example" action="action_page.php">
-                    <input type="text" placeholder="Search.." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                <form class="example" >
+                    <input  type="text" placeholder="Search..." name="keyWord">
+                    <button type="submit" name="search"><i class="fa fa-search"></i></button>
                 </form>
                 <div class="inner row col-1" id="defaultNotification">
                     <?php
@@ -77,6 +77,7 @@
                     }
                     ?>
                 </div>
+<!--                </form>-->
                 <div  class="inner row col-1" style="display:none"; id="sortedNotification">
                     <?php
 //                    print_r($controllerData);
@@ -97,6 +98,7 @@
                         </div>
 
         </div>
+            </form>
     </div>
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../')?>

@@ -62,4 +62,17 @@ class viewNotificationModel extends Model {
 
     }
 
+    public static function search($keyWord):array|bool{
+        $userName = $_COOKIE['userName'];
+        $userName = 'kpk';
+        $sqlQuery = "SELECT * FROM notification WHERE reciever='$userName' AND isValid=1 AND (title LIKE '%$keyWord%' OR content LIKE '%$keyWord%' OR sender Like '%$keyWord%' )";
+        //        print_r($searchResult);
+        $searchResult = Database::executeQuery('root','',$sqlQuery);
+        if($searchResult){
+            return self::returnNotification($searchResult);
+        }else{
+            return false;
+        }
+    }
+
 }
