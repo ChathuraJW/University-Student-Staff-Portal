@@ -11,8 +11,8 @@ function visible(element) {
 }
 
 function displayError(field, message) {
-    document.getElementById(field).style.animation = "shake 0.3s";
-    document.getElementById(field).style.backgroundColor = "rgb(252, 186, 175)";
+    document.getElementById(field).style.animation = "shake 0.4s";
+    document.getElementById(field).style.backgroundColor = "rgba(255, 0, 0, 0.09)";
     document.getElementById(message).style.visibility = "visible";
     setTimeout(function () {
         document.getElementById(field).style.backgroundColor = "";
@@ -58,12 +58,8 @@ function validatePassword() {
                             document.getElementById("tooltipNewPassword").style.visibility = "hidden";
                             if (passwordValue === repeatPasswordValue) {
                                 document.getElementById("tooltipRepeatPassword").style.visibility = "hidden";
-                                // change navigation color
-                                // document.getElementById('pageChangePassword').style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
-                                // document.getElementById('pageBasicInfo').style.backgroundColor = 'black';
                                 //Navigate to basic information section
                                 document.getElementById('resetPasswordForm').submit();
-                                alert("hello");
                             } else {
                                 displayError("repeatPassword", "tooltipRepeatPassword");
                             }

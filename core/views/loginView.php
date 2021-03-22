@@ -28,7 +28,7 @@
         </div>
     </form>
     <br>
-    <a href="#"><span>Forget Password?</span></a>
+    <a href="forgetPassword"><span>Forget Password?</span></a>
 </div>
 <script src="assets/login.js"></script>
 </body>
