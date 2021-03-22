@@ -8,7 +8,7 @@
                 $getAcademicList = array();
                 foreach($getAcademic as $data){
                     $newAcademic = new User();
-                    $newAcademic->setUser($data['userName'],$data['fullName'],NULL,NULL,NULL);
+                    $newAcademic->setUser(NULL,$data['fullName'],$data['userName'],NULL,NULL);
                     $getAcademicList[]=$newAcademic;
                 }
                 return $getAcademicList;
@@ -26,7 +26,7 @@
                 $getAdministrativeList = array();
                 foreach($getAdministrative as $data){
                     $newAdministrative = new User();
-                    $newAdministrative->setUser($data['userName'],$data['fullName'],NULL,NULL,NULL);
+                    $newAdministrative->setUser(NULL,$data['fullName'],$data['userName'],NULL,NULL);
                     $getAdministrativeList[]=$newAdministrative;
                 }
                 return $getAdministrativeList;
@@ -44,7 +44,7 @@
                 $getAcademicSupportiveList = array();
                 foreach($getAcademicSupportive as $data){
                     $newAcademicSupportive = new User();
-                    $newAcademicSupportive->setUser($data['userName'],$data['fullName'],NULL,NULL,NULL);
+                    $newAcademicSupportive->setUser(NULL,$data['fullName'],$data['userName'],NULL,NULL);
                     $getAcademicSupportiveList[]=$newAcademicSupportive;
                 }
                 return $getAcademicSupportiveList;
@@ -61,7 +61,7 @@
                 $getStudentList = array();
                 foreach($getStudent as $data){
                     $newStudent = new User();
-                    $newStudent->setUser($data['userName'],$data['fullName'],NULL,NULL,NULL);
+                    $newStudent->setUser(NULL,$data['fullName'],$data['userName'],NULL,NULL);
                     $getStudentList[]=$newStudent;
                 }
                 return $getStudentList;
@@ -85,6 +85,7 @@
             if($databaseInstance->getTransactionState()){
                 if($databaseInstance->commitToDatabase()){
                     echo ("<script>createToast('Success','Message details successfully uploaded','S')</script>");
+                    
                 }else{
                     echo("<script>createToast('Warning(error code:#UM02-T)','Failed to upload.','W')</script>");
                 }

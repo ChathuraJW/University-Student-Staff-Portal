@@ -44,13 +44,16 @@
 
 
                 <?php
+                //print_r($controllerData);
                 //if (isset($_COOKIE['role']) & $_COOKIE['role'] !== 'ST') {
                     echo("
                 <div>
                     <select id='academicStaffList' name='academicStaffList' onchange='addStaffRecipient('academicStaffList');'>
                     <option value=''>Academic Staff</option>
                     ");
+                    //print_r($controllerData[0]);
                     foreach ($controllerData[0] as $data) {
+                        
                         echo("<option value='".$data->getUserName()."'>" .$data->getUserName(). " - " .$data->getFullName(). "</option>");
                         
                     }
@@ -119,7 +122,7 @@
 
                     <label style="text-align: left;">Contacts </label>
                     <br>
-                    <textarea cols="70" rows="3" name="contacts " class="textarea" id="contacts"></textarea>
+                    <textarea cols="70" rows="3" name="contacts " class="textarea" id="contacts" readonly></textarea>
                     <br><br>
             </div>
 

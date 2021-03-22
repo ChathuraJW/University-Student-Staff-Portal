@@ -6,8 +6,10 @@
             $academicSupportive=sendMessageModel::getAcademicSupportive();
             $student=sendMessageModel::getStudent();
             $sendData=array($academic,$administrative,$academicSupportive,$student);
-            
-             
+            print_r($academic);
+            print_r($administrative);
+            print_r($academicSupportive);
+            print_r($student);             
             self::createView("sendMessageView",$sendData);
             if(isset($_POST['submit'])){
                 $title=$_POST['title'];
@@ -29,7 +31,12 @@
                 $receiverDetail->setMessageDetail(NULL,NULL,NULL,$addDetail,$splitData,NULL);
                 $insertData = sendMessageModel::insertData($receiverDetail);
             
-                
+                //send notification
+                $informConfirmation = new Notification;
+                $informConfirmation->setReceivers($splitData);
+                $informConfirmation->setSender($_COOKIE['userName']);
+                $informConfirmation->createNotification($messageDetail->getTitle(), $messageDetail->getMessage());
+                $informConfirmation->publishNotification(false);
 
                 
                  

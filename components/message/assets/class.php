@@ -26,7 +26,7 @@ class User{
     }
 
 
-    public function getRegNo(): string{
+    public function getUserName(): string{
         return $this->userName;
         
     }
