@@ -230,7 +230,7 @@
                             <span class='name'><span style='font-size: 20px'>(" . $controllerData[0][0]['salutation'] . ")&nbsp;</span>" . $controllerData[0][0]['firstName'] . "<br>" . $controllerData[0][0]['lastName'] . "</span><br>
                             <span class='emailPersonal'>" . $controllerData[0][0]['personalEmail'] . "</span><br>
                             <span class='emailUniversity'>" . $controllerData[0][0]['universityEmail'] . "</span><br>
-                            <span class='gpa green' id='displayGPA'>" . $controllerData[0][0]['currentGPA'] . "</span>
+                            <span class='gpa' id='displayGPA' style='background-color: var(--entryBackgroundColor);'>" . $controllerData[0][0]['currentGPA'] . "</span>
                         ");
                         ?>
                     </div>
