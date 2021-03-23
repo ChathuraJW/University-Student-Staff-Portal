@@ -135,8 +135,8 @@
 .content{
     text-align:center;
     font-size:22px;
-    width: 70%;
-    background-color: beige;
+    width: 90%;
+    background-color: var(--entryBackgroundColor);
     min-height: 550px;
     height: fit-content;
     padding: 30px;           
@@ -169,7 +169,7 @@
 }
 .btn{
     border:none;
-    background-color: #60a3b3;
+    background-color: var(--entryBackgroundColor);
     height:30px;
     width:100%;
     border-radius: 3px;
@@ -180,13 +180,9 @@
 }
 #btn1:hover{
     cursor:pointer;
-    background-color: #8bfd81;
-
 }
 #btn2:hover{
     cursor:pointer;
-    background-color: #fd8181;
-
 }
 .appointmentMessage{
     /* position: fixed; */
@@ -221,7 +217,7 @@
     /* border-radius: 5px; */
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 25px 0 rgba(0, 0, 0, 0.19);  */
     border-width: 5px;
-    background-color: rgb(245, 244, 245);
+    background-color: var(--entryBackgroundColor);
     /* margin-top: 100px; */
     /* width:40%; */
 }
@@ -229,7 +225,6 @@
     width: 75%;
     margin: auto;
     font-size: 16px;
-    color: rgb(53, 53, 53);
 }
 .navigationLink:hover{
     background-color: rgb(148, 195, 238);  
@@ -286,18 +281,7 @@
     margin-bottom:5px;
     cursor:pointer;
 }
-/* #submitButton{
-    background-color: rgb(150, 241, 107);
-}
-#submitButton:hover{
-    background-color: rgb(104, 243, 104);
-}
-#resetButton{
-    background-color: rgb(252, 250, 146);
-}
-#resetButton:hover{
-    background-color: rgb(255, 232, 103);
-} */
+
 .tabContain{
     display:table;
     margin:auto;
@@ -385,13 +369,6 @@
 .messageHead{
     font-weight: bold;
 }
-.newAppointments{
-    /* background: linear-gradient(to bottom right,rgb(224, 241, 234),white); */
-}
-.previousAppointments{
-    /* background: linear-gradient(to bottom right,rgb(246, 226, 247),white); */
-}
 .elementTab{
     padding-bottom: 10px;
 }
-

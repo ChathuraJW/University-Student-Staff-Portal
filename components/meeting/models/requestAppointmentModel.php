@@ -33,7 +33,9 @@
         }
         public static function getData($studentID){
             $appointmentList= array();
-            $appointments=Database::executeQuery("student","student@16","SELECT * FROM meeting_appointment M,user U WHERE M.studentID='$studentID' and M.staffID=U.userName");
+            $current=date("Y-m-d");
+            $past= date('Y-m-d',strtotime('-2 week',strtotime($current)));
+            $appointments=Database::executeQuery("student","student@16","SELECT * FROM meeting_appointment M,user U WHERE M.studentID='$studentID' and M.staffID=U.userName AND M.appointmentDate>='$past'");
             foreach($appointments as $appointment){
                 $newAppointment= new AppointmentsForMeeting;
                 $newUser= new User;

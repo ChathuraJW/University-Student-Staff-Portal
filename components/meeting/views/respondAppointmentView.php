@@ -184,7 +184,7 @@
                                     <div class="ttl">
                                         <div class="row col-1">
                                             
-                                                <input class="reply" type="textarea" id="" name="reply" placeholder="Reply"><br>
+                                                <textarea style="background-color:var(--entryBackgroundColor);"class="reply" type="textarea" id="" name="reply" placeholder="Reply"></textarea>
                                             
                                         </div>
                                     </div>
@@ -192,10 +192,10 @@
                                         <div class="row col-2">
                                             <div>
                                                 <input hidden type="text"   name="appointmentID" value="<?php echo $_GET['appointID']?>">
-                                                <input id="btn1" class="btn" type="submit" name="approve" value="Approve">
+                                                <input id="btn1" class="button" type="submit" name="approve" value="Approve">
                                             </div>
                                             <div>
-                                                <input id="btn2" class="btn" type="submit"  name="reject" value="Reject">
+                                                <input id="btn2" class="button" type="submit"  name="reject" value="Reject">
                                             </div>
 
                                         </div>
