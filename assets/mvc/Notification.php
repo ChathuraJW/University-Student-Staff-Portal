@@ -61,6 +61,15 @@ class Notification {
         return $this;
     }
 
+    public function setNotificationID(int $notificationID):Notification{
+        $this->notificationID = $notificationID;
+        return $this;
+    }
+
+    public function getNotificationID():int{
+        return $this->notificationID;
+    }
+
     public function getNotificationTitle(): string
     {
         return $this->notificationTitle;

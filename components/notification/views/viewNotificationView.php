@@ -58,41 +58,32 @@
             <div class=" row col-1" >
                 <p class="heading">Notifications</p>
             
-                <form class="example" >
+                <div class="search" >
                     <input  type="text" placeholder="Search..." name="keyWord">
                     <button type="submit" name="search"><i class="fa fa-search"></i></button>
-                </form>
+                </div>
                 <div class="inner row col-1" id="defaultNotification">
                     <?php
 //                    print_r($controllerData);
                     foreach($controllerData[0] as $notification){
+                        $notificationId = $notification->getNotificationID();
+//                        echo $notificationId;
                         echo("
-                            <div class='notification'>
-                                <labe class='topic'><i class='fa fa-bullhorn' aria-hidden='true'></i><b>".$notification->getNotificationTitle()."</b></labe>
-                                <label class='content'>".$notification->getNotificationContent()."</label>
-                                <label class='lastRow'>Sender - ".$notification->getSender()."</label>
-                                <label class='lastRow'>".$notification->getTimeStamp()."</label>
+                            <div class='notification'>                               
+                                <labe class='topic'><i class='fa fa-bullhorn' aria-hidden='true'></i><b> ".$notification->getNotificationTitle()."</b></labe>                                                                      
+                                <label class='content'>".$notification->getNotificationContent()." Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda error et ex nobis, provident quis repellendus unde! Ab error esse est hic modi possimus qui repellendus soluta? Earum, laboriosam Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto, distinctio dolor eligendi eum numquam officia rerum. Aperiam asperiores dolores earum facere fugiat, nesciunt odit repellat reprehenderit soluta temporibus vero?</label>
+                                <div class='flex'>
+                                    <label class='lastRow'>".$notification->getTimeStamp()."</label>
+                                    <label class='sender'>By - ".$notification->getSender()."</label>                                    
+                                </div>
+                                <input type='button' id='$notificationId' value='$notificationId' onclick='markASRead($notificationId);' >
+                                <label for='$notificationId' class='markAsRead'>Mark as read</label>
                             </div>
                         ");
                     }
                     ?>
                 </div>
 <!--                </form>-->
-                <div  class="inner row col-1" style="display:none"; id="sortedNotification">
-                    <?php
-//                    print_r($controllerData);
-                    foreach($controllerData[0] as $notification) {
-                        echo("
-                            <div class='notification'>
-                                <labe class='topic'><i class='fa fa-bullhorn' aria-hidden='true'></i><b>" . $notification->getNotificationTitle() . "</b></labe>
-                                <label class='content'>" . $notification->getNotificationContent() . "</label>
-                                <label class='lastRow'>Sender - " . $notification->getSender() . "</label>
-                                <label class='lastRow'>" . $notification->getTimeStamp() . "</label>
-                            </div>
-                        ");
-                    }
-                    ?>
-                </div>
                 
             </div>
                         </div>

@@ -36,6 +36,7 @@ class viewNotificationModel extends Model {
         //read subject list and add them into above array as CourseModule objects
         foreach ($notificationList as $row) {
             $notification = new Notification() ;
+            $notification->setNotificationID($row['notificationID']);
             $notification->createNotification($row['title'], $row['content']);
             $notification->setSender($row['sender']);
 //            echo ($row['timestamp']);
