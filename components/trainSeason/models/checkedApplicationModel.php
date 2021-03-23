@@ -4,7 +4,7 @@
             $sqlQuery = "SELECT * FROM request_train_season WHERE isChecked=0";
             
             $requesterData = Database::executeQuery("root","",$sqlQuery);
-            echo $requesterData; 
+             
             if($requesterData){
                 $requesterDataList = array();
                 
@@ -25,10 +25,9 @@
             $dbObject->establishTransaction('root','');
 
             $insertQuery = "INSERT INTO request_train_season(seasonID,completedTimestamp) VALUES(".$insertSeasonID->getSeasonID().",NOW())";
-
-            $dbObject->executeTransaction($insertQuery);
             echo($insertQuery);
-       
+            $dbObject->executeTransaction($insertQuery);
+            
             //create audit trail
             $dbObject->transactionAudit($insertQuery,'request_train_season', 'INSERT',"Season ID is add to the system." );
             if($dbObject->getTransactionState()){

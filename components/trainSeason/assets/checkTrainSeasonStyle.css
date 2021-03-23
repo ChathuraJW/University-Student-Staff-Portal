@@ -12,10 +12,7 @@
     
 }
 
-.featureBody{
-    font-family: Varela;
-    src: url('../../../assets/font/Varela-Regular.ttf');
-}
+ 
 
 /*.container{
     left: 30%;
@@ -33,7 +30,7 @@
 }
 
 .button{
-    background-color: rgb(179, 141, 152);
+     
     font-weight: normal;
     color: solid black;
     padding: 10px 15px;

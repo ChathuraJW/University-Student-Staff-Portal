@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
     <link rel="stylesheet" href="assets/checkedApplicationStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" />
@@ -65,8 +66,8 @@
     font-size:18px;
     width: 700px;
     height: 700px;
-    border: 3px solid green;
-    border-top: 3px solid green;
+    border: 3px solid gray;
+    border-top: 3px solid gray;
     border-radius: 4px;
     padding-top: 10px;
     padding-left: 20px;
@@ -74,26 +75,23 @@
     padding-right: 20px;
     position: absolute;
     top: 60%;
-    left: 22%;
+    left: 24%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     box-shadow: 0 16px 18px 0 rgb(97, 107, 97);
     
   }
-  .featureBody{
-    font-family: Varela;
-    src: url('../../../assets/font/Varela-Regular.ttf');
-}
+   
 </style>
 <body>
-<div class="featureBody">
+<div class="featureBody bodyBackground text">
   <div class="requestMessage" id="form">
   
-      <form action="/action_page.php" class="checkedApplication">
+      <form method="POST" enctype="multipart/form-data" class="checkedApplication">
         <div>
           <div class="head">Season Request</div>
         <?php
-          print_r($controllerData);
+           
           foreach($controllerData as $data){
           echo("
             <div style='float:right;'>Date: ".$data->getTimeStamp()."</div><br>
@@ -136,14 +134,15 @@
                 ?>
 
                   <label for="seasonID" class="inputLabel name">Season ID:</label><br>
-                  <input type="text" id="seasonID" style="width:90%;" name="seasonID" class="input nameText"><br><br>
+                  <input type="text" id="seasonID" style="width:90%;" name="seasonID" class="input nameText"><br><br><br><br>
                   <div class="dataEntry">
                     <div class="dataLabel">
-                    <input type="submit" class="checkedButton" value="Checked" name="submit" style="font-size: 16px;" >
+                  
+                      <input type="submit" class="button" value="Checked" name="submit" style="font-size: 16px;" >
                     </div>
                     <div class="data">
-                    <a  href="checkTrainSeason"> 
-                    <input type="button" class="cancelButton" value="Cancel" style="font-size: 16px;">
+                      <a  href="checkTrainSeason"> 
+                    <input type="button" class="button" value="Cancel" style="font-size: 16px;">
                     </a>
                     <br>
                     </div>

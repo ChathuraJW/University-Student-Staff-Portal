@@ -20,7 +20,7 @@
 
     <!-- feature body section -->
 
-    <div class="featureBody">
+    <div class="featureBody bodyBackground text">
         <div class="row col-2">
           <div class="applicationForm">
             <br>
@@ -31,11 +31,11 @@
                 <form method="POST" class="application" enctype="multipart/form-data">
 
                   <label for="userName" class="inputLabel name">Name With Initials:</label><br>
-                  <input type="text" id="name" name="name" class="input nameText" style="width:100%;" value="<?php echo $controllerData[1]->getFullName(); ?>" ><br><br>
+                  <input type="text" id="name" name="name" class="input nameText" style="width:100%;" value="<?php echo $controllerData[1]->getFullName(); ?>" readonly><br><br>
                   <label for="regNo" class="inputLabel regNo">Registration Number:</label><br>
-                  <input type="text" id="regNo" name="regNo" class="input regNoText" style="width:100%;" value="<?php echo $controllerData[1]->getRegNo(); ?>"><br><br>
+                  <input type="text" id="regNo" name="regNo" class="input regNoText" style="width:100%;" value="<?php echo $controllerData[1]->getRegNo(); ?>" readonly><br><br>
                   <label for="address" class="inputLabel name">Address:</label><br>
-                  <input type="text" id="address" name="address" class="input nameText" style="width:100%;" value="<?php echo $controllerData[1]->getAddress(); ?>" ><br><br>
+                  <input type="text" id="address" name="address" class="input nameText" style="width:100%;" value="<?php echo $controllerData[1]->getAddress(); ?>" readonly><br><br>
                   <div class="row col-2">
                     <div>
                       <label for="academicYear" class="inputLabel name">Academic Year:</label><br>
@@ -44,7 +44,7 @@
                     </div>
                     <div>
                       <label for="address" class="inputLabel name">Age:</label><br>
-                      <input type="text" id="age" name="age" class="input nameText" value="<?php echo $controllerData[1]->getAge(); ?>"><br><br>
+                      <input type="text" id="age" name="age" class="input nameText" value="<?php echo $controllerData[1]->getAge(); ?>" readonly><br><br>
                     </div>
                   </div>
 
@@ -99,10 +99,10 @@
 
                   </div>
 
-                  <input type="submit" value="Submit" class="button submitButton" name="submit">
+                  <input type="submit" value="Submit" class="button" name="submit">
                   <br>
                   <a class="backPage" href="applyTrainSeason">
-                    <input type="button" value="Cancel" class="button cancelButton" name="cancel">
+                    <input type="button" value="Cancel" class="button" name="cancel">
                   </a>
                 </form>
 

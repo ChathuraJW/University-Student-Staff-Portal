@@ -36,7 +36,7 @@
                       <div>Appliciant: ".$data->getRequester()."</div>
                       <div>University Station: ".$data->getNearRailwayStationUni()."</div>
                       <div>Home Station: ".$data->getNearRailwayStationHome()."</div>
-                      <div style='float:right;'>Date: ".$data->getTimeStamp()."</div>
+                      <div style='float:right;'>Date: ".$data->getTimeStamp()."</div><br>
                     </div><br>
                   </a>");
             }
