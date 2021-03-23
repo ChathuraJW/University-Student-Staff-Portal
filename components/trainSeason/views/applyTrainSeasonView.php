@@ -124,7 +124,7 @@
               <div class='pastRequest'>
                 <div>From  ".$data->getNearRailwayStationHome()."</div>
                 <div>To   ".$data->getNearRailwayStationUni()."</div>
-                <div style='float:right'>2020/02/17</div>
+                <div style='float:right'>".$data->getTimeStamp()."</div>
               </div>
               ");
             }

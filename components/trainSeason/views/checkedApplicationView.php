@@ -88,77 +88,58 @@
 <body>
 <div class="featureBody">
   <div class="requestMessage" id="form">
+  
       <form action="/action_page.php" class="checkedApplication">
         <div>
           <div class="head">Season Request</div>
-          <div style="float:right;">Date 2020/02/17</div><br>
-          <!--<div class="dataEntry"  >
-            <div class="dataLabel" style="font-size: 20px;">Name</div>
-            <div class="data" style="font-size: 20px;">Mr.Kamal</div>
-          </div>
-          <div class="dataEntry">
-            <div class="dataLabel" style="font-size: 20px;">From Month</div>
-            <div class="data" style="font-size: 20px;">January</div>
-          </div>
-          <div class="dataEntry">
-            <div class="dataLabel" style="font-size: 20px;">To Month</div>
-            <div class="data" style="font-size: 20px;">June</div>
-          </div>
-          <div class="dataEntry">
-            <div class="dataLabel" style="font-size: 20px;">Address</div>
-            <div class="data" style="font-size: 20px;">No 15 gall road,Kaluthara</div>
-          </div>
-          <div class="dataEntry">
-            <div class="dataLabel" style="font-size: 20px;">From Station</div>
-            <div class="data" style="font-size: 20px;">Moratuwa</div>
-          </div>
-          <div class="dataEntry">
-            <div class="dataLabel" style="font-size: 20px;">To Station</div>
-            <div class="data" style="font-size: 20px;">Bambalapitiya</div>
-          </div>
-          <div class="dataEntry">
-            <div class="dataLabel" style="font-size: 20px;">To Month</div>
-            <div class="data" style="font-size: 20px;">June</div>
-          </div>-->
+        <?php
+          print_r($controllerData);
+          foreach($controllerData as $data){
+          echo("
+            <div style='float:right;'>Date: ".$data->getTimeStamp()."</div><br>
+           
           <br>
-                  <label for="fullName" class="inputLabel fullName">Full Name:</label><br>
-                  <input type="text" id="fullName" name="fullName" class="input fullNameText" value="Mr. Kamal Perera" readonly><br><br>
-                  <label for="name" class="inputLabel name">Name with initials:</label><br>
-                  <input type="text" id="name" name="name" class="input nameText" value="K.Perera" readonly><br><br>
-                  <label for="regNo" class="inputLabel regNo">Registration Number:</label><br>
-                  <input type="text" id="regNo" name="regNo" class="input regNoText" value="2018cs145" readonly><br><br>
+                
+                   
+                  <label for='regNo' class='inputLabel regNo'>Registration Number:</label><br>
+                  <input type='text' id='regNo' name='regNo' class='input regNoText' value=".$data->getRequester()." readonly><br><br>
 
-                  <label for="address" class="inputLabel name">Address:</label><br>
-                  <input type="text" id="address" name="address" class="input nameText" value="No 15 gall road,Kaluthara" readonly><br><br>
+                  <label for='address' class='inputLabel name'>Address:</label><br>
+                  <input type='text' id='address' name='address' class='input nameText' value=".$data->getAddress()." readonly><br><br>
 
-                  <div class="row col-2">
+                  <div class='row col-2'>
                     <div>
-                    <label for="fromMonth" class="inputLabel name">From Month:</label>
-                    <input type="text" id="fromMonth" style="width:90%;" name="fromMonth" value="March" class="input nameText" readonly>
+                    <label for='fromMonth' class='inputLabel name'>From Month:</label>
+                    <input type='text' id='fromMonth' style='width:90%;' name='fromMonth' value=".$data->getFromMonth()." class='input nameText' readonly>
                        <br>
                     </div>
 
                     <div>
-                      <label for="fromMonth" class="inputLabel name">To Month:</label>
-                      <input type="text" style="width:90%;" id="toMonth" name="toMonth" value="July" class="input nameText" readonly>
+                      <label for='fromMonth' class='inputLabel name'>To Month:</label>
+                      <input type='text' style='width:90%;' id='toMonth' name='toMonth' value=".$data->getToMonth()." class='input nameText' readonly>
                         <br>
                     </div>
                     <div>
-                      <label for="homeStation" class="inputLabel name">Nearest Station from Home:</label><br>
-                      <input type="text" id="homeStation" style="width:90%;" value="Moratuwa" name="homeStation" class="input nameText" readonly><br><br>
+                      <label for='homeStation' class='inputLabel name'>Nearest Station from Home:</label><br>
+                      <input type='text' id='homeStation' style='width:90%;' value=".$data->getNearRailwayStationHome()." class='input nameText' readonly><br><br>
                     </div>
                     <div>
-                      <label for="universityStation" class="inputLabel name">Nearest Station from University:</label><br>
-                      <input type="text" id="universityStation" style="width:90%;" value="Bambalapitiya" name="universityStation" class="input nameText" readonly><br><br>
+                      <label for='universityStation' class='inputLabel name'>Nearest Station from University:</label><br>
+                      <input type='text' id='universityStation' style='width:90%;' value='".$data->getNearRailwayStationHome()."' name='universityStation' class='input nameText' readonly><br><br>
                     </div>
 
                     
 
                   </div>
+                  ");
+                }
+                ?>
 
+                  <label for="seasonID" class="inputLabel name">Season ID:</label><br>
+                  <input type="text" id="seasonID" style="width:90%;" name="seasonID" class="input nameText"><br><br>
                   <div class="dataEntry">
                     <div class="dataLabel">
-                    <input type="submit" class="checkedButton" value="Checked" style="font-size: 16px;" >
+                    <input type="submit" class="checkedButton" value="Checked" name="submit" style="font-size: 16px;" >
                     </div>
                     <div class="data">
                     <a  href="checkTrainSeason"> 
@@ -175,3 +156,8 @@
 </div>
 </body>
 </html>
+
+<!--<label for='fullName' class='inputLabel fullName'>Full Name:</label><br>
+                  <input type='text' id='fullName' name='fullName' class='input fullNameText' value='aa' readonly><br><br>
+                  <label for='name' class='inputLabel name'>Name with initials:</label><br>
+                  <input type='text' id='name' name='name' class='input nameText' value='K.Perera' readonly><br><br>-->

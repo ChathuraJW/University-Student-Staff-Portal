@@ -9,7 +9,7 @@
                 $newRequesterData= new TrainSeason();
 
                 $newRequesterData->setData($requesterData['requester'],$requesterData['academicYear'],$requesterData['age'],$requesterData['address'],
-                                            $requesterData['fromMonth'],$requesterData['toMonth'],$requesterData['nearRailwayStationHome'],$requesterData['nearRailwayStationUni']);
+                                            $requesterData['fromMonth'],$requesterData['toMonth'],$requesterData['nearRailwayStationHome'],$requesterData['nearRailwayStationUni'],$requesterData['submittedTimestamp']);
                 return $newRequesterData;
             }else{
                 return false;
@@ -54,7 +54,7 @@
         public static function insertData($requesterDetail){
             $dbObject = new Database();
             $dbObject->establishTransaction('root','');
-            $insertQuery = "INSERT INTO request_train_season(requester,address,academicYear,age,fromMonth,toMonth,nearRailwayStationHome,nearRailwayStationUni) VALUES('".$requesterDetail->getRequester()."','".$requesterDetail->getAddress()."','".$requesterDetail->getAcademicYear()."',".$requesterDetail->getAge().",'".$requesterDetail->getFromMonth()."','".$requesterDetail->getToMonth()."','".$requesterDetail->getNearRailwayStationHome()."','".$requesterDetail->getNearRailwayStationUni()."')";
+            $insertQuery = "INSERT INTO request_train_season(requester,address,academicYear,age,fromMonth,toMonth,nearRailwayStationHome,nearRailwayStationUni,submittedTimestamp) VALUES('".$requesterDetail->getRequester()."','".$requesterDetail->getAddress()."','".$requesterDetail->getAcademicYear()."',".$requesterDetail->getAge().",'".$requesterDetail->getFromMonth()."','".$requesterDetail->getToMonth()."','".$requesterDetail->getNearRailwayStationHome()."','".$requesterDetail->getNearRailwayStationUni()."',NOW())";
             echo $insertQuery;
              
             //execute the query

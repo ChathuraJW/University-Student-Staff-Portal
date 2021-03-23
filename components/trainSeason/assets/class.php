@@ -124,7 +124,7 @@ class contactUnion{
 }
 class TrainSeason{
     // attributes of TrainSeason
-    
+    private $seasonID;
     private $requester;
     private $academicYear;
     private $age;
@@ -133,9 +133,11 @@ class TrainSeason{
     private $toMonth;
     private $nearRailwayStationHome;
     private $nearRailwayStationUni;
+    private $submittedTimestamp;
      
     // methods of Trainseason
-    public function setData($requester,$academicYear,$age,$address,$fromMonth,$toMonth,$nearRailwayStationHome,$nearRailwayStationUni){
+    public function setData($seasonID,$requester,$academicYear,$age,$address,$fromMonth,$toMonth,$nearRailwayStationHome,$nearRailwayStationUni,$submittedTimestamp){
+        $this->seasonID = $seasonID;
         $this->requester = $requester;
         $this->academicYear = $academicYear;
         $this->age = $age;
@@ -144,8 +146,13 @@ class TrainSeason{
         $this->toMonth = $toMonth;
         $this->nearRailwayStationHome = $nearRailwayStationHome;
         $this->nearRailwayStationUni = $nearRailwayStationUni;
+        $this->submittedTimestamp = $submittedTimestamp;
 
         return $this;
+    }
+
+    public function getSeasonID(): int{
+        return $this->seasonID;
     }
 
     public function getRequester(): string{
@@ -178,6 +185,10 @@ class TrainSeason{
 
     public function getNearRailwayStationUni(): string{
         return $this->nearRailwayStationUni;
+    }
+
+    public function getTimeStamp(): string{
+        return $this->submittedTimestamp;
     }
 }
 

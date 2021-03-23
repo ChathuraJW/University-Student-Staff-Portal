@@ -21,7 +21,7 @@
                     $universityStation = $_POST['universityStation'];
 
                     $requesterDetail=new TrainSeason();
-                    $requesterDetail->setData($regNo,$academicYear,$age,$address,$fromMonth,$toMonth,$homeStation,$universityStation);
+                    $requesterDetail->setData(NULL,$regNo,$academicYear,$age,$address,$fromMonth,$toMonth,$homeStation,$universityStation,NULL);
 
                     $sendDataToModel = ApplyTrainSeasonModel::insertData($requesterDetail);
 

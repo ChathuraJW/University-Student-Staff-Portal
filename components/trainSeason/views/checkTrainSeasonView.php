@@ -34,8 +34,9 @@
               echo ("<a class='application' href='checkedApplication'>
                     <div class='button'>
                       <div>Appliciant: ".$data->getRequester()."</div>
-                      <div>Station: </div>
-                      <div style='float:right;'>Date: 2020/02/07</div>
+                      <div>University Station: ".$data->getNearRailwayStationUni()."</div>
+                      <div>Home Station: ".$data->getNearRailwayStationHome()."</div>
+                      <div style='float:right;'>Date: ".$data->getTimeStamp()."</div>
                     </div><br>
                   </a>");
             }
