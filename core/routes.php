@@ -15,6 +15,9 @@
 	Route::set('resetPassword', function () {
 		ResetPasswordController::open();
 	});
+	Route::set('aboutUs', function () {
+		AboutUsController::open();
+	});
 
 // check weather the given file exist on the site if not redirect to 404 page
 	$available = FALSE;

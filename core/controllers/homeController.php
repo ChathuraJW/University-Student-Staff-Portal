@@ -11,3 +11,4 @@
 			self::createView("homeView", $sendArray);
 		}
 	}
+?>
