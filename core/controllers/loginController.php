@@ -30,8 +30,11 @@
 							$fileEntry = "$timestamp      ::::    User $userName login to the system as $userRole\n";
 							file_put_contents("../access.log", $fileEntry, FILE_APPEND);
 
-//                        redirect to home
-							header("location: home");
+//                        redirect to home / registration
+							if (LoginModel::isFirstLogin($userName))
+								header("Location: registration");
+							else
+								header("location: home");
 						}
 					} else {
 						echo("<script>displayError();</script>");

@@ -26,4 +26,10 @@
 			$result = Database::executeQuery("generalAccess", "generalAccess@16", $sqlQuery);
 			return $result[0]['passwordSalt'];
 		}
+
+		public static function isFirstLogin($userName){
+			$sqlQuery="SELECT isFirstLogIn FROM user WHERE userName ='$userName' LIMIT 1";
+			$result= Database::executeQuery("generalAccess", "generalAccess@16", $sqlQuery);
+			return $result[0]['isFirstLogIn'];
+		}
 	}

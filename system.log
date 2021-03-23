@@ -4,3 +4,6 @@
 2021-01-22 14:24:37      ::::    User kek login to the system as AS
 2021-03-19 10:55:29      ::::    [Transaction ID: 128]-[Update a new salt value.]
 2021-03-19 10:55:29      ::::    [Transaction ID: 131]-[Update a new Password cause of forget.]
+2021-03-23 07:28:10      ::::    [Transaction ID: 4428]-[Update user(kek) basic information when initial login to the system.]
+2021-03-23 07:30:10      ::::    [Transaction ID: 4431]-[Update user(kek) basic information when initial login to the system.]
+2021-03-23 07:30:50      ::::    [Transaction ID: 4434]-[Update user(kek) basic information when initial login to the system.]
