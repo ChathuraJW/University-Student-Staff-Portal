@@ -98,7 +98,7 @@
                                 <div class="label"></div>
                                 <div class="value">
                                     
-                                        <textarea style="background-color:none"name="reply" id="" cols="50" rows="10"></textarea><br>
+                                        <textarea style="background-color:none"name="reply" id="" cols="50" rows="10" placeholder="Reply"></textarea><br>
                                     
                                 </div>
                             </div>

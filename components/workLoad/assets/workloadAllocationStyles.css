@@ -113,7 +113,6 @@
     /* text-align: ; */
     height: 50px;
     margin-left: 10%;
-    margin-right: ;
     width:80%;
 }
 .label{
@@ -209,7 +208,7 @@
     /* width: 500px; */
     margin-top: 20px;
     margin: auto;
-    background-color: white;
+    background-color: var(--entryBackgroundColor);
 }
 .successMsg{
     border: none;
@@ -288,5 +287,6 @@
     width:98%
 }
 .memberSearch{
-    height: fit-content;
+    height:max-content
+    /* height: fit-content; */
 }

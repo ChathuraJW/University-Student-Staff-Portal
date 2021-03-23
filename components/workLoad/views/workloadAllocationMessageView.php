@@ -33,10 +33,10 @@
                             $url="?fullName=".$record->getFullName()."&workLoadDescription=".$record->getWorkLoadDescription()."&title=".$record->getTitle()."&location=".$record->getLocation()."&Date=".$record->getDate()."&fromTime=".$record->getFromTime()."&toTime=".$record->getToTime()."&salutation=".$record->getSalutation()."&requestDate=".$record->getRequestDate()."&workloadOwner=".$record->getWorkLoadOwner()."&workloadID=".$record->getWorkloadID();
                             echo "
                             <a style='text-decoration: none;'href='".$url."'  onclick='openMessage()' >
-                                <div class='normalEntry'>
+                                <div class='normalEntry text'>
                                     <div>".$record->getSalutation().".".$record->getFullName()."</div>
                                     <div>".$record->getTitle()."</div>
-                                    <div style='margin-left:85%;'>".$record->getRequestDate()."</div>
+                                    <div style='margin-left:80%;'>".$record->getRequestDate()."</div>
                                 </div>
                             </a><br>" ;
                         }
@@ -149,7 +149,7 @@
         <form action="" method="post" id="allocationForm" >
                         <div id="searchStaff" style="color:black;display:none;"><!-- here display the all supportive staff free in mentioned time slot -->
                             <!-- <form action="" id="searchForm"method="post"> -->
-                                <div style="margin-top:10px;color:black;">If You Want Select More Than One Member Select Members with Pressing CTRL Button</div>
+                                <div class="text" style="margin-top:10px;">If You Want Select More Than One Member Select Members with Pressing CTRL Button</div>
                                 <?php
                                     // for($i=1;$i<12;$i++){
                                         // echo 
