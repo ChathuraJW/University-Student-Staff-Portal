@@ -1,62 +1,60 @@
-/*header section*/
-.container{
-    height: auto;
-    display: flex;
+/*remove home icon from home screen*/
+.backToHome {
+    display: none;
 }
-.notificationStackContainer{
-    width: 25%;
+
+/*header section*/
+.container {
     height: auto;
+    display: inline-flex;
+}
+
+.notificationStackContainer {
+    width: 22%;
     margin-left: -10px;
 
 }
-@media (max-width:768px ) {
-    .notificationStackContainer{
-        display: none;
-    }
-}
-@media (max-width:992px ) {
-    .notificationStackContainer{
-    }
-}
-@media (max-width:1200px ) {
-    .notificationStackContainer{
-    }
-}
-.content{
-    width: 68%;
+
+.content {
+    width: 60%;
     height: auto;
-    margin: 0px;
+    margin: 0;
 }
-.userInformation{
-    width: 17%;
+
+.userInformation {
+    width: 20%;
     height: auto;
-    margin-left: 0px;
+    margin-left: 0;
 
 }
+
 /*user information*/
 .profileSection {
     height: auto;
     border: 1px solid #a5a2a2;
     border-radius: 5px;
-    background-color: #eeeeee63;
+    color: var(--fontColor);
 }
+
 .userSetting {
     float: right;
     margin: 3px;
     text-decoration: none;
     color: black;
 }
+
 .profilePic {
     display: block;
     height: fit-content;
     border: 1px solid #a5a2a2;
-    width: 70%;
+    width: 180px;
     padding: 5px;
     margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 5px;
 }
+
 /*profile information*/
 .userInfo {
     padding: 15px;
@@ -70,24 +68,16 @@
 }
 
 .userInfo .emailPersonal, .userInfo .emailUniversity {
-    font-size: large;
     font-family: BioRhyme, sans-serif;
 }
 
 .userInfo .gpa {
-    font-size: large;
     border: 1px solid;
     text-align: center;
     display: block;
-    color: white;
+    color: var(--fontColor);
     border-radius: 5px;
     font-weight: bold;
-}
-/*profileSection re-ordering*/
-@media screen and (max-width: 992px) {
-    .profileSection {
-        order: -1;
-    }
 }
 
 .notificationStack {
@@ -107,9 +97,10 @@
 }
 
 .stackLabel {
-    height: 15px;
+    height: 18px;
     width: 88%;
     margin: 5px;
+    color: var(--fontColor);
     font-family: BioRhyme, sans-serif;
     font-weight: bold;
     text-align: center;
@@ -135,14 +126,13 @@
     display: block;
     height: auto;
     width: 95%;
-    border: 1px solid;
+    border: 1px var(--entryBackgroundColor);
     margin: 5px;
     border-radius: 5px;
     padding: 5px;
     overflow: hidden;
     color: white;
     background-color: var(--baseColor);
-    /*opacity: 0.7;*/
 }
 
 .notificationEntryTimeTable {
@@ -160,13 +150,15 @@
     /*color: white;*/
     color: white;
 }
+
 .linkSection {
     height: auto;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
+
 /*link tile styles*/
-.tile  {
+.tile {
     height: 200px;
     overflow: hidden;
     margin: 10px;
@@ -175,14 +167,14 @@
     color: #ecebeb;
     transition: all .5s linear;
     opacity: 0.7;
-    background-color:var(--baseColor);
+    background-color: var(--baseColor);
 }
 
 .tile:hover {
     color: #ffffff;
     transition: all .5s linear;
     opacity: 1;
-    box-shadow: #b4b8b8 2px 2px;
+    box-shadow: var(--baseColor) 2px 2px;
     -webkit-transform: translateX(3px);
     transform: translateX(3px);
 }
@@ -201,7 +193,8 @@
     margin: 8px;
     font-weight: bold;
 }
-.timetable{
+
+.timetable {
     padding-top: -20px;
     overflow: hidden;
     margin: 10px;
@@ -210,45 +203,53 @@
     text-decoration: none;
     border: 1px solid var(--baseColor);
 }
-.calenderContainer{
+
+.calenderContainer {
     height: 250px;
     margin-top: 10px;
 }
-.dayContainer{
+
+.dayContainer {
     height: 32px;
     background: var(--baseColor);
     color: white;
     line-height: 32px;
     font-size: 16px;
     font-weight: 200;
-    letter-spacing: 0.3px;
+    letter-spacing: 1px;
     align-items: center;
     text-align: center;
 }
-.dateTime{
+
+.dateTime {
     background-color: var(--headerFooterBackground);
     color: white;
     text-align: center;
     padding: 5px;
 }
-.month{
+
+.month {
     font-size: 25px;
     font-weight: bold;
     padding: 5px;
 }
-.date{
+
+.date {
     font-size: 60px;
     padding: 5px;
 }
-.time{
+
+.time {
     font-size: 25px;
     padding: 5px;
 }
+
 /*greeting message*/
-body{
+body {
     background-color: var(--baseColor);
 }
-.popupMessageContainer{
+
+.popupMessageContainer {
     opacity: 0.5;
     width: auto;
     height: auto;
@@ -261,42 +262,99 @@ body{
     transform: translate(-50%, -50%);
     transition: all 1s ease;
 }
-.popupMessage{
+
+.popupMessage {
     color: white;
     text-transform: uppercase;
 }
-.greetingMessage{
+
+.greetingMessage {
     font-size: 50px;
     font-weight: 400;
     letter-spacing: 8px;
     margin-bottom: 20px;
-    background-color:var(--baseColor);
+    background-color: var(--baseColor);
     position: relative;
     animation: text 3s 1;
 }
-.userName{
+
+.userName {
     font-size: 30px;
     animation: text 3s 1;
     letter-spacing: 8px;
 }
+
 @keyframes text {
-    0%{
+    0% {
         color: var(--baseColor);
     }
-    30%{
+    30% {
         letter-spacing: 20px;
     }
-    85%{
-       letter-spacing: 8px;
+    85% {
+        letter-spacing: 8px;
     }
-    
+
 }
-.popupMessageContainer.show{
+
+.popupMessageContainer.show {
     visibility: visible;
     opacity: 1;
 }
 
-.mainContainer{
+.mainContainer {
     visibility: hidden;
     display: none;
+}
+
+/*media quires*/
+@media (max-width: 1462px ) {
+    .notificationStackContainer {
+        display: none;
+    }
+
+    .content {
+        width: auto;
+    }
+
+    .userInformation {
+        width: auto;
+    }
+}
+
+@media (max-width: 768px ) {
+    .notificationStackContainer {
+        display: none;
+    }
+
+    .content {
+        width: auto;
+        display: grid;
+    }
+
+    .userInformation {
+        display: none;
+    }
+
+    .col-4 {
+        grid-template-columns: repeat(2, 12fr);
+    }
+
+    .col-2 {
+        grid-template-columns: repeat(2, 6fr);
+    }
+}
+
+@media (max-width: 404px ) {
+    .timetable {
+        width: auto;
+    }
+
+    .col-4 {
+        grid-template-columns: repeat(1, 12fr);
+    }
+
+    .col-2 {
+        grid-template-columns: repeat(1, 6fr);
+    }
 }

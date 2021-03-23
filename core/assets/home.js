@@ -1,24 +1,21 @@
-
 // Set greeting message according to the time
 let timeIn = new Date();
 let timeInHours = timeIn.getHours();
 let greetingMessage;
 
-if (timeInHours<12){
+if (timeInHours < 12) {
     greetingMessage = "Good Morning!"
-}else if (timeInHours >= 12 && timeInHours <= 17){
+} else if (timeInHours >= 12 && timeInHours <= 17) {
     greetingMessage = "Good Afternoon!";
-}else if(timeInHours >= 17 && timeInHours <= 24){
+} else if (timeInHours >= 17 && timeInHours <= 24) {
     greetingMessage = "Good Evening!";
 }
-// greetingMessage = `${greetingMessage} `;
-document.getElementById("greetingMessage").innerHTML = greetingMessage ;
-
+document.getElementById("greetingMessage").innerHTML = greetingMessage;
 
 // popup message
 const loginPopup = document.querySelector(".popupMessageContainer");
 
-window.addEventListener("load",function (){
+window.addEventListener("load", function () {
     showPopup();
 });
 
@@ -26,12 +23,12 @@ function showPopup() {
     loginPopup.classList.add("show"); //display greeting message
 
     //Load the content after few seconds
-    setTimeout(function() {
+    setTimeout(function () {
         document.getElementById("greeting").remove();
         document.getElementById("contentContainer").style.visibility = 'visible';
         document.getElementById("contentContainer").style.display = 'block';
         document.querySelector('body').style.visibility = 'hidden';
-        document.querySelector('body').style.backgroundColor='white';
+        document.querySelector('body').style.backgroundColor = 'white';
 
     }, 3000);
 }
@@ -130,20 +127,20 @@ if (userRole === 'ST') {
 
 // add navigation links
 jQuery.get('assets/navigationLinks.xml', function (fileContent) {
-    const idList= $(fileContent).find("feature").find("id").toArray();
-    const pathList= $(fileContent).find("feature").find("path").toArray();
-    const isAliveList= $(fileContent).find("feature").find("isAlive").toArray();
+    const idList = $(fileContent).find("feature").find("id").toArray();
+    const pathList = $(fileContent).find("feature").find("path").toArray();
+    const isAliveList = $(fileContent).find("feature").find("isAlive").toArray();
     for (let i = 0; i < idList.length; i++) {
-        if(isAliveList[i]['innerHTML'])
-            document.getElementById(idList[i]['innerHTML']).href="../../"+pathList[i]['innerHTML'];
+        if (isAliveList[i]['innerHTML'])
+            document.getElementById(idList[i]['innerHTML']).href = "../../" + pathList[i]['innerHTML'];
         else
-            document.getElementById(idList[i]['innerHTML']).style.display='none';
+            document.getElementById(idList[i]['innerHTML']).style.display = 'none';
     }
 
 });
 // set date and time
-let clock = () =>{
-    const months= [
+let clock = () => {
+    const months = [
         "Jan",
         "Feb",
         "Mar",
@@ -157,7 +154,7 @@ let clock = () =>{
         "Nov",
         "Dec"
     ];
-    const  days =[
+    const days = [
         "Sunday",
         "Monday",
         "Tuesday",
@@ -178,27 +175,27 @@ let clock = () =>{
 
     let period = "AM";
     //convert the ......time into .......
-    if(hours === 0){
+    if (hours === 0) {
         hours = 12;
-    }else if(hours >= 12){
-        hours = hours-12;
+    } else if (hours >= 12) {
+        hours = hours - 12;
         period = "PM";
     }
 
     let stringDate;
-    if(currentDate === 1){
-         stringDate = `${currentDate}st`;
-    }else if(currentDate === 2){
-        stringDate = `${currentDate}nd`;
-    }else if(currentDate === 3){
-        stringDate = `${currentDate}rd`;
-    }else{
-        stringDate = `${currentDate}th`;
+    if (currentDate === 1) {
+        stringDate = `${currentDate}<sup>st</sup>`;
+    } else if (currentDate === 2) {
+        stringDate = `${currentDate}<sup>nd</sup>`;
+    } else if (currentDate === 3) {
+        stringDate = `${currentDate}<sup>rd</sup>`;
+    } else {
+        stringDate = `${currentDate}<sup>th</sup>`;
     }
 
     //ex -> replace 9 as 09
-    hours = hours < 10 ? "0"+hours:hours;
-    minutes = minutes <10 ? "0"+minutes:minutes;
+    hours = hours < 10 ? "0" + hours : hours;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
 
     let time = `${hours}:${minutes}:${period}`;
     let monthYear = `${month} ${year}`;
@@ -207,7 +204,7 @@ let clock = () =>{
     document.getElementById("month").innerHTML = monthYear;
     document.getElementById("day").innerHTML = day;
     document.getElementById("date").innerHTML = stringDate;
-    setTimeout(clock,1000);
+    setTimeout(clock, 1000);
 
 };
 clock();
