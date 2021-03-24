@@ -13,8 +13,18 @@ class AddNotificationController extends Controller{
             $weeks = $_POST['weeks'];
             $senderRegNo = $_COOKIE['userName'];
 
+            $number = filter_var($weeks, FILTER_VALIDATE_INT);
+
+            if ($number === false) {
+                echo "Exit";
+                exit('Invalid Integer');
+
+            }
+            if (!empty($_POST['email'])) {
+                $email = $_POST['email'];
+            }
             //continue the process only when all the fields were filled.
-            if(!empty($_POST['receiverList'])&& $notificationTitle && $notificationContent && $notificationCategory && $weeks && $senderRegNo){
+            if(!empty($_POST['receiverList'])&& !empty($notificationTitle) && !empty($notificationContent) && !empty($notificationCategory) && !empty($weeks) && !empty($senderRegNo)){
             // Loop to store and display values of individual checked checkbox.
                 $receivers = array();
                 $temp =0;

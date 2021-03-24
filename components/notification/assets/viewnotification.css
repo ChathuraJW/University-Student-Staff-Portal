@@ -45,15 +45,6 @@ button:hover {
     display: flex;
 }
 
-
-
-  /* Clear floats */
-/*form.example::after {*/
-/*    notent: "";*/
-/*    clear: both;*/
-/*    display: table;*/
-/*}*/
-
 /* radio */
 .radioToolbar input[type="radio"] {
     display: none;
@@ -104,26 +95,27 @@ button:hover {
     text-justify: inter-word;
 
 }
-.notificationNext{
-    border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding: 10px;
-    margin-top: 5px;
-    /*background-color: yellow;*/
-}
-.sender{
-    float: right;
-}
-.flex{
+
+.senderTime{
     display: flex;
+    margin: 2px 0px;
+}
+.markAsRead{
+    float: right;
+    margin-right: 20px;
+    text-underline:var(--baseColor) ;
+    cursor: pointer;
 }
 .content{
     width: 750px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-
 }
+.markASReadButton{
+    display: none;
+}
+
 /*hover */
 .notification:hover .content{
     /*text-overflow: unset;*/

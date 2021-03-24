@@ -4,20 +4,22 @@ function submitForm(){
 }
 
 function markASRead(notificationID){
-    let marked;
     let userName = document.cookie.split('=')[1];
     console.log(userName);
     console.log(notificationID);
 
-    if(document.getElementById(notificationID).checked){
-        marked = 1;
-        console.log(marked);
+    if(document.getElementById(notificationID).value){
+        document.getElementById('markAsRead').style.display ='none';
+
+
+        const markAsReadURL = "http://localhost/USSP/components/notification/assets/viewNotificationAPI.php?activity=markAsRead&userName=" + userName + "&mark=1&notificationID="+ notificationID ;
+        console.log(markAsReadURL);
+        $.getJSON(markAsReadURL,function (mark){
+            console.log(mark);
+
+        });
     }
-     const markAsReadURL = "http://localhost/USSP/components/notification/assets/viewNotificationAPI.php?activity=markAsRead&userName=" + userName + "&mark=" + marked;
-    console.log(markAsReadURL);
-    $.getJSON(markAsReadURL,function (marked){
-        console.log(marked);
-    });
+
 }
 
 $('notification').hover(

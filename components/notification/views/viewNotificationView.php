@@ -15,7 +15,7 @@
     <?php require('../../assets/php/basicLoader.php')?>
     <?php BasicLoader::loadHeader('../../')?>
     
-    <div class="featureBody">
+    <div class="featureBody bodyBackground text">
 
         <div class="sample">
             <form id="radioButton" method="post" >
@@ -70,20 +70,18 @@
 //                        echo $notificationId;
                         echo("
                             <div class='notification'>                               
-                                <labe class='topic'><i class='fa fa-bullhorn' aria-hidden='true'></i><b> ".$notification->getNotificationTitle()."</b></labe>                                                                      
+                                <labe class='topic'><i class='fa fa-bullhorn' aria-hidden='true'></i><b> ".$notification->getNotificationTitle()."</b></labe>                                                                                                                                  
                                 <label class='content'>".$notification->getNotificationContent()." Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda error et ex nobis, provident quis repellendus unde! Ab error esse est hic modi possimus qui repellendus soluta? Earum, laboriosam Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto, distinctio dolor eligendi eum numquam officia rerum. Aperiam asperiores dolores earum facere fugiat, nesciunt odit repellat reprehenderit soluta temporibus vero?</label>
-                                <div class='flex'>
-                                    <label class='lastRow'>".$notification->getTimeStamp()."</label>
-                                    <label class='sender'>By - ".$notification->getSender()."</label>                                    
-                                </div>
-                                <input type='button' id='$notificationId' value='$notificationId' onclick='markASRead($notificationId);' >
-                                <label for='$notificationId' class='markAsRead'>Mark as read</label>
+                                   <label class='senderTime'>By - ".$notification->getSender()."</label>  
+                                    <label class='senderTime'>".$notification->getTimeStamp()."</label>                                                                
+                                <input type='button'class='markAsReadButton' id='$notificationId' value='$notificationId' onclick='markASRead(`$notificationId`);' >
+                                <div class='markAsRead'><label for='$notificationId' class='markAsRead'>Mark as read</label></div>
                             </div>
                         ");
                     }
                     ?>
                 </div>
-<!--                </form>-->
+
                 
             </div>
                         </div>
@@ -93,6 +91,7 @@
     </div>
     <!-- include footer section -->
     <?php BasicLoader::loadFooter('../../')?>
+        <script src="../../assets/js/jQuery.js"></script>
     <script src="assets/viewNotification.js"></script>
     <script src="../../assets/js/changeTheme.js"></script>
 </body>
