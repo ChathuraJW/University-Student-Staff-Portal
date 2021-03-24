@@ -130,7 +130,7 @@ $.getJSON(url,function(dataList){
                 start.cells[columnNumber].style.textAlign = "center";
                 for(k=row1;k<=row2;k++){
                         var allocatedCell = document.getElementById("timetable").rows[k];
-                        allocatedCell.cells[columnNumber].style.backgroundColor = "rgb(229, 170, 252)";
+                        allocatedCell.cells[columnNumber].style.backgroundColor = "var(--entryBackgroundColor)";
                         allocatedCell.cells[columnNumber].title = subjects[i]+" "+halls[i];
                         
                         // allocatedCell.cells[columnNumber].style.backgroundColor = "rgb(229, 170, 252)";

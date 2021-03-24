@@ -20,7 +20,7 @@ if(isset($_GET['username'])){
 
     if($length>3){
         $queryOne="SELECT studentGroup FROM student WHERE regNo='$userName'";
-        $group=$databaseInstance->executeTransaction($query);
+        $group=$databaseInstance->executeTransaction($queryOne);
         if($databaseInstance->getTransactionState()){
             $groupNumber=$group[0]['studentGroup'];
         

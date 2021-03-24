@@ -14,10 +14,10 @@ function createToast(title, message, type) {
     }
     // create content
     const content = "<div class='alert' style='background-color:" + color + ";'>" +
-        "        <i class='fas fa-times closeButton'></i>" +
+        "        <i class='fa fa-times closeButton' style='background: none;'></i>" +
         "        <div>" +
         "            <div class='icon'>" +
-        "                <i class='fas " + icon + " fa-2x'></i>" +
+        "                <i class='fa " + icon + " fa-2x'></i>" +
         "            </div>" +
         "            <div class='msgContent'>" +
         "                <strong>" + title + "</strong><br>" + message +
@@ -46,4 +46,12 @@ function createToast(title, message, type) {
 // avoid resubmit form
 if (window.history.replaceState) {
     window.history.replaceState( null, null, window.location.href);
+}
+
+// confirm message operation
+function confirmMessage(message){
+    let selection=window.confirm(message);
+    if (!selection){
+        event.preventDefault();
+    }
 }

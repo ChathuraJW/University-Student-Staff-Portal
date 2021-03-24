@@ -18,7 +18,7 @@
     <div class="featureBody bodyBackground text" >
         <?php
         //TODO Delete the setcookie
-            setcookie('userName','kek');
+            setcookie('userName','kpk');
             $studentID=$_COOKIE['userName'];
         ?>
         <div id="username" style="display:none;" value="<?php echo $studentID?>" ></div>
@@ -87,5 +87,6 @@
     <script src="../../assets/js/jquery.js"></script>
 <script src="../../assets/js/toast.js"></script>
     <script src="assets/timetable.js"></script>
+    <script src="../../assets/js/changeTheme.js"></script>
 </body>
 </html>

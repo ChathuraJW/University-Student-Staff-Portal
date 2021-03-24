@@ -11,12 +11,12 @@ table{
 th{
     width: 16%;
     height: 40px;
-    border: 1px solid rgb(206, 216, 224);
+    border: 1px solid var(--entryBackgroundColor);
     /* border-color: rgb(218, 215, 218); */
     border-width: 3px;
 }
 .line9{
-    background-color: rgb(206, 216, 224);
+    background-color: var(--entryBackgroundColor);
 }
 .head{
     /* margin: auto; */
@@ -26,6 +26,6 @@ th{
     /* background: linear-gradient(to bottom right,rgb(255, 252, 104),white); */
 }
 .day{
-    background:linear-gradient(to bottom right,rgb(148, 210, 252),rgb(231, 248, 250));
+    background-color:var(--entryBackgroundColor);
 }
 
