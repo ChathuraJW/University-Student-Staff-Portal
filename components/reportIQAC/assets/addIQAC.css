@@ -1,8 +1,3 @@
-.heading {
-    text-align: center;
-    font-weight: bold;
-    font-size: 45px;
-}
 .inputFile{
     height: 200px;
     padding: 25px;
@@ -24,5 +19,9 @@
     font-size: 20px;
     width: 400px;
     color: var(--fontColor);
+}
+
+.label{
+    font-size: 18px;
 }
  

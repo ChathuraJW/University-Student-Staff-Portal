@@ -22,7 +22,7 @@ class AddIQACController extends Controller{
 
             //check all inputs fill in it's feilds
             if(!$staffID || !$examinationYear || !$academicYear || !$semester || !$subjectCode || !$name || !$fileNameCmps || !$fileExtension){
-                echo("<script>createToast('Warning(error code:#IQAC01-T)','Failed to load inputs.','W')</script>");
+                echo("<script>createToast('Warning(error code:#IQAC01-T)','Failed to get inputs from input feilds.','W')</script>");
             }
             //semester values (1,2,3,4,5,6,7,8)
             $semList = array(array(1, 2), array(3, 4), array(5, 6), array(7, 8));
@@ -39,24 +39,16 @@ class AddIQACController extends Controller{
             }
 
             
-            if($academicYear == 1){
-                $academicYearInWords = "First Year";
-            }else if($academicYear == 2){
-                $academicYearInWords = "Second Year";
-            }else if($academicYear == 3){
-                $academicYearInWords = "Third Year";
-            }else{
-                $academicYearInWords = "Fourth Year";
-            }
+             
 
-            //check the files are pdf or zip
-            if($fileExtension == 'pdf' || $fileExtension == 'zip'){
+            //check the files are in pdf
+            if($fileExtension == 'pdf'){
                 //create file name
-                $reportName = "$staffID-$subjectCode-$subjectName-$examinationYear $academicYearInWords,$semesterInWords.$fileExtension";
+                $reportName = "$staffID-$subjectCode-$subjectName-$examinationYear ,$semesterInWords.$fileExtension";
 
                 $reportDetail = new IQACReport();
                 $reportDetail->setReportDetail($staffID, $subjectCode, $examinationYear, $realSemester,$reportName, $fileLocation);
-	            $isSuccess =  AddIQACModel::addReportDetails($reportDetail);
+	            $insertDetail =  AddIQACModel::addReportDetails($reportDetail);
             }
 
         }

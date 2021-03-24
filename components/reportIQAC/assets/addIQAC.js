@@ -10,16 +10,16 @@ yearValues.value = currentYear.toString();
 
  
 
-//pdf or zip file operation
+//pdf file operation
 let report = document.getElementById("fileInput");
 
 report.addEventListener("change",function (){
     if(report.value !== ''){
         console.log("File Size is(KB): "+report.files[0].size/1000);
         let uploadFormat = report.value.toString().split('.')[1].toLowerCase();
-        if (uploadFormat === "pdf" || uploadFormat==="zip") {
+        if (uploadFormat === "pdf") {
         } else {
-            alert("Please upload pdf or zip formatted file.");
+            alert("Please upload pdf file.");
         }
 
     }

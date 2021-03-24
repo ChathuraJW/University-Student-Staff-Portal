@@ -23,7 +23,7 @@
             <div class="row col-2">
                 <div class="row col-2">
                     <div>
-                        <label class="labelStyle">Lecturer:</label><br>
+                        <label class="label">Lecturer:</label><br>
                         <select name="lecturer" required>
                             <option value="0"></option>
 
@@ -38,14 +38,14 @@
                     </div>
 
                     <div>
-                        <label class="labelStyle">Subject:</label><br>
+                        <label class="label">Subject:</label><br>
                         <select name="subject" required>
                             <option value="0"></option>
 
                             <?php
                             foreach ($controllerData[1] as $data ){
                                 echo ("
-                                    <option value='".$data->getCourseCode()."'>".$data->getName()."</option>
+                                    <option value='".$data->getCourseCode()."'>".$data->getCourseCode()." - ".$data->getName()."</option>
                                 ");
                             }
                             ?>
@@ -53,12 +53,12 @@
                     </div>
 
                     <div>
-                        <label class="labelStyle">Examination Year:</label><br>
+                        <label class="label">Examination Year:</label><br>
                         <select name="examinationYear" id="examinationYear" required>
                         </select>
                     </div>
                     <div>
-                        <label class="labelStyle">Academic Year:</label><br>
+                        <label class="label">Academic Year:</label><br>
                         <select name="academicYear" required>
                             <option value="0"></option>
                             <option value=1>First Year</option>
@@ -68,7 +68,7 @@
                         </select>
                     </div>
                     <div>
-                        <label class="labelStyle">Semester:</label><br>
+                        <label class="label">Semester:</label><br>
                         <select  name="semester" required>
                             <option value="0"></option>
                             <option value=1>First Semester</option>
@@ -78,7 +78,7 @@
                      
                 </div>
                 <div id="inputFile" class="inputFile row col-1">
-                     
+                    
                     <input type="file" name="myFile" id="fileInput" class="fileInput" required>
                 </div>
             </div>
@@ -95,6 +95,7 @@
     <?php BasicLoader::loadFooter('../../')?>
     <script src="../../assets/js/jquery.js"></script>
     <script src="../../assets/js/toast.js"></script>
+    <script src="../../assets/js/changeTheme.js"></script>
     <script src="assets/addIQAC.js"></script>
 </body>
 </html>
