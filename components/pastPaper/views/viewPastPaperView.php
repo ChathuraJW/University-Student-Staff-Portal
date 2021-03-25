@@ -85,13 +85,14 @@
                             foreach ($controllerData[1] as $recent ){
                                 $extension = getFileExtension($recent->getPaperName());
 
-//                                convert real semesters in to academic yaer and semester format
-                                 if($recent->getSemester%2==0){
+//                                convert real semesters in to academic year and semester format
+                                 if($recent->getSemester()%2==0){
                                      $semester = "Semester 2";
                                  }else{
                                      $semester = "Semester 1";
                                  }
-                                 
+
+                                 $academicYear = 0;
                                  switch ($recent->getSemester()){
                                      case 1:
                                      case 2:
@@ -113,9 +114,9 @@
 
                                 echo ("         
                                     <div class='pastPaperTile'>
-                                <a class='subjectName' href='' target='_blank'>
-                                    <span >$recent->get</span><br>
+                                <a class='subjectName' href='' target='_blank'>                                   
                                     <span >".$recent->getSubjectCode()."</span><br>
+                                    <span >".$recent->getSubjectName()."</span><br>
                                     <span >$academicYear </span>
                                     <span >$semester</span><br>
                                     <span >".$recent->getExaminationYear()."</span><br>

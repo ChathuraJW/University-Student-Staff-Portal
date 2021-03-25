@@ -29,7 +29,7 @@ class AddPastPaperModel extends Model
         $databaseInstance->establishTransaction('root','');
         $sqlQuery = "INSERT INTO pastpaper(subjectCode, yearOfExam, semester,fileName) VALUES ('".$pastPaper->getSubjectCode()."',".$pastPaper->getExaminationYear().",".$pastPaper->getSemester().",'".$pastPaper->getPaperName()."')";
         $databaseInstance->executeTransaction($sqlQuery);
-//        echo($sqlQuery);
+        echo($sqlQuery);
 //        create audit trail
         $databaseInstance->transactionAudit($sqlQuery,'pastpaper', 'INSERT',"PastPaper uploaded to the system." );
 
