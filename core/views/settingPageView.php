@@ -29,7 +29,7 @@
 		</div>
 	</header>
 		<div class="featureBody bodyBackground text">
-			<form method="post" class="container">
+			<form method="post" class="container" enctype="multipart/form-data">
 				<div class="subHeading">
 					<label class="subHeading">General</label>
 				</div>
@@ -102,11 +102,10 @@
                             <label for="profilePic" id="imageLoadContainer">
                                 <img class="profile" id="output" src="assets/uploadIcon.png" alt="Upload image">
                             </label>
-                            <input class="inputField choose" type="file" accept="image/*" onchange="loadFile(event)" name="profilePic"
-                               id="profilePic">
+                            <input class="inputField choose" type="file" accept="image/*" onchange="loadFile(event)" name="profilePic" id="profilePic">
                             </div>
                         <div class="buttonSet">
-                            <input class="button" type="submit" value="Update">
+                            <input class="button" type="submit" name="profilePictureSubmit" value="Update">
                             <input class="button" type="reset" value="Cancel">
                         </div>
                     </div>
@@ -121,7 +120,7 @@
                                 <label for="keys">Click here to Change password</label>
                             </div>
                             <div class="col_75">
-                                <input type="button" class='button' id="keys" value="Change">
+                                <input type="button" onclick="window.open('http://localhost/ussp/core/resetPassword','_blank');" class='button' id="keys" value="Change">
                             </div>
                         </div>
                     </div>
@@ -135,17 +134,38 @@
 							    <label for="keys">Click here to generate public and private keys</label>
 						    </div>
 						    <div class="col_75">
-							    <input type="button" class='button' id="keys" value="Generate">
+							    <input  type="submit" class='button' id="keys" name="pubKeySubmit" onclick="display()" value="Generate">
                             </div>
 				        </div>
 				    </div>
+					<a id="aTag" style="display:none;" href="http://localhost/USSP/core/privateKey.txt" onclick="displayNone()"></a>
 			</form>
 		</div>
 	</body>
 	<script src="../assets/js/jquery.js"></script>
 	<script src="../assets/js/toast.js"></script>
 	<script src="../assets/js/changeTheme.js"></script>
+	<script>
+		let loadFile = function (event) {
+			const output = document.getElementById('output');
+			output.style.height = "250px";
+			output.src = '';
+			document.getElementById('imageLoadContainer').style.width = 'max-content';
+			document.getElementById('imageLoadContainer').style.padding = '10px';
+			output.style.position = "initial";
 
+			output.src = URL.createObjectURL(event.target.files[0]);
+			output.onload = function () {
+				URL.revokeObjectURL(output.src) // free memory
+			}
+		};
+		function display(){
+			document.getElementById('aTag').style.display="";
+		}
+		function displayNone(){
+			document.getElementById('aTag').style.display="none";
+		}
+	</script>
 
 	<!-- include footer section -->
 	<?php BasicLoader::loadFooter('../') ?>
