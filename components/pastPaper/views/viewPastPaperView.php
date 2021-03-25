@@ -79,9 +79,6 @@
                                 return substr(strrchr($file_name,'.'),1);
                             }
 
-
-
-
                             foreach ($controllerData[1] as $recent ){
                                 $extension = getFileExtension($recent->getPaperName());
 
@@ -114,7 +111,7 @@
 
                                 echo ("         
                                     <div class='pastPaperTile'>
-                                <a class='subjectName' href='' target='_blank'>                                   
+                                <a class='subjectName' href='assets/pastPapers/".$recent->getPaperName()."' target='_blank'>                                   
                                     <span >".$recent->getSubjectCode()."</span><br>
                                     <span >".$recent->getSubjectName()."</span><br>
                                     <span >$academicYear </span>

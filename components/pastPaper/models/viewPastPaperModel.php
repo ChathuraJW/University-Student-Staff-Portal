@@ -104,7 +104,7 @@ class ViewPastPaperModel extends Model{
         $sqlQuery=trim($sqlQuery,"WHERE");
 
         $searchResult = Database::executeQuery('root','',$sqlQuery);
-        
+
         //initialize the returning array
         if($searchResult){
             $pastPaperList = array();
