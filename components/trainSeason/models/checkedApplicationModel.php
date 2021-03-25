@@ -1,7 +1,7 @@
 <?php
     class CheckedApplicationModel extends Model{
-        public static function getData(){
-            $sqlQuery = "SELECT * FROM request_train_season WHERE isChecked=0";
+        public static function getData($getRequestID){
+            $sqlQuery = "SELECT * FROM request_train_season WHERE isChecked=0 AND requestID=$getRequestID";
             
             $requesterData = Database::executeQuery("root","",$sqlQuery);
              
@@ -10,8 +10,28 @@
                 
                 foreach($requesterData as $data){
                     $newRequesterData = new TrainSeason();
-                    $newRequesterData->setData(NULL,$data['requester'],$data['academicYear'],$data['age'],$data['address'],$data['fromMonth'],
-                                              $data['toMonth'],$data['nearRailwayStationHome'],$data['nearRailwayStationUni'],$data['submittedTimestamp']);
+                    $newRequesterData->setData($data['requestID'],NULL,$data['requester'],$data['academicYear'],$data['age'],$data['address'],$data['fromMonth'],
+                                              $data['toMonth'],$data['nearRailwayStationHome'],$data['nearRailwayStationUni'],$data['submittedTimestamp'],NULL);
+                    $requesterDataList[] = $newRequesterData;
+                }
+                return $requesterDataList;
+            }else{
+                return false;
+            }
+        }
+
+        public static function getCompletedApplicationData($getRequestID){
+            $sqlQuery = "SELECT * FROM request_train_season WHERE isChecked=1 AND requestID=$getRequestID";
+            
+            $requesterData = Database::executeQuery("root","",$sqlQuery);
+             
+            if($requesterData){
+                $requesterDataList = array();
+                
+                foreach($requesterData as $data){
+                    $newRequesterData = new TrainSeason();
+                    $newRequesterData->setData($data['requestID'],$data['seasonID'],$data['requester'],$data['academicYear'],$data['age'],$data['address'],$data['fromMonth'],
+                                              $data['toMonth'],$data['nearRailwayStationHome'],$data['nearRailwayStationUni'],$data['submittedTimestamp'],NULL);
                     $requesterDataList[] = $newRequesterData;
                 }
                 return $requesterDataList;
@@ -23,13 +43,13 @@
         public static function insertSeasonID($insertSeasonID){
             $dbObject = new Database();
             $dbObject->establishTransaction('root','');
-
-            $insertQuery = "INSERT INTO request_train_season(seasonID,completedTimestamp) VALUES(".$insertSeasonID->getSeasonID().",NOW())";
-            echo($insertQuery);
-            $dbObject->executeTransaction($insertQuery);
+            $updateSeasonID = "UPDATE request_train_season SET seasonID=".$insertSeasonID->getSeasonID()." ,completedTimestamp=NOW() WHERE requestID=".$insertSeasonID->getRequestID()."";
+             
+            
+            $dbObject->executeTransaction($updateSeasonID);
             
             //create audit trail
-            $dbObject->transactionAudit($insertQuery,'request_train_season', 'INSERT',"Season ID is add to the system." );
+            $dbObject->transactionAudit($updateSeasonID,'request_train_season', 'UPDATE',"Season ID is add to the system." );
             if($dbObject->getTransactionState()){
                 if($dbObject->commitToDatabase()){
                     echo ("<script>createToast('Success','Operation successfully completed.','S')</script>");
@@ -57,6 +77,31 @@
             }else{
                 echo ("<script>createToast('Warning(error code: #TSM03)','Failed to confirm.','W')</script>");
             }
+
+            header("location:checkTrainSeason");
+        }
+
+        public static function updateCollectedState($insertData){
+            $dbObject = new Database();
+            $dbObject->establishTransaction('root','');
+            $updateCollectedState = "UPDATE request_train_season SET collectedPerson='".$insertData->getCollectedPerson()."' ,collectedTimestamp=NOW() WHERE requestID=".$insertData->getRequestID()."";
+             
+             
+            $dbObject->executeTransaction($updateCollectedState);
+            
+            //create audit trail
+            $dbObject->transactionAudit($updateCollectedState,'request_train_season', 'UPDATE',"Updated Successfully." );
+            if($dbObject->getTransactionState()){
+                if($dbObject->commitToDatabase()){
+                    echo ("<script>createToast('Success','Operation successfully completed.','S')</script>");
+                }else{
+                    echo ("<script>createToast('Warning(error code: #TSM02)','Failed to confirm.','W')</script>");
+                }
+            }else{
+                echo ("<script>createToast('Warning(error code: #TSM02)','Failed to confirm.','W')</script>");
+            }
+
+            header("location:checkTrainSeason");
         }
         
     }

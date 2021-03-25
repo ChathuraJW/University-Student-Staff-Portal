@@ -12,7 +12,7 @@
 
 
 </head>
-<body>
+<body class="bodyBackground text">
     <!-- include header section -->
     <?php require_once('../../assets/php/basicLoader.php') ?>
     <?php basicLoader::loadHeader('../../'); ?>
@@ -20,7 +20,7 @@
 
     <!-- feature body section -->
 
-    <div class="featureBody bodyBackground text">
+    <div class="featureBody">
         <div class="row col-2">
           <div class="applicationForm">
             <br>
@@ -36,7 +36,7 @@
                   <input type="text" id="regNo" name="regNo" class="input regNoText" style="width:100%;" value="<?php echo $controllerData[1]->getRegNo(); ?>" readonly><br><br>
                   <label for="address" class="inputLabel name">Address:</label><br>
                   <input type="text" id="address" name="address" class="input nameText" style="width:100%;" value="<?php echo $controllerData[1]->getAddress(); ?>" readonly><br><br>
-                  <div class="row col-2">
+                  <div class="row col-2" style="padding-left:0;">
                     <div>
                       <label for="academicYear" class="inputLabel name">Academic Year:</label><br>
                       <select name="acYear" id="acYear" required>
@@ -49,11 +49,11 @@
                   </div>
 
 
-                  <div class="row col-2">
+                  <div class="row col-2" style="padding-left:0;">
                     <div>
                     <label for="fromMonth" class="inputLabel name">From Month:</label>
 
-                      <select class="input"  name="fromMonth" placeholder="From Month" id="fromMonth">
+                      <select class="input"  name="fromMonth" style="padding: 4px;" placeholder="From Month" id="fromMonth">
                         <option value="January">January</option>
                         <option value="February">February</option>
                         <option value="March">March</option>
@@ -73,7 +73,7 @@
                     <div>
                       <label for="fromMonth" class="inputLabel name">To Month:</label>
 
-                      <select class="input"  name="toMonth" placeholder="To month" id="toMonth">
+                      <select class="input"  name="toMonth" style="padding: 4px;" placeholder="To month" id="toMonth">
                         <option value="January">January</option>
                         <option value="February">February</option>
                         <option value="March">March</option>
@@ -89,10 +89,12 @@
                       </select> <br>
                     </div>
                     <div>
+                      <br>
                       <label for="homeStation" class="inputLabel name">Nearest Station from Home:</label><br>
                       <input type="text" id="homeStation" name="homeStation" class="input nameText"><br><br>
                     </div>
                     <div>
+                      <br>
                       <label for="universityStation" class="inputLabel name">Nearest Station from University:</label><br>
                       <input type="text" id="universityStation" name="universityStation" class="input nameText"><br><br>
                     </div>
@@ -100,7 +102,7 @@
                   </div>
 
                   <input type="submit" value="Submit" class="button" name="submit">
-                  <br>
+                  
                   <a class="backPage" href="applyTrainSeason">
                     <input type="button" value="Cancel" class="button" name="cancel">
                   </a>
@@ -117,15 +119,15 @@
             <hr>
             <br>
             <?php
-            print_r($controllerData[0]);
+            //print_r($controllerData[0]);
             foreach($controllerData[0] as $data){
-
+               
               echo ("
-              <div class='pastRequest'>
-                <div>From  ".$data->getNearRailwayStationHome()."</div>
-                <div>To   ".$data->getNearRailwayStationUni()."</div>
-                <div style='float:right'>".$data->getTimeStamp()."</div>
-              </div>
+              <div class='normalEntry'>
+                <div style='padding-left: 7px;'>From  ".$data->getNearRailwayStationHome()."</div>
+                <div style='padding-left: 7px;'>To   ".$data->getNearRailwayStationUni()."</div>
+                <div style='float:right'>".$data->getTimeStamp()."</div><br>
+              </div><br>
               ");
             }
             ?>
@@ -141,6 +143,7 @@
      
     <script src="../../assets/js/jquery.js"></script>
     <script src="../../assets/js/toast.js "></script>
+    <script src="../../assets/js/changeTheme.js"></script>
     <script src="assets/applyTrainSeasonJs.js">
     </script>
 

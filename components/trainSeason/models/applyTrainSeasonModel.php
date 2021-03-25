@@ -4,16 +4,19 @@
             $userName = $_COOKIE['userName'];
             $sqlQueryGetHistory = "SELECT * FROM request_train_season WHERE requester='$userName'";
 
-            $requesterData = Database::executeQuery("root","",$sqlQueryGetHistory)[0];
-            if($requesterData){
+            $requesterData = Database::executeQuery("root","",$sqlQueryGetHistory);
+             
+            $dataList = array();
+            foreach($requesterData as $raw){
                 $newRequesterData= new TrainSeason();
 
-                $newRequesterData->setData($requesterData['requester'],$requesterData['academicYear'],$requesterData['age'],$requesterData['address'],
-                                            $requesterData['fromMonth'],$requesterData['toMonth'],$requesterData['nearRailwayStationHome'],$requesterData['nearRailwayStationUni'],$requesterData['submittedTimestamp']);
-                return $newRequesterData;
-            }else{
-                return false;
+                $newRequesterData->setData($raw['requestID'],$raw['seasonID'],$raw['requester'],$raw['academicYear'],$raw['age'],$raw['address'],
+                                            $raw['fromMonth'],$raw['toMonth'],$raw['nearRailwayStationHome'],$raw['nearRailwayStationUni'],$raw['submittedTimestamp'],NULL);
+                $dataList[] = $newRequesterData;
+                
             }
+            return $dataList;   
+             
 
         }
         public static function getData(){
@@ -30,16 +33,15 @@
                 $newUserData->setUser($userData['firstName'],$userData['lastName'],$userData['userName'],$userData['address'],$userData['dob']);
                 $age=$newUserData->getAge();
                 //get query count
-                $sqlQuery2 = "SELECT COUNT(requestID) AS applicationCount FROM request_train_season WHERE requester='$userName' AND age=$age";
-                $count=$dbObject->executeTransaction($sqlQuery2)[0]['applicationCount'];
+                
 
-                if($count>=2){
-                    echo ("
-                        <script>
-                            alert('The number of times you request is over');
-                        </script>
-                    ");
-                }
+                //if($count>=2){
+                    //echo ("
+                        //<script>
+                            //alert('The number of times you request is over');
+                        //</script>
+                    //");
+                //}
                 $dbObject->closeConnection();
                 return $newUserData;
             }else{
@@ -50,6 +52,14 @@
 
         }
 
+        public static function getCount($age){
+            $userName = $_COOKIE['userName'];
+
+            $sqlQueryGetCount = "SELECT COUNT(requestID) AS applicationCount FROM request_train_season WHERE requester='$userName' AND age=$age";
+            
+
+            return Database::executeQuery("root","",$sqlQueryGetCount)[0]['applicationCount'];
+        }
 
         public static function insertData($requesterDetail){
             $dbObject = new Database();

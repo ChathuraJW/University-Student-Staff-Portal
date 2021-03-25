@@ -28,7 +28,9 @@ width: 25%;
  
 
   .button{
-    width:100%;
+    position: relative;
+    left: 9%;
+    width: 40%;
     outline: none;
     padding: 8px;
     cursor: pointer;
