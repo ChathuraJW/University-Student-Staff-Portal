@@ -32,7 +32,7 @@
                         <tr>
                             <th>$parameterID</th>
                             <th>" . $row->getParameterKey() . "</th>
-                            <th><input type='checkbox' onclick='makeEditable($parameterID);'> <input type='text' name='$parameterID' id='$parameterID' value='"
+                            <th><input type='checkbox' onclick='makeEditable($parameterID)'> <input type='text' name='$parameterID' id='$parameterID' value='"
 							. $row->getParameterValue()
 							. "' disabled></th>
                         </tr>

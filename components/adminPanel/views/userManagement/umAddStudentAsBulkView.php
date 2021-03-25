@@ -29,7 +29,7 @@
                 <dd>format of this filed as, dd/mm/yyyy. <br>Eg: 20/06/2000</dd>
                 <dt>Address Filed</dt>
                 <dd>When you enter, student address, make sure <b>not to use ','</b> to separate two line. That will reason to occur errors. Look at
-                        given
+                    given
                     example to identify the correct format.<br>Eg: No.24/2 MainRd Colombo
                 </dd>
             </dl>

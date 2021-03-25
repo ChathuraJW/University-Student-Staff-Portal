@@ -304,3 +304,47 @@
 			$this->hallType = $hallType;
 		}
 	}
+
+	class SystemFeature {
+		private string $featureID;
+		private string $featureName;
+		private string $featurePath;
+		private string $featureIcon;
+		private int $featureState;
+		private string $featurePermission;
+
+		public function createFeature($featureID, $name, $path, $icon, $state, $permission): SystemFeature {
+			$this->featureID = $featureID;
+			$this->featureName = $name;
+			$this->featurePath = $path;
+			$this->featureIcon = $icon;
+			$this->featureState = $state;
+			$this->featurePermission = $permission;
+			return $this;
+		}
+
+		public function getFeatureID(): string {
+			return $this->featureID;
+		}
+
+		public function getFeatureName(): string {
+			return $this->featureName;
+		}
+
+		public function getFeaturePath(): string {
+			return $this->featurePath;
+		}
+
+		public function getFeatureIcon(): string {
+			return $this->featureIcon;
+		}
+
+		public function getFeatureState(): int {
+			return $this->featureState;
+		}
+
+		public function getFeaturePermission(): string {
+			return $this->featurePermission;
+		}
+
+	}

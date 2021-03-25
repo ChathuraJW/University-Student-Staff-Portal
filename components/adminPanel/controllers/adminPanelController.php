@@ -1,4 +1,5 @@
 <?php
+
 	class AdminPanelController extends Controller {
 		public static function open() {
 //			heck weather the cookie is created or not
@@ -57,13 +58,9 @@
 					case "backupConfig":
 						$selectedFeature = "BackupManagementController::configBackup";
 						break;
-//					related to feature management
-//					case "addNewFeature":
-//						$selectedFeature = "";
-//						break;
-//					case "disableEnableFeature":
-//						$selectedFeature = "";
-//						break;
+					case "featureManagement":
+						$selectedFeature = "FeatureManagementController::init";
+						break;
 				}
 				//				call view creation function with selected function
 				self::createView("adminPanelView", $selectedFeature);

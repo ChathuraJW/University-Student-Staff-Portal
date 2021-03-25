@@ -9,7 +9,7 @@
 				$adminUserName = $_POST['adminUserName'];
 				$adminPasswordPlain = $_POST['adminPassword'];
 //				get salt of admin user
-				$passwordSalt=DangerousZoneModel::getSalt($adminUserName);
+				$passwordSalt = DangerousZoneModel::getSalt($adminUserName);
 //				get password hash
 				$adminPasswordHash = hash('sha256', "$adminPasswordPlain$passwordSalt");
 //				call model function to validate admin user
@@ -33,7 +33,7 @@
 				$adminPasswordPlain = $_POST['adminPassword'];
 				$appointedUser = $_POST['appointedUser'];
 //				get password salt
-				$passwordSalt=DangerousZoneModel::getSalt($adminUserName);
+				$passwordSalt = DangerousZoneModel::getSalt($adminUserName);
 //				get password hash
 				$adminPasswordHash = hash('sha256', "$adminPasswordPlain$passwordSalt");
 //				call model function to validate admin user

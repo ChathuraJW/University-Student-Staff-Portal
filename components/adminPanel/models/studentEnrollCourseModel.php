@@ -55,11 +55,11 @@
 					$sqlQuery = "SELECT indexNo,regNo FROM student WHERE studentGroup='$group'";
 					$result = $dbInstance->executeTransaction($sqlQuery);
 					$studentIndexList = array();
-					$studentUsernameList=array();
+					$studentUsernameList = array();
 					foreach ($result as $row) {
 						$studentIndexList[] = $row['indexNo'];
 //						add username of students to list for send notifications
-						$studentUsernameList[]=$row['regNo'];
+						$studentUsernameList[] = $row['regNo'];
 					}
 
 //					make enrollment for created student list
@@ -80,9 +80,9 @@
 //							create success message
 							echo("<script>createToast('Success',' Enrollment successful [$group] >>> [$subject].','S')</script>");
 //							send notification to student to inform about enrollment
-							$sendNotification=new Notification();
+							$sendNotification = new Notification();
 							$sendNotification->setReceivers($studentUsernameList);
-							$sendNotification->createNotification("Course[$subject] enrollment for the new semester.","You had been enrolled to the subject $subject for the first attempt.");
+							$sendNotification->createNotification("Course[$subject] enrollment for the new semester.", "You had been enrolled to the subject $subject for the first attempt.");
 							$sendNotification->setSender(self::getAdminUser());
 							$sendNotification->publishNotification();
 						} else {
@@ -111,11 +111,11 @@
 //			make enrollment for created student list
 //			create insert query for student list
 			$sqlQuery = "INSERT INTO student_enroll_course(studentIndexNo, courseCode, attempt, enrollDate) VALUES ";
-			$studentUsernameList=array();
+			$studentUsernameList = array();
 			foreach ($indexList as $individualIndex) {
 				$sqlQuery .= "($individualIndex,'$subject','R',NOW()), ";
 //				add each student username to the list for generate notifications
-				$studentUsernameList[]=self::getStudentUsernameForIndex($individualIndex);
+				$studentUsernameList[] = self::getStudentUsernameForIndex($individualIndex);
 			}
 //			remove extra commas and spaces in the query
 			$sqlQuery = trim($sqlQuery, ', ');
@@ -130,9 +130,9 @@
 //							create success message
 					echo("<script>createToast('Success',' Enrollment successful [R] >>> [$subject].','S')</script>");
 //					send notification to student to inform about enrollment
-					$sendNotification=new Notification();
+					$sendNotification = new Notification();
 					$sendNotification->setReceivers($studentUsernameList);
-					$sendNotification->createNotification("Course[$subject - R] enrollment for the new semester.","You had been enrolled to the subject $subject for a repeated attempt.");
+					$sendNotification->createNotification("Course[$subject - R] enrollment for the new semester.", "You had been enrolled to the subject $subject for a repeated attempt.");
 					$sendNotification->setSender(self::getAdminUser());
 					$sendNotification->publishNotification();
 				} else {

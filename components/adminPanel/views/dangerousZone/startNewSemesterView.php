@@ -1,5 +1,5 @@
 <style>
-    .confirmButton{
+    .confirmButton {
         display: block;
         margin: 20px auto auto;
         padding: 10px;
@@ -16,21 +16,22 @@
     <br>
     <form action="" method="post">
         <div class="row col-2">
-        <div>
-            <span class="inputHeading">Admin Username</span>
-            <input type="text" name="adminUserName" required> <br>
-            <span class="inputHeading">Admin Password</span>
-            <input type="password" name="adminPassword" required>
-        </div>
-        <div>
-            <span class="inputHeading">Confirmation</span>
-            <input type="checkbox" name="agreed" id="" required>
-            <span>By ticking this, I confirm that,  as the system administrator, I am going to start a new semester, purposely.</span>
-            <br><br>
-            <button type="submit" name="confirmToStartNewSemester" value="confirm" class="button confirmButton" onclick="confirm('Ary you sure to ' +
+            <div>
+                <span class="inputHeading">Admin Username</span>
+                <input type="text" name="adminUserName" required> <br>
+                <span class="inputHeading">Admin Password</span>
+                <input type="password" name="adminPassword" required>
+            </div>
+            <div>
+                <span class="inputHeading">Confirmation</span>
+                <input type="checkbox" name="agreed" id="" required>
+                <span>By ticking this, I confirm that,  as the system administrator, I am going to start a new semester, purposely.</span>
+                <br><br>
+                <button type="submit" name="confirmToStartNewSemester" value="confirm" class="button confirmButton" onclick="confirm('Ary you sure to ' +
              'preform this action?')">Confirm and Start a New
-                Semester</button>
-        </div>
+                    Semester
+                </button>
+            </div>
         </div>
     </form>
 </div>

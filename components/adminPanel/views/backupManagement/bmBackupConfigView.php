@@ -34,7 +34,8 @@
                 Upload correct backup file hear for, perform system restore.
             </span><br>
             <form action="" method="post" enctype="multipart/form-data">
-                <input type="file" value="Create New Backup" name="createBackup" class="button fileUpload" style="display: block;margin: auto;" required>
+                <input type="file" value="Create New Backup" name="createBackup" class="button fileUpload" style="display: block;margin: auto;"
+                       required>
                 <br>
                 <input type="submit" value="Restore" name="restoreBackup" class="button" style="display: block;margin: auto;"
                        onclick="confirmMessage('Are you sure to perform this action?')">

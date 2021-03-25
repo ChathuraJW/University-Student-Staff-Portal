@@ -55,10 +55,10 @@
 			Database::executeQuery('admin', 'admin@16', $auditQuery);
 
 //			get transaction id back
-			$sqlQuery="SELECT eventID FROM database_log WHERE description='$description' AND userID='$user' AND timestamp='$timestamp'";
-			$transactionID=Database::executeQuery('admin', 'admin@16',$sqlQuery)[0]['eventID'];
+			$sqlQuery = "SELECT eventID FROM database_log WHERE description='$description' AND userID='$user' AND timestamp='$timestamp'";
+			$transactionID = Database::executeQuery('admin', 'admin@16', $sqlQuery)[0]['eventID'];
 //			call log creation function
-			self::createLog($timestamp,$description,$transactionID);
+			self::createLog($timestamp, $description, $transactionID);
 		}
 
 		public static function restoreBackup($selectedFile) {

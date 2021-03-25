@@ -61,23 +61,20 @@
 
             <div class="task" onclick="createLink('backupConfig')">Backup/Restore Management</div>
 
-            TODO Better to be in near feature
-<!--            <div class="task" onclick="subTaskOpen('subsetEleven')">Feature Management</div>-->
-<!--            <div id="subsetEleven" style="display:none;" class="subTasksSet">-->
-<!--                <div class="subTask" onclick="createLink('addNewFeature')">Add New Feature</div>-->
-<!--                <div class="subTask" onclick="createLink('disableEnableFeature')">Disable/Enable Feature</div>-->
-<!--            </div>-->
-        </div>
-        <div class="taskPage" class="taskPage">
-            <!--            selected view load hear-->
-			<?php
-				//call necessary module function to work
-				if ($controllerData) {
-					call_user_func($controllerData);
-				}
-			?>
+            <div class="task" onclick="createLink('featureManagement')"
+            ">Feature Management
         </div>
     </div>
+    <div class="taskPage" class="taskPage">
+        <!--            selected view load hear-->
+		<?php
+			//call necessary module function to work
+			if ($controllerData) {
+				call_user_func($controllerData);
+			}
+		?>
+    </div>
+</div>
 </div>
 
 <!-- include footer section -->

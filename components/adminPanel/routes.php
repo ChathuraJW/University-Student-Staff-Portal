@@ -1,7 +1,7 @@
 <?php
-    Route::set('adminPanelView',function(){
-        AdminPanelController::open();
-    });
+	Route::set('adminPanelView', function () {
+		AdminPanelController::open();
+	});
 
 	// check weather the given file exist on the site if not redirect to 404 page
 	$available = FALSE;
