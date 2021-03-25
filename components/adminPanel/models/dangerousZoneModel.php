@@ -130,12 +130,12 @@
 				*/
 
 //				2nd years to 3rd years
-//				2CS1 --> 3CS1
+//				2CS1 --> 3CSG
 				$sqlQuery = "UPDATE student SET studentGroup='3CSG' WHERE studentGroup='2CS1'";
 				$dbInstance->executeTransaction($sqlQuery);
 				$dbInstance->transactionAudit($sqlQuery, 'student', 'UPDATE', "Promote 2nd Year CS group 1 student to 3rd year CS[general].($currentAcademicYear -->>  $newAcademicYear)");
 
-//				2CS2 --> 3CS2
+//				2CS2 --> 3CSG
 				$sqlQuery = "UPDATE student SET studentGroup='3CSG' WHERE studentGroup='2CS2'";
 				$dbInstance->executeTransaction($sqlQuery);
 				$dbInstance->transactionAudit($sqlQuery, 'student', 'UPDATE', "Promote 2nd Year CS group 2 student to 3rd year CS[general].($currentAcademicYear -->>  $newAcademicYear)");
@@ -167,6 +167,11 @@
 			$sqlQuery = "UPDATE student_enroll_course SET isActive=FALSE WHERE isActive=TRUE";
 			$dbInstance->executeTransaction($sqlQuery);
 			$dbInstance->transactionAudit($sqlQuery, 'student_enroll_course', 'UPDATE', "Deactivate all current student enrollment for courses.");
+
+//			disable all timetable entries
+			$sqlQuery = "UPDATE timetable SET entryValidity=FALSE WHERE entryValidity=TRUE";
+			$dbInstance->executeTransaction($sqlQuery);
+			$dbInstance->transactionAudit($sqlQuery, 'timetable', 'UPDATE', 'Turn into invalidate all timetable entries.');
 
 			//TODO (nice to have) display greeting, Send notification and email
 			if ($dbInstance->getTransactionState()) {

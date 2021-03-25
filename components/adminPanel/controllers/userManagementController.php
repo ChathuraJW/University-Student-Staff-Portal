@@ -60,24 +60,33 @@
 		}
 
 		public static function changeStudentGroup() {
-//			initial search operation
-			if (isset($_GET['searchStudentProfile'])) {
-				$username = $_GET['searchStudent'];
-				$studentData = UserManagementModel::getStudentData($username);
-//				create view with selected user data
-				self::createModularView('userManagement', 'umChangeStudentGroupView', $studentData);
-				if (!$studentData)
-					echo("<script>createToast('Warning (error code: #ADMIN-UM-07)','Failed to load user data or invalid username.','W')</script>");
-			} else {
-//				load default view
-				self::createModularView('userManagement', 'umChangeStudentGroupView');
-			}
+			self::createModularView('userManagement', 'umChangeStudentGroupView');
 //			data saving operation
 			if (isset($_POST['updateStudentGroup'])) {
 				$selectedGroup = $_POST['studentGroup'];
-				$studentUsername = $_GET['searchStudent'];
-//				call model function
-				UserManagementModel::updateStudentGroup($studentUsername, $selectedGroup);
+				$studentIndexes = $_POST['studentIndexList'];
+
+//				clean index list string to convert to list
+				$indexListString = str_replace(' ', '', $studentIndexes);
+				$indexList = explode(',', $indexListString);
+
+//				validate indexes by semantic with respect to length
+				$isIndexesOk = true;
+				foreach ($indexList as $row) {
+					if (strlen($row) != 8) {
+						$isIndexesOk = false;
+						break;
+					}
+				}
+//				check index list status
+				if ($isIndexesOk) {
+//					call model function
+					UserManagementModel::updateStudentGroup($indexList, $selectedGroup);
+				} else {
+//					display error
+					echo("<script>createToast('Warning (error code: #ADMIN-UM-07)','Student index list is not in correct format.','W')</script>");
+				}
+//
 			}
 		}
 	}

@@ -167,27 +167,20 @@
 			$dbInstance->closeConnection();
 		}
 
-//		get student data for change there group
-		public static function getStudentData($userName): bool|Student {
-			$sqlQuery = "SELECT * FROM student_basic_data WHERE regNo='$userName'";
-			$result = Database::executeQuery('admin', 'admin@16', $sqlQuery)[0];
-			if ($result) {
-				$student = new Student;
-				$student->createBasicStudent($result['regNo'], $result['indexNo'], $result['nic'], $result['studentGroup'], $result['firstName'], $result['lastName'], $result['fullName']);
-				return $student;
-			} else {
-				return false;
-			}
-		}
-
-		public static function updateStudentGroup($studentUsername, $newGroup) {
+		public static function updateStudentGroup($studentIndexes, $newGroup) {
 			$dbInstance = new Database;
 			$dbInstance->establishTransaction('admin', 'admin@16');
 
-//			execute update query and audit the action
-			$sqlQuery = "UPDATE student SET studentGroup='$newGroup' WHERE regNo='$studentUsername'";
+//			create query to update group
+			$sqlQuery = "UPDATE student SET studentGroup='$newGroup' WHERE ";
+			foreach ($studentIndexes as $individualIndex) {
+				$sqlQuery .= "indexNo='$individualIndex' OR ";
+			}
+			$sqlQuery = trim($sqlQuery, 'OR ');
+			echo $sqlQuery;
 			$dbInstance->executeTransaction($sqlQuery);
-			$dbInstance->transactionAudit($sqlQuery, 'student', 'UPDATE', "Update $studentUsername, group to $newGroup by admin.");
+//			execute update query and audit the action
+			$dbInstance->transactionAudit($sqlQuery, 'student', 'UPDATE', "Update set of students  group to $newGroup by admin.");
 
 			if ($dbInstance->getTransactionState()) {
 				if ($dbInstance->commitToDatabase()) {

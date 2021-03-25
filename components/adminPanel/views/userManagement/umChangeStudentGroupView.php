@@ -1,81 +1,58 @@
+<style>
+    .infoSection {
+        padding-left: 50px;
+    }
+
+    .studentGroupTable {
+        text-align: center;
+        padding: 10px;
+        width: fit-content;
+    }
+</style>
 <div class="changeStudentGroupIndividual">
     <span class="sectionTitle">Change Student Group</span>
     <div class="row">
-        <form method="get" action="#groupEditSection">
-            <span class="inputHeading">Search student profile by username</span>
-            <input type="search" name="searchStudent" style="margin-right: 15px;"><input type="submit" value="Search" name="searchStudentProfile"
-                                                                                         class="button">
-        </form>
+
         <div class="row col-2" id="groupEditSection">
-			<?php
-				//				check weather user press search button for find student profile and data also available for the given key
-				if (isset($controllerData) && $controllerData && isset($_GET['searchStudentProfile'])) {
-//	                create view for show data and necessary modifications
-					echo("
-                        <div>
-                            <span class='inputHeading'>Student Details</span>
-                            <table>
-                                <tr>
-                                    <td>Registration Number</td>
-                                    <td>" . $controllerData->getUserName() . "</td>
-                                </tr>
-                                <tr>
-                                    <td>Index Number</td>
-                                    <td>" . $controllerData->getIndexNo() . "</td>
-                                </tr>
-                                <tr>
-                                    <td>Current Student Group</td>
-                                    <td>" . $controllerData->getGroup() . "</td>
-                                </tr>
-                                <tr>
-                                    <td>First Name</td>
-                                    <td>" . $controllerData->getFirstName() . "</td>
-                                </tr>
-                                <tr>
-                                    <td>Last Name</td>
-                                    <td>" . $controllerData->getLastName() . "</td>
-                                </tr>
-                                <tr>
-                                    <td>Full Name</td>
-                                    <td>" . $controllerData->getFullName() . "</td>
-                                </tr>
-                            </table>
-                           <span class='inputHeading'>Select the New Group Going to Assign</span>
-                          <form action='' method='post'>
-                           <select name='studentGroup' id='studentGroup' required>
-                                <optgroup label='1st Year Student'>
-                                    <option value='1CS1'>1CS1</option>
-                                    <option value='1CS2'>1CS2</option>
-                                    <option value='1IS'>1IS</option>
-                                </optgroup>
-                                <optgroup label='2nd Year Student'>
-                                    <option value='2CS1'>2CS1</option>
-                                    <option value='2CS2'>2CS2</option>
-                                    <option value='2IS'>2IS</option>
-                                </optgroup>
-                                <optgroup label='3rd Year Student'>
-                                    <option value='3CSG'>3CSG</option>
-                                    <option value='3CSS'>3CSS</option>
-                                    <option value='3CSC'>3CSC</option>
-                                    <option value='3ISG'>3ISG</option>
-                                    <option value='3IS'>3IS</option>
-                                </optgroup>
-                                <optgroup label='4th Year Student'>
-                                    <option value='4CSS'>4CSS</option>
-                                    <option value='4CSG'>4CSG</option>
-                                    <option value='4IS'>4IS</option>
-                                </optgroup>
-                           </select>
-                            <div style='padding-top: 20px;'>
-                                <input type='submit' value='Change Group' name='updateStudentGroup' class='button' onclick='confirm(`Are you sure to save changes?`)'>
-                                <input type='reset' value='Cancel' name='cancel' class='button'>
-                            </div>
-                        </form>
-                        </div>
-                    ");
-				}
-			?>
             <div>
+                <form method="post" action="#groupEditSection">
+                    <span class="inputHeading">Student group</span>
+                    <select name='studentGroup' id='studentGroup' required>
+                        <optgroup label='1st Year Student'>
+                            <option value='1CS1'>1CS1</option>
+                            <option value='1CS2'>1CS2</option>
+                            <option value='1IS'>1IS</option>
+                        </optgroup>
+                        <optgroup label='2nd Year Student'>
+                            <option value='2CS1'>2CS1</option>
+                            <option value='2CS2'>2CS2</option>
+                            <option value='2IS'>2IS</option>
+                        </optgroup>
+                        <optgroup label='3rd Year Student'>
+                            <option value='3CSG'>3CSG</option>
+                            <option value='3CSS'>3CSS</option>
+                            <option value='3CSC'>3CSC</option>
+                            <option value='3ISG'>3ISG</option>
+                            <option value='3IS'>3IS</option>
+                        </optgroup>
+                        <optgroup label='4th Year Student'>
+                            <option value='4CSS'>4CSS</option>
+                            <option value='4CSG'>4CSG</option>
+                            <option value='4IS'>4IS</option>
+                        </optgroup>
+                    </select>
+                    <br><br>
+                    <span class="inputHeading">Student index number list</span>
+                    <textarea name="studentIndexList" id="" cols="30" rows="20" style="width:100%"></textarea>
+
+                    <div style='padding-top: 40px;'>
+                        <input type='submit' value='Change Group' name='updateStudentGroup' class='button'
+                               onclick='confirmMessage(`Are you sure to save changes?`)'>
+                        <input type='reset' value='Cancel' name='cancel' class='button'>
+                    </div>
+                </form>
+            </div>
+            <div class="infoSection">
                 <!--                group detail list load hear-->
                 <span class='inputHeading'>Group Details</span>
                 <div class="studentGroupTable">
