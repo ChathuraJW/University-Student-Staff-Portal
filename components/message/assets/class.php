@@ -58,7 +58,7 @@ class Message{
     private $receivedBy;
     private $isViewed;
 
-    public function setMessageDetail($title,$message,$sendBy,$messageID,$receivedBy,$isViewed){
+    public function setMessageDetail($title,$message,$sendBy,$messageID,$receivedBy,$isViewed,$timestamp){
         $this->title=$title;
         $this->message=$message;
         $this->timestamp=$timestamp;
@@ -70,11 +70,11 @@ class Message{
         return $this;
     }
 
-    public function getTitle(){
+    public function getTitle(): string{
         return $this->title;
     }
 
-    public function getMessage(){
+    public function getMessage(): string{
         return $this->message;
     }
 
@@ -82,19 +82,19 @@ class Message{
         return $this->timestamp;
     }
 
-    public function getSendBy(){
+    public function getSendBy(): string{
         return $this->sendBy;
     }
 
-    public function getMessageID(){
+    public function getMessageID(): int{
         return $this->messageID;
     }
 
-    public function getReceivedBy(){
+    public function getReceivedBy(): array{
         return $this->receivedBy;
     }
 
-    public function getIsViewed(){
+    public function getIsViewed(): int{
         return $this->isViewed;
     }
 }

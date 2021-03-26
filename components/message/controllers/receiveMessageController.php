@@ -19,9 +19,9 @@
                     echo("<script>createToast('Warning(error code:#UM03-T)','Failed to get messageID.','W')</script>");
                 }
 
-                $messageDetail = new Message();
-                $messageDetail->setMessageDetail(NULL,NULL,NULL,$messageID,NULL,NULL);
-                $insertMessageState = receiveMessageModel::insertMessageState($messageDetail);
+                //$messageDetail = new Message();
+                //$messageDetail->setMessageDetail(NULL,NULL,NULL,$messageID,NULL,NULL,NULL);
+                $insertMessageState = receiveMessageModel::insertMessageState($messageID);
             
             }
 

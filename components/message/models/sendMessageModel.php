@@ -81,28 +81,41 @@
             //create audit trail
             $databaseInstance->transactionAudit($insertQuery,'message', 'INSERT',"Message details are uploaded to the system." );
 
+            $selectQuery="SELECT messageID FROM message WHERE title='".$messageDetail->getTitle()."' AND message='".$messageDetail->getMessage()."' AND sendBy='".$messageDetail->getSendBy()."' ";
+            $messageID= $databaseInstance->executeTransaction($selectQuery)[0]['messageID'];
+
+            foreach($messageDetail->getReceivedBy() as $value){
+                $insertSplitDataQuery="INSERT INTO user_receive_message(messageID,receivedBy) VALUE($messageID,'$value')";
+                echo($insertSplitDataQuery);
+                $databaseInstance->executeTransaction($insertSplitDataQuery);
+
+            }
+
+            //create audit trail
+            $databaseInstance->transactionAudit($insertQuery,'user_receive_message', 'INSERT','Message details are uploaded to the system.' );
+            
             //check transaction state
             if($databaseInstance->getTransactionState()){
                 if($databaseInstance->commitToDatabase()){
-                    echo ("<script>createToast('Success','Message details successfully uploaded','S')</script>");
+                    echo ("<script>createToast('Success','Message details successfully send','S')</script>");
                     
                 }else{
-                    echo("<script>createToast('Warning(error code:#UM02-T)','Failed to upload.','W')</script>");
+                    echo("<script>createToast('Warning(error code:#UM02-T)','Failed to send.','W')</script>");
                 }
             }else{
-                echo("<script>createToast('Warning(error code:#UM02-T)','Failed to upload.','W')</script>");
+                echo("<script>createToast('Warning(error code:#UM02-T)','Failed to send.','W')</script>");
             }
              
-            $selectQuery="SELECT messageID FROM message WHERE title='$title' AND message='$message' AND sendBy='$sendBy'";
+            //$selectQuery="SELECT messageID FROM message WHERE title='$title' AND message='$message' AND sendBy='$sendBy'";
 
-            $details = Database::executeQuery("generalAccess","generalAccess@16",$selectQuery )[0]['messageID'];
-            if($details){
-                $newDetail = new Message();
-                $newDetail->setMessageDetail(NULL,NULL,NULL,$details['messageID'],NULL,NULL);
-                return $newDetail;
-            }else{
-                return false;
-            }
+            //$details = Database::executeQuery("root","",$selectQuery )[0]['messageID'];
+            //if($details){
+                //$newDetail = new Message();
+                //$newDetail->setMessageDetail(NULL,NULL,NULL,$details['messageID'],NULL,NULL);
+                //return $newDetail;
+            //}else{
+                //return false;
+            //}
 
             $databaseInstance->closeConnection();
         }
@@ -110,33 +123,35 @@
         //create function to add data into messaage  table
          
         //return messageID
-        public static function insertData($receiverDetail)
-        {
-            $databaseInstance = new Database();
-            $databaseInstance->establishTransaction('root','');
-            foreach($receiverDetail->getReceivedBy() as $value){
-                $insertSplitDataQuery="INSERT INTO user_receive_message(messageID,receivedBy) VALUE(".$receiverDetail->getMessageID().",'$value')";
-                $databaseInstance->executeTransaction($insertSplitDataQuery);
+        // public static function insertData($receiverDetail)
+        // {
+        //     $databaseInstance = new Database();
+        //     $databaseInstance->establishTransaction('root','');
+        //     print_r($receiverDetail);
+        //     foreach($receiverDetail->getReceivedBy() as $value){
+        //         $insertSplitDataQuery="INSERT INTO user_receive_message(messageID,receivedBy) VALUE(".$receiverDetail->getMessageID().",'$value')";
+        //         echo($insertSplitDataQuery);
+        //         $databaseInstance->executeTransaction($insertSplitDataQuery);
 
-            }
+        //     }
+            
+        //     //create audit trail
+        //     $databaseInstance->transactionAudit($insertQuery,'user_receive_message', 'INSERT','Message details are uploaded to the system.' );
 
-            //create audit trail
-            $databaseInstance->transactionAudit($insertQuery,'user_receive_message', 'INSERT',"Message details are uploaded to the system." );
+        //     //check transaction state
+        //     if($databaseInstance->getTransactionState()){
+        //         if($databaseInstance->commitToDatabase()){
+        //             echo ("<script>createToast('Success','Message details successfully uploaded','S')</script>");
+        //         }else{
+        //             echo("<script>createToast('Warning(error code:#UM03-T)','Failed to upload.','W')</script>");
+        //         }
+        //     }else{
+        //         echo("<script>createToast('Warning(error code:#UM03-T)','Failed to upload.','W')</script>");
+        //     }
 
-            //check transaction state
-            if($databaseInstance->getTransactionState()){
-                if($databaseInstance->commitToDatabase()){
-                    echo ("<script>createToast('Success','Message details successfully uploaded','S')</script>");
-                }else{
-                    echo("<script>createToast('Warning(error code:#UM03-T)','Failed to upload.','W')</script>");
-                }
-            }else{
-                echo("<script>createToast('Warning(error code:#UM03-T)','Failed to upload.','W')</script>");
-            }
-
-            $databaseInstance->closeConnection(); 
+        //     $databaseInstance->closeConnection(); 
              
-        }
+        // }
 
         /*public static function getTime()
         {

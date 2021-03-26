@@ -25,6 +25,7 @@
         <div class="messageList">
 
           <?php
+          print_r($controllerData);
           foreach ($controllerData as $data){
              
 
@@ -35,7 +36,7 @@
               <a class='messageEntry' style='background-color: #044e3a' href='?messageID=".$data->getMessageID()."'>
                 <span class='sender'>Sender: ".$data->getSendBy()."</span><br>
                 <span class='messageContent'>".$data->getMessage()."</span><br>
-                <span class='messageSendTimestamp'>".$data['timestamp']."</span>
+                <span class='messageSendTimestamp'>".$data->getTimestamp()."</span>
               </a>
             ");
              

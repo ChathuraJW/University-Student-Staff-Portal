@@ -43,7 +43,7 @@
               <a class='messageEntry' style='background-color: $backgroundColor;' href='?messageID=".$data->getMessageID()."&messageState=$messageState'>
                 <span class='sender'>Sender: ".$data->getSendBy()."</span><br>
                 <span class='messageContent'>".$data->getMessage()."</span><br>
-                <span class='messageSendTimestamp'>".$data['timestamp']."</span>
+                <span class='messageSendTimestamp'>".$data->getTimestamp()."</span>
               </a>
             ");
              
@@ -59,7 +59,7 @@
                   
                   echo ("
                     <span class='senderDetail'>Sender: ".$data->getSendBy()."</span><br>
-                    <span class='SendTimestampDetail'>Send at: ".$data['timestamp']."</span><br>
+                    <span class='SendTimestampDetail'>Send at: ".$data->getTimestamp()."</span><br>
                     <span class='titleDetail'>".$data->getTitle()."</span><br>
                     <span class='messageDetail'>".$data->getMessage()."</span><br>
                     <a href='?activity=markAsRead&messageIDForReadConfirm=".$_GET['messageID']."'>Mark as read</a>
