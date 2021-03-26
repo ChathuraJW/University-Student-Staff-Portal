@@ -101,6 +101,28 @@ function updateAttendance() {
         }
     );
 }
+
+function markASRead(inquiryID){
+    let userName = document.cookie.split('=')[1];
+    console.log(userName);
+    console.log(inquiryID);
+
+    if(document.getElementById(inquiryID).value){
+        document.getElementById('markAsRead').style.display ='none';
+
+
+        const markAsReadURL = "http://localhost/USSP/components/attendecne/assets/getAttendanceDataAPI.php?activity=markAsRead&userName=" + userName + "&mark=1&inquiryID="+ inquiryID ;
+        console.log(markAsReadURL);
+        $.getJSON(markAsReadURL,function (mark){
+            console.log(mark);
+
+        });
+    }
+
+}
+
+
+
 //CSV file operation
 let attendanceCSVFile = document.getElementById("attendanceFile");
 let attendanceCSVFileLabel = document.getElementById("attendanceFileLabel");

@@ -65,13 +65,14 @@ class AddAttendanceModel extends Model{
 
 
     public static function getInquiryMessage():array|bool{
-        $sqlQuery = "SELECT sendBy, message, sendDate, isViewed FROM attendance_inquiry";
+        $sqlQuery = "SELECT entryID,sendBy, message, sendDate, isViewed FROM attendance_inquiry";
         $result = Database::executeQuery("administrativeAttendance","administrativeAttendance@16",$sqlQuery);
         if($result){
             $messageList = array();
             //read subject list and add them into above array as attendance inquiry objects
             foreach ($result as $row) {
                 $message = new AttendanceInquiry();
+                $message->setInquiryID($row['entryID']);
                 $message->setInquiryDetails($row['sendBy'], $row['message'], $row['sendDate'], $row['isViewed']);
                 $messageList[] = $message;
             }

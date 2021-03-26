@@ -115,6 +115,7 @@ class EnrollFor{
 
 class AttendanceInquiry{
     //attributes of enrollment
+    private int $inquiryID;
     private string $sentBy;
     private string $message;
     private string $date;
@@ -128,6 +129,18 @@ class AttendanceInquiry{
         $this->isViewed = $isViewed;
         return $this;
     }
+
+    public function getInquiryID(): int
+    {
+        return $this->inquiryID;
+    }
+
+    public function setInquiryID(string $inquiryID): AttendanceInquiry
+    {
+        $this->inquiryID = $inquiryID;
+        return $this;
+    }
+
 
     public function getSentBy(): string
     {
