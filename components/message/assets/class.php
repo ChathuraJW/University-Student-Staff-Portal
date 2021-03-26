@@ -56,7 +56,7 @@ class Message{
     private $sendBy;
     private $messageID;
     private $receivedBy;
-    private bool $isViewed;
+    private $isViewed;
 
     public function setMessageDetail($title,$message,$sendBy,$messageID,$receivedBy,$isViewed){
         $this->title=$title;

@@ -6,10 +6,7 @@
             $academicSupportive=sendMessageModel::getAcademicSupportive();
             $student=sendMessageModel::getStudent();
             $sendData=array($academic,$administrative,$academicSupportive,$student);
-            print_r($academic);
-            print_r($administrative);
-            print_r($academicSupportive);
-            print_r($student);             
+                         
             self::createView("sendMessageView",$sendData);
             if(isset($_POST['submit'])){
                 $title=$_POST['title'];

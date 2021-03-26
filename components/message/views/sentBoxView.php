@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="assets/sentBoxStyle.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
 </head>
-<body>
+<body class="bodyBackground text">
     <!-- include header section -->
     <?php require_once('../../assets/php/basicLoader.php') ?>
     <?php basicLoader::loadHeader('../../'); ?>
@@ -82,3 +82,7 @@
 
 </body>
 </html>
+
+<script src="../../assets/js/jquery.js"></script>
+<script src="../../assets/js/toast.js"></script>
+<script src="../../assets/js/changeTheme.js"></script>

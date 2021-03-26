@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="assets/receiveMessageStyle.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
 </head>
-<body>
+<body class="featureBody bodyBackground text">
     <!-- include header section -->
     <?php require_once('../../assets/php/basicLoader.php') ?>
     <?php basicLoader::loadHeader('../../'); ?>
 
     
     <!-- feature body section -->
-    <div class="featureBody bodyBackground text">
+    <div class="featureBody">
       <span class="heading">Message Inbox</span>
         <a class=backToPage href="sendMessage">
            
@@ -82,3 +82,6 @@
 
 </body>
 </html>
+<script src="../../assets/js/jquery.js"></script>
+<script src="../../assets/js/toast.js"></script>
+<script src="../../assets/js/changeTheme.js"></script>
