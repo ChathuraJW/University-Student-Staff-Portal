@@ -15,7 +15,7 @@
     <?php require('../../assets/php/basicLoader.php')?>
     <?php BasicLoader::loadHeader('../../')?>
     
-    <div class="featureBody">
+    <div class="featureBody bodyBackground text">
         <?php
             // print_r($controllerData);
         ?>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="inputStyle">
                         <label for="attemptCSV">Attempt:</label><br>
-                        <select id="attemptCSV" name="attempt" class="dropDown">
+                        <select id="attemptCSV" name="attempt" class="dropDown" required>
                             <option></option>
                             <option value="F">First Attempt</option>
                             <option value="R">Repeat</option>
@@ -104,7 +104,7 @@
                 </div>
                 <div class="buttonCouple" id="buttonsCSV" >
                         <input type="reset" value = "Cancel"  class="button">
-                        <input type ="submit" name="submit" value = "submit"  class="button">
+                        <input type ="submit" name="submit" value = "Submit"  class="button">
                 </div>
             </form> 
             </div>
@@ -148,7 +148,7 @@
                         <div id="editAttendance" class="row col-2">
                             <div class = "inputStyle">
                                 <label for="index">Index:</label><br>
-                                <input class="textField" type="text" id="index" name="index" required>
+                                <input class="textField" type="number" id="index" name="index" required>
                             </div>
                             <div class = "inputStyle">
                                 <label for="academicYearForEdit">Academic Year:</label><br>
@@ -200,7 +200,7 @@
                         </div>
                         <div id="buttons" class="buttonCouple">
                             <button type="reset" value = "cancel"  class="button">Cancel</button>
-                            <button  type="button" name="search" onclick="displayAttendance()" class="button">Search</button>
+                            <button  type="button" name="search" onclick="displayAttendance(); Validate();"  class="button">Search</button>
                         </div>
                     </form>
                         <div style="display:none; position:relative" id="attendanceTable">
@@ -268,6 +268,9 @@
     <script src="../../assets/js/jquery.js"></script>
     <script src="assets/addAttendance.js"></script>
     <script src="../../assets/js/toast.js"></script>
+    <script src="../../assets/js/changeTheme.js"></script>
+
+
 
 </body>
 </html>

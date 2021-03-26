@@ -20,8 +20,13 @@ class AddAttendanceController extends Controller{
             $attempt=$_POST['attempt'];
             // $name = $_FILES['csvFile']['name'];
             $fileLocation = $_FILES['csvFile']['tmp_name'];
-             echo("$semester $subject $date $week $attempt");
-             echo(" $fileLocation");
+//             echo("$semester $subject $date $week $attempt");
+//             echo(" $fileLocation");
+            if(!$fileLocation){
+                echo("<script>createToast('Warning (error code: #SAM01)','Need to upload attendance file.','W')</script>");
+
+
+            }
             $attendanceFile = fopen($fileLocation,"r");
                 $isHeader = true;//to ignore header
                 $description = "General";

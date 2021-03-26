@@ -181,4 +181,28 @@ attendanceCSVFile.addEventListener("change",function (){
 //     }
 // }
 
+//validate dropdowns
+function Validate() {
+    let academicYear = document.getElementById("academicYearForEdit");
+    let semester = document.getElementById("semesterEdit");
+    let subject = document.getElementById("subject");
+    let attempt = document.getElementById("attempt");
+    if (academicYear.value === "") {
+        alert("Please select an option for academic Year!");
+        return false;
+    }
+    if (semester.value === "") {
+        alert("Please select an option for semester!");
+        return false;
+    }
+    if (subject.value === "") {
+        alert("Please select an option for subject!");
+        return false;
+    }
+    if (attempt.value === "") {
+        alert("Please select an option for attempt!");
+        return false;
+    }
+    return true;
+}
 
