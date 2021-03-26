@@ -13,8 +13,6 @@
 }
 .radioToolbar input[type="radio"]:checked+label {
     background-color: var(--baseColor);
-    border-bottom: var(--baseColor);
-    /*border-style: solid;*/
 }
 .container{
     text-align: center;
@@ -28,7 +26,7 @@
     margin-left: auto;
     margin-right: auto;
 }
-/**/
+
 #date{
     font-size: 18px;
     height: 200px;
@@ -50,19 +48,10 @@ sup {
     vertical-align: super;
     font-size: smaller;
 }
-/*#myFile{*/
-/*    margin-left: 0px;*/
-/*    height:50px;*/
-/*    width:300px;*/
-/*    text-align: center;*/
-/*    font-size: 20px;*/
-/*}*/
-
 .inquiryMessage{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: 20px 20px;
     font-size: 18px;
-    /*padding: 15px;*/
     border-radius: 5px; 
     height: auto;
     background-color:var(--entryBackgroundColor);
@@ -73,12 +62,9 @@ sup {
     text-align: center;
     margin: 5px;
     border-radius: 5px;
-    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
     padding: 5px;
     border-style: solid;
     border-color: var(--fontColor);
-    /*border-left: 2px;*/
-    /*background-color: var(--headerFooterBackground);*/
 }
 .attendanceContainer{
     margin-top: 25px;
@@ -141,5 +127,9 @@ textarea{
 }
 .markAsRead{
     cursor: pointer;
+    float: right;
+}
+.markAsReadButton{
+    display: none;
 }
   

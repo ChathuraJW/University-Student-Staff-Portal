@@ -44,7 +44,6 @@ function displayForm(radioInput){
 let subjectCode;
 //when submit edit attendance search form make visible searched attendance data.
 function displayAttendance(){
-    console.log("hi");
     document.getElementById("attendanceTable").style.visibility='visible';
     document.getElementById("attendanceTable").style.display='';
 
@@ -52,9 +51,9 @@ function displayAttendance(){
     let attempt = document.getElementById("attempt").value;
     subjectCode = document.getElementById("subject").value;
     // subjectName = document.getElementById("subject").innerText;
-    console.log(subjectCode);
+
     const getAttendanceForEditURL = "http://localhost/USSP/components/attendence/assets/getAttendanceDataAPI.php?activity=getAttendanceForEdit&studentIndex="+index+"&attempt="+attempt+"&subjectCode="+subjectCode;
-    console.log(getAttendanceForEditURL);
+
     $.getJSON(getAttendanceForEditURL, function (attendance) {
         // console.log(attendance);
         for(let i in attendance) {
@@ -62,7 +61,6 @@ function displayAttendance(){
             let data = attendance[i]['date'];
             let description = attendance[i]['description'];
             let color = (attendance[i]['attendance']===1 ? 'var(--successColor)':'#f5090978');
-            console.log(week);
 
             document.getElementById("week"+i).innerHTML = week;
             document.getElementById("date"+i).innerHTML = data;
@@ -72,7 +70,7 @@ function displayAttendance(){
     }
     );
 }
-//when clicking one of attendance, load edit attendacnce form
+//when clicking one of attendance, load edit attendance form
 function editAttendanceForm(week){
     document.getElementById("editAttendanceForm").style.visibility='visible';
     document.getElementById("editAttendanceForm").style.display="";
@@ -97,21 +95,18 @@ function updateAttendance() {
     const updateAttendanceURL = "http://localhost/USSP/components/attendence/assets/getAttendanceDataAPI.php?activity=updateAttendance&studentIndex=" + index + "&attendance=" + attendance + "&subjectCode=" + subjectCode + "&description=" + description + "&week=" + week + "&attempt=" + attempt;
     $.getJSON(updateAttendanceURL, function (attendance) {
             console.log(attendance);
-
         }
     );
 }
 
 function markASRead(inquiryID){
     let userName = document.cookie.split('=')[1];
-    console.log(userName);
-    console.log(inquiryID);
 
     if(document.getElementById(inquiryID).value){
-        document.getElementById('markAsRead').style.display ='none';
+        let markAsRead = document.getElementById('markAsRead');
+        markAsRead.style.backgroundColor = 'var(--baseColor)';//TODO
 
-
-        const markAsReadURL = "http://localhost/USSP/components/attendecne/assets/getAttendanceDataAPI.php?activity=markAsRead&userName=" + userName + "&mark=1&inquiryID="+ inquiryID ;
+        const markAsReadURL = "http://localhost/USSP/components/attendence/assets/getAttendanceDataAPI.php?activity=markAsRead&userName=" + userName + "&mark=1&inquiryID="+ inquiryID ;
         console.log(markAsReadURL);
         $.getJSON(markAsReadURL,function (mark){
             console.log(mark);
@@ -132,76 +127,13 @@ attendanceCSVFile.addEventListener("change",function (){
         console.log("File Size is(KB): "+attendanceCSVFile.files[0].size/1000);
         let uploadFormat = attendanceCSVFile.value.toString().split('.')[1].toLowerCase();
         if (uploadFormat === "csv") {
-            attendanceCSVFileLabel.style.backgroundColor = "green";
+            attendanceCSVFileLabel.style.backgroundColor = "var(--baseColor)";
         } else {
-            attendanceCSVFileLabel.style.backgroundColor = "red";
+            attendanceCSVFileLabel.style.backgroundColor = "var(--dangerColor)";
             alert("Invalid file format. Please upload csv formatted file.");
         }
     }
 });
-//filter data based on radio values
-// function selectedYearCSV(){
-//     let year = document.getElementById('academicYearCSV').value;
-//     let subjectListElement=document.getElementById('subjectCSV');
-//     let subjectList=subjectListElement.innerText.split("\n");
-//     let i=0;
-//     while(i<subjectList.length){
-//         let temp=Math.ceil(subjectList[i].split('.')[0]/2);
-//
-//         if(temp!='' && temp!=year){
-//             subjectListElement.remove(i);
-//             subjectList=subjectListElement.innerText.split("\n");
-//             i=-1;
-//         }
-//         i=i+1;
-//     }
-// }
-//
-// function selectSemesterCSV(){
-//     let semester = document.getElementById('semesterCSV').value;
-//     let subjectListElement=document.getElementById('subjectCSV');
-//     let subjectList=subjectListElement.innerText.split("\n");
-//     let i=0;
-//     while(i<subjectList.length){
-//         let temp=Math.ceil(subjectList[i].split('.')[0]);
-//         if(temp!='' && temp%2!=semester%2){
-//             subjectListElement.remove(i);
-//             subjectList=subjectListElement.innerText.split("\n");
-//             i=-1;
-//         }
-//         i=i+1;
-//     }
-// }
-// function selectedYearEdit(){
-//     let year = document.getElementById('academicYearForEdit').value;
-//     let subjectListElement=document.getElementById('subject');
-//     let subjectList=subjectListElement.innerText.split("\n");
-//     let i=0;
-//     while(i<subjectList.length){
-//         let temp=Math.ceil(subjectList[i].split('.')[0]/2);
-//         if(temp!='' && temp!=year){
-//             subjectListElement.remove(i);
-//             subjectList=subjectListElement.innerText.split("\n");
-//             i=-1;
-//         }
-//         i=i+1;
-//     }
-// }
-// function selectSemesterEdit(){
-//     let semester = document.getElementById('semesterEdit').value;
-//     let subjectListElement=document.getElementById('subject');
-//     let subjectList=subjectListElement.innerText.split("\n");
-//     let i=0;
-//     while(i<subjectList.length){
-//         let temp=Math.ceil(subjectList[i].split('.')[0]);
-//         if(temp!='' && temp%2!=semester%2){
-//             subjectListElement.remove(i);
-//             subjectList=subjectListElement.innerText.split("\n");
-//             i=-1;
-//         }
-//         i=i+1;
-//     }
-// }
 
 //validation edit form
 function Validate() {
@@ -211,7 +143,6 @@ function Validate() {
     let semester = document.getElementById("semesterEdit");
     let subject = document.getElementById("subject");
     let attempt = document.getElementById("attempt");
-    console.log(indexLength);
 
     if(indexLength===0){// when index is empty
         alert("Please enter valid index!");

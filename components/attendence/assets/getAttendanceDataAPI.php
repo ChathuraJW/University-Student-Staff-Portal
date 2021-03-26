@@ -30,6 +30,20 @@ if (isset($_GET['activity']) & $_GET['activity'] == "getAttendanceForEdit") {
     $isSuccess = Database::executeQuery("root","",$sqlQuery);
     self::createAudit($sqlQuery, 'attendance', "UPDATE", 'Update the attendance table.');
     echo(json_encode($isSuccess));
+}elseif (isset($_GET['activity'])& $_GET['activity']=="markAsRead"){
+    $userName = $_GET['userName'];
+    $marked = $_GET['mark'];
+    $inquiryId = $_GET['inquiryID'];
+
+    $sqlQuery = "UPDATE attendance_inquiry SET isViewed=1 WHERE entryID=$inquiryId";
+    $isSuccess = Database::executeQuery('root','',$sqlQuery);
+//
+    if($isSuccess){
+        echo("<script>document.getElementById('markAsRead').style.backgroundColor =red;</script>");
+        self::createAudit($sqlQuery, 'attendance_inquiry', "UPDATE", 'Update inquiry message as read.');
+    }
+    echo(json_encode($isSuccess));
 }
+
 
 

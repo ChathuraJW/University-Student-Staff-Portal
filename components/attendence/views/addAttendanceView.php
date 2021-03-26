@@ -16,19 +16,12 @@
     <?php BasicLoader::loadHeader('../../')?>
     
     <div class="featureBody bodyBackground text">
-        <?php
-            // print_r($controllerData);
-        ?>
         <div class="radioToolbar">
             <div class="row col-2">
-                <!-- <div> -->
                     <input value="1" type="radio"  id = "radioCSV" name="formSelector" onClick="displayForm(this)">
                     <label class ="container" for = "radioCSV">Upload CSV File</label>
-                <!-- </div> -->
-                <!-- <div> -->
                     <input value="2" type="radio" id = "radioEdit" name="formSelector" onClick="displayForm(this)">
                     <label class ="container" for ="radioEdit">Edit Attendance</label>
-                <!-- </div> -->
             </div>
         </div>
         <!-- Upload csv files -->
@@ -73,7 +66,6 @@
                     <div class = "inputStyle">
                         <label for="attendDate">Date:</label><br>
                         <input type="date" name="attendDate" class="dropDown" id="attendDate" required/>
-<!--                        <i class="fas fa-calendar-alt" id="attendDate" ></i>-->
                     </div>
                     <div class = "inputStyle">
                         <label for="week">Week:</label><br>
@@ -122,18 +114,15 @@
                                     <p class='subHeading'>Inquiries:</p><hr>
                                 </div>");
                                 $count=1;
-                                foreach($controllerData[1] as $inquiryMessage1){
+                                foreach($controllerData[1] as $inquiryMessage){
+                                    $inquiryId = $inquiryMessage->getInquiryID();
                                     echo("
-                                    
                                     <div class = 'inquiryMessage'>
-                                        
-                                        <label class='floatLeft'>Send By: ".$inquiryMessage1
-                                            ->getSentBy()."</label><br>
-                                        <label>".$inquiryMessage1->getMessage()."</label><br>
-                                        <div class='markAsRead'>
-                                            <input class='floatLeft' type='submit'  value='markAsRead'>
-                                        </div>                                    
-                                        </div>
+                                        <label class='floatLeft'>Send By: ".$inquiryMessage->getSentBy()."</label><br>
+                                        <label>".$inquiryMessage->getMessage()."</label><br>
+                                        <input type='button' class='markAsReadButton' id='$inquiryId' value='$inquiryId' onclick='markASRead(`$inquiryId`);' >
+                                        <div class='markAsRead'><label for='$inquiryId' class='markAsRead'>Mark as read</label></div>
+                                </div>
                                     ");
                                 }
                             ?>
@@ -182,9 +171,6 @@
                                     }
                                     ?>
                                 </select>
-                                <?php
-//                                     print_r($controllerData[0]);
-                                ?>
                             </div>
                         </div>
                         <div class = "row col-2">
@@ -207,9 +193,6 @@
                             <div class='attendanceContainer' >
                                 <label class="labelStyle">Search Result</label>
                                 <div id='attendanceInnerContainer' class='row col-5'>
-                                    <?php
-                                        // print_r($controllerData[2]);
-                                    ?>
                                 <?php
                                     for($att=0; $att<15;$att++)
                                     {
@@ -267,9 +250,6 @@
     <script src="assets/addAttendance.js"></script>
     <script src="../../assets/js/toast.js"></script>
     <script src="../../assets/js/changeTheme.js"></script>
-
-
-
 </body>
 </html>
         

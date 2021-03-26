@@ -65,7 +65,7 @@ class AddAttendanceModel extends Model{
 
 
     public static function getInquiryMessage():array|bool{
-        $sqlQuery = "SELECT entryID,sendBy, message, sendDate, isViewed FROM attendance_inquiry";
+        $sqlQuery = "SELECT entryID,sendBy, message, sendDate, isViewed FROM attendance_inquiry WHERE isViewed=0";
         $result = Database::executeQuery("administrativeAttendance","administrativeAttendance@16",$sqlQuery);
         if($result){
             $messageList = array();
