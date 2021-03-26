@@ -14,9 +14,9 @@
     <?php require('../../assets/php/basicLoader.php')?>
     <?php BasicLoader::loadHeader('../../')?>
     
-    <div class="featureBody">
+    <div class="featureBody bodyBackground text">
         <?php
-            // print_r($controllerData[1][1]);
+//             print_r($controllerData[0]);
             //foreach($controllerData[1] as $row){
                 // print_r($row);
             //}
@@ -25,23 +25,23 @@
             // print_r($controllerData[1][1]);
         ?>
         <form method="post">
-        <div class="sidebar">
+        <div class="sidebar ">
         <a id="inquiryButton"><i class="fa fa-question-circle" ></i>Inquiry</a>
             <div id="myModal" class="modal">
             <!-- Modal content -->
-                <div class="modalContent">
+                <div class="modalContent bodyBackground text">
                     <span class="close">&times;</span>
                     <p class="popupTopic">Inquiry</p>
                     <div class="row col-2">
                         <div class="row col-1">
                         <div class = "inputStyle">
                             <label for="week">Week:</label><br>
-                            <select id="week" name= "week">
+                            <select id="week" name= "week" required>
+                                <option value=""></option>
                                 <?php
                                     for($week=1; $week<=15; $week++)
                                     {
                                         echo("<option value='$week'>Week $week</option>");
-
                                     }
                                 ?>
                             </select>
@@ -49,12 +49,14 @@
                         <div class = "inputStyle">
                             <label for="subject">Subject:</label><br>
                             <select id="subject" name="subject"  required>
+                                <option value=""></option>
                                 <?php
+//                                print_r($controllerData);
                                 $subjectCount=0;
                                 //create subject dropdown
                                 foreach ($controllerData[0] as $data){
                                     $subjectCount++;
-                                    echo ("<option value='".$data->getCourseCode()."'>".$data->getSemester().". ".$data->getName()."</option>");
+                                    echo ("<option value='".$data->getCourseCode()."'>".$data->getName()."</option>");
                                 }
                                 ?>
                             </select>
@@ -67,7 +69,7 @@
 
                     <div class="inputStyle row col 1">
                         <label for="message">Message:</label>
-                        <textarea name="message" id= "message"></textarea>
+                        <textarea name="message" id= "message" required></textarea>
 
                     </div>
                     </div>
@@ -110,8 +112,10 @@
 
 
             }
-            $totalPercentage = $sumOfPercentage/$markedSubjects;
-            $totalPercentage = round($totalPercentage);
+            if($markedSubjects!=0){
+                $totalPercentage = $sumOfPercentage/$markedSubjects;
+                $totalPercentage = round($totalPercentage);
+            }
             ?>
         <div id="container1" class="row col-4">
             <div class="basicStyle">
@@ -162,12 +166,11 @@
                     if($totalDays != 0){
                         $subjectPercentage = ($attendedDays/$totalDays)*100;
                         $subjectPercentage = round($subjectPercentage);
-                        $color = ($subjectPercentage>=80)? 'green':'red';
+                        $color = ($subjectPercentage>=80)? 'var(--fontColor)':'var(--dangerColor)';
                     }
                     
                     // print_r($courseDetails[0]);
                     echo("
-
                         <div class='attendanceContainer'>
                             <div class='row col-2'>
                                 <div class='courseDetail'>
@@ -192,9 +195,9 @@
                             echo("
                             <div class='row col-5'>");
                                 foreach($courseDetails[1] as $attendance){
-                                    $color = ($attendance['attendance'])? 'green':'red';
+                                    $color = ($attendance['attendance'])? 'var(--successColor)':'var(--dangerColor)';
                                     echo("
-                                        <div  class='attendance' style='background-color:$color'>
+                                        <div  class='attendance' style='border-left-color:$color'>
                                             <span class='textStyle'>Week ".$attendance['week']."</span><br>
                                             <span class='textStyle'>".$attendance['date']."</span><br>
                                             <span class='textStyle' id='attendanceDescription'>".$attendance['description']."</span><br>
@@ -214,7 +217,8 @@
 
             <script src="assets/viewAttendance.js"></script>
         <script src="../../assets/js/jquery.js"></script>
-        <script src="/../../assets/js/toast.js"></script>
+        <script src="../../assets/js/toast.js"></script>
+        <script src="../../assets/js/changeTheme.js"></script>
             </div>
         <!-- </div> -->
     

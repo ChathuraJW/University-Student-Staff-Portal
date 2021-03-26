@@ -12,6 +12,8 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     text-align: center;
+    background-color: var(--entryBackgroundColor);
+
 }
 
 .innerDiv{
@@ -57,6 +59,7 @@
     margin-left: 10px;
     margin-right: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: var(--entryBackgroundColor);
 }
 
 
@@ -64,11 +67,16 @@
     text-align: center;
     margin: 5px;
     border-radius: 5px; 
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    padding: 5px;
+    border-style: solid;
+    border-color: var(--fontColor);
+    /*border-left: 2px;*/
+    /*background-color: var(--headerFooterBackground);*/
 }
 
 .textStyle{
-    color: white;
+    /*color: white;*/
     font-size: 18px;
 }
 #attendanceDescription{
@@ -126,7 +134,7 @@ textarea{
     display: block;
 }
 .sidebar a:hover {
-    color: #f80f0f;
+    color: var(--baseColor);
 }
 
 /* The Modal (background) */
@@ -140,22 +148,18 @@ textarea{
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
   /* Modal Content */
 .modalContent {
-    background-color: #fefefe;
     margin: auto;
     padding: 20px;
-    border: 1px solid #888;
     width: 55%;
 }
 
   /* The Close Button */
 .close {
-    color: #aaaaaa;
+    color: var(--baseColor);
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -163,7 +167,6 @@ textarea{
 
 .close:hover,
 .close:focus {
-    color: #000;
     text-decoration: none;
     cursor: pointer;
 }
@@ -179,6 +182,6 @@ textarea{
     text-align: center;
     margin-top: 25px;
     margin-bottom: 25px;
-    color: red;
+    color: var(--fontColor);
 }
 

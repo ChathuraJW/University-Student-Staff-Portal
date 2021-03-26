@@ -5,7 +5,7 @@ class ViewAttendanceController extends Controller{
 
         $passingSubjects=viewAttendanceModel::getSubjectData();
         $attendanceData = viewAttendanceModel::loadAttendanceData();
-//         print_r($attendanceData);
+//         print_r($passingSubjects);
         $sendData = array($passingSubjects,$attendanceData);
         self::createView("viewAttendanceView",$sendData);
 

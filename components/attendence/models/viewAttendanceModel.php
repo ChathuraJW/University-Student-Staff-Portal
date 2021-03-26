@@ -7,11 +7,11 @@ class ViewAttendanceModel extends Model{
         $index = Database::executeQuery("student","student@16",$sqlQuery)[0]['indexNo'];
         if($index){
             $enrollmentDetail = self::getEnrollmentID($index);// get enrollment id of student's active courses.
-            print_r($enrollmentDetail);
+//            print_r($enrollmentDetail);
             $finalAttendanceArray = array();
             foreach ($enrollmentDetail as $attendanceEntry){
                 $enrollmentId = $attendanceEntry['enrollmentID'];
-                print_r($enrollmentId);
+//                print_r($enrollmentId);
                 $courseCode = $attendanceEntry['courseCode'];
                 $sqlQuery = "SELECT courseCode, name FROM course_module WHERE courseCode='$courseCode'";
                 $courseDetail = Database::executeQuery("student","student@16",$sqlQuery);
@@ -65,22 +65,32 @@ class ViewAttendanceModel extends Model{
         }
     }
 
-    //subject data getting function
-    public static function getSubjectData(): bool|array {
-        $sqlQuery = "Select * from course_module";
-        //TODO change DB credentials
-        $result = Database::executeQuery("root", "", $sqlQuery);
-        if ($result) {
-            $subjectList = array();
-            //read subject list and add them into above array as CourseModule objects
-            foreach ($result as $row) {
+public static function getSubjectData(){
+    $regNo = $_COOKIE['userName'];
+    $sqlQuery = "SELECT indexNo FROM student WHERE regNo='$regNo'"; //getting index number from student table
+    $index = Database::executeQuery("student","student@16",$sqlQuery)[0]['indexNo'];
+    if($index){
+        $enrollmentDetail = self::getEnrollmentID($index);// get enrollment id of student's active courses.
+//        print_r($enrollmentDetail);
+        $subjectList = array();
+        foreach ($enrollmentDetail as $attendanceEntry) {
+            $enrollmentId = $attendanceEntry['enrollmentID'];
+//            print_r($enrollmentId);
+            $courseCode = $attendanceEntry['courseCode'];
+            $sqlQuery = "SELECT * FROM course_module WHERE courseCode='$courseCode'";
+            $courseDetail = Database::executeQuery("student", "student@16", $sqlQuery);
+            foreach ($courseDetail as $row) {
                 $subject = new CourseModule;
                 $subject->createCourseModule($row['courseCode'], $row['name'], $row['creditValue'], $row['semester'], $row['description']);
                 $subjectList[] = $subject;
             }
+
+        }
+        if ($subjectList){
             return $subjectList;
-        } else {
+        }else{
             return false;
         }
     }
+}
 }
