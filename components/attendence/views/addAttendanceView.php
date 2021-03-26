@@ -56,7 +56,7 @@
                     </div> 
                     <div class = "inputStyle">
                         <span><button onclick="location.reload();"><i class="fas fa-sync"></i></button></span>
-                        <label for="subjectCSV">Subject:</label>
+                        <label for="subjectCSV">Subject:</label><br>
                         <select id="subjectCSV" name="subject" class="dropDown" required>
                             <option></option>
                             <?php
@@ -103,8 +103,8 @@
                     </div>
                 </div>
                 <div class="buttonCouple" id="buttonsCSV" >
-                        <input type="reset" value = "Cancel"  class="button">
                         <input type ="submit" name="submit" value = "Submit"  class="button">
+                        <input type="reset" value = "Cancel"  class="button">
                 </div>
             </form> 
             </div>
@@ -148,7 +148,7 @@
                         <div id="editAttendance" class="row col-2">
                             <div class = "inputStyle">
                                 <label for="index">Index:</label><br>
-                                <input class="textField" type="number" id="index" name="index" required>
+                                <input class="textField" size="8" type="number" id="index" name="index" required>
                             </div>
                             <div class = "inputStyle">
                                 <label for="academicYearForEdit">Academic Year:</label><br>
@@ -199,8 +199,8 @@
                             <div></div>
                         </div>
                         <div id="buttons" class="buttonCouple">
+                            <button  type="button" name="search" onclick=" Validate();"  class="button">Search</button>
                             <button type="reset" value = "cancel"  class="button">Cancel</button>
-                            <button  type="button" name="search" onclick="displayAttendance(); Validate();"  class="button">Search</button>
                         </div>
                     </form>
                         <div style="display:none; position:relative" id="attendanceTable">
@@ -214,7 +214,6 @@
                                     for($att=0; $att<15;$att++)
                                     {
                                         $value = $att+1;
-                                        
                                         echo("
                                         <div class='attendance' id='$att'>
                                         <input name='attendanceSet' type='radio' id='attendance$att' class='attendance' value='$value' onclick='editAttendanceForm(this)'>
@@ -223,7 +222,6 @@
                                         <label for='attendance$att' class='textStyle' id='attendanceType$att'></label><br>
                                         </div>");
                                     }
-                                    
                                 ?>
                                 </div>   
                                 <div style="display:block position:relative" class="editAttendanceForm row col-1" id="editAttendanceForm">
@@ -236,8 +234,8 @@
                                             <input type="text" id="editWeek" disabled>
                                         </div>
                                         <div class="editSubTopic">
-                                            <label for="editSunjectCode">Subject Code:</label>
-                                            <input id="editSunjectCode" disabled>
+                                            <label for="editSubjectCode">Subject Code:</label>
+                                            <input id="editSubjectCode" disabled>
                                         </div>
                                     </div>
                                     <div class="editRadioToolbar row col-2">

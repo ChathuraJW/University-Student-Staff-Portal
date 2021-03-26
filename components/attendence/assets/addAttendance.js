@@ -61,13 +61,13 @@ function displayAttendance(){
             let week = "week "+attendance[i]['week'];
             let data = attendance[i]['date'];
             let description = attendance[i]['description'];
-            let color = (attendance[i]['attendance']==1 ? 'green':'red');
+            let color = (attendance[i]['attendance']===1 ? 'var(--successColor)':'#f5090978');
             console.log(week);
 
             document.getElementById("week"+i).innerHTML = week;
             document.getElementById("date"+i).innerHTML = data;
             document.getElementById("attendanceType"+i).innerHTML = description;
-            document.getElementById(i).style.backgroundColor = color;
+            document.getElementById(i).style.borderLeft = color;
         }
     }
     );
@@ -78,7 +78,7 @@ function editAttendanceForm(week){
     document.getElementById("editAttendanceForm").style.display="";
     // let weekDetail = "Week: "+week.value;
     document.getElementById("editWeek").value = week.value;
-    document.getElementById("editSunjectCode").value = subjectCode;
+    document.getElementById("editSubjectCode").value = subjectCode;
 }
 //Update attendance
 function updateAttendance() {
@@ -181,27 +181,36 @@ attendanceCSVFile.addEventListener("change",function (){
 //     }
 // }
 
-//validate dropdowns
+//validation edit form
 function Validate() {
+    //validate index field
+    let indexLength = document.getElementById('index').value.length
     let academicYear = document.getElementById("academicYearForEdit");
     let semester = document.getElementById("semesterEdit");
     let subject = document.getElementById("subject");
     let attempt = document.getElementById("attempt");
-    if (academicYear.value === "") {
+    console.log(indexLength);
+
+    if(indexLength===0){// when index is empty
+        alert("Please enter valid index!");
+        return false;
+    }else if(indexLength!==8){//when index length larger than actual size
+        alert("Incorrect index!");
+        return false;
+    }else if (academicYear.value === "") {//empty academic year
         alert("Please select an option for academic Year!");
         return false;
-    }
-    if (semester.value === "") {
+    }else if (semester.value === "") {// empty semester
         alert("Please select an option for semester!");
         return false;
-    }
-    if (subject.value === "") {
+    }else if (subject.value === "") {//empty subject
         alert("Please select an option for subject!");
         return false;
-    }
-    if (attempt.value === "") {
+    }else if (attempt.value === "") {// empty attempt
         alert("Please select an option for attempt!");
         return false;
+    }else{
+        displayAttendance();//display search results
     }
     return true;
 }

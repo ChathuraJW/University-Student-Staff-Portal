@@ -30,9 +30,6 @@ if (isset($_GET['activity']) & $_GET['activity'] == "getAttendanceForEdit") {
     $isSuccess = Database::executeQuery("root","",$sqlQuery);
     self::createAudit($sqlQuery, 'attendance', "UPDATE", 'Update the attendance table.');
     echo(json_encode($isSuccess));
-
-
-
 }
 
 
