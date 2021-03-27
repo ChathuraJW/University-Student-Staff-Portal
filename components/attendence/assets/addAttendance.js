@@ -55,17 +55,17 @@ function displayAttendance(){
     const getAttendanceForEditURL = "http://localhost/USSP/components/attendence/assets/getAttendanceDataAPI.php?activity=getAttendanceForEdit&studentIndex="+index+"&attempt="+attempt+"&subjectCode="+subjectCode;
 
     $.getJSON(getAttendanceForEditURL, function (attendance) {
-        // console.log(attendance);
+        console.log(attendance);
         for(let i in attendance) {
             let week = "week "+attendance[i]['week'];
             let data = attendance[i]['date'];
             let description = attendance[i]['description'];
-            let color = (attendance[i]['attendance']===1 ? 'var(--successColor)':'#f5090978');
+            let color = ([i]['attendance']==='1' ? 'var(--successColor)':'var(--dangerColor)');//
 
             document.getElementById("week"+i).innerHTML = week;
             document.getElementById("date"+i).innerHTML = data;
             document.getElementById("attendanceType"+i).innerHTML = description;
-            document.getElementById(i).style.borderLeft = color;
+            document.getElementById('attendance').style.borderLeft = color;
         }
     }
     );
@@ -82,7 +82,7 @@ function editAttendanceForm(week){
 function updateAttendance() {
     let attendance;
     let week = document.getElementById("editWeek").value;
-    let subjectCode = document.getElementById("editSunjectCode").value;
+    let subjectCode = document.getElementById("editSubjectCode").value;
     let description = document.getElementById("editDescription").value;
     let index = document.getElementById("index").value;
     let attempt = document.getElementById("attempt").value;
@@ -103,8 +103,8 @@ function markASRead(inquiryID){
     let userName = document.cookie.split('=')[1];
 
     if(document.getElementById(inquiryID).value){
-        let markAsRead = document.getElementById('markAsRead');
-        markAsRead.style.backgroundColor = 'var(--baseColor)';//TODO
+        let markAsRead = document.getElementById('L'+inquiryID);
+        markAsRead.style.color = 'var(--baseColor)';
 
         const markAsReadURL = "http://localhost/USSP/components/attendence/assets/getAttendanceDataAPI.php?activity=markAsRead&userName=" + userName + "&mark=1&inquiryID="+ inquiryID ;
         console.log(markAsReadURL);
@@ -127,7 +127,7 @@ attendanceCSVFile.addEventListener("change",function (){
         console.log("File Size is(KB): "+attendanceCSVFile.files[0].size/1000);
         let uploadFormat = attendanceCSVFile.value.toString().split('.')[1].toLowerCase();
         if (uploadFormat === "csv") {
-            attendanceCSVFileLabel.style.backgroundColor = "var(--baseColor)";
+            attendanceCSVFileLabel.style.backgroundColor = "var(--successColor)";
         } else {
             attendanceCSVFileLabel.style.backgroundColor = "var(--dangerColor)";
             alert("Invalid file format. Please upload csv formatted file.");
@@ -167,4 +167,7 @@ function Validate() {
     }
     return true;
 }
+
+//Filter subject based on dropdown values
+
 

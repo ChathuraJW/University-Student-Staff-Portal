@@ -20,7 +20,7 @@ class AddAttendanceModel extends Model{
         }
     }
 
-    public static function processAttendanceData($attendance)
+    public static function processAttendanceData($attendance):bool
     {
         $dbInstance = new Database();
         //TODO change db credentials
@@ -29,7 +29,6 @@ class AddAttendanceModel extends Model{
         $sqlQuery = "INSERT INTO attendance (enrollmentID, date, week, attendance, description, uploadTimestamp) VALUES 
                     (" . $attendance->getEnrollmentId() . ", '" . $attendance->getDate() . "', " . $attendance->getWeek() . ", 
                     " . $attendance->getAttendance() . ", '" . $attendance->getDescription() . "', current_timestamp());";
-        echo $sqlQuery;
         $dbInstance->executeTransaction($sqlQuery);
         //create audit trail
         $dbInstance->transactionAudit($sqlQuery, 'attendance', 'INSERT', 'Insert weekly attendance.');
@@ -37,15 +36,15 @@ class AddAttendanceModel extends Model{
         if ($dbInstance->getTransactionState()) {
             if ($dbInstance->commitToDatabase()) {
                 //operation success message
-                echo("<script>createToast('Success','Attendance file successfully uploaded','S')</script>");
+                return true;
             } else {
                 //display error
-                echo("<script>createToast('Warning (error code: #SAM01)','Failed submit attendance file.','W')</script>");
+                return false;
             }
 
         }else{
             //display error
-            echo("<script>createToast('Warning (error code: #SAM01)','Failed submit attendance file.','W')</script>");
+            return false;
         }
         $dbInstance->closeConnection();
     }

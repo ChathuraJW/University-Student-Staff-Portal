@@ -39,7 +39,6 @@ if (isset($_GET['activity']) & $_GET['activity'] == "getAttendanceForEdit") {
     $isSuccess = Database::executeQuery('root','',$sqlQuery);
 //
     if($isSuccess){
-        echo("<script>document.getElementById('markAsRead').style.backgroundColor =red;</script>");
         self::createAudit($sqlQuery, 'attendance_inquiry', "UPDATE", 'Update inquiry message as read.');
     }
     echo(json_encode($isSuccess));

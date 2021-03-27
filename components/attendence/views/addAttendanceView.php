@@ -31,7 +31,7 @@
                     <!-- <label>--Upload CSV Files--</label>  -->
                     <div class = "inputStyle">
                         <label for="academicYearCSV">Academic Year:</label><br>
-                        <select id="academicYearCSV" name="academicYear" class="dropDown"   required>
+                        <select id="academicYearCSV" name="academicYear" class="dropDown"  onchange="selectedYear();" required>
                             <option></option>
                             <option value="1">First Year</option>
                             <option value="2">Second Year</option>
@@ -121,7 +121,7 @@
                                         <label class='floatLeft'>Send By: ".$inquiryMessage->getSentBy()."</label><br>
                                         <label>".$inquiryMessage->getMessage()."</label><br>
                                         <input type='button' class='markAsReadButton' id='$inquiryId' value='$inquiryId' onclick='markASRead(`$inquiryId`);' >
-                                        <div class='markAsRead'><label for='$inquiryId' class='markAsRead'>Mark as read</label></div>
+                                        <div class='markAsRead'><label for='$inquiryId' id='L$inquiryId' class='markAsRead'>Mark as read</label></div>
                                 </div>
                                     ");
                                 }
@@ -247,8 +247,9 @@
     <?php BasicLoader::loadFooter('../../')?>
     <!-- end of edit attendance -->
     <script src="../../assets/js/jquery.js"></script>
-    <script src="assets/addAttendance.js"></script>
     <script src="../../assets/js/toast.js"></script>
+    <script src="assets/addAttendance.js"></script>
+
     <script src="../../assets/js/changeTheme.js"></script>
 </body>
 </html>

@@ -30,7 +30,7 @@ class AddAttendanceController extends Controller{
             $attendanceFile = fopen($fileLocation,"r");
                 $isHeader = true;//to ignore header
                 $description = "General";
-
+                $result = NULL;
                 // get data from the csv file
                 while(!feof($attendanceFile)){
                     $attendanceEntry = explode(",",fgets($attendanceFile));
@@ -39,14 +39,20 @@ class AddAttendanceController extends Controller{
                     }else{
                         $studentIndex = $attendanceEntry[1];
                         $attendance = $attendanceEntry[2];
-
-                        $enrollmentID =  AddAttendanceModel::getEnrollmentID($studentIndex,$subject,$attempt);
-                        $singleAttendance = new AttendanceInstance();
-                        $singleAttendance->setAttendance($attendance,$week,$date,$description,$enrollmentID);
-                        AddAttendanceModel::processAttendanceData($singleAttendance);
+                        if(!$studentIndex && !$attendance){
+                            $enrollmentID =  AddAttendanceModel::getEnrollmentID($studentIndex,$subject,$attempt);
+                            $singleAttendance = new AttendanceInstance();
+                            $singleAttendance->setAttendance($attendance,$week,$date,$description,$enrollmentID);
+                            $result = AddAttendanceModel::processAttendanceData($singleAttendance);
+                        }
                     }
                 }
             self::createView("addAttendanceView",$sendData);
+            if($result){
+                echo("<script>createToast('Success','Attendance file successfully uploaded','S');</script>");
+            }else{
+                echo("<script>createToast('Warning (error code: #SAM01)','Failed submit attendance file.','W')</script>");
+            }
 
         }elseif (isset($_POST['search'])){
             echo("in search function");
