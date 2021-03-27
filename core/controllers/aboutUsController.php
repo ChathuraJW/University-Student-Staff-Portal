@@ -5,4 +5,5 @@
 			self::createView("aboutUsView");
 		}
 	}
+
 ?>

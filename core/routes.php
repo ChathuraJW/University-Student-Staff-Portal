@@ -18,12 +18,12 @@
 	Route::set('aboutUs', function () {
 		AboutUsController::open();
 	});
-    Route::set('settingPage', function () {
-        SettingPageController::open();
-    });
+	Route::set('settingPage', function () {
+		SettingPageController::open();
+	});
 	Route::set('selectSubject', function () {
-        SelectSubjectController::open();
-    });
+		SelectSubjectController::open();
+	});
 
 // check weather the given file exist on the site if not redirect to 404 page
 	$available = FALSE;

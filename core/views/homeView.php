@@ -87,110 +87,17 @@
                         </div>
                     </div>
                     <div class="removableDiv"></div>
-                    <a href="https://ugvle.ucsc.cmb.ac.lk/" rel="noreferrer" target="_blank" class="tile" id="accessToVLE">
-                        <div class="tileImage"><i class="fas fa-laptop-code fa-3x"></i></div>
-                        <div class="tileDescription">Access to VLE</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="studentResult">
-                        <div class="tileImage"><i class="fas fa-poll fa-3x"></i></div>
-                        <div class="tileDescription">Student Result</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="studentAttendance">
-                        <div class="tileImage"><i class="fas fa-file-signature fa-3x"></i></div>
-                        <div class="tileDescription">Student Attendance</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="appointmentForMeeting">
-                        <div class="tileImage"><i class="fas fa-calendar-check fa-3x"></i></div>
-                        <div class="tileDescription">Appointment for Meeting</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="hallBooking">
-                        <div class="tileImage"><i class="fas fa-university fa-3x"></i></div>
-                        <div class="tileDescription">Hall Booking</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="personalFile">
-                        <div class="tileImage"><i class="fas fa-folder-open fa-3x"></i></div>
-                        <div class="tileDescription">Personal Files</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="contactUnion">
-                        <div class="tileImage"><i class="fas fa-headset fa-3x"></i></div>
-                        <div class="tileDescription">Contact Union</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="trainSeason">
-                        <div class="tileImage"><i class="fas fa-train fa-3x"></i></div>
-                        <div class="tileDescription">Train Season</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="pastPaper">
-                        <div class="tileImage"><i class="fas fa-file-pdf fa-3x"></i></div>
-                        <div class="tileDescription">Past Paper</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="message">
-                        <div class="tileImage"><i class="fas fa-comment-dots fa-3x"></i></div>
-                        <div class="tileDescription">Message</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="publishNotice">
-                        <div class="tileImage"><i class="fas fa-bullhorn fa-3x"></i></div>
-                        <div class="tileDescription">Publish Notice</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="seasonRequestProcessing">
-                        <div class="tileImage"><i class="fas fa-pen fa-3x"></i></div>
-                        <div class="tileDescription">Season Request Processing</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="addAttendance">
-                        <div class="tileImage"><i class="fas fa-file-contract fa-3x"></i></div>
-                        <div class="tileDescription">Add Attendance</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="addExamResult">
-                        <div class="tileImage"><i class="fas fa-laptop-code  fa-3x"></i></div>
-                        <div class="tileDescription">Add Exam Result</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="getExamResult">
-                        <div class="tileImage"><i class="fas fa-handshake fa-3x"></i></div>
-                        <div class="tileDescription">Get Exam Result</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="addIQACReport">
-                        <div class="tileImage"><i class="fas fa-plus-square fa-3x"></i></div>
-                        <div class="tileDescription">Add IQAC Report</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="uploadPastPaper">
-                        <div class="tileImage"><i class="fas fa-file-upload fa-3x"></i></div>
-                        <div class="tileDescription">Upload Past Papers</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="uploadResult">
-                        <div class="tileImage"><i class="fas fa-file-csv fa-3x"></i></div>
-                        <div class="tileDescription">Upload Result</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="viewIQACReport">
-                        <div class="tileImage"><i class="fas fa-file-alt fa-3x"></i></div>
-                        <div class="tileDescription">View IQAC Report</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="respondForMeetingRequest">
-                        <div class="tileImage"><i class="fas fa-reply fa-3x"></i></div>
-                        <div class="tileDescription">Respond for Meeting Request</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="updateAvailability">
-                        <div class="tileImage"><i class="fas fa-check-double fa-3x"></i></div>
-                        <div class="tileDescription">Update Availability</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="reviewHallBookingRequest">
-                        <div class="tileImage"><i class="fas fa-eye fa-3x"></i></div>
-                        <div class="tileDescription">Review Hall Booking Request</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="assignmentManagement">
-                        <div class="tileImage"><i class="fas fa-tasks fa-3x"></i></div>
-                        <div class="tileDescription">Assignment Management</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="viewWorkload">
-                        <div class="tileImage"><i class="fas fa-briefcase fa-3x"></i></div>
-                        <div class="tileDescription">View Workload</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="allocatedWorkload">
-                        <div class="tileImage"><i class="fas fa-hand-point-right fa-3x"></i></div>
-                        <div class="tileDescription">Allocate Workload</div>
-                    </a>
-                    <a href="#" rel="noreferrer" class="tile" id="usspSystemConfig">
-                        <div class="tileImage"><i class="fas fa-user-cog fa-3x"></i></div>
-                        <div class="tileDescription">USSP System Config</div>
-                    </a>
+					<?php
+						//                        load system features
+						foreach ($controllerData[5] as $feature) {
+							echo("
+                                <a href='" . $feature->getFeaturePath() . "' rel='noreferrer' class='tile'>
+                                    <div class='tileImage'><i class='" . $feature->getFeatureIcon() . "'></i></div>
+                                    <div class='tileDescription'>" . $feature->getFeatureName() . "</div>
+                                </a>
+                            ");
+						}
+					?>
 
                 </div>
             </div>
@@ -199,7 +106,7 @@
         <div class="userInformation">
             <div class="row col-1">
                 <div class="profileSection">
-                    <a href="" class="userSetting"><i class="fas fa-cog fa-2x" style="color: var(--fontColor)"></i></a>
+                    <a href="settingPage" class="userSetting"><i class="fas fa-cog fa-2x" style="color: var(--fontColor)"></i></a>
                     <div class="profilePic">
                         <!--update profile picture based on the picture availability and the gender-->
 						<?php

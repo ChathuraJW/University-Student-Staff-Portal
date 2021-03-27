@@ -12,13 +12,13 @@
 <body>
 
 <?php
-//    load dataset to $record variable for use in code
-    $record=$controllerData[0];
-    if ($record['gender'] == 'M') {
-        $gender = 'Male';
-    } else {
-        $gender = 'Female';
-    }
+	//    load dataset to $record variable for use in code
+	$record = $controllerData[0];
+	if ($record['gender'] == 'M') {
+		$gender = 'Male';
+	} else {
+		$gender = 'Female';
+	}
 ?>
 
 <!-- feature body section -->

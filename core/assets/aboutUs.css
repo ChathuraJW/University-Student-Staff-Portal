@@ -1,34 +1,41 @@
-.image{
+.image {
     width: 50%;
     margin-left: 25%;
     text-align: center;
 
-}.imageFirst{
+}
+
+.imageFirst {
     height: 100%;
     width: 60%;
     border-radius: 50%;
 }
-.imageSecond{
+
+.imageSecond {
     width: 70%;
     border-radius: 50%;
 }
-.imageSet{
+
+.imageSet {
     margin-top: 50px;
 }
-.textStyle{
+
+.textStyle {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     font-size: large;
     margin-bottom: 20px;
 }
-.head{
+
+.head {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     font-size: 200%;
     text-align: center;
     margin-bottom: 20px;
 }
-.text{
+
+.text {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-bottom: 10px;
 }

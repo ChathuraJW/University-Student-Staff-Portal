@@ -31,7 +31,7 @@
 <div class="featureBody">
     <!-- this form get the username who wants to change the password -->
     <form class="form" action="" method="post">
-        <div class="head">Forget Password</div>
+        <div class="head">Reset Password</div>
         <label for="userName" class="inputLabel">Username</label>
         <input id="userName" name="userName" type="text">
         <br><br><br>

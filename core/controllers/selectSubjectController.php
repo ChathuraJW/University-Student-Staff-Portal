@@ -1,15 +1,17 @@
 <?php
-    class SelectSubjectController extends Controller{
 
-        public static function open() {
-            $subjects=SelectSubjectModel::subjects();
-            self::createView("selectSubjectView",$subjects);
-            if(isset($_POST['submit'])){
+	class SelectSubjectController extends Controller {
 
-                $array=$_POST['checkingBox'];
-                SelectSubjectModel::enroll($array);
-            }
+		public static function open() {
+			$subjects = SelectSubjectModel::subjects();
+			self::createView("selectSubjectView", $subjects);
+			if (isset($_POST['submit'])) {
 
-        }
-    }
+				$array = $_POST['checkingBox'];
+				SelectSubjectModel::enroll($array);
+			}
+
+		}
+	}
+
 ?>

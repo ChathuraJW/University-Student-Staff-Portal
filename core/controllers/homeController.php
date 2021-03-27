@@ -7,8 +7,10 @@
 			$notificationCount = HomeModel::countNotification();
 			$academicSchedule = HomeModel::timetable();
 			$userRole = HomeModel::getRole();
-			$sendArray = array($basicInfo, $notifications, $notificationCount, $academicSchedule, $userRole);
+			$featureList = HomeModel::createLoadableFeatureList();
+			$sendArray = array($basicInfo, $notifications, $notificationCount, $academicSchedule, $userRole, $featureList);
 			self::createView("homeView", $sendArray);
 		}
 	}
+
 ?>

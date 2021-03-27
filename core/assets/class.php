@@ -291,5 +291,35 @@
 		}
 	}
 
+	class SystemFeature {
+		private string $featureID;
+		private string $featureName;
+		private string $featurePath;
+		private string $featureIcon;
 
+		public function createFeature($featureID, $name, $path, $icon): SystemFeature {
+			$this->featureID = $featureID;
+			$this->featureName = $name;
+			$this->featurePath = $path;
+			$this->featureIcon = $icon;
+			return $this;
+		}
+
+		public function getFeatureID(): string {
+			return $this->featureID;
+		}
+
+		public function getFeatureName(): string {
+			return $this->featureName;
+		}
+
+		public function getFeaturePath(): string {
+			return $this->featurePath;
+		}
+
+		public function getFeatureIcon(): string {
+			return $this->featureIcon;
+		}
+
+	}
 

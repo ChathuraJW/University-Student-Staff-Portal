@@ -1,47 +1,58 @@
-.subHeading{
+.subHeading {
     font-size: 40px;
 }
+
 label {
     padding: 12px 12px 12px 0;
     display: inline-block;
     font-size: 18px;
 }
+
 .container {
     border-radius: 5px;
     padding: 20px;
 }
-.subContainer{
+
+.subContainer {
     margin: 10px 75px;
 }
-.buttonSet{
+
+.buttonSet {
     padding: 30px 0px;
     margin: 0px 100px;
 }
-.button{
+
+.button {
     margin-bottom: 30px;
 }
+
 .col_25 {
     float: left;
     width: 25%;
     margin-top: 6px;
 }
+
 .col_75 {
     float: left;
     width: 75%;
     margin-top: 6px;
 }
+
 .block:after {
     content: "";
     display: table;
     clear: both;
 }
+
 /*profile picture*/
 .profilePictureUpload input {
     display: none;
 }
-.profilePictureUpload{
+
+.profilePictureUpload {
     margin: 0px 110px;
 }
+
 .profilePictureUpload label {
     width: 400px;
     min-height: 100px;
@@ -56,6 +67,7 @@ label {
     top: 30px;
     left: 40px;
 }
+
 @media screen and (max-width: 600px) {
     .col-25, .col-75, input[type=submit] {
         width: 100%;
