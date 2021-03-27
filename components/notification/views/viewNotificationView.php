@@ -69,7 +69,7 @@
                         $notificationId = $notification->getNotificationID();
                         $isViewed = $notification->getIsViewed();
                         echo("
-                            <div class='notification' id='div$notificationId' onclick='`showFullContent($notificationId)`'>                               
+                            <div class='notification' id='div$notificationId' onclick='`($notificationId)`'>                               
                                 <labe class='topic'><i class='fa fa-bullhorn' aria-hidden='true'></i><b> ".$notification->getNotificationTitle()."</b></labe>                                                                                                                                  
                                 <label class='content'>".$notification->getNotificationContent()." Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda error et ex nobis, provident quis repellendus unde! Ab error esse est hic modi possimus qui repellendus soluta? Earum, laboriosam Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto, distinctio dolor eligendi eum numquam officia rerum. Aperiam asperiores dolores earum facere fugiat, nesciunt odit repellat reprehenderit soluta temporibus vero?</label>
                                    <label class='senderTime'>By - ".$notification->getSender()."</label>  

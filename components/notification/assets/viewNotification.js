@@ -22,10 +22,10 @@ function markASRead(notificationID){
 
 }
 
-// $('notification').hover(
-//     // function(){ $(this).addClass('hover') },
-//     function(){ $(this).removeClass('content') }
-// )
+$('notification').hover(
+    // function(){ $(this).addClass('hover') },
+    function(){ $(this).removeClass('content') }
+)
 
 function showFullContent(notificationId){
     console.log('hi');

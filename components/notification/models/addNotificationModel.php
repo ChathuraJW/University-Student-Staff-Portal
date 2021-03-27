@@ -11,6 +11,11 @@ class AddNotificationModel extends Model{
         $newNotification->setReceivers($receivers);
         $newNotification->targetAudience($targetAudience);
         $newNotification->publishNotification();
+        if($newNotification){
+            echo("<script>createToast('Success','Announcement published successfully.','S')</script>");
+        }else{
+            echo("<script>createToast('Warning (error code: #AM01)','Failed to publish Announcement.','W')</script>");
+        }
     }
 
     public static function getReceiverList($category){
@@ -114,14 +119,9 @@ class AddNotificationModel extends Model{
                 break;
         }
 
-//        echo $sqlQueryUser;
-//        echo $sqlQueryStudent;
-
         if($activeUser == 1){
-            //            print_r($resultArray);
             return Database::executeQuery('root','',$sqlQueryUser);
         }elseif ($activeStudent == 1){
-            //            print_r($resultArray);
             return Database::executeQuery('root','',$sqlQueryStudent);
         }
 
