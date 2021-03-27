@@ -6,6 +6,7 @@ class Notification {
     private string $notificationTitle;
     private string $notificationContent;
     private int $notificationType;
+    private int $isViewed;
     private string $sender;
     private string $validWeeks;
     private string $timeStamp;
@@ -63,6 +64,17 @@ class Notification {
 
     public function setNotificationID(int $notificationID):Notification{
         $this->notificationID = $notificationID;
+        return $this;
+    }
+
+    public function getIsViewed(): int
+    {
+        return $this->isViewed;
+    }
+
+    public function setIsViewed(int $isViewed): Notification
+    {
+        $this->isViewed = $isViewed;
         return $this;
     }
 

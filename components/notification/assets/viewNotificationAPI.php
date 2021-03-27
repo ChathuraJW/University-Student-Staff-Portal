@@ -4,7 +4,7 @@ if(isset($_GET['activity'])& $_GET['activity']=="markAsRead"){
     $userName = $_GET['userName'];
     $marked = $_GET['mark'];
     $notificationID = $_GET['notificationID'];
-
+    echo "hi";
     $sqlQuery = "UPDATE user_view_notification SET isViewed=1,viewTimestamp=now() WHERE notificationID=$notificationID AND userName='$userName' ";
     $isSuccess = Database::executeQuery('root','',$sqlQuery);
 

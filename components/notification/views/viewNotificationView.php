@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,18 +65,21 @@
                 </div>
                 <div class="inner row col-1" id="defaultNotification">
                     <?php
-//                    print_r($controllerData);
                     foreach($controllerData[0] as $notification){
                         $notificationId = $notification->getNotificationID();
-//                        echo $notificationId;
+                        $isViewed = $notification->getIsViewed();
                         echo("
-                            <div class='notification'>                               
+                            <div class='notification' id='div$notificationId' onclick='`showFullContent($notificationId)`'>                               
                                 <labe class='topic'><i class='fa fa-bullhorn' aria-hidden='true'></i><b> ".$notification->getNotificationTitle()."</b></labe>                                                                                                                                  
                                 <label class='content'>".$notification->getNotificationContent()." Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda error et ex nobis, provident quis repellendus unde! Ab error esse est hic modi possimus qui repellendus soluta? Earum, laboriosam Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto, distinctio dolor eligendi eum numquam officia rerum. Aperiam asperiores dolores earum facere fugiat, nesciunt odit repellat reprehenderit soluta temporibus vero?</label>
                                    <label class='senderTime'>By - ".$notification->getSender()."</label>  
                                     <label class='senderTime'>".$notification->getTimeStamp()."</label>                                                                
-                                <input type='button'class='markAsReadButton' id='$notificationId' value='$notificationId' onclick='markASRead(`$notificationId`);' >
-                                <div class='markAsRead'><label for='$notificationId' class='markAsRead'>Mark as read</label></div>
+                                ");
+                                if($isViewed==0){
+                                    echo("<input type='button'class='markAsReadButton' id='$notificationId' value='$notificationId' onclick='markASRead(`$notificationId`);' >
+                                        <div class='markAsRead'><label for='$notificationId' id='marked$notificationId' class='markAsRead'>Mark as read</label></div>");
+                                }
+                           echo("
                             </div>
                         ");
                     }

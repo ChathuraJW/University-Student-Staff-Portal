@@ -15,7 +15,7 @@
     <?php require('../../assets/php/basicLoader.php')?>
     <?php BasicLoader::loadHeader('../../')?>
     
-    <div class="featureBody">
+    <div class="featureBody bodyBackground text">
         <form id="form" method ="post" class="container">
             <div class="row col-1">
                 <p class="heading">Announcements</p>
@@ -34,7 +34,8 @@
             <div>
                 <div class="divStyle">
                     <input type="checkbox" class="check" id="checkAll" value="1100" name="receiverList[]">
-                    <label for="checkAll">All</label>
+                    <label for="checkAll" class="checked">All</label>
+                    <span class="w3docs"></span>
                 </div>
                 <div class="divStyle">
                     <input type="checkbox" class="checkFirstSet checkAll" id="checkAcademicStaff" value="1300" name="receiverList[]" onchange="changeState();">
@@ -129,7 +130,7 @@
             <div><label class="subHeading" id="category">Category:</label>
             <div class="radioToolbar row col-3" >
                 <div>
-                    <input value="1" type="radio"  id = "radioDirectorNotices" name="category">
+                    <input value="3" type="radio"  id = "radioDirectorNotices" name="category">
                     <label class ="" for = "radioDirectorNotices">Director Notices</label>
                 </div>
                 <div>
@@ -137,26 +138,26 @@
                     <label class ="" for = "radioSocial&Events">Social & Events</label>
                 </div>
                 <div>
-                    <input value="3" type="radio"  id = "radioFundraisingEvents" name="category">
+                    <input value="4" type="radio"  id = "radioFundraisingEvents" name="category">
                     <label class ="" for = "radioFundraisingEvents">Fundraising Events</label>
                 </div>
                 <div>
-                    <input value="4" type="radio"  id = "radioAdministrative&Exam" name="category">
+                    <input value="5" type="radio"  id = "radioAdministrative&Exam" name="category">
                     <label class ="" for = "radioAdministrative&Exam">Administrative & Exam</label>
                 </div>
                 <div>
-                    <input value="5" type="radio"  id = "radioAssignmentScholarship&LectureRe-scheduling" name="category">
+                    <input value="1" type="radio"  id = "radioAssignmentScholarship&LectureRe-scheduling" name="category">
                     <label class ="" for = "radioAssignmentScholarship&LectureRe-scheduling">Assignment, Scholarship & Lecture Re-scheduling</label>
                 </div>
                 <div>
-                    <input value="5" type="radio"  id = "other" name="category">
+                    <input value="7" type="radio"  id = "other" name="category">
                     <label class ="" for = "other">Other</label>
                 </div>
             </div>
             </div>
                 <div class="weeks">
                     <label for="weeks" class="subHeading">Weeks:</label><br>
-                    <input type="text" id="weeks" name="weeks"><br>
+                    <input type="number"  id="weeks" name="weeks"><br>
                     <label class="message">*Notification appearing time period in weeks. </label>
                 </div>
             </div>
@@ -172,7 +173,7 @@
     <?php BasicLoader::loadFooter('../../')?>
     <script src="../../assets/js/jquery.js"></script>
     <script src="assets/addNotification.js"></script>
-    <script src="../assets/js/changeTheme.js"></script>
+    <script src="../../assets/js/changeTheme.js"></script>
 
 </body>
 </html>
