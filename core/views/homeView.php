@@ -131,8 +131,12 @@
                             <span class='name'><span style='font-size: 20px'>(" . $controllerData[0][0]['salutation'] . ")&nbsp;</span>" . $controllerData[0][0]['lastName'] . "<br>" . $controllerData[0][0]['firstName'] . "</span><br>
                             <span class='emailPersonal'>" . $controllerData[0][0]['personalEmail'] . "</span><br>
                             <span class='emailUniversity'>" . $controllerData[0][0]['universityEmail'] . "</span><br><br>
-                            <span class='gpa' id='displayGPA' style='background-color: var(--entryBackgroundColor);'>" . $controllerData[0][0]['currentGPA'] . "</span>
-                        ");
+                            ");
+							if ($_COOKIE['role'] == 'ST') {
+								echo("
+							        <span class='gpa' id='displayGPA' style='background-color: var(--entryBackgroundColor);'>" . $controllerData[0][0]['currentGPA'] . "</span>
+							    ");
+							}
 						?>
                     </div>
                 </div>

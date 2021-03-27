@@ -1,17 +1,15 @@
 <?php
 
 	class SettingPageModel extends Model {
-		public static function profilePic($userName, $fileName) {
-			echo 'hello3';
-
+		public static function profilePicUpdate($userName, $fileName) {
 			$query = "UPDATE user SET profilePicURL='$fileName' WHERE userName='$userName'";
 			$databaseInstance = new Database;
 			$databaseInstance->establishTransaction('root', '');
 			if ($databaseInstance->executeTransaction($query)) {
-				echo 'hello4';
-
-				$databaseInstance->transactionAudit($query, 'user', "UPDATE", "Update profile picture by setting page");
-				$databaseInstance->commitToDatabase();
+				$databaseInstance->transactionAudit($query, 'user', "UPDATE", "Update profile picture of user $userName.");
+				if ($databaseInstance->commitToDatabase()) {
+					echo("<script>createToast('Operation Successful.','Profile picture update successfully.','S')</script>");
+				}
 			} else {
 				echo("<script>createToast('Warning (error code: #SETP01)','Failed to Update Profile Picture','W')</script>");
 			}

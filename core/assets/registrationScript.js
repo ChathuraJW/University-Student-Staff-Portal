@@ -31,6 +31,12 @@ let loadFile = function (event) {
     output.style.position = "initial";
 
     output.src = URL.createObjectURL(event.target.files[0]);
+    // switch display in-between icon and image
+    document.getElementById('uploadIcon').style.display = 'none';
+    document.getElementById('output').style.display = 'block';
+    // abject height and width
+    document.getElementById('output').style.height = 'auto';
+    document.getElementById('output').style.width = '450px';
     output.onload = function () {
         URL.revokeObjectURL(output.src) // free memory
     }

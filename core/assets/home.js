@@ -85,7 +85,9 @@ let clock = () => {
     //convert the ......time into .......
     if (hours === 0) {
         hours = 12;
-    } else if (hours >= 12) {
+    } else if (hours === 12) {
+        period = "PM";
+    } else if (hours > 12) {
         hours = hours - 12;
         period = "PM";
     }

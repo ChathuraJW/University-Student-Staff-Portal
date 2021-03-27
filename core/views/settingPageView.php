@@ -88,7 +88,9 @@
         <div class="subContainer">
             <div class="inputs profilePictureUpload">
                 <label for="profilePic" id="imageLoadContainer">
-                    <i class="fa fa-upload" aria-hidden="true" style="display: block;padding: 15px;font-size: 7em;text-align: center"></i>
+                    <img class="profile" id="output" src="" style="display: none;">
+                    <i class="fa fa-upload" aria-hidden="true" id="uploadIcon"
+                       style="display: block;padding: 15px;font-size: 7em;text-align:center;"></i>
                 </label>
                 <input class="inputField choose" type="file" accept="image/*" onchange="loadFile(event)" name="profilePic" id="profilePic">
             </div>
@@ -144,6 +146,12 @@
         output.style.position = "initial";
 
         output.src = URL.createObjectURL(event.target.files[0]);
+        // switch display in-between icon and image
+        document.getElementById('uploadIcon').style.display = 'none';
+        document.getElementById('output').style.display = 'block';
+        // abject height
+        document.getElementById('output').style.height = 'auto';
+
         output.onload = function () {
             URL.revokeObjectURL(output.src) // free memory
         }
@@ -156,6 +164,9 @@
     function displayNone() {
         document.getElementById('aTag').style.display = "none";
     }
+
+    //change home href path
+    document.getElementsByTagName('a').item(0).setAttribute('href', 'home');
 </script>
 
 <!-- include footer section -->

@@ -213,7 +213,9 @@
     </div>
     <div class="inputs profilePictureUpload">
         <label for="profilePic" id="imageLoadContainer">
-            <img class="profile" id="output" src="assets/uploadIcon.png" alt="Upload image">
+            <img class="profile" id="output" src="" style="display: none;">
+            <i class="fa fa-upload" aria-hidden="true" id="uploadIcon"
+               style="display: block;padding: 15px;font-size: 7em;text-align:center;"></i>
         </label>
         <input class="inputField choose" type="file" accept="image/*" onchange="loadFile(event)" name="profilePic"
                id="profilePic">

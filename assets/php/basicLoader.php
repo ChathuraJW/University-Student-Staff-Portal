@@ -18,10 +18,10 @@
 				    </div>
 				</header>
 				<div class='loginInfo'>
-				    <span class='backToHome' style='float: left;'><a href='../../core/home' rel='noreferrer' style='color: white;' title='Back to home'><i class='fa fa-home'></i></a></span>
+				    <span class='backToHome' style='float: left;'><a href='../../core/home' style='color: white;' title='Back to home'><i class='fa fa-home'></i></a></span>
 				    <span>Login as " . $_COOKIE['fullName'] . " &nbsp;&nbsp;<span>
-				    <a href='{$positionNotation}assets/php/logout.php' rel='noreferrer' style='color: white;'>
-				    <i class='fa fa-sign-out' style='color: white;' title='Log out'></i>
+				    <a href='{$positionNotation}assets/php/logout.php' style='color: white;'>
+				    <i class='fa fa-sign-out-alt' style='color: white;' title='Log out'></i>
 				    </a>
 				    </span></span>
 				</div>
@@ -46,9 +46,9 @@
 		            <div class='row col-2'>
 		                <div><button class='themeChanger' onclick='changeTheme();'><i class='fa fa-adjust'></i> Theme</button></div>
 		                <div style='padding-top: 5px;'>
-			                <a class='footerHeader' rel='noreferrer' href='#' target='_blank'>About Us</a>
-			                <a class='footerHeader' rel='noreferrer' href='#' target='_blank'>Site Feedback</a>
-			                <a class='footerHeader' rel='noreferrer' href='https://ucsc.cmb.ac.lk' target='_blank'>UCSC Home</a>
+			                <a class='footerHeader' href='#' target='_blank'>About Us</a>
+			                <a class='footerHeader' href='#' target='_blank'>Site Feedback</a>
+			                <a class='footerHeader' href='https://ucsc.cmb.ac.lk' target='_blank'>UCSC Home</a>
 			                <span class='footerHeader' style='pointer-events: none;'>&copy;Team Binary Bits 2020-2021</span>
 						</div>
 					</div>
