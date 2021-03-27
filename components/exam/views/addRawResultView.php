@@ -13,7 +13,7 @@
 <!-- include header section -->
 <?php require('../../assets/php/basicLoader.php') ?>
 <!-- include header section -->
-<?php BasicLoader::loadHeader('../../');?>
+<?php BasicLoader::loadHeader('../../'); ?>
 
 <!-- feature body section -->
 <div class="featureBody bodyBackground text">
@@ -78,12 +78,12 @@
                 <span>Subject &nbsp;<button style="background: none;color: var(--fontColor);" onclick="location.reload();"><i class="fas
                 fa-sync"></i></button></span>
                 <select name="subject" id="subject" required>
-                    <?php
-//                        create subject dropdown
-                        foreach ($controllerData as $data){
-                            echo ("<option value='".$data->getCourseCode()."'>".$data->getSemester().". ".$data->getName()."</option>");
-                        }
-                    ?>
+					<?php
+						//                        create subject dropdown
+						foreach ($controllerData as $data) {
+							echo("<option value='" . $data->getCourseCode() . "'>" . $data->getSemester() . ". " . $data->getName() . "</option>");
+						}
+					?>
                 </select>
             </div>
             <div class="showRest">
@@ -103,16 +103,16 @@
             </div>
         </div>
         <br>
-            <div class="buttonCouple" id="actionSection">
-                <input type="submit" value="Submit to SAR" name="submit" id="submit" class="button" onsubmit="confirmMessage('Are you sure to send this ' +
+        <div class="buttonCouple" id="actionSection">
+            <input type="submit" value="Submit to SAR" name="submit" id="submit" class="button" onsubmit="confirmMessage('Are you sure to send this ' +
                  'result file to examination SAR?')">
-                <input type="reset" value="Cancel" name="cancel" id="cancel" class="button">
-            </div>
+            <input type="reset" value="Cancel" name="cancel" id="cancel" class="button">
+        </div>
     </form>
 </div>
 
 <!-- include footer section -->
-<?php BasicLoader::loadFooter('../../');?>
+<?php BasicLoader::loadFooter('../../'); ?>
 <script src="../../assets/js/jquery.js"></script>
 <script src="../../assets/js/toast.js"></script>
 <script src="../../assets/js/changeTheme.js"></script>

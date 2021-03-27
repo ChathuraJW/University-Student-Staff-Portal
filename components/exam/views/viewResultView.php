@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="assets/resultSection.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"/>
 </head>
 <body>
 <?php require('../../assets/php/basicLoader.php') ?>
 <!-- include header section -->
-<?php BasicLoader::loadHeader('../../');?>
+<?php BasicLoader::loadHeader('../../'); ?>
 <!-- feature body section -->
 <div class="featureBody bodyBackground text">
     <div class="basicInfo">
@@ -23,13 +23,13 @@
                 <div class="row col-2">
                     <div>
                         <span class="infoBoxValue" id="valueGPADegree" style="padding-bottom: 0;padding-top: 20px;">
-                            <?php echo(round($controllerData[0],2))?>
+                            <?php echo(round($controllerData[0], 2)) ?>
                         </span>
                         <span style="text-align: center;display: block;">Degree GPA</span>
                     </div>
                     <div style="border-left: 2px solid gray">
                         <span class="infoBoxValue" id="valueGPAClass" style="padding-bottom: 0;padding-top: 20px;">
-                            <?php echo(round($controllerData[4], 2))?>
+                            <?php echo(round($controllerData[4], 2)) ?>
                         </span>
                         <span style="text-align: center;display: block;">Class GPA</span>
                     </div>
@@ -37,11 +37,11 @@
             </div>
             <div class="infoBox" id="">
                 <span class="captionLabel">Batch Rank</span>
-                <span class="infoBoxValue" id=""><?php echo($controllerData[1])?></span>
+                <span class="infoBoxValue" id=""><?php echo($controllerData[1]) ?></span>
             </div>
             <div class="infoBox" id="">
                 <span class="captionLabel">Total Credit</span>
-                <span class="infoBoxValue" id=""><?php echo($controllerData[2])?></span>
+                <span class="infoBoxValue" id=""><?php echo($controllerData[2]) ?></span>
             </div>
             <div class="infoBox" id="degreeClass">
                 <span class="captionLabel degreeClass">Degree Class</span>
@@ -77,44 +77,44 @@
     <div class="resultViewer">
         <span class="captionLabel">Semester Wise Result</span>
         <div class="row col-3">
-            <?php
-            foreach ($controllerData[3] as $semesterData){
+			<?php
+				foreach ($controllerData[3] as $semesterData) {
 //                get year semester combination form semester
-                $sem = (round($semesterData['semester'] % 2) == 0) ? 2 : 1;
-                $year = round($semesterData['semester'] / 2);
+					$sem = (round($semesterData['semester'] % 2) == 0) ? 2 : 1;
+					$year = round($semesterData['semester'] / 2);
 //                create header of result show sections
-                echo("
+					echo("
                         <div class='semesterResult'>
                             <span class='semesterResultHeader'>$year<sup>st</sup> Year $sem<sup>st</sup> Semester</span>
                             <div class='semesterResultViewer'>
                                 <table>
                   ");
-                //create subject entry
-                foreach ($semesterData['results'] as $subjectEntry){
-                    $repeatSign=$subjectEntry->isRepeatedAttempt()?'[ R ]':'';
+					//create subject entry
+					foreach ($semesterData['results'] as $subjectEntry) {
+						$repeatSign = $subjectEntry->isRepeatedAttempt() ? '[ R ]' : '';
 //                    create individual result entries
-                    echo("
+						echo("
                          <tr>
-                             <td>$repeatSign ".$subjectEntry->getCourseName()." <br> <span>".$subjectEntry->getCourseCode()." / "
-                        .$subjectEntry->getCourseCredit()." Credits /Examination Year:".$subjectEntry->getYearOfExam()."</span></td>
-                             <td class='result'>".$subjectEntry->getResult()."</td>
+                             <td>$repeatSign " . $subjectEntry->getCourseName() . " <br> <span>" . $subjectEntry->getCourseCode() . " / "
+							. $subjectEntry->getCourseCredit() . " Credits /Examination Year:" . $subjectEntry->getYearOfExam() . "</span></td>
+                             <td class='result'>" . $subjectEntry->getResult() . "</td>
                          </tr>
                     ");
-                }
-                echo("
+					}
+					echo("
                             </table>
                         </div>
                     </div>
                 ");
-            }
-            ?>
+				}
+			?>
         </div>
     </div>
     <br><br>
 </div>
 
 <!-- include footer section -->
-<?php BasicLoader::loadFooter('../../');?>
+<?php BasicLoader::loadFooter('../../'); ?>
 <script src="../../assets/js/jquery.js"></script>
 <script src="../../assets/js/toast.js"></script>
 <script src="../../assets/js/changeTheme.js"></script>

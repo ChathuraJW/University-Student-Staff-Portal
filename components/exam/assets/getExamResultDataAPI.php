@@ -49,7 +49,7 @@
 				$totalCreditSem = $totalCreditSem + $subjectData['creditValue'];
 				$fxValue = $fxValue + getGPV($subjectData['result']) * $subjectData['creditValue'];
 			}
-			if($fxValue!=0){
+			if ($fxValue != 0) {
 				$semGPA = round($fxValue / $totalCreditSem, 4);
 				array_push($returnValue, $semGPA);
 			}

@@ -29,7 +29,7 @@ if (elementID != "") {
 
 function cryptoOperation(fileOwnerName, fileSign, encSecrete, dataHash, encryptedData) {
     // hide button
-    document.getElementById('dataDecrypt').style.display='none';
+    document.getElementById('dataDecrypt').style.display = 'none';
     // take  SAR private key
     let SARPrivateKey = prompt("Enter the private key hear.");
     if (SARPrivateKey !== '') {

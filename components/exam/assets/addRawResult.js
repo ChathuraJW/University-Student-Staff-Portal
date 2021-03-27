@@ -19,33 +19,33 @@ while (beginYear <= currentYear) {
 }
 
 //filter data based on radio values
-function selectedYear(year){
-    let subjectListElement=document.getElementById('subject');
-    let subjectList=subjectListElement.innerText.split("\n");
-    let i=0;
-    while(i<subjectList.length){
-        let temp=Math.ceil(subjectList[i].split('.')[0]/2);
-        if(temp!='' && temp!=year){
+function selectedYear(year) {
+    let subjectListElement = document.getElementById('subject');
+    let subjectList = subjectListElement.innerText.split("\n");
+    let i = 0;
+    while (i < subjectList.length) {
+        let temp = Math.ceil(subjectList[i].split('.')[0] / 2);
+        if (temp != '' && temp != year) {
             subjectListElement.remove(i);
-            subjectList=subjectListElement.innerText.split("\n");
-            i=-1;
+            subjectList = subjectListElement.innerText.split("\n");
+            i = -1;
         }
-        i=i+1;
+        i = i + 1;
     }
 }
 
-function selectSemester(semester){
-    let subjectListElement=document.getElementById('subject');
-    let subjectList=subjectListElement.innerText.split("\n");
-    let i=0;
-    while(i<subjectList.length){
-        let temp=Math.ceil(subjectList[i].split('.')[0]);
-        if(temp!='' && temp%2!=semester%2){
+function selectSemester(semester) {
+    let subjectListElement = document.getElementById('subject');
+    let subjectList = subjectListElement.innerText.split("\n");
+    let i = 0;
+    while (i < subjectList.length) {
+        let temp = Math.ceil(subjectList[i].split('.')[0]);
+        if (temp != '' && temp % 2 != semester % 2) {
             subjectListElement.remove(i);
-            subjectList=subjectListElement.innerText.split("\n");
-            i=-1;
+            subjectList = subjectListElement.innerText.split("\n");
+            i = -1;
         }
-        i=i+1;
+        i = i + 1;
     }
 }
 
@@ -69,12 +69,12 @@ rawResultFileUploaded.addEventListener("change", function () {
         let uploadFormat = rawResultFileUploaded.value.toString().split('.')[1].toLowerCase();
         if (uploadFormat == "ussp") {
             rawResultFileLabel.style.backgroundColor = "var(--successColor)";
-            createToast('Info','Result file format is compatible with system.','I');
+            createToast('Info', 'Result file format is compatible with system.', 'I');
         } else {
             rawResultFileLabel.style.backgroundColor = "var(--dangerColor)";
             // clear file queue
             rawResultFileUploaded.value = "";
-            createToast('Warning (error code: #ERM01)','Invalid file format. Upload ussp formatted file.','W');
+            createToast('Warning (error code: #ERM01)', 'Invalid file format. Upload ussp formatted file.', 'W');
         }
     }
 })

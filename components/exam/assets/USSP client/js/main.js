@@ -45,26 +45,26 @@ function processData() {
         alert("Complete all fields before authenticate and make sure to use correct credentials.");
         location.reload();
     }
-        let url = "http://localhost/USSP/components/exam/assets/resultCreateClinetAPI.php?username=" + username + "&role=AS" + "&password=" + password;
-        console.log(url);
-        $.getJSON(url, function (data) {
-            if (data) {
-                document.getElementById('container').style.display = 'block';
-                document.getElementById('footer').style.position = 'inherit';
-                alert("Login Success");
-                $("#subject").prop('disabled', true);
-                $("#attempt").prop('disabled', true);
-                $("#username").prop('disabled', true);
-                $("#password").prop('disabled', true);
-                $("#authenticate").prop('disabled', true);
-                $("#cancel").prop('disabled', true);
-                $("#authenticate").css("background-color", "gray");
-                $("#cancel").css("background-color", "gray");
-                createList(subjectCode, attempt);
-            } else {
-                alert("Login Failed. Try Again");
-            }
-        });
+    let url = "http://localhost/USSP/components/exam/assets/resultCreateClinetAPI.php?username=" + username + "&role=AS" + "&password=" + password;
+    console.log(url);
+    $.getJSON(url, function (data) {
+        if (data) {
+            document.getElementById('container').style.display = 'block';
+            document.getElementById('footer').style.position = 'inherit';
+            alert("Login Success");
+            $("#subject").prop('disabled', true);
+            $("#attempt").prop('disabled', true);
+            $("#username").prop('disabled', true);
+            $("#password").prop('disabled', true);
+            $("#authenticate").prop('disabled', true);
+            $("#cancel").prop('disabled', true);
+            $("#authenticate").css("background-color", "gray");
+            $("#cancel").css("background-color", "gray");
+            createList(subjectCode, attempt);
+        } else {
+            alert("Login Failed. Try Again");
+        }
+    });
 }
 
 let totalIndex = 0;

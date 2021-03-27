@@ -126,19 +126,19 @@
                         </tr>
                     </table>
 
-	                <?php
-		                //read URL
-		                if (isset($_GET['fileID'])) {
+					<?php
+						//read URL
+						if (isset($_GET['fileID'])) {
 //							    open file stream
-			                $myFile = fopen($_GET['filePath'], "r");
+							$myFile = fopen($_GET['filePath'], "r");
 //								take file parameter out
-			                $fileSignature = trim(preg_replace('/\s+/', '', fgets($myFile)));
-			                $encryptedSecret = trim(preg_replace('/\s+/', '', fgets($myFile)));
-			                $dataHash = trim(preg_replace('/\s+/', '', fgets($myFile)));
-			                $encryptedData = trim(preg_replace('/\s+/', '', fgets($myFile)));
-			                $sendUser = explode(' ', $_GET['sendBy'])[0];
+							$fileSignature = trim(preg_replace('/\s+/', '', fgets($myFile)));
+							$encryptedSecret = trim(preg_replace('/\s+/', '', fgets($myFile)));
+							$dataHash = trim(preg_replace('/\s+/', '', fgets($myFile)));
+							$encryptedData = trim(preg_replace('/\s+/', '', fgets($myFile)));
+							$sendUser = explode(' ', $_GET['sendBy'])[0];
 //                                call crypto function
-			                echo("
+							echo("
                                     <script src='../../assets/js/jquery.js'></script>
                                     <script src='../../assets/js/crypto-js.min.js'></script>
                                     <script src='../../assets/js/js-encrypt.min.js'></script>
@@ -147,9 +147,9 @@
                                     <input type='button' value='Unlock Result' id='dataDecrypt' class='button' style='margin: auto;display: block;' onclick='cryptoOperation(`$sendUser`,`$fileSignature`,`$encryptedSecret`,`$dataHash`,`$encryptedData`)'>
                                 ");
 //                                close file stream
-			                fclose($myFile);
-		                }
-	                ?>
+							fclose($myFile);
+						}
+					?>
 
                 </div>
                 <br>

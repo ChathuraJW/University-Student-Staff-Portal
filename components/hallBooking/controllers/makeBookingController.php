@@ -1,4 +1,5 @@
 <?php
+
 	class MakeBookingController extends Controller {
 		public static function init() {
 			$hallData = MakeBookingModel::getHallData();
@@ -15,12 +16,12 @@
 				$toTime = $_POST['toTime'];
 				$selectedHall = $_POST['selectedHallOrLab'];
 //            create timestamps based on user input
-				$fromTS = self::adjestTime(strtotime("$fromDate $fromTime"),false);
+				$fromTS = self::adjestTime(strtotime("$fromDate $fromTime"), false);
 				$toTS = self::adjestTime(strtotime("$toDate $toTime"));
 
 //				date input validation form backend
-				if((date_diff(date_create($fromTS),date_create($toTS))->format("%R%a")<0) || (date_diff(date_create(date("Y-m-d")),date_create
-						($toDate))->format("%R%a")<0) || (date_diff(date_create(date("Y-m-d")),date_create($fromDate))->format("%R%a")<0)){
+				if ((date_diff(date_create($fromTS), date_create($toTS))->format("%R%a") < 0) || (date_diff(date_create(date("Y-m-d")), date_create
+						($toDate))->format("%R%a") < 0) || (date_diff(date_create(date("Y-m-d")), date_create($fromDate))->format("%R%a") < 0)) {
 					echo("<script>createToast('Warning (error code: #HBM11)','Input dates not fit.','W');</script>");
 					return;
 				}
@@ -48,10 +49,10 @@
 		}
 
 //		adjust user input time to the 30 minute scale
-		private static function adjestTime($timeStampReading, $isEndTime=true): bool|string {
+		private static function adjestTime($timeStampReading, $isEndTime = true): bool|string {
 			$minuteReading = date('i', $timeStampReading);
 			$addingValue = 0;
-			if ($isEndTime){
+			if ($isEndTime) {
 				if ($minuteReading >= 30) {
 //	    	set to 00 minute
 					$addingValue = 60 - $minuteReading;
@@ -61,10 +62,10 @@
 				}
 				$addingValue = $addingValue * 60;
 				return date('Y-m-d H:i:s', $timeStampReading + $addingValue);
-			}else{
+			} else {
 				if ($minuteReading >= 30) {
 //	    	set to 30 minute
-					$addingValue =  (30 - $minuteReading);
+					$addingValue = (30 - $minuteReading);
 				} else {
 //	    	set to 00 minute
 					$addingValue = -$minuteReading;

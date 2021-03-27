@@ -109,7 +109,7 @@
 			$key++;
 		}
 //		list uot timetable entries
-		$sqlQuery = "SELECT * FROM timetable WHERE day='$day' ORDER BY hallID;";
+		$sqlQuery = "SELECT * FROM timetable WHERE day='$day' AND entryValidity=TRUE ORDER BY hallID;";
 		$result = $dbInstance->executeTransaction($sqlQuery);
 		$finalResult = array();
 		$rowIndex = 2;

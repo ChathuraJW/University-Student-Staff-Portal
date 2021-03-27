@@ -90,7 +90,7 @@
 						if ($result !== '' & $studentIndex !== '' & $enrollmentID !== '') {
 //                          update GPA of student
 //							call GPA update function with same database object
-							self::updateGPA($dbInstance, $studentIndex,$subject, $creditForSubject, $result, $attempt);
+							self::updateGPA($dbInstance, $studentIndex, $subject, $creditForSubject, $result, $attempt);
 							$sqlQuery .= "($enrollmentID,'$examinationYear','$academicYear','$result',NOW()),";
 						}
 					}
@@ -125,7 +125,7 @@
 		}
 
 //		this function update the student current GPA value
-		private static function updateGPA(&$dbInstance, $studentIndex,$subjectCode, $subjectCredit, $result, $attempt) {
+		private static function updateGPA(&$dbInstance, $studentIndex, $subjectCode, $subjectCredit, $result, $attempt) {
 //			$dbInstance=new Database;
 //			$dbInstance->establishTransaction('administrativeGeneral', 'administrativeGeneral@16');
 			if ($attempt === 'F') {
@@ -147,32 +147,32 @@
 				}
 			} else {
 //				repeated attempt calculations
-				$sqlQuery="SELECT * FROM student_result WHERE indexNo=$studentIndex";
-				$resultEntryList=$dbInstance->executeTransaction($sqlQuery);
-				$totalCredit=0;
-				$sumGPV=0.0;
-				$selectedSubjectMaxGPV=self::getGPV($result);
-				foreach ($resultEntryList as $resultEntry){
-					if($resultEntry['courseCode']===$subjectCode){
+				$sqlQuery = "SELECT * FROM student_result WHERE indexNo=$studentIndex";
+				$resultEntryList = $dbInstance->executeTransaction($sqlQuery);
+				$totalCredit = 0;
+				$sumGPV = 0.0;
+				$selectedSubjectMaxGPV = self::getGPV($result);
+				foreach ($resultEntryList as $resultEntry) {
+					if ($resultEntry['courseCode'] === $subjectCode) {
 //						tackle repeats
 //						get GPV related to result
-						$entryResultGPV=self::getGPV($resultEntry['result']);
+						$entryResultGPV = self::getGPV($resultEntry['result']);
 //						if student attempt for several time get maximum result for GPA calculation
-						if($entryResultGPV>$selectedSubjectMaxGPV)
-							$selectedSubjectMaxGPV=$entryResultGPV;
-					}else{
+						if ($entryResultGPV > $selectedSubjectMaxGPV)
+							$selectedSubjectMaxGPV = $entryResultGPV;
+					} else {
 //						normal entries
-						$creditValue=$resultEntry['creditValue'];
-						$result=$resultEntry['result'];
-						$totalCredit=$totalCredit+$creditValue;
-						$sumGPV=$sumGPV+($creditValue*self::getGPV($result));
+						$creditValue = $resultEntry['creditValue'];
+						$result = $resultEntry['result'];
+						$totalCredit = $totalCredit + $creditValue;
+						$sumGPV = $sumGPV + ($creditValue * self::getGPV($result));
 					}
 				}
 //				consider about current subject result and add them into final GPA calculation
-				$totalCredit=$totalCredit+$subjectCredit;
-				$sumGPV=$sumGPV+($selectedSubjectMaxGPV*$subjectCredit);
+				$totalCredit = $totalCredit + $subjectCredit;
+				$sumGPV = $sumGPV + ($selectedSubjectMaxGPV * $subjectCredit);
 //				calculate final GPA value that goes to database
-				$newGPA=$sumGPV/$totalCredit;
+				$newGPA = $sumGPV / $totalCredit;
 			}
 //			GPA correction
 			if ($newGPA > 4.0000) $newGPA = 4.0000;

@@ -12,7 +12,7 @@
 <body>
 <?php require('../../assets/php/basicLoader.php') ?>
 <!-- include header section -->
-<?php BasicLoader::loadHeader('../../');?>
+<?php BasicLoader::loadHeader('../../'); ?>
 <!-- feature body section -->
 <div class="featureBody bodyBackground text">
     <h1 class="heading">Upload Board Confirmed Exam Result</h1>
@@ -77,14 +77,15 @@
                 <br>
                 <div class="row col-4" id="dropDownSection">
                     <div class="showRest">
-                        <span>Subject <button style="background: none;color: var(--fontColor);" onclick="location.reload();"><i class="fas fa-sync"></i></button></span>
+                        <span>Subject <button style="background: none;color: var(--fontColor);" onclick="location.reload();"><i
+                                        class="fas fa-sync"></i></button></span>
                         <select name="subject" id="subject" required>
-                            <?php
-//	                            create subject dropdown
-                                foreach ($controllerData as $data){
-                                    echo ("<option value='".$data->getCourseCode()."'>".$data->getSemester().". ".$data->getName()."</option>");
-                                }
-                            ?>
+							<?php
+								//	                            create subject dropdown
+								foreach ($controllerData as $data) {
+									echo("<option value='" . $data->getCourseCode() . "'>" . $data->getSemester() . ". " . $data->getName() . "</option>");
+								}
+							?>
                         </select>
                     </div>
                     <div class="showRest">
@@ -136,7 +137,7 @@
 </div>
 
 <!-- include footer section -->
-<?php BasicLoader::loadFooter('../../');?>
+<?php BasicLoader::loadFooter('../../'); ?>
 <script src="../../assets/js/jquery.js"></script>
 <script src="../../assets/js/toast.js"></script>
 <script src="../../assets/js/changeTheme.js"></script>

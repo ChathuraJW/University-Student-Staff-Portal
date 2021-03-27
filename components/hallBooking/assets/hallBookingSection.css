@@ -1,8 +1,9 @@
 .featureBody {
     font-family: Varela, sans-serif;
 }
+
 /*input date text and textarea style overriding*/
-input[type=date], input[type=time],textarea {
+input[type=date], input[type=time], textarea {
     width: fit-content;
     padding: 10px;
     border: 1px solid gray;
@@ -63,6 +64,7 @@ input[type=date], input[type=time],textarea {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-decoration: none;
 }
+
 .bookingEntry:hover {
     border: 20px none;
     border-right-style: solid;

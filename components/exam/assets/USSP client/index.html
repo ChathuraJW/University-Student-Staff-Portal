@@ -16,7 +16,7 @@
                 <span class="header">Examination Info</span>
                 <div>
                     <span>Subject Code:</span><br/>
-                    <select name="subject" id="subject"></select>
+                    <select id="subject" name="subject"></select>
                 </div>
                 <div>
                     <span>Examination Attempt:</span><br/>
@@ -37,22 +37,22 @@
                         </div>
                         <div>
                             <span>Password</span><br/>
-                            <input id="password" name="password" required type="password" autocomplete="false">
+                            <input autocomplete="false" id="password" name="password" required type="password">
                         </div>
                     </div>
                     <div class="uploadKey">
                         <br/>
-                        <input type="file" name="privateKeyFile" id="privateKeyFile" accept=".key">
+                        <input accept=".key" id="privateKeyFile" name="privateKeyFile" type="file">
                         <label for="privateKeyFile" id="privateKeyLabel">User Private Key File</label>
                     </div>
                 </div>
             </div>
         </div>
         <div class="buttonSection">
-            <button id="authenticate" style="background-color: green" type="button" onclick="processData();">
+            <button id="authenticate" onclick="processData();" style="background-color: green" type="button">
                 Authenticate
             </button>
-            <button id="cancel" style="background-color: red" type="reset" onclick="location.reload();">Cancel</button>
+            <button id="cancel" onclick="location.reload();" style="background-color: red" type="reset">Cancel</button>
         </div>
     </form>
 </div>
@@ -67,9 +67,9 @@
             </tr>
         </table>
         <div class="buttonSection">
-            <button id="submit" style="background-color: green" type="button" onclick="generateFile();">Generate File
+            <button id="submit" onclick="generateFile();" style="background-color: green" type="button">Generate File
             </button>
-            <button id="cancelFile" style="background-color: red" type="reset" onclick="location.reload();">Cancel
+            <button id="cancelFile" onclick="location.reload();" style="background-color: red" type="reset">Cancel
             </button>
         </div>
     </form>

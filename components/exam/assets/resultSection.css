@@ -56,9 +56,11 @@ input[type=file] {
     padding-bottom: 14px;
     font-weight: bold;
 }
-.showRest span button{
+
+.showRest span button {
     border: none;
 }
+
 .showRadio, .showRest {
     width: auto;
     padding: 20px;
@@ -170,7 +172,8 @@ input[type=file] {
     font-size: 18px;
     display: inline-block;
 }
-.sendByResult{
+
+.sendByResult {
     padding-top: 10px;
     font-size: 13px;
     text-align: right;
@@ -188,7 +191,8 @@ input[type=file] {
     overflow: auto;
     max-height: 1000px;
 }
-#displayResultSection{
+
+#displayResultSection {
     top: 0;
     display: none;
     overflow: auto;
@@ -263,16 +267,18 @@ input[type=file] {
 /*.resultTable tr:nth-child(even) {*/
 /*    background-color: rgb(255, 230, 153);*/
 /*}*/
-.fileExportSection{
+.fileExportSection {
     float: left;
-    margin-left:20px ;
+    margin-left: 20px;
 }
-.fileExportSection button{
+
+.fileExportSection button {
     border: none;
     background-color: transparent;
     padding: 10px;
     margin-left: 10px;
 }
+
 .actionButton {
     display: block;
     margin: auto;
