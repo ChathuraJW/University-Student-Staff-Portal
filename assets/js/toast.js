@@ -44,14 +44,14 @@ function createToast(title, message, type) {
 }
 
 // avoid resubmit form
- if (window.history.replaceState) {
-     window.history.replaceState( null, null, window.location.href);
- }
+if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+}
 
 // confirm message operation
-function confirmMessage(message){
-    let selection=window.confirm(message);
-    if (!selection){
+function confirmMessage(message) {
+    let selection = window.confirm(message);
+    if (!selection) {
         event.preventDefault();
     }
 }
