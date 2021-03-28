@@ -29,13 +29,13 @@ function getEntries(groupName) {
     console.clear();
 }
 
-function editFunctionEntry(code) {
+function editFunctionEntry(code) {//This function will get data of specific timetable entry
     document.getElementById("timetablePage").style.display = "none";
     document.getElementById("headingEditEntry").style.display = "";
     document.getElementById("timetableEntryForm").style.display = "";
     document.getElementById("submitButtonInputEntry").name = "editEntry";
 
-    var url = "http://localhost/USSP/components/adminPanel/assets/timetableManagementAPI.php?code=" + code + "";
+    var url = "http://localhost/USSP/components/adminPanel/assets/timetableManagementAPI.php?code=" + code + ""; //In here call the timetableAPI for retrieve data 
     console.log(url);
     $.getJSON(url, function (dataList) {
         console.log(dataList);
@@ -50,7 +50,7 @@ function editFunctionEntry(code) {
     console.clear();
 }
 
-function addEntry() {
+function addEntry() {// ADD entry will display a form by this button
     // document.getElementById("hallID").disabled= false;
     document.getElementById("timetableEntryForm").style.display = "";
     document.getElementById("headingAddEntry").style.display = "";
@@ -88,7 +88,7 @@ function backFunction() {
     console.clear();
 }
 
-function deleteFunctionEntry(code) {
+function deleteFunctionEntry(code) { //This also retrieve data for delete form.
     document.getElementById("timetablePage").style.display = "none";
     document.getElementById("headingEditEntry").style.display = "";
     document.getElementById("EntryDeleteView").style.display = "";
@@ -111,7 +111,7 @@ function deleteFunctionEntry(code) {
 
 }
 
-function emptyTable() {
+function emptyTable() { // This function will clear the data in table view. Because if next table open past data also can display in the table
     var table = document.getElementById("timetable");
     for (var r = 1, n = table.rows.length; r < n; r++) {
         for (var c = 1, m = table.rows[r].cells.length; c < m; c++) {
@@ -138,14 +138,14 @@ function timetableDisplay() {
     var url = "http://localhost/USSP/components/adminPanel/assets/timetableDisplayAPI.php?&groupName=" + group + "";
     console.log(url);
     $.getJSON(url, function (dataList) {
-        var le = dataList.length;
-        console.log(le);
+        var entryLength = dataList.length;
+        console.log(entryLength);
         var subjects = [];
         var halls = [];
         var fromTimes = [];
         var toTimes = [];
         var days = [];
-        for (i = 0; i < le; i++) {
+        for (i = 0; i < entryLength; i++) { // In this loop divide into few sectors 
             // console.log(i);
             var subject = dataList[i]['subjectCode'];
             var hall = dataList[i]['hallID'];
@@ -160,7 +160,7 @@ function timetableDisplay() {
             // console.log(subject);
         }
 
-        function findRow(timestamp) {
+        function findRow(timestamp) { //This function return rox number for time stamp
             if (timestamp == '08:00:00') {
                 var row = 1;
             } else if (timestamp == '08:30:00') {
@@ -201,14 +201,14 @@ function timetableDisplay() {
             return row;
         }
 
-        for (i = 0; i < le; i++) {
+        for (i = 0; i < entryLength; i++) {
 
             // console.log(i);
 
             var val = fromTimes[i]
             // var row1=findRow(val);
-            var row1 = findRow(val);
-            var row2 = findRow(toTimes[i]) - 1;
+            var row1 = findRow(val); // This row1 contain the upper bound of time period.
+            var row2 = findRow(toTimes[i]) - 1;  //This row2 contain the lower bound of time period
             var day = days[i];
             if (day == 'MON') {
                 var columnNumber = 1;
