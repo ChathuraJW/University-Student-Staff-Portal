@@ -1,8 +1,14 @@
 <div class="bodyBackground text">
     <div class="heading">Timetable Management</div>
     <div id="groupListPage">
-        <div class="group" onclick="getEntries('1CS1')">1CS1</div>
-        <div class="group" onclick="getEntries('1CS2')">1CS2</div>
+        <div class="group" onclick="getEntries('1CS1')">1st Year CS group 1</div>
+        <div class="group" onclick="getEntries('1CS2')">1st Year CS Group 2</div>
+        <div class="group" onclick="getEntries('2CS1')">2nd Year CS Group 1</div>
+        <div class="group" onclick="getEntries('2CS2')">2nd Year CS Group 2</div>
+        <div class="group" onclick="getEntries('3CS1')">3rd Year CS Group 1</div>
+        <div class="group" onclick="getEntries('3CS2')">3rd Year CS Group 2</div>
+        <div class="group" onclick="getEntries('4CS')">4th Year CS</div>
+        <div class="group" onclick="getEntries('4SE')">4th Year SE</div>
         <!-- <div class="group">Group3</div>
         <div class="group">Group4</div> -->
     </div>
@@ -22,7 +28,16 @@
         <div class="dataForm">
             <div class="inputDiv">
                 <label class="labelField" for="hallID">Hall ID</label>
-                <input class="inputField" name="hallID" id="hallID" type="text">
+                <select style="width:53%;"class="inputField" name="hallID" id="hallID" type="text">
+                <?php
+                $records=$controllerData;
+                    foreach($records as $record){
+                        echo("
+                            <option value='".$record['hallID']."'>".$record['hallID']."</option>
+                        ");
+                    }
+                ?>
+                </select>
             </div>
             <input class="inputField" name="groupNameHidden" id="groupNameHidden" type="hidden">
             <input class="inputField" name="eventHidden" id="eventHidden" type="hidden">
@@ -50,9 +65,8 @@
             </div>
         </div>
         <div class="buttonDual">
-            <input type="button" value="Cancel" onclick="cancelFunctionEntry()" class="buttonSet text">
-            <input id="submitButtonInputEntry" type="submit" onclick="confirm('Are you confirm this action?')" value="Submit" name="submit"
-                   class="buttonSet text">
+            <input type="button" value="Cancel" onclick="cancelFunctionEntry()" class="button text">
+            <input id="submitButtonInputEntry" type="submit" onclick="confirm('Are you confirm this action?')" value="Submit" name="submit" class="button text">
         </div>
     </form>
     <form id="EntryDeleteView" method="post" style="display:none;">
@@ -84,8 +98,8 @@
         <input type="hidden" name="deleteEntryInput" id="deleteEntryInput">
         <input type="hidden" name="deleteEventID" id="deleteEventID">
         <div class="buttonDual">
-            <input type="button" value="Cancel" onclick="cancelFunctionEntry()" class="buttonSet text">
-            <input type="submit" value="Delete" name="deleteEntry" onclick="confirm('Are you confirm this action?')" class="buttonSet text"></input>
+            <input type="button" value="Cancel" onclick="cancelFunctionEntry()" class="button text">
+            <input type="submit" value="Delete" name="deleteEntry" onclick="confirm('Are you confirm this action?')" class="button text"></input>
         </div>
 
     </form>
