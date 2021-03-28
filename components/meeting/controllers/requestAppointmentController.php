@@ -35,12 +35,19 @@ class RequestAppointmentController extends Controller{
             else{
                 $typecode=5400;
             }
-            if($lecturer!="" && $typecode!=""&& $title!=""&& $timeDuration!=""&& $message!=""&& $date!=""&& $time!=""){
-                RequestAppointmentModel::insertData($lecturer,$typecode,$title,$timeDuration,$message,$studentID,$date,$time);
+            $currentDate=date('Y-m-d');
+            if($currentData>=$date){
+                if($lecturer!="" && $typecode!=""&& $title!=""&& $timeDuration!=""&& $message!=""&& $date!=""&& $time!=""){
+                    RequestAppointmentModel::insertData($lecturer,$typecode,$title,$timeDuration,$message,$studentID,$date,$time);
+                }
+                else{
+                    echo("<script>createToast('Warning (error code: #APR01)','Failed to Request.Fill the all fields of form ','W')</script>");
+                }
             }
             else{
-                echo("<script>createToast('Warning (error code: #APR01)','Failed to Request.Fill the all fields of form ','W')</script>");
+                echo("<script>createToast('Warning (error code: #APR02)','Failed to Request.Input correct date ','W')</script>");
             }
+            
             // echo ("
             //     <script>
             //         window.location.href=document.location.href.toString().split('requestAppointment')[0]+'requestAppointment';
