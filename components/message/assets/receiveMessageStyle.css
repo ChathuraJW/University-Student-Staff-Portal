@@ -1,0 +1,164 @@
+.featureBody h1{
+    font-size: 40px;
+}
+
+.featureBody{
+  font-family: Varela;
+  src: url('../../../assets/font/Varela-Regular.ttf');
+}
+
+.back{
+  border: none;
+  color: white;
+  background-color: rgb(168, 23, 23);
+  padding: 8px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px 0 grey;
+  position: relative;
+  left: 1%;
+}
+/*.featureBody ul{
+    background: gray;
+    padding: 10px;
+  
+}
+
+.featureBody ul li {
+  background: white;
+  margin: 5px;
+}
+
+*{
+  box-sizing: border-box;
+}*/
+
+/*#inbox {
+  border-collapse: collapse;
+  width: 100%;
+  padding: 8px;
+
+}
+
+#inbox td, #inbox th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#inbox tr:nth-child(even)
+{background-color: #f2f2f2;}
+
+#inbox tr:hover{
+  background-color: #ddd;
+}
+
+#inbox th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}*/
+
+.messageList,.displayMessage{
+  padding: 10px;
+  margin: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
+  
+
+}
+
+.messageEntry{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  border-radius: 5px;
+  
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  height: 120px;
+  display: block;
+  margin: 15px;
+  text-decoration: none;
+}
+
+.messageContent{
+  width: 100%;
+  overflow: hidden;
+  text-align: justify;
+  height: 40px;
+  text-overflow: ellipsis;
+  display: block;
+  
+}
+
+.sender{
+  width: 100%;
+  overflow: hidden;
+  
+}
+
+.messageSendTimestamp{
+  font-size: 15px;
+  text-align: right;
+  float: right;
+}
+
+.heading{
+  display: block;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 45px;
+  padding: 15px;
+
+}
+
+.senderDetail{
+  font-size: 18px;
+  padding: 10px;
+}
+
+.SendTimestampDetail{
+  font-size: 18px;
+  padding: 10px;
+  
+}
+
+.titleDetail{
+  font-size: 18px;
+  padding: 10px;
+  font-weight: bolder;
+  text-align: center;
+  margin: auto;
+  display: block;
+}
+.messageDetail{
+font-size: 18px;
+text-align: justify;
+display: block;
+}
+
+.submitCancelButton{
+  height: auto;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 9px;
+    margin: 4px;
+    
+
+}
+
+.displayMessage{
+  padding: 15px;
+}
