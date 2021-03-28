@@ -1,0 +1,119 @@
+input[type=text], textarea {
+    width: 100%;
+}
+
+.inputHeading {
+    font-size: 18px;
+    display: inline-block;
+    padding-bottom: 14px;
+    font-weight: bold;
+
+}
+
+.heading {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 45px;
+    padding: 15px;
+    display: block;
+}
+
+.columnHeader {
+    text-align: center;
+    font-size: 25px;
+    display: block;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.historySection, .newMessageSection {
+    width: 100%;
+    height: max-content;
+    display: inline-grid;
+    overflow: auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.messageEntry {
+    margin: 10px 5px;
+    padding: 5px;
+    border-radius: 5px;
+    max-height: 100%;
+    color: var(--fontColor);
+    transition: 1s;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.19);
+}
+
+.messageEntryContent {
+    display: block;
+    font-size: 18px;
+    padding: 5px 10px;
+}
+
+.readMore {
+    border: none;
+    background: none;
+    color: var(--baseColor);
+}
+
+/*empty list message*/
+.emptyMessage {
+    font-size: 20px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/*anonymous switch*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--headerSharding);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--baseColor);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--baseColor);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}

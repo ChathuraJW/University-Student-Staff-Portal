@@ -1,0 +1,187 @@
+.featureBody {
+    font-family: Varela, sans-serif;
+}
+
+.heading {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 45px;
+    padding: 15px;
+}
+
+.columnHeader {
+    text-align: center;
+    font-size: 25px;
+    display: block;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.assignmentList, .createNewAssignmentSection, .assignmentPlanManagement, .addResultToAssignment, .resultAddSection, .assignmentCreateEdit {
+    width: 100%;
+    height: max-content;
+    display: inline-grid;
+    overflow: auto;
+    padding: 20px 5px 5px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/*hide assignment crete/edit section and result adding section*/
+.addResultToAssignment, .assignmentCreateEdit {
+    display: none;
+}
+
+.assignmentList, .resultAddSection {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.planItem {
+    width: 100%;
+    height: fit-content;
+    padding: 10px 20px;
+    margin: 7px auto;
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--fontColor);
+    transition: 1s;
+}
+
+.planItem:hover {
+    border: 2px solid var(--baseColor);
+    border-top: none;
+    border-bottom: none;
+    transition: all 0.1s 0.2s ease-in;
+}
+
+.planInfo, .staffList {
+    padding: 10px;
+    margin: 0;
+    border: 1px dotted gray;
+    border-radius: 5px;
+}
+
+.planItem .dataPoint {
+    margin-right: auto;
+    text-align: left;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.planItem .planItemHeader {
+    font-weight: bold;
+    text-align: left;
+    display: block;
+}
+
+.conductBy {
+    padding-left: 20px;
+    padding-top: 5px;
+}
+
+/*top radio styles*/
+.showRadio, .showRest {
+    width: auto;
+    padding: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.showRadio span, .showRest span, .staffAddSectionHead {
+    font-size: 16px;
+    display: inline-block;
+    padding-bottom: 14px;
+    font-weight: bold;
+}
+
+.showRadio label {
+    font-size: 20px;
+    display: inline-block;
+    padding: 4px;
+    border: 3px solid var(--baseColor);
+    height: auto;
+    width: 200px;
+    text-align: center;
+    transition: all 0.4s linear;
+    border-radius: 2px;
+}
+
+.showRadio input[type=radio] {
+    visibility: hidden;
+    display: none;
+}
+
+.showRadio input[type=radio]:checked ~ label {
+    background-color: var(--baseColor);
+    color: white;
+}
+
+.conductedBy, .basicAssignmentInfo {
+    padding: 10px;
+    margin: 0;
+    border-radius: 5px;
+    border: 1px dotted gray;
+}
+
+.sectionHeader {
+    font-weight: bold;
+    padding-top: 2px;
+    padding-bottom: 10px;
+    padding-left: 3px;
+    display: block;
+}
+
+.assignment {
+    display: block;
+    padding: 10px;
+    width: fit-content;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    margin: 2px;
+}
+
+.assignment span {
+    padding: 5px;
+}
+
+.assignmentTitle {
+    display: block;
+    width: 260px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.resultAddTable {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px auto 20px;
+}
+
+.resultAddTable td {
+    padding: 10px;
+    margin: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.resultAddTable th {
+    color: white;
+    padding: 10px;
+    margin: 10px;
+}
+
+/*empty list message*/
+.emptyMessage {
+    font-size: 20px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.resultSaveButton {
+    background: none;
+    color: var(--baseColor);
+    border: none;
+    display: none;
+}
