@@ -15,15 +15,6 @@
     <?php BasicLoader::loadHeader('../../')?>
     
     <div class="featureBody bodyBackground text">
-        <?php
-//             print_r($controllerData[0]);
-            //foreach($controllerData[1] as $row){
-                // print_r($row);
-            //}
-            // print_r($controllerData[1][1]);
-            // $temp  = ($controllerData[1][1])
-            // print_r($controllerData[1][1]);
-        ?>
         <form method="post">
         <div class="sidebar ">
         <a id="inquiryButton"><i class="fa fa-question-circle" ></i>Inquiry</a>
@@ -51,7 +42,6 @@
                             <select id="subject" name="subject"  required>
                                 <option value=""></option>
                                 <?php
-//                                print_r($controllerData);
                                 $subjectCount=0;
                                 //create subject dropdown
                                 foreach ($controllerData[0] as $data){
@@ -166,7 +156,6 @@
                     if($totalDays != 0){
                         $subjectPercentage = ($attendedDays/$totalDays)*100;
                         $subjectPercentage = round($subjectPercentage);
-                        $color = ($subjectPercentage>=80)? 'var(--fontColor)':'var(--dangerColor)';
                     }
                     
                     // print_r($courseDetails[0]);
@@ -178,7 +167,7 @@
                                     <div><label id='subjectFont' class='attendanceDetailTopicLeft'>".$courseDetails[0]['name']."</label></div>
                                 </div>
                                 <div class='courseDetail' id='attendancePercentage'>
-                                    <div style='color:$color' class='attendanceStyle'>
+                                    <div  class='attendanceStyle'>
                                         <span id='hiddenPercentage1' class='attendanceDetailTopicRight'>$subjectPercentage%</span>
                                     </div>
                                 </div>
