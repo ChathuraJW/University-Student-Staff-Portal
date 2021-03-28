@@ -12,7 +12,7 @@ class AddNotificationModel extends Model{
         $newNotification->targetAudience($targetAudience);
         $newNotification->publishNotification();
         if($newNotification){
-            echo("<script>createToast('Success','Announcement published successfully.','S')</script>");
+            echo("<script>createToast('Success','Announcement published successfully.','S')</script>");//TODO
         }else{
             echo("<script>createToast('Warning (error code: #AM01)','Failed to publish Announcement.','W')</script>");
         }

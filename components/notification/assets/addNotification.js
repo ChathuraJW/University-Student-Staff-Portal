@@ -8,26 +8,30 @@ $('#checkAll').change(function () {
 });
 $('#checkAll').trigger('change');
 
-var checkFirstYear = $("input[type='checkbox'][value='1210']");
-var check1CSGroup1 = $("input[type='checkbox'][value='1211']");
-var check1CSGroup2 = $("input[type='checkbox'][value='1212']");
-var check1IS = $("input[type='checkbox'][value='1213']");
+let checkFirstYear = $("input[type='checkbox'][value='1210']");
+let check1CSGroup1 = $("input[type='checkbox'][value='1211']");
+let check1CSGroup2 = $("input[type='checkbox'][value='1212']");
+let check1IS = $("input[type='checkbox'][value='1213']");
 
-var checkSecondYear = $("input[type='checkbox'][value='1220']");
-var check2CSGroup1 = $("input[type='checkbox'][value='1221']");
-var check2CSGroup2 = $("input[type='checkbox'][value='1222']");
-var check2IS = $("input[type='checkbox'][value='1223']");
+let checkSecondYear = $("input[type='checkbox'][value='1220']");
+let check2CSGroup1 = $("input[type='checkbox'][value='1221']");
+let check2CSGroup2 = $("input[type='checkbox'][value='1222']");
+let check2IS = $("input[type='checkbox'][value='1223']");
 
-var checkThirdYear = $("input[type='checkbox'][value='1230']");
-var check3CS = $("input[type='checkbox'][value='1231']");
-var check3IS = $("input[type='checkbox'][value='1232']");
+let checkThirdYear = $("input[type='checkbox'][value='1230']");
+let check3CSGeneral = $("input[type='checkbox'][value='1231']");
+let check3CSSpecial = $("input[type='checkbox'][value='1232']");
+let check3SESpecial = $("input[type='checkbox'][value='1233']");
+let check3ISGeneral = $("input[type='checkbox'][value='1234']");
+let check3ISSpecial = $("input[type='checkbox'][value='1235']");
 
-var checkFourthYear = $("input[type='checkbox'][value='1240']");
-var check4CS = $("input[type='checkbox'][value='1241']");
-var check4IS = $("input[type='checkbox'][value='1242']");
-var check4SE = $("input[type='checkbox'][value='1243']");
 
-var checkStudent = $("input[type='checkbox'][value='1200']");
+let checkFourthYear = $("input[type='checkbox'][value='1240']");
+let check4CS = $("input[type='checkbox'][value='1241']");
+let check4IS = $("input[type='checkbox'][value='1242']");
+let check4SE = $("input[type='checkbox'][value='1243']");
+
+let checkStudent = $("input[type='checkbox'][value='1200']");
 
 checkStudent.on('click',function(){
     checkFirstYear.prop('checked',this.checked);
@@ -43,8 +47,11 @@ checkStudent.on('click',function(){
     check2CSGroup2.prop('checked',this.checked);
     check2IS.prop('checked',this.checked);
 
-    check3CS.prop('checked',this.checked);
-    check3IS.prop('checked',this.checked);
+    check3CSGeneral.prop('checked',this.checked);
+    check3CSSpecial.prop('checked',this.checked);
+    check3SESpecial.prop('checked',this.checked);
+    check3ISGeneral.prop('checked',this.checked);
+    check3ISSpecial.prop('checked',this.checked);
 
     check4CS.prop('checked',this.checked);
     check4IS.prop('checked',this.checked);
@@ -64,8 +71,11 @@ checkSecondYear.on('click', function(){
 
 });
 checkThirdYear.on('click', function(){
-    check3CS.prop('checked',this.checked);
-    check3IS.prop('checked',this.checked);
+    check3CSGeneral.prop('checked',this.checked);
+    check3CSSpecial.prop('checked',this.checked);
+    check3SESpecial.prop('checked',this.checked);
+    check3ISGeneral.prop('checked',this.checked);
+    check3ISSpecial.prop('checked',this.checked);
 
 });
 checkFourthYear.on('click', function(){
@@ -80,11 +90,8 @@ let selectStudent = document.getElementsByClassName('checkStudent');
 let selectFirstYear = document.getElementsByClassName('checkFirstYear');
 let selectSecondYear = document.getElementsByClassName('checkSecondYear');
 let selectThirdYear = document.getElementsByClassName('checkThirdYear');
-let selectFourthYear =  document.getElementById('checkFourthYear');
-
-
-
-
+let selectFourthYear =  document.getElementsByClassName('checkFourthYear');
+console.log(selectAll,length);
 function changeState(){
     let count =0;
     // check all operations
@@ -173,6 +180,7 @@ function changeState(){
             }
         }
     }
+
 
 
 }

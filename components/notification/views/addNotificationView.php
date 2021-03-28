@@ -95,12 +95,24 @@
                         <label for="checkThirdYear">Third Year</label>
                         <div>
                             <div class="divStyle">
-                                <input type="checkbox" class="checkThirdSet checkAll checkStudent checkThirdYear" id="check3CSGroup1" value="1231" name="receiverList[]" onchange="changeState();">
-                                <label for="check3CSGroup1">CS</label>
+                                <input type="checkbox" class="checkThirdSet checkAll checkStudent checkThirdYear" id="check3CSGeneral" value="1231" name="receiverList[]" onchange="changeState();">
+                                <label for="check3CSGeneral">CS General</label>
                             </div>
                             <div class="divStyle">
-                                <input type="checkbox" class="checkThirdSet checkAll checkStudent checkThirdYear " id="check3IS" value="1232" name="receiverList[]" onchange="changeState();">
-                                <label for="check3IS">IS</label>
+                                <input type="checkbox" class="checkThirdSet checkAll checkStudent checkThirdYear" id="check3CSGSpecial" value="1232" name="receiverList[]" onchange="changeState();">
+                                <label for="check3CSGSpecial">CS Special</label>
+                            </div>
+                            <div class="divStyle">
+                                <input type="checkbox" class="checkThirdSet checkAll checkStudent checkThirdYear" id="check3SESpecial" value="1233" name="receiverList[]" onchange="changeState();">
+                                <label for="check3SESpecial">SE Special</label>
+                            </div>
+                            <div class="divStyle">
+                                <input type="checkbox" class="checkThirdSet checkAll checkStudent checkThirdYear " id="check3ISGeneral" value="1234" name="receiverList[]" onchange="changeState();">
+                                <label for="check3ISGeneral">IS General</label>
+                            </div>
+                            <div class="divStyle">
+                                <input type="checkbox" class="checkThirdSet checkAll checkStudent checkThirdYear " id="check3ISSpecial" value="1235" name="receiverList[]" onchange="changeState();">
+                                <label for="check3ISSpecial">IS Special</label>
                             </div>
                         </div>
                     </div>
@@ -117,7 +129,7 @@
                                 <label for="check4IS">IS</label>
                             </div>
                             <div class="divStyle">
-                                <input type="checkbox" class="checkThirdSet checkAll checkStudent checkFourthYear" id="check4SE" value="1243" name="receiverList[]" onchange="changeState();">
+                                <input type="checkbox" class="checkThirdSet  checkStudent checkFourthYear checkAll" id="check4SE" value="1243" name="receiverList[]" onchange="changeState();">
                                 <label for="check4SE">SE</label>
                             </div>
                         </div>
@@ -131,27 +143,27 @@
             <div class="radioToolbar row col-3" >
                 <div>
                     <input value="3" type="radio"  id = "radioDirectorNotices" name="category">
-                    <label class ="" for = "radioDirectorNotices">Director Notices</label>
+                    <label class ="category" for = "radioDirectorNotices">Director Notices</label>
                 </div>
                 <div>
                     <input value="2" type="radio"  id = "radioSocial&Events" name="category">
-                    <label class ="" for = "radioSocial&Events">Social & Events</label>
+                    <label class ="category" for = "radioSocial&Events">Social & Events</label>
                 </div>
                 <div>
                     <input value="4" type="radio"  id = "radioFundraisingEvents" name="category">
-                    <label class ="" for = "radioFundraisingEvents">Fundraising Events</label>
+                    <label class ="category" for = "radioFundraisingEvents">Fundraising Events</label>
                 </div>
                 <div>
                     <input value="5" type="radio"  id = "radioAdministrative&Exam" name="category">
-                    <label class ="" for = "radioAdministrative&Exam">Administrative & Exam</label>
+                    <label class ="category" for = "radioAdministrative&Exam">Administrative & Exam</label>
                 </div>
                 <div>
                     <input value="1" type="radio"  id = "radioAssignmentScholarship&LectureRe-scheduling" name="category">
-                    <label class ="" for = "radioAssignmentScholarship&LectureRe-scheduling">Assignment, Scholarship & Lecture Re-scheduling</label>
+                    <label class ="special" for = "radioAssignmentScholarship&LectureRe-scheduling">Assignment, Scholarship & Lecture Re-scheduling</label>
                 </div>
                 <div>
                     <input value="7" type="radio"  id = "other" name="category">
-                    <label class ="" for = "other">Other</label>
+                    <label class ="category" for = "other">Other</label>
                 </div>
             </div>
             </div>
@@ -164,9 +176,9 @@
 
 
                 <div class="buttonCouple">
-                            <button type="reset" class="button "> Cancel</button>
                             <button class="button" type="submit" name="send"> Send</button>
-                    </div>
+                            <button type="reset" class="button "> Cancel</button>
+                </div>
         </form>
     </div>
     <!-- include footer section -->
