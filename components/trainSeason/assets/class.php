@@ -77,6 +77,7 @@ class AdministrativeStaff extends Staff{
  
 class TrainSeason{
     // attributes of TrainSeason
+    private $requesterFullName;
     private $requestID;
     private $seasonID;
     private $requester;
@@ -90,6 +91,10 @@ class TrainSeason{
     private $submittedTimestamp;
     private $collectedPerson;
      
+    public function setRequesterFullName($fullName){
+        $this->requesterFullName = $fullName;
+        return $this;
+    }
     // methods of Trainseason
     public function setData($requestID,$seasonID,$requester,$academicYear,$age,$address,$fromMonth,$toMonth,$nearRailwayStationHome,$nearRailwayStationUni,$submittedTimestamp,$collectedPerson){
         $this->requestID = $requestID;
@@ -106,6 +111,10 @@ class TrainSeason{
         $this->collectedPerson = $collectedPerson;
 
         return $this;
+    }
+
+    public function getRequseterFullName(): string{
+        return $this->requesterFullName;
     }
 
     public function getRequestID(): int{

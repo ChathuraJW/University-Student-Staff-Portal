@@ -105,8 +105,8 @@ if($controllerData[0]){
           <br>
                 
                    
-                  <label for='regNo' class='inputLabel regNo'>Registration Number:</label><br>
-                  <input type='text' id='regNo' name='regNo' class='input regNoText' value=".$data->getRequester()." readonly><br><br>
+                  <label for='regNo' class='inputLabel regNo'>Full Name:</label><br>
+                  <input type='text' id='regNo' name='regNo' style='width: 100%;' class='input regNoText' value=".$data->getRequseterFullName()." readonly><br><br>
 
                   <label for='address' class='inputLabel name'>Address:</label><br>
                   <input type='text' id='address' name='address' style='width: 100%;' class='input nameText' value=".$data->getAddress()." readonly><br><br>
@@ -178,8 +178,8 @@ echo("
           <br>
                 
                    
-                  <label for='regNo' class='inputLabel regNo'>Registration Number:</label><br>
-                  <input type='text' id='regNo' name='regNo' class='input regNoText' value=".$data->getRequester()." readonly><br><br>
+                  <label for='regNo' class='inputLabel regNo'>Full Name:</label><br>
+                  <input type='text' id='regNo' name='regNo' style='width: 100%;' class='input regNoText' value=".$data->getRequseterFullName()." readonly><br><br>
 
                   <label for='address' class='inputLabel name'>Address:</label><br>
                   <input type='text' id='address' name='address' style='width: 100%;' class='input nameText' value=".$data->getAddress()." readonly><br><br>

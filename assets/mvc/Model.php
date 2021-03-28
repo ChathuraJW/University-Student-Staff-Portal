@@ -2,17 +2,16 @@
 
 	class Model {
 		public static function createLog($timestamp, $description, $transactionID = 0) {
+			date_default_timezone_set('Asia/Colombo');
 			$description = trim($description, ' ');
 			if ($transactionID == 0)
 				$fileEntry = "$timestamp      ::::    $description\n";
 			else
 				$fileEntry = "$timestamp      ::::    [Transaction ID: $transactionID]-$description\n";
 //		append to the log file
-			if (file_exists("../system.log"))
-				file_put_contents("../system.log", $fileEntry, FILE_APPEND);
-			else if (file_exists("../../system.log"))
+			if (file_exists("../../system.log"))
 				file_put_contents("../../system.log", $fileEntry, FILE_APPEND);
-			else if (file_exists("../../../system.log"))
+			else
 				file_put_contents("../../../system.log", $fileEntry, FILE_APPEND);
 		}
 

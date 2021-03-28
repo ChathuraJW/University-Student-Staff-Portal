@@ -30,12 +30,12 @@
          
             <br>
             <?php
-            
+             
             foreach($controllerData[0] as $data){
               echo ("<a class='application' href='checkedApplication?requestID=".$data->getRequestID()."'>
                     <div class='button' style='left: 1%; width: 90%;'>
-                       
-                      <div style='text-align: left; padding-left:20px;'>Appliciant: ".$data->getRequester()."</div>
+                      <div style='text-align: left; padding-left:20px;'>Appliciant: ".$data->getRequseterFullName()."</div>
+        
                       <div style='text-align: left; padding-left:20px;'>University Station: ".$data->getNearRailwayStationUni()."</div>
                       <div style='text-align: left; padding-left:20px;'>Home Station: ".$data->getNearRailwayStationHome()."</div>
                       <div style='float:right;'>Date: ".$data->getTimeStamp()."</div><br>
@@ -96,7 +96,7 @@
           foreach($controllerData[1] as $data){
            echo ("<a class='application' href='checkedApplication?requestID=".$data->getRequestID()."'>
                  <div class='button' style='left: 7%; width: 90%;'>
-                   <div style='text-align: left; padding-left:20px;'>Appliciant: ".$data->getRequester()."</div>
+                   <div style='text-align: left; padding-left:20px;'>Appliciant: ".$data->getRequseterFullName()."</div>
                    <div style='text-align: left; padding-left:20px;'>University Station: ".$data->getNearRailwayStationUni()."</div>
                    <div style='text-align: left; padding-left:20px;'>Home Station: ".$data->getNearRailwayStationHome()."</div>
                    <div style='float:right;'>Date: ".$data->getTimeStamp()."</div><br>
