@@ -1,0 +1,47 @@
+.heading {
+    text-align: center;
+    font-weight: bold;
+    font-size: 45px;
+}
+.dropZone{
+    height: 200px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    color: lightgray;
+    border: 4px dashed var(--baseColor);
+    border-radius: 10px;
+    margin: 0 25px;
+}
+.dropZoneOver{
+    border-style: solid;
+}
+.dropZoneInput{
+    display: none;
+}
+.dropZoneThumb{
+    width: 25%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #d4d4d4;
+    background-size: cover;
+    position: relative;
+
+}
+.dropZoneThumb::after{
+    content: attr(data-label);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 0;
+    color: #faf7f7;
+    background: rgba(0,0,0,0.75);
+    font-size: 14px;
+    text-align: center;
+}
