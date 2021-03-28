@@ -21,7 +21,7 @@
 				    <span class='backToHome' style='float: left;'><a href='../../core/home' style='color: white;' title='Back to home'><i class='fa fa-home'></i></a></span>
 				    <span>Login as " . $_COOKIE['fullName'] . " &nbsp;&nbsp;<span>
 				    <a href='{$positionNotation}assets/php/logout.php' style='color: white;'>
-				    <i class='fa fa-sign-out' style='color: white;' title='Log out'></i>
+				    <i class='fa fa-sign-out-alt' style='color: white;' title='Log out'></i>
 				    </a>
 				    </span></span>
 				</div>
