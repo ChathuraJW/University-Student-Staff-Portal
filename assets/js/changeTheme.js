@@ -45,8 +45,8 @@ function themeBlueAndRefreshing() {
     rootSelector.style.setProperty('--headerSharding', '#17194270');
 }
 
-function getThemeData(){
-    if(window.localStorage.getItem('USSPTheme'))
+function getThemeData() {
+    if (window.localStorage.getItem('USSPTheme'))
         return window.localStorage.getItem('USSPTheme');
     else
         return false;
@@ -54,12 +54,12 @@ function getThemeData(){
 
 // theme list
 const themeList = ['themeCloseYoNatural', 'themeCleanAndEnergetic', 'themeColorsThatPop', 'themeCorporateAndSerious', 'themeBlueAndRefreshing'];
-let selectionNumber=0;
+let selectionNumber = 0;
 
-if(getThemeData()){
+if (getThemeData()) {
     // set current them as the one on local storage
     window[getThemeData()]();
-}else{
+} else {
     // change theme based on time
     let currentHour = new Date().getHours();
     let currentMinute = new Date().getMinutes();
@@ -70,7 +70,7 @@ if(getThemeData()){
         let position = randomNumber > 6 ? 2 : randomNumber > 2 ? 3 : 4;
         window[themeList[position]]();
         // store selected theme on local storage
-        window.localStorage.setItem('USSPTheme',themeList[position]);
+        window.localStorage.setItem('USSPTheme', themeList[position]);
         // set current theme position
         selectionNumber = position;
     } else {
@@ -79,7 +79,7 @@ if(getThemeData()){
         let position = randomNumber > 4 ? 1 : 0;
         window[themeList[position]]();
         // store selected theme on local storage
-        window.localStorage.setItem('USSPTheme',themeList[position]);
+        window.localStorage.setItem('USSPTheme', themeList[position]);
         // set current theme position
         selectionNumber = position;
     }
@@ -93,7 +93,7 @@ function changeTheme() {
         selectionNumber = 0;
     }
     // store selected theme on local storage
-    window.localStorage.setItem('USSPTheme',themeList[selectionNumber]);
+    window.localStorage.setItem('USSPTheme', themeList[selectionNumber]);
     // update theme
     window[themeList[selectionNumber]]();
 }
