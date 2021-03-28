@@ -1,0 +1,67 @@
+.entry {
+    width: 100%;
+    margin: 5px;
+    display: table;
+    background-color: var(--entryBackgroundColor);
+    padding: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+    border-radius: 5px;
+}
+
+.label {
+    width: 90%;
+    display: table-cell;
+    padding-left: 10%;
+}
+
+.value {
+    width: 10%;
+    display: table-cell;
+}
+
+.heading {
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.creditBox {
+    border-radius: 5px;
+    text-align: center;
+    width: auto;
+    background-color: var(--entryBackgroundColor);
+    float: right;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.creditName {
+    display: table-cell;
+    /* padding-top: 10%; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+
+}
+
+.buttonSubmit {
+    float: right;
+}
+
+.mainForm {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.inputBox {
+    float: right;
+}
+
+.statement {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
