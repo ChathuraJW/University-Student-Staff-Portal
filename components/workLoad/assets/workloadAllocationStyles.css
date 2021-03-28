@@ -1,58 +1,66 @@
 .featureBody {
     font-family: Varela, sans-serif;
 }
-#main{
+
+#main {
     font-size: 18px;
 }
-.head{
+
+.head {
     margin-top: 20px;
     margin-bottom: 60px;
     font-size: 25px;
     text-align: center;
 }
-.workloadMessage{
+
+.workloadMessage {
     /* color: white; */
-        /* color: white; */
-        /* margin-bottom: 10px; */
-        text-align: left;
-        /* padding: 15px; */
+    /* color: white; */
+    /* margin-bottom: 10px; */
+    text-align: left;
+    /* padding: 15px; */
     font-size: 15px;
     font-weight: bold;
-        width: 97%;
-        padding: 15px;
+    width: 97%;
+    padding: 15px;
     /*     margin-right: 25px; */
     /*     margin-left: 25px; */
-        border:none;
-        outline: none;
-        background: linear-gradient(to bottom right,rgb(211, 213, 214),white);
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: none;
+    outline: none;
+    background: linear-gradient(to bottom right, rgb(211, 213, 214), white);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.workloadRequestMessage{
+
+.workloadRequestMessage {
     text-align: left;
     font-size: 15px;
     font-weight: bold;
     width: 100%;
     padding: 10px;
     margin-bottom: 2px;
-    border:none;
+    border: none;
     outline: none;
-    
-    background:linear-gradient(to bottom right,rgb(209, 224, 235),white);
+
+    background: linear-gradient(to bottom right, rgb(209, 224, 235), white);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.workloadRequestMessage:hover{
-    background:linear-gradient(to bottom right,rgb(151, 189, 214),white);
+
+.workloadRequestMessage:hover {
+    background: linear-gradient(to bottom right, rgb(151, 189, 214), white);
 
 }
-.workloadMessage:hover{
-   background: linear-gradient(to bottom right,rgb(198, 198, 199),white);
+
+.workloadMessage:hover {
+    background: linear-gradient(to bottom right, rgb(198, 198, 199), white);
 }
-.messageViewer{
+
+.messageViewer {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     min-height: 700px;
     height: fit-content;
 }
-.replyMessageViewer{
+
+.replyMessageViewer {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     min-height: 750px;
     margin-top: 110px;
@@ -61,14 +69,16 @@
     /* border-color: rgb(93, 176, 201); */
     height: fit-content;
 }
-.displayContent{
+
+.displayContent {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     min-height: 750px;
     height: fit-content;
     margin-top: 70px;
 
 }
-.button{
+
+.button {
     font-size: 17px;
     font-weight: bold;
     border: none;
@@ -77,19 +87,23 @@
     outline: none;
 }
 
-.accept{
+.accept {
     background-color: rgb(0, 167, 75);
 }
-.accept:hover{
+
+.accept:hover {
     background-color: rgb(1, 102, 47);
 }
-.reject{
+
+.reject {
     background-color: rgb(240, 60, 47);
 }
-.reject:hover{
+
+.reject:hover {
     background-color: rgb(133, 15, 7);
 }
-.link{
+
+.link {
     border: none;
     font-size: 16px;
     /* color: rgb(199, 98, 202); */
@@ -100,7 +114,7 @@
     /* float: left; */
 }
 
-.topic{
+.topic {
     text-align: center;
     /* height: 20px; */
     margin-bottom: 20px;
@@ -108,36 +122,41 @@
     background-color: rgb(230, 230, 230);
     padding: 30px;
 }
-.displayingMessage{
+
+.displayingMessage {
     display: table;
     /* text-align: ; */
     height: 50px;
     margin-left: 10%;
-    width:80%;
+    width: 80%;
 }
-.label{
+
+.label {
     font-weight: bold;
     text-align: center;
     display: table-cell;
     width: 50%;
 }
-.value{
+
+.value {
     display: table-cell;
     width: 50%;
 }
 
-.messageView{
+.messageView {
     text-align: center;
     margin-top: 250px;
     color: rgb(180, 178, 178);
 }
-.searchMembers{
+
+.searchMembers {
     /* height: 400px; */
     min-height: 700px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     /* height: fit-content; */
 }
-.search{
+
+.search {
     /* background: rgba(248, 247, 248, 0.856); */
     /* background: linear-gradient( to bottom right,rgba(233, 233, 233, 0.856),white); */
     padding-top: 40px;
@@ -146,32 +165,37 @@
     font-weight: bold;
     color: rgb(204, 198, 198);
     /* height: 80px; */
-    
+
 }
-.searchInput{
+
+.searchInput {
     padding: 5px;
     width: 120%;
 }
-.searchLabel{
+
+.searchLabel {
     text-align: center;
 }
-.member{
+
+.member {
     width: 98%;
-    padding:10px;
+    padding: 10px;
     /* background-color: ; */
-    background: linear-gradient( to bottom right,rgb(224, 240, 247),white);
+    background: linear-gradient(to bottom right, rgb(224, 240, 247), white);
     margin: 5px;
 }
-.memberLabel{
+
+.memberLabel {
     /* width: 50%; */
     float: right;
 }
-.allocateForm{
+
+.allocateForm {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
 
-.searchButton{
+.searchButton {
     border: none;
     /* padding:5%;  */
     /* padding-bottom: 10px; */
@@ -180,19 +204,20 @@
     font-weight: bold;
     outline: none;
     cursor: pointer;
-    
+
 }
 
-.finalMsg{
+.finalMsg {
     /* overflow: auto; */
-    position: fixed; 
-    z-index: 1; 
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; 
-    height: 100%; 
-    background-color: rgb(135, 212, 139,0.4);
+    width: 100%;
+    height: 100%;
+    background-color: rgb(135, 212, 139, 0.4);
 }
+
 /* .scheduleDescription{
     position: fixed; 
     z-index: 1; 
@@ -202,7 +227,7 @@
     height: 100%; 
     background-color: rgb(253, 252, 243,0.4);
 } */
-.scheduleMessage{
+.scheduleMessage {
     min-height: 700px;
     height: fit-content;
     /* width: 500px; */
@@ -210,83 +235,98 @@
     margin: auto;
     background-color: var(--entryBackgroundColor);
 }
-.successMsg{
+
+.successMsg {
     border: none;
     /* border-width: 8px; */
     border-radius: 5px;
     margin: auto;
-    background: linear-gradient(to bottom right,rgb(177, 255, 170),white);
+    background: linear-gradient(to bottom right, rgb(177, 255, 170), white);
     text-align: center;
     margin-top: 18%;
     padding-top: 10px;
     height: 150px;
     width: 400px;
 }
-.correct{
+
+.correct {
     /* height: 30px; */
     color: green;
 }
-.allocationInput{
-    margin-bottom:20px;
+
+.allocationInput {
+    margin-bottom: 20px;
 }
-.input{
+
+.input {
     width: 100%;
     border-width: medium;
     padding: 5px;
     border: solid;
     border-color: rgb(202, 202, 202);
 }
-#description{
+
+#description {
     width: 100%;
     height: 150px;
 }
-.dataSet{
+
+.dataSet {
     display: table;
     width: 100%;
 }
-.data{
+
+.data {
     display: table-cell;
     width: 50%;
 }
-.left{
+
+.left {
     width: 15%;
 }
-.right{
+
+.right {
     width: 85%;
 }
 
-.workloadHistory{
+.workloadHistory {
     padding: 10px;
     width: 90%;
     margin: auto;
     margin-bottom: 8px;
-    background:linear-gradient(to bottom right,rgb(250, 230, 243),white) ;
+    background: linear-gradient(to bottom right, rgb(250, 230, 243), white);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     cursor: pointer;
 }
-.workloadHistory:hover{
-    background:linear-gradient(to bottom right,rgb(248, 220, 239),white) ;
+
+.workloadHistory:hover {
+    background: linear-gradient(to bottom right, rgb(248, 220, 239), white);
 }
-.close{
+
+.close {
     background: none;
     border: none;
     color: rgb(0, 0, 0);
     font-size: 20px;
 }
-.fileDownload{
+
+.fileDownload {
     background: none;
     border: none;
     font-size: 30px;
     color: black;
     margin-left: 77%;
 }
-.fileDownload:hover{
+
+.fileDownload:hover {
     color: rgb(87, 87, 87);
 }
-#searchMembersOptions{
-    width:98%
+
+#searchMembersOptions {
+    width: 98%
 }
-.memberSearch{
-    height:max-content
+
+.memberSearch {
+    height: max-content
     /* height: fit-content; */
 }

@@ -2,6 +2,7 @@
     display: none;
 
 }
+
 .radioToolbar label {
     display: inline-block;
     opacity: 0.7;
@@ -11,54 +12,62 @@
     position: relative;
     background-color: var(--entryBackgroundColor);
 }
-.radioToolbar input[type="radio"]:checked+label {
+
+.radioToolbar input[type="radio"]:checked + label {
     background-color: var(--baseColor);
 }
-.container{
+
+.container {
     text-align: center;
 }
-.subHeading{
+
+.subHeading {
     font-size: 24px;
 }
 
-.inputStyle{
+.inputStyle {
     font-size: 22px;
     margin-left: auto;
     margin-right: auto;
 }
 
-#date{
+#date {
     font-size: 18px;
     height: 200px;
 }
-.labelStyle{
+
+.labelStyle {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
 }
-.buttonStyle{
+
+.buttonStyle {
     margin-left: auto;
     margin-right: auto;
 }
-#csvFormContainer{
+
+#csvFormContainer {
     margin-left: 50px;
     margin-right: 50px;
 }
+
 sup {
     vertical-align: super;
     font-size: smaller;
 }
-.inquiryMessage{
+
+.inquiryMessage {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: 20px 20px;
     font-size: 18px;
-    border-radius: 5px; 
+    border-radius: 5px;
     height: auto;
-    background-color:var(--entryBackgroundColor);
+    background-color: var(--entryBackgroundColor);
     padding: 30px 20px;
 }
 
-.attendance{
+.attendance {
     text-align: center;
     margin: 5px;
     border-radius: 5px;
@@ -66,19 +75,22 @@ sup {
     border-style: solid;
     border-color: var(--fontColor);
 }
-.attendanceContainer{
+
+.attendanceContainer {
     margin-top: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.clickableDiv{
-    text-decoration:none;
+
+.clickableDiv {
+    text-decoration: none;
 }
 
- /* popup radio button */
+/* popup radio button */
 .editRadioToolbar input[type="radio"] {
-  display: none;
+    display: none;
 
 }
+
 .editRadioToolbar label {
     display: inline-block;
     background-color: var(--entryBackgroundColor);
@@ -89,47 +101,59 @@ sup {
     text-align: center;
     box-shadow: 0 4px 8px 0 var(--entryBackgroundColor);
 }
-.editRadioToolbar input[type="radio"]:checked+label {
-  background-color:var(--baseColor);
+
+.editRadioToolbar input[type="radio"]:checked + label {
+    background-color: var(--baseColor);
 }
-.editTopic{
+
+.editTopic {
     font-size: 20px;
     margin-left: auto;
     margin-right: auto;
     font-weight: bold;
     text-align: center;
 }
-.editSubTopic{
-  font-size: 18px;
+
+.editSubTopic {
+    font-size: 18px;
     margin-left: auto;
     margin-right: auto;
 }
-.editAttendanceForm{
+
+.editAttendanceForm {
     display: block;
 }
-input[type="file"],input[type="radio"]{
+
+input[type="file"], input[type="radio"] {
     display: none;
 }
-#attendanceFileLabel{
+
+#attendanceFileLabel {
     padding: 10px;
 }
-.textStyle{
+
+.textStyle {
     cursor: pointer;
 }
-textarea{
+
+textarea {
     width: auto;
 }
-.floatLeft{
+
+.floatLeft {
     float: right;
 }
-.upload{
+
+.upload {
     margin-top: 10px;
 }
-.markAsRead{
+
+.markAsRead {
     cursor: pointer;
     float: right;
 }
-.markAsReadButton{
+
+.markAsReadButton {
     display: none;
 }
   

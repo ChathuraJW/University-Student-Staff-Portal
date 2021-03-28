@@ -188,11 +188,7 @@
 //					display success message and redirect to previous page
 					echo("
 						<script>
-							createToast('Success','Operation successful.','S')
-//							redirect to previous page after 3seconds
-							setTimeout(function(){ 
-								history.go(-3);
-							 }, 3000);
+							createToast('Success','Operation successful.','S');
 						</script>
 						");
 				} else {

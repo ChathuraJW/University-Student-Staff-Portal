@@ -1,18 +1,16 @@
-.btn-group{
-    
+.btn-group {
+
     font-size: 20px;
     font: bold;
     padding: 5px;
-     
+
     position: relative;
     width: 500px;
     left: 25%;
-     
-    
-    
+
+
 }
 
- 
 
 /*.container{
     left: 30%;
@@ -22,15 +20,15 @@
     
 }*/
 
-.container{
+.container {
     box-shadow: 0 4px 8px 0 gray;
     width: 800px;
     position: relative;
     left: 20%;
 }
 
-.button{
-     
+.button {
+
     font-weight: normal;
     color: solid black;
     padding: 10px 15px;
@@ -47,25 +45,25 @@
 
 }
 
-.application{
+.application {
     text-decoration: none;
     color: black;
 }
 
-.checkbox{
+.checkbox {
     position: relative;
     left: 10%;
     cursor: pointer;
 }
 
-.label{
+.label {
     position: relative;
     left: 10%;
     font-weight: normal !important;
     font-size: 15px;
 }
 
-.submit{
+.submit {
     background-color: rgb(1, 112, 1);
     color: white;
     text-align: center;
@@ -74,5 +72,5 @@
     cursor: pointer;
     box-shadow: gray;
     border-radius: 4px;
-     
+
 }

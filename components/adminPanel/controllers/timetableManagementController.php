@@ -7,8 +7,8 @@
 		public static function timetableManagementOpen() {
 			// setcookie("userName","kek");
 			// $data=subjectManagementModel::getCourse();
-			$data=timetableManagementModel::getHall();
-			self::createModularView("timetableManagementView", "timetableManagementView",$data);
+			$data = timetableManagementModel::getHall();
+			self::createModularView("timetableManagementView", "timetableManagementView", $data);
 
 			if (isset($_POST['addEntry'])) {
 				$hallID = $_POST['hallID'];

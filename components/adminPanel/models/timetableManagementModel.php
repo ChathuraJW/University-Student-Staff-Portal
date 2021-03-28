@@ -2,10 +2,11 @@
 
 	class timetableManagementModel extends Model {
 
-		public static function getHall(){
-			$query="SELECT hallID FROM hall_and_lab";
-			return Database::executeQuery('root','',$query);
+		public static function getHall() {
+			$query = "SELECT hallID FROM hall_and_lab";
+			return Database::executeQuery('root', '', $query);
 		}
+
 		public static function editEntry($hallID, $subjectCode, $day, $fromTime, $toTime, $description, $eventID) {
 			if ($hallID == "" || $subjectCode == "" || $day == "" || $fromTime == "" || $toTime == "" || $eventID == "") {
 				echo("<script>createToast('Warning (error code: #ADMIN-TM-01)','Cannot set Null fields. Please Try Again.','W');</script>");

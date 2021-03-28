@@ -28,15 +28,15 @@
         <div class="dataForm">
             <div class="inputDiv">
                 <label class="labelField" for="hallID">Hall ID</label>
-                <select style="width:53%;"class="inputField" name="hallID" id="hallID" type="text">
-                <?php
-                $records=$controllerData;
-                    foreach($records as $record){
-                        echo("
-                            <option value='".$record['hallID']."'>".$record['hallID']."</option>
+                <select style="width:53%;" class="inputField" name="hallID" id="hallID" type="text">
+					<?php
+						$records = $controllerData;
+						foreach ($records as $record) {
+							echo("
+                            <option value='" . $record['hallID'] . "'>" . $record['hallID'] . "</option>
                         ");
-                    }
-                ?>
+						}
+					?>
                 </select>
             </div>
             <input class="inputField" name="groupNameHidden" id="groupNameHidden" type="hidden">
@@ -66,7 +66,8 @@
         </div>
         <div class="buttonDual">
             <input type="button" value="Cancel" onclick="cancelFunctionEntry()" class="button text">
-            <input id="submitButtonInputEntry" type="submit" onclick="confirm('Are you confirm this action?')" value="Submit" name="submit" class="button text">
+            <input id="submitButtonInputEntry" type="submit" onclick="confirm('Are you confirm this action?')" value="Submit" name="submit"
+                   class="button text">
         </div>
     </form>
     <form id="EntryDeleteView" method="post" style="display:none;">

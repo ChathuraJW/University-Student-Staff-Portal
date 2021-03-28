@@ -73,21 +73,21 @@
 
 		public function setUser($userName, $nic, $gender, $salutation, $firstName, $lastName, $fullName, $TPNO, $personalEmail, $universityEmail, $role, $profilePicURL) {
 			$this->userName = $userName;
-			$this->password = $password;
+//			$this->password = $password;
 			$this->nic = $nic;
 			$this->gender = $gender;
 			$this->salutation = $salutation;
 			$this->firstName = $firstName;
 			$this->lastName = $lastName;
 			$this->fullName = $fullName;
-			$this->dob = $dob;
-			$this->address = $address;
+//			$this->dob = $dob;
+//			$this->address = $address;
 			$this->TPNO = $TPNO;
 			$this->personalEmail = $personalEmail;
 			$this->universityEmail = $universityEmail;
 			$this->role = $role;
 			$this->profilePicURL = $profilePicURL;
-			$this->isFirstLogin = $isFirstLogin;
+//			$this->isFirstLogin = $isFirstLogin;
 
 			return $this;
 		}
@@ -96,15 +96,6 @@
 
 	}
 
-	class Student extends User {
-		// attributes of Student
-		private $indexNo;
-		private $regNo;
-		private $group;
-
-		//methods of Student
-
-	}
 
 //this class for both academic and academic support staff
 	class Staff extends User {
@@ -145,7 +136,7 @@
 			$this->fullName = $fullName;
 			$this->userName = $userName;
 			$this->salutation = $salutation;
-			$this->staffID = $staffID;
+//			$this->staffID = $staffID;
 			$this->availableFrom = $availableFrom;
 			$this->availableTo = $availableTo;
 			$this->availableLocation = $availableLocation;
@@ -154,13 +145,6 @@
 		}
 		//methods of User
 
-	}
-
-	class AdministrativeStaff extends Staff {
-		//attributes of AdministrativeStaff
-		private $roleID;
-
-		//methods for AdministrativeStaff
 	}
 
 
@@ -264,32 +248,6 @@
 		}
 	}
 
-	class AppointmentType {
-		// atrributes of AppointmentType
-		private $appointmentCode;
-		private $appointmentColor;
-		private $appointmentName;
-	}
-
-	class LectureAvailability {
-		// attributes of LectureAvailability
-		private $lectureCode;
-		private $lectureName;
-		private $lastUpdateDate;
-		private $location;
-		private $description;
-		private $availableFrom;
-		private $availableTo;
-
-		// methods of LectureAvailability
-		protected function addAvailability() {
-
-		}
-
-		protected function viewAvailability() {
-
-		}
-	}
 
 	class SystemFeature {
 		private string $featureID;

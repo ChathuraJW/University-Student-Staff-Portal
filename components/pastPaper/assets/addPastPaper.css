@@ -3,7 +3,8 @@
     font-weight: bold;
     font-size: 45px;
 }
-.dropZone{
+
+.dropZone {
     height: 200px;
     padding: 25px;
     display: flex;
@@ -18,13 +19,16 @@
     border-radius: 10px;
     margin: 0 25px;
 }
-.dropZoneOver{
+
+.dropZoneOver {
     border-style: solid;
 }
-.dropZoneInput{
+
+.dropZoneInput {
     display: none;
 }
-.dropZoneThumb{
+
+.dropZoneThumb {
     width: 25%;
     height: 100%;
     border-radius: 10px;
@@ -33,7 +37,8 @@
     position: relative;
 
 }
-.dropZoneThumb::after{
+
+.dropZoneThumb::after {
     content: attr(data-label);
     position: absolute;
     bottom: 0;
@@ -41,7 +46,7 @@
     width: 100%;
     padding: 5px 0;
     color: #faf7f7;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0, 0, 0, 0.75);
     font-size: 14px;
     text-align: center;
 }

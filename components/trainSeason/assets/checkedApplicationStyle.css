@@ -1,4 +1,4 @@
-.form{
+.form {
     width: 700px;
     height: 600px;
     border-radius: 4px;
@@ -15,22 +15,21 @@
 
 }
 
- 
 
-.fullName{
+.fullName {
     font-size: 18px;
 }
 
-.name{
+.name {
     font-size: 18px;
 }
 
-.regNo{
+.regNo {
     font-size: 18px;
-  
+
 }
 
-.checkedButton{
+.checkedButton {
     text-align: center;
     font-size: 14px;
     background-color: rgb(7, 143, 7);
@@ -44,10 +43,10 @@
 }
 
 
-.cancelButton{
+.cancelButton {
     text-align: center;
     font-size: 14px;
-    background-color:rgb(201, 6, 6);
+    background-color: rgb(201, 6, 6);
     font: bold;
     padding: 6px;
     box-shadow: 0 8px 16px 0 grey;
@@ -57,60 +56,65 @@
     position: relative;
 }
 
-.dataEntry{
+.dataEntry {
     display: table;
-    width:100%;
-    margin-bottom:20px;
-    
-  }
-  .dataLabel{
-    display:table-cell;
-    width:50%;
-    text-align:center;
-    font-size:15px;
-    font-weight:bold;
+    width: 100%;
+    margin-bottom: 20px;
 
-  }
-  .data{
-    display:table-cell;
-    width:50%;
-  }
-  .head{
-    padding:20px;
-    text-align:center;
-    font-size:25px;
-    font-weight:bold;
-    
+}
 
-  }
-   
+.dataLabel {
+    display: table-cell;
+    width: 50%;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
 
-  
-  .requestMessage{
-    font-size:18px;
-  }
+}
 
-  .applicationForm{
-    width:95%;
-  
+.data {
+    display: table-cell;
+    width: 50%;
+}
+
+.head {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+
+
+}
+
+
+.requestMessage {
+    font-size: 18px;
+}
+
+.applicationForm {
+    width: 95%;
+
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 30px 30px 0 rgba(0, 0, 0, 0.19);
 
-  }
-  .inputLabel{
+}
+
+.inputLabel {
     width: 25%;
-    
-  }
-  .container2{
-    width:90%;
-    margin:auto;
-    
-  }
-  .input{
-    width:100%;
-    margin:auto;
-    padding:10px;
-    border:solid;
+
+}
+
+.container2 {
+    width: 90%;
+    margin: auto;
+
+}
+
+.input {
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+    border: solid;
     border-color: rgb(218, 218, 218);
     outline: none;
 
-  }
+}

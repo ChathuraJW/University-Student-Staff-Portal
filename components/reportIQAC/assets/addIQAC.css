@@ -1,4 +1,4 @@
-.inputFile{
+.inputFile {
     height: 200px;
     padding: 25px;
     display: flex;
@@ -13,15 +13,15 @@
     border-radius: 10px;
     margin: 0 25px;
 }
- 
 
-.fileInput{
+
+.fileInput {
     font-size: 20px;
     width: 400px;
     color: var(--fontColor);
 }
 
-.label{
+.label {
     font-size: 18px;
 }
  

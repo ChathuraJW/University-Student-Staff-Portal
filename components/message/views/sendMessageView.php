@@ -16,9 +16,9 @@
 <!-- feature body section -->
 <div class="featureBody">
     <div class="container">
-    <?php
-    if (isset($_COOKIE['role']) && $_COOKIE['role'] == 'ST'){
-    echo("
+		<?php
+			if (isset($_COOKIE['role']) && $_COOKIE['role'] == 'ST') {
+				echo("
         <div class='row col-1'>
 
             <h1><b> Send Messages </b></h1>
@@ -47,11 +47,11 @@
                     <option value=''>Student</option>
                          
                     ");
-                        foreach ($controllerData[3] as $data) {
-                            echo("<option value='".$data->getUserName()."'>" .$data->getUserName(). " - " .$data->getFullName(). "</option>");
-                        }
-                         
-                    echo("
+				foreach ($controllerData[3] as $data) {
+					echo("<option value='" . $data->getUserName() . "'>" . $data->getUserName() . " - " . $data->getFullName() . "</option>");
+				}
+
+				echo("
                     </select>
 
                     <br>
@@ -99,8 +99,8 @@
                 <br>
             </div>
     ");
-    }else{
-    echo("
+			} else {
+				echo("
     
         <div class='row col-1'>
 
@@ -136,13 +136,13 @@
                     <select id='academicStaffList' name='academicStaffList' onchange='addStaffRecipient(`academicStaffList`);'>
                     <option value=''>Academic Staff</option>
                     ");
-                    //print_r($controllerData[0]);
-                    foreach ($controllerData[0] as $data) {
-                        
-                        echo("<option value='".$data->getUserName()."'>" .$data->getUserName(). " - " .$data->getFullName(). "</option>");
-                        
-                    }
-                    echo("
+				//print_r($controllerData[0]);
+				foreach ($controllerData[0] as $data) {
+
+					echo("<option value='" . $data->getUserName() . "'>" . $data->getUserName() . " - " . $data->getFullName() . "</option>");
+
+				}
+				echo("
                     </select>
                     <br>
                     <br>
@@ -153,11 +153,11 @@
                     <option value=''>Academic Supportive Staff</option>
                     ");
 
-                    foreach ($controllerData[2] as $data) {
-                        echo("<option value='".$data->getUserName()."'>" .$data->getUserName(). " - " .$data->getFullName(). "</option>");
-                    }
+				foreach ($controllerData[2] as $data) {
+					echo("<option value='" . $data->getUserName() . "'>" . $data->getUserName() . " - " . $data->getFullName() . "</option>");
+				}
 
-                    echo("
+				echo("
                     </select>
 
                     <br>
@@ -169,10 +169,10 @@
                     <option value=''>Administrative Staff</option>
                     ");
 
-                    foreach ($controllerData[1] as $data) {
-                        echo("<option value='".$data->getUserName()."'>" .$data->getUserName(). " - " .$data->getFullName(). "</option>");
-                    }
-                    echo("
+				foreach ($controllerData[1] as $data) {
+					echo("<option value='" . $data->getUserName() . "'>" . $data->getUserName() . " - " . $data->getFullName() . "</option>");
+				}
+				echo("
                     </select>
 
                     <br>
@@ -187,13 +187,13 @@
 
                     <select id='studentList' name='studentList' onchange='addStaffRecipient(`studentList`);'>
                     <option value=''>Student</option>
-                    ");  
+                    ");
 
-                        foreach ($controllerData[3] as $data) {
-                            echo("<option value='".$data->getUserName()."'>" .$data->getUserName(). " - " .$data->getFullName(). "</option>");
-                        }
-                         
-                    echo("
+				foreach ($controllerData[3] as $data) {
+					echo("<option value='" . $data->getUserName() . "'>" . $data->getUserName() . " - " . $data->getFullName() . "</option>");
+				}
+
+				echo("
                     </select>
 
                     <br>
@@ -241,8 +241,8 @@
                 <br>
             </div>
     ");
-    }
-    ?>        
+			}
+		?>
     </div>
 
 
@@ -256,6 +256,6 @@
 <script src="../../assets/js/jquery.js"></script>
 <script src="../../assets/js/toast.js"></script>
 <script src="../../assets/js/changeTheme.js"></script>
- 
+
 </body>
 </html>

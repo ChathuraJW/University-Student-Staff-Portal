@@ -4,14 +4,17 @@
     font-weight: bold;
     font-size: 45px;
 }
-.subHeading{
+
+.subHeading {
     font-weight: bold;
     font-size: 24px;
 }
-.container{
+
+.container {
     margin: 90px;
 }
-input[type=text]{
+
+input[type=text] {
     width: 50%;
     padding: 8px;
     border: 1px solid gray;
@@ -20,7 +23,8 @@ input[type=text]{
     font-size: 18px;
     min-width: 300px;
 }
-select{
+
+select {
     width: 25%;
     padding: 8px;
     border: 1px solid var(--baseColor);
@@ -31,45 +35,55 @@ select{
 }
 
 
-input[type=checkbox]{
+input[type=checkbox] {
     font-size: 32px;
 }
-textarea{
+
+textarea {
     font-size: 20px;
     width: auto;
     padding-left: 25px;
     margin: 10px 0px;
 
 }
-.check +label,.checkFirstSet+label,.checkSecondSet+label, .checkThirdSet+label{
+
+.check + label, .checkFirstSet + label, .checkSecondSet + label, .checkThirdSet + label {
     font-size: 18px;
     padding-bottom: 10px;
     cursor: pointer;
-    
+
 }
-.check{
+
+.check {
     margin-left: 30px;
 }
-.checkFirstSet{
+
+.checkFirstSet {
     margin-left: 60px;
 }
-.checkSecondSet{
+
+.checkSecondSet {
     margin-left: 90px;
 }
-.checkThirdSet{
+
+.checkThirdSet {
     margin-left: 120px;
 }
-.category{
+
+.category {
     padding: 20px;
 }
-.special{
+
+.special {
     padding: 8px 5px;
 }
+
 /*radioToolbar*/
 .radioToolbar input[type="radio"] {
     display: none;
 
 }
+
 .radioToolbar label {
     display: inline-block;
     background-color: var(--headerSharding);
@@ -77,34 +91,41 @@ textarea{
     cursor: pointer;
     position: relative;
     height: 60px;
-    width:100%;
+    width: 100%;
     text-align: center;
     margin-top: auto;
     margin-bottom: auto;
 }
-.radioToolbar input[type="radio"]:checked+label {
+
+.radioToolbar input[type="radio"]:checked + label {
     background-color: var(--headerFooterBackground);
 }
+
 textarea {
     resize: none;
 }
-.textareaStyle{
+
+.textareaStyle {
     padding: 10px;
 }
-.divStyle{
+
+.divStyle {
     padding: 2px;
 }
-.weeks{
+
+.weeks {
     display: block;
     margin: 10px 0px;
     align-items: center;
     align-content: center;
     /*text-align: center;*/
-    padding:0px 40px;
+    padding: 0px 40px;
 }
-#weeks{
+
+#weeks {
     margin: 5px;
 }
-.message{
+
+.message {
     display: inline;
 }

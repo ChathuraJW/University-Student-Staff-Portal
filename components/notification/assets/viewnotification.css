@@ -4,15 +4,17 @@
     font-weight: bold;
     font-size: 45px;
 }
-.featureBody{
+
+.featureBody {
     min-height: 520px;
 }
+
 /* Search bar */
 * {
     box-sizing: border-box;
 }
 
-  /* Style the search field */
+/* Style the search field */
 input[type=text] {
     padding: 10px;
     font-size: 17px;
@@ -24,12 +26,12 @@ input[type=text] {
     margin-left: -12px;
 }
 
-   /*Style the submit button*/
+/*Style the submit button*/
 button {
     float: left;
     width: 5%;
     padding: 10px;
-    background:var(--headerFooterBackground);
+    background: var(--headerFooterBackground);
     color: white;
     font-size: 15px;
     border: var(--headerFooterBackground);
@@ -41,7 +43,8 @@ button {
 button:hover {
     /*background: #0b7dda;*/
 }
-.search{
+
+.search {
     display: flex;
 }
 
@@ -53,7 +56,7 @@ button:hover {
 
 .radioToolbar label {
     display: inline-block;
-    background-color:var(--backgroundColor);
+    background-color: var(--backgroundColor);
     padding: 8px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -62,28 +65,32 @@ button:hover {
     padding-top: 25px;
     padding-bottom: 25px;
 }
-.radioToolbar input[type="radio"]:checked+label {
-    background-color:var(--baseColo);
+
+.radioToolbar input[type="radio"]:checked + label {
+    background-color: var(--baseColo);
 }
 
-.radioStyle:hover label{
+.radioStyle:hover label {
     background-color: var(--baseColor);
 }
-.radioToolbar{
-        margin: 0;
-        padding: 0;
-        width: 250px;
-        /*background-color: #f1f1f1;*/
-        position: absolute;
-        height: auto;
-        overflow: auto;
+
+.radioToolbar {
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    /*background-color: #f1f1f1;*/
+    position: absolute;
+    height: auto;
+    overflow: auto;
 }
+
 .inner {
     margin-left: 250px;
     padding: 1px 16px;
     height: auto;
 }
-.notification{
+
+.notification {
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 10px;
@@ -97,35 +104,39 @@ button:hover {
 
 }
 
-.senderTime{
+.senderTime {
     display: flex;
     margin: 2px 0px;
 }
-.markAsRead{
+
+.markAsRead {
     float: right;
     margin-right: 20px;
-    text-underline:var(--baseColor) ;
+    text-underline: var(--baseColor);
     cursor: pointer;
     padding: 5px;
 }
-.content{
+
+.content {
     width: 750px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.markASReadButton{
+
+.markASReadButton {
     display: none;
 }
 
-.notificationContent{
+.notificationContent {
     white-space: normal;
     text-align: justify;
     text-justify: inter-word;
     overflow: hidden;
     width: auto;
 }
-.notification:hover .content{
+
+.notification:hover .content {
     white-space: normal;
     text-align: justify;
     text-justify: inter-word;
@@ -139,12 +150,18 @@ button:hover {
         height: auto;
         position: relative;
     }
-    .radioToolbar .radioStyle {float: left;}
-    div.inner {margin-left: 0;}
+
+    .radioToolbar .radioStyle {
+        float: left;
+    }
+
+    div.inner {
+        margin-left: 0;
+    }
 }
 
-  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-    @media screen and (max-width: 650px) {
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 650px) {
     .radioToolbar .radioStyle {
         text-align: center;
         float: none;

@@ -26,7 +26,7 @@
 			self::createModularView('userManagement', 'umAddStaffAsIndividualView');
 //			handle operation
 			if (isset($_POST['registerStaffMember'])) {
-				$staffMember = new Staff;
+				$staffMember = new User();
 				$staffMember->createUser($_POST['userName'], $_POST['firstName'], $_POST['lastName'], $_POST['fullName'], $_POST['personalEmail'],
 					$_POST['universityEmail'], $_POST['dob'], $_POST['nic']);
 				UserManagementModel::addStaffMember($staffMember, $_POST['userRole']);

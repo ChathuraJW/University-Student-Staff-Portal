@@ -1,171 +1,171 @@
 <?php
 
-class User{
-    //attributes of User
-    private $userName;
-    private $firstName;
-    private $lastName;
-    
-    private $address;
-    private $dob;
+	class User {
+		//attributes of User
+		private $userName;
+		private $firstName;
+		private $lastName;
 
-    public function setUser($firstName,$lastName,$regNo,$address,$dob): User{
-        $this->userName=$regNo;
-        $this->firstName=$firstName;
-        $this->lastName=$lastName;
-        $this->address=$address;
-        $this->dob=$dob;
-        
+		private $address;
+		private $dob;
 
-        return $this;
-    }
-
-    public function getFullName(): string{
-        return $this->firstName." ".$this->lastName;
-        
-    }
+		public function setUser($firstName, $lastName, $regNo, $address, $dob): User {
+			$this->userName = $regNo;
+			$this->firstName = $firstName;
+			$this->lastName = $lastName;
+			$this->address = $address;
+			$this->dob = $dob;
 
 
-    public function getRegNo(): string{
-        return $this->userName;
-        
-    }
+			return $this;
+		}
 
-    public function getAddress(): string{
-        return $this->address;
-        
-    }
-    
-    public function getAge(): int{
-        
-        $dob = new DateTime($this->dob);
-        $today   = new DateTime('today');
-        return $dob->diff($today)->y;
+		public function getFullName(): string {
+			return $this->firstName . " " . $this->lastName;
 
-        
-    }
+		}
 
-    //methods of User
 
-}
+		public function getRegNo(): string {
+			return $this->userName;
 
-class Student extends User{
-    // attributes of Student
-    private $indexNo;
-    private $regNo;
-    private $group;
+		}
 
-    //methods of Student
+		public function getAddress(): string {
+			return $this->address;
 
-}
+		}
+
+		public function getAge(): int {
+
+			$dob = new DateTime($this->dob);
+			$today = new DateTime('today');
+			return $dob->diff($today)->y;
+
+
+		}
+
+		//methods of User
+
+	}
+
+	class Student extends User {
+		// attributes of Student
+		private $indexNo;
+		private $regNo;
+		private $group;
+
+		//methods of Student
+
+	}
 
 //this class for both academic and academic support staff
-class Staff extends User{
-    //attributes of Staff
-    protected $staffID;
+	class Staff extends User {
+		//attributes of Staff
+		protected $staffID;
 
-    //methods of User
+		//methods of User
 
-}
+	}
 
-class AdministrativeStaff extends Staff{
-    //attributes of AdministrativeStaff
-    private $roleID;
+	class AdministrativeStaff extends Staff {
+		//attributes of AdministrativeStaff
+		private $roleID;
 
-    //methods for AdministrativeStaff
-}
- 
-class TrainSeason{
-    // attributes of TrainSeason
-    private $requesterFullName;
-    private $requestID;
-    private $seasonID;
-    private $requester;
-    private $academicYear;
-    private $age;
-    private $address; 
-    private $fromMonth;
-    private $toMonth;
-    private $nearRailwayStationHome;
-    private $nearRailwayStationUni;
-    private $submittedTimestamp;
-    private $collectedPerson;
-     
-    public function setRequesterFullName($fullName){
-        $this->requesterFullName = $fullName;
-        return $this;
-    }
-    // methods of Trainseason
-    public function setData($requestID,$seasonID,$requester,$academicYear,$age,$address,$fromMonth,$toMonth,$nearRailwayStationHome,$nearRailwayStationUni,$submittedTimestamp,$collectedPerson){
-        $this->requestID = $requestID;
-        $this->seasonID = $seasonID;
-        $this->requester = $requester;
-        $this->academicYear = $academicYear;
-        $this->age = $age;
-        $this->address = $address;
-        $this->fromMonth = $fromMonth;
-        $this->toMonth = $toMonth;
-        $this->nearRailwayStationHome = $nearRailwayStationHome;
-        $this->nearRailwayStationUni = $nearRailwayStationUni;
-        $this->submittedTimestamp = $submittedTimestamp;
-        $this->collectedPerson = $collectedPerson;
+		//methods for AdministrativeStaff
+	}
 
-        return $this;
-    }
+	class TrainSeason {
+		// attributes of TrainSeason
+		private $requesterFullName;
+		private $requestID;
+		private $seasonID;
+		private $requester;
+		private $academicYear;
+		private $age;
+		private $address;
+		private $fromMonth;
+		private $toMonth;
+		private $nearRailwayStationHome;
+		private $nearRailwayStationUni;
+		private $submittedTimestamp;
+		private $collectedPerson;
 
-    public function getRequseterFullName(): string{
-        return $this->requesterFullName;
-    }
+		public function setRequesterFullName($fullName) {
+			$this->requesterFullName = $fullName;
+			return $this;
+		}
 
-    public function getRequestID(): int{
-        return $this->requestID;
-    }
+		// methods of Trainseason
+		public function setData($requestID, $seasonID, $requester, $academicYear, $age, $address, $fromMonth, $toMonth, $nearRailwayStationHome, $nearRailwayStationUni, $submittedTimestamp, $collectedPerson) {
+			$this->requestID = $requestID;
+			$this->seasonID = $seasonID;
+			$this->requester = $requester;
+			$this->academicYear = $academicYear;
+			$this->age = $age;
+			$this->address = $address;
+			$this->fromMonth = $fromMonth;
+			$this->toMonth = $toMonth;
+			$this->nearRailwayStationHome = $nearRailwayStationHome;
+			$this->nearRailwayStationUni = $nearRailwayStationUni;
+			$this->submittedTimestamp = $submittedTimestamp;
+			$this->collectedPerson = $collectedPerson;
 
-    public function getSeasonID(): int{
-        return $this->seasonID;
-    }
+			return $this;
+		}
 
-    public function getRequester(): string{
-        return $this->requester;
-    }
+		public function getRequseterFullName(): string {
+			return $this->requesterFullName;
+		}
 
-    public function getAcademicYear(): string{
-        return $this->academicYear;
-    }
+		public function getRequestID(): int {
+			return $this->requestID;
+		}
 
-    public function getAge(): string{
-        return $this->age;
-    }
+		public function getSeasonID(): int {
+			return $this->seasonID;
+		}
 
-    public function getAddress(): string{
-        return $this->address;
-    }
+		public function getRequester(): string {
+			return $this->requester;
+		}
 
-    public function getFromMonth(): string{
-        return $this->fromMonth;
-    }
+		public function getAcademicYear(): string {
+			return $this->academicYear;
+		}
 
-    public function getToMonth(): string{
-        return $this->toMonth;
-    }
+		public function getAge(): string {
+			return $this->age;
+		}
 
-    public function getNearRailwayStationHome(): string{
-        return $this->nearRailwayStationHome;
-    }
+		public function getAddress(): string {
+			return $this->address;
+		}
 
-    public function getNearRailwayStationUni(): string{
-        return $this->nearRailwayStationUni;
-    }
+		public function getFromMonth(): string {
+			return $this->fromMonth;
+		}
 
-    public function getTimeStamp(): string{
-        return $this->submittedTimestamp;
-    }
+		public function getToMonth(): string {
+			return $this->toMonth;
+		}
 
-    public function getCollectedPerson(): string{
-        return $this->collectedPerson;
-    }
-}
+		public function getNearRailwayStationHome(): string {
+			return $this->nearRailwayStationHome;
+		}
 
- 
- 
+		public function getNearRailwayStationUni(): string {
+			return $this->nearRailwayStationUni;
+		}
+
+		public function getTimeStamp(): string {
+			return $this->submittedTimestamp;
+		}
+
+		public function getCollectedPerson(): string {
+			return $this->collectedPerson;
+		}
+	}
+
+
 ?>

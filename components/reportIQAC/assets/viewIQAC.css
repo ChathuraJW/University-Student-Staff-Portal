@@ -7,22 +7,24 @@ input[type=text], input[type=file], select {
     font-size: 18px;
     min-width: 300px;
 }
-.label{
+
+.label {
     font-size: 20px;
 
 }
- 
-.report{
+
+.report {
     text-decoration: none;
     display: inline-block;
     color: var(--fontColor);
 }
- 
-.dropdown{
+
+.dropdown {
     margin-top: 10px;
-    
+
 }
-.reportDetail{
+
+.reportDetail {
     font-size: 16px;
     align-items: center;
     text-align: center;

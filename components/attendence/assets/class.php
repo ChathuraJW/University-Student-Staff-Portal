@@ -1,213 +1,205 @@
 <?php
 
 
+	class AttendanceInstance {
+		// attribute of AttendanceInstance
+		private int $entryID;
+		private string $description;
+		private string $date;
+		private int $week;
+		private bool $attendance;
+		private string $uploadedTime;
+		private int $enrollmentId;
 
-class AttendanceInstance{
-    // attribute of AttendanceInstance
-    private int $entryID;
-    private  string  $description;
-    private  string  $date;
-    private int $week;
-    private bool $attendance;
-    private String $uploadedTime;
-    private int $enrollmentId;
+		// method of AttendanceInstance
 
-    // method of AttendanceInstance
+		public function getEntryID() {
+			return $this->entryID;
+		}
 
-    public function getEntryID(){
-        return $this->entryID;
-    }
-
-    public function getDescription(){
-        return $this->description;
-    }
-
-
-    public function getDate(){
-        return $this->date;
-    }
-
-    public function getWeek(){
-        return $this->week;
-    }
-
-    public function getAttendance(){
-        return $this->attendance;
-    }
-
-    public function getUploadedTime(){
-        return $this->uploadedTime;
-    }
-    public function getEnrollmentId(){
-        return $this->enrollmentId;
-    }
-
-    public function setAttendance($attendance,$week,$date,$description,$enrollmentId){
-        $this->attendance = $attendance;
-        $this->week = $week;
-        $this->date = $date;
-        $this->description = $description;
-        $this->enrollmentId = $enrollmentId;
-        return $this;
-    }
+		public function getDescription() {
+			return $this->description;
+		}
 
 
-}
-class CourseModule {
-    // attributes of courseModule
-    private string $CourseCode;
-    private string $name;
-    private int $creditVale;
-    private int $semester;
-    private string $description;
+		public function getDate() {
+			return $this->date;
+		}
 
-    public function createCourseModule($courseCode, $name, $creditValue, $semester, $description): CourseModule {
-        $this->CourseCode = $courseCode;
-        $this->name = $name;
-        $this->creditVale = $creditValue;
-        $this->semester = $semester;
-        $this->description = $description;
-        return $this;
-    }
+		public function getWeek() {
+			return $this->week;
+		}
 
-    public function getCourseCode(): string {
-        return $this->CourseCode;
-    }
+		public function getAttendance() {
+			return $this->attendance;
+		}
 
-    public function getName(): string {
-        return $this->name;
-    }
+		public function setAttendance($attendance, $week, $date, $description, $enrollmentId) {
+			$this->attendance = $attendance;
+			$this->week = $week;
+			$this->date = $date;
+			$this->description = $description;
+			$this->enrollmentId = $enrollmentId;
+			return $this;
+		}
 
-    public function getCreditVale(): int {
-        return $this->creditVale;
-    }
+		public function getUploadedTime() {
+			return $this->uploadedTime;
+		}
 
-    public function getSemester(): int {
-        return $this->semester;
-    }
-
-    public function getDescription(): string {
-        return $this->description;
-    }
+		public function getEnrollmentId() {
+			return $this->enrollmentId;
+		}
 
 
-}
+	}
 
-class EnrollFor{
-    // attributes of EnrollFor
-    private $indexNo;
-    private $courseCode;
-    private $courseName;
-    private $dailyAttendance;
-    private $percentage;
+	class CourseModule {
+		// attributes of courseModule
+		private string $CourseCode;
+		private string $name;
+		private int $creditVale;
+		private int $semester;
+		private string $description;
 
-    // methods of EnrollFor
-    protected function calculatePercentage(){
+		public function createCourseModule($courseCode, $name, $creditValue, $semester, $description): CourseModule {
+			$this->CourseCode = $courseCode;
+			$this->name = $name;
+			$this->creditVale = $creditValue;
+			$this->semester = $semester;
+			$this->description = $description;
+			return $this;
+		}
 
-    }
-    protected function addDate(){
+		public function getCourseCode(): string {
+			return $this->CourseCode;
+		}
 
-    }
-    protected function viewAttendance(){
+		public function getName(): string {
+			return $this->name;
+		}
 
-    }
-}
+		public function getCreditVale(): int {
+			return $this->creditVale;
+		}
 
-class AttendanceInquiry{
-    //attributes of enrollment
-    private int $inquiryID;
-    private string $sentBy;
-    private string $message;
-    private string $date;
-    private int $isViewed;
+		public function getSemester(): int {
+			return $this->semester;
+		}
 
-    //methods for enrollment
-    public function setInquiryDetails($sentBy, $message, $date, $isViewed){
-        $this->sentBy = $sentBy;
-        $this->message = $message;
-        $this->date = $date;
-        $this->isViewed = $isViewed;
-        return $this;
-    }
-
-    public function getInquiryID(): int
-    {
-        return $this->inquiryID;
-    }
-
-    public function setInquiryID(string $inquiryID): AttendanceInquiry
-    {
-        $this->inquiryID = $inquiryID;
-        return $this;
-    }
+		public function getDescription(): string {
+			return $this->description;
+		}
 
 
-    public function getSentBy(): string
-    {
-        return $this->sentBy;
-    }
+	}
 
-    public function getMessage(): string
-    {
-        return $this->message;
-    }
+	class EnrollFor {
+		// attributes of EnrollFor
+		private $indexNo;
+		private $courseCode;
+		private $courseName;
+		private $dailyAttendance;
+		private $percentage;
 
-    public function getDate(): string
-    {
-        return $this->date;
-    }
+		// methods of EnrollFor
+		protected function calculatePercentage() {
 
+		}
 
-    public function isViewed(): bool
-    {
-        return $this->isViewed;
-    }
+		protected function addDate() {
 
+		}
 
-}
+		protected function viewAttendance() {
 
-class enrollment{
-    //attributes of enrollment
-    private int $enrollmentID;
-    private int $studentIndexNo;
-    private string $courseCode;
-    private string $attempt;
-    private string $enrollDate;
+		}
+	}
 
-    //methods for enrollment
-    public function setEnrollmentDetails($enrollmentId,  $studentIndexNo,$courseCode,$attempt,$enrollDate){
-        $this->enrollmentID;
-        $this->studentIndexNo;
-        $this->courseCode;
-        $this->attempt;
-        $this->enrollDate;
-        return $this;
-    }
+	class AttendanceInquiry {
+		//attributes of enrollment
+		private int $inquiryID;
+		private string $sentBy;
+		private string $message;
+		private string $date;
+		private int $isViewed;
 
-    public function getEnrollmentID(): int
-    {
-        return $this->enrollmentID;
-    }
+		//methods for enrollment
+		public function setInquiryDetails($sentBy, $message, $date, $isViewed) {
+			$this->sentBy = $sentBy;
+			$this->message = $message;
+			$this->date = $date;
+			$this->isViewed = $isViewed;
+			return $this;
+		}
 
-    public function getStudentIndexNo(): int
-    {
-        return $this->studentIndexNo;
-    }
+		public function getInquiryID(): int {
+			return $this->inquiryID;
+		}
 
-    public function getCourseCode(): string
-    {
-        return $this->courseCode;
-    }
-
-    public function getAttempt(): string
-    {
-        return $this->attempt;
-    }
-
-    public function getEnrollDate(): string
-    {
-        return $this->enrollDate;
-    }
+		public function setInquiryID(string $inquiryID): AttendanceInquiry {
+			$this->inquiryID = $inquiryID;
+			return $this;
+		}
 
 
-}
+		public function getSentBy(): string {
+			return $this->sentBy;
+		}
+
+		public function getMessage(): string {
+			return $this->message;
+		}
+
+		public function getDate(): string {
+			return $this->date;
+		}
+
+
+		public function isViewed(): bool {
+			return $this->isViewed;
+		}
+
+
+	}
+
+	class enrollment {
+		//attributes of enrollment
+		private int $enrollmentID;
+		private int $studentIndexNo;
+		private string $courseCode;
+		private string $attempt;
+		private string $enrollDate;
+
+		//methods for enrollment
+		public function setEnrollmentDetails($enrollmentId, $studentIndexNo, $courseCode, $attempt, $enrollDate) {
+			$this->enrollmentID;
+			$this->studentIndexNo;
+			$this->courseCode;
+			$this->attempt;
+			$this->enrollDate;
+			return $this;
+		}
+
+		public function getEnrollmentID(): int {
+			return $this->enrollmentID;
+		}
+
+		public function getStudentIndexNo(): int {
+			return $this->studentIndexNo;
+		}
+
+		public function getCourseCode(): string {
+			return $this->courseCode;
+		}
+
+		public function getAttempt(): string {
+			return $this->attempt;
+		}
+
+		public function getEnrollDate(): string {
+			return $this->enrollDate;
+		}
+
+
+	}

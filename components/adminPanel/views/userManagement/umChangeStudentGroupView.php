@@ -37,7 +37,7 @@
                         </optgroup>
                         <optgroup label='4th Year Student'>
                             <option value='4CSS'>4CSS</option>
-                            <option value='4CSG'>4CSG</option>
+                            <option value='4CSE'>4CSE</option>
                             <option value='4IS'>4IS</option>
                         </optgroup>
                     </select>

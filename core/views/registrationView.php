@@ -147,7 +147,7 @@
                     <i class="fa fa-question-circle " onmouseover="visible('tooltipDOB')" aria-hidden="true">
                         <span style="visibility:hidden;" class="toolTip" id="tooltipDOB"></span>
                     </i>
-                    <input type="date" name="dob" id="dob" <?php echo "value='" . $record['dob'] . "'" ?> disabled>
+                    <input type="date" name="dob" id="dob" <?php echo "value='" . $record['dob'] . "'" ?> >
 
                 </div>
             </div>
@@ -192,7 +192,7 @@
                     <span style="visibility:hidden;" class="toolTip" id="tooltipUniversityMail"></span>
                 </i>
                 <input type="email" placeholder="Enter University Email" name="universityMail"
-                       id="universityMail" <?php echo "value='" . $record['universityEmail'] . "'" ?> disabled>
+                       id="universityMail" value='<?php echo($_COOKIE['userName']) ?>@ucsc.cmb.ac.lk'>
             </div>
         </div>
 
