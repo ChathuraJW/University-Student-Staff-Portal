@@ -123,6 +123,7 @@
 
 /*notification entry styles*/
 .notificationEntry, .notificationEntryTimeTable {
+    text-decoration: none;
     display: block;
     height: auto;
     width: 95%;

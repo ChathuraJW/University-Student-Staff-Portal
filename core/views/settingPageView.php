@@ -15,7 +15,6 @@
 <!-- include header section -->
 <?php require('../assets/php/basicLoader.php') ?>
 <?php BasicLoader::loadHeader('../') ?>
-
 <div class="featureBody bodyBackground text">
     <form method="post" class="container" enctype="multipart/form-data">
         <div class="subHeading">
@@ -27,7 +26,7 @@
                     <label for="firstName">First Name</label>
                 </div>
                 <div class="col_75">
-                    <input type="text" id="firstName">
+                    <input type="text" name="firstName" value="<?php echo($controllerData->getFirstName()); ?>" required>
                 </div>
             </div>
             <div class="block">
@@ -35,21 +34,7 @@
                     <label for="lastName">Last Name</label>
                 </div>
                 <div class="col_75">
-                    <input type="text" id="lastName">
-                </div>
-            </div>
-            <div class="block">
-                <div class="col_25">
-                    <label class="text1" for="salutation">Salutation</label>
-                </div>
-                <div class="col_75">
-                    <select id="salutation" name="salutation">
-                        <option value="Rev">Rev</option>
-                        <option value="Dr">Dr</option>
-                        <option value="Mr">Mr</option>
-                        <option value="Mrs">Mrs</option>
-                        <option value="Miss">Ms</option>
-                    </select>
+                    <input type="text" name="lastName" value="<?php echo($controllerData->getLastName()); ?>" required>
                 </div>
             </div>
             <div class="block">
@@ -57,7 +42,7 @@
                     <label for="email">Personal Email</label>
                 </div>
                 <div class="col_75">
-                    <input type="email" id="email">
+                    <input type="email" name="email" value="<?php echo($controllerData->getPersonalEmail()); ?>" required>
                 </div>
             </div>
             <div class="block">
@@ -65,7 +50,7 @@
                     <label for="address">Address</label>
                 </div>
                 <div class="col_75">
-                    <input type="text" id="address">
+                    <input type="text" name="address" value="<?php echo($controllerData->getAddress()); ?>" required>
                 </div>
             </div>
             <div class="block">
@@ -73,31 +58,34 @@
                     <label for="contactNum">Contact Number</label>
                 </div>
                 <div class="col_75">
-                    <input type="number" id="contactNum">
+                    <input type="number" name="contactNumber" value="<?php echo($controllerData->getTPNO()); ?>" required>
                 </div>
             </div>
             <div class="buttonSet">
-                <input class="button" type="submit" value="Update">
+                <input class="button" type="submit" name="updateProfileData" value="Update">
                 <input class="button" type="reset" value="Cancel">
             </div>
         </div>
+    </form>
         <hr>
         <div class="subHeading">
             <label class="subHeading">Update Profile Picture</label>
         </div>
         <div class="subContainer">
-            <div class="inputs profilePictureUpload">
-                <label for="profilePic" id="imageLoadContainer">
-                    <img class="profile" id="output" src="" style="display: none;">
-                    <i class="fa fa-upload" aria-hidden="true" id="uploadIcon"
-                       style="display: block;padding: 15px;font-size: 7em;text-align:center;"></i>
-                </label>
-                <input class="inputField choose" type="file" accept="image/*" onchange="loadFile(event)" name="profilePic" id="profilePic">
-            </div>
-            <div class="buttonSet">
-                <input class="button" type="submit" name="profilePictureSubmit" value="Update">
-                <input class="button" type="reset" value="Cancel">
-            </div>
+            <form method="post" class="container" enctype="multipart/form-data">
+                <div class="inputs profilePictureUpload">
+                    <label for="profilePic" id="imageLoadContainer">
+                        <img class="profile" id="output" src="" style="display: none;">
+                        <i class="fa fa-upload" aria-hidden="true" id="uploadIcon"
+                           style="display: block;padding: 15px;font-size: 7em;text-align:center;"></i>
+                    </label>
+                    <input class="inputField choose" type="file" accept="image/*" onchange="loadFile(event)" name="profilePic" id="profilePic">
+                </div>
+                <div class="buttonSet">
+                    <input class="button" type="submit" name="profilePictureSubmit" value="Update">
+                    <input class="button" type="reset" value="Cancel">
+                </div>
+            </form>
         </div>
         <hr>
 
@@ -130,7 +118,6 @@
             </div>
         </div>
         <a id="aTag" style="display:none;" href="http://localhost/USSP/core/privateKey.txt" onclick="displayNone()"></a>
-    </form>
 </div>
 </body>
 <script src="../assets/js/jquery.js"></script>

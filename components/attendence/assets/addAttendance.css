@@ -154,6 +154,7 @@ textarea {
 }
 
 .markAsReadButton {
+    visibility: hidden;
     display: none;
 }
   

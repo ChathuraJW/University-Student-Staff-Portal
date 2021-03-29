@@ -92,7 +92,13 @@
 			return $this;
 		}
 
-		//methods of User
+		public function setUserSetting($firstName,$lastName,$personalEmail,$address,$telephone){
+			$this->firstName = $firstName;
+			$this->lastName = $lastName;
+			$this->personalEmail = $personalEmail;
+			$this->address = $address;
+			$this->TPNO = $telephone;
+		}
 
 	}
 

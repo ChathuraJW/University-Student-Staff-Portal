@@ -1,14 +1,46 @@
 <?php
 
 	class SettingPageModel extends Model {
+		public static function loadEditableData(): User {
+			$userName=$_COOKIE['userName'];
+			$sqlQuery="SELECT * FROM user WHERE userName='$userName'";
+			$result=Database::executeQuery('generalAccess','generalAccess@16',$sqlQuery)[0];
+			$user= new User();
+			$user->setUserSetting($result['firstName'],$result['lastName'],$result['personalEmail'],$result['address'],$result['TPNO']);
+			return $user;
+		}
+
+		public static function updateProfileData($userData){
+			$userName=$_COOKIE['userName'];
+			$dbInstance=new Database();
+			$dbInstance->establishTransaction('generalAccess','generalAccess@16');
+//			user data update query
+			$sqlQuery="UPDATE user SET firstName='".$userData->getFirstName()."',lastName='".$userData->getLastName()."'
+			,personalEmail='".$userData->getPersonalEmail()."',address='".$userData->getAddress()."',TPNO='".$userData->getTPNO()."' WHERE userName='$userName'";
+			echo($sqlQuery);
+			$dbInstance->executeTransaction($sqlQuery);
+			$dbInstance->transactionAudit($sqlQuery,'user','UPDATE',"Update profile data of user $userName.",$userName);
+
+			if($dbInstance->getTransactionState()){
+				if($dbInstance->commitToDatabase($userName)){
+					echo("<script>createToast('Operation Successful.','Profile information successfully updated.','S')</script>");
+				}else{
+					echo("<script>createToast('Warning (error code: #SETP02)','Failed to update user information.','W')</script>");
+				}
+			}else{
+				echo("<script>createToast('Warning (error code: #SETP02)','Failed to update user information.','W')</script>");
+			}
+
+		}
+
 		public static function profilePicUpdate($userName, $fileName) {
 			$query = "UPDATE user SET profilePicURL='$fileName' WHERE userName='$userName'";
 			$databaseInstance = new Database;
-			$databaseInstance->establishTransaction('root', '');
+			$databaseInstance->establishTransaction('generalAccess', 'generalAccess@16');
 			if ($databaseInstance->executeTransaction($query)) {
 				$databaseInstance->transactionAudit($query, 'user', "UPDATE", "Update profile picture of user $userName.");
 				if ($databaseInstance->commitToDatabase()) {
-					echo("<script>createToast('Operation Successful.','Profile picture update successfully.','S')</script>");
+					echo("<script>createToast('Operation Successful.','Profile picture successfully updated.','S')</script>");
 				}
 			} else {
 				echo("<script>createToast('Warning (error code: #SETP01)','Failed to Update Profile Picture','W')</script>");

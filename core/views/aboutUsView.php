@@ -38,9 +38,9 @@
                 <p class="textStyle">Supervisor</p>
                 <img class="imageFirst" src="assets/images/imageOne.png">
                 <div>
-                    <p style="font-weight:bold;" class="text">Dr. Manjusri Wickramasinghe, B.Sc(Col), Ph.D (Monash)</p>
+                    <p style="font-weight:bold;" class="text">Dr. Manjusri Wickramasinghe<br>B.Sc(Col), Ph.D (Monash)</p>
                     <p class="text">Senior Lecturer</p>
-                    <p class="text">Department of Computation and Intelligent Systems (CIS)
+                    <p class="text">Department of Computation and Intelligent Systems (CIS),
                         University of Colombo School of Computing,
                         No. 35, Reid Avenue, Colombo 07, Sri Lanka</p>
                     <!-- <p class="text">email.com</p> -->
@@ -52,9 +52,10 @@
                 <p class="textStyle">Co-Supervisor</p>
                 <img class="imageFirst" src="assets/images/imageTwo.png">
                 <div>
-                    <p style="font-weight:bold;" class="text">Mis Nimali Wasana</p>
-                    <p class="text">email.com</p>
-                    <p class="text">details</p>
+                    <p style="font-weight:bold;" class="text">Ms. Nimali Wasana <br> B.Sc(Col), MCS(Col)</p>
+                    <p class="text">Instructor, Project Officer in Professional Development Centre</p>
+                    <p class="text">University of Colombo School of Computing.
+                        No. 35, Reid Avenue, Colombo 07, Sri Lanka.</p>
                 </div>
             </div>
         </div>
@@ -64,33 +65,31 @@
         <div class="image">
             <img class="imageSecond" src="assets/images/imageThree.png">
             <div>
-                <p style="font-weight:bold;" class="text">Chathura</p>
-                <p class="text">email.com</p>
-                <p class="text">details</p>
+                <p style="font-weight:bold;" class="text">Mr. Chathura Wanniarachchi</p>
+                <a class="text" href="https://www.linkedin.com/in/chathura-janaranjana-wanniarachchi">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
             </div>
         </div>
         <div class="image">
             <img class="imageSecond" src="assets/images/imageThree.png">
             <div>
-                <p style="font-weight:bold;" class="text">Shubangi</p>
-                <p class="text">email.com</p>
-                <p class="text">details</p>
+                <p style="font-weight:bold;" class="text">Miss. Shubangi Chamod</p>
+                <a class="text"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="image">
             <img class="imageSecond" src="assets/images/imageThree.png">
             <div>
-                <p style="font-weight:bold;" class="text">Piyumi</p>
-                <p class="text">email.com</p>
-                <p class="text">details</p>
+                <p style="font-weight:bold;" class="text">Mr. Rajith<br> Chamod</p>
+                <a class="text"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="image">
             <img class="imageSecond" src="assets/images/imageThree.png">
             <div>
-                <p style="font-weight:bold;" class="text">Rajitha</p>
-                <p class="text">email.com</p>
-                <p class="text">details</p>
+                <p style="font-weight:bold;" class="text">Miss. Piyumi Senarath</p>
+                <a class="text"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
             </div>
         </div>
     </div>

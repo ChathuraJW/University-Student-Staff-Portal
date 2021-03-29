@@ -40,7 +40,8 @@
 					throw new mysqli_sql_exception("Query Failed.");
 				}
 			} catch (Exception $exception) {
-//				echo("Exception ::: << " . $exception->getMessage() . " >>  " . $exception->getTraceAsString());
+				//TODO
+				echo("Exception ::: << " . $exception->getMessage() . " >>  " . $exception->getTraceAsString());
 				return array();
 			}
 		}
@@ -50,7 +51,8 @@
 			error_reporting(E_ERROR | E_PARSE);
 			$conn = new mysqli(self::$serverStatic, $userName, $password, self::$databaseStatic);
 			if ($conn->connect_errno) {
-//				echo("Exception ::: << " . $conn->connect_error . " >>");
+				//TODO
+				echo("Exception ::: << " . $conn->connect_error . " >>");
 				exit();
 			}
 			return $conn;
@@ -62,7 +64,8 @@
 			error_reporting(E_ERROR | E_PARSE);
 			$conn = new mysqli($this->server, $userName, $password, $this->database);
 			if ($conn->connect_errno) {
-//				echo("Exception ::: << " . $conn->connect_error . " >>");
+				//TODO
+				echo("Exception ::: << " . $conn->connect_error . " >>");
 				exit();
 			} else {
 //                assign connection values to variable
@@ -121,7 +124,8 @@
 				}
 			} catch (Exception $exception) {
 				$this->transactionState = false;
-//				echo("Exception ::: << " . $exception->getMessage() . " >>  " . $exception->getTraceAsString());
+				//TODO
+				echo("Exception ::: << " . $exception->getMessage() . " >>  " . $exception->getTraceAsString());
 				return array();
 			}
 		}

@@ -75,7 +75,7 @@
                                     <label class='senderTime'>" . $notification->getTimeStamp() . "</label>                                                                
                                 ");
 									if ($isViewed == 0) {
-										echo("<input type='button'class='markAsReadButton' id='$notificationId' value='$notificationId' onclick='markASRead(`$notificationId`);' >
+										echo("<input type='button' style='display: none;' class='markAsReadButton' id='$notificationId' value='$notificationId' onclick='markASRead(`$notificationId`);' >
                                         <div class='markAsRead'><label for='$notificationId' id='marked$notificationId' class='markAsRead'>Mark as read</label></div>");
 									}
 									echo("

@@ -145,8 +145,22 @@
         <span class="columnHeader">Current Reservation Map</span>
         <div class="dataTableArea" style="padding: 0 30px 30px;box-shadow:none">
             <div class="controlSection" style="margin:auto;padding: 0 20px 20px;">
-                <span class="inputHeading">Select the date to search:</span>
-                <input type="date" id="selectedDate" onchange="fillCurrentAllocationMap();">
+                <div class="row col-2">
+                    <div>
+                        <span class="inputHeading">Select the date to search:</span>
+                        <input type="date" id="selectedDate" onchange="fillCurrentAllocationMap();" style="margin: 0">
+                    </div>
+                    <div>
+                        <span>
+                            <span class="inputHeading">Color Keymap:</span>
+                            <div class="row col-2">
+                                <span><span style="color: rgba(255, 0, 0, 0.6);">&#9930;</span> -CS Timetable Allocation </span>
+                                <span><span style="color: rgba(0, 0, 255, 0.6);">&#9930;</span> -IS Timetable Allocation </span>
+                                <span><span style="color: rgba(0, 128, 0, 0.6);">&#9930;</span> -Custom Reservation Entries</span>
+                            </div>
+                        </span>
+                    </div>
+                </div>
 
             </div>
             <table border="1" id="allocationMap" class="allocationMap">

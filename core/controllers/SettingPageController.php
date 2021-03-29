@@ -4,9 +4,14 @@
 	class SettingPageController extends Controller {
 
 		public static function open() {
-			self::createView("settingPageView");
+			$userSettingData=SettingPageModel::loadEditableData();
+			self::createView("settingPageView",$userSettingData);
 
-			if (isset($_POST['profilePictureSubmit'])) {
+			if(isset($_POST['updateProfileData'])){
+				$user= new User();
+				$user->setUserSetting($_POST['firstName'],$_POST['lastName'],$_POST['email'],$_POST['address'],$_POST['contactNumber']);
+				SettingPageModel::updateProfileData($user);
+			}else if (isset($_POST['profilePictureSubmit'])) {
 				$fileName = $_COOKIE['userName'] . '.png';
 				$profilePic = $_FILES['profilePic']['name'];
 				$tempName = $_FILES['profilePic']['tmp_name'];
@@ -16,8 +21,7 @@
 					$userName = $_COOKIE['userName'];
 					SettingPageModel::profilePicUpdate($userName, $fileName);
 				}
-			}
-			if (isset($_POST['pubKeySubmit'])) {
+			}else if (isset($_POST['pubKeySubmit'])) {
 				$config = array(
 					"digest_alg" => "sha256",
 					"private_key_bits" => 2048,

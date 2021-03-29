@@ -47,7 +47,6 @@ function fillCurrentAllocationMap() {
     let selectedDate = document.getElementById('selectedDate').value;
 
     // create API calling link
-    //TODO API Point
     let requestURL = "http://localhost/USSP/components/hallBooking/assets/hallBookingAPI.php?operation=loadCurrentAllocation&dateSelected=" + selectedDate;
     // call API for data
     $.getJSON(requestURL, function (timetableEntryList) {
@@ -56,8 +55,6 @@ function fillCurrentAllocationMap() {
             let row = allocationTable.rows[timetableEntryList[i]['rowNumber']];
             let baseCell = timetableEntryList[i]['beginCell'];
 
-            // define variable to identify the first slot
-            let isFirstCell = true;
             for (let j = baseCell; j < timetableEntryList[i]['endCell']; j++) {
                 // add styles to the maker on the table
                 row.cells[j].style.backgroundColor = timetableEntryList[i]['degreeStreamColor'];
@@ -66,14 +63,8 @@ function fillCurrentAllocationMap() {
                 row.cells[j].style.border = "2px solid rgba(237, 226, 226, 0.33)";
                 row.cells[j].style.borderLeft = 'none';
 
-                // check weather current clot is first slot to add id and message
-                if (isFirstCell) {
-                    row.cells[j].innerHTML = (i + 1).toString();
-                    row.cells[j].title = timetableEntryList[i]['displayMessage'];
-                    isFirstCell = false;
-                } else {
-                    row.cells[j].innerHTML = '-';
-                }
+                // attach title for all cells
+                row.cells[j].title = timetableEntryList[i]['displayMessage'];
             }
         }
     });

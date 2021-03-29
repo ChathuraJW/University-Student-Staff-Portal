@@ -2,8 +2,7 @@ var indexValue = 0;
 // var username=document.getElementById("username").value;
 // console.log(username);
 const username = document.cookie.split('userName')[1].split(';')[0].split('=')[1];
-console.log(username);
-var url = "http://localhost/USSP/components/timetable/assets/timetableAPI.php?&username=" + username + "";
+var url = "http://localhost/USSP/components/timetable/assets/timetableAPI.php?&username=" + username ;
 console.log(url);
 $.getJSON(url, function (dataList) {
     var le = dataList.length;

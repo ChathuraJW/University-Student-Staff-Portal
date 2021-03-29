@@ -47,16 +47,14 @@
 
                     </div>
 					<?php
-						//                print_r($controllerData[1]);
 						foreach ($controllerData[1] as $notification)
-							echo("<div class='notificationEntry '>
-                    <div class='notificationIcon'><i class='fas fa-school'></i></div>
-                    <div class='notificationContent'>" . $notification[0]['title'] . "</div>
-                    <div class='notificationContent'>" . $notification[0]['firstName'] . " " . $notification[0]['lastName'] . " </div>
-                    <div class='notificationContent'>" . $notification[0]['timestamp'] . "</div>
-                    
-                </div>")
-
+							echo("<a href='../components/notification/viewNotification' class='notificationEntry '>
+                                <div class='notificationIcon'><i class='fas fa-school'></i></div>
+                                <div class='notificationContent'>" . $notification[0]['title'] . "</div>
+                                <div class='notificationContent'>" . $notification[0]['firstName'] . " " . $notification[0]['lastName'] . " </div>
+                                <div class='notificationContent'>" . $notification[0]['timestamp'] . "</div>
+                                
+                            </a>")
 					?>
                 </div>
             </div>
@@ -78,7 +76,7 @@
                                     <div class='notificationEntryTimeTable'>
                                     <i class='fas fa-chalkboard-teacher'></i>&nbsp;&nbsp;" . $event['subjectCode'] . "<br>
                                     <i class='fas fa-map-marked-alt'></i>&nbsp;&nbsp;" . $event['hallID'] . " <br>
-                                    <i class='far fa-clock'></i>&nbsp;$from - $to <br>
+                                    <i class='far fa-clock'></i>&nbsp;&nbsp;&nbsp;$from - $to <br>
                                     </div>
                                 ");
 								}

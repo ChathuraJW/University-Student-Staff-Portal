@@ -1,6 +1,4 @@
 <?php
-
-
 	Route::set('timetable', function () {
 		TimetableController::open();
 	});

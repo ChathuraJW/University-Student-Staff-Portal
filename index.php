@@ -1,5 +1,6 @@
 <?php
 //	hide errors
+//	TODO
 	error_reporting(0);
 //	set timezone
 	date_default_timezone_set('Asia/Colombo');
