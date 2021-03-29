@@ -2,9 +2,11 @@
     class WorkLoadAllocationModel extends Model{ 
         public static function getWorkLoad(){
             $workLoadList= array();
-            $workLoads=Database::executeQuery("academicSupportiveHead","academicSupportiveHead@16","SELECT * FROM workload,User where workload.workloadOwner=User.userName AND workload.checkValue=0;");
+            
+                $date=date('Y-m-d');
+            $query="SELECT * FROM workload,User where workload.workloadOwner=User.userName AND workload.checkValue=0 AND workload.Date>='$date'";
+            $workLoads=Database::executeQuery("academicSupportiveHead","academicSupportiveHead@16",$query);
             // print_r($workLoads);
-
             foreach($workLoads as $workLoad){
                 $newWorkLoad= new AllocatedWorkload;
                 
@@ -40,11 +42,11 @@
                     echo("<script>createToast('Success','Workload Allocated successfully.','S');</script>");
                 }else{
     //                display fail message
-                    echo("<script>createToast('Warning (error code: #WLA01)','Workload Allocation failed .','W')</script>");
+                    echo("<script>createToast('Warning (error code: #WLA01)','Workload Allocation failed .','W');</script>");
                 }
             }else{
     //            display fail message
-                echo("<script>createToast('Warning (error code: #WLA01)','Workload Allocation failed .','W')</script>");
+                echo("<script>createToast('Warning (error code: #WLA01)','Workload Allocation failed .','W');</script>");
             }
     //        close connection
             $databaseInstance->closeConnection();

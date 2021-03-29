@@ -180,31 +180,31 @@
                     <input type="hidden" name="workloadID" value="<?php echo $_GET['workloadID']?>">
                     <div class="displayingMessage allocationInput">
                         <div class="label"><label for="title">Title</label> </div>
-                        <div class="value"><input class="input" type="text" value="<?php echo $_GET['title']?>" id="title"></div>
+                        <div class="value"><input class="input" type="text" value="<?php echo $_GET['title']?>" id="title" readonly></div>
                     </div>
                     <div class="displayingMessage allocationInput">
                         <div class="label"><label for="lecturer">Lecturer</label> </div>
-                        <div class="value"><input class="input" type="text" value="<?php echo $_GET['fullName']?>" id="lecturer"></div>
+                        <div class="value"><input class="input" type="text" value="<?php echo $_GET['fullName']?>" id="lecturer" readonly></div>
                     </div>
                     <div class="displayingMessage allocationInput">
                         <div class="label"><label for="location">Location</label> </div>
-                        <div class="value"><input class="input" type="text" value="<?php echo $_GET['location']?>" id="location"></div>
+                        <div class="value"><input class="input" type="text" value="<?php echo $_GET['location']?>" id="location" readonly></div>
                     </div>
                     <div class="displayingMessage allocationInput">
                         <div class="label"><label for="Date">From Date</label> </div>
-                        <div class="value"><input class="input" type="date" value="<?php echo $_GET['Date']?>" id="Date"></div>
+                        <div class="value"><input class="input" type="date" value="<?php echo $_GET['Date']?>" id="Date" readonly></div>
                     </div>
                     <div class="displayingMessage allocationInput">
                         <div class="label"><label for="fromTime">From Time</label> </div>
-                        <div class="value"><input class="input"type="time" value="<?php echo $_GET['fromTime']?>" id="fromTime"></div>
+                        <div class="value"><input class="input"type="time" value="<?php echo $_GET['fromTime']?>" id="fromTime" readonly></div>
                     </div>
                     <div class="displayingMessage allocationInput">
                         <div class="label"><label for="toTime">To Time</label> </div>
-                        <div class="value"><input class="input"type="time" value="<?php echo $_GET['toTime']?>" id="toTime"></div>
+                        <div class="value"><input class="input"type="time" value="<?php echo $_GET['toTime']?>" id="toTime" readonly></div>
                     </div>
                     <div class="displayingMessage allocationInput" >
                         <div class="label" style="vertical-align:top;" ><label  for="description">Description</label></div>
-                        <div class="value"><textarea class="input" type="" value="" id="description"><?php echo $_GET['workLoadDescription']?></textarea></div>
+                        <div class="value"><textarea class="input" type="" value="" id="description"  readonly><?php echo $_GET['workLoadDescription']?></textarea></div>
                     </div>
                     <div class="row col-2">
                         <div style="text-align:center;"><input onclick="allocationCancel()"class="button "type="reset" value="Cancel"></div>
