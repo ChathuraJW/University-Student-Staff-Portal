@@ -250,7 +250,7 @@
                 <div class="row col-2">
                     <div class="showRest">
                         <span>Assignment Name</span><br>
-                        <textarea name="assignmentName" id="assignmentName" cols="30" rows="10" equired>
+                        <textarea name="assignmentName" id="assignmentName" cols="30" rows="10" required>
                             <?php echo setValue('assignmentName'); ?>
                         </textarea>
                     </div>
