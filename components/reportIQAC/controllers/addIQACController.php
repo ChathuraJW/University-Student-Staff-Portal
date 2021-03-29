@@ -12,8 +12,8 @@ class AddIQACController extends Controller{
         if(isset($_POST['upload'])){
             $staffID = $_POST['lecturer'];
             $examinationYear = $_POST['examinationYear'];
-            $academicYear = $_POST['academicYear'];
-            $semester = $_POST['semester'];
+            //$academicYear = $_POST['academicYear'];
+            //$semester = $_POST['semester'];
             $subjectCode = $_POST['subject'];
             $name = $_FILES['myFile']['name'];
             $fileLocation = $_FILES['myFile']['tmp_name'];
@@ -21,22 +21,22 @@ class AddIQACController extends Controller{
             $fileExtension = strtolower(end($fileNameCmps));
 
             //check all inputs fill in it's feilds
-            if(!$staffID || !$examinationYear || !$academicYear || !$semester || !$subjectCode || !$name || !$fileNameCmps || !$fileExtension){
+            if(!$staffID || !$examinationYear || !$subjectCode || !$name || !$fileNameCmps || !$fileExtension){
                 echo("<script>createToast('Warning(error code:#IQAC01-T)','Failed to get inputs from input feilds.','W')</script>");
             }
             //semester values (1,2,3,4,5,6,7,8)
-            $semList = array(array(1, 2), array(3, 4), array(5, 6), array(7, 8));
-	        $realSemester = $semList[$academicYear - 1][$semester - 1];
+            //$semList = array(array(1, 2), array(3, 4), array(5, 6), array(7, 8));
+	        //$realSemester = $semList[$academicYear - 1][$semester - 1];
 
 	        //get subject name 
 	        $subjectName = AddIQACModel::getSubjectName($subjectCode);
 
 	        
-            if($semester == 1){
-                $semesterInWords = "First Semester";
-            }else{
-                $semesterInWords = "Second Semester";
-            }
+            //if($semester == 1){
+                //$semesterInWords = "First Semester";
+            //}else{
+               // $semesterInWords = "Second Semester";
+           // }
 
             
              

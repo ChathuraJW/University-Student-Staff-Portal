@@ -84,10 +84,10 @@ class courseModule{
     private int $semester;
     // methods of courseModule
 
-    public function setCourseModule($courseCode, $name, $semester){
+    public function setCourseModule($courseCode, $name){
         $this->courseCode = $courseCode;
         $this->name = $name;
-        $this->semester = $semester;
+        //$this->semester = $semester;
         return $this;
     }
 
@@ -104,10 +104,10 @@ class courseModule{
     }
 
 
-    public function getSemester(): int
-    {
-        return $this->semester;
-    }
+    // public function getSemester(): int
+    // {
+    //     return $this->semester;
+    // }
 
 }
 

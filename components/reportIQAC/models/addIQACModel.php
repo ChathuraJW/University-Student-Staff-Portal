@@ -20,14 +20,14 @@
     }
 
     public static function getSubjectData():array|bool{
-        $sqlQuery = "SELECT courseCode, name, semester FROM course_module ORDER BY semester";
+        $sqlQuery = "SELECT courseCode, name FROM course_module ORDER BY semester";
         $subjects = Database::executeQuery('root','',$sqlQuery);
 
         if($subjects){
             $subjectList = array();
             foreach ($subjects as $row){
                 $newSubject = new courseModule();
-                $newSubject->setCourseModule($row['courseCode'], $row['name'], $row['semester']);
+                $newSubject->setCourseModule($row['courseCode'], $row['name']);
                 $subjectList[] = $newSubject;
             }
             return $subjectList;
@@ -43,13 +43,13 @@
             if(isset($name) and !empty($tempName)){
                 $location = './assets/IQACreports/';
                 $fileName = $report->getReportName();
-                echo("File name- $fileName");
+                //echo("File name- $fileName");
             }
         $dbObject = new Database();
         $dbObject->establishTransaction('root','');
-        $sqlQuery = "INSERT INTO iqac_report(staffID, subjectCode, 	fileLocation, examinationYear, semester,reportName) VALUES ('".$report->getStaffID()."','".$report->getSubjectCode()."','$location',".$report->getExaminationYear().",".$report->getSemester().",'".$report->getReportName()."')";
+        $sqlQuery = "INSERT INTO iqac_report(staffID, subjectCode, 	fileLocation, examinationYear, reportName) VALUES ('".$report->getStaffID()."','".$report->getSubjectCode()."','$location',".$report->getExaminationYear().",'".$report->getReportName()."')";
         $dbObject->executeTransaction($sqlQuery);
-        echo($sqlQuery);
+        //echo($sqlQuery);
         //create audit trail
         $dbObject->transactionAudit($sqlQuery,'iqac_report', 'INSERT',"IQAC Report uploaded to the system." );
 

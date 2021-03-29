@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 
-<body>
+<body class="bodyBackground text">
     <!-- include header section -->
     <?php require('../../assets/php/basicLoader.php')?>
     <?php BasicLoader::loadHeader('../../')?>
     
-    <div class="featureBody bodyBackground text">
+    <div class="featureBody">
         <div class="row col-1">
             <P class="heading">Add IQAC Report</P>
         </div>
@@ -57,7 +57,7 @@
                         <select name="examinationYear" id="examinationYear" required>
                         </select>
                     </div>
-                    <div>
+                    <!--<div>
                         <label class="label">Academic Year:</label><br>
                         <select name="academicYear" required>
                             <option value="0"></option>
@@ -74,7 +74,7 @@
                             <option value=1>First Semester</option>
                             <option value=2>Second Semester</option>
                         </select>
-                    </div>
+                    </div>-->
                      
                 </div>
                 <div id="inputFile" class="inputFile row col-1">
