@@ -6,7 +6,7 @@
             $userName=$_COOKIE['userName'];
             $sqlQueryGetTime = "SELECT * FROM message,user_receive_message WHERE message.messageID=user_receive_message.messageID AND message.sendBy='$userName'";
             $getDetail = Database::executeQuery("root","",$sqlQueryGetTime);
-            echo($sqlQueryGetTime);
+            //echo($sqlQueryGetTime);
 
             if($getDetail){
                 $getDeatilList = array();

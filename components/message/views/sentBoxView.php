@@ -46,6 +46,7 @@
         </div>
         <div class="displayMessage">
           <?php
+          echo($controllerData);
             if(isset($_GET['messageID'])){
               $receivedBy="";
               foreach ($controllerData as $data){

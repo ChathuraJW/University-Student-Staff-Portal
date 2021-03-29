@@ -26,7 +26,7 @@
 
 
         public static function getCompletedApplicationData(){
-            $sqlQuery = "SELECT * FROM request_train_season WHERE isChecked=1";
+            $sqlQuery = "SELECT * FROM request_train_season WHERE isChecked=1 AND collectedTimestamp='0000-00-00 00:00:00' ";
             
             $requesterData = Database::executeQuery("root","",$sqlQuery);
              

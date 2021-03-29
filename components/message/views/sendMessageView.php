@@ -165,7 +165,7 @@
                 </div>
 
                 <div>
-                    <select id='administrativeList' name='administrativeList' onchange='addStaffRecipient('`administrativeList`');'>
+                    <select id='administrativeList' name='administrativeList' onchange='addStaffRecipient(`administrativeList`);'>
                     <option value=''>Administrative Staff</option>
                     ");
 
