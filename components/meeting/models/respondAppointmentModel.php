@@ -1,8 +1,8 @@
 <?php
     class RespondAppointmentModel extends Model{
         public static function getData(){
-            setcookie('userName','kpk');
-            $staffID=$_COOKIE['userName'];
+            // setcookie('userName','kpk');
+            // $staffID=$_COOKIE['userName'];
             $current=date("Y-m-d");
             $queryOne="SELECT * FROM meeting_appointment WHERE staffID='$staffID' AND isApproved='N' AND appointmentDate>='$current' AND requesValidity=1";
             $appointmentList= array();
@@ -21,8 +21,8 @@
 
         }
         public static function getPastData(){
-            setcookie('userName','kpk');
-            $staffID=$_COOKIE['userName'];
+            // setcookie('userName','kpk');
+            // $staffID=$_COOKIE['userName'];
             $current=date("Y-m-d");
             $past= date('Y-m-d',strtotime('-2 week',strtotime($current)));
             $query="SELECT * FROM meeting_appointment WHERE staffID='$staffID' AND appointmentDate>='$past' AND isApproved='A' OR isApproved='R'";
