@@ -1,15 +1,15 @@
 <div class="bodyBackground text">
-    <div class="heading">Subject Management</div>
+    <div class="sectionTitle">Subject Management</div>
     <div id="coursePage">
-        <div class="addElement" onclick="addCourse()"><i class="fa fa-plus" aria-hidden="true"></i> ADD New Course</div>
+        <div class="button" style="margin-bottom: 30px;" onclick="addCourse()">Add New Course</div>
 		<?php
 			$records = $controllerData;
 			foreach ($records as $record) {
 				echo "
                 <div class='elementTab'>
                     <div class='elementName'>" . $record->getCourseCode() . "   " . $record->getName() . "</div>
-                    <div class='elementEdit' onclick='editFunction(`" . $record->getCourseCode() . "`)'>EDIT</div>
-                    <div class='elementDelete' onclick='deleteFunction(`" . $record->getCourseCode() . "`)'>DELETE</div>
+                    <div class='elementEdit' onclick='editFunction(`" . $record->getCourseCode() . "`)'>Edit</div>
+                    <div class='elementDelete' onclick='deleteFunction(`" . $record->getCourseCode() . "`)'>Edit</div>
                 </div>
 
                 ";
@@ -17,9 +17,9 @@
 
 		?>
     </div>
-    <div class="heading" style="display:none;font-size:20px;" id="headingEdit">EDIT Course</div>
-    <div class="heading" style="display:none;font-size:20px;" id="headingDelete">DELETE Course</div>
-    <div class="heading" style="display:none;font-size:20px;" id="headingAdd">ADD Course</div>
+    <div class="heading" style="display:none;font-size:20px;" id="headingEdit">Edit Course</div>
+    <div class="heading" style="display:none;font-size:20px;" id="headingDelete">Delete Course</div>
+    <div class="heading" style="display:none;font-size:20px;" id="headingAdd">Add Course</div>
     <form id="courseDetailForm" style="display:none;" action="" method="post">
         <div class="dataForm">
             <div class="inputDiv">
@@ -46,9 +46,9 @@
 
 
         </div>
-        <div class="buttonDual">
-            <input type="button" value="Cancel" onclick="cancelFunction()" class="buttonSet text">
-            <input id="submitButtonInput" type="submit" value="Submit" name="submit" class="buttonSet text">
+        <div class="buttonCouple">
+            <input type="button" value="Cancel" onclick="cancelFunction()" class="button text">
+            <input id="submitButtonInput" type="submit" value="Submit" name="submit" class="button text">
         </div>
     </form>
     <form id="courseDeleteView" method="post" style="display:none;">

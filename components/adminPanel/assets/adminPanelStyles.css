@@ -92,10 +92,11 @@
 .elementTab {
     width: 115%;
     display: table;
-    margin: auto auto 5px;
     background-color: var(--entryBackgroundColor);
     color: var(--fontColor);
     padding: 10px;
+    border-radius: 6px;
+    margin: auto auto 15px;
 }
 
 .elementName {
@@ -214,10 +215,10 @@
 }
 
 .group {
-    padding: 10px;
+    padding: 15px;
     width: 115%;
     background-color: var(--entryBackgroundColor);
-    margin: auto auto 10px;
+    margin: auto auto 10px 40px;
 }
 
 .group:hover {
@@ -255,6 +256,7 @@ th {
 
 .day {
     background-color: var(--entryBackgroundColor);
+    width: 40px;
 }
 
 /*costume styles*/

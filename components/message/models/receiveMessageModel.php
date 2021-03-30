@@ -1,26 +1,21 @@
 <?php
 
-	class receiveMessageModel extends Model {
+	class ReceiveMessageModel extends Model {
 		public static function getMessageData() {
 			$userName = $_COOKIE['userName'];
 			$sqlQueryGetTime = "SELECT * FROM message,user_receive_message WHERE message.messageID=user_receive_message.messageID AND user_receive_message.receivedBy='$userName'";
-			$getDetail = Database::executeQuery("root", "", $sqlQueryGetTime);
-			echo($sqlQueryGetTime);
-
+			$getDetail = Database::executeQuery("generalAccess", "generalAccess@16", $sqlQueryGetTime);
 			if ($getDetail) {
-				$getDeatilList = array();
+				$getDetailList = array();
 				foreach ($getDetail as $data) {
 					$newDetail = new Message();
 					$newDetail->setMessageDetail($data['title'], $data['message'], $data['sendBy'], $data['messageID'], $data['receivedBy'], $data['isViewed'], $data['timestamp']);
-					$getDeatilList[] = $newDetail;
+					$getDetailList[] = $newDetail;
 				}
-
-				return $getDeatilList;
+				return $getDetailList;
 			} else {
 				return false;
 			}
-
-
 		}
 
 
@@ -38,7 +33,7 @@
 			//check transaction state
 			if ($databaseInstance->getTransactionState()) {
 				if ($databaseInstance->commitToDatabase()) {
-					echo("<script>createToast('Success','Successfully updated the state','S')</script>");
+					echo("<script>createToast('Success','Successfully updated the state.','S')</script>");
 				} else {
 					echo("<script>createToast('Warning(error code:#UM04-T)','Failed to updated.','W')</script>");
 				}

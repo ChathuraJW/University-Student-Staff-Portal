@@ -1,15 +1,15 @@
 <?php
 	// structure of code need to write
 	Route::set('sendMessage', function () {
-		sendMessageController::sendMessage();
+		SendMessageController::sendMessage();
 	});
 
 	Route::set('receiveMessage', function () {
-		receiveMessageController::receiveMessage();
+		ReceiveMessageController::receiveMessage();
 	});
 
 	Route::set('sentBox', function () {
-		sentBoxController::sentBox();
+		SentBoxController::sentBox();
 	});
 
 

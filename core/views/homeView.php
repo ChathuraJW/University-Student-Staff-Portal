@@ -13,7 +13,6 @@
 <body class="bodyBackground" onresize="infoMessage()">
 <div id="contentContainer" class="mainContainer">
 	<?php
-		//    print_r($controllerData[4]);
 		$role = $controllerData[4];
 		$day = date("l");// get the current day
 		$day = strtoupper(substr($day, 0, 3));

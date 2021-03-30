@@ -36,7 +36,7 @@
         <div>
             <div class="image">
                 <p class="textStyle">Supervisor</p>
-                <img class="imageFirst" src="assets/images/imageOne.png">
+                <img class="imageFirst" src="assets/images/sup.png" alt="Supervisor">
                 <div>
                     <p style="font-weight:bold;" class="text">Dr. Manjusri Wickramasinghe<br>B.Sc(Col), Ph.D (Monash)</p>
                     <p class="text">Senior Lecturer</p>
@@ -50,7 +50,7 @@
         <div>
             <div class="image">
                 <p class="textStyle">Co-Supervisor</p>
-                <img class="imageFirst" src="assets/images/imageTwo.png">
+                <img class="imageFirst" src="assets/images/co_sup.png" alt="Co-Supervisor">
                 <div>
                     <p style="font-weight:bold;" class="text">Ms. Nimali Wasana <br> B.Sc(Col), MCS(Col)</p>
                     <p class="text">Instructor, Project Officer in Professional Development Centre</p>
@@ -63,33 +63,40 @@
     <div style="margin-top:5%;text-align:center;font-weight:bold;font-size:120%" class="text">Development Team</div>
     <div class="imageSet row col-4">
         <div class="image">
-            <img class="imageSecond" src="assets/images/imageThree.png">
+            <img class="imageSecond" src="assets/images/member_1.png" alt="Member 1"><br>
             <div>
                 <p style="font-weight:bold;" class="text">Mr. Chathura Wanniarachchi</p>
-                <a class="text" href="https://www.linkedin.com/in/chathura-janaranjana-wanniarachchi">
+                <p class="text">Computer Science Undergraduate at University of Colombo School of Computing, Sri Lanka</p>
+                <a class="text" target="_blank" href="https://www.linkedin.com/in/chathura-janaranjana-wanniarachchi">
                     <i class="fa fa-linkedin" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
         <div class="image">
-            <img class="imageSecond" src="assets/images/imageThree.png">
+            <img class="imageSecond" src="assets/images/member_2.png" alt="Member 2"><br>
             <div>
-                <p style="font-weight:bold;" class="text">Miss. Shubangi Chamod</p>
-                <a class="text"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                <p style="font-weight:bold;" class="text">Miss. Shubangi Rathnayake</p>
+                <p class="text">Computer Science Undergraduate at University of Colombo School of Computing, Sri Lanka</p>
+                <a class="text" target="_blank" href="https://www.linkedin.com/in/shubangi-rathnayake-238b44201">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="image">
-            <img class="imageSecond" src="assets/images/imageThree.png">
+            <img class="imageSecond" src="assets/images/member_3.png" alt="Member 3"><br>
             <div>
                 <p style="font-weight:bold;" class="text">Mr. Rajith<br> Chamod</p>
-                <a class="text"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                <p class="text">Computer Science Undergraduate at University of Colombo School of Computing, Sri Lanka</p>
+                <a class="text" target="_blank" href="https://www.linkedin.com/in/rajitha-chamod-a26549203">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="image">
-            <img class="imageSecond" src="assets/images/imageThree.png">
+            <img class="imageSecond" src="assets/images/member_4.png" alt="Member 4"><br>
             <div>
                 <p style="font-weight:bold;" class="text">Miss. Piyumi Senarath</p>
-                <a class="text"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                <p class="text">Computer Science Undergraduate at University of Colombo School of Computing, Sri Lanka</p>
+                <a class="text" target="_blank" href="https://www.linkedin.com/in/piyumi-senarath-10264a201/">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i></a>
             </div>
         </div>
     </div>

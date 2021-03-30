@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="assets/receiveMessageStyle.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body class="featureBody bodyBackground text">
 <!-- include header section -->
@@ -18,8 +19,7 @@
 <div class="featureBody">
     <span class="heading">Message Inbox</span>
     <a class=backToPage href="sendMessage">
-
-        <button class="button" style="position: relative; left: 1%;" id="back">Back</button>
+        <i class="fa fa-arrow-circle-left fa-2x" style="position: relative;color: var(--fontColor); left: 1%;" id="back"></i>
     </a>
     <div class="row col-2">
         <div class="messageList">
@@ -60,8 +60,7 @@
                     <span class='SendTimestampDetail'>Send at: " . $data->getTimestamp() . "</span><br>
                     <span class='titleDetail'>" . $data->getTitle() . "</span><br>
                     <span class='messageDetail'>" . $data->getMessage() . "</span><br>
-                    <a href='?activity=markAsRead&messageIDForReadConfirm=" . $_GET['messageID'] . "'>Mark as read</a>
-                    <button class='submitCancelButton blue' type='submit' style='float: right; display: " . $_GET['messageState'] . ";'>Mark As Read</button>
+                    <a href='?activity=markAsRead&messageIDForReadConfirm=" . $_GET['messageID'] . "' style='color:var(--fontColor);float: right;display: " . $_GET['messageState'] . ";'>Mark as read</a>
                     
                   ");
 							break;

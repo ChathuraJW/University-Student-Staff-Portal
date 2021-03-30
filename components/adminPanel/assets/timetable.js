@@ -16,9 +16,9 @@ function getEntries(groupName) {
         for (var i = 0; i < dataList.length; i++) {
             var element = '';
             element += '<div class="elementTab">';
-            element += '<div class="elementName">' + dataList[i]['day'] + '<P>     </p>Subject-' + dataList[i]['subjectCode'] + '<P>     </p>Group-' + dataList[i]['relatedGroup'] + '<P>     </p>From-' + dataList[i]['fromTime'] + '<P>  </p>To-' + dataList[i]['toTime'] + '</div>';
-            element += '<div class="elementEdit" onclick="editFunctionEntry(`' + dataList[i]['eventID'] + '`)">EDIT</div>';
-            element += '<div class="elementDelete" onclick="deleteFunctionEntry(`' + dataList[i]['eventID'] + '`)">DELETE</div>';
+            element += '<div class="elementName">' + dataList[i]['day'] + '<P>     </p>Subject ' + dataList[i]['subjectCode'] + ' for group' + dataList[i]['relatedGroup'] + '<P>     </p>Time: ' + dataList[i]['fromTime'] + ' - ' + dataList[i]['toTime'] + '</div>';
+            element += '<div class="elementEdit" onclick="editFunctionEntry(`' + dataList[i]['eventID'] + '`)">Edit</div>';
+            element += '<div class="elementDelete" onclick="deleteFunctionEntry(`' + dataList[i]['eventID'] + '`)">Delete</div>';
             element += '</div>';
             $('#groupEntrySet').append(element);
         }

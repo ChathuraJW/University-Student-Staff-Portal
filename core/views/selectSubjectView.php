@@ -16,16 +16,16 @@
 <?php BasicLoader::loadHeader('../') ?>
 <!-- feature body section -->
 <div class="featureBody bodyBackground text">
-    <!-- <option credit='".$record['creditValue']."'value='".$record['courseCode']."'>'".$record['name']."'</option> -->
     <form class="mainForm" id="theForm" action="" name="theForm" method="post">
-        <!-- <select name="" id=""> -->
         <div class="heading text">Subject Selection</div>
-        <div class="statement">System will not care about compulsory subject. User have to get responsibility to select their compulsory subjects
-            correctly.
+        <div class="statement">
+            This facility is used to enroll students to there third year and forth year courses. At the same time, inform that system is
+            responsible to handle compulsory course. So before process to enrollment select you courses properly by reading all guideline given in
+            the student handbook. Access UCSC home for find out more.
         </div>
+        <br><hr><br><br>
         <div class="creditBox" id="credit">
             <div class="creditName">Total Credit: <span id="creditValue" value="0">0</span></div>
-            <!-- <div class="creditValue" id="creditValue" value="0">0</div> -->
         </div>
 		<?php
 			$records = $controllerData;
@@ -58,6 +58,9 @@
 <script src="../assets/js/toast.js"></script>
 <script src="../assets/js/changeTheme.js"></script>
 <script>
+    // change home button href
+    document.getElementsByTagName('a').item(0).setAttribute('href', 'home');
+
     function creditFunction(id) {
         var checkBox = document.getElementById(id);  //get id of the checked checkbox
         var creditValue = document.getElementById("creditValue"); //get id of span what containing the credit value

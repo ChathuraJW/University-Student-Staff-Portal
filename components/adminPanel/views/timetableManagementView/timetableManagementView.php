@@ -1,29 +1,50 @@
-<div class="bodyBackground text">
-    <div class="heading">Timetable Management</div>
+<style>
+
+    #timetableDisplay {
+        text-align: center;
+        padding: 10px;
+        width: fit-content;
+    }
+
+    timetableDisplay > tr > th {
+        width: 30px;
+    }
+</style>
+<div class="timetableOperation">
+    <span class="sectionTitle">Timetable Operations</span>
     <div id="groupListPage">
-        <div class="group" onclick="getEntries('1CS1')">1st Year CS group 1</div>
-        <div class="group" onclick="getEntries('1CS2')">1st Year CS Group 2</div>
-        <div class="group" onclick="getEntries('2CS1')">2nd Year CS Group 1</div>
-        <div class="group" onclick="getEntries('2CS2')">2nd Year CS Group 2</div>
-        <div class="group" onclick="getEntries('3CS1')">3rd Year CS Group 1</div>
-        <div class="group" onclick="getEntries('3CS2')">3rd Year CS Group 2</div>
-        <div class="group" onclick="getEntries('4CS')">4th Year CS</div>
-        <div class="group" onclick="getEntries('4SE')">4th Year SE</div>
+        <div class="group" onclick="getEntries('1CS1')">1st Year Computer Science group 1</div>
+        <div class="group" onclick="getEntries('1CS2')">1st Year Computer Science Group 2</div>
+        <div class="group" onclick="getEntries('1IS')">1st Year Information Systems</div>
+        <div class="group" onclick="getEntries('2CS1')">2nd Year Computer Science group 1</div>
+        <div class="group" onclick="getEntries('2CS2')">2nd Year Computer Science Group 2</div>
+        <div class="group" onclick="getEntries('2IS')">2nd Year Information Systems</div>
+        <div class="group" onclick="getEntries('3CSG')">3rd Year CS General</div>
+        <div class="group" onclick="getEntries('3CSS')">3rd Year Software Engineering Special</div>
+        <div class="group" onclick="getEntries('3CSS')">3rd Year Computer Science Special</div>
+        <div class="group" onclick="getEntries('3ISG')">3rd Year Information Systems General</div>
+        <div class="group" onclick="getEntries('3IS')">3rd Year Information Systems Special</div>
+        <div class="group" onclick="getEntries('4CSS')">4th Year Software Engineering Special</div>
+        <div class="group" onclick="getEntries('4CSS')">4th Year Computer Science Special</div>
+        <div class="group" onclick="getEntries('4IS')">4th Year Information Systems Special</div>
         <!-- <div class="group">Group3</div>
         <div class="group">Group4</div> -->
     </div>
     <div id="timetablePage" style="display:none;">
-        <div class="addElement" onclick="addEntry()"><i class="fa fa-plus" aria-hidden="true"></i> ADD New Entry</div>
-        <div class="addElement" onclick="timetableDisplay()">View Timetable</div>
+        <i class="fa fa-arrow-circle-left fa-2x" onclick="backFunction()"></i>
+
+        <div class="buttonGroup" style="margin-bottom: 30px;margin-top: 20px">
+            <div class="button" onclick="addEntry()">Add New Entry</div>
+            <div class="button" onclick="timetableDisplay()">View Timetable</div>
+        </div>
 
         <div id="groupEntrySet">
 
         </div>
-        <input class="addElement text" style="font-size: large;" type="button" value="Back" onclick="backFunction()">
     </div>
-    <div class="heading" style="display:none;font-size:20px;" id="headingEditEntry">EDIT Entry</div>
-    <div class="heading" style="display:none;font-size:20px;" id="headingDeleteEntry">DELETE Entry</div>
-    <div class="heading" style="display:none;font-size:20px;" id="headingAddEntry">ADD Entry</div>
+    <div class="heading" style="display:none;font-size:20px;" id="headingEditEntry">Edit Entry</div>
+    <div class="heading" style="display:none;font-size:20px;" id="headingDeleteEntry">Delete Entry</div>
+    <div class="heading" style="display:none;font-size:20px;" id="headingAddEntry">Add Entry</div>
     <form id="timetableEntryForm" style="display:none;" action="" method="post">
         <div class="dataForm">
             <div class="inputDiv">
@@ -106,7 +127,8 @@
     </form>
 
     <div id="timetableDisplay" style="display:none;">
-        <h2 class="head">Time Table</h2>
+        <i class="fa fa-arrow-circle-left fa-2x" style="float: left;margin-left:30px;" onclick="cancelFunctionEntry();emptyTable();"></i>
+        <h2 class="head">Timetable</h2>
         <!-- the structure of the timetable is create in here  -->
         <table id="timetable">
             <!-- Display the dates of the table -->
@@ -174,8 +196,6 @@
 				}
 			?>
         </table>
-        <div class="addElement" style="float:left;margin-left:15%;margin-top:10px;" onclick="cancelFunctionEntry();emptyTable();">Back</div>
-
     </div>
 
 

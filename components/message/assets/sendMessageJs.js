@@ -3,8 +3,6 @@ function addStaffRecipient(id) {
     let recipientList = document.getElementById('contacts');
     recipientList.value = recipientList.value + " " + contactList.value;
     contactList.remove(contactList.selectedIndex);
-
-
 }
 
  

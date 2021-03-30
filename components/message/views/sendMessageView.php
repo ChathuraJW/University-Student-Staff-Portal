@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="assets/sendMessageStyle.css">
     <link rel="stylesheet" href="../../assets/css/gridSystem.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
-<body class="bodyBackgrond text">
+<body class="bodyBackground text">
 <!-- include header section -->
 <?php require_once('../../assets/php/basicLoader.php') ?>
 <?php basicLoader::loadHeader('../../'); ?>
@@ -23,17 +24,10 @@
 
             <h1><b> Send Messages </b></h1>
             <br>
-        
-            <a class=inbox href='receiveMessage'>
-
-                <button class='button' style='position: relative; left: 42%;' id='receiveMessages'>Inbox</button>
-            </a>
-
-            <a class=sentBox href='sentBox'>
-
-                <button class='button' style='position: relative; left: 42%;' id='sentMessages'>Sent Box</button>
-            </a>
-
+            <div class='buttonCouple'>
+                <a href='receiveMessage' class='button'>Inbox</a>
+                <a href='sentBox' class='button'>Sent</a>
+            </div>
         </div>
 
         <div class='row col-2'>
@@ -88,7 +82,7 @@
 
                 <br>
                 <br>
-                <div class='buttonCouple'> 
+                <div style='text-align: right;'> 
                     <button class='button' name='submit' type='submit'>Send</button>
                     <button class='button' name='cancel'>Cancel</button>
                 </div>
@@ -107,15 +101,10 @@
             <h1><b> Send Messages </b></h1>
             <br>
             
-            <a class=inbox href='receiveMessage'>
-
-                <button class='button' style='position: relative; left: 42%;' id='receiveMessages'>Inbox</button>
-            </a>
-
-            <a class=sentBox href='sentBox'>
-
-                <button class='button' style='position: relative; left: 42%;' id='sentMessages'>Sent Box</button>
-            </a>
+            <div style='text-align: right;'>
+                <a href='receiveMessage' class='button'>Inbox</a>
+                <a href='sentBox' class='button'>Sent</a>
+            </div>
 
         </div>
 
@@ -123,15 +112,7 @@
             <div class='contacts'>
                 <label for='option'><b> Select the contacts</b> </label>
                 <br>
-                <br>
-
-
-                <!--<div class='row col-3'>-->
-
-
-                
-                 
-                     
+                <br>  
                 <div>
                     <select id='academicStaffList' name='academicStaffList' onchange='addStaffRecipient(`academicStaffList`);'>
                     <option value=''>Academic Staff</option>
@@ -165,7 +146,7 @@
                 </div>
 
                 <div>
-                    <select id='administrativeList' name='administrativeList' onchange='addStaffRecipient('`administrativeList`');'>
+                    <select id='administrativeList' name='administrativeList' onchange='addStaffRecipient(`administrativeList`);'>
                     <option value=''>Administrative Staff</option>
                     ");
 
@@ -206,29 +187,15 @@
                 <form action=' ' method='POST'>
 
                     <label style='text-align: left;'>Contacts </label>
-                    <br>
-                    <textarea cols='70' rows='3' name='contacts' class='textarea' id='contacts'></textarea>
+                    <br><br>
+                    <textarea cols='60' rows='8' name='contacts' class='textarea' id='contacts' style='width: auto;'></textarea>
                     <br><br>
             </div>
 
             <div class='message'>
-                <br>
-                <br>
-                <label> Title </label>
-                <br>
-                <textarea name='title' cols='50' class='textarea'></textarea>
-
-
-                <br>
-                <br>
-
-
                 <label> Message </label>
-                <br>
-                <textarea name='message' rows='5' cols='50' class='textarea'></textarea>
-
-
-                <br>
+                <br><br>
+                <textarea name='message' rows='21' cols='50' class='textarea' style='width: auto;'></textarea>
                 <br>
                 <div class='buttonCouple'> 
                     <button class='button' name='submit' type='submit'>Send</button>

@@ -129,9 +129,9 @@ class Notification {
 
 //          Send data to the target audience table
         foreach ($this->targetAudienceList as $targetAudience){
-            $sqlQuery = "INSERT INTO target_audience(targetAudience, notificationID) VALUES ($targetAudience," . $this->notificationID . ")";
+            $sqlQuery = "INSERT INTO target_audience(targetAudience, notificationID) VALUES ('$targetAudience'," . $this->notificationID . ")";
             $databaseInstance->executeTransaction($sqlQuery);
-            $databaseInstance->transactionAudit($sqlQuery, 'target_audience', 'INSERT', 'Set target audience category');
+            $databaseInstance->transactionAudit($sqlQuery, 'target_audience', 'INSERT', 'Set target audience category.');
         }
 //			set individual receivers
         $sqlQuery = "INSERT INTO user_view_notification(notificationID, userName) VALUES ";

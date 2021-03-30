@@ -43,7 +43,7 @@
 
 		public static function getNotificationCount() {
 			$userName = $_COOKIE['userName'];
-			$notificationTypes = array(6, 2, 3, 4, 5, 1, 7);//notification types
+			$notificationTypes = array(2600, 2200, 2300, 2400, 2500, 2100, 2700);//notification types
 			$notificationCount = array();
 			foreach ($notificationTypes as $type) {
 				$sqlQuery = "SELECT COUNT(notificationID) FROM notification WHERE notificationType=$type AND isValid=1 AND isViewed=0 AND reciever='$userName'";

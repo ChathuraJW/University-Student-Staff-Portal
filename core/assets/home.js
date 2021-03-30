@@ -1,37 +1,43 @@
-// Set greeting message according to the time
-let timeIn = new Date();
-let timeInHours = timeIn.getHours();
-let greetingMessage;
+if(localStorage.getItem('greeting')){
 
-if (timeInHours < 12) {
-    greetingMessage = "Good Morning!"
-} else if (timeInHours >= 12 && timeInHours <= 17) {
-    greetingMessage = "Good Afternoon!";
-} else if (timeInHours >= 17 && timeInHours <= 24) {
-    greetingMessage = "Good Evening!";
 }
-document.getElementById("greetingMessage").innerHTML = greetingMessage;
+// Set greeting message according to the time
+    localStorage.setItem('greeting','');
+
+    let timeIn = new Date();
+    let timeInHours = timeIn.getHours();
+    let greetingMessage;
+
+    if (timeInHours < 12) {
+        greetingMessage = "Good Morning!"
+    } else if (timeInHours >= 12 && timeInHours <= 17) {
+        greetingMessage = "Good Afternoon!";
+    } else if (timeInHours >= 17 && timeInHours <= 24) {
+        greetingMessage = "Good Evening!";
+    }
+    document.getElementById("greetingMessage").innerHTML = greetingMessage;
 
 // popup message
-const loginPopup = document.querySelector(".popupMessageContainer");
+    const loginPopup = document.querySelector(".popupMessageContainer");
 
-window.addEventListener("load", function () {
-    showPopup();
-});
+    window.addEventListener("load", function () {
+        showPopup();
+    });
 
-function showPopup() {
-    loginPopup.classList.add("show"); //display greeting message
 
-    //Load the content after few seconds
-    setTimeout(function () {
-        document.getElementById("greeting").remove();
-        document.getElementById("contentContainer").style.visibility = 'visible';
-        document.getElementById("contentContainer").style.display = 'block';
-        document.querySelector('body').style.visibility = 'hidden';
-        document.querySelector('body').style.backgroundColor = 'white';
+    function showPopup() {
+        loginPopup.classList.add("show"); //display greeting message
 
-    }, 3000);
-}
+        //Load the content after few seconds
+        setTimeout(function () {
+            document.getElementById("greeting").remove();
+            document.getElementById("contentContainer").style.visibility = 'visible';
+            document.getElementById("contentContainer").style.display = 'block';
+            document.querySelector('body').style.visibility = 'hidden';
+            document.querySelector('body').style.backgroundColor = 'white';
+
+        }, 3000);
+    }
 
 // cookie value getting function
 function getCookieValue(searchKey) {

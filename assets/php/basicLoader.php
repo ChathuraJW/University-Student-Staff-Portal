@@ -46,7 +46,7 @@
 		            <div class='row col-2'>
 		                <div><button class='themeChanger' onclick='changeTheme();'><i class='fa fa-adjust'></i> Theme</button></div>
 		                <div style='padding-top: 5px;'>
-			                <a class='footerHeader' href='#' target='_blank'>About Us</a>
+			                <a class='footerHeader' href='aboutUs' target='_blank'>About Us</a>
 			                <a class='footerHeader' href='#' target='_blank'>Site Feedback</a>
 			                <a class='footerHeader' href='https://ucsc.cmb.ac.lk' target='_blank'>UCSC Home</a>
 			                <span class='footerHeader' style='pointer-events: none;'>&copy;Team Binary Bits 2020-2021</span>

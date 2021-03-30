@@ -94,7 +94,7 @@
 			return $this->receivedBy;
 		}
 
-		public function getIsViewed(): int {
+		public function getIsViewed(): int|array {
 			return $this->isViewed;
 		}
 	}
