@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="026407a1-f468-406a-9e8c-dcfde7fc6fd0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/access.log" beforeDir="false" afterPath="$PROJECT_DIR$/access.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/mvc/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/mvc/Database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/php/basicLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/basicLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/attendence/assets/addAttendance.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/attendence/assets/addAttendance.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/attendence/assets/getAttendanceDataAPI.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/attendence/assets/getAttendanceDataAPI.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/attendence/controllers/addAttendanceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/attendence/controllers/addAttendanceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/attendence/models/addAttendanceModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/attendence/models/addAttendanceModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/attendence/views/addAttendanceView.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/attendence/views/addAttendanceView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/mvc/Notification.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/mvc/Notification.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/php/PHPMailer/src/PHPMailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/PHPMailer/src/PHPMailer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/php/PHPMailer/src/SMTP.php" beforeDir="false" afterPath="$PROJECT_DIR$/assets/php/PHPMailer/src/SMTP.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/meeting/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/components/meeting/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/meeting/assets/allocatedTimeAPI.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/meeting/assets/allocatedTimeAPI.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/meeting/assets/appointmentStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/meeting/assets/appointmentStyles.css" afterDir="false" />
@@ -24,79 +18,43 @@
       <change beforePath="$PROJECT_DIR$/components/meeting/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/meeting/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/meeting/views/requestAppointmentView.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/meeting/views/requestAppointmentView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/meeting/views/respondAppointmentView.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/meeting/views/respondAppointmentView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/notification/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/components/notification/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/notification/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/components/notification/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/notification/assets/addNotification.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/notification/assets/addNotification.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/notification/assets/addNotificationView.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/notification/assets/addNotificationView.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/notification/assets/viewNotification.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/notification/assets/viewNotification.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/notification/assets/viewNotificationAPI.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/notification/assets/viewNotificationAPI.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/notification/assets/viewnotification.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/notification/assets/viewnotification.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/notification/controllers/addNotificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/notification/controllers/addNotificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/notification/controllers/viewNotificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/notification/controllers/viewNotificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/notification/models/addNotificationModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/notification/models/addNotificationModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/notification/models/viewNotificationModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/notification/models/viewNotificationModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/notification/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/notification/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/notification/views/addNotificationView.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/notification/views/addNotificationView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/notification/views/viewNotificationView.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/notification/views/viewNotificationView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pastPaper/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/components/pastPaper/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pastPaper/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/components/pastPaper/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pastPaper/assets/addPastPaper.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/pastPaper/assets/addPastPaper.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pastPaper/assets/class.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/pastPaper/assets/class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pastPaper/assets/viewPastPaper.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/pastPaper/assets/viewPastPaper.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pastPaper/boardConfirmedResults" beforeDir="false" afterPath="$PROJECT_DIR$/components/pastPaper/boardConfirmedResults" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/message/controllers/sendMessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/message/controllers/sendMessageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/message/models/sentBoxModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/message/models/sentBoxModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/message/views/sentBoxView.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/message/views/sentBoxView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/pastPaper/controllers/AddPastPaperController.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/pastPaper/controllers/AddPastPaperController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pastPaper/controllers/viewPastPaperController.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/pastPaper/controllers/viewPastPaperController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/pastPaper/models/addPastPaperModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/pastPaper/models/addPastPaperModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pastPaper/models/viewPastPaperModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/pastPaper/models/viewPastPaperModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pastPaper/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/pastPaper/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/pastPaper/views/addPastPaperView.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/pastPaper/views/addPastPaperView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/pastPaper/views/viewPastPaperView.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/pastPaper/views/viewPastPaperView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reportIQAC/assets/IQACreports/SCS2203-Software Engineering III-2016 Third Year,First Semester.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reportIQAC/assets/IQACreports/kpk-SCS1209-Object Oriented Programming-2021 ,First Semester.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reportIQAC/assets/IQACreports/kpk-SCS2203-Software Engineering III-2021 Third Year,Second Semester.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reportIQAC/assets/IQACreports/tpt-SCS1209-Object Oriented Programming-2015 Third Year,Second Semester.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reportIQAC/assets/IQACreports/tpt-SCS1209-Object Oriented Programming-2017 Second Year,First Semester.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reportIQAC/assets/addIQAC.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/reportIQAC/assets/addIQAC.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reportIQAC/assets/addIQAC.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/reportIQAC/assets/addIQAC.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reportIQAC/assets/class.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/reportIQAC/assets/class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reportIQAC/assets/viewIQAC.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/reportIQAC/assets/viewIQAC.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reportIQAC/assets/viewIQAC.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/reportIQAC/assets/viewIQAC.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reportIQAC/controllers/addIQACController.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/reportIQAC/controllers/addIQACController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reportIQAC/controllers/viewIQACController.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/reportIQAC/controllers/viewIQACController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reportIQAC/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/reportIQAC/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reportIQAC/models/addIQACModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/reportIQAC/models/addIQACModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reportIQAC/models/viewIQACModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/reportIQAC/models/viewIQACModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reportIQAC/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/reportIQAC/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reportIQAC/views/addIQACView.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/reportIQAC/views/addIQACView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/reportIQAC/views/viewIQACView.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/reportIQAC/views/viewIQACView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/timeTable/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/components/timeTable/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/timeTable/assets/timetable.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/timeTable/assets/timetable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/timeTable/assets/timetableAPI.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/timeTable/assets/timetableAPI.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/timeTable/assets/timetableStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/timeTable/assets/timetableStyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/timeTable/controllers/TimetableAllocationController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/timeTable/controllers/TimetableController.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/timeTable/controllers/TimetableController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/timeTable/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/timeTable/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/timeTable/models/timetableModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/timeTable/models/timetableModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/timeTable/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/timeTable/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/timeTable/views/timetableAllocationView.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/components/timeTable/views/timetableView.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/timeTable/views/timetableView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/workLoad/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/components/workLoad/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/workLoad/assets/appointmentStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/workLoad/assets/appointmentStyles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/workLoad/assets/class.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/workLoad/assets/class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/workLoad/assets/requestAppointment.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/workLoad/assets/requestAppointment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/workLoad/assets/workLoadMembersAPI.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/workLoad/assets/workLoadMembersAPI.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/workLoad/assets/workloadAllocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/workLoad/assets/workloadAllocation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/workLoad/assets/workloadAllocationStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/workLoad/assets/workloadAllocationStyles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/workLoad/assets/workloadReceive.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/workLoad/assets/workloadReceive.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/workLoad/controllers/WorkloadAllocationMessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/workLoad/controllers/WorkloadAllocationMessageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/workLoad/controllers/WorkloadReceiveController.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/workLoad/controllers/WorkloadReceiveController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/workLoad/controllers/workloadRequestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/workLoad/controllers/workloadRequestController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/workLoad/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/workLoad/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/workLoad/models/WorkLoadAllocationModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/workLoad/models/WorkLoadAllocationModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/workLoad/models/WorkLoadReceiveModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/workLoad/models/WorkLoadReceiveModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/workLoad/models/workloadRequestModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/workLoad/models/workloadRequestModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/workLoad/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/workLoad/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/workLoad/views/workloadAllocationMessageView.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/workLoad/views/workloadAllocationMessageView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/workLoad/views/workloadReceiveView.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/workLoad/views/workloadReceiveView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/assets/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/core/assets/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system.log" beforeDir="false" afterPath="$PROJECT_DIR$/system.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/workLoad/views/workloadRequestView.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/workLoad/views/workloadRequestView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/assets/class.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/assets/class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/assets/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/core/assets/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/controllers/SettingPageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/controllers/SettingPageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/controllers/selectSubjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/controllers/selectSubjectController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models/selectSubjectModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/selectSubjectModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models/settingPageModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/settingPageModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/views/helpPageView.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/views/helpPageView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/views/selectSubjectView.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/views/selectSubjectView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/views/settingPageView.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/views/settingPageView.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

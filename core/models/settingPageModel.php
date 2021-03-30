@@ -2,32 +2,32 @@
 
 	class SettingPageModel extends Model {
 		public static function loadEditableData(): User {
-			$userName=$_COOKIE['userName'];
-			$sqlQuery="SELECT * FROM user WHERE userName='$userName'";
-			$result=Database::executeQuery('generalAccess','generalAccess@16',$sqlQuery)[0];
-			$user= new User();
-			$user->setUserSetting($result['firstName'],$result['lastName'],$result['personalEmail'],$result['address'],$result['TPNO']);
+			$userName = $_COOKIE['userName'];
+			$sqlQuery = "SELECT * FROM user WHERE userName='$userName'";
+			$result = Database::executeQuery('generalAccess', 'generalAccess@16', $sqlQuery)[0];
+			$user = new User();
+			$user->setUserSetting($result['firstName'], $result['lastName'], $result['personalEmail'], $result['address'], $result['TPNO']);
 			return $user;
 		}
 
-		public static function updateProfileData($userData){
-			$userName=$_COOKIE['userName'];
-			$dbInstance=new Database();
-			$dbInstance->establishTransaction('generalAccess','generalAccess@16');
+		public static function updateProfileData($userData) {
+			$userName = $_COOKIE['userName'];
+			$dbInstance = new Database();
+			$dbInstance->establishTransaction('generalAccess', 'generalAccess@16');
 //			user data update query
-			$sqlQuery="UPDATE user SET firstName='".$userData->getFirstName()."',lastName='".$userData->getLastName()."'
-			,personalEmail='".$userData->getPersonalEmail()."',address='".$userData->getAddress()."',TPNO='".$userData->getTPNO()."' WHERE userName='$userName'";
+			$sqlQuery = "UPDATE user SET firstName='" . $userData->getFirstName() . "',lastName='" . $userData->getLastName() . "'
+			,personalEmail='" . $userData->getPersonalEmail() . "',address='" . $userData->getAddress() . "',TPNO='" . $userData->getTPNO() . "' WHERE userName='$userName'";
 			echo($sqlQuery);
 			$dbInstance->executeTransaction($sqlQuery);
-			$dbInstance->transactionAudit($sqlQuery,'user','UPDATE',"Update profile data of user $userName.",$userName);
+			$dbInstance->transactionAudit($sqlQuery, 'user', 'UPDATE', "Update profile data of user $userName.", $userName);
 
-			if($dbInstance->getTransactionState()){
-				if($dbInstance->commitToDatabase($userName)){
+			if ($dbInstance->getTransactionState()) {
+				if ($dbInstance->commitToDatabase($userName)) {
 					echo("<script>createToast('Operation Successful.','Profile information successfully updated.','S')</script>");
-				}else{
+				} else {
 					echo("<script>createToast('Warning (error code: #SETP02)','Failed to update user information.','W')</script>");
 				}
-			}else{
+			} else {
 				echo("<script>createToast('Warning (error code: #SETP02)','Failed to update user information.','W')</script>");
 			}
 

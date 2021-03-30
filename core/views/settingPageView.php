@@ -67,57 +67,57 @@
             </div>
         </div>
     </form>
-        <hr>
-        <div class="subHeading">
-            <label class="subHeading">Update Profile Picture</label>
-        </div>
-        <div class="subContainer">
-            <form method="post" class="container" enctype="multipart/form-data">
-                <div class="inputs profilePictureUpload">
-                    <label for="profilePic" id="imageLoadContainer">
-                        <img class="profile" id="output" src="" style="display: none;">
-                        <i class="fa fa-upload" aria-hidden="true" id="uploadIcon"
-                           style="display: block;padding: 15px;font-size: 7em;text-align:center;"></i>
-                    </label>
-                    <input class="inputField choose" type="file" accept="image/*" onchange="loadFile(event)" name="profilePic" id="profilePic">
-                </div>
-                <div class="buttonSet">
-                    <input class="button" type="submit" name="profilePictureSubmit" value="Update">
-                    <input class="button" type="reset" value="Cancel">
-                </div>
-            </form>
-        </div>
-        <hr>
+    <hr>
+    <div class="subHeading">
+        <label class="subHeading">Update Profile Picture</label>
+    </div>
+    <div class="subContainer">
+        <form method="post" class="container" enctype="multipart/form-data">
+            <div class="inputs profilePictureUpload">
+                <label for="profilePic" id="imageLoadContainer">
+                    <img class="profile" id="output" src="" style="display: none;">
+                    <i class="fa fa-upload" aria-hidden="true" id="uploadIcon"
+                       style="display: block;padding: 15px;font-size: 7em;text-align:center;"></i>
+                </label>
+                <input class="inputField choose" type="file" accept="image/*" onchange="loadFile(event)" name="profilePic" id="profilePic">
+            </div>
+            <div class="buttonSet">
+                <input class="button" type="submit" name="profilePictureSubmit" value="Update">
+                <input class="button" type="reset" value="Cancel">
+            </div>
+        </form>
+    </div>
+    <hr>
 
-        <div class="subHeading">
-            <label class="subHeading">Change Password</label>
-        </div>
-        <div class="subContainer">
-            <div class="block">
-                <div class="col_25">
-                    <label for="keys">Click here to Change password</label>
-                </div>
-                <div class="col_75">
-                    <input type="button" onclick="window.open('http://localhost/ussp/core/forgetPassword','_self');" class='button' id="keys"
-                           value="Change">
-                </div>
+    <div class="subHeading">
+        <label class="subHeading">Change Password</label>
+    </div>
+    <div class="subContainer">
+        <div class="block">
+            <div class="col_25">
+                <label for="keys">Click here to Change password</label>
+            </div>
+            <div class="col_75">
+                <input type="button" onclick="window.open('http://localhost/ussp/core/forgetPassword','_self');" class='button' id="keys"
+                       value="Change">
             </div>
         </div>
-        <hr>
-        <div class="subHeading">
-            <label class="subHeading">Private/Public Key Pair </label>
-        </div>
-        <div class="subContainer">
-            <div class="block">
-                <div class="col_25">
-                    <label for="keys">Click here to generate public and private keys</label>
-                </div>
-                <div class="col_75">
-                    <input type="submit" class='button' id="keys" name="pubKeySubmit" onclick="display()" value="Generate">
-                </div>
+    </div>
+    <hr>
+    <div class="subHeading">
+        <label class="subHeading">Private/Public Key Pair </label>
+    </div>
+    <div class="subContainer">
+        <div class="block">
+            <div class="col_25">
+                <label for="keys">Click here to generate public and private keys</label>
+            </div>
+            <div class="col_75">
+                <input type="submit" class='button' id="keys" name="pubKeySubmit" onclick="display()" value="Generate">
             </div>
         </div>
-        <a id="aTag" style="display:none;" href="http://localhost/USSP/core/privateKey.txt" onclick="displayNone()"></a>
+    </div>
+    <a id="aTag" style="display:none;" href="http://localhost/USSP/core/privateKey.txt" onclick="displayNone()"></a>
 </div>
 </body>
 <script src="../assets/js/jquery.js"></script>

@@ -63,11 +63,11 @@
 		public static function getSubjectName($subjectCode) {
 			$sqlQuery = "SELECT name FROM course_module WHERE courseCode = '$subjectCode'";
 			$isSuccess = Database::executeQuery('administrativeGeneral', 'administrativeGeneral@16', $sqlQuery)[0]['name'];
-			if($isSuccess){
-			    return $isSuccess;
-            }else{
-			    return false;
-            }
+			if ($isSuccess) {
+				return $isSuccess;
+			} else {
+				return false;
+			}
 
 		}
 

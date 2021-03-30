@@ -14,7 +14,7 @@
 
 			//get data to store in database
 			if (isset($_POST['upload'])) {
-			    print_r($_FILES);
+				print_r($_FILES);
 				$examinationYear = $_POST['examinationYear'];
 				$academicYear = $_POST['academicYear'];
 				$semester = $_POST['semester'];

@@ -24,7 +24,7 @@
 					$splitData = (explode(" ", $indexListString));
 					$messageDetail = new Message();
 					$messageDetail->setMessageDetail($title, $message, $sendBy, NULL, $splitData, NULL, NULL);
-					 SendMessageModel::addData($messageDetail);
+					SendMessageModel::addData($messageDetail);
 				}
 			}
 		}

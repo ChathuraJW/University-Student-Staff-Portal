@@ -18,7 +18,7 @@
 				$semNo = 7;
 			} elseif ($yearNumber == '4' && $sem == '2') {
 				$semNo = 8;
-			}else{
+			} else {
 				return false;
 			}
 			$queryFour = "SELECT * FROM course_module WHERE semester='' AND courseValidity=TRUE";

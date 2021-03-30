@@ -23,7 +23,9 @@
             responsible to handle compulsory course. So before process to enrollment select you courses properly by reading all guideline given in
             the student handbook. Access UCSC home for find out more.
         </div>
-        <br><hr><br><br>
+        <br>
+        <hr>
+        <br><br>
         <div class="creditBox" id="credit">
             <div class="creditName">Total Credit: <span id="creditValue" value="0">0</span></div>
         </div>

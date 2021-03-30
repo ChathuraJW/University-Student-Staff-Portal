@@ -41,12 +41,12 @@
         <div class="displayMessage">
 			<?php
 				if (isset($_GET['messageID'])) {
-					$receivedBy=array();
-					$isViewed=array();
+					$receivedBy = array();
+					$isViewed = array();
 					foreach ($controllerData as $data) {
 						if ($data->getMessageID() == $_GET['messageID']) {
-						    $receivedBy=$data->getReceivedBy();
-						    $isViewed=$data->getIsViewed();
+							$receivedBy = $data->getReceivedBy();
+							$isViewed = $data->getIsViewed();
 							$timestamp = $data->getTimestamp();
 							$title = $data->getTitle();
 							$message = $data->getMessage();
@@ -57,13 +57,13 @@
                     <span class='messageDetail'>" . $message . "</span><br> 
                     Receivers List: 
                   ");
-					for($i=0;$i<sizeof($receivedBy);$i++){
-					    if($isViewed[$i]){
-						    echo("<span class='messageDetail' style='color:var(--successColor)'>" . $receivedBy[$i] . " (Viewed)</span>");
-					    }else{
-						    echo("<span class='messageDetail'  style='color:var(--dangerColor)'>" . $receivedBy[$i] . " (Not Viewed)</span>");
-                        }
-                    }
+					for ($i = 0; $i < sizeof($receivedBy); $i++) {
+						if ($isViewed[$i]) {
+							echo("<span class='messageDetail' style='color:var(--successColor)'>" . $receivedBy[$i] . " (Viewed)</span>");
+						} else {
+							echo("<span class='messageDetail'  style='color:var(--dangerColor)'>" . $receivedBy[$i] . " (Not Viewed)</span>");
+						}
+					}
 				}
 			?>
         </div>

@@ -31,7 +31,7 @@
                 <div>
                     <label class="labelStyle">Academic Year:</label><br>
                     <select name="academicYear" id="academicYear" required>
-                        <option ></option>
+                        <option></option>
                         <option value=1>First Year</option>
                         <option value=2>Second Year</option>
                         <option value=3>Third Year</option>
@@ -40,8 +40,8 @@
                 </div>
                 <div>
                     <label class="labelStyle">Semester:</label><br>
-                    <select name="semester" id="semester" required >
-                        <option ></option>
+                    <select name="semester" id="semester" required>
+                        <option></option>
                         <option value=1>First Semester</option>
                         <option value=2>Second Semester</option>
                     </select>
@@ -49,7 +49,7 @@
                 <div>
                     <label class="labelStyle">Subject:</label><br>
                     <select name="subject" id="subject" required>
-                        <option ></option>
+                        <option></option>
 
 						<?php
 							foreach ($controllerData as $row) {
