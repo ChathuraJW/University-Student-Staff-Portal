@@ -44,7 +44,7 @@ function allocatedTime(){
             
     });
     // document.getElementById("hallID").disabled= true;
-    console.clear();
+    // console.clear();
 
 
 }

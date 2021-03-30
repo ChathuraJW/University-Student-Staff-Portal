@@ -19,11 +19,7 @@
     
     <!-- feature body section -->
     <div class="featureBody bodyBackground text" >
-        <div class="navigationBar">
-            <button id="linkFirst"  class="navigationLink" style="background-color: rgb(58, 189, 212);" onclick="openTab('tabFirst');hover('linkFirst');">New Appointment</button>
-            <button id="linkSecond" class="navigationLink" onclick="openTab('tabSecond');hover('linkSecond');">Lecturer Availability</button>
-        </div>
-
+       
         <div id="tabFirst"  class="row col-2 tabContain"  >
     
             <!-- fist lecturer and date -->
@@ -53,28 +49,22 @@
                             $url="?appointID=".$record->getAppointmentID()."&salutation=".$record->getAppointmentFor()->getSalutation()."&firstName=".$record->getAppointmentFor()->getFirstName()."&lastName=".$record->getAppointmentFor()->getLastName()."&staffID=".$record->getAppointmentFor()->getUserName()."&title=".$record->getTitle()."&message=".$record->getMessage()."&duration=".$record->getMeetingDuration()."&time=".$record->getTimestamp()."&isapprove=".$isApprove;
                             ?>
 
-                            <a href='<?php echo $url;?>'  id="<?php echo $record->getIsApproved();?>"class="appointment" ><div style="margin-bottom:10px;" class="appointmentDescription messageHead"><?php echo $record->getTitle();?></div><div class="appointmentDescription"><?php echo substr($record->getMessage(), 0, 80);?> </div><div class="appointmentDescription" style="float:right;"><i class='fa fa-clock-o' aria-hidden='true'></i>  <?php echo $record->getTimestamp();?></div></a><br>
+                            <a href='<?php echo $url;?>'  id="<?php echo $record->getIsApproved();?>"class="appointment text" ><div style="margin-bottom:10px;" class="appointmentDescription messageHead"><?php echo $record->getTitle();?></div><div class="appointmentDescription"><?php echo substr($record->getMessage(), 0, 80);?> </div><div class="appointmentDescription" style="float:right;"><i class='fa fa-clock-o' aria-hidden='true'></i>  <?php echo $record->getTimestamp();?></div></a><br>
                             
                             <?php 
                                     echo("
                                         <style>
                                             #A{
-                                                background: linear-gradient(to bottom right,rgb(189, 247, 189),white);
-
-                                            }
-                                            #A:hover{
-                                                background: linear-gradient(to bottom right,#8af18a,white);
+                                                border-left: 8px solid var(--successColor);
                                             }
                                             #R{
-                                                background: linear-gradient(to bottom right,rgb(238, 170, 183),white);
-                                            }
-                                            #R:hover{
-                                                background: linear-gradient(to bottom right,#f18a8a,white);
+                                                border-left:8px solid var(--dangerColor);
                                             }
                                         </style>
+                                        
                                     ");
                             ?>
-                            
+                                        
                         </div>
                     <?php }?>
                 <?php else: ?>
@@ -155,80 +145,12 @@
             </div>
         
         </div>
-        <div id="tabSecond" class="tabContainSecond" style="display:none;" >
-            <div   class="availability" >
-<!--                this section will display the all the profile details and availability of the aech lecture-->
-                    <div class="row col-1">
-                        <h2 id="head" >Available Lecturers</h2>
-                    </div>
-                    <?php $profiles=$controllerData[1]?>
-                    <div class="row col-2 ">
-                        <?php foreach($profiles as $profile){?>
-                            
-                                <div class="profile">
-                                    <div class="profileFields col-2">
-                                        <div class="profileField" >
-                                            <div class="row col-1 " >
-                                                <h3><?php echo $profile->getSalutation().".".$profile->getFullName()?></h3>
-                                            </div>
-                                            <div class="row col-1 img" style="margin-left:20px;">
-                                                <img src="assets/profilePicture.JPG" style="background-color: rgb(247, 226, 245,1);" alt="">
-                                            </div>
-                                        </div >
-                                        
-                                        <div class="profileField details" style="width:130%;">
-                                            
-                                            <div class="row col-2 profData">
-                                                <div>
-                                                    <h4>Email Address</h4>
-                                                </div>
-                                                <div>
-                                                    <div><?php echo $profile->getUniversityEmail()?></div>
-                                                </div>
-                                            </div>
-                                            <div class="row col-2 profData">
-                                                <div>
-                                                    <h4>Available From</h4>
-                                                </div>
-                                                <div >
-                                                    <div><?php echo $profile->getAvailableFrom()?></div>
-                                                </div>
-                                            </div>
-                                            <div class="row col-2 profData">
-                                                <div>
-                                                    <h4>Available To </h4>
-                                                </div>
-                                                <div >
-                                                    <div><?php echo $profile->getAvailableTo()?></div>
-                                                </div>
-                                            </div>
-                                            <div class="row col-2 profData">
-                                                <div>
-                                                    <h4>Last Updated DateTime </h4>
-                                                </div>
-                                                <div > 
-                                                    <div><?php echo $profile->getLastUpdateDate()?></div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        
-                                    </div>
-                                    
-                                </div>
-                            
-                            
-                            
-                        <?php }?>
-                    </div>
-                
-            </div>
-        </div>
+        
 
         <?php if(isset($_GET['appointID'])):?>
-            <div id="messageSecond" class="appointmentContent" >
+            <div id="messageSecond" class="appointmentContent text" >
 
-                    <div id="messageContent2" class="popupMessage">
+                    <div style="color: black;"id="messageContent2" class="popupMessage">
                         <span class="close" onclick="remove()" >&times;</span>
                         <div class="row col-1">
                             <h4 class="topic "> <?php echo $_GET['title']?></h4>

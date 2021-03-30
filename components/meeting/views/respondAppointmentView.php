@@ -37,25 +37,24 @@
                                 
                                 $url="?appointID=".$record->getAppointmentID()."&category1=".$category1."&studentID=".$record->getStudentID()."&title=".$record->getTitle()."&message=".$record->getMessage()."&duration=".$record->getMeetingDuration()."&time=".$record->getAppointmentTime()."&date=".$record->getAppointmentDate()."&isApproved=".$record->getIsApproved()."&type=".$record->getType()."&validity=".$record->getRequestValidity();
                                 if($record->getTitle()==5100){ 
-                                    $background= "linear-gradient(to bottom right, rgb(130, 164, 182),white)";
+                                    $background= "8px solid rgb(130, 164, 182)";
                                 }
                                 elseif($record->getTitle()==5200){
-                                    $background= "linear-gradient(to bottom right, rgb(255, 254, 183),white)";
+                                    $background= "8px solid rgb(255, 254, 183)";
                                 }
                                 elseif($record->getTitle()==5300){
-                                    $background= "linear-gradient(to bottom right, rgb(231, 179, 208),white)";
+                                    $background= "8px solid rgb(231, 179, 208)";
                                 }
                                 else{
-                                    $background= "linear-gradient(to bottom right, #e7e8e9,white)";
+                                    $background= "8px solid #e7e8e9";
                                 }
 
                                 echo("
                                     <div class='row col-1' onclick='close()'>
-                                        <a href='".$url."' id='".$record->getAppointmentID()."' class='appointment respond' style='background:$background;' ><div class='appointmentDescription messageHead'>".$record->getTitle()."</div><br><div class='appointmentDescription'>".substr($record->getMessage(), 0, 80).".....</div><div class='appointmentDescription'style='float:right;'> <i class='fa fa-clock-o' aria-hidden='true'></i>
+                                        <a href='".$url."' id='".$record->getAppointmentID()."' class='appointment respond' style='border-left:$background;' ><div class='appointmentDescription messageHead'>".$record->getTitle()."</div><br><div class='appointmentDescription'>".substr($record->getMessage(), 0, 80).".....</div><div class='appointmentDescription'style='float:right;'> <i class='fa fa-clock-o' aria-hidden='true'></i>
                                         ".$record->getTimestamp()."</div></a><br>
                                     </div>
                                 ");
-                                
                                 
                             }
                             }
@@ -100,20 +99,14 @@
                                 echo("
                                     <style>
                                         #A{
-                                            background: linear-gradient(to bottom right, rgb(189, 247, 189),white);
-                                        }
-                                        #A:hover{
-                                            background: linear-gradient(to bottom right, #8af18a,white);
+                                            border-left: 8px solid var(--successColor);
                                         }
                                         #R{
-                                            background: linear-gradient(to bottom right, rgb(238, 170, 183),white);
-                                        }
-                                        #R:hover{
-                                            background: linear-gradient(to bottom right, #f18a8a,white);
+                                            border-left:8px solid var(--dangerColor);
                                         }
                                     </style>
                                 ");
-                            
+                        
                         ?>
                     </div>
                 </div>
@@ -216,8 +209,8 @@
                         }   
                     ?>
 <!--                this div will display a replied appointments in detail-->
-                    <div id="message2" class="appointmentMessage"  >
-                        <div id="messageContent2" class="content">
+                    <div id="message2" class="appointmentMessage" >
+                        <div id="messageContent2" class="content" style="background-color:var(--entryBackgroundColor);">
                             <span class="close"onclick="remove('message2')">&times;</span>
                             <div class="row col-1">
                                 <h4 class="topicHistory"><?php echo $_GET['title']?></h4>
