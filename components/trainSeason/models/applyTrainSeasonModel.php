@@ -32,16 +32,8 @@
                 $newUserData = new User();
                 $newUserData->setUser($userData['firstName'],$userData['lastName'],$userData['userName'],$userData['address'],$userData['dob']);
                 $age=$newUserData->getAge();
-                //get query count
+                 
                 
-
-                //if($count>=2){
-                    //echo ("
-                        //<script>
-                            //alert('The number of times you request is over');
-                        //</script>
-                    //");
-                //}
                 $dbObject->closeConnection();
                 return $newUserData;
             }else{

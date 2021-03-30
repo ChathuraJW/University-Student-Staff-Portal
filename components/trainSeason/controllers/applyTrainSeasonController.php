@@ -8,8 +8,7 @@
 
             
             if(isset($_POST['submit'])){
-                //if(!empty($_POST['fullName']) && !empty($_POST['name']) && !empty($_POST['regNo']) && !empty($_POST['address']) 
-                //&& !empty($_POST['fromMonth']) && !empty($_POST['toMonth']) && !empty($_POST['homeStation']) && !empty($_POST['universityStation'])){
+                 
                     
                     //$name = $_POST['userName'];
                     $name = $_POST['name'];
@@ -35,9 +34,7 @@
 
                      
 
-                //}else{
-                    //echo "All feilds required";
-                //}
+                 
             }
         
 

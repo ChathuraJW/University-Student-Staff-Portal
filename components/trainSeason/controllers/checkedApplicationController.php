@@ -15,9 +15,6 @@
 
                      
 
-                    
-    
-                     
                 }
 
                 if(isset($_POST['collected'])){

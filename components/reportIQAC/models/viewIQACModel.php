@@ -4,7 +4,7 @@
 class ViewIQACModel extends Model{
     public static function getSubjectData():array|bool{
         $sqlQuery = "SELECT courseCode, name, semester FROM course_module ORDER BY semester";
-        $subjects = Database::executeQuery('root','',$sqlQuery);
+        $subjects = Database::executeQuery('academicStaff','academicStaff@16',$sqlQuery);
 
         //initialize the returning array
         if($subjects){
@@ -20,25 +20,7 @@ class ViewIQACModel extends Model{
         }
     }
 
-    /*public static function getRecentUploads():array|bool{
-        $userName = $_COOKIE['userName'];
-        $sqlQuery = "SELECT  staffID, subjectCode, examinationYear, semester, reportName, fileLocation FROM iqac_report ORDER BY reportID DESC LIMIT 15";
-        $recentUploads = Database::executeQuery('root','',$sqlQuery);
-        echo $sqlQuery;
-        //initialize the returning array
-        if($recentUploads){
-            $pastPaperList = array();
-            foreach ($recentUploads as $row){
-                $newReport = new IQACReport();
-                $newReport->setReportDetail($row['staffID'],$row['subjectCode'],$row['examinationYear'],$row['semester'],$row['reportName'],$row['fileLocation']);
-                $reportList[] = $newReport;
-            }
-            return $reportList;
-        }else{
-            return false;
-        }
-
-    }*/
+     
 
     public static function searchReport($examinationYear,$subject):array|bool{
         $userName = $_COOKIE['userName'];
@@ -54,7 +36,7 @@ class ViewIQACModel extends Model{
         
          
         echo($sqlQuery);
-        $searchResult = Database::executeQuery('root','',$sqlQuery);
+        $searchResult = Database::executeQuery('academicStaff','academicStaff@16',$sqlQuery);
 
          
 

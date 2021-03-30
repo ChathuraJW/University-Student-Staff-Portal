@@ -24,22 +24,13 @@ class AddIQACController extends Controller{
             if(!$staffID || !$examinationYear || !$subjectCode || !$name || !$fileNameCmps || !$fileExtension){
                 echo("<script>createToast('Warning(error code:#IQAC01-T)','Failed to get inputs from input feilds.','W')</script>");
             }
-            //semester values (1,2,3,4,5,6,7,8)
-            //$semList = array(array(1, 2), array(3, 4), array(5, 6), array(7, 8));
-	        //$realSemester = $semList[$academicYear - 1][$semester - 1];
+             
 
 	        //get subject name 
 	        $subjectName = AddIQACModel::getSubjectName($subjectCode);
 
 	        
-            //if($semester == 1){
-                //$semesterInWords = "First Semester";
-            //}else{
-               // $semesterInWords = "Second Semester";
-           // }
-
-            
-             
+        
 
             //check the files are in pdf
             if($fileExtension == 'pdf'){

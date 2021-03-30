@@ -57,24 +57,7 @@
                         <select name="examinationYear" id="examinationYear" required>
                         </select>
                     </div>
-                    <!--<div>
-                        <label class="label">Academic Year:</label><br>
-                        <select name="academicYear" required>
-                            <option value="0"></option>
-                            <option value=1>First Year</option>
-                            <option value=2>Second Year</option>
-                            <option value=3>Third Year</option>
-                            <option value=4>Fourth Year</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="label">Semester:</label><br>
-                        <select  name="semester" required>
-                            <option value="0"></option>
-                            <option value=1>First Semester</option>
-                            <option value=2>Second Semester</option>
-                        </select>
-                    </div>-->
+                     
                      
                 </div>
                 <div id="inputFile" class="inputFile row col-1">

@@ -44,41 +44,7 @@
             }
             ?>
              
-            <!--<a class=application href="checkedApplication">
-            <button class="button">Application Set 2</button><br><br>
-            </a>
              
-            <a class=application href="checkedApplication">
-            <button class="button">Application Set 3</button><br><br>
-            </a>
-             
-            <a class=application href="checkedApplication">
-            <button class="button">Application Set 4</button><br><br>
-            </a>
-             
-            <a class=application href="checkedApplication">
-            <button class="button">Application Set 5</button><br><br>
-            </a>
-             
-            <a class=application href="checkedApplication">
-            <button class="button">Application Set 6</button><br><br>
-            </a>
-             
-            <a class=application href="checkedApplication">
-            <button class="button">Application Set 7</button><br><br>
-            </a>
-             
-            <a class=application href="checkedApplication">
-            <button class="button">Application Set 8</button><br><br>
-            </a>
-             
-            <a class=application href="checkedApplication">
-            <button class="button">Application Set 9</button><br><br>
-            </a>
-             
-            <a class=application href="checkedApplication">
-            <button class="button">Application Set 10</button><br><br>
-            </a>-->
              
              
             
