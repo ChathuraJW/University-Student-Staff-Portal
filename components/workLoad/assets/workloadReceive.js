@@ -101,4 +101,13 @@
 
                 }, 2000);
         }
-    
+        function openForm(){
+            document.getElementById('scheduleDescription').style.display="none";
+            document.getElementById('myWorkloadForm').style.display="";
+            document.getElementById('beforeMessage').style.display="none";
+
+        }
+        function closeThird(){
+            document.getElementById('myWorkloadForm').style.display="none";
+            document.getElementById('beforeMessage').style.display="";
+        }

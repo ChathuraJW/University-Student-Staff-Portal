@@ -4,8 +4,8 @@ class WorkloadReceiveController extends Controller{
     //     parent::__construct();
     // }
     public static function open(){
-        setcookie('userName','kek');
-        $username=$_COOKIE['userName'];
+        // setcookie('userName','kek');
+        // $username=$_COOKIE['userName'];
 
         $checked=1;
         $unChecked=0;
@@ -36,6 +36,17 @@ class WorkloadReceiveController extends Controller{
                 window.location.href=document.location.href.toString().split('workloadReceive')[0]+'workloadReceive';
             </script>
         ");
+        }
+        if(isset($_POST["submit"])){
+            $title=$_POST["title"];
+            $location=$_POST["location"];
+            $date=$_POST["date"];
+            $fromTime=$_POST["fromTime"];
+            $toTime=$_POST["toTime"];
+            $description=$_POST["description"];
+
+            WorkLoadReceiveModel::setMyWorkload($title,$location,$date,$fromTime,$toTime,$description);
+            
         }
     }
 // repling for workload message

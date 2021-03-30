@@ -49,7 +49,7 @@
                     }
                 ?>
                 <?php else: ?>
-                    <p>Not find to Records</p>
+                    <p style="margin-left:30%;margin-top:50%;">Records not found</p>
                 <?php endif;?>
 
             </div >
@@ -116,8 +116,12 @@
 
         
         <div class="row col-2 schedule" id="schedule" style="display:none;" ><!--display the history of the supportive staff -->
+            <div><button style="cursor:pointer;"class="button" onclick="openForm();">Add my workload</button></div>
+            <div></div>
             <div>
-                <h2 class='head' style="margin-bottom:20px;">My Workload</h2>
+                <h2 class='head' style="margin-bottom:20px;">My Workload &nbsp;&nbsp;&nbsp;&nbsp;<i title="Download" class="fa fa-arrow-circle-down" aria-hidden="true"></i></h2>
+                
+                <br>
                 
                 <!-- style='float:right;' -->
                 <?php $newMessages=$controllerData[1];?>
@@ -143,15 +147,15 @@
                                 </div>
                                 <div>
                                     <div class='dataSet'>
-                                        <div class='data left'>Lecturer</div>
+                                        <div class='data left'>Lecturer :</div>
                                         <div class='data right'>".$newMessage->getSalutation()." ".$newMessage->getFullName()."</div>
                                     </div>
                                     <div class='dataSet'>
-                                        <div class='data left'>Title</div>
+                                        <div class='data left'>Title :</div>
                                         <div class='data right'>".$newMessage->getTitle()."</div>
                                     </div>
                                     <div class='dataSet'>
-                                        <div class='data left'>Description</div>
+                                        <div class='data left'>Description :</div>
                                         <div class='data right'>".$newMessage->getWorkLoadDescription()."</div>
                                     </div>
                                 </div>
@@ -159,11 +163,9 @@
                             ";
                         }
                     ?>
-                    <div>
-                        <button class="button" onclick="getFile()"><i class="fa fa-file" aria-hidden="true"></i>Download</button>  
-                    </div>
+                    
                 <?php else: ?>
-                    <p>Not find to Records</p>
+                    <div style="margin-left:30%;margin-top:50%;"><p>Records not found.</p></div>
                 <?php endif;?>
             </div>
 
@@ -206,6 +208,52 @@
                         </div>
                     </div>
                 </div>
+
+
+                <div class="scheduleDescription" id="myWorkloadForm" style="display:none;">
+                    <form action="" method="post">
+                        <div class="scheduleMessage">
+                        <button class="close" style="float:right;padding-right:10px;" onclick="closeThird()" ><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+                            <!-- <h3 class="topic" id="newTitle">Assignment conducting for DSA</h3> -->
+                            <h3 class="topic" id="newTitle">Submit your Workload</h3>
+                            <div style="padding-top:40px;">
+                                <div class="displayingMessage">
+                                    <div class="label">Title</div>
+                                    <div class="value" id="newLecture"><input type="text" value="My title" name="title"></div>
+                                </div>
+                                
+                                <div class="displayingMessage">
+                                    <div class="label">Location</div>
+                                    <div class="value" id="newLocation"><input type="text" name="location" value="my location"default="My location"></div>
+                                </div>
+                                <div class="displayingMessage">
+                                    <div class="label">Date</div>
+                                    <div class="value" id="newDate" ><input type="date" name="date" value="27-2-2021"></div>
+                                </div>
+                                <div class="displayingMessage">
+                                    <div class="label">From Time</div>
+                                    <div class="value" id="newTime"><input type="time" name="fromTime" value="1:00:00"></div>
+                                </div>
+                                <div class="displayingMessage">
+                                    <div class="label">To Time</div>
+                                    <div class="value" id="newTime"><input type="time" name="toTime" value="2:00:00"></div>
+                                </div>
+                                <div class="displayingMessage" style="margin-bottom:10px;" >
+                                    <div class="label" style="vertical-align: top;">Description</div>
+                                    <div class="value" id="newDescription"><textarea name="description" id="" cols="30" rows="10" value="aaaaaaaaaaa"></textarea></div>
+                                </div>
+                                <div class="buttonCouple ">   
+                                    <input style="" class="button" type="reset" name="cancel" value="cancel">
+                                    <input style="" class="button" type="submit" name="submit" value="submit">
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+
+
+
 
             </div>
         </div>
