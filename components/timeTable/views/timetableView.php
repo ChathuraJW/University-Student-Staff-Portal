@@ -18,7 +18,7 @@
     <div class="featureBody bodyBackground text" >
         <?php
         //TODO Delete the setcookie
-            setcookie('userName','kpk');
+            setcookie('userName','2018cs010');
             $studentID=$_COOKIE['userName'];
         ?>
         <div id="username" style="display:none;" value="<?php echo $studentID?>" ></div>
