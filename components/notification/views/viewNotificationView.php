@@ -23,7 +23,7 @@
 				<?php
 					echo("
                 <div class='radioStyle'>
-                    <input value='6' type='radio' id='radio6' name='notificationName' onclick='submitForm()'>
+                    <input value='2600' type='radio' id='radio6' name='notificationName' onclick='submitForm()'>
                     <label for='radio6'><i class='fa fa-desktop' aria-hidden='true'></i> System(" . $controllerData[1][0] . ")</label><hr>
                 </div>
                 <div class='radioStyle'>

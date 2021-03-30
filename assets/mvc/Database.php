@@ -12,6 +12,7 @@
 		private string $auditDescription = "";
 		private string $descriptionMessages = "";
 
+
 		public static function getServerStatic(): string {
 			return self::$serverStatic;
 		}

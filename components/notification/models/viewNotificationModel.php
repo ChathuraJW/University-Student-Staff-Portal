@@ -6,7 +6,7 @@
 		public static function getAllNotifications(): array|bool {
 			$userName = $_COOKIE['userName'];
 			$sqlQuery = "SELECT * FROM notification WHERE reciever='$userName' AND isValid=1 ORDER by notificationID DESC ,isViewed";
-			$notificationList = Database::executeQuery('root', '', $sqlQuery);
+			$notificationList = Database::executeQuery('generalAccess', 'generalAccess@16', $sqlQuery);
 
 			if ($notificationList) {
 				return self::returnNotification($notificationList);
@@ -33,7 +33,7 @@
 		public static function getSortedNotification($notificationType): array|bool {
 			$userName = $_COOKIE['userName'];
 			$sqlQuery = "SELECT * FROM notification WHERE reciever='$userName' AND isValid=1 AND notificationType=$notificationType ORDER by notificationID DESC ,isViewed";
-			$notificationList = Database::executeQuery("root", '', $sqlQuery);
+			$notificationList = Database::executeQuery("generalAccess", 'generalAccess@16', $sqlQuery);
 			if ($notificationList) {
 				return self::returnNotification($notificationList);
 			} else {
@@ -47,7 +47,7 @@
 			$notificationCount = array();
 			foreach ($notificationTypes as $type) {
 				$sqlQuery = "SELECT COUNT(notificationID) FROM notification WHERE notificationType=$type AND isValid=1 AND isViewed=0 AND reciever='$userName'";
-				$count = Database::executeQuery('root', '', $sqlQuery)[0]['COUNT(notificationID)'];
+				$count = Database::executeQuery('generalAccess', 'generalAccess@16', $sqlQuery)[0]['COUNT(notificationID)'];
 				$notificationCount[] = $count;
 
 			}
@@ -58,7 +58,7 @@
 		public static function search($keyWord): array|bool {
 			$userName = $_COOKIE['userName'];
 			$sqlQuery = "SELECT * FROM notification WHERE reciever='$userName' AND isValid=1 AND (title LIKE '%$keyWord%' OR content LIKE '%$keyWord%' OR sender Like '%$keyWord%' )";
-			$searchResult = Database::executeQuery('root', '', $sqlQuery);
+			$searchResult = Database::executeQuery('generalAccess', 'generalAccess@16', $sqlQuery);
 			if ($searchResult) {
 				return self::returnNotification($searchResult);
 			} else {

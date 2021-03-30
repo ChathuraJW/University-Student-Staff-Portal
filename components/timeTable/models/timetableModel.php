@@ -1,8 +1,7 @@
 <?php
-
-	class timetableModel extends Model {
-		public static function getTimetable() {
-		}
-	}
-
+    class timetableModel extends Model{ 
+        public static function getTimetable(){
+        }
+    }
+    
 ?>

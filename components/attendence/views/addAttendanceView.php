@@ -31,7 +31,7 @@
                 <!-- <label>--Upload CSV Files--</label>  -->
                 <div class="inputStyle">
                     <label for="academicYearCSV">Academic Year:</label><br>
-                    <select id="academicYearCSV" name="academicYear" class="dropDown" onchange="selectedYear();" required>
+                    <select id="academicYearCSV" name="academicYear" class="dropDown" required>
                         <option></option>
                         <option value="1">First Year</option>
                         <option value="2">Second Year</option>
@@ -41,7 +41,7 @@
                 </div>
                 <div class="inputStyle">
                     <label for="semesterCSV">Semester:</label><br>
-                    <select id="semesterCSV" name="semester" class="dropDown" required>
+                    <select id="semesterCSV" name="semester" class="dropDown"  required>
                         <option></option>
                         <option value="1">First Semester</option>
                         <option value="2">Second Semester</option>
@@ -125,8 +125,6 @@
                                     ");
 						}
 					?>
-
-
                 </form>
             </div>
             <!-- Edit attendance -->
@@ -193,7 +191,7 @@
                         <label class="labelStyle">Search Result</label>
                         <div id='attendanceInnerContainer' class='row col-5'>
 							<?php
-								for ($att = 0; $att < 15; $att++) {
+								for ($att = 0; $att <15; $att++) {
 									$value = $att + 1;
 									echo("
                                         <div class='attendance' id='$att'>
@@ -212,22 +210,22 @@
                             <div class="row col-2">
                                 <div class="editSubTopic">
                                     <label for="editWeek">Week:</label>
-                                    <input type="text" id="editWeek" disabled>
+                                    <input style="border: none" type="text" id="editWeek" disabled>
                                 </div>
                                 <div class="editSubTopic">
                                     <label for="editSubjectCode">Subject Code:</label>
-                                    <input id="editSubjectCode" disabled>
+                                    <input style="background-color: var(--backgroundColor); color: var(--fontColor);border: none;" id="editSubjectCode" disabled>
                                 </div>
                             </div>
                             <div class="editRadioToolbar row col-2">
-                                <input value="1" type="radio" id="radioAttended" name="formSelector">
+                                <input value="1" type="radio" id="radioAttended" name="formSelector" required >
                                 <label class="containerPopup" for="radioAttended">Attended</label>
-                                <input value="0" type="radio" id="radioNotAttended" name="formSelector">
+                                <input value="0" type="radio" id="radioNotAttended" name="formSelector" required>
                                 <label class="containerPopup" for="radioNotAttended">Not Attended</label>
                             </div>
                             <div class="row col-1">
                                 <label for="editDescription">Description</label>
-                                <textarea name="editDescription" id="editDescription"></textarea>
+                                <textarea name="editDescription" id="editDescription" required></textarea>
                             </div>
                             <div class="buttonCouple" id="buttonsCSV">
                                 <input type="button" value="Update" class="button " onclick="updateAttendance()">

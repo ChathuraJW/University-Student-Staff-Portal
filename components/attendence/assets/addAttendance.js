@@ -54,19 +54,22 @@ function displayAttendance() {
     // subjectName = document.getElementById("subject").innerText;
 
     const getAttendanceForEditURL = "http://localhost/USSP/components/attendence/assets/getAttendanceDataAPI.php?activity=getAttendanceForEdit&studentIndex=" + index + "&attempt=" + attempt + "&subjectCode=" + subjectCode;
-
+    console.log(getAttendanceForEditURL);
     $.getJSON(getAttendanceForEditURL, function (attendance) {
             console.log(attendance);
+            let attendanceCount = attendance;
+            console.log(attendanceCount);
             for (let i in attendance) {
+                console.log(i);
                 let week = "week " + attendance[i]['week'];
                 let data = attendance[i]['date'];
                 let description = attendance[i]['description'];
-                let color = ([i]['attendance'] === '1' ? 'var(--successColor)' : 'var(--dangerColor)');//
+                let color = ([i]['attendance'] === '1' ? 'var(--successColor)' : 'var(--dangerColor)');
 
                 document.getElementById("week" + i).innerHTML = week;
                 document.getElementById("date" + i).innerHTML = data;
                 document.getElementById("attendanceType" + i).innerHTML = description;
-                document.getElementById('attendance').style.borderLeft = color;
+                document.getElementById(i).style.borderLeft = color+' 5px solid;';
             }
         }
     );
@@ -95,7 +98,21 @@ function updateAttendance() {
         attendance = document.getElementById("radioNotAttended").value;
     }
 
+    //validation
+    if(!document.getElementById("radioAttended").checked){
+        if(!document.getElementById("radioNotAttended").checked){
+            alert("Please select an option for attendance!");
+            return false;
+        }
+    }
+
+    if(document.getElementById("editDescription").value==''){
+        alert("Description field is empty!");
+        return false;
+    }
+
     const updateAttendanceURL = "http://localhost/USSP/components/attendence/assets/getAttendanceDataAPI.php?activity=updateAttendance&studentIndex=" + index + "&attendance=" + attendance + "&subjectCode=" + subjectCode + "&description=" + description + "&week=" + week + "&attempt=" + attempt;
+    // console.log(updateAttendanceURL);
     $.getJSON(updateAttendanceURL, function (attendance) {
             console.log(attendance);
         }
@@ -169,7 +186,4 @@ function Validate() {
     }
     return true;
 }
-
-//Filter subject based on dropdown values
-
 

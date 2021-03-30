@@ -1,36 +1,31 @@
 
-tr {
+tr{
     margin-left: 20%;
     /* background-color: aqua; */
 }
-
-table {
+table{
     border-collapse: collapse;
     width: 70%;
     margin: auto;
 }
-
-th {
+th{
     width: 16%;
     height: 40px;
     border: 1px solid var(--entryBackgroundColor);
     /* border-color: rgb(218, 215, 218); */
     border-width: 3px;
 }
-
-.line9 {
+.line9{
     background-color: var(--entryBackgroundColor);
 }
-
-.head {
+.head{
     /* margin: auto; */
     text-align: center;
     margin-bottom: 30px;
     margin-top: 20px;
     /* background: linear-gradient(to bottom right,rgb(255, 252, 104),white); */
 }
-
-.day {
-    background-color: var(--entryBackgroundColor);
+.day{
+    background-color:var(--entryBackgroundColor);
 }
 

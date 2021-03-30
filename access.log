@@ -19,3 +19,30 @@ access log2021-03-28 12:36:54      ::::    User kek login to the system as AS
 2021-03-28 16:13:10      ::::    User kek login to the system as SP
 2021-03-28 16:13:29      ::::    User nsn login to the system as AD
 2021-03-28 16:21:04      ::::    User nsn login to the system as AD
+2021-03-30 09:34:19      ::::    User kek log out form the system [AD: 01:22:30]
+2021-03-30 15:04:26      ::::    User 2018cs100 login to the system as ST
+2021-03-30 09:48:07      ::::    User 2018cs100 log out form the system [AD: 00:13:41]
+2021-03-30 15:18:14      ::::    User nsn login to the system as AD
+2021-03-30 10:00:59      ::::    User nsn log out form the system [AD: 02:38:31]
+2021-03-30 15:31:05      ::::    User 2018cs183 login to the system as ST
+2021-03-30 10:02:01      ::::    User 2018cs183 log out form the system [AD: 00:00:56]
+2021-03-30 15:43:23      ::::    User 2018cs183 login to the system as ST
+2021-03-30 10:44:45      ::::    User nsn log out form the system [AD: 00:56:31]
+2021-03-30 16:15:06      ::::    User 2018cs183 login to the system as ST
+2021-03-30 10:46:45      ::::    User 2018cs183 log out form the system [AD: 00:01:39]
+2021-03-30 16:16:56      ::::    User 2018cs100 login to the system as ST
+2021-03-30 13:08:32      ::::    User 2018cs100 log out form the system [AD: 02:21:36]
+2021-03-30 18:39:01      ::::    User kek login to the system as AS
+2021-03-30 13:14:00      ::::    User 2018cs183 log out form the system [AD: 03:00:37]
+2021-03-30 18:44:03      ::::    User nsn login to the system as AD
+2021-03-30 13:28:21      ::::    User nsn log out form the system [AD: 00:14:18]
+2021-03-30 18:58:26      ::::    User nsn login to the system as AD
+2021-03-30 14:23:22      ::::    User nsn log out form the system [AD: 00:54:56]
+2021-03-30 20:11:53      ::::    User kek login to the system as AS
+2021-03-30 14:41:59      ::::    User kek log out form the system [AD: 00:00:06]
+2021-03-30 20:12:03      ::::    User kek login to the system as AS
+2021-03-30 20:35:48      ::::    User nsn login to the system as AD
+2021-03-30 15:17:17      ::::    User kek log out form the system [AD: 00:35:14]
+2021-03-30 20:47:21      ::::    User nsn login to the system as AD
+2021-03-30 16:52:21      ::::    User nsn log out form the system [AD: 01:35:00]
+2021-03-30 22:22:26      ::::    User nsn login to the system as AD

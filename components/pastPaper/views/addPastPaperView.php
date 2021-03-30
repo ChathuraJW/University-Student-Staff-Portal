@@ -25,12 +25,13 @@
                 <div>
                     <label class="labelStyle">Examination Year:</label><br>
                     <select name="examinationYear" id="examinationYear" required>
+                        <option></option>
                     </select>
                 </div>
                 <div>
                     <label class="labelStyle">Academic Year:</label><br>
-                    <select name="academicYear" required>
-                        <option value="0"></option>
+                    <select name="academicYear" id="academicYear" required>
+                        <option ></option>
                         <option value=1>First Year</option>
                         <option value=2>Second Year</option>
                         <option value=3>Third Year</option>
@@ -39,16 +40,16 @@
                 </div>
                 <div>
                     <label class="labelStyle">Semester:</label><br>
-                    <select name="semester" required>
-                        <option value="0"></option>
+                    <select name="semester" id="semester" required >
+                        <option ></option>
                         <option value=1>First Semester</option>
                         <option value=2>Second Semester</option>
                     </select>
                 </div>
                 <div>
                     <label class="labelStyle">Subject:</label><br>
-                    <select name="subject" required>
-                        <option value="0"></option>
+                    <select name="subject" id="subject" required>
+                        <option ></option>
 
 						<?php
 							foreach ($controllerData as $row) {
@@ -62,15 +63,12 @@
             </div>
             <div id="dropZone" class="dropZone row col-1">
                 <span class="dropZonePrompt" id="fileInputLabel">Drop file here or click to upload</span>
-                <input type="file" name="myFile" id="fileInput" class="dropZoneInput" required
-
-
-                >
+                <input type="file" name="myFile" id="fileInput" class="dropZoneInput" required>
             </div>
         </div>
         <div class="buttonCouple">
-            <button class="button" name="reset"> Cancel</button>
-            <button class="button" type="submit" name="upload"> Upload</button>
+            <button class="button" type="submit" name="upload" onclick=" Validate();"> Upload</button>
+            <button class="button" type="reset"> Cancel</button>
         </div>
     </form>
 

@@ -9,11 +9,12 @@
 			self::createView("addPastPaperView", $passingSubjects);
 			//        display error toast for data loading error
 			if (!$passingSubjects)
-				echo("<script>createToast('Warning (error code: #PPM03-T)','Failed to load review list.','W')</script>");
+				echo("<script>createToast('Warning (error code: #PPM03)','Failed to load review list.','W')</script>");
 
 
 			//get data to store in database
 			if (isset($_POST['upload'])) {
+			    print_r($_FILES);
 				$examinationYear = $_POST['examinationYear'];
 				$academicYear = $_POST['academicYear'];
 				$semester = $_POST['semester'];
@@ -25,7 +26,7 @@
 
 //            check whether all inputs are set or not
 				if (!$examinationYear || !$academicYear || !$semester || !$subjectCode || !$name || !$fileNameCmps || !$fileExtension) {
-					echo("<script>createToast('Warning(error code:#PPM02-T)','Failed to get inputs.','W')</script>");
+					echo("<script>createToast('Warning(error code:#PPM02)','Failed to get inputs.','W')</script>");
 				}
 				//calculate semester as 1,2,3,4,5,6,7,8
 				$semList = array(array(1, 2), array(3, 4), array(5, 6), array(7, 8));

@@ -20,15 +20,13 @@
 			} else {
 				return false;
 			}
-
 		}
 
 		public static function addPastPaperDetails($pastPaper) {
 			$databaseInstance = new Database();
-			$databaseInstance->establishTransaction('root', '');
+			$databaseInstance->establishTransaction('administrativeGeneral', 'administrativeGeneral@16');
 			$sqlQuery = "INSERT INTO pastpaper(subjectCode, yearOfExam, semester,fileName) VALUES ('" . $pastPaper->getSubjectCode() . "'," . $pastPaper->getExaminationYear() . "," . $pastPaper->getSemester() . ",'" . $pastPaper->getPaperName() . "')";
 			$databaseInstance->executeTransaction($sqlQuery);
-			echo($sqlQuery);
 //        create audit trail
 			$databaseInstance->transactionAudit($sqlQuery, 'pastpaper', 'INSERT', "PastPaper uploaded to the system.");
 
@@ -45,18 +43,18 @@
 						if ($databaseInstance->commitToDatabase()) {
 							echo("<script>createToast('Success','Past paper successfully uploaded','S')</script>");
 						} else {
-							echo("<script>createToast('Warning(error code:#PPM01-T)','Failed to submit past Paper.','W')</script>");
+							echo("<script>createToast('Warning(error code:#PPM01)','Failed to submit past Paper.','W')</script>");
 						}
 					} else {
-						echo("<script>createToast('Warning(error code:#PPM01-T)','Failed to submit past Paper.','W')</script>");
+						echo("<script>createToast('Warning(error code:#PPM01)','Failed to submit past Paper.','W')</script>");
 
 					}
 				} else {
-					echo("<script>createToast('Warning(error code:#PPM01-T)','Failed to submit past Paper.','W')</script>");
+					echo("<script>createToast('Warning(error code:#PPM01)','Failed to submit past Paper.','W')</script>");
 
 				}
 			} else {
-				echo("<script>createToast('Warning(error code:#PPM01-T)','Failed to submit past Paper.','W')</script>");
+				echo("<script>createToast('Warning(error code:#PPM01)','Failed to submit past Paper.','W')</script>");
 			}
 			$databaseInstance->closeConnection();
 		}
@@ -64,14 +62,13 @@
 		//TO do apply course module class
 		public static function getSubjectName($subjectCode) {
 			$sqlQuery = "SELECT name FROM course_module WHERE courseCode = '$subjectCode'";
-			return Database::executeQuery('root', '', $sqlQuery)[0]['name'];
+			$isSuccess = Database::executeQuery('administrativeGeneral', 'administrativeGeneral@16', $sqlQuery)[0]['name'];
+			if($isSuccess){
+			    return $isSuccess;
+            }else{
+			    return false;
+            }
 
-////        initialize the returning array
-//        if($subjectName){
-//            return $subjectName;
-//        }
-//        else{
-//            return false;
 		}
 
 

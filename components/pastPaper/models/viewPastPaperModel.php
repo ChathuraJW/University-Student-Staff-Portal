@@ -4,7 +4,7 @@
 	class ViewPastPaperModel extends Model {
 		public static function getSubjectData(): array|bool {
 			$sqlQuery = "SELECT courseCode, name, semester FROM course_module ORDER BY semester";
-			$subjects = Database::executeQuery('root', '', $sqlQuery);
+			$subjects = Database::executeQuery('generalAccess', 'generalAccess@16', $sqlQuery);
 
 			//initialize the returning array
 			if ($subjects) {
@@ -22,7 +22,7 @@
 
 		public static function getRecentUploads(): array|bool {
 			$sqlQuery = "SELECT  subjectCode, yearOfExam, semester, fileName FROM pastpaper ORDER BY paperID DESC LIMIT 15;";
-			$recentUploads = Database::executeQuery('root', '', $sqlQuery);
+			$recentUploads = Database::executeQuery('generalAccess', 'generalAccess@16', $sqlQuery);
 //        print_r($recentUploads);
 			//initialize the returning array
 			if ($recentUploads) {
@@ -30,7 +30,7 @@
 				foreach ($recentUploads as $row) {
 					$subjectCode = $row['subjectCode'];
 					$sqlQuery = "SELECT name FROM course_module WHERE courseCode='$subjectCode'";
-					$subjectName = Database::executeQuery('root', '', $sqlQuery)[0]['name'];
+					$subjectName = Database::executeQuery('generalAccess', 'generalAccess@16', $sqlQuery)[0]['name'];
 
 					if ($subjectName) {
 						$newPastPaper = new PastPaper();
@@ -102,7 +102,7 @@
 			$sqlQuery = trim($sqlQuery, "AND");
 			$sqlQuery = trim($sqlQuery, "WHERE");
 
-			$searchResult = Database::executeQuery('root', '', $sqlQuery);
+			$searchResult = Database::executeQuery('generalAccess', 'generalAccess@16', $sqlQuery);
 
 			//initialize the returning array
 			if ($searchResult) {
@@ -110,7 +110,7 @@
 				foreach ($searchResult as $row) {
 					$subjectCode = $row['subjectCode'];
 					$sqlQuery = "SELECT name FROM course_module WHERE courseCode='$subjectCode'";
-					$subjectName = Database::executeQuery('root', '', $sqlQuery)[0]['name'];
+					$subjectName = Database::executeQuery('generalAccess', 'generalAccess@16', $sqlQuery)[0]['name'];
 					if ($subjectName) {
 						$newPastPaper = new PastPaper();
 						$newPastPaper->setSubjectName($subjectName);

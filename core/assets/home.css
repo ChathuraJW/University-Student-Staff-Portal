@@ -270,17 +270,16 @@ body {
 }
 
 .greetingMessage {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 400;
     letter-spacing: 8px;
     margin-bottom: 20px;
-    background-color: var(--baseColor);
     position: relative;
     animation: text 3s 1;
 }
 
 .userName {
-    font-size: 30px;
+    font-size: 25px;
     animation: text 3s 1;
     letter-spacing: 8px;
 }

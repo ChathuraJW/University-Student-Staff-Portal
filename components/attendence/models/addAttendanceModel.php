@@ -23,8 +23,8 @@
 
 		public static function processAttendanceData($attendance): bool {
 			$dbInstance = new Database();
-			//TODO change db credentials
-			$dbInstance->establishTransaction('root', '');
+
+			$dbInstance->establishTransaction('administrativeAttendance', 'administrativeAttendance@16');
 			//query for insert file data
 			$sqlQuery = "INSERT INTO attendance (enrollmentID, date, week, attendance, description, uploadTimestamp) VALUES 
                     (" . $attendance->getEnrollmentId() . ", '" . $attendance->getDate() . "', " . $attendance->getWeek() . ", 
@@ -36,17 +36,17 @@
 			if ($dbInstance->getTransactionState()) {
 				if ($dbInstance->commitToDatabase()) {
 					//operation success message
+                    $dbInstance->closeConnection();
 					return true;
 				} else {
-					//display error
+                    $dbInstance->closeConnection();
 					return false;
 				}
-
 			} else {
-				//display error
+                $dbInstance->closeConnection();
 				return false;
 			}
-			$dbInstance->closeConnection();
+
 		}
 
 

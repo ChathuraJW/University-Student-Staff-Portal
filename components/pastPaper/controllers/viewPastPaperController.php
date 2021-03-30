@@ -18,7 +18,7 @@
 					self::createView("viewPastPaperView", $sendingData);
 
 					//        display error toast for data loading error
-					echo("<script>createToast('Warning(error code:#PPM02-T)','Need to fill at least one field.','W')</script>");
+					echo("<script>createToast('Warning(error code:#PPM02)','Need to fill at least one field.','W')</script>");
 				} else {
 					$searchResults = ViewPastPaperModel::showSearchResult($examinationYear, $semester, $subject, $academicYear);
 					$sendingData = array($passingSubjects, $searchResults, "Search Results");
@@ -26,7 +26,7 @@
 
 					//        display error toast for data loading error
 					if (!$passingSubjects)
-						echo("<script>createToast('Warning (error code: #PPM03-T)','Failed to load review list.','W')</script>");
+						echo("<script>createToast('Warning (error code: #PPM03)','Failed to load review list.','W')</script>");
 				}
 
 
@@ -37,7 +37,7 @@
 
 				//        display error toast for data loading error
 				if (!$passingSubjects)
-					echo("<script>createToast('Warning (error code: #PPM03-T)','Failed to load review list.','W')</script>");
+					echo("<script>createToast('Warning (error code: #PPM03)','Failed to load review list.','W')</script>");
 			}
 		}
 	}

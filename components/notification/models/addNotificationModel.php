@@ -120,9 +120,9 @@
 			}
 
 			if ($activeUser == 1) {
-				return Database::executeQuery('root', '', $sqlQueryUser);
+				return Database::executeQuery('generalAccess', 'generalAccess@16', $sqlQueryUser);
 			} elseif ($activeStudent == 1) {
-				return Database::executeQuery('root', '', $sqlQueryStudent);
+				return Database::executeQuery('generalAccess', 'generalAccess@16', $sqlQueryStudent);
 			}
 
 		}

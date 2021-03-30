@@ -1,34 +1,34 @@
 <?php
+class ViewIQACController extends Controller{
 
-	class ViewIQACController extends Controller {
+    public static function viewIQACReport(){
+         
+        $getSubject=ViewIQACModel::getSubjectData();
 
-		public static function viewIQACReport() {
+        if(isset($_POST['search'])){
+            $examinationYear = $_POST['examinationYear'];
+            $subject = $_POST['subject'];
 
-			$getSubject = ViewIQACModel::getSubjectData();
+            //check whether all inputs are set or not
+            if(!$examinationYear || !$subject){
+                echo("<script>createToast('Warning(error code:#IQAC03-T)','Failed to get inputs from input feilds.','W')</script>");
+            }
 
-			if (isset($_POST['search'])) {
-				$examinationYear = $_POST['examinationYear'];
-				$subject = $_POST['subject'];
+            $searchReports = ViewIQACModel::searchReport($examinationYear,$subject);
 
-				//check whether all inputs are set or not
-				if (!$examinationYear || !$subject) {
-					echo("<script>createToast('Warning(error code:#IQAC03-T)','Failed to get inputs from input feilds.','W')</script>");
-				}
-
-				$searchReports = ViewIQACModel::searchReport($examinationYear, $subject);
-
-				$sendData = array($getSubject, $searchReports, "Your Search Report");
-				self::createView("viewIQACView", $sendData);
+            $sendData = array($getSubject, $searchReports,"Your Search Report");
+            self::createView("viewIQACView",$sendData);
 
 
-			} else {
+             
+        }else{
+            
+            $searchReports = ViewIQACModel::searchReport(false,false);
 
-				$searchReports = ViewIQACModel::searchReport(false, false);
-
-				$sendData = array($getSubject, $searchReports, "Your Recent Reports");
-				self::createView("viewIQACView", $sendData);
-			}
-		}
-	}
+            $sendData = array($getSubject, $searchReports,"Your Recent Reports");
+            self::createView("viewIQACView",$sendData);
+        }
+    }
+}
 
 

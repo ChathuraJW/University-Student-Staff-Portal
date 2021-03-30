@@ -40,7 +40,7 @@
 					} else {
 						$studentIndex = $attendanceEntry[1];
 						$attendance = $attendanceEntry[2];
-						if (!$studentIndex && !$attendance) {
+						if ($studentIndex && $attendance) {
 							$enrollmentID = AddAttendanceModel::getEnrollmentID($studentIndex, $subject, $attempt);
 							$singleAttendance = new AttendanceInstance();
 							$singleAttendance->setAttendance($attendance, $week, $date, $description, $enrollmentID);
