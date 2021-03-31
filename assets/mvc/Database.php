@@ -4,9 +4,9 @@
 	class Database {
 
 		private static string $serverStatic = "localhost";
-		private static string $databaseStatic = "ussp";
+		private static string $databaseStatic = "ussp_final";
 		private string $server = "localhost";
-		private string $database = "ussp";
+		private string $database = "ussp_final";
 		private bool $transactionState = true;
 		private mysqli $connection;
 		private string $auditDescription = "";
@@ -49,6 +49,8 @@
 
 		private static function connect($userName, $password): mysqli {
 			//stop show warning
+			$userName='root';
+			$password='';
 			error_reporting(E_ERROR | E_PARSE);
 			$conn = new mysqli(self::$serverStatic, $userName, $password, self::$databaseStatic);
 			if ($conn->connect_errno) {
@@ -62,6 +64,8 @@
 //        transaction management functions
 
 		public function establishTransaction($userName, $password) {
+			$userName='root';
+			$password='';
 			error_reporting(E_ERROR | E_PARSE);
 			$conn = new mysqli($this->server, $userName, $password, $this->database);
 			if ($conn->connect_errno) {
