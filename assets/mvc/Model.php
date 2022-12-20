@@ -9,10 +9,13 @@
 			else
 				$fileEntry = "$timestamp      ::::    [Transaction ID: $transactionID]-$description\n";
 //		append to the log file
-			if (file_exists("../../system.log"))
+			if (file_exists("../system.log"))
+				file_put_contents("../system.log", $fileEntry, FILE_APPEND);
+			else if (file_exists("../../system.log"))
 				file_put_contents("../../system.log", $fileEntry, FILE_APPEND);
-			else
+			else if (file_exists("../../../system.log"))
 				file_put_contents("../../../system.log", $fileEntry, FILE_APPEND);
+
 		}
 
 		public static function getAdminUser(): string {

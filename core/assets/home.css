@@ -1,0 +1,360 @@
+/*remove home icon from home screen*/
+.backToHome {
+    display: none;
+}
+
+/*header section*/
+.container {
+    height: auto;
+    display: inline-flex;
+}
+
+.notificationStackContainer {
+    width: 22%;
+    margin-left: -10px;
+
+}
+
+.content {
+    width: 60%;
+    height: auto;
+    margin: 0;
+}
+
+.userInformation {
+    width: 20%;
+    height: auto;
+    margin-left: 0;
+
+}
+
+/*user information*/
+.profileSection {
+    height: auto;
+    border: 1px solid #a5a2a2;
+    border-radius: 5px;
+    color: var(--fontColor);
+}
+
+.userSetting {
+    float: right;
+    margin: 3px;
+    text-decoration: none;
+    color: black;
+}
+
+.profilePic {
+    display: block;
+    height: fit-content;
+    border: 1px solid #a5a2a2;
+    width: 180px;
+    padding: 5px;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+/*profile information*/
+.userInfo {
+    padding: 15px;
+    overflow: hidden;
+}
+
+.userInfo .name {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: BioRhyme, sans-serif;
+}
+
+.userInfo .emailPersonal, .userInfo .emailUniversity {
+    font-family: BioRhyme, sans-serif;
+}
+
+.userInfo .gpa {
+    border: 1px solid;
+    text-align: center;
+    display: block;
+    color: var(--fontColor);
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.notificationStack {
+    border: 1px solid #a5a2a2;
+    border-radius: 5px;
+    height: auto;
+    padding: 10px;
+    min-height: 680px;
+    opacity: 0.7;
+
+    margin-left: 10px;
+}
+
+/*notification header styles*/
+.stackHeader {
+    display: flex;
+}
+
+.stackLabel {
+    height: 18px;
+    width: 88%;
+    margin: 5px;
+    color: var(--fontColor);
+    font-family: BioRhyme, sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.notificationCount {
+    text-align: center;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    border: 1px solid var(--baseColor);
+    color: white;
+    background-color: var(--baseColor);
+    font-weight: bold;
+    font-family: BioRhyme, sans-serif;
+    padding: 6px;
+    overflow: hidden;
+}
+
+/*notification entry styles*/
+.notificationEntry, .notificationEntryTimeTable {
+    text-decoration: none;
+    display: block;
+    height: auto;
+    width: 95%;
+    border: 1px var(--entryBackgroundColor);
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    overflow: hidden;
+    color: white;
+    background-color: var(--baseColor);
+}
+
+.notificationEntryTimeTable {
+    width: auto;
+    padding-left: 8px;
+    background-color: Var(--baseColor);
+    border: #24160c;
+    height: auto;
+}
+
+.notificationIcon {
+    width: 12%;
+    display: inline-flex;
+    padding: 5px;
+    /*color: white;*/
+    color: white;
+}
+
+.linkSection {
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+
+/*link tile styles*/
+.tile {
+    height: 200px;
+    overflow: hidden;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #ecebeb;
+    transition: all .5s linear;
+    opacity: 0.7;
+    background-color: var(--baseColor);
+}
+
+.tile:hover {
+    color: #ffffff;
+    transition: all .5s linear;
+    opacity: 1;
+    box-shadow: var(--baseColor) 2px 2px;
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px);
+}
+
+.tileImage {
+    height: auto;
+    padding: 5px;
+    margin: 10px;
+}
+
+.tileDescription {
+    height: auto;
+    display: block;
+    font-size: 30px;
+    padding: 5px;
+    margin: 8px;
+    font-weight: bold;
+}
+
+.timetable {
+    padding-top: -20px;
+    overflow: hidden;
+    margin: 10px;
+    width: 192%;
+    border-radius: 5px;
+    text-decoration: none;
+    border: 1px solid var(--baseColor);
+}
+
+.calenderContainer {
+    height: 250px;
+    margin-top: 10px;
+}
+
+.dayContainer {
+    height: 32px;
+    background: var(--baseColor);
+    color: white;
+    line-height: 32px;
+    font-size: 16px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    align-items: center;
+    text-align: center;
+}
+
+.dateTime {
+    background-color: var(--headerFooterBackground);
+    color: white;
+    text-align: center;
+    padding: 5px;
+}
+
+.month {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.date {
+    font-size: 60px;
+    padding: 5px;
+}
+
+.time {
+    font-size: 25px;
+    padding: 5px;
+}
+
+/*greeting message*/
+body {
+    background-color: var(--baseColor);
+}
+
+.popupMessageContainer {
+    opacity: 0.5;
+    width: auto;
+    height: auto;
+    font-family: "fantasy";
+    text-align: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 1s ease;
+}
+
+.popupMessage {
+    color: white;
+    text-transform: uppercase;
+}
+
+.greetingMessage {
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+    position: relative;
+    animation: text 3s 1;
+}
+
+.userName {
+    font-size: 25px;
+    animation: text 3s 1;
+    letter-spacing: 8px;
+}
+
+@keyframes text {
+    0% {
+        color: var(--baseColor);
+    }
+    30% {
+        letter-spacing: 20px;
+    }
+    85% {
+        letter-spacing: 8px;
+    }
+
+}
+
+.popupMessageContainer.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.mainContainer {
+    visibility: hidden;
+    display: none;
+}
+
+/*media quires*/
+@media (max-width: 1462px ) {
+    .notificationStackContainer {
+        display: none;
+    }
+
+    .content {
+        width: auto;
+    }
+
+    .userInformation {
+        width: auto;
+    }
+}
+
+@media (max-width: 768px ) {
+    .notificationStackContainer {
+        display: none;
+    }
+
+    .content {
+        width: auto;
+        display: grid;
+    }
+
+    .userInformation {
+        display: none;
+    }
+
+    .col-4 {
+        grid-template-columns: repeat(2, 12fr);
+    }
+
+    .col-2 {
+        grid-template-columns: repeat(2, 6fr);
+    }
+}
+
+@media (max-width: 404px ) {
+    .timetable {
+        width: auto;
+    }
+
+    .col-4 {
+        grid-template-columns: repeat(1, 12fr);
+    }
+
+    .col-2 {
+        grid-template-columns: repeat(1, 6fr);
+    }
+}

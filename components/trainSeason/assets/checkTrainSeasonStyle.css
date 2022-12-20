@@ -1,0 +1,76 @@
+.btn-group {
+
+    font-size: 20px;
+    font: bold;
+    padding: 5px;
+
+    position: relative;
+    width: 500px;
+    left: 25%;
+
+
+}
+
+
+/*.container{
+    left: 30%;
+    width: 500px;
+    height: 200px;
+    position: relative;
+    
+}*/
+
+.container {
+    box-shadow: 0 4px 8px 0 gray;
+    width: 800px;
+    position: relative;
+    left: 20%;
+}
+
+.button {
+
+    font-weight: normal;
+    color: solid black;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 gray;
+    border-radius: 4px;
+    position: relative;
+    right: 20%;
+    font-size: 20px;
+    text-decoration: none;
+    height: 100px;
+    width: 600px;
+
+}
+
+.application {
+    text-decoration: none;
+    color: black;
+}
+
+.checkbox {
+    position: relative;
+    left: 10%;
+    cursor: pointer;
+}
+
+.label {
+    position: relative;
+    left: 10%;
+    font-weight: normal !important;
+    font-size: 15px;
+}
+
+.submit {
+    background-color: rgb(1, 112, 1);
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: gray;
+    border-radius: 4px;
+
+}

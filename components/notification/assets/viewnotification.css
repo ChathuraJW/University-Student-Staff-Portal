@@ -1,0 +1,170 @@
+
+.heading {
+    text-align: center;
+    font-weight: bold;
+    font-size: 45px;
+}
+
+.featureBody {
+    min-height: 520px;
+}
+
+/* Search bar */
+* {
+    box-sizing: border-box;
+}
+
+/* Style the search field */
+input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 95%;
+    /*max-width: 1070px;*/
+    background: var(--entryBackgroundColor);
+    margin-left: -12px;
+}
+
+/*Style the submit button*/
+button {
+    float: left;
+    width: 5%;
+    padding: 10px;
+    background: var(--headerFooterBackground);
+    color: white;
+    font-size: 15px;
+    border: var(--headerFooterBackground);
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button:hover {
+    /*background: #0b7dda;*/
+}
+
+.search {
+    display: flex;
+}
+
+/* radio */
+.radioToolbar input[type="radio"] {
+    display: none;
+
+}
+
+.radioToolbar label {
+    display: inline-block;
+    background-color: var(--backgroundColor);
+    padding: 8px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.radioToolbar input[type="radio"]:checked + label {
+    background-color: var(--baseColo);
+}
+
+.radioStyle:hover label {
+    background-color: var(--baseColor);
+}
+
+.radioToolbar {
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    /*background-color: #f1f1f1;*/
+    position: absolute;
+    height: auto;
+    overflow: auto;
+}
+
+.inner {
+    margin-left: 250px;
+    padding: 1px 16px;
+    height: auto;
+}
+
+.notification {
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    margin-left: -250px;
+    margin-top: 5px;
+    /* width: 1200px; */
+    max-width: 1200px;
+    text-align: justify;
+    text-justify: inter-word;
+    cursor: pointer;
+
+}
+
+.senderTime {
+    display: flex;
+    margin: 2px 0px;
+}
+
+.markAsRead {
+    float: right;
+    margin-right: 20px;
+    text-underline: var(--baseColor);
+    cursor: pointer;
+    padding: 5px;
+}
+
+.content {
+    width: 750px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.markASReadButton {
+    display: none;
+}
+
+.notificationContent {
+    white-space: normal;
+    text-align: justify;
+    text-justify: inter-word;
+    overflow: hidden;
+    width: auto;
+}
+
+.notification:hover .content {
+    white-space: normal;
+    text-align: justify;
+    text-justify: inter-word;
+    overflow: hidden;
+    width: auto;
+}
+
+@media screen and (max-width: 1140px) {
+    .radioToolbar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .radioToolbar .radioStyle {
+        float: left;
+    }
+
+    div.inner {
+        margin-left: 0;
+    }
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 650px) {
+    .radioToolbar .radioStyle {
+        text-align: center;
+        float: none;
+    }
+}
+

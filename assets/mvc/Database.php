@@ -4,13 +4,14 @@
 	class Database {
 
 		private static string $serverStatic = "localhost";
-		private static string $databaseStatic = "ussp";
+		private static string $databaseStatic = "ussp_final";
 		private string $server = "localhost";
-		private string $database = "ussp";
+		private string $database = "ussp_final";
 		private bool $transactionState = true;
 		private mysqli $connection;
 		private string $auditDescription = "";
 		private string $descriptionMessages = "";
+
 
 		public static function getServerStatic(): string {
 			return self::$serverStatic;
@@ -40,6 +41,7 @@
 					throw new mysqli_sql_exception("Query Failed.");
 				}
 			} catch (Exception $exception) {
+				//TODO
 				echo("Exception ::: << " . $exception->getMessage() . " >>  " . $exception->getTraceAsString());
 				return array();
 			}
@@ -47,9 +49,12 @@
 
 		private static function connect($userName, $password): mysqli {
 			//stop show warning
+			$userName='root';
+			$password='';
 			error_reporting(E_ERROR | E_PARSE);
 			$conn = new mysqli(self::$serverStatic, $userName, $password, self::$databaseStatic);
 			if ($conn->connect_errno) {
+				//TODO
 				echo("Exception ::: << " . $conn->connect_error . " >>");
 				exit();
 			}
@@ -59,9 +64,12 @@
 //        transaction management functions
 
 		public function establishTransaction($userName, $password) {
+			$userName='root';
+			$password='';
 			error_reporting(E_ERROR | E_PARSE);
 			$conn = new mysqli($this->server, $userName, $password, $this->database);
 			if ($conn->connect_errno) {
+				//TODO
 				echo("Exception ::: << " . $conn->connect_error . " >>");
 				exit();
 			} else {
@@ -121,6 +129,7 @@
 				}
 			} catch (Exception $exception) {
 				$this->transactionState = false;
+				//TODO
 				echo("Exception ::: << " . $exception->getMessage() . " >>  " . $exception->getTraceAsString());
 				return array();
 			}
